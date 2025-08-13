@@ -62,8 +62,7 @@
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
-                srcset="https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Product_Placeholder2.jpg
-                {% comment %}
+                srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
@@ -71,12 +70,9 @@
                   {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
                   {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
-                {% endcomment %}
                 "
-                src="https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Product_Placeholder2.jpg
-                {% comment %}
+                src="
                 {{ card_product.featured_media | image_url: width: 533 }}
-                {% endcomment %}
                 "
                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                 alt="{{ card_product.featured_media.alt | escape }}"
@@ -91,8 +87,7 @@
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
                 <img
-                  srcset="https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Product_Placeholder-Hover.jpg?v=1754311998
-                  {% comment %}
+                  srcset="
                     {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
                     {%- if card_product.media[1].width >= 360 -%}{{ card_product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
                     {%- if card_product.media[1].width >= 533 -%}{{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
@@ -100,12 +95,9 @@
                     {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
                     {%- if card_product.media[1].width >= 1066 -%}{{ card_product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
                     {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
-                  {% endcomment %}
                   "
-                  src="https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Product_Placeholder-Hover.jpg?v=1754311998
-                  {% comment %}
+                  src="
                    {{ card_product.media[1] | image_url: width: 533 }}
-                  {% endcomment %}
                   "
                   sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                   alt="{{ card_product.media[1].alt | escape }}"
