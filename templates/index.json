@@ -15,7 +15,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Sourced from new zealand’s vibrant wilderness and expertly crafted, our mānuka honey is potent, pure, and packed with goodness",
+            "text": "TEST",
             "text_style": "subtitle"
           }
         },
@@ -59,7 +59,7 @@
         "heading_WWpiiH": {
           "type": "heading",
           "settings": {
-            "heading": "Honey with benefits",
+            "heading": "TEST",
             "heading_size": "hxxl"
           }
         },
@@ -92,7 +92,7 @@
         "text_WrdMgz": {
           "type": "text",
           "settings": {
-            "text": "<p>“sourced from new zealand’s vibrant wilderness and expertly crafted, our mānuka honey is potent, pure, and packed with goodness.”</p>",
+            "text": "<p>TEST</p>",
             "text_style": "subtitle"
           }
         }
@@ -646,7 +646,7 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "Our sweet lineup",
+        "title": "TEST",
         "heading_size": "hxl",
         "image_ratio": "square",
         "columns_desktop": 4,
