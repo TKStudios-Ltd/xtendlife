@@ -1,0 +1,931 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Sourced from new zealand’s vibrant wilderness and expertly crafted, our mānuka honey is potent, pure, and packed with goodness",
+            "text_style": "subtitle"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "What is Manuka?",
+            "button_link_2": "#",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "button"
+      ],
+      "custom_css": [
+        ".banner {height: calc(100vh - 160px);}",
+        ".subtitle {font-size: 24px; line-height: 1.2; margin-bottom: 25px;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/f3e44934ed3611c354847e6e90682637d26171ac_1.jpg",
+        "overlay_image": "shopify://shop_images/Wedderspoon_Hero_Title.svg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "wide_container": true,
+        "image_behavior": "fixed",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "transparent_image_banner_ARNqm4": {
+      "type": "transparent-image-banner",
+      "name": "Transparent Image Banner",
+      "settings": {
+        "top_image": "shopify://shop_images/Vector_42.png",
+        "background_color": "#dd5634",
+        "image_position": "top",
+        "negative_margin": 0
+      }
+    },
+    "rich_text_e8Phjw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WWpiiH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Honey with benefits",
+            "heading_size": "hxxl"
+          }
+        },
+        "caption_7DPJhe": {
+          "type": "caption",
+          "settings": {
+            "caption": "Packed full of benefits for your everyday wellness",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WWpiiH",
+        "caption_7DPJhe"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-44adcc60-bfe8-4409-9ae3-f1f09b94c1d9",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_text_JWTTHL": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_WrdMgz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>“sourced from new zealand’s vibrant wilderness and expertly crafted, our mānuka honey is potent, pure, and packed with goodness.”</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "text_WrdMgz"
+      ],
+      "custom_css": [
+        "img {object-fit: contain; max-width: 480px;}",
+        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 2rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Buzzing-in-the-press.svg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-23495e4b-5854-4836-825f-307c6184eff2",
+        "color_scheme": "scheme-23495e4b-5854-4836-825f-307c6184eff2",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "image_infinite_scroll_KcRcLX": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_EF8DJG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_240_2.png",
+            "link": ""
+          }
+        },
+        "image_YGzwqw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_240_2.png",
+            "link": ""
+          }
+        },
+        "image_G8BDmr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_240_2.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EF8DJG",
+        "image_YGzwqw",
+        "image_G8BDmr"
+      ],
+      "custom_css": [
+        "img {opacity: 0.5;}"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#f6cd86",
+        "image_size_constraint": "height",
+        "image_max_size": 60,
+        "scroll_speed": 40,
+        "repeat_count": 5,
+        "image_gap": 40,
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "image_banner_qqgqFH": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QaAWPh": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Mānuka Difference",
+            "heading_size": "hxxl"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QaAWPh"
+      ],
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/Magical-marvellouw_BG.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "wide_container": false,
+        "image_behavior": "fixed",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "transparent_image_banner_TrGYG6": {
+      "type": "transparent-image-banner",
+      "name": "Transparent Image Banner",
+      "settings": {
+        "top_image": "shopify://shop_images/drip-shape.png",
+        "background_color": "rgba(0,0,0,0)",
+        "image_position": "bottom",
+        "negative_margin": 3
+      }
+    },
+    "rich_text_ViqWNk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nNjN79": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Wedderspoon</strong> trusts in the <strong>brilliance</strong> of our hardworking honeybees to make the world’s most pure and <strong>powerful Mānuka honey</strong>.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nNjN79"
+      ],
+      "custom_css": [
+        "strong:nth-child(1) {color: #dd5634;}",
+        "strong:nth-child(2) {color: #f4a72c;}",
+        "strong:nth-child(3) {color: #e26b37;}",
+        "h2 {font-size: 24px; line-height: 1.15;}",
+        "@media screen and (min-width: 750px) {.rich-text__blocks {max-width: 110rem; } h2 {font-size: 54px; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "featured_collection_jqXfKn": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "best-sellers",
+        "collection_2": "manuka-honey",
+        "collection_3": "drops-pops",
+        "collection_4": "bundles",
+        "collection_5": "",
+        "products_to_show": 6,
+        "title": "I'm looking for",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "transparent_image_banner_nr9Rzg": {
+      "type": "transparent-image-banner",
+      "name": "Transparent Image Banner",
+      "settings": {
+        "top_image": "shopify://shop_images/Vector_40.png",
+        "background_color": "#f5dfac",
+        "image_position": "top",
+        "negative_margin": 0
+      }
+    },
+    "scrolling_text_rotator_YzJWrk": {
+      "type": "scrolling-text-rotator",
+      "blocks": {
+        "text_Kgj43d": {
+          "type": "text",
+          "settings": {
+            "text": "natural healer"
+          }
+        },
+        "text_V4nYUD": {
+          "type": "text",
+          "settings": {
+            "text": "immune booster"
+          }
+        },
+        "text_TcTJwA": {
+          "type": "text",
+          "settings": {
+            "text": "daily ritual"
+          }
+        },
+        "text_kiNMAC": {
+          "type": "text",
+          "settings": {
+            "text": "wellness ally"
+          }
+        },
+        "text_ziMnkm": {
+          "type": "text",
+          "settings": {
+            "text": "skin soother"
+          }
+        },
+        "text_q9PncR": {
+          "type": "text",
+          "settings": {
+            "text": "gut guardian"
+          }
+        },
+        "text_BJBgdW": {
+          "type": "text",
+          "settings": {
+            "text": "energy source"
+          }
+        },
+        "text_FY7W4e": {
+          "type": "text",
+          "settings": {
+            "text": "sweet protector"
+          }
+        },
+        "text_NgiT8F": {
+          "type": "text",
+          "settings": {
+            "text": "ancient remedy"
+          }
+        },
+        "text_TYYhdt": {
+          "type": "text",
+          "settings": {
+            "text": "beauty enhancer"
+          }
+        },
+        "text_N98z4W": {
+          "type": "text",
+          "settings": {
+            "text": "digestive support"
+          }
+        },
+        "text_3BGK9B": {
+          "type": "text",
+          "settings": {
+            "text": "sore throat relief"
+          }
+        },
+        "text_icF8fq": {
+          "type": "text",
+          "settings": {
+            "text": "wound healer"
+          }
+        },
+        "text_gFV6Ga": {
+          "type": "text",
+          "settings": {
+            "text": "antibacterial force"
+          }
+        },
+        "text_dTfnkE": {
+          "type": "text",
+          "settings": {
+            "text": "longevity secret"
+          }
+        },
+        "text_7aKLag": {
+          "type": "text",
+          "settings": {
+            "text": "morning companion"
+          }
+        },
+        "text_w8yf7D": {
+          "type": "text",
+          "settings": {
+            "text": "nature’s gift"
+          }
+        },
+        "text_8Rcmfd": {
+          "type": "text",
+          "settings": {
+            "text": "health defender"
+          }
+        },
+        "text_YYPEDd": {
+          "type": "text",
+          "settings": {
+            "text": "superfood essential"
+          }
+        },
+        "text_qadYbp": {
+          "type": "text",
+          "settings": {
+            "text": "holistic helper"
+          }
+        }
+      },
+      "block_order": [
+        "text_Kgj43d",
+        "text_V4nYUD",
+        "text_TcTJwA",
+        "text_kiNMAC",
+        "text_ziMnkm",
+        "text_q9PncR",
+        "text_BJBgdW",
+        "text_FY7W4e",
+        "text_NgiT8F",
+        "text_TYYhdt",
+        "text_N98z4W",
+        "text_3BGK9B",
+        "text_icF8fq",
+        "text_gFV6Ga",
+        "text_dTfnkE",
+        "text_7aKLag",
+        "text_w8yf7D",
+        "text_8Rcmfd",
+        "text_YYPEDd",
+        "text_qadYbp"
+      ],
+      "name": "Scrolling Text Rotator",
+      "settings": {
+        "heading": "Mānuka is your…",
+        "speed": 120,
+        "duplicate": true,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "transparent_image_banner_dmgwUz": {
+      "type": "transparent-image-banner",
+      "name": "Transparent Image Banner",
+      "settings": {
+        "top_image": "shopify://shop_images/Vector_36.png",
+        "background_color": "#fcf1d6",
+        "image_position": "top",
+        "negative_margin": 0
+      }
+    },
+    "rich_text_CjDgnB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WLLPUw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet Pops & Drops",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WLLPUw"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "image_infinite_scroll_icwYGP": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_7naKfd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "link": ""
+          }
+        },
+        "image_Vx64yB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "link": ""
+          }
+        },
+        "image_YzKLWd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_7naKfd",
+        "image_Vx64yB",
+        "image_YzKLWd"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#fcf1d6",
+        "image_size_constraint": "height",
+        "image_max_size": 380,
+        "scroll_speed": 45,
+        "repeat_count": 3,
+        "image_gap": 80,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_KjyLQ6": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_zHpbyk": {
+          "type": "caption",
+          "settings": {
+            "caption": "Sourced from new zealand’s vibrant wilderness and expertly crafted, our mānuka honey is potent, pure, and packed with goodness",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "button_zHPHrr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/drops-pops",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_zHpbyk",
+        "button_zHPHrr"
+      ],
+      "custom_css": [
+        ".subtitle {margin: 0 auto 2rem; max-width: 640px;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+        "full_width": true,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "image_banner_Axnnzi": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_Lbg4pY": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Learn about Mānuka",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_Lbg4pY"
+      ],
+      "custom_css": [
+        ".button {margin-top: 4rem;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Magical-marvellouw_BG.jpg",
+        "overlay_image": "shopify://shop_images/Magical-marvellouw.svg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "fixed",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-5",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "image_with_text_e6fTba": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xP3GmC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Happy bees make happy honey",
+            "heading_size": "hxl"
+          }
+        },
+        "text_DiJzAq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem Ipsum vibrant wilderness and expertly crafted, our Manuka honey is potent, pure & packed with goodness.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_HiECnR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xP3GmC",
+        "text_DiJzAq",
+        "button_HiECnR"
+      ],
+      "custom_css": [
+        "img {object-fit: contain;}",
+        "@media (max-width: 749px) {.image-with-text__media {padding-bottom: 230px !important; max-width: 215px; margin: 0 auto; }}",
+        "@media (min-width: 750px) {.image-with-text__content {padding-left: 2rem; max-width: 800px; margin-left: 0; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/manuka_cmyk_spray-01_4.png",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 80,
+        "padding_bottom": 20
+      }
+    },
+    "transparent_image_banner_gCi76p": {
+      "type": "transparent-image-banner",
+      "name": "Transparent Image Banner",
+      "settings": {
+        "top_image": "shopify://shop_images/Vector_22.png",
+        "background_color": "#fcf1d6",
+        "image_position": "top",
+        "negative_margin": 0
+      }
+    },
+    "collection_list_GrRzez": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_jJEKBR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "drops-pops",
+            "custom_image": "shopify://shop_images/Wedderspoon_Pops-Drops.png",
+            "custom_title": "",
+            "background_color": "#f4a72c"
+          }
+        },
+        "featured_collection_M4Vtwi": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "manuka-honey",
+            "custom_image": "shopify://shop_images/Wedderspoon_Manuaka-Honey.png",
+            "custom_title": "",
+            "background_color": "#f6cd86"
+          }
+        },
+        "featured_collection_EpNNwA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bundles",
+            "custom_image": "shopify://shop_images/Wedderspoon_Bundles.png",
+            "custom_title": "",
+            "background_color": "#e26b37"
+          }
+        },
+        "featured_collection_RVqwaj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bundles",
+            "custom_image": "shopify://shop_images/Wedderspoon_Bundles.png",
+            "custom_title": "",
+            "background_color": "#e26b37"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_jJEKBR",
+        "featured_collection_M4Vtwi",
+        "featured_collection_EpNNwA",
+        "featured_collection_RVqwaj"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Our sweet lineup",
+        "heading_size": "hxl",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "parallax_reviews_BYyYVj": {
+      "type": "parallax-reviews",
+      "blocks": {
+        "review_jiPz4c": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 4,
+            "pos_x": 55,
+            "pos_y": 0,
+            "size": "large"
+          }
+        },
+        "review_tEt6Nt": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 5,
+            "pos_x": 5,
+            "pos_y": 2,
+            "size": "medium"
+          }
+        },
+        "review_Qn9Xhr": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 4,
+            "pos_x": 63,
+            "pos_y": 3,
+            "size": "medium"
+          }
+        },
+        "review_XhpDxF": {
+          "type": "review",
+          "settings": {
+            "review_text": "Ut tempore iusto eos eligendi!",
+            "rating": 5,
+            "pos_x": 28,
+            "pos_y": 14,
+            "size": "small"
+          }
+        },
+        "review_WNMkUE": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 4,
+            "pos_x": 3,
+            "pos_y": 8,
+            "size": "large"
+          }
+        },
+        "review_cy6YqR": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 5,
+            "pos_x": 57,
+            "pos_y": 14,
+            "size": "small"
+          }
+        },
+        "review_tPhCxA": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia",
+            "rating": 5,
+            "pos_x": 65,
+            "pos_y": 21,
+            "size": "medium"
+          }
+        },
+        "review_B8nCRL": {
+          "type": "review",
+          "settings": {
+            "review_text": "Ut tempore iusto eos eligendi!",
+            "rating": 5,
+            "pos_x": 15,
+            "pos_y": 25,
+            "size": "medium"
+          }
+        },
+        "review_xXU7e3": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 4,
+            "pos_x": 55,
+            "pos_y": 26,
+            "size": "large"
+          }
+        },
+        "review_3jgwN9": {
+          "type": "review",
+          "settings": {
+            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
+            "rating": 5,
+            "pos_x": 10,
+            "pos_y": 32,
+            "size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "review_jiPz4c",
+        "review_tEt6Nt",
+        "review_Qn9Xhr",
+        "review_XhpDxF",
+        "review_WNMkUE",
+        "review_cy6YqR",
+        "review_tPhCxA",
+        "review_B8nCRL",
+        "review_xXU7e3",
+        "review_3jgwN9"
+      ],
+      "name": "Parallax Reviews",
+      "settings": {
+        "heading": "Sweet reviews from the hive",
+        "button_label_1": "See More Reviews",
+        "button_link_1": "",
+        "button_label_2": "Write a review",
+        "button_link_2": "",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_n3JfMT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WbPBhx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_ffnKFU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_ydCWBi": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WbPBhx",
+        "text_ffnKFU",
+        "button_ydCWBi"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "transparent_image_banner_eN4NE4": {
+      "type": "transparent-image-banner",
+      "name": "Transparent Image Banner",
+      "settings": {
+        "top_image": "shopify://shop_images/Vector_32.png",
+        "background_color": "#dd5634",
+        "image_position": "top",
+        "negative_margin": 0
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "transparent_image_banner_ARNqm4",
+    "rich_text_e8Phjw",
+    "image_with_text_JWTTHL",
+    "image_infinite_scroll_KcRcLX",
+    "image_banner_qqgqFH",
+    "transparent_image_banner_TrGYG6",
+    "rich_text_ViqWNk",
+    "featured_collection_jqXfKn",
+    "transparent_image_banner_nr9Rzg",
+    "scrolling_text_rotator_YzJWrk",
+    "transparent_image_banner_dmgwUz",
+    "rich_text_CjDgnB",
+    "image_infinite_scroll_icwYGP",
+    "rich_text_KjyLQ6",
+    "image_banner_Axnnzi",
+    "image_with_text_e6fTba",
+    "transparent_image_banner_gCi76p",
+    "collection_list_GrRzez",
+    "parallax_reviews_BYyYVj",
+    "rich_text_n3JfMT",
+    "transparent_image_banner_eN4NE4"
+  ]
+}
