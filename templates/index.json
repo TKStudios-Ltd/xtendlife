@@ -40,8 +40,6 @@
         ".subtitle {font-size: 24px; line-height: 1.2; margin-bottom: 25px;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/f3e44934ed3611c354847e6e90682637d26171ac_1.jpg",
-        "overlay_image": "shopify://shop_images/Wedderspoon_Hero_Title.svg",
         "image_overlay_opacity": 20,
         "image_height": "medium",
         "wide_container": true,
@@ -53,16 +51,6 @@
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false
-      }
-    },
-    "transparent_image_banner_ARNqm4": {
-      "type": "transparent-image-banner",
-      "name": "Transparent Image Banner",
-      "settings": {
-        "top_image": "shopify://shop_images/Vector_42.png",
-        "background_color": "#dd5634",
-        "image_position": "top",
-        "negative_margin": 0
       }
     },
     "rich_text_e8Phjw": {
@@ -118,7 +106,6 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Buzzing-in-the-press.svg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -139,21 +126,18 @@
         "image_EF8DJG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_240_2.png",
             "link": ""
           }
         },
         "image_YGzwqw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_240_2.png",
             "link": ""
           }
         },
         "image_G8BDmr": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_240_2.png",
             "link": ""
           }
         }
@@ -184,7 +168,7 @@
         "heading_QaAWPh": {
           "type": "heading",
           "settings": {
-            "heading": "The Mānuka Difference",
+            "heading": "TEST",
             "heading_size": "hxxl"
           }
         }
@@ -194,7 +178,6 @@
       ],
       "custom_css": [],
       "settings": {
-        "image": "shopify://shop_images/Magical-marvellouw_BG.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "wide_container": false,
@@ -208,23 +191,13 @@
         "show_text_below": false
       }
     },
-    "transparent_image_banner_TrGYG6": {
-      "type": "transparent-image-banner",
-      "name": "Transparent Image Banner",
-      "settings": {
-        "top_image": "shopify://shop_images/drip-shape.png",
-        "background_color": "rgba(0,0,0,0)",
-        "image_position": "bottom",
-        "negative_margin": 3
-      }
-    },
     "rich_text_ViqWNk": {
       "type": "rich-text",
       "blocks": {
         "heading_nNjN79": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Wedderspoon</strong> trusts in the <strong>brilliance</strong> of our hardworking honeybees to make the world’s most pure and <strong>powerful Mānuka honey</strong>.",
+            "heading": "<strong>TEST</strong>",
             "heading_size": "h1"
           }
         }
@@ -280,16 +253,6 @@
         "swipe_on_mobile": false,
         "padding_top": 40,
         "padding_bottom": 80
-      }
-    },
-    "transparent_image_banner_nr9Rzg": {
-      "type": "transparent-image-banner",
-      "name": "Transparent Image Banner",
-      "settings": {
-        "top_image": "shopify://shop_images/Vector_40.png",
-        "background_color": "#f5dfac",
-        "image_position": "top",
-        "negative_margin": 0
       }
     },
     "scrolling_text_rotator_YzJWrk": {
@@ -438,24 +401,15 @@
         "text_YYPEDd",
         "text_qadYbp"
       ],
+      "disabled": true,
       "name": "Scrolling Text Rotator",
       "settings": {
-        "heading": "Mānuka is your…",
+        "heading": "TEST",
         "speed": 120,
         "duplicate": true,
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "transparent_image_banner_dmgwUz": {
-      "type": "transparent-image-banner",
-      "name": "Transparent Image Banner",
-      "settings": {
-        "top_image": "shopify://shop_images/Vector_36.png",
-        "background_color": "#fcf1d6",
-        "image_position": "top",
-        "negative_margin": 0
       }
     },
     "rich_text_CjDgnB": {
@@ -464,7 +418,7 @@
         "heading_WLLPUw": {
           "type": "heading",
           "settings": {
-            "heading": "Meet Pops & Drops",
+            "heading": "TEST",
             "heading_size": "h0"
           }
         }
@@ -488,21 +442,18 @@
         "image_7naKfd": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_2.png",
             "link": ""
           }
         },
         "image_Vx64yB": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_2.png",
             "link": ""
           }
         },
         "image_YzKLWd": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_2.png",
             "link": ""
           }
         }
@@ -530,7 +481,7 @@
         "caption_zHpbyk": {
           "type": "caption",
           "settings": {
-            "caption": "Sourced from new zealand’s vibrant wilderness and expertly crafted, our mānuka honey is potent, pure, and packed with goodness",
+            "caption": "TEST",
             "text_style": "subtitle",
             "text_size": "medium"
           }
@@ -586,8 +537,6 @@
         ".button {margin-top: 4rem;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/Magical-marvellouw_BG.jpg",
-        "overlay_image": "shopify://shop_images/Magical-marvellouw.svg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "wide_container": false,
@@ -607,7 +556,7 @@
         "heading_xP3GmC": {
           "type": "heading",
           "settings": {
-            "heading": "Happy bees make happy honey",
+            "heading": "TEST",
             "heading_size": "hxl"
           }
         },
@@ -639,7 +588,6 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/manuka_cmyk_spray-01_4.png",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -654,16 +602,6 @@
         "padding_bottom": 20
       }
     },
-    "transparent_image_banner_gCi76p": {
-      "type": "transparent-image-banner",
-      "name": "Transparent Image Banner",
-      "settings": {
-        "top_image": "shopify://shop_images/Vector_22.png",
-        "background_color": "#fcf1d6",
-        "image_position": "top",
-        "negative_margin": 0
-      }
-    },
     "collection_list_GrRzez": {
       "type": "collection-list",
       "blocks": {
@@ -671,7 +609,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "drops-pops",
-            "custom_image": "shopify://shop_images/Wedderspoon_Pops-Drops.png",
             "custom_title": "",
             "background_color": "#f4a72c"
           }
@@ -680,7 +617,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "manuka-honey",
-            "custom_image": "shopify://shop_images/Wedderspoon_Manuaka-Honey.png",
             "custom_title": "",
             "background_color": "#f6cd86"
           }
@@ -689,7 +625,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "bundles",
-            "custom_image": "shopify://shop_images/Wedderspoon_Bundles.png",
             "custom_title": "",
             "background_color": "#e26b37"
           }
@@ -698,7 +633,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "bundles",
-            "custom_image": "shopify://shop_images/Wedderspoon_Bundles.png",
             "custom_title": "",
             "background_color": "#e26b37"
           }
@@ -840,6 +774,7 @@
         "review_xXU7e3",
         "review_3jgwN9"
       ],
+      "disabled": true,
       "name": "Parallax Reviews",
       "settings": {
         "heading": "Sweet reviews from the hive",
@@ -897,7 +832,6 @@
       "type": "transparent-image-banner",
       "name": "Transparent Image Banner",
       "settings": {
-        "top_image": "shopify://shop_images/Vector_32.png",
         "background_color": "#dd5634",
         "image_position": "top",
         "negative_margin": 0
@@ -906,23 +840,18 @@
   },
   "order": [
     "image_banner",
-    "transparent_image_banner_ARNqm4",
     "rich_text_e8Phjw",
     "image_with_text_JWTTHL",
     "image_infinite_scroll_KcRcLX",
     "image_banner_qqgqFH",
-    "transparent_image_banner_TrGYG6",
     "rich_text_ViqWNk",
     "featured_collection_jqXfKn",
-    "transparent_image_banner_nr9Rzg",
     "scrolling_text_rotator_YzJWrk",
-    "transparent_image_banner_dmgwUz",
     "rich_text_CjDgnB",
     "image_infinite_scroll_icwYGP",
     "rich_text_KjyLQ6",
     "image_banner_Axnnzi",
     "image_with_text_e6fTba",
-    "transparent_image_banner_gCi76p",
     "collection_list_GrRzez",
     "parallax_reviews_BYyYVj",
     "rich_text_n3JfMT",

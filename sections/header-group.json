@@ -28,7 +28,7 @@
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "",
+        "color_scheme": "scheme-4",
         "show_line_separator": false,
         "show_social": false,
         "enable_country_selector": false,
@@ -40,7 +40,7 @@
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
-        "menu": "main-menu-2025",
+        "menu": "",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": false,
@@ -52,13 +52,10 @@
         "margin_bottom": 12,
         "padding_top": 20,
         "padding_bottom": 20,
-        "tile_1_image": "shopify://shop_images/Group_736.jpg",
         "tile_1_title": "Shop Pops",
         "tile_1_link": "shopify://collections/drops-pops",
-        "tile_2_image": "shopify://shop_images/Group_737.jpg",
         "tile_2_title": "Organic Manuka Drops",
         "tile_2_link": "#",
-        "tile_3_image": "shopify://shop_images/AdobeStock_458086537_1_2.jpg",
         "tile_3_title": "Still Unsure? Try our Quix",
         "tile_3_link": "#"
       }
