@@ -103,7 +103,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
-        "image_overlay_opacity": 20,
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "wide_container": false,
         "image_behavior": "fixed",
