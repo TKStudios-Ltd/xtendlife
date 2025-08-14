@@ -89,7 +89,7 @@
             {%- if section.settings.newsletter_enable -%}
               <div class="footer-block__newsletter">
                 {%- if section.settings.newsletter_heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext" style="display: block !important;">Join the hive</h2>
+                  <h2 class="footer-block__heading inline-richtext" style="display: block !important;">Stay Connected</h2>
                   <p>{{ section.settings.newsletter_heading }}</p>
                 {%- endif -%}
                 {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
@@ -117,7 +117,7 @@
                         required
                       >
                       <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                        Your email
+                        Enter your email
                       </label>
                       <button
                         type="submit"
