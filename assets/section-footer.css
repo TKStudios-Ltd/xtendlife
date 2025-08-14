@@ -186,7 +186,7 @@
 }
 
 .footer-block__newsletter .field__button > .svg-wrapper {
-  background: #DD5634;
+  background: #1F1946;
 }
 .footer-block__newsletter .field__label {
   color: rgba(74,46,32,.5);
@@ -198,7 +198,7 @@
   box-shadow: none !important;
 }
 .footer-block__newsletter .newsletter-form__field-wrapper .field:hover.field:after {
-  box-shadow: 0 0 0 2px #DD5634;
+  box-shadow: 0 0 0 2px #1F1946;
 }
 
 .footer-block--newsletter:only-child {
