@@ -51,11 +51,7 @@
   display: flex;
   justify-content: space-between;
   padding: 4rem 5rem;
-  background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedderspoon_Mega_BG.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
-  min-height: 365px;
+  /* min-height: 365px; */
 }
 
 .mega-menu__tiles {
