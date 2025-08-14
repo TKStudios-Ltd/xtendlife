@@ -50,7 +50,8 @@
 .mega-menu__content_wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 4rem 5rem;
+  padding: 4rem 2rem;
+  background: rgb(var(--color-background));
   /* min-height: 365px; */
 }
 
