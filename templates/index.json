@@ -98,7 +98,9 @@
         "text",
         "button"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".banner__content {padding-top: 105px;}"
+      ],
       "settings": {
         "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
         "image_overlay_opacity": 20,
