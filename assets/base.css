@@ -2959,10 +2959,9 @@ details[open] > .header__submenu {
   padding: calc(.75rem - 2px) 3.2rem calc(.75rem - 2px) 1.75rem;
 }
 
-.header__menu-item:hover {
-  /* color: rgb(var(--color-foreground)); */
+/* .header__menu-item:hover {
   color: #F8F1EB;
-}
+} */
 
 /* .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;
