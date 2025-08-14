@@ -67,10 +67,17 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
+        "heading_bUHWHX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1"
+          }
+        },
         "text": {
           "type": "text",
           "settings": {
-            "text": "TEST",
+            "text": "Bundle up with the essentials you need to keep going.",
             "text_style": "subtitle"
           }
         },
@@ -80,18 +87,20 @@
             "button_label_1": "Shop now",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
-            "button_label_2": "What is Manuka?",
+            "button_label_2": "Learn more",
             "button_link_2": "#",
             "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
+        "heading_bUHWHX",
         "text",
         "button"
       ],
       "custom_css": [],
       "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
         "image_overlay_opacity": 20,
         "image_height": "medium",
         "wide_container": true,
@@ -99,7 +108,7 @@
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
         "show_text_below": false
