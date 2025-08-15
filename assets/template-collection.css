@@ -73,7 +73,7 @@
 
 .collection__title_inline {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
 }
