@@ -94,12 +94,12 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 .drawer__close {
   display: inline-block;
   padding: 0;
-  min-width: 4.4rem;
-  min-height: 4.4rem;
-  box-shadow: 0 0 0 0.2rem rgba(var(--color-button), 0);
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  box-shadow: 0 0 0 .2rem rgba(var(--color-button), 0);
   position: absolute;
-  top: 10px;
-  right: -10px;
+  top: 0.4rem;
+  right: 0;
   color: rgb(var(--color-foreground));
   background-color: transparent;
   border: none;
@@ -116,7 +116,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 .drawer__close .svg-wrapper svg path {
   stroke: currentColor;
-  stroke-width: 0.8px;
+  stroke-width: 0.5px;
 }
 @media (max-width: 749px) {
   .drawer__close {
