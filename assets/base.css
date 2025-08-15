@@ -2844,6 +2844,41 @@ details[open] .modal-overlay::after {
   }
 }
 
+/* Hide modal’s magnifier summary (we open it programmatically) */
+.header__search > details > summary.header__icon--search {
+  display: none !important;
+}
+/* Inline search pill (matches your screenshot) */
+.header-inline-search .inline-search__field {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  background: #F4F8FB;
+  padding: 12px 16px;
+  border-radius: 999px;
+}
+.header-inline-search .inline-search__input {
+  border: 0;
+  background: transparent;
+  outline: none;
+  width: min(50vw, 620px);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: #5E627A;
+}
+.header-inline-search .inline-search__input::placeholder {
+  color: #9AA0B5;
+}
+.header-inline-search .inline-search__button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+
 /* Header menu drawer */
 .header__icon--menu .icon {
   display: block;
