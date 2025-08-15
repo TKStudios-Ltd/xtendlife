@@ -2610,7 +2610,8 @@ input[type='checkbox'] {
   justify-content: center;
 }
 
-.header__icon {
+.header__icon,
+.header__icon path {
   color: rgb(var(--color-foreground));
 }
 
