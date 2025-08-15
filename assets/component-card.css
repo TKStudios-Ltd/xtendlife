@@ -650,25 +650,25 @@
   pointer-events: auto;
 }
 
-.card__hover-actions .button--secondary-white {
-  background-color: transparent !important;
-  color: #FCF7EB;
+.card__hover-actions .button--alt {
+  background-color: #5FC4FF !important;
+  color: #1F1946;
 }
-.card__hover-actions .button--secondary-white:after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #FCF7EB,0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
+.card__hover-actions .button--alt:after {
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #5FC4FF,0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
 }
-.card__hover-actions .button--secondary-white:hover:after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #FCF7EB,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
+.card__hover-actions .button--alt:hover:after {
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #5FC4FF,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
 }
 .card__hover-actions .button--white {
-  background-color: transparent !important;
-  color: #FCF7EB;
+  background-color: #F4F8FB !important;
+  color: #1F1946;
 }
 .card__hover-actions .button--white:after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #FCF7EB,0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
 }
 .card__hover-actions .button--white:hover:after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #FCF7EB,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
 }
 
 .custom--badges__card {
