@@ -93,8 +93,9 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 
 .drawer__header_cart .button--secondary {
   font-size: 14px;
-  padding: 8px;
+  padding: 7px 14px;
   min-height: 0;
+  min-width: 0;
   line-height: 1;
   margin-right: 1.5rem;
 }
@@ -102,8 +103,8 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 .drawer__close {
   display: inline-block;
   padding: 0;
-  min-width: 2.4rem;
-  min-height: 2.4rem;
+  min-width: 2rem;
+  min-height: 2rem;
   box-shadow: 0 0 0 .2rem rgba(var(--color-button), 0);
   color: rgb(var(--color-foreground));
   background-color: transparent;
