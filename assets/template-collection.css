@@ -86,14 +86,7 @@
   gap: 1rem;
 }
 .featured-collections-buttons .button {
-  font-size: 24px;
-}
-.featured-collections-buttons .button.active {
-  background-color: #DD5634;
-  color: #FCF1D6;
-}
-.featured-collections-buttons .button.active:after {
-  box-shadow: 0 0 0 1.3px #dd5634, 0 0 0 1.3px var(--alpha-button-background);
+  font-size: 16px;
 }
 
 .collection__title .title:not(:only-child) {
