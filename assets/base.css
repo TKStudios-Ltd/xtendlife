@@ -910,9 +910,12 @@ summary::-webkit-details-marker {
   font-size: 24px;
   letter-spacing: 0;
 }
-
 .subtitle--medium {
   font-size: 28px;
+  letter-spacing: 0;
+}
+.subtitle--large {
+  font-size: 40px;
   letter-spacing: 0;
 }
 @media (max-width: 749px) {
