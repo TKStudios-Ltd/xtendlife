@@ -173,6 +173,8 @@
                           <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
                         </div>
                       </quick-add-modal>
+                      <a href="{{ card_product.url }}" class="quick-add__submit button button--white">Learn more</a>
+                      {% comment %}
                       <product-form data-section-id="{{ section.id }}">
                         {%- form 'product',
                           card_product,
@@ -222,6 +224,7 @@
                           </button>
                         {%- endform -%}
                       </product-form>
+                      {% endcomment %}
                   </div>
                   {%- endif -%}
               </div>
