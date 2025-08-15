@@ -2620,6 +2620,9 @@ input[type='checkbox'] {
 .header__icon span {
   height: 100%;
 }
+.cart-count-bubble span {
+  font-weight: 500;
+}
 
 .header__icon .svg-wrapper {
   width: 44px;
