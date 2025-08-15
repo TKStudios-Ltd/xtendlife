@@ -2872,7 +2872,7 @@ details[open] .modal-overlay::after {
   color: #1F1946;
 }
 .header-inline-search .inline-search__input:focus-visible {
-  outline-offset: none;
+  outline-offset: 0;
   box-shadow: none;
 }
 .header-inline-search .inline-search__input::placeholder {
