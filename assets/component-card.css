@@ -671,6 +671,24 @@
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
 }
 
+.hover--text__card {
+  transform: translateY(-5px);
+  position: absolute;
+  top: 2rem !important;
+  left: 2rem !important;
+  height: calc(100% - 4rem) !important;
+  width: calc(100% - 4rem) !important;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-flex !important;
+}
+.hover--text__card span {
+  color: white;
+}
+.card-wrapper:hover .custom--badges__card {
+  opacity: 1;
+  transform: translateY(0);
+}
 .custom--badges__card {
   transform: translateY(-5px);
   position: absolute;
