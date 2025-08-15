@@ -132,7 +132,7 @@ predictive-search[loading] .predictive-search {
   border-bottom: none;
   margin: 0;
   padding: 1.5rem 0 .75rem;
-  font-weight: 600;
+  font-weight: 500;
   color: rgba(var(--color-foreground), .2);
 }
 

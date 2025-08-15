@@ -108,7 +108,7 @@
   padding: 4px 1.5rem 3px;
   border-radius: 999px;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 500;
   color: #4A2E20;
   margin: 0;
   white-space: nowrap;
@@ -168,5 +168,5 @@
 }
 
 .mega-menu__list--condensed .mega-menu__link {
-  font-weight: 600;
+  font-weight: 500;
 }
