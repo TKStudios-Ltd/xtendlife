@@ -449,6 +449,11 @@
   word-break: break-word;
 }
 
+.banner__buttons--multiple .button--secondary {
+  color: rgba(var(--color-button),var(--alpha-button-background));
+  background-color: rgb(var(--color-button-text));
+}
+
 @media screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__buttons--multiple {
     justify-content: flex-end;
