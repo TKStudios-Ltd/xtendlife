@@ -2854,7 +2854,7 @@ details[open] .modal-overlay::after {
   align-items: center;
   gap: .75rem;
   background: #F4F8FB;
-  padding: 6px 20px;
+  padding: 6px 15px;
   border-radius: 100px;
   width: 220px;
   height: 32px;
@@ -2865,14 +2865,13 @@ details[open] .modal-overlay::after {
   background: transparent;
   outline: none;
   width: min(50vw, 620px);
+  font-family: var(--font-heading-family);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
   color: #1F1946;
 }
 .header-inline-search .inline-search__input::placeholder {
-  font-size: 14px;
-  font-weight: 500;
   color: rgba(31, 25, 70, 0.5);
 }
 .header-inline-search .inline-search__button {
