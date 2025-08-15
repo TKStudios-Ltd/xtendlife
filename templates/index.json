@@ -67,34 +67,26 @@
     "rich_text_e8Phjw": {
       "type": "rich-text",
       "blocks": {
-        "heading_WWpiiH": {
-          "type": "heading",
-          "settings": {
-            "heading": "TEST",
-            "heading_size": "hxxl"
-          }
-        },
         "caption_7DPJhe": {
           "type": "caption",
           "settings": {
-            "caption": "Packed full of benefits for your everyday wellness",
+            "caption": "From your first health goals to your evolving needs later in life, Xtendlife is here, Supporting your body, mind, and wellbeing through every stage.",
             "text_style": "subtitle",
-            "text_size": "small"
+            "text_size": "medium"
           }
         }
       },
       "block_order": [
-        "heading_WWpiiH",
         "caption_7DPJhe"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-44adcc60-bfe8-4409-9ae3-f1f09b94c1d9",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 80
+        "padding_bottom": 40
       }
     },
     "image_with_text_JWTTHL": {
