@@ -2854,10 +2854,10 @@ details[open] .modal-overlay::after {
   align-items: center;
   gap: .75rem;
   background: #F4F8FB;
-  padding: 6px 15px;
+  padding: 6px 18px;
   border-radius: 100px;
   width: 220px;
-  height: 32px;
+  height: 34px;
   margin-right: 1rem;
 }
 .header-inline-search .inline-search__input {
