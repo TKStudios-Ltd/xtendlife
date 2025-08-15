@@ -108,6 +108,10 @@
                 >
               {%- endif -%}
               <div class="custom--badges__card">
+                <span class="h4">[Description Meta]</span>
+              </div>
+              {% comment %}
+              <div class="custom--badges__card">
                 {%- if card_product.tags contains 'enhance' -%}
                   <div class="custom--badge enhance--badge">enhance</div>
                 {%- endif -%}
@@ -121,6 +125,7 @@
                   <div class="custom--badge defend--badge">defend</div>
                 {%- endif -%}
               </div>
+              {% endcomment %}
             </div>
           </div>
         {%- endif -%}
