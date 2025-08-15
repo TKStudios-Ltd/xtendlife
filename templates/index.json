@@ -45,7 +45,7 @@
       ],
       "custom_css": [
         ".banner__content {padding-top: 105px;}",
-        ".banner__heading {max-width: 500px; line-height: 1.1;}",
+        ".banner__heading {max-width: 500px; line-height: 1;}",
         ".banner__text.subtitle {max-width: 330px;}"
       ],
       "settings": {
