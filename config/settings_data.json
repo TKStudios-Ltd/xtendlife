@@ -21,14 +21,14 @@
     "spacing_grid_horizontal": 20,
     "spacing_grid_vertical": 20,
     "animations_hover_elements": "default",
-    "buttons_border_thickness": 2,
+    "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
     "buttons_radius": 40,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 0,
     "buttons_shadow_blur": 0,
-    "variant_pills_border_thickness": 2,
+    "variant_pills_border_thickness": 1,
     "variant_pills_border_opacity": 100,
     "variant_pills_radius": 40,
     "variant_pills_shadow_opacity": 0,
@@ -96,12 +96,12 @@
     "popup_shadow_horizontal_offset": 0,
     "popup_shadow_vertical_offset": 4,
     "popup_shadow_blur": 5,
-    "drawer_border_thickness": 1,
+    "drawer_border_thickness": 0,
     "drawer_border_opacity": 10,
     "drawer_shadow_opacity": 0,
     "drawer_shadow_horizontal_offset": 0,
-    "drawer_shadow_vertical_offset": 4,
-    "drawer_shadow_blur": 5,
+    "drawer_shadow_vertical_offset": 0,
+    "drawer_shadow_blur": 0,
     "badge_position": "top right",
     "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-5",
@@ -123,7 +123,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "cart_color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+    "cart_color_scheme": "scheme-1",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -155,11 +155,11 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text": "#4a2e20",
-          "button": "#4a2e20",
-          "button_label": "#fcf1d6",
-          "secondary_button_label": "#4a2e20",
-          "shadow": "#4a2e20"
+          "text": "#1f1946",
+          "button": "#1f1946",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#1f1946",
+          "shadow": "rgba(0,0,0,0)"
         }
       },
       "scheme-3": {
