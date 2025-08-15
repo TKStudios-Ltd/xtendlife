@@ -73,24 +73,23 @@
   --shadow-opacity: var(--media-shadow-opacity);
   --shadow-visible: var(--media-shadow-visible);
 }
-
 @font-face {
-    font-family: 'Season Sans';
-    src: url('{{ "SeasonSans-SemiBold.woff2" | asset_url }}') format('woff2'),
-        url('{{ "SeasonSans-SemiBold.woff" | asset_url }}') format('woff');
-    font-weight: 600;
+    font-family: 'Pangea';
+    src: url('{{"Pangea-Regular.woff2" | asset_url }}') format('woff2'),
+        url('{{"Pangea-Regular.woff" | asset_url }}') format('woff');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
-    font-family: 'Season Sans';
-    src: url('{{ "SeasonSans-Medium.woff2" | asset_url }}') format('woff2'),
-        url('{{ "SeasonSans-Medium.woff" | asset_url }}') format('woff');
+    font-family: 'Pangea';
+    src: url('{{"Pangea-Medium.woff2" | asset_url }}') format('woff2'),
+        url('{{"Pangea-Medium.woff" | asset_url }}') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
+
 
 /* base */
 
