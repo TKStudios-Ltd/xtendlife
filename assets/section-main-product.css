@@ -1505,14 +1505,14 @@ a.product__text {
   align-items: center;
 }
 .rc-template__button-group .rc-radio .rc-option__price {
-  font-weight: 650;
+  font-weight: 500;
   font-size: 1.4rem;
   margin-top: 0 !important;
   margin-right: 1.5rem;
 }
 .rc-widget .rc-option__text, 
 .rc-widget .rc-option__discount {
-  font-weight: 650;
+  font-weight: 500;
   font-size: 1.4rem;
 }
 .rc-template__button-group .rc-radio.rc-option--active {

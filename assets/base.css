@@ -295,13 +295,13 @@ h5,
 }
 
 .hxxl {
-  font-weight: 650;
+  font-weight: 500;
   font-size: calc(var(--font-heading-scale) * 4.8rem);
   line-height: 1.1;
 }
 
 .hxl {
-  font-weight: 650;
+  font-weight: 500;
   font-size: calc(var(--font-heading-scale) * 3.2rem);
   line-height: calc(1 + 0.1 / max(1, var(--font-heading-scale)));
 }
@@ -316,7 +316,7 @@ h5,
 }
 
 .h0 {
-  font-weight: 650;
+  font-weight: 500;
   font-size: calc(var(--font-heading-scale) * 4rem);
 }
 
@@ -329,7 +329,7 @@ h5,
 h1,
 .h1 {
   font-size: calc(var(--font-heading-scale) * 3rem);
-  font-weight: 650;
+  font-weight: 500;
 }
 
 @media only screen and (min-width: 750px) {

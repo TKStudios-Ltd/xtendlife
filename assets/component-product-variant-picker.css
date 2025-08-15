@@ -68,7 +68,7 @@ variant-selects {
   padding: 0.75rem 2.5rem;
   font-size: 1.4rem;
   letter-spacing: 0;
-  font-weight: 650;
+  font-weight: 500;
   line-height: 1;
   text-align: center;
   transition: border var(--duration-short) ease;
