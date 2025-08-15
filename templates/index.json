@@ -9,61 +9,6 @@
  */
 {
   "sections": {
-    "slideshow_VhibbA": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_thzWTd": {
-          "type": "slide",
-          "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        },
-        "slide_Xx6PA4": {
-          "type": "slide",
-          "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_thzWTd",
-        "slide_Xx6PA4"
-      ],
-      "disabled": true,
-      "name": "t:sections.slideshow.presets.name",
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "dots",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
-    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -99,7 +44,9 @@
         "button"
       ],
       "custom_css": [
-        ".banner__content {padding-top: 105px;}"
+        ".banner__content {padding-top: 105px;}",
+        ".banner__heading {max-width: 500px;}",
+        ".banner__text.subtitle {max-width: 330px;}"
       ],
       "settings": {
         "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
@@ -902,7 +849,6 @@
     }
   },
   "order": [
-    "slideshow_VhibbA",
     "image_banner",
     "rich_text_e8Phjw",
     "image_with_text_JWTTHL",
