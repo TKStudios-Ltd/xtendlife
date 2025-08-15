@@ -91,6 +91,14 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   margin: 0;
 }
 
+.drawer__header_cart .button--secondary {
+  font-size: 14px;
+  padding: 8px;
+  min-height: 0;
+  line-height: 1;
+  margin-right: 1.5rem;
+}
+
 .drawer__close {
   display: inline-block;
   padding: 0;
