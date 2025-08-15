@@ -46,7 +46,8 @@
           <div class="field{% if search.terms != blank %} field--show-floating-label{% endif %}">
             <input
               class="search__input field__input"
-              id="{{ input_id }}"
+              {% comment %} id="{{ input_id }}" {% endcomment %}
+              id="SearchModalInput"
               type="search"
               name="q"
               value="{{ search.terms | escape }}"
