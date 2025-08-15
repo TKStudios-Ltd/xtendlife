@@ -369,7 +369,9 @@ quick-add-modal .product-form__buttons {
 }
 
 .quick-add__submit {
-  padding: 0.8rem;
+  font-size: 1.4rem;
+  padding: 1rem !important;
+  min-height: 0;
   min-width: 100%;
   box-sizing: border-box;
 }
