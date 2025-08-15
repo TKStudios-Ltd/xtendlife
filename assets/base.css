@@ -2871,6 +2871,10 @@ details[open] .modal-overlay::after {
   line-height: 1.2;
   color: #1F1946;
 }
+.header-inline-search .inline-search__input:focus-visible {
+  outline-offset: none;
+  box-shadow: none;
+}
 .header-inline-search .inline-search__input::placeholder {
   color: rgba(31, 25, 70, 0.5);
 }
