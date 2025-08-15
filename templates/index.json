@@ -93,37 +93,36 @@
         "padding_bottom": 40
       }
     },
-    "image_with_text_JWTTHL": {
-      "type": "image-with-text",
-      "blocks": {
-        "text_WrdMgz": {
-          "type": "text",
-          "settings": {
-            "text": "<p>TEST</p>",
-            "text_style": "subtitle"
-          }
-        }
-      },
-      "block_order": [
-        "text_WrdMgz"
-      ],
-      "custom_css": [
-        "img {object-fit: contain; max-width: 480px;}",
-        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 2rem; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
+    "featured_collection_jqXfKn": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-23495e4b-5854-4836-825f-307c6184eff2",
-        "color_scheme": "scheme-23495e4b-5854-4836-825f-307c6184eff2",
-        "padding_top": 80,
+        "collection": "best-sellers",
+        "collection_2": "",
+        "collection_3": "",
+        "collection_4": "",
+        "collection_5": "",
+        "products_to_show": 4,
+        "title": "Our Best Sellers",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
         "padding_bottom": 80
       }
     },
@@ -159,287 +158,13 @@
       ],
       "name": "Image Infinite Scroll",
       "settings": {
-        "background_color": "#f6cd86",
+        "background_color": "#f4f8fb",
         "image_size_constraint": "height",
         "image_max_size": 60,
         "scroll_speed": 40,
         "repeat_count": 5,
         "image_gap": 40,
         "padding_top": 0,
-        "padding_bottom": 80
-      }
-    },
-    "image_banner_qqgqFH": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_QaAWPh": {
-          "type": "heading",
-          "settings": {
-            "heading": "TEST",
-            "heading_size": "hxxl"
-          }
-        }
-      },
-      "block_order": [
-        "heading_QaAWPh"
-      ],
-      "custom_css": [],
-      "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "wide_container": false,
-        "image_behavior": "fixed",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-1",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
-    "rich_text_ViqWNk": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_nNjN79": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>TEST</strong>",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_nNjN79"
-      ],
-      "custom_css": [
-        "strong:nth-child(1) {color: #dd5634;}",
-        "strong:nth-child(2) {color: #f4a72c;}",
-        "strong:nth-child(3) {color: #e26b37;}",
-        "h2 {font-size: 24px; line-height: 1.15;}",
-        "@media screen and (min-width: 750px) {.rich-text__blocks {max-width: 110rem; } h2 {font-size: 54px; }}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "featured_collection_jqXfKn": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "best-sellers",
-        "collection_2": "manuka-honey",
-        "collection_3": "drops-pops",
-        "collection_4": "bundles",
-        "collection_5": "",
-        "products_to_show": 6,
-        "title": "I'm looking for",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 3,
-        "enable_desktop_slider": false,
-        "full_width": true,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 80
-      }
-    },
-    "scrolling_text_rotator_YzJWrk": {
-      "type": "scrolling-text-rotator",
-      "blocks": {
-        "text_Kgj43d": {
-          "type": "text",
-          "settings": {
-            "text": "natural healer"
-          }
-        },
-        "text_V4nYUD": {
-          "type": "text",
-          "settings": {
-            "text": "immune booster"
-          }
-        },
-        "text_TcTJwA": {
-          "type": "text",
-          "settings": {
-            "text": "daily ritual"
-          }
-        },
-        "text_kiNMAC": {
-          "type": "text",
-          "settings": {
-            "text": "wellness ally"
-          }
-        },
-        "text_ziMnkm": {
-          "type": "text",
-          "settings": {
-            "text": "skin soother"
-          }
-        },
-        "text_q9PncR": {
-          "type": "text",
-          "settings": {
-            "text": "gut guardian"
-          }
-        },
-        "text_BJBgdW": {
-          "type": "text",
-          "settings": {
-            "text": "energy source"
-          }
-        },
-        "text_FY7W4e": {
-          "type": "text",
-          "settings": {
-            "text": "sweet protector"
-          }
-        },
-        "text_NgiT8F": {
-          "type": "text",
-          "settings": {
-            "text": "ancient remedy"
-          }
-        },
-        "text_TYYhdt": {
-          "type": "text",
-          "settings": {
-            "text": "beauty enhancer"
-          }
-        },
-        "text_N98z4W": {
-          "type": "text",
-          "settings": {
-            "text": "digestive support"
-          }
-        },
-        "text_3BGK9B": {
-          "type": "text",
-          "settings": {
-            "text": "sore throat relief"
-          }
-        },
-        "text_icF8fq": {
-          "type": "text",
-          "settings": {
-            "text": "wound healer"
-          }
-        },
-        "text_gFV6Ga": {
-          "type": "text",
-          "settings": {
-            "text": "antibacterial force"
-          }
-        },
-        "text_dTfnkE": {
-          "type": "text",
-          "settings": {
-            "text": "longevity secret"
-          }
-        },
-        "text_7aKLag": {
-          "type": "text",
-          "settings": {
-            "text": "morning companion"
-          }
-        },
-        "text_w8yf7D": {
-          "type": "text",
-          "settings": {
-            "text": "nature’s gift"
-          }
-        },
-        "text_8Rcmfd": {
-          "type": "text",
-          "settings": {
-            "text": "health defender"
-          }
-        },
-        "text_YYPEDd": {
-          "type": "text",
-          "settings": {
-            "text": "superfood essential"
-          }
-        },
-        "text_qadYbp": {
-          "type": "text",
-          "settings": {
-            "text": "holistic helper"
-          }
-        }
-      },
-      "block_order": [
-        "text_Kgj43d",
-        "text_V4nYUD",
-        "text_TcTJwA",
-        "text_kiNMAC",
-        "text_ziMnkm",
-        "text_q9PncR",
-        "text_BJBgdW",
-        "text_FY7W4e",
-        "text_NgiT8F",
-        "text_TYYhdt",
-        "text_N98z4W",
-        "text_3BGK9B",
-        "text_icF8fq",
-        "text_gFV6Ga",
-        "text_dTfnkE",
-        "text_7aKLag",
-        "text_w8yf7D",
-        "text_8Rcmfd",
-        "text_YYPEDd",
-        "text_qadYbp"
-      ],
-      "disabled": true,
-      "name": "Scrolling Text Rotator",
-      "settings": {
-        "heading": "TEST",
-        "speed": 120,
-        "duplicate": true,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "rich_text_CjDgnB": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_WLLPUw": {
-          "type": "heading",
-          "settings": {
-            "heading": "TEST",
-            "heading_size": "h0"
-          }
-        }
-      },
-      "block_order": [
-        "heading_WLLPUw"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
-        "full_width": true,
-        "padding_top": 100,
         "padding_bottom": 80
       }
     },
@@ -480,81 +205,6 @@
         "image_gap": 80,
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "rich_text_KjyLQ6": {
-      "type": "rich-text",
-      "blocks": {
-        "caption_zHpbyk": {
-          "type": "caption",
-          "settings": {
-            "caption": "TEST",
-            "text_style": "subtitle",
-            "text_size": "medium"
-          }
-        },
-        "button_zHPHrr": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop now",
-            "button_link": "shopify://collections/drops-pops",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "caption_zHpbyk",
-        "button_zHPHrr"
-      ],
-      "custom_css": [
-        ".subtitle {margin: 0 auto 2rem; max-width: 640px;}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
-        "full_width": true,
-        "padding_top": 88,
-        "padding_bottom": 88
-      }
-    },
-    "image_banner_Axnnzi": {
-      "type": "image-banner",
-      "blocks": {
-        "buttons_Lbg4pY": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Learn about Mānuka",
-            "button_link_1": "#",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "buttons_Lbg4pY"
-      ],
-      "custom_css": [
-        ".button {margin-top: 4rem;}"
-      ],
-      "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "wide_container": false,
-        "image_behavior": "fixed",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-5",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
       }
     },
     "image_with_text_e6fTba": {
@@ -665,176 +315,6 @@
         "padding_bottom": 100
       }
     },
-    "parallax_reviews_BYyYVj": {
-      "type": "parallax-reviews",
-      "blocks": {
-        "review_jiPz4c": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 4,
-            "pos_x": 55,
-            "pos_y": 0,
-            "size": "large"
-          }
-        },
-        "review_tEt6Nt": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 5,
-            "pos_x": 5,
-            "pos_y": 2,
-            "size": "medium"
-          }
-        },
-        "review_Qn9Xhr": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 4,
-            "pos_x": 63,
-            "pos_y": 3,
-            "size": "medium"
-          }
-        },
-        "review_XhpDxF": {
-          "type": "review",
-          "settings": {
-            "review_text": "Ut tempore iusto eos eligendi!",
-            "rating": 5,
-            "pos_x": 28,
-            "pos_y": 14,
-            "size": "small"
-          }
-        },
-        "review_WNMkUE": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 4,
-            "pos_x": 3,
-            "pos_y": 8,
-            "size": "large"
-          }
-        },
-        "review_cy6YqR": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 5,
-            "pos_x": 57,
-            "pos_y": 14,
-            "size": "small"
-          }
-        },
-        "review_tPhCxA": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia",
-            "rating": 5,
-            "pos_x": 65,
-            "pos_y": 21,
-            "size": "medium"
-          }
-        },
-        "review_B8nCRL": {
-          "type": "review",
-          "settings": {
-            "review_text": "Ut tempore iusto eos eligendi!",
-            "rating": 5,
-            "pos_x": 15,
-            "pos_y": 25,
-            "size": "medium"
-          }
-        },
-        "review_xXU7e3": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 4,
-            "pos_x": 55,
-            "pos_y": 26,
-            "size": "large"
-          }
-        },
-        "review_3jgwN9": {
-          "type": "review",
-          "settings": {
-            "review_text": "Lorem ipsum dolor sit amet. Aut officia expedita in eaque odio et quasi corrupti a ratione quia. Ut tempore iusto eos eligendi!",
-            "rating": 5,
-            "pos_x": 10,
-            "pos_y": 32,
-            "size": "medium"
-          }
-        }
-      },
-      "block_order": [
-        "review_jiPz4c",
-        "review_tEt6Nt",
-        "review_Qn9Xhr",
-        "review_XhpDxF",
-        "review_WNMkUE",
-        "review_cy6YqR",
-        "review_tPhCxA",
-        "review_B8nCRL",
-        "review_xXU7e3",
-        "review_3jgwN9"
-      ],
-      "disabled": true,
-      "name": "Parallax Reviews",
-      "settings": {
-        "heading": "Sweet reviews from the hive",
-        "button_label_1": "See More Reviews",
-        "button_link_1": "",
-        "button_label_2": "Write a review",
-        "button_link_2": "",
-        "color_scheme": "scheme-1"
-      }
-    },
-    "rich_text_n3JfMT": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_WbPBhx": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text_ffnKFU": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "button_ydCWBi": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_WbPBhx",
-        "text_ffnKFU",
-        "button_ydCWBi"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "transparent_image_banner_eN4NE4": {
       "type": "transparent-image-banner",
       "name": "Transparent Image Banner",
@@ -848,20 +328,11 @@
   "order": [
     "image_banner",
     "rich_text_e8Phjw",
-    "image_with_text_JWTTHL",
-    "image_infinite_scroll_KcRcLX",
-    "image_banner_qqgqFH",
-    "rich_text_ViqWNk",
     "featured_collection_jqXfKn",
-    "scrolling_text_rotator_YzJWrk",
-    "rich_text_CjDgnB",
+    "image_infinite_scroll_KcRcLX",
     "image_infinite_scroll_icwYGP",
-    "rich_text_KjyLQ6",
-    "image_banner_Axnnzi",
     "image_with_text_e6fTba",
     "collection_list_GrRzez",
-    "parallax_reviews_BYyYVj",
-    "rich_text_n3JfMT",
     "transparent_image_banner_eN4NE4"
   ]
 }
