@@ -382,6 +382,7 @@ cart-drawer-items {
 .cart-drawer .cart__checkout-button {
   max-width: none;
   font-size: 1.6rem;
+  height: 40px;
 }
 
 .drawer__footer .cart__dynamic-checkout-buttons {
