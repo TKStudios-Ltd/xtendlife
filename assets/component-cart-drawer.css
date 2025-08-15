@@ -14,10 +14,10 @@
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  padding-top: 138px;
+  padding-top: 125px;
 }
 body.scrolled .cart-drawer {
-  padding-top: 110px;
+  padding-top: 95px;
 }
 
 .drawer.active {
@@ -81,7 +81,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 
 .drawer__header {
   position: relative;
-  padding: 1.5rem 0;
+  padding: 0 0 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
