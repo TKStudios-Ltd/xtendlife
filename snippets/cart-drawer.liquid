@@ -517,7 +517,7 @@
           </div>
 
           <div class="totals" role="status">
-            <h2 class="totals__total">Subtotal</h2>
+            <h2 class="totals__total">Subtotal ({{ cart.item_count }} {{ cart.item_count == 1 ? 'item' : 'items' }})</h2>
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
