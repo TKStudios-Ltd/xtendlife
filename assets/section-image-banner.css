@@ -454,6 +454,10 @@
   background-color: rgb(var(--color-button-text));
 }
 
+.banner__buttons--multiple .buttons {
+  font-size: 2rem !important;
+}
+
 @media screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__buttons--multiple {
     justify-content: flex-end;
