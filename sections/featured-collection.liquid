@@ -89,7 +89,7 @@
             {% if col != blank %}
               <button
                 type="button"
-                class="button fc-btn{% if forloop.first %} active{% endif %}"
+                class="button fc-btn{% if forloop.first %} active{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
                 data-col-index="{{ i }}"
               >
                 Shop {{ col.title }}
