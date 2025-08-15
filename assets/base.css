@@ -695,9 +695,6 @@ summary .icon-plus {
   right: 1.8rem;
   top: calc(50% - 4.5px);
 }
-summary .icon-plus path {
-  stroke: currentColor;
-}
 
 summary::-webkit-details-marker {
   display: none;
