@@ -237,6 +237,8 @@ cart-drawer-items {
 
 .cart-drawer .cart-item__image {
   max-width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 
 .cart-drawer .cart-item__nested-line .cart-item__image {
@@ -291,7 +293,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-item__details {
   width: auto;
-  grid-column: 2 / 4;
+  grid-column: 2 / 5;
 }
 
 .cart-drawer .cart-item__totals {
