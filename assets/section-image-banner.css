@@ -454,7 +454,7 @@
   background-color: rgb(var(--color-button-text));
 }
 
-.banner__buttons--multiple .buttons {
+.banner__buttons--multiple .button {
   font-size: 2rem !important;
 }
 
