@@ -44,6 +44,7 @@
         "button"
       ],
       "custom_css": [
+        ".banner--large {min-height: calc(100vh - 34px);}",
         ".banner__content {padding-top: 125px;}",
         ".banner__heading {max-width: 500px; line-height: 1;}",
         ".banner__text.subtitle {max-width: 330px;}"
