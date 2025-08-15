@@ -690,10 +690,10 @@ summary {
 
 summary .icon-plus {
   position: absolute;
-  height: 9px;
-  width: 9px;
-  right: 1.8rem;
-  top: calc(50% - 4.5px);
+  height: 12px;
+  width: 12px;
+  right: 13px;
+  top: calc(50% - 6px);
 }
 
 summary::-webkit-details-marker {
