@@ -272,6 +272,31 @@
         {%- endif -%}
       </div>
       
+      <div class="header-inline-search">
+        <form id="HeaderInlineSearchForm"
+              action="{{ routes.search_url }}"
+              method="get"
+              role="search"
+              class="inline-search">
+          <div class="inline-search__field">
+            <input
+              class="inline-search__input"
+              id="HeaderInlineSearchInput"
+              type="search"
+              name="q"
+              placeholder="I’m looking for..."
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            />
+            <input type="hidden" name="options[prefix]" value="last">
+            <button type="submit" class="inline-search__button" aria-label="{{ 'general.search.search' | t }}">
+              <span class="svg-wrapper">{{- 'icon-search.svg' | inline_asset_content -}}</span>
+            </button>
+          </div>
+        </form>
+      </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
