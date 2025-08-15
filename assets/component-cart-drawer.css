@@ -37,8 +37,7 @@ body.scrolled .cart-drawer {
   transition: transform var(--duration-default) ease;
 }
 .cart-drawer .drawer__inner {
-  background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedderspoon_Cart_BG.svg');
-  background-size: cover;
+  background: white;
 }
 
 .drawer__inner-empty {
