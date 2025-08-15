@@ -1164,6 +1164,10 @@ summary::-webkit-details-marker {
   background-color: transparent;
 }
 
+.product-card-wrapper .media {
+  background-color: #1F1946;
+}
+
 .media > *:not(.zoom):not(.deferred-media__poster-button):not(.card__hover-actions),
 .media model-viewer {
   display: block;
