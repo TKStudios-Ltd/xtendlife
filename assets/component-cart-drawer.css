@@ -249,6 +249,7 @@ cart-drawer-items {
   max-width: 100%;
   object-fit: cover;
   height: 100%;
+  border-radius: 6px;
 }
 
 .cart-drawer .cart-item__nested-line .cart-item__image {
