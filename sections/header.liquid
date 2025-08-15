@@ -53,10 +53,16 @@
     padding-right: 3.2rem;
   }
   #HeaderMenu-shop.list-menu__item {
-    background: #DD5634;
+    background: #1F1946;
+    color: #FFFFFF;
+    padding-left: 1.75rem;
   }
   details[open] > #HeaderMenu-shop.header__menu-item {
-    background: #f8f1eb;
+    background: #1F1946;
+  }
+  #HeaderMenu-health-hub.header__menu-item {
+    background: #F4F8FB;
+    padding-left: 1.75rem;
   }
 
   .list-menu__item {
@@ -83,9 +89,10 @@
 {%- style -%}
   .header {
     max-width: 1560px;
-    padding: 15px 2.5rem 15px 2.5rem;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    background: rgb(var(--color-background));
+    box-shadow: 0px 0px 8px 0px #00000024;
   }
 
   .section-header {
@@ -94,27 +101,13 @@
   @media screen and (max-width: 749px) {
     .header {
       padding: 2.5vw 5vw 2.5vw 3vw;
-      background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Rectangle_240.svg');
-      background-size: cover;
+      background: rgb(var(--color-background));
       display: flex;
       justify-content: space-between;
       border-radius: 40px;
     }
   }
-  @media screen and (min-width: 1100px) {
-    .header {
-      padding: 25px 2.5rem 25px 2rem;
-      background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedderspoon_Nav_BG.svg');
-      background-size: contain;
-    }
-  }
   @media (min-width: 750px) and (max-width: 1099px) {
-    .header {
-      padding-left: 1.5rem;
-      background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedderspoon_Nav_BG.svg');
-      background-size: cover;
-      border-radius: 40px;
-    }
     .list-menu__item {
       font-size: 1.2rem;
     }
@@ -254,19 +247,6 @@
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      
-      <ul class="list-menu list-menu--inline desktop--only" role="list">
-        <li>
-          <a id="HeaderMenu-quiz" href="#" class="header__menu-item list-menu__item link link--text focus-inset">
-            <span>Take our quiz</span>
-          </a>
-        </li>
-        <li>
-          <a id="HeaderMenu-find-us" href="#" class="header__menu-item list-menu__item link link--text focus-inset">
-            <span>Find us</span>
-          </a>
-        </li>
-      </ul>
       
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}

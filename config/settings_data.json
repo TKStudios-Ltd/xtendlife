@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/Asset_1WS_LOGO_Dark.svg",
-    "logo_width": 190,
+    "logo": "shopify://shop_images/Xtendlife_Logo.svg",
+    "logo_width": 120,
     "favicon": "shopify://shop_images/Frame_3582.png",
     "type_header_font": "assistant_n6",
     "heading_scale": 100,
@@ -142,18 +142,18 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#f5dfac",
+          "background": "#ffffff",
           "background_gradient": "",
-          "text": "#4a2e20",
-          "button": "#dd5634",
-          "button_label": "#fcf1d6",
-          "secondary_button_label": "#4a2e20",
-          "shadow": "#4a2e20"
+          "text": "#1f1946",
+          "button": "#1f1946",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#1f1946",
+          "shadow": "rgba(0,0,0,0)"
         }
       },
       "scheme-2": {
         "settings": {
-          "background": "#f4a72c",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#4a2e20",
           "button": "#4a2e20",
@@ -164,29 +164,29 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#e26b37",
+          "background": "#1f1946",
           "background_gradient": "",
-          "text": "#4a2e20",
-          "button": "#4a2e20",
-          "button_label": "#fcf1d6",
-          "secondary_button_label": "#4a2e20",
-          "shadow": "#121212"
+          "text": "#ffffff",
+          "button": "#1f1946",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#ffffff",
+          "shadow": "rgba(0,0,0,0)"
         }
       },
       "scheme-4": {
         "settings": {
-          "background": "#4a2e20",
+          "background": "#1f1946",
           "background_gradient": "",
-          "text": "#f5dfac",
-          "button": "#e26b37",
-          "button_label": "#f5dfac",
-          "secondary_button_label": "#f5dfac",
-          "shadow": "#f5dfac"
+          "text": "#f4f8fb",
+          "button": "#f4f8fb",
+          "button_label": "#1f1946",
+          "secondary_button_label": "#1f1946",
+          "shadow": "rgba(0,0,0,0)"
         }
       },
       "scheme-5": {
         "settings": {
-          "background": "#4a2e20",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#fcf7eb",
           "button": "#fcf7eb",
@@ -219,7 +219,7 @@
       },
       "scheme-44adcc60-bfe8-4409-9ae3-f1f09b94c1d9": {
         "settings": {
-          "background": "#dd5634",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#4a2e20",
           "button": "#e26b37",
@@ -252,7 +252,7 @@
       },
       "scheme-4a165708-d717-4510-8797-45c22a9dd023": {
         "settings": {
-          "background": "#e26b37",
+          "background": "#ffffff",
           "background_gradient": "",
           "text": "#fcf1d6",
           "button": "#dd5634",

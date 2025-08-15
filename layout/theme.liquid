@@ -100,30 +100,29 @@
       }
 
       @font-face {
-          font-family: 'Season Sans';
-          src: url('{{ "SeasonSans-SemiBold.woff2" | asset_url }}') format('woff2'),
-              url('{{ "SeasonSans-SemiBold.woff" | asset_url }}') format('woff');
-          font-weight: 600;
+          font-family: 'Pangea';
+          src: url('{{"Pangea-Regular.woff2" | asset_url }}') format('woff2'),
+              url('{{"Pangea-Regular.woff" | asset_url }}') format('woff');
+          font-weight: normal;
           font-style: normal;
           font-display: swap;
       }
-
       @font-face {
-          font-family: 'Season Sans';
-          src: url('{{ "SeasonSans-Medium.woff2" | asset_url }}') format('woff2'),
-              url('{{ "SeasonSans-Medium.woff" | asset_url }}') format('woff');
+          font-family: 'Pangea';
+          src: url('{{"Pangea-Medium.woff2" | asset_url }}') format('woff2'),
+              url('{{"Pangea-Medium.woff" | asset_url }}') format('woff');
           font-weight: 500;
           font-style: normal;
           font-display: swap;
       }
 
       :root {
-        --font-body-family: 'Season Sans', {{ settings.type_body_font.fallback_families }};
+        --font-body-family: 'Pangea', {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: 'Season Sans', {{ settings.type_header_font.fallback_families }};
+        --font-heading-family: 'Pangea', {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 

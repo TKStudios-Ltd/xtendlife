@@ -40,19 +40,19 @@
       flex-direction: row;
     }
     .footer__content-mid__left {
-      flex: 0 0 50%;
+      flex: 0 0 45rem;
       display: flex;
       flex-direction: column;
     }
     .footer__content-mid__right {
-      flex: 0 0 50%;
+      flex: 0 0 calc(100% - 45rem);
       display: flex;
     }
     .footer__content-bottom__left {
-      flex: 0 0 50%;
+      flex: 0 0 45rem;
     }
     .footer__content-bottom__right {
-      flex: 0 0 50%;
+      flex: 0 0 calc(100% - 45rem);
       display: flex;
       justify-content: space-between;
     }
@@ -83,15 +83,13 @@
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width--wide">
       
-        <img class="footer__logo" src="https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedderspoon_Footer-Logo.svg" loading="lazy" width="100%" height="auto">
-
         <div class="footer__content-mid">
       
           <div class="footer__content-mid__left{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
             {%- if section.settings.newsletter_enable -%}
               <div class="footer-block__newsletter">
                 {%- if section.settings.newsletter_heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext" style="display: block !important;">Join the hive</h2>
+                  <h2 class="footer-block__heading inline-richtext" style="display: block !important;">Stay Connected</h2>
                   <p>{{ section.settings.newsletter_heading }}</p>
                 {%- endif -%}
                 {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
@@ -119,7 +117,7 @@
                         required
                       >
                       <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                        Your email
+                        Enter your email
                       </label>
                       <button
                         type="submit"
@@ -293,6 +291,9 @@
 
           
         </div>
+
+        <img class="footer__logo" src="https://cdn.shopify.com/s/files/1/2714/9868/files/xtendlife_Footer_Logo.svg" loading="lazy" width="100%" height="auto">
+
       </div>
     {%- endunless -%}
   {%- endif -%}

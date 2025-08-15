@@ -73,24 +73,23 @@
   --shadow-opacity: var(--media-shadow-opacity);
   --shadow-visible: var(--media-shadow-visible);
 }
-
 @font-face {
-    font-family: 'Season Sans';
-    src: url('{{ "SeasonSans-SemiBold.woff2" | asset_url }}') format('woff2'),
-        url('{{ "SeasonSans-SemiBold.woff" | asset_url }}') format('woff');
-    font-weight: 600;
+    font-family: 'Pangea';
+    src: url('{{"Pangea-Regular.woff2" | asset_url }}') format('woff2'),
+        url('{{"Pangea-Regular.woff" | asset_url }}') format('woff');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
-    font-family: 'Season Sans';
-    src: url('{{ "SeasonSans-Medium.woff2" | asset_url }}') format('woff2'),
-        url('{{ "SeasonSans-Medium.woff" | asset_url }}') format('woff');
+    font-family: 'Pangea';
+    src: url('{{"Pangea-Medium.woff2" | asset_url }}') format('woff2'),
+        url('{{"Pangea-Medium.woff" | asset_url }}') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
+
 
 /* base */
 
@@ -2939,10 +2938,10 @@ details[open] > .header__submenu {
 
 .header__menu-item {
   /* color: rgba(var(--color-foreground), 0.75); */
-  background: rgba(var(--color-foreground), 1);
-  padding: 0.75rem 1.75rem;
+  background: transparent;
+  padding: 0.75rem;
   text-decoration: none;
-  color: #F8F1EB;
+  color: rgba(var(--color-foreground), 1);
   border-radius: 20px;
   font-weight: 600;
 }
@@ -2959,10 +2958,9 @@ details[open] > .header__submenu {
   padding: calc(.75rem - 2px) 3.2rem calc(.75rem - 2px) 1.75rem;
 }
 
-.header__menu-item:hover {
-  /* color: rgb(var(--color-foreground)); */
+/* .header__menu-item:hover {
   color: #F8F1EB;
-}
+} */
 
 /* .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;

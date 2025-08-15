@@ -17,7 +17,7 @@
         "heading_UPa6j4": {
           "type": "heading",
           "settings": {
-            "heading": "Join the hive",
+            "heading": "TEST",
             "heading_size": "hxxl"
           }
         },
@@ -41,235 +41,17 @@
       "settings": {
         "color_scheme": "scheme-44adcc60-bfe8-4409-9ae3-f1f09b94c1d9",
         "full_width": true,
-        "left_image": "shopify://shop_images/Wedderspoon_Newsletter.svg",
         "padding_top": 20,
         "padding_bottom": 80
-      }
-    },
-    "image_infinite_scroll_jJ3mY8": {
-      "type": "image-infinite-scroll",
-      "blocks": {
-        "image_CkdC9E": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_3.jpg",
-            "link": ""
-          }
-        },
-        "image_xWUzgM": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_4.jpg",
-            "link": ""
-          }
-        },
-        "image_kUpXmW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_23.jpg",
-            "link": ""
-          }
-        },
-        "image_Q6RNDt": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_6.jpg",
-            "link": ""
-          }
-        },
-        "image_gdNtDG": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_7.jpg",
-            "link": ""
-          }
-        },
-        "image_6fyemT": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_9.jpg",
-            "link": ""
-          }
-        },
-        "image_FXfABW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_8.jpg",
-            "link": ""
-          }
-        },
-        "image_r3FaNn": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_10.jpg",
-            "link": ""
-          }
-        },
-        "image_ghgeLX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_12.jpg",
-            "link": ""
-          }
-        },
-        "image_H8NU8g": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_11.jpg",
-            "link": ""
-          }
-        },
-        "image_Yj99PF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_13.jpg",
-            "link": ""
-          }
-        },
-        "image_DLk6GX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_14.jpg",
-            "link": ""
-          }
-        },
-        "image_Jp79Nz": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_15.jpg",
-            "link": ""
-          }
-        },
-        "image_q8wLCY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_16.jpg",
-            "link": ""
-          }
-        },
-        "image_dH66aP": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_17.jpg",
-            "link": ""
-          }
-        },
-        "image_dbpKdw": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_18.jpg",
-            "link": ""
-          }
-        },
-        "image_THRPnT": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_5.jpg",
-            "link": ""
-          }
-        },
-        "image_nff8gr": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_19.jpg",
-            "link": ""
-          }
-        },
-        "image_TyhJKx": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_20.jpg",
-            "link": ""
-          }
-        },
-        "image_6Fzx9U": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_21.jpg",
-            "link": ""
-          }
-        },
-        "image_CfiUkK": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_22.jpg",
-            "link": ""
-          }
-        },
-        "image_LeXTwJ": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_1.jpg",
-            "link": ""
-          }
-        },
-        "image_DQWDDX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Wedderspoon_IG_2.jpg",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_CkdC9E",
-        "image_xWUzgM",
-        "image_kUpXmW",
-        "image_Q6RNDt",
-        "image_gdNtDG",
-        "image_6fyemT",
-        "image_FXfABW",
-        "image_r3FaNn",
-        "image_ghgeLX",
-        "image_H8NU8g",
-        "image_Yj99PF",
-        "image_DLk6GX",
-        "image_Jp79Nz",
-        "image_q8wLCY",
-        "image_dH66aP",
-        "image_dbpKdw",
-        "image_THRPnT",
-        "image_nff8gr",
-        "image_TyhJKx",
-        "image_6Fzx9U",
-        "image_CfiUkK",
-        "image_LeXTwJ",
-        "image_DQWDDX"
-      ],
-      "custom_css": [
-        "img {border-radius: 16px;}",
-        "@media (max-width: 749px) {.image-scroll-item {margin-right: 12px; } img {border-radius: 6px; }}"
-      ],
-      "name": "Image Infinite Scroll",
-      "settings": {
-        "background_color": "#dd5634",
-        "image_size_constraint": "width",
-        "image_max_size": 200,
-        "scroll_speed": 30,
-        "repeat_count": 2,
-        "image_gap": 20,
-        "padding_top": 20,
-        "padding_bottom": 40
       }
     },
     "transparent_image_banner_NbeTQr": {
       "type": "transparent-image-banner",
       "name": "Transparent Image Banner",
       "settings": {
-        "top_image": "shopify://shop_images/W_Footer-Drip.png",
-        "background_color": "rgba(0,0,0,0)"
+        "background_color": "rgba(0,0,0,0)",
+        "image_position": "top",
+        "negative_margin": 0
       }
     },
     "footer": {
@@ -278,34 +60,42 @@
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "Shop",
-            "menu": "footer-shop"
+            "heading": "Top Categories",
+            "menu": "top-categories-2-0"
           }
         },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Information",
-            "menu": "footer-information"
+            "heading": "Health Hub",
+            "menu": "health-hub-1"
           }
         },
         "link_list_gt9eAM": {
           "type": "link_list",
           "settings": {
-            "heading": "Contact",
-            "menu": "footer-contact"
+            "heading": "Information",
+            "menu": "information"
+          }
+        },
+        "link_list_W9BYeR": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Need help",
+            "menu": "need-help"
           }
         }
       },
       "block_order": [
         "footer-0",
         "footer-1",
-        "link_list_gt9eAM"
+        "link_list_gt9eAM",
+        "link_list_W9BYeR"
       ],
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
-        "newsletter_heading": "Sign up for our newsletter today and save 15% on your next order",
+        "newsletter_heading": "Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.",
         "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": false,
@@ -320,7 +110,6 @@
   },
   "order": [
     "newsletter_6MwfXJ",
-    "image_infinite_scroll_jJ3mY8",
     "transparent_image_banner_NbeTQr",
     "footer"
   ]
