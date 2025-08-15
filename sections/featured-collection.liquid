@@ -100,7 +100,7 @@
       </div>
     </div>
 
-    <div class="featured-collections-grids page-width--wide">
+    <div class="featured-collections-grids {% if section.settings.full_width %} page-width--wide{% endif %}">
       {% for i in (1..5) %}
         {% assign col_key = "collection_" | append: i %}
         {% assign col = section.settings[col_key] %}
