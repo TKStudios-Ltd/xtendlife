@@ -685,7 +685,7 @@
 .hover--text__card span {
   color: white;
 }
-.card-wrapper:hover .custom--badges__card {
+.card-wrapper:hover .hover--text__card {
   opacity: 1;
   transform: translateY(0);
 }
