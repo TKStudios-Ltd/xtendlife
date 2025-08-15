@@ -80,7 +80,8 @@
         "caption_7DPJhe"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.rich-text__wrapper {margin-bottom: 25rem; }}"
+        "@media screen and (min-width: 750px) {.rich-text__wrapper {margin-bottom: 25rem; }}",
+        "@media screen and (max-width: 749px) {.rich-text__wrapper {margin-bottom: 15rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
