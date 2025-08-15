@@ -95,6 +95,9 @@
     },
     "featured_collection_jqXfKn": {
       "type": "featured-collection",
+      "custom_css": [
+        ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
+      ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "best-sellers",
