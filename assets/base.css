@@ -2846,11 +2846,9 @@ details[open] .modal-overlay::after {
   }
 }
 
-/* Hide modal’s magnifier summary (we open it programmatically) */
 .header__search > details > summary.header__icon--search {
   display: none !important;
 }
-/* Inline search pill (matches your screenshot) */
 .header-inline-search .inline-search__field {
   display: flex;
   align-items: center;
@@ -2860,18 +2858,22 @@ details[open] .modal-overlay::after {
   border-radius: 100px;
   width: 220px;
   height: 32px;
+  margin-right: 1rem;
 }
 .header-inline-search .inline-search__input {
   border: 0;
   background: transparent;
   outline: none;
   width: min(50vw, 620px);
-  font-size: 1.25rem;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.2;
-  color: #5E627A;
+  color: #1F1946;
 }
 .header-inline-search .inline-search__input::placeholder {
-  color: #9AA0B5;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(31, 25, 70, 0.5);
 }
 .header-inline-search .inline-search__button {
   border: 0;
@@ -2880,6 +2882,11 @@ details[open] .modal-overlay::after {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.header-inline-search .inline-search__button path {
+  stroke: #1F1946;
 }
 
 
