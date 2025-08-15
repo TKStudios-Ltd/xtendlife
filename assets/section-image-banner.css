@@ -450,7 +450,7 @@
 }
 
 .banner__buttons--multiple .button--secondary {
-  color: rgba(var(--color-button),var(--alpha-button-background));
+  color: #1F1946;
   background-color: rgb(var(--color-button-text));
 }
 
