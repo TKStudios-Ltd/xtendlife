@@ -13,7 +13,7 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-  .multicolumn-card__title {
+  .multicolumn-card__rte {
     display: inline-flex;
     align-items: center;
     gap: .5rem;
@@ -135,7 +135,7 @@
                   </h3>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
-                  <div class="rte">
+                  <div class="multicolumn-card__rte rte">
                     {%- if block.settings.icon != blank -%}
                       {{
                         block.settings.icon
