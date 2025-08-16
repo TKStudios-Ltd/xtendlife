@@ -354,58 +354,6 @@
         "padding_bottom": 0
       }
     },
-    "image_with_text_e6fTba": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_xP3GmC": {
-          "type": "heading",
-          "settings": {
-            "heading": "TEST",
-            "heading_size": "hxl"
-          }
-        },
-        "text_DiJzAq": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Lorem Ipsum vibrant wilderness and expertly crafted, our Manuka honey is potent, pure & packed with goodness.</p>",
-            "text_style": "subtitle"
-          }
-        },
-        "button_HiECnR": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn more",
-            "button_link": "#",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_xP3GmC",
-        "text_DiJzAq",
-        "button_HiECnR"
-      ],
-      "custom_css": [
-        "img {object-fit: contain;}",
-        "@media (max-width: 749px) {.image-with-text__media {padding-bottom: 230px !important; max-width: 215px; margin: 0 auto; }}",
-        "@media (min-width: 750px) {.image-with-text__content {padding-left: 2rem; max-width: 800px; margin-left: 0; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "small",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-3",
-        "color_scheme": "scheme-3",
-        "padding_top": 80,
-        "padding_bottom": 20
-      }
-    },
     "collection_list_GrRzez": {
       "type": "collection-list",
       "blocks": {
@@ -480,7 +428,6 @@
     "image_with_tabs_4TAPEz",
     "image_infinite_scroll_KcRcLX",
     "image_infinite_scroll_icwYGP",
-    "image_with_text_e6fTba",
     "collection_list_GrRzez",
     "transparent_image_banner_eN4NE4"
   ]
