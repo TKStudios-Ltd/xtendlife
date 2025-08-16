@@ -81,7 +81,7 @@
     opacity: 1;
   }
   .tabs-slide:not(.is-active) .tabs-title {
-    opacity: .35;
+    opacity: .25;
   }
 
   /* Right image (Swiper) */
@@ -230,27 +230,18 @@
 <script>
 (function() {
   const sectionId = {{ section.id | json }};
-  const NS = 'ImageWithTabs[' + sectionId + ']';
+  const NS_READY_EVENT = 'swiper:ready';
 
-  // ---- tiny loader: pulls Swiper from theme assets, then falls back to CDN ----
   function ensureSwiper(ready) {
-    if (window.Swiper) {
-      console.log(NS, 'Swiper already present:', window.Swiper?.version);
-      ready();
-      return;
-    }
+    if (window.Swiper) { ready(); return; }
 
-    // Avoid duplicate loads across multiple sections
     if (document.documentElement.dataset.swiperLoading === '1') {
-      console.log(NS, 'Waiting for shared Swiper load…');
-      document.addEventListener('swiper:ready', ready, { once: true });
+      document.addEventListener(NS_READY_EVENT, ready, { once: true });
       return;
     }
 
     document.documentElement.dataset.swiperLoading = '1';
-    console.log(NS, 'Loading Swiper assets…');
 
-    // 1) try theme assets first (put these files in /assets if you have them)
     const cssHref = {{ 'swiper-bundle.min.css' | asset_url | json }};
     const jsSrc  = {{ 'swiper-bundle.min.js'  | asset_url | json }};
 
@@ -258,7 +249,6 @@
     css.rel = 'stylesheet';
     css.href = cssHref;
     css.onerror = function() {
-      console.warn(NS, 'Theme CSS missing → using CDN');
       const cdnCss = document.createElement('link');
       cdnCss.rel = 'stylesheet';
       cdnCss.href = 'https://unpkg.com/swiper@9/swiper-bundle.min.css';
@@ -270,22 +260,16 @@
     js.src = jsSrc;
     js.defer = true;
     js.onload = function() {
-      console.log(NS, 'Swiper loaded from theme assets:', window.Swiper?.version);
-      document.dispatchEvent(new Event('swiper:ready'));
+      document.dispatchEvent(new Event(NS_READY_EVENT));
       ready();
     };
     js.onerror = function() {
-      console.warn(NS, 'Theme JS missing → using CDN');
       const cdn = document.createElement('script');
       cdn.src = 'https://unpkg.com/swiper@9/swiper-bundle.min.js';
       cdn.defer = true;
       cdn.onload = function() {
-        console.log(NS, 'Swiper loaded from CDN:', window.Swiper?.version);
-        document.dispatchEvent(new Event('swiper:ready'));
+        document.dispatchEvent(new Event(NS_READY_EVENT));
         ready();
-      };
-      cdn.onerror = function() {
-        console.error(NS, 'CDN load failed. Swiper is unavailable.');
       };
       document.head.appendChild(cdn);
     };
@@ -293,22 +277,15 @@
   }
 
   function init() {
-    if (!window.Swiper) {
-      console.error(NS, 'Swiper is undefined after load. Abort.');
-      return;
-    }
+    if (!window.Swiper) return;
 
     const tabsEl  = document.getElementById('TabsSwiper-' + sectionId);
     const imageEl = document.getElementById('ImageSwiper-' + sectionId);
-    console.groupCollapsed(NS, 'init');
-    console.log('tabsEl:', tabsEl);
-    console.log('imageEl:', imageEl);
-    if (!tabsEl || !imageEl) { console.error('Missing DOM nodes'); console.groupEnd(); return; }
+    if (!tabsEl || !imageEl) return;
 
     const autoplayEnabled = tabsEl.getAttribute('data-autoplay') === 'true';
     const autoplayDelay   = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
     const loop            = tabsEl.getAttribute('data-loop') === 'true';
-    console.log('settings:', { autoplayEnabled, autoplayDelay, loop });
 
     // LEFT: Tabs Swiper
     let tabsSwiper;
@@ -324,16 +301,9 @@
         allowTouchMove: true,
         loop: loop,
         autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-        speed: 500,
-        on: {
-          init(sw){ console.log('[Tabs] init', { dir: sw.params.direction, slides: sw.slides.length }); },
-          breakpoint(sw, bp){ console.log('[Tabs] breakpoint', bp, '→ dir:', sw.params.direction); },
-          slideChange(sw){ console.log('[Tabs] slideChange →', sw.realIndex ?? sw.activeIndex); },
-          autoplayStart(){ console.log('[Tabs] autoplayStart'); },
-          autoplayStop(){ console.log('[Tabs] autoplayStop'); }
-        }
+        speed: 500
       });
-    } catch(e) { console.error('[Tabs] init error', e); }
+    } catch (e) { return; }
 
     // RIGHT: Image Swiper
     const paginationEl = imageEl.querySelector('.swiper-pagination');
@@ -345,67 +315,84 @@
         loop: loop,
         speed: 600,
         pagination: paginationEl ? { el: paginationEl, clickable: true } : undefined,
-        autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-        on: {
-          init(sw){ console.log('[Image] init', { slides: sw.slides.length, pagination: !!paginationEl }); },
-          slideChange(sw){ console.log('[Image] slideChange →', sw.realIndex ?? sw.activeIndex); },
-          autoplayStart(){ console.log('[Image] autoplayStart'); },
-          autoplayStop(){ console.log('[Image] autoplayStop'); }
-        }
+        autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
       });
-    } catch(e) { console.error('[Image] init error', e); }
+    } catch (e) { return; }
 
-    if (!tabsSwiper || !imageSwiper) { console.error('One or both Swipers failed.'); console.groupEnd(); return; }
-
-    // Link via Controller if available (not required because we also manual-slide on events)
+    // Optional controller linking (manual sync also applied below)
     if (tabsSwiper.controller && imageSwiper.controller) {
       tabsSwiper.controller.control = imageSwiper;
       imageSwiper.controller.control = tabsSwiper;
-      console.log('Controller linked both ways');
-    } else {
-      console.warn('Controller not present; using manual slide sync only');
     }
 
-    // Hover / focus / click handlers
-    const tabSlides = tabsEl.querySelectorAll('.tabs-slide');
-    console.log('tabSlides:', tabSlides.length);
-    tabSlides.forEach(function(slide, i) {
-      const go = (origin='hover') => {
-        console.log('go(', i, ') from', origin);
-        (tabsSwiper.slideToLoop ? tabsSwiper.slideToLoop(i) : tabsSwiper.slideTo(i));
-        (imageSwiper.slideToLoop ? imageSwiper.slideToLoop(i) : imageSwiper.slideTo(i));
-      };
-      slide.addEventListener('mouseenter', () => go('mouseenter'));
-      slide.addEventListener('focus',     () => go('focus'), true);
-      slide.addEventListener('click',     () => go('click'));
-      slide.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go('keydown'); }
+    // Helpers
+    const getRealIndex = sw => (typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex);
+    const getTabSlides = () => tabsEl.querySelectorAll('.tabs-slide');
+
+    function setActiveByRealIndex(real) {
+      const slides = getTabSlides();
+      slides.forEach(s => {
+        const idx = parseInt(s.getAttribute('data-index') || '-1', 10);
+        if (idx === real) s.classList.add('is-active');
+        else s.classList.remove('is-active');
       });
+    }
+
+    function goToRealIndex(real) {
+      if (typeof tabsSwiper.slideToLoop === 'function') tabsSwiper.slideToLoop(real);
+      else tabsSwiper.slideTo(real);
+      if (typeof imageSwiper.slideToLoop === 'function') imageSwiper.slideToLoop(real);
+      else imageSwiper.slideTo(real);
+      setActiveByRealIndex(real); // instant visual feedback
+    }
+
+    // Event delegation (loop/clones & breakpoints safe)
+    function delegate(type, selector, handler, opts) {
+      tabsEl.addEventListener(type, function(e) {
+        const el = e.target.closest(selector);
+        if (!el || !tabsEl.contains(el)) return;
+        handler(e, el);
+      }, opts || false);
+    }
+
+    delegate('mouseenter', '.tabs-slide', (_e, el) => {
+      const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+      if (!isNaN(real)) goToRealIndex(real);
+    }, true);
+
+    delegate('focusin', '.tabs-slide', (_e, el) => {
+      const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+      if (!isNaN(real)) goToRealIndex(real);
     });
 
-    // Active state
-    function setActive(idx) {
-      const slides = tabsEl.querySelectorAll('.tabs-slide');
-      slides.forEach(s => s.classList.remove('is-active'));
-      const real = (idx % slides.length + slides.length) % slides.length;
-      (slides[real] || slides[0])?.classList.add('is-active');
-      console.log('setActive →', real);
-    }
-    tabsSwiper.on('slideChange', () => setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex));
-    setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex);
+    delegate('click', '.tabs-slide', (e, el) => {
+      // Let inner anchors navigate; only treat clicks on the row itself
+      if (e.target.closest('a')) return;
+      e.preventDefault();
+      const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+      if (!isNaN(real)) goToRealIndex(real);
+    });
 
-    // Diagnostics for CSS conflicts
-    const wrap = tabsEl.querySelector('.swiper-wrapper');
-    const cs = wrap ? getComputedStyle(wrap) : null;
-    console.log('wrapper CSS:', { display: cs?.display, flexDirection: cs?.flexDirection });
-    console.groupEnd();
+    delegate('keydown', '.tabs-slide', (e, el) => {
+      if (e.target.closest('a')) return;
+      if (e.key === 'Enter' || e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+        if (!isNaN(real)) goToRealIndex(real);
+      }
+    });
+
+    // Sync active state on Swiper changes (autoplay, drag, pagination)
+    tabsSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(tabsSwiper)));
+    imageSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(imageSwiper)));
+
+    // Initial active
+    setActiveByRealIndex(getRealIndex(tabsSwiper));
   }
 
-  // Kick off
   ensureSwiper(init);
 })();
 </script>
-
 
 {% schema %}
 {
