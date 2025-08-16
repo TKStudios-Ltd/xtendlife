@@ -265,7 +265,7 @@
         "layout": "image_first",
         "left_col_width": 1,
         "right_col_width": 1,
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_delay": 5,
         "loop": true,
         "section_color_scheme": "scheme-5",
