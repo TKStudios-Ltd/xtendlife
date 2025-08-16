@@ -73,15 +73,20 @@
     font-size: 54px;
     font-weight: 400;
     line-height: 1.1;
+    transition: opacity ease 0.4s;
   }
   .tabs-btn {
     white-space: nowrap;
   }
-  .tabs-slide.is-active .tabs-title {
+  .tabs-slide.is-active .tabs-title,
+  .tabs-slide.is-active .tabs-btn {
     opacity: 1;
   }
   .tabs-slide:not(.is-active) .tabs-title {
     opacity: .25;
+  }
+  .tabs-slide:not(.is-active) .tabs-btn {
+    opacity: 0;
   }
 
   /* Right image (Swiper) */
