@@ -1,0 +1,389 @@
+{% comment %}
+  Image With Tabs (Swiper-synced)
+  - Requires Swiper on the theme (core + Pagination + Autoplay + EffectFade + Controller)
+  - Vertical left tabs on desktop, horizontal on mobile
+  - Hover / focus / click on a tab syncs the image
+{% endcomment %}
+
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Layout */
+  .tabs-with-image--grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 990px) {
+    .tabs-with-image--grid {
+      grid-template-columns: minmax(0, {{ section.settings.left_col_width }}fr) minmax(0, {{ section.settings.right_col_width }}fr);
+      align-items: stretch;
+    }
+  }
+
+  /* Left tabs (Swiper) */
+  #TabsSwiper-{{ section.id }} {
+    height: 100%;
+  }
+  .tabs-list {
+    height: 100%;
+  }
+  .tabs-slide {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border-bottom: 1px solid var(--color-foreground-20, rgba(0,0,0,.12));
+    padding: 18px 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .tabs-slide:last-child {
+    border-bottom: none;
+  }
+  .tabs-title {
+    font: inherit;
+    line-height: 1.1;
+  }
+  .tabs-btn {
+    white-space: nowrap;
+  }
+  .tabs-slide.is-active .tabs-title {
+    opacity: 1;
+  }
+  .tabs-slide:not(.is-active) .tabs-title {
+    opacity: .35;
+  }
+
+  /* Right image (Swiper) */
+  .image-pane {
+    position: relative;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .image-slide {
+    width: 100%;
+    height: 100%;
+  }
+  .image-slide .media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .image-slide .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+
+  /* Pagination over image (vertical desktop, inline mobile) */
+  .image-pagination-{{ section.id }} {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+  .image-pagination-{{ section.id }} .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    opacity: .5;
+  }
+  .image-pagination-{{ section.id }} .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+  @media (max-width: 989px) {
+    .image-pagination-{{ section.id }} {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: auto;
+      bottom: 10px;
+      transform: none;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  /* Optional rounded image corners like your mock */
+  .image-pane {
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    border-radius: 16px;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="tabs-with-image isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="tabs-with-image--grid{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
+
+        {%- comment -%} LEFT: Tabs (Swiper) {%- endcomment -%}
+        <div class="grid__item">
+          <div class="title-wrapper-with-link">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+            {%- endif -%}
+          </div>
+
+          <div id="TabsSwiper-{{ section.id }}" class="swiper tabs-list"
+               data-autoplay="{{ section.settings.autoplay }}"
+               data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+               data-loop="{{ section.settings.loop }}">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div class="swiper-slide tabs-slide" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
+                  <span class="tabs-title h2">{{ block.settings.title }}</span>
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button button--small button--primary tabs-btn"
+                    >{{ block.settings.button_label | escape }}</a>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} RIGHT: Image Pane (Swiper) {%- endcomment -%}
+        <div class="grid__item">
+          <div id="ImageSwiper-{{ section.id }}" class="swiper image-pane">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div class="swiper-slide image-slide">
+                  <div class="media">
+                    {%- if block.settings.image != blank -%}
+                      {%- assign widths = '432, 642, 900, 1284, 1500, 1800' -%}
+                      {%- capture sizes -%}
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.667 }}px,
+                        (min-width: 750px) calc((100vw - 130px) / 1.667),
+                        calc((100vw - 50px))
+                      {%- endcapture -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1800
+                        | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                      }}
+                    {%- else -%}
+                      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+
+            <!-- Pagination bullets over image -->
+            <div class="swiper-pagination image-pagination-{{ section.id }}"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // Ensure Swiper exists
+    if (typeof window.Swiper === 'undefined') return;
+
+    const sectionId = {{ section.id | json }};
+    const tabsEl = document.getElementById('TabsSwiper-' + sectionId);
+    const imageEl = document.getElementById('ImageSwiper-' + sectionId);
+
+    if (!tabsEl || !imageEl) return;
+
+    // Read settings from dataset
+    const autoplayEnabled = tabsEl.getAttribute('data-autoplay') === 'true';
+    const autoplayDelay = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
+    const loop = tabsEl.getAttribute('data-loop') === 'true';
+
+    // Tabs Swiper (vertical on desktop, horizontal on mobile)
+    const tabsSwiper = new Swiper(tabsEl, {
+      direction: 'horizontal',
+      slidesPerView: 1.1,
+      spaceBetween: 8,
+      centeredSlides: false,
+      breakpoints: {
+        750: { direction: 'vertical', slidesPerView: 'auto', spaceBetween: 0 }
+      },
+      allowTouchMove: true,
+      loop: loop,
+      autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      speed: 500
+    });
+
+    // Image Swiper (fade, synced)
+    const imageSwiper = new Swiper(imageEl, {
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      loop: loop,
+      speed: 600,
+      pagination: {
+        el: imageEl.querySelector('.swiper-pagination'),
+        clickable: true
+      },
+      autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
+    });
+
+    // Sync controllers
+    if (tabsSwiper.controller && imageSwiper.controller) {
+      tabsSwiper.controller.control = imageSwiper;
+      imageSwiper.controller.control = tabsSwiper;
+    }
+
+    // Hover / focus / click on a tab → move both swipers
+    const tabSlides = tabsEl.querySelectorAll('.tabs-slide');
+    tabSlides.forEach(function(slide, i) {
+      const go = function() {
+        tabsSwiper.slideToLoop ? tabsSwiper.slideToLoop(i) : tabsSwiper.slideTo(i);
+        imageSwiper.slideToLoop ? imageSwiper.slideToLoop(i) : imageSwiper.slideTo(i);
+      };
+      slide.addEventListener('mouseenter', go);
+      slide.addEventListener('focus', go, true);
+      slide.addEventListener('click', go);
+      slide.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault(); go();
+        }
+      });
+    });
+
+    // Toggle active class on current tab
+    function setActive(idx) {
+      tabSlides.forEach(s => s.classList.remove('is-active'));
+      const real = idx % tabSlides.length;
+      (tabSlides[real] || tabSlides[0]).classList.add('is-active');
+    }
+    tabsSwiper.on('slideChange', function() { setActive(tabsSwiper.realIndex || tabsSwiper.activeIndex); });
+    setActive(tabsSwiper.realIndex || tabsSwiper.activeIndex);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Image with Tabs",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Shop by Benefit" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "image_first",
+      "options": [
+        { "value": "image_first", "label": "Image right (desktop)" },
+        { "value": "text_first", "label": "Image left (desktop)" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "left_col_width",
+      "label": "Left column width (desktop)",
+      "min": 1, "max": 3, "step": 1, "default": 1
+    },
+    {
+      "type": "range",
+      "id": "right_col_width",
+      "label": "Right column width (desktop)",
+      "min": 1, "max": 3, "step": 1, "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay tabs/images",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay delay (seconds)",
+      "min": 2, "max": 15, "step": 1, "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Top padding", "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Bottom padding", "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Daily Support" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Tabs",
+      "blocks": [
+        { "type": "tab" },
+        { "type": "tab" },
+        { "type": "tab" }
+      ]
+    }
+  ]
+}
+{% endschema %}
