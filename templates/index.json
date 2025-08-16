@@ -104,7 +104,8 @@
         "column_bqhLTR"
       ],
       "custom_css": [
-        ".grid {gap: 0; justify-content: space-around;}",
+        ".grid {gap: 0; justify-content: center;}",
+        ".grid li:not(:last-child) {border-right: 1px solid;}",
         ".multicolumn-card__info {padding-bottom: 0;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
