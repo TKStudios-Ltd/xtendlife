@@ -25,11 +25,18 @@
     gap: 24px;
     grid-template-columns: 1fr;
   }
+  .tabs-with-image--grid .grid__item { 
+    align-self: stretch;
+  }
   @media (min-width: 990px) {
     .tabs-with-image--grid {
       grid-template-columns: minmax(0, {{ section.settings.left_col_width }}fr) minmax(0, {{ section.settings.right_col_width }}fr);
       align-items: stretch;
     }
+    /* wrapper becomes a normal block so slides can be 100% wide */
+    #TabsSwiper-{{ section.id }} .swiper-wrapper { height: 100%; display: block; }
+    /* each tab row should span the full column width */
+    #TabsSwiper-{{ section.id }} .swiper-slide { width: 100% !important; }
   }
 
   /* Left tabs (Swiper) */
