@@ -71,6 +71,7 @@
     height: 100%;
     border-radius: 16px;
     overflow: hidden;
+    aspect-ratio: 3 / 4;
   }
   .image-slide {
     width: 100%;
@@ -209,82 +210,79 @@
 </div>
 
 <script>
-  (function() {
-    // Ensure Swiper exists
-    if (typeof window.Swiper === 'undefined') return;
+(function() {
+  if (typeof window.Swiper === 'undefined') return;
 
-    const sectionId = {{ section.id | json }};
-    const tabsEl = document.getElementById('TabsSwiper-' + sectionId);
-    const imageEl = document.getElementById('ImageSwiper-' + sectionId);
+  const sectionId = {{ section.id | json }};
+  const tabsEl = document.getElementById('TabsSwiper-' + sectionId);
+  const imageEl = document.getElementById('ImageSwiper-' + sectionId);
+  if (!tabsEl || !imageEl) return;
 
-    if (!tabsEl || !imageEl) return;
+  const autoplayEnabled = tabsEl.getAttribute('data-autoplay') === 'true';
+  const autoplayDelay = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
+  const loop = tabsEl.getAttribute('data-loop') === 'true';
 
-    // Read settings from dataset
-    const autoplayEnabled = tabsEl.getAttribute('data-autoplay') === 'true';
-    const autoplayDelay = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
-    const loop = tabsEl.getAttribute('data-loop') === 'true';
+  // LEFT: Tabs Swiper
+  const tabsSwiper = new Swiper(tabsEl, {
+    direction: 'horizontal',
+    slidesPerView: 1.15,
+    spaceBetween: 8,
+    centeredSlides: false,
+    breakpoints: {
+      // Switch to vertical at the same breakpoint as your 2-column grid
+      990: { direction: 'vertical', slidesPerView: 'auto', spaceBetween: 0 }
+    },
+    allowTouchMove: true,
+    loop: loop,
+    autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+    speed: 500
+  });
 
-    // Tabs Swiper (vertical on desktop, horizontal on mobile)
-    const tabsSwiper = new Swiper(tabsEl, {
-      direction: 'horizontal',
-      slidesPerView: 1.1,
-      spaceBetween: 8,
-      centeredSlides: false,
-      breakpoints: {
-        750: { direction: 'vertical', slidesPerView: 'auto', spaceBetween: 0 }
-      },
-      allowTouchMove: true,
-      loop: loop,
-      autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-      speed: 500
+  // RIGHT: Image Swiper
+  const imageSwiper = new Swiper(imageEl, {
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+    loop: loop,
+    speed: 600,
+    pagination: {
+      el: imageEl.querySelector('.swiper-pagination'),
+      clickable: true
+    },
+    autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
+  });
+
+  // Sync controllers (requires Controller module)
+  if (tabsSwiper.controller && imageSwiper.controller) {
+    tabsSwiper.controller.control = imageSwiper;
+    imageSwiper.controller.control = tabsSwiper;
+  }
+
+  // Hover / focus / click to change
+  const tabSlides = tabsEl.querySelectorAll('.tabs-slide');
+  tabSlides.forEach(function(slide, i) {
+    const go = function() {
+      (tabsSwiper.slideToLoop ? tabsSwiper.slideToLoop(i) : tabsSwiper.slideTo(i));
+      (imageSwiper.slideToLoop ? imageSwiper.slideToLoop(i) : imageSwiper.slideTo(i));
+    };
+    slide.addEventListener('mouseenter', go);
+    slide.addEventListener('focus', go, true);
+    slide.addEventListener('click', go);
+    slide.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
     });
+  });
 
-    // Image Swiper (fade, synced)
-    const imageSwiper = new Swiper(imageEl, {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      loop: loop,
-      speed: 600,
-      pagination: {
-        el: imageEl.querySelector('.swiper-pagination'),
-        clickable: true
-      },
-      autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
-    });
-
-    // Sync controllers
-    if (tabsSwiper.controller && imageSwiper.controller) {
-      tabsSwiper.controller.control = imageSwiper;
-      imageSwiper.controller.control = tabsSwiper;
-    }
-
-    // Hover / focus / click on a tab → move both swipers
-    const tabSlides = tabsEl.querySelectorAll('.tabs-slide');
-    tabSlides.forEach(function(slide, i) {
-      const go = function() {
-        tabsSwiper.slideToLoop ? tabsSwiper.slideToLoop(i) : tabsSwiper.slideTo(i);
-        imageSwiper.slideToLoop ? imageSwiper.slideToLoop(i) : imageSwiper.slideTo(i);
-      };
-      slide.addEventListener('mouseenter', go);
-      slide.addEventListener('focus', go, true);
-      slide.addEventListener('click', go);
-      slide.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault(); go();
-        }
-      });
-    });
-
-    // Toggle active class on current tab
-    function setActive(idx) {
-      tabSlides.forEach(s => s.classList.remove('is-active'));
-      const real = idx % tabSlides.length;
-      (tabSlides[real] || tabSlides[0]).classList.add('is-active');
-    }
-    tabsSwiper.on('slideChange', function() { setActive(tabsSwiper.realIndex || tabsSwiper.activeIndex); });
-    setActive(tabsSwiper.realIndex || tabsSwiper.activeIndex);
-  })();
+  // Active state
+  function setActive(idx) {
+    tabSlides.forEach(s => s.classList.remove('is-active'));
+    const real = (idx % tabSlides.length + tabSlides.length) % tabSlides.length;
+    (tabSlides[real] || tabSlides[0]).classList.add('is-active');
+  }
+  tabsSwiper.on('slideChange', function() { setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex); });
+  setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex);
+})();
 </script>
+
 
 {% schema %}
 {
