@@ -36,11 +36,13 @@
       align-items: stretch;
     }
     #TabsSwiper-{{ section.id }} .swiper-wrapper { 
-        height: 100%; 
-        display: block; 
+        display: flex;
+        flex-direction: column;
+        height: auto;
     }
     #TabsSwiper-{{ section.id }} .swiper-slide { 
-        width: 100% !important; 
+        width: 100% !important;
+        height: auto !important;
     }
   }
 
