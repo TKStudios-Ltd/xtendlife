@@ -130,14 +130,12 @@
               {%- endif -%}
               <div class="multicolumn-card__info">
                 {%- if block.settings.title != blank -%}
-                  <h3 class="inline-richtext">
+                  <h3 class="inline-richtext multicolumn-card__title">
                     {%- if block.settings.icon != blank -%}
                       {{
                         block.settings.icon
-                        | image_url: width: 32
-                        | image_tag:
-                          widths: '16,32,64,96,128,200',
-                          class: 'multicolumn-card__icon'
+                        | image_url: width: 200
+                        | image_tag: class: 'multicolumn-card__icon'
                       }}
                     {%- endif -%}
                     {{ block.settings.title }}
