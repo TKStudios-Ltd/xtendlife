@@ -225,77 +225,150 @@
 
 <script>
 (function() {
-  if (typeof window.Swiper === 'undefined') return;
+  // --- BOOT ---
+  console.groupCollapsed('ImageWithTabs init');
+  if (typeof window.Swiper === 'undefined') {
+    console.error('[ImageWithTabs] Swiper is undefined. Make sure core + Pagination + Autoplay + EffectFade are loaded.');
+    console.groupEnd();
+    return;
+  }
+  console.log('[ImageWithTabs] Swiper version:', Swiper?.version);
 
   const sectionId = {{ section.id | json }};
-  const tabsEl = document.getElementById('TabsSwiper-' + sectionId);
+  const tabsEl  = document.getElementById('TabsSwiper-' + sectionId);
   const imageEl = document.getElementById('ImageSwiper-' + sectionId);
-  if (!tabsEl || !imageEl) return;
+
+  console.log('[ImageWithTabs] sectionId:', sectionId);
+  console.log('[ImageWithTabs] tabsEl:', tabsEl);
+  console.log('[ImageWithTabs] imageEl:', imageEl);
+  if (!tabsEl || !imageEl) {
+    console.error('[ImageWithTabs] Missing required DOM nodes.');
+    console.groupEnd();
+    return;
+  }
 
   const autoplayEnabled = tabsEl.getAttribute('data-autoplay') === 'true';
-  const autoplayDelay = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
-  const loop = tabsEl.getAttribute('data-loop') === 'true';
+  const autoplayDelay   = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
+  const loop            = tabsEl.getAttribute('data-loop') === 'true';
 
-  // LEFT: Tabs Swiper
-  const tabsSwiper = new Swiper(tabsEl, {
-    direction: 'horizontal',
-    slidesPerView: 1.15,
-    spaceBetween: 8,
-    centeredSlides: false,
-    breakpoints: {
-      // Switch to vertical at the same breakpoint as your 2-column grid
-      990: { direction: 'vertical', slidesPerView: 'auto', spaceBetween: 0 }
-    },
-    allowTouchMove: true,
-    loop: loop,
-    autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-    speed: 500
-  });
+  console.log('[ImageWithTabs] data:', { autoplayEnabled, autoplayDelay, loop });
 
-  // RIGHT: Image Swiper
-  const imageSwiper = new Swiper(imageEl, {
-    effect: 'fade',
-    fadeEffect: { crossFade: true },
-    loop: loop,
-    speed: 600,
-    pagination: {
-      el: imageEl.querySelector('.swiper-pagination'),
-      clickable: true
-    },
-    autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
-  });
+  // --- LEFT: Tabs Swiper ---
+  let tabsSwiper;
+  try {
+    tabsSwiper = new Swiper(tabsEl, {
+      direction: 'horizontal',
+      slidesPerView: 1.15,
+      spaceBetween: 8,
+      centeredSlides: false,
+      breakpoints: {
+        990: { direction: 'vertical', slidesPerView: 'auto', spaceBetween: 0 }
+      },
+      allowTouchMove: true,
+      loop: loop,
+      autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      speed: 500,
+      on: {
+        init(sw) {
+          console.log('[Tabs] init', { dir: sw.params.direction, slides: sw.slides.length });
+        },
+        breakpoint(sw, bp) {
+          console.log('[Tabs] breakpoint', bp, '→ direction:', sw.params.direction, 'slidesPerView:', sw.params.slidesPerView);
+        },
+        slideChange(sw) {
+          console.log('[Tabs] slideChange → index:', sw.realIndex ?? sw.activeIndex);
+        },
+        autoplayStart() { console.log('[Tabs] autoplayStart'); },
+        autoplayStop()  { console.log('[Tabs] autoplayStop');  },
+        autoplayPause() { console.log('[Tabs] autoplayPause'); },
+        autoplayResume(){ console.log('[Tabs] autoplayResume');}
+      }
+    });
+  } catch (e) {
+    console.error('[Tabs] init error', e);
+  }
 
-  // Sync controllers (requires Controller module)
+  // --- RIGHT: Image Swiper ---
+  const paginationEl = imageEl.querySelector('.swiper-pagination');
+  console.log('[Image] paginationEl:', paginationEl);
+
+  let imageSwiper;
+  try {
+    imageSwiper = new Swiper(imageEl, {
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      loop: loop,
+      speed: 600,
+      pagination: paginationEl ? { el: paginationEl, clickable: true } : undefined,
+      autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      on: {
+        init(sw) {
+          console.log('[Image] init', { slides: sw.slides.length, hasPagination: !!paginationEl });
+        },
+        slideChange(sw) {
+          console.log('[Image] slideChange → index:', sw.realIndex ?? sw.activeIndex);
+        },
+        autoplayStart() { console.log('[Image] autoplayStart'); },
+        autoplayStop()  { console.log('[Image] autoplayStop');  }
+      }
+    });
+  } catch (e) {
+    console.error('[Image] init error', e);
+  }
+
+  if (!tabsSwiper || !imageSwiper) {
+    console.error('[ImageWithTabs] One or both Swipers failed to initialize.');
+    console.groupEnd();
+    return;
+  }
+
+  // --- SYNC (Controller optional) ---
   if (tabsSwiper.controller && imageSwiper.controller) {
     tabsSwiper.controller.control = imageSwiper;
     imageSwiper.controller.control = tabsSwiper;
+    console.log('[Sync] Controller linked both ways');
+  } else {
+    console.warn('[Sync] Controller not available — falling back to manual slideTo');
   }
 
-  // Hover / focus / click to change
+  // --- HOVER/FOCUS/CLICK HANDLERS ---
   const tabSlides = tabsEl.querySelectorAll('.tabs-slide');
+  console.log('[Handlers] tabSlides count:', tabSlides.length);
+
   tabSlides.forEach(function(slide, i) {
-    const go = function() {
+    const go = function(origin = 'hover/click') {
+      console.log(`[Handlers] go(${i}) from ${origin}`);
       (tabsSwiper.slideToLoop ? tabsSwiper.slideToLoop(i) : tabsSwiper.slideTo(i));
       (imageSwiper.slideToLoop ? imageSwiper.slideToLoop(i) : imageSwiper.slideTo(i));
     };
-    slide.addEventListener('mouseenter', go);
-    slide.addEventListener('focus', go, true);
-    slide.addEventListener('click', go);
+    slide.addEventListener('mouseenter', () => go('mouseenter'));
+    slide.addEventListener('focus',     () => go('focus'), true);
+    slide.addEventListener('click',     () => go('click'));
     slide.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go('keydown'); }
     });
   });
 
-  // Active state
+  // --- ACTIVE STATE SYNC ---
   function setActive(idx) {
-    tabSlides.forEach(s => s.classList.remove('is-active'));
     const real = (idx % tabSlides.length + tabSlides.length) % tabSlides.length;
-    (tabSlides[real] || tabSlides[0]).classList.add('is-active');
+    tabSlides.forEach(s => s.classList.remove('is-active'));
+    const target = tabSlides[real] || tabSlides[0];
+    if (target) target.classList.add('is-active');
+    console.log('[Active] setActive →', real);
   }
-  tabsSwiper.on('slideChange', function() { setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex); });
+  tabsSwiper.on('slideChange', () => setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex));
   setActive(tabsSwiper.realIndex ?? tabsSwiper.activeIndex);
+
+  // --- DIAGNOSTICS: check computed styles that could break Swiper ---
+  const wrap = tabsEl.querySelector('.swiper-wrapper');
+  const wrapStyles = wrap ? getComputedStyle(wrap) : null;
+  console.log('[Diag] tabs wrapper display:', wrapStyles?.display, 'flexDirection:', wrapStyles?.flexDirection);
+
+  console.groupEnd();
 })();
 </script>
+
 
 
 {% schema %}
