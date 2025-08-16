@@ -117,12 +117,14 @@
   /* Pagination over image (vertical desktop, inline mobile) */
   .image-pagination-{{ section.id }} {
     position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 2rem;
+    bottom: 2rem;
+    top: auto !important;
+    left: auto !important;
     z-index: 3;
     display: flex;
     gap: 8px;
+    width: 10px !important;
     flex-direction: column;
   }
   .image-pagination-{{ section.id }} .swiper-pagination-bullet {
