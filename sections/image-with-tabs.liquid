@@ -118,7 +118,7 @@
   .image-pagination-{{ section.id }} {
     position: absolute;
     right: 2rem;
-    bottom: 2rem;
+    bottom: 3rem !important;
     top: auto !important;
     left: auto !important;
     z-index: 3;
@@ -128,12 +128,14 @@
     flex-direction: column;
   }
   .image-pagination-{{ section.id }} .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    opacity: .5;
+    width: 10px;
+    height: 10px;
+    opacity: .4;
+    background: white !important;
   }
   .image-pagination-{{ section.id }} .swiper-pagination-bullet-active {
     opacity: 1;
+    height: 46px;
   }
   @media (max-width: 989px) {
     .image-pagination-{{ section.id }} {
