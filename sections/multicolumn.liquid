@@ -132,16 +132,16 @@
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">
                     {%- if block.settings.icon != blank -%}
-                    {{
-                      block.settings.icon
-                      | image_url: width: 200
-                      | image_tag:
-                        widths: '32,64,96,128,200',
-                        class: 'multicolumn-card__icon',
-                        style: 'width: ' | append: block.settings.icon_size | append: 'px;'
-                    }}
-                  {%- endif -%}
-                  {{ block.settings.title }}</h3>
+                      {{
+                        block.settings.icon
+                        | image_url: width: 32
+                        | image_tag:
+                          widths: '16,32,64,96,128,200',
+                          class: 'multicolumn-card__icon'
+                      }}
+                    {%- endif -%}
+                    {{ block.settings.title }}
+                  </h3>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
                   <div class="rte">{{ block.settings.text }}</div>
@@ -429,6 +429,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Inline icon (replaces top image)"
         },
         {
           "type": "inline_richtext",
