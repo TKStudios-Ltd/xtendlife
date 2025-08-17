@@ -27,13 +27,15 @@
       margin: 0 0 0 auto;
       height: 100%;
     }
-
     /* Remove gaps so the image can truly hit the edge */
     .image-with-text--edge-{{ section.id }} .image-with-text__grid {
       column-gap: 0;
       row-gap: 0;
     }
-    /* Allow the media grid item to stretch */
+    .image-with-text .image-with-text__media img,
+    .image-with-text .image-with-text__media {
+      max-height: calc(100vh - 105px);
+    }
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item {
       flex: 0 0 auto;
     }
