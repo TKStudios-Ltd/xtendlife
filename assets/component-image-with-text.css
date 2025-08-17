@@ -380,6 +380,14 @@
   margin-bottom: 1rem;
 }
 
+.image-with-text__text.rte ul {
+  list-style: none;
+  padding-left: 0;
+}
+.image-with-text__text.rte ul li::before {
+  content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg2');
+}
+
 @media screen and (max-width: 749px) {
   .collapse-padding .image-with-text__grid .image-with-text__content {
     padding-left: 0;
