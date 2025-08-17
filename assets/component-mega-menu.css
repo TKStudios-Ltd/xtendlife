@@ -133,9 +133,6 @@
   transition: text-decoration var(--duration-short) ease;
   word-wrap: break-word;
 }
-#MegaMenu-Content-1 .mega-menu__list li:last-child .mega-menu__link {
-  color: #FCF7EB;
-}
 
 /* .mega-menu__link--level-2 {
   font-weight: bold;
