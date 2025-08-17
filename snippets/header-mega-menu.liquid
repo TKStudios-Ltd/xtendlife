@@ -69,36 +69,49 @@
                     {%- endfor -%}
                   </ul>
                   <div class="mega-menu__tiles">
-                    {% if section.settings.tile_1_image or section.settings.tile_1_title %}
-                      <div class="mega-menu__tile">
-                        <a href="{{ section.settings.tile_1_link }}">
-                          {% if section.settings.tile_1_image %}
-                            <img src="{{ section.settings.tile_1_image | image_url }}" alt="{{ section.settings.tile_1_title | escape }}">
-                          {% endif %}
-                          <p>{{ section.settings.tile_1_title }}</p>
-                        </a>
-                      </div>
-                    {% endif %}
-                    {% if section.settings.tile_2_image or section.settings.tile_2_title %}
-                      <div class="mega-menu__tile">
-                        <a href="{{ section.settings.tile_2_link }}">
-                          {% if section.settings.tile_2_image %}
-                            <img src="{{ section.settings.tile_2_image | image_url }}" alt="{{ section.settings.tile_2_title | escape }}">
-                          {% endif %}
-                          <p>{{ section.settings.tile_2_title }}</p>
-                        </a>
-                      </div>
-                    {% endif %}
-                    {% if section.settings.tile_3_image or section.settings.tile_3_title %}
-                      <div class="mega-menu__tile">
-                        <a href="{{ section.settings.tile_3_link }}">
-                          {% if section.settings.tile_3_image %}
-                            <img src="{{ section.settings.tile_3_image | image_url }}" alt="{{ section.settings.tile_3_title | escape }}">
-                          {% endif %}
-                          <p>{{ section.settings.tile_3_title }}</p>
-                        </a>
-                      </div>
-                    {% endif %}
+                    {%- if forloop.index == 1 -%}
+                      {% if section.settings.tile_1_image or section.settings.tile_1_title %}
+                        <div class="mega-menu__tile">
+                          <a href="{{ section.settings.tile_1_link }}">
+                            {% if section.settings.tile_1_image %}
+                              <img src="{{ section.settings.tile_1_image | image_url }}" alt="{{ section.settings.tile_1_title | escape }}">
+                            {% endif %}
+                            <p>{{ section.settings.tile_1_title }}</p>
+                          </a>
+                        </div>
+                      {% endif %}
+                      {% if section.settings.tile_2_image or section.settings.tile_2_title %}
+                        <div class="mega-menu__tile">
+                          <a href="{{ section.settings.tile_2_link }}">
+                            {% if section.settings.tile_2_image %}
+                              <img src="{{ section.settings.tile_2_image | image_url }}" alt="{{ section.settings.tile_2_title | escape }}">
+                            {% endif %}
+                            <p>{{ section.settings.tile_2_title }}</p>
+                          </a>
+                        </div>
+                      {% endif %}
+                    {%- elsif forloop.index == 2 -%}
+                      {% if section.settings.tile_3_image or section.settings.tile_3_title %}
+                        <div class="mega-menu__tile">
+                          <a href="{{ section.settings.tile_3_link }}">
+                            {% if section.settings.tile_3_image %}
+                              <img src="{{ section.settings.tile_3_image | image_url }}" alt="{{ section.settings.tile_3_title | escape }}">
+                            {% endif %}
+                            <p>{{ section.settings.tile_3_title }}</p>
+                          </a>
+                        </div>
+                      {% endif %}
+                      {% if section.settings.tile_4_image or section.settings.tile_4_title %}
+                        <div class="mega-menu__tile">
+                          <a href="{{ section.settings.tile_4_link }}">
+                            {% if section.settings.tile_4_image %}
+                              <img src="{{ section.settings.tile_4_image | image_url }}" alt="{{ section.settings.tile_4_title | escape }}">
+                            {% endif %}
+                            <p>{{ section.settings.tile_4_title }}</p>
+                          </a>
+                        </div>
+                      {% endif %}
+                    {%- endif -%}
                   </div>
                 </div>
               </div>
