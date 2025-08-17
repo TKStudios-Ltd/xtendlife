@@ -79,7 +79,7 @@
                     {{ block.shopify_attributes }}
                   >
                     {%- if block.settings.additional_caption != blank -%}
-                      <span>{{ block.settings.additional_caption | escape }}</span>
+                      <span class="lower--opacity">{{ block.settings.additional_caption | escape }}</span>
                     {%- endif -%}
                     {{ block.settings.caption | escape }}
                   </p>
