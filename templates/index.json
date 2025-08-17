@@ -438,11 +438,20 @@
             "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
             "text_style": "body"
           }
+        },
+        "button_Qekx44": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
         }
       },
       "block_order": [
         "caption_bz9N8Y",
-        "text_fQHPQr"
+        "text_fQHPQr",
+        "button_Qekx44"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
