@@ -50,6 +50,7 @@
   display: flex;
   justify-content: space-between;
   padding: 4rem 2rem;
+  gap: 3rem;
   background: rgb(var(--color-background));
   /* min-height: 365px; */
 }
@@ -108,14 +109,14 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   list-style: none;
   padding-left: 0;
-  flex: 0 0 50%;
+  flex: 0 0 calc(50% - 1.5rem);
 }
 
 /* .mega-menu__list li ul li .mega-menu__link {
   font-size: 14px;
   font-weight: 400;
 } */
- 
+
 .mega-menu__list li ul {
   padding-top: 1.5rem;
 }
