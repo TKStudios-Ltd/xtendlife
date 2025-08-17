@@ -39,9 +39,9 @@ menu-drawer > details[open] > summary::before {
   overflow-x: hidden;
 }
 
-.js .menu-drawer {
+/* .js .menu-drawer {
   height: 400px;
-}
+} */
 
 .js details[open] > .menu-drawer,
 .js details[open] > .menu-drawer__submenu {
