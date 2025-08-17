@@ -58,8 +58,12 @@
         "tile_2_image": "shopify://shop_images/DSF6381_2200x_3_2.png",
         "tile_2_title": "Heart Health Bundle",
         "tile_2_link": "#",
-        "tile_3_title": "",
-        "tile_3_link": ""
+        "tile_3_image": "shopify://shop_images/DSF6381_2200x_1_1.png",
+        "tile_3_title": "A neuroscientist’s guide to nutriton for brain health",
+        "tile_3_link": "#",
+        "tile_4_image": "shopify://shop_images/DSF6381_2200x_3_1.png",
+        "tile_4_title": "The Ingredient Index",
+        "tile_4_link": "#"
       }
     }
   },
