@@ -15,20 +15,18 @@
 
   {% if section.settings.image_bleed %}
   @media screen and (min-width: 750px) {
-    /* Make an outer wrapper span the viewport width */
-    .image-with-text--edge-{{ section.id }} .image-with-text__outer {
+    /* .image-with-text--edge-{{ section.id }} .image-with-text__outer {
       width: 100vw;
       max-width: 100vw;
       margin-left: 50%;
       transform: translateX(-50%);
-    }
+    } */
     .image-with-text--edge-{{ section.id }} .image-with-text__text-item > .page-width {
       max-width: calc({{ settings.page_width }}px / 2);
       margin: 0 0 0 auto;
       padding: 0 2rem 0 2.5rem;
       height: 100%;
     }
-    /* Remove gaps so the image can truly hit the edge */
     .image-with-text--edge-{{ section.id }} .image-with-text__grid {
       column-gap: 0;
       row-gap: 0;
@@ -41,7 +39,6 @@
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item {
       flex: 0 0 auto;
     }
-    /* Base widths matching Dawn's small/medium/large */
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item--small  { --media-col-base: 33.3333%; }
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item--medium { --media-col-base: 50%; }
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item--large  { --media-col-base: 66.6667%; }
