@@ -375,6 +375,12 @@
   margin-bottom: 0;
 }
 
+.image-with-text__text--caption .lower--opacity {
+  display: block;
+  margin-bottom: 2rem;
+  opacity: 0.5;
+}
+
 .image-with-text__text p {
   margin-top: 0;
   margin-bottom: 1rem;
