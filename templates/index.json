@@ -288,7 +288,7 @@
         "heading_JYBcXx"
       ],
       "custom_css": [
-        ".rich-text__heading {max-width: 400px; line-height: 1.1;}"
+        ".rich-text__heading {max-width: 320px; line-height: 1.1;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
