@@ -327,7 +327,18 @@
   font-size: 24px;
   text-align: left;
   position: relative;
+  opacity: 0.25;
+  transition: opacity ease .4s;
 }
+.collection-list-wrapper .card__heading .icon-wrap {
+  opacity: 0;
+  transition: opacity ease .4s;
+}
+.collection-list-wrapper .card-wrapper:hover .card__heading,
+.collection-list-wrapper .card-wrapper:hover .card__heading .icon-wrap {
+  opacity: 1;
+}
+
 /* .collection-list-wrapper .card__heading::after {
   content: '';
   position: absolute;
