@@ -52,12 +52,12 @@
         "margin_bottom": 12,
         "padding_top": 20,
         "padding_bottom": 20,
+        "tile_1_image": "shopify://shop_images/DSF6381_2200x_1.png",
         "tile_1_title": "Skin Essentials for Women",
         "tile_1_link": "#",
-        "tile_2_image": "shopify://shop_images/DSF6381_2200x_1.png",
+        "tile_2_image": "shopify://shop_images/DSF6381_2200x_3_2.png",
         "tile_2_title": "Heart Health Bundle",
         "tile_2_link": "#",
-        "tile_3_image": "shopify://shop_images/DSF6381_2200x_3_2.png",
         "tile_3_title": "",
         "tile_3_link": ""
       }
