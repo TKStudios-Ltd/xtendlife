@@ -34,8 +34,7 @@ menu-drawer > details[open] > summary::before {
   top: calc(100% + 10px);
   width: calc(100% + 4px);
   padding: 0;
-  background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedderspoon_Menu_Mob_BG.svg');
-  background-size: cover;
+  background: white;
   border-radius: 40px;
   overflow-x: hidden;
 }
