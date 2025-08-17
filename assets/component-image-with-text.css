@@ -383,12 +383,14 @@
 .image-with-text__text.rte ul {
   list-style: none;
   padding-left: 0;
+  border-top: 1px solid rgba(31, 25, 71, 0.4);
 }
 .image-with-text__text.rte ul li {
   font-size: 12px;
   display: flex;
   align-items: center;
   padding: 5px 0;
+  border-bottom: 1px solid rgba(31, 25, 71, 0.4);
 }
 .image-with-text__text.rte ul li::before {
   content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
