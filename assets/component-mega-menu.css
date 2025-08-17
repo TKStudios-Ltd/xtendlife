@@ -143,6 +143,9 @@
   font-size: 18px;
   font-weight: 500;
 }
+.mega-menu__link#HeaderMenu-shop-shop-by-category-shop-all {
+  padding-top: 2rem;
+}
 
 .header--top-center .mega-menu__list {
   display: flex;
