@@ -323,11 +323,11 @@
 .collection-list-wrapper .card-wrapper:hover {
   cursor: pointer;
 }
-/* .collection-list-wrapper .card__heading {
+.collection-list-wrapper .card__heading {
   font-size: 24px;
   text-align: left;
   position: relative;
-} */
+}
 /* .collection-list-wrapper .card__heading::after {
   content: '';
   position: absolute;
