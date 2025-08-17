@@ -385,7 +385,7 @@
   padding-left: 0;
 }
 .image-with-text__text.rte ul li::before {
-  content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg2');
+  content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
 }
 
 @media screen and (max-width: 749px) {
