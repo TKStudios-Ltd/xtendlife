@@ -273,6 +273,53 @@
         "padding_bottom": 100
       }
     },
+    "collection_list_GrRzez": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_Jf9g4L": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "supplements",
+            "custom_title": "",
+            "background_color": ""
+          }
+        },
+        "featured_collection_EpNNwA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skincare",
+            "custom_title": "Skincare",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        },
+        "featured_collection_RVqwaj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "superfoods",
+            "custom_title": "",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_Jf9g4L",
+        "featured_collection_EpNNwA",
+        "featured_collection_RVqwaj"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Explore",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
     "rich_text_WMG6Jn": {
       "type": "rich-text",
       "blocks": {
@@ -366,62 +413,6 @@
         "padding_bottom": 0
       }
     },
-    "collection_list_GrRzez": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_jJEKBR": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "drops-pops",
-            "custom_title": "",
-            "background_color": "#f4a72c"
-          }
-        },
-        "featured_collection_M4Vtwi": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "manuka-honey",
-            "custom_title": "",
-            "background_color": "#f6cd86"
-          }
-        },
-        "featured_collection_EpNNwA": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "bundles",
-            "custom_title": "",
-            "background_color": "#e26b37"
-          }
-        },
-        "featured_collection_RVqwaj": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "bundles",
-            "custom_title": "",
-            "background_color": "#e26b37"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_jJEKBR",
-        "featured_collection_M4Vtwi",
-        "featured_collection_EpNNwA",
-        "featured_collection_RVqwaj"
-      ],
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "TEST",
-        "heading_size": "hxl",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
     "transparent_image_banner_eN4NE4": {
       "type": "transparent-image-banner",
       "name": "Transparent Image Banner",
@@ -438,10 +429,10 @@
     "rich_text_e8Phjw",
     "featured_collection_jqXfKn",
     "image_with_tabs_4TAPEz",
+    "collection_list_GrRzez",
     "rich_text_WMG6Jn",
     "image_infinite_scroll_KcRcLX",
     "image_infinite_scroll_icwYGP",
-    "collection_list_GrRzez",
     "transparent_image_banner_eN4NE4"
   ]
 }
