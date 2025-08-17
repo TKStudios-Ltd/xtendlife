@@ -111,6 +111,11 @@
   flex: 0 0 50%;
 }
 
+.mega-menu__list li ul li .mega-menu__link {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .mega-menu__link {
   color: rgba(var(--color-foreground), 1);
   font-size: 18px;
@@ -120,11 +125,8 @@
   text-decoration: none;
   transition: text-decoration var(--duration-short) ease;
   word-wrap: break-word;
+  font-weight: 500;
 }
-
-/* .mega-menu__link--level-2 {
-  font-weight: bold;
-} */
 
 .header--top-center .mega-menu__list {
   display: flex;
