@@ -280,7 +280,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "supplements",
-            "custom_image": "shopify://shop_images/015f15e263cf2dab3d2db0319ff32cda8c42fa35.png",
             "custom_title": "",
             "background_color": ""
           }
@@ -289,7 +288,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "skincare",
-            "custom_image": "shopify://shop_images/ada68b3ef10c2c9e0b5ae60194cddbd15954b49f.png",
             "custom_title": "Skincare",
             "background_color": "rgba(0,0,0,0)"
           }
@@ -298,7 +296,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "superfoods",
-            "custom_image": "shopify://shop_images/9c3c7ab96db365e2fc9fdb5fa4abec066faba122.png",
             "custom_title": "",
             "background_color": "rgba(0,0,0,0)"
           }
