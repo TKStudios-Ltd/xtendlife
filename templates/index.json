@@ -279,40 +279,25 @@
         "image_EF8DJG": {
           "type": "image",
           "settings": {
-            "link": ""
-          }
-        },
-        "image_YGzwqw": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "image_G8BDmr": {
-          "type": "image",
-          "settings": {
+            "image": "shopify://shop_images/Xt_placeholder_logos.jpg",
             "link": ""
           }
         }
       },
       "block_order": [
-        "image_EF8DJG",
-        "image_YGzwqw",
-        "image_G8BDmr"
+        "image_EF8DJG"
       ],
-      "custom_css": [
-        "img {opacity: 0.5;}"
-      ],
+      "custom_css": [],
       "name": "Image Infinite Scroll",
       "settings": {
         "background_color": "#ffffff",
         "image_size_constraint": "height",
-        "image_max_size": 60,
+        "image_max_size": 100,
         "scroll_speed": 40,
         "repeat_count": 5,
-        "image_gap": 40,
-        "padding_top": 0,
-        "padding_bottom": 80
+        "image_gap": 0,
+        "padding_top": 20,
+        "padding_bottom": 100
       }
     },
     "image_infinite_scroll_icwYGP": {
