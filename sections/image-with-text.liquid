@@ -25,10 +25,8 @@
 
     /* Keep the text constrained to page-width */
     .image-with-text--edge-{{ section.id }} .image-with-text__text-item > .page-width {
-      max-width: {{ settings.page_width }}px;
+      max-width: calc({{ settings.page_width }}px / 2);
       margin: 0 auto;
-      padding-left: var(--page-width-padding, 1.6rem);
-      padding-right: var(--page-width-padding, 1.6rem);
     }
 
     /* Remove gaps so the image can truly hit the edge */
@@ -36,29 +34,24 @@
       column-gap: 0;
       row-gap: 0;
     }
-
     /* Allow the media grid item to stretch */
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item {
       flex: 0 0 auto;
     }
-
     /* Base widths matching Dawn's small/medium/large */
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item--small  { --media-col-base: 33.3333%; }
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item--medium { --media-col-base: 50%; }
     .image-with-text--edge-{{ section.id }} .image-with-text__media-item--large  { --media-col-base: 66.6667%; }
-
     /* Image on LEFT (image_first) – bleed to left edge */
     .image-with-text--edge-{{ section.id }} .image-with-text__grid:not(.image-with-text__grid--reverse) .image-with-text__media-item {
       margin-left: calc((100vw - {{ settings.page_width }}px) / -2);
       width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
     }
-
     /* Image on RIGHT (text_first) – bleed to right edge */
     .image-with-text--edge-{{ section.id }} .image-with-text__grid.image-with-text__grid--reverse .image-with-text__media-item {
       margin-right: calc((100vw - {{ settings.page_width }}px) / -2);
       width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
     }
-
     /* Optional: square corners on the bleeding image */
     .image-with-text--edge-{{ section.id }} .image-with-text__media { border-radius: 0; }
   }
