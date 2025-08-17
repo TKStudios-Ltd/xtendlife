@@ -115,6 +115,9 @@
   font-size: 14px;
   font-weight: 400;
 }
+.mega-menu__list li ul {
+  padding-top: 1.5rem;
+}
 
 .mega-menu__link {
   color: rgba(var(--color-foreground), 1);
