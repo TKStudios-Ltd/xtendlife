@@ -475,6 +475,39 @@
         "padding_bottom": 100
       }
     },
+    "featured_collection_eLXEqh": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "superfoods",
+        "collection_2": "",
+        "collection_3": "",
+        "collection_4": "",
+        "collection_5": "",
+        "products_to_show": 4,
+        "title": "Superfoods",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
     "image_infinite_scroll_icwYGP": {
       "type": "image-infinite-scroll",
       "blocks": {
@@ -535,6 +568,7 @@
     "rich_text_WMG6Jn",
     "image_infinite_scroll_KcRcLX",
     "image_with_text_KCQTNJ",
+    "featured_collection_eLXEqh",
     "image_infinite_scroll_icwYGP",
     "transparent_image_banner_eN4NE4"
   ]
