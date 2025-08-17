@@ -125,7 +125,7 @@
 
 .mega-menu__link {
   color: rgba(var(--color-foreground), 1);
-  font-size: 32px;
+  font-size: 18px;
   display: block;
   line-height: 1.2;
   padding-bottom: 5px;
