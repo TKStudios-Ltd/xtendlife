@@ -67,19 +67,6 @@
   overflow: hidden;
   border-radius: 11px;
 }
-@media (max-width: 1420px) {
-  .mega-menu__content_wrapper {
-    padding: 3.5rem;
-  }
-  .mega-menu__tile {
-    height: 16vw;
-    max-height: 16vw;
-  }
-  .mega-menu__link {
-    font-size: 2.5vw !important;
-    padding-bottom: 0.25vw !important;
-  }
-}
 .mega-menu__tile a {
   display: block;
   height: 100%;
