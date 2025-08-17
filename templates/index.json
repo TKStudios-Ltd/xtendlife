@@ -445,7 +445,8 @@
         "text_fQHPQr"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}"
+        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
+        ".image-with-text__media img {border-radius: 10px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
