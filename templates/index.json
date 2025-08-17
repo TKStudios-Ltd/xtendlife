@@ -273,6 +273,30 @@
         "padding_bottom": 100
       }
     },
+    "rich_text_WMG6Jn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JYBcXx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Xtendlife is an FDA registered and GMP certified facility",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JYBcXx"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 0
+      }
+    },
     "image_infinite_scroll_KcRcLX": {
       "type": "image-infinite-scroll",
       "blocks": {
@@ -297,7 +321,7 @@
         "repeat_count": 5,
         "image_gap": 0,
         "padding_top": 20,
-        "padding_bottom": 100
+        "padding_bottom": 80
       }
     },
     "image_infinite_scroll_icwYGP": {
@@ -411,6 +435,7 @@
     "rich_text_e8Phjw",
     "featured_collection_jqXfKn",
     "image_with_tabs_4TAPEz",
+    "rich_text_WMG6Jn",
     "image_infinite_scroll_KcRcLX",
     "image_infinite_scroll_icwYGP",
     "collection_list_GrRzez",
