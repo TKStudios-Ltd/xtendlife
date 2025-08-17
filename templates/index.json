@@ -555,6 +555,32 @@
         "image_position": "top",
         "negative_margin": 0
       }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
@@ -570,6 +596,7 @@
     "image_with_text_KCQTNJ",
     "featured_collection_eLXEqh",
     "image_infinite_scroll_icwYGP",
-    "transparent_image_banner_eN4NE4"
+    "transparent_image_banner_eN4NE4",
+    "newsletter_qKtmmH"
   ]
 }
