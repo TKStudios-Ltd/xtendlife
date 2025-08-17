@@ -12,6 +12,58 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if section.settings.image_bleed %}
+  @media screen and (min-width: 750px) {
+    /* Make an outer wrapper span the viewport width */
+    .image-with-text--edge-{{ section.id }} .image-with-text__outer {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Keep the text constrained to page-width */
+    .image-with-text--edge-{{ section.id }} .image-with-text__text-item > .page-width {
+      max-width: {{ settings.page_width }}px;
+      margin: 0 auto;
+      padding-left: var(--page-width-padding, 1.6rem);
+      padding-right: var(--page-width-padding, 1.6rem);
+    }
+
+    /* Remove gaps so the image can truly hit the edge */
+    .image-with-text--edge-{{ section.id }} .image-with-text__grid {
+      column-gap: 0;
+      row-gap: 0;
+    }
+
+    /* Allow the media grid item to stretch */
+    .image-with-text--edge-{{ section.id }} .image-with-text__media-item {
+      flex: 0 0 auto;
+    }
+
+    /* Base widths matching Dawn's small/medium/large */
+    .image-with-text--edge-{{ section.id }} .image-with-text__media-item--small  { --media-col-base: 33.3333%; }
+    .image-with-text--edge-{{ section.id }} .image-with-text__media-item--medium { --media-col-base: 50%; }
+    .image-with-text--edge-{{ section.id }} .image-with-text__media-item--large  { --media-col-base: 66.6667%; }
+
+    /* Image on LEFT (image_first) – bleed to left edge */
+    .image-with-text--edge-{{ section.id }} .image-with-text__grid:not(.image-with-text__grid--reverse) .image-with-text__media-item {
+      margin-left: calc((100vw - {{ settings.page_width }}px) / -2);
+      width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
+    }
+
+    /* Image on RIGHT (text_first) – bleed to right edge */
+    .image-with-text--edge-{{ section.id }} .image-with-text__grid.image-with-text__grid--reverse .image-with-text__media-item {
+      margin-right: calc((100vw - {{ settings.page_width }}px) / -2);
+      width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
+    }
+
+    /* Optional: square corners on the bleeding image */
+    .image-with-text--edge-{{ section.id }} .image-with-text__media { border-radius: 0; }
+  }
+{% endif %}
+
 {%- endstyle -%}
 
 {%- liquid
@@ -24,8 +76,12 @@
   endif
 -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
-  <div class="page-width">
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} {% if section.settings.image_bleed %}image-with-text--edge-{{ section.id }}{% endif %}">
+  {% if section.settings.image_bleed %}
+    <div class="image-with-text__outer">
+  {% else %}
+    <div class="page-width">
+  {% endif %}
     <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
@@ -60,6 +116,7 @@
           </div>
         </div>
         <div class="image-with-text__text-item grid__item">
+          {% if section.settings.image_bleed %}<div class="page-width">{% endif %}
           <div
             id="ImageWithText--{{ section.id }}"
             class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
@@ -104,6 +161,7 @@
               {%- endcase -%}
             {%- endfor -%}
           </div>
+          {% if section.settings.image_bleed %}</div>{% endif %}
         </div>
       </div>
     </div>
@@ -207,6 +265,12 @@
       "type": "header",
       "content": "t:sections.image-with-text.settings.header.content"
     }, 
+    {
+      "type": "checkbox",
+      "id": "image_bleed",
+      "label": "Bleed image to viewport edge (desktop)",
+      "default": false
+    },
     {
       "type": "select",
       "id": "content_layout",
