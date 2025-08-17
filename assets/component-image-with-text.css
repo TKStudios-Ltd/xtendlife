@@ -384,8 +384,16 @@
   list-style: none;
   padding-left: 0;
 }
+.image-with-text__text.rte ul li {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
 .image-with-text__text.rte ul li::before {
   content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
+  height: 12px;
+  width: 12px;
+  padding-right: 10px;
 }
 
 @media screen and (max-width: 749px) {
