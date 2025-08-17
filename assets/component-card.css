@@ -306,6 +306,20 @@
   margin-bottom: 0;
 }
 
+.collection-list-wrapper {
+  display: flex;
+}
+.collection-list-wrapper .title-wrapper--no-top-margin-only {
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.collection-list-wrapper .collection-list-desktop {
+  flex: 0 0 75%;
+  width: 100%;
+}
+
 .collection-list-wrapper .card-wrapper:hover {
   cursor: pointer;
 }
@@ -314,7 +328,7 @@
   text-align: center;
   position: relative;
 }
-.collection-list-wrapper .card__heading::after {
+/* .collection-list-wrapper .card__heading::after {
   content: '';
   position: absolute;
   top: calc(100% + 4px);
@@ -322,7 +336,7 @@
   transform: translateX(-50%) translateY(-8px);
   opacity: 0;
   width: 100%;
-  height: 15px; /* adjust based on SVG height */
+  height: 15px;
   background: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/W_Collection-Underline.svg') no-repeat center;
   background-size: contain;
   transition: opacity 1s ease, transform 1s ease;
@@ -331,14 +345,14 @@
 .collection-list-wrapper .card-wrapper:hover .card__heading::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-}
+} */
 @media (max-width: 749px) {
   .collection-list-wrapper .card__heading {
     font-size: 20px;
   }
-  .collection-list-wrapper .card__heading::after {
+  /* .collection-list-wrapper .card__heading::after {
     height: 10px;
-  }
+  } */
 }
 
 .card--horizontal .card__heading,
