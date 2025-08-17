@@ -344,7 +344,7 @@
         "text_cAbQL9"
       ],
       "custom_css": [
-        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 3rem 0; justify-content: space-between !important; }}"
+        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 3rem 6rem 3rem 0; justify-content: space-between !important; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
