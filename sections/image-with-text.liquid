@@ -22,8 +22,6 @@
       margin-left: 50%;
       transform: translateX(-50%);
     }
-
-    /* Keep the text constrained to page-width */
     .image-with-text--edge-{{ section.id }} .image-with-text__text-item > .page-width {
       max-width: calc({{ settings.page_width }}px / 2);
       margin: 0 0 0 auto;
@@ -48,13 +46,14 @@
       margin-left: calc((100vw - {{ settings.page_width }}px) / -2);
       width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
     }
+    .image-with-text--edge-{{ section.id }} .image-with-text__media { border-radius: 0; }
+  }
+  @media screen and (min-width: 1400px) {
     /* Image on RIGHT (text_first) – bleed to right edge */
     .image-with-text--edge-{{ section.id }} .image-with-text__grid.image-with-text__grid--reverse .image-with-text__media-item {
       margin-right: calc((100vw - {{ settings.page_width }}px) / -2);
       width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
     }
-    /* Optional: square corners on the bleeding image */
-    .image-with-text--edge-{{ section.id }} .image-with-text__media { border-radius: 0; }
   }
 {% endif %}
 
