@@ -287,6 +287,9 @@
       "block_order": [
         "heading_JYBcXx"
       ],
+      "custom_css": [
+        ".rich-text__heading {max-width: 400px;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "left",
