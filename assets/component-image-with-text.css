@@ -388,12 +388,13 @@
   font-size: 12px;
   display: flex;
   align-items: center;
+  padding: 5px 0;
 }
 .image-with-text__text.rte ul li::before {
   content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
   height: 12px;
   width: 12px;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 749px) {
