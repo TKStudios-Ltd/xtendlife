@@ -70,6 +70,7 @@
 }
 .mega-menu__tile .overflow--hidden {
   overflow: hidden;
+  border-radius: 11px;
 }
 .mega-menu__tile img {
   width: 100%;
@@ -104,6 +105,7 @@
   font-weight: 400;
   margin: 4px 0 0;
   display: inline-flex;
+  align-items: center;
 }
 .mega-menu__tile .mega-menu__tile_arrow_link .icon-wrap {
   margin-left: .8rem;
