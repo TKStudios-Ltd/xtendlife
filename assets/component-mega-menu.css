@@ -62,14 +62,11 @@
 }
 .mega-menu__tile {
   position: relative;
-  height: 240px;
-  max-height: 240px;
   flex: 1 1 auto;
-  overflow: hidden;
-  border-radius: 11px;
 }
 .mega-menu__tile a {
   display: block;
+  text-decoration: none;
 }
 .mega-menu__tile img {
   width: 100%;
@@ -90,16 +87,19 @@
   color: rgba(var(--color-foreground), 1);
   font-size: 18px;
   font-weight: 500;
+  margin: 14px 0 0;
 }
 .mega-menu__tile p.mega-menu__tile_subtitle {
   color: rgba(var(--color-foreground), 1);
   font-size: 14px;
   font-weight: 400;
+  margin: 8px 0 0;
 }
 .mega-menu__tile .mega-menu__tile_arrow_link {
   color: #5FC4FF;
   font-size: 14px;
   font-weight: 400;
+  margin: 8px 0 0;
 }
 
 .mega-menu__list {
