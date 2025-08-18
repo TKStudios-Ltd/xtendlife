@@ -89,7 +89,7 @@
   transform: scale(1.05);
 }
 .mega-menu__tile p {
-  position: absolute;
+  /* position: absolute;
   bottom: 12px;
   left: 12px;
   background: #FCF7EB;
@@ -100,7 +100,7 @@
   color: #4A2E20;
   margin: 0;
   white-space: nowrap;
-  letter-spacing: 0;
+  letter-spacing: 0; */
 }
 
 .mega-menu__list {
