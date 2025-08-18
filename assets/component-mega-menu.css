@@ -91,6 +91,7 @@
   color: rgba(var(--color-foreground), 1);
   font-size: 18px;
   font-weight: 500;
+  line-height: 1.35;
   margin: 14px 0 0;
 }
 .mega-menu__tile p.mega-menu__tile_subtitle {
