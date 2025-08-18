@@ -17,6 +17,10 @@
     .section-{{ section.id }}-padding .ts-left {
         flex: 0 0 25%;
     }
+    .section-{{ section.id }}-padding .ts-left h2 {
+        color: #F4F8FB;
+        max-width: 200px;
+    }
     .section-{{ section.id }}-padding .ts-right {
         flex: 0 0 75%;
         position: relative;
@@ -62,7 +66,7 @@
       <div class="ts-left">
         {% if section.settings.heading != blank %}
             <div>
-                <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in" style="color: #F4F8FB;">{{ section.settings.heading }}</h2>
+                <h2 class="inline-richtext h2 scroll-trigger animate--slide-in">{{ section.settings.heading }}</h2>
             </div>
         {% endif %}
       </div>
