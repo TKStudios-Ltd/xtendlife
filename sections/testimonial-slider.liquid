@@ -76,7 +76,10 @@
 
   /* Arrows */
   .section-{{ section.id }}-padding .ts-nav{
-    display:flex; justify-content:center; gap:24px; margin-top:16px;
+    display:flex; 
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 3rem;
   }
   .section-{{ section.id }}-padding .ts-btn{
     appearance:none; border:1px solid rgba(0,0,0,.15); background:#fff;
@@ -110,7 +113,7 @@
             class="swiper tswiper"
             aria-label="{{ section.settings.heading | escape | default: 'Testimonials' }}"
             data-speed="{{ section.settings.speed | default: 500 }}"
-            data-gap="{{ section.settings.gap | default: 24 }}"
+            data-gap="{{ section.settings.gap | default: 20 }}"
             data-autoplay="{{ section.settings.autoplay | default: false }}"
             data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
             >
