@@ -63,11 +63,13 @@
 .mega-menu__tile {
   position: relative;
   flex: 1 1 auto;
-  overflow: hidden;
 }
 .mega-menu__tile a {
   display: block;
   text-decoration: none;
+}
+.mega-menu__tile .overflow--hidden {
+  overflow: hidden;
 }
 .mega-menu__tile img {
   width: 100%;
