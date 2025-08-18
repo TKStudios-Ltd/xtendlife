@@ -148,7 +148,6 @@
   break-after: column;
 }
 
-
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-blog,
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-health-concerns,
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-ingredient-index,
@@ -156,8 +155,18 @@
   font-size: 36px;
 }
 
-
-.mega-menu__list li ul {
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-faqs,
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-shipping,
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-need-help {
+  padding-left: 4rem;
+}
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-need-help {
+  margin-top: 4rem;
+}
+#MegaMenu-Content-2 .mega-menu__list li ul {
+  padding-top: 0.5rem;
+}
+#MegaMenu-Content-1 .mega-menu__list li ul {
   padding-top: 1.5rem;
 }
 
