@@ -45,8 +45,9 @@
   .section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
   .section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
 
-  /* Keep JS spaceBetween in sync with any width maths you add later */
-  .section-{{ section.id }}-padding .tswiper{ --g: {{ section.settings.gap | default: 20 }}px; }
+.section-{{ section.id }}-padding .tswiper{ 
+    --g: 2rem; 
+}
 
   /* Card styling */
   .section-{{ section.id }}-padding .ts-card{
