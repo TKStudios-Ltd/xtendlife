@@ -113,10 +113,10 @@
   transition: transform var(--duration-short) ease;
 }
 .mega-menu__tile .mega-menu__tile_arrow_link .icon-arrow {
-  width: 1.2rem;
+  width: 1rem;
 }
 .mega-menu__tile a:hover .mega-menu__tile_arrow_link .icon-arrow {
-  width: calc(var(--font-heading-scale) * 1.5rem);
+  width: 1.2rem;
 }
 
 .mega-menu__list {
