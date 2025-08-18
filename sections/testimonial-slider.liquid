@@ -34,11 +34,13 @@
     width: 100%;
     position: relative; 
 }
-.section-{{ section.id }}-padding .ts-bleed{
-  width: min(
-    calc(75% + 2rem),
-    calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem))
-  );
+.section-{{ section.id }}-padding .ts-bleed {
+    width: calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem));
+}
+@media (max-width: 1599px) {
+  .section-{{ section.id }}-padding .ts-bleed {
+    width: calc(75% + 2rem) !important;
+  }
 }
 
   /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
