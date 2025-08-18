@@ -39,6 +39,7 @@
 <section
   id="testimonial-slider-{{ section.id }}"
   class="section-{{ section.id }}-padding"
+  data-testimonial-slider
   style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
 >
   <div class="page-width">
@@ -57,7 +58,11 @@
             id="tswiper-{{ section.id }}"
             class="swiper tswiper"
             aria-label="{{ section.settings.heading | escape | default: 'Testimonials' }}"
-          >
+            data-speed="{{ section.settings.speed | default: 500 }}"
+            data-gap="{{ section.settings.gap | default: 24 }}"
+            data-autoplay="{{ section.settings.autoplay | default: false }}"
+            data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
+            >
             <div class="swiper-wrapper">
               {%- for block in section.blocks -%}
                 {%- assign b = block.settings -%}
