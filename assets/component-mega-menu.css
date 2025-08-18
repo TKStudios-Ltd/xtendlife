@@ -133,15 +133,8 @@
   padding-left: 0;
   flex: 0 0 calc(50% - 1.5rem);
 }
-/* #MegaMenu-Content-2 .mega-menu__list {
-  column-count: 2;
-  gap: 2rem 3rem;
-  list-style: none;
-  padding-left: 0;
-  flex: 0 0 calc(50% - 1.5rem);
-} */
 
-/* #MegaMenu-Content-2 .mega-menu__list {
+#MegaMenu-Content-2 .mega-menu__list {
   column-count: 2; 
   gap: 2rem 3rem;
   list-style-position: inside;
@@ -153,25 +146,8 @@
 }
 #MegaMenu-Content-2 .mega-menu__list > li:nth-child(4) {
   break-after: column;
-} */
+}
 
-#MegaMenu-Content-2 ul.mega-menu__list {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 0 2rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  list-style-position: inside;
-  flex: 0 0 calc(50% - 1.5rem);
-}
-#MegaMenu-Content-2 ul.mega-menu__list > li {
-  grid-column: 1;
-}
-#MegaMenu-Content-2 ul.mega-menu__list > li:nth-child(n+5) {
-  grid-column: 2;
-  grid-row: auto;
-}
 
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-blog,
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-health-concerns,
