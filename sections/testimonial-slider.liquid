@@ -59,7 +59,9 @@
     box-shadow:0 1px 2px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.06);
   }
   .section-{{ section.id }}-padding[style*="background-color"] .ts-card{ background:rgba(255,255,255,0.98); }
-  .section-{{ section.id }}-padding .ts-stars{ letter-spacing:2px; font-size:18px; line-height:1; opacity:.9; }
+.section-{{ section.id }}-padding .ts-stars{ 
+    margin-bottom: 2rem;
+}
   .section-{{ section.id }}-padding .ts-title{ margin:0; }
   .section-{{ section.id }}-padding .ts-desc{ color:#333; opacity:.9; }
   .section-{{ section.id }}-padding .ts-person{ font-weight:600; color:#555; }
@@ -124,9 +126,7 @@
                 <div class="swiper-slide" {{ block.shopify_attributes }}>
                   <article class="ts-card">
                     {% if section.settings.show_stars %}
-                      <div class="ts-stars" aria-label="{{ section.settings.star_count }} out of 5 stars">
-                        {%- for i in (1..section.settings.star_count) -%}★{%- endfor -%}
-                      </div>
+                      <img class="ts-stars" src="https://cdn.shopify.com/s/files/1/2714/9868/files/XL_stars_5.svg" width="100%" height="16">
                     {% endif %}
 
                     {% if b.title != blank %}
