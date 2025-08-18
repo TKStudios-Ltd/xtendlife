@@ -137,8 +137,8 @@
 #MegaMenu-Content-2 .mega-menu__list {
   column-count: 2; 
   gap: 2rem 3rem;
-  list-style-position: inside;
-  padding: 0;
+  list-style: none;
+  padding-left: 0;
   flex: 0 0 calc(50% - 1.5rem);
 }
 #MegaMenu-Content-2 .mega-menu__list > li { 
