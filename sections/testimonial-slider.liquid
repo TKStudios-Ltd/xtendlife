@@ -123,11 +123,15 @@
     border: none; 
     background: transparent;
     border-radius: 0; 
+    opacity: 1;
     width: 41px; 
     height: 41px; 
     display:grid; 
     place-items:center; 
     cursor:pointer;
+}
+.section-{{ section.id }}-padding .ts-btn.swiper-button-disabled {
+    opacity: 0.5;
 }
 {%- endstyle -%}
 
