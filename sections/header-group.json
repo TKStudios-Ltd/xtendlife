@@ -54,16 +54,24 @@
         "padding_bottom": 20,
         "tile_1_image": "shopify://shop_images/DSF6381_2200x_1.png",
         "tile_1_title": "Skin Essentials for Women",
+        "tile_1_subtitle": "Bundle and save up to 20%*",
         "tile_1_link": "#",
+        "tile_1_link_title": "Shop now",
         "tile_2_image": "shopify://shop_images/DSF6381_2200x_3_2.png",
         "tile_2_title": "Heart Health Bundle",
+        "tile_2_subtitle": "Bundle and save up to 20%*",
         "tile_2_link": "#",
+        "tile_2_link_title": "Shop now",
         "tile_3_image": "shopify://shop_images/DSF6381_2200x_1_1.png",
         "tile_3_title": "A neuroscientist’s guide to nutriton for brain health",
+        "tile_3_subtitle": "",
         "tile_3_link": "#",
+        "tile_3_link_title": "Read more",
         "tile_4_image": "shopify://shop_images/DSF6381_2200x_3_1.png",
         "tile_4_title": "The Ingredient Index",
-        "tile_4_link": "#"
+        "tile_4_subtitle": "Using Science to get the best out of Nature",
+        "tile_4_link": "#",
+        "tile_4_link_title": "Learn more"
       }
     }
   },
