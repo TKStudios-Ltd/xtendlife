@@ -16,12 +16,18 @@
 }
 /* Two-column layout */
 .section-{{ section.id }}-padding .ts-grid{ 
-    display:flex; 
-    gap:0; 
-    align-items:flex-start; 
+    display: flex; 
+    gap: 0; 
+    align-items: flex-start; 
 }
 .section-{{ section.id }}-padding .ts-left{ 
-    flex:0 0 25%; 
+    flex: 0 0 25%; 
+}
+.section-{{ section.id }}-padding .ts-left h2{
+    color: #F4F8FB; 
+    margin: 0;
+    line-height: 1.1;
+    max-width: 200px;
 }
 .section-{{ section.id }}-padding .ts-right { 
     flex: 0 0 75%; 
@@ -35,9 +41,6 @@
   .section-{{ section.id }}-padding .ts-bleed {
     width: calc(100vw - ((100vw - 1600px) / 2) - (0.25 * 1600px));
   }
-}
-.section-{{ section.id }}-padding .ts-left h2{
-    color:#F4F8FB; margin:0; line-height:1.1; max-width:200px;
 }
 
   /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
