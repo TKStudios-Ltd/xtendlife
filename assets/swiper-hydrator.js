@@ -1,25 +1,26 @@
 /* assets/swiper-hydrator.js */
 (function () {
-  function initTestimonialSection(sectionRoot) {
+  function initOne(sectionRoot) {
     if (!sectionRoot) return;
-    const swiperEl = sectionRoot.querySelector('.tswiper');
-    if (!swiperEl || swiperEl.dataset.swiperReady === '1') return;
 
-    // Read per-section config from data attributes (with safe defaults)
+    const swiperEl =
+      sectionRoot.matches('.tswiper') ? sectionRoot : sectionRoot.querySelector('.tswiper');
+
+    if (!swiperEl) return;
+    if (swiperEl.dataset.swiperReady === '1') return;
+
+    const scope = swiperEl.closest('[data-testimonial-slider]') || swiperEl.closest('.ts-bleed') || sectionRoot;
+    const prevEl = scope?.querySelector('.ts-prev') || null;
+    const nextEl = scope?.querySelector('.ts-next') || null;
+
     const speed = parseInt(swiperEl.dataset.speed || '500', 10);
     const gap = parseInt(swiperEl.dataset.gap || '24', 10);
     const autoplay = (swiperEl.dataset.autoplay || 'false') === 'true';
     const autoplayDelay = parseInt(swiperEl.dataset.autoplayDelay || '4000', 10);
 
-    // Find nav buttons scoped to this section
-    const scope = sectionRoot.querySelector('.ts-bleed') || sectionRoot;
-    const prevEl = scope.querySelector('.ts-prev');
-    const nextEl = scope.querySelector('.ts-next');
-
-    // Swiper must exist globally
     if (typeof window.Swiper === 'undefined') {
-      // If Swiper not ready yet, try again soon
-      setTimeout(function () { initTestimonialSection(sectionRoot); }, 100);
+      console.info('[TS] Waiting for Swiper…');
+      setTimeout(function () { initOne(sectionRoot); }, 100);
       return;
     }
 
@@ -29,9 +30,11 @@
       slidesPerView: 1.2,
       watchOverflow: true,
       navigation: (prevEl && nextEl) ? { prevEl, nextEl } : undefined,
-      breakpoints: {
-        750: { slidesPerView: 2.1 },
-        990: { slidesPerView: 3.1 }
+      breakpoints: { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } },
+      on: {
+        afterInit(sw) { console.log('[TS] init OK', { slides: sw.slides.length, width: sw.width, spv: sw.params.slidesPerView }); },
+        breakpoint(sw, p) { console.log('[TS] breakpoint', { width: sw.width, spv: p.slidesPerView }); },
+        resize(sw) { console.log('[TS] resize', { width: sw.width, spv: sw.params.slidesPerView }); }
       }
     };
     if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false };
@@ -42,14 +45,15 @@
     const forceUpdate = () => { try { sw.update(); } catch(e){} };
     if (document.readyState === 'complete') setTimeout(forceUpdate, 0);
     else window.addEventListener('load', forceUpdate, { once: true });
-
-    document.addEventListener('shopify:section:select', forceUpdate);
   }
 
   function scan(context) {
-    (context || document)
-      .querySelectorAll('[data-testimonial-slider]')
-      .forEach(initTestimonialSection);
+    const root = context || document;
+    const marked = root.querySelectorAll('[data-testimonial-slider]');
+    const raw = root.querySelectorAll('.tswiper');
+    console.log('[TS] scan', { marked: marked.length, tswipers: raw.length });
+    if (marked.length) marked.forEach(initOne);
+    raw.forEach(initOne);
   }
 
   if (document.readyState === 'loading') {
@@ -58,6 +62,6 @@
     scan();
   }
 
-  // Re-init when a section is added/edited in Theme Editor
   document.addEventListener('shopify:section:load', function (e) { scan(e.target); });
+  document.addEventListener('shopify:section:select', function (e) { scan(e.target); });
 })();
