@@ -28,7 +28,10 @@
     width: 75%;
     position: relative; 
 }
-@media (min-width:1600px) {
+.section-{{ section.id }}-padding .ts-bleed {
+    width: calc(100vw - ((100vw - 1600px) / 2) - (0.25 * 1600px));
+}
+@media (min-width: 1600px) {
   .section-{{ section.id }}-padding .ts-bleed {
     width: calc(100vw - ((100vw - 1600px) / 2) - (0.25 * 1600px));
   }
