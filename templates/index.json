@@ -642,7 +642,7 @@
         "show_stars": true,
         "star_count": 5,
         "shop_cta": "Shop now",
-        "padding_top": 40,
+        "padding_top": 60,
         "padding_bottom": 100,
         "show_arrows": true,
         "gap": 24,
