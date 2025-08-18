@@ -158,13 +158,14 @@
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-faqs,
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-shipping,
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-need-help {
-  padding-left: 4rem;
+  padding-left: 6rem;
 }
 #MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-need-help {
   margin-top: 4rem;
 }
 #MegaMenu-Content-2 .mega-menu__list li ul {
   padding-top: 0.5rem;
+  padding-left: 6rem;
 }
 #MegaMenu-Content-1 .mega-menu__list li ul {
   padding-top: 1.5rem;
