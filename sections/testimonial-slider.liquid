@@ -43,14 +43,15 @@
   style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
 >
   <div class="page-width">
-    {% if section.settings.heading != blank %}
-      <div class="title-wrapper-with-link">
-        <h2 class="title inline-richtext">{{ section.settings.heading }}</h2>
-      </div>
-    {% endif %}
 
     <div class="ts-grid">
-      <div class="ts-left"></div>
+      <div class="ts-left">
+        {% if section.settings.heading != blank %}
+            <div class="title-wrapper-with-link">
+                <h2 class="title inline-richtext">{{ section.settings.heading }}</h2>
+            </div>
+        {% endif %}
+      </div>
 
       <div class="ts-right">
         <div class="ts-bleed" data-ts-root>
