@@ -141,6 +141,22 @@
   flex: 0 0 calc(50% - 1.5rem);
 }
 
+#MegaMenu-Content-2 .mega-menu__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  gap: 2rem 3rem;
+  list-style-position: inside;
+  padding: 0;
+}
+
+#MegaMenu-Content-2 .mega-menu__list > li { 
+  grid-column: 1; 
+}
+#MegaMenu-Content-2 .mega-menu__list > li:nth-child(n + 5) {
+  grid-column: 2;
+}
+
 /* .mega-menu__list li ul li .mega-menu__link {
   font-size: 14px;
   font-weight: 400;
