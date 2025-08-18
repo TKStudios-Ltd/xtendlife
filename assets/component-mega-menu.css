@@ -93,13 +93,14 @@
   color: rgba(var(--color-foreground), 1);
   font-size: 14px;
   font-weight: 400;
-  margin: 8px 0 0;
+  margin: 4px 0 0;
 }
 .mega-menu__tile .mega-menu__tile_arrow_link {
   color: #5FC4FF;
   font-size: 14px;
   font-weight: 400;
-  margin: 8px 0 0;
+  margin: 4px 0 0;
+  display: inline-flex;
 }
 
 .mega-menu__list {
