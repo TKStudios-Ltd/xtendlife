@@ -125,10 +125,17 @@
   transform: translate(-.05rem);
 }
 
-.mega-menu__list {
+#MegaMenu-Content-1 .mega-menu__list {
   display: grid;
   gap: 2rem 3rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  padding-left: 0;
+  flex: 0 0 calc(50% - 1.5rem);
+}
+#MegaMenu-Content-2 .mega-menu__list {
+  column-count: 2;
+  gap: 2rem 3rem;
   list-style: none;
   padding-left: 0;
   flex: 0 0 calc(50% - 1.5rem);
