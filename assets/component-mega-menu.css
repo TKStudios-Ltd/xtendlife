@@ -161,6 +161,7 @@
   gap: 0 2rem;
   margin: 0;
   padding: 0;
+  list-style: none;
   list-style-position: inside;
   flex: 0 0 calc(50% - 1.5rem);
 }
