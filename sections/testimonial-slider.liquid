@@ -3,39 +3,39 @@
 {% endcomment %}
 
 {%- style -%}
-  /* Section padding (Dawn convention) */
-  .section-{{ section.id }}-padding{
+.section-{{ section.id }}-padding{
     padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-  @media (min-width:750px){
+    overflow-x: clip;
+}
+@media (min-width:750px){
     .section-{{ section.id }}-padding{
-      padding-top:{{ section.settings.padding_top }}px;
-      padding-bottom:{{ section.settings.padding_bottom }}px;
+        padding-top:{{ section.settings.padding_top }}px;
+        padding-bottom:{{ section.settings.padding_bottom }}px;
     }
-  }
-
-  /* Two-column layout */
-  .section-{{ section.id }}-padding .ts-grid{ display:flex; gap:0; align-items:flex-start; }
-  .section-{{ section.id }}-padding .ts-left{ flex:0 0 25%; }
-  .section-{{ section.id }}-padding .ts-right{ flex:0 0 75%; position:relative; overflow:visible; }
-  @media (max-width:989px){
-    .section-{{ section.id }}-padding .ts-left{ display:none; }
-    .section-{{ section.id }}-padding .ts-right{ flex:1 1 auto; }
-  }
-
-  .section-{{ section.id }}-padding .ts-left h2{
+}
+/* Two-column layout */
+.section-{{ section.id }}-padding .ts-grid{ 
+    display:flex; 
+    gap:0; 
+    align-items:flex-start; 
+}
+.section-{{ section.id }}-padding .ts-left{ 
+    flex:0 0 25%; 
+}
+.section-{{ section.id }}-padding .ts-right { 
+    flex:0 0 75%; 
+    position: relative; 
+}
+.section-{{ section.id }}-padding .ts-left h2{
     color:#F4F8FB; margin:0; line-height:1.1; max-width:200px;
-  }
-
-  /* RIGHT-BLEED ONLY:
-     Extend the slider container to the right viewport edge,
-     but keep its left edge starting at the right column. */
-  .section-{{ section.id }}-padding .ts-bleed{
-    /* grow the width by the page gutter on the right side only */
-    width: calc(100% + (50vw - 50%));
-    margin-right: calc(50vw - 50%);
-  }
+}
+/* RIGHT-BLEED */
+.section-{{ section.id }}-padding .ts-bleed{
+    width: calc(100% + max(0px, 50vw - 50%));
+    margin-right: max(0px, calc(50vw - 50%));
+    margin-left: 0;
+}
 
   /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
   .section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
