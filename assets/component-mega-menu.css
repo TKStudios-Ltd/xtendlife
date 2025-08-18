@@ -155,6 +155,7 @@
 }
 #MegaMenu-Content-2 .mega-menu__list > li:nth-child(n + 5) {
   grid-column: 2;
+  grid-row: auto;
 }
 
 /* .mega-menu__list li ul li .mega-menu__link {
