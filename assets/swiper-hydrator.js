@@ -14,7 +14,7 @@
     const nextEl = scope?.querySelector('.ts-next') || null;
 
     const speed = parseInt(swiperEl.dataset.speed || '500', 10);
-    const gap = parseInt(swiperEl.dataset.gap || '24', 10);
+    const gap = parseInt(swiperEl.dataset.gap || '20', 10);
     const autoplay = (swiperEl.dataset.autoplay || 'false') === 'true';
     const autoplayDelay = parseInt(swiperEl.dataset.autoplayDelay || '4000', 10);
 
