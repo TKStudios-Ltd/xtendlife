@@ -151,8 +151,15 @@
 #MegaMenu-Content-2 .mega-menu__list > li { 
   break-inside: avoid;
 }
-#MegaMenu-Content-2 .mega-menu__list > li:nth-child(45) {
+#MegaMenu-Content-2 .mega-menu__list > li:nth-child(4) {
   break-after: column;
+}
+
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-blog,
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-health-concerns,
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-ingredient-index,
+#MegaMenu-Content-2 .mega-menu__list #HeaderMenu-health-hub-about-us {
+  font-size: 36px;
 }
 
 
