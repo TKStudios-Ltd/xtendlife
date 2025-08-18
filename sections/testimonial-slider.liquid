@@ -28,13 +28,14 @@
     width: 75%;
     position: relative; 
 }
+@media (min-width:1600px){
+  .ts-bleed{
+    width: calc(100vw - ((100vw - 1600px) / 2) - (0.25 * 1600px));
+  }
+}
 .section-{{ section.id }}-padding .ts-left h2{
     color:#F4F8FB; margin:0; line-height:1.1; max-width:200px;
 }
-/* RIGHT-BLEED */
-/* .section-{{ section.id }}-padding .ts-bleed{
-     
-} */
 
   /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
   .section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
