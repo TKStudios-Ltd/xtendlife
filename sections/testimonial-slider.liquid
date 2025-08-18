@@ -33,9 +33,10 @@
 }
 /* RIGHT-BLEED */
 .section-{{ section.id }}-padding .ts-bleed{
-    width: calc(100% + max(0px, 50vw - 50%));
-    margin-right: max(0px, calc(50vw - 50%));
-    margin-left: 0;
+    --right-bleed: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin)));
+    width: calc(100% + var(--right-bleed));   /* grow to fill the right gutter */
+    margin-right: var(--right-bleed);         /* push the right edge out, left edge stays put */
+    margin-left: 0;   
 }
 
   /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
