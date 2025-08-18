@@ -111,12 +111,17 @@
   margin-left: .8rem;
   white-space: nowrap;
   transition: transform var(--duration-short) ease;
+  overflow: hidden;
 }
 .mega-menu__tile .mega-menu__tile_arrow_link .icon-arrow {
-  width: 1rem;
-}
-.mega-menu__tile a:hover .mega-menu__tile_arrow_link .icon-arrow {
   width: 1.2rem;
+}
+.mega-menu__tile .mega-menu__tile_arrow_link .icon-arrow path {
+  transform: translate(-.25rem);
+  transition: transform var(--duration-short) ease;
+}
+.mega-menu__tile a:hover .mega-menu__tile_arrow_link .icon-arrow path {
+  transform: translate(-.05rem);
 }
 
 .mega-menu__list {
