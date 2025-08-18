@@ -143,7 +143,7 @@
 
 #MegaMenu-Content-2 .mega-menu__list {
   column-count: 2; 
-  /* gap: 2rem 3rem; */
+  gap: 2rem 3rem;
   list-style-position: inside;
   padding: 0;
 }
