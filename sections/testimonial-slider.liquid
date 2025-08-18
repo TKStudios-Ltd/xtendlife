@@ -111,19 +111,24 @@
     font-size: 12px;
     padding: 0.75rem 1.5rem;
 }
-
-  /* Arrows */
-  .section-{{ section.id }}-padding .ts-nav{
+/* Arrows */
+.section-{{ section.id }}-padding .ts-nav{
     display:flex; 
     justify-content: flex-start;
     gap: 12px;
     margin-top: 3rem;
-  }
-  .section-{{ section.id }}-padding .ts-btn{
-    appearance:none; border:1px solid rgba(0,0,0,.15); background:#fff;
-    border-radius:999px; width:48px; height:48px; display:grid; place-items:center; cursor:pointer;
-  }
-  .section-{{ section.id }}-padding .ts-btn:hover{ border-color:rgba(0,0,0,.35); }
+}
+.section-{{ section.id }}-padding .ts-btn{
+    appearance:none; 
+    border: none; 
+    background: transparent;
+    border-radius: 0; 
+    width: 41px; 
+    height: 41px; 
+    display:grid; 
+    place-items:center; 
+    cursor:pointer;
+}
 {%- endstyle -%}
 
 
