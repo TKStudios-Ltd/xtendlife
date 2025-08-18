@@ -7,6 +7,8 @@
   .section-{{ section.id }}-padding{
     padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    /* guard against 1px rounding creating page-wide scrollbars */
+    overflow-x: clip;
   }
   @media (min-width:750px){
     .section-{{ section.id }}-padding{
@@ -18,7 +20,7 @@
   /* Two-column layout */
   .section-{{ section.id }}-padding .ts-grid{ display:flex; gap:0; align-items:flex-start; }
   .section-{{ section.id }}-padding .ts-left{ flex:0 0 25%; }
-  .section-{{ section.id }}-padding .ts-right{ flex:0 0 75%; position:relative; overflow:visible; }
+  .section-{{ section.id }}-padding .ts-right{ flex:0 0 75%; position:relative; }
   @media (max-width:989px){
     .section-{{ section.id }}-padding .ts-left{ display:none; }
     .section-{{ section.id }}-padding .ts-right{ flex:1 1 auto; }
@@ -29,23 +31,23 @@
   }
 
   /* RIGHT-BLEED ONLY:
-     Extend the slider container to the right viewport edge,
-     but keep its left edge starting at the right column. */
+     Keep the left edge aligned with the right column,
+     extend to the viewport's right edge without causing horizontal scroll. */
   .section-{{ section.id }}-padding .ts-bleed{
-    /* grow the width by the page gutter on the right side only */
-    width: calc(100% + (50vw - 50%));
-    margin-right: calc(50vw - 50%);
+    width: 100vw;                          /* exactly the viewport width */
+    margin-left: calc(100% - 100vw);       /* anchor right edge to the screen */
   }
+  /* (remove any previous margin-left: calc(50vw - 50%) or width: calc(100% + ...) rules) */
 
-  /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
+  /* --- Minimal Swiper fallbacks (if its CSS isn’t loaded) --- */
   .section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
   .section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
   .section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
 
-  /* Keep JS spaceBetween in sync with any width maths you add later */
+  /* Keep JS spaceBetween in sync with any width math you might add later */
   .section-{{ section.id }}-padding .tswiper{ --g: {{ section.settings.gap | default: 24 }}px; }
 
-  /* Card styling */
+  /* Card */
   .section-{{ section.id }}-padding .ts-card{
     background:#fff; border-radius:16px; padding:2rem;
     min-height:400px; display:flex; flex-direction:column; gap:14px;
@@ -77,6 +79,7 @@
   }
   .section-{{ section.id }}-padding .ts-btn:hover{ border-color:rgba(0,0,0,.35); }
 {%- endstyle -%}
+
 
 
 <section
