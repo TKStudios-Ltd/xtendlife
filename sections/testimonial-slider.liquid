@@ -1,14 +1,9 @@
 {% comment %}
-  Testimonial Slider (Dawn + Swiper)
-  - Background color picker (no color scheme)
-  - Heading stays inside .page-width; slider bleeds to viewport edge
-  - slidesPerView: 1.2 (mobile) / 2.1 (tablet) / 3.1 (desktop)
-  - Arrows centered below
-  - Block fields: title, description, person, product
-  Requires Swiper core + Navigation already loaded.
+  Testimonial Slider (debug build)
 {% endcomment %}
 
 <section
+  id="testimonial-slider-{{ section.id }}"
   class="section-{{ section.id }}-padding"
   style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
 >
@@ -20,7 +15,7 @@
     {% endif %}
 
     <div class="ts-grid">
-      <div class="ts-left"><!-- reserved for future subcopy --></div>
+      <div class="ts-left"></div>
 
       <div class="ts-right">
         <div class="ts-bleed" data-ts-root>
@@ -86,38 +81,32 @@
   </div>
 
   <style>
-    /* paddings like Dawn */
     .section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px}
     @media (min-width:750px){.section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
 
-    /* two-column scaffold so heading stays in page grid but slider can bleed */
     .section-{{ section.id }}-padding .ts-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
     @media (max-width:989px){.section-{{ section.id }}-padding .ts-grid{grid-template-columns:1fr}.section-{{ section.id }}-padding .ts-left{display:none}}
 
     .section-{{ section.id }}-padding .ts-right{position:relative}
     .section-{{ section.id }}-padding .ts-bleed{width:100vw;margin-left:calc(50vw - 50%)}
 
-    /* card */
     .section-{{ section.id }}-padding .ts-card{
       background:#fff;border-radius:16px;padding:28px;
       box-shadow:0 1px 2px rgba(0,0,0,.05),0 6px 24px rgba(0,0,0,.06);
       min-height: 320px;display:flex;flex-direction:column;gap:14px;
     }
-    /* If using dark backgrounds, keep card readable */
     .section-{{ section.id }}-padding[style*="background-color"] .ts-card{background:rgba(255,255,255,0.98)}
     .section-{{ section.id }}-padding .ts-stars{letter-spacing:2px;font-size:18px;line-height:1;opacity:.9}
     .section-{{ section.id }}-padding .ts-title{margin:0}
     .section-{{ section.id }}-padding .ts-desc{color:#333;opacity:.9}
     .section-{{ section.id }}-padding .ts-person{font-weight:600;color:#555}
 
-    /* product footer (sticks to bottom of card) */
     .section-{{ section.id }}-padding .ts-prod{
       margin-top:auto;display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:center;border-top:1px solid rgba(0,0,0,.08);padding-top:16px
     }
     .section-{{ section.id }}-padding .ts-prod-img img{width:88px;height:88px;object-fit:contain;border-radius:8px;background:#f6f6f6}
     .section-{{ section.id }}-padding .ts-prod-title{font-weight:700;margin-bottom:8px}
 
-    /* nav */
     .section-{{ section.id }}-padding .ts-nav{display:flex;justify-content:center;gap:24px;margin-top:16px}
     .section-{{ section.id }}-padding .ts-btn{appearance:none;border:1px solid rgba(0,0,0,.15);background:#fff;border-radius:999px;width:48px;height:48px;display:grid;place-items:center;cursor:pointer}
     .section-{{ section.id }}-padding .ts-btn:hover{border-color:rgba(0,0,0,.35)}
@@ -126,35 +115,88 @@
 
   <script>
     (function(){
-      const root = document.querySelector('[data-ts-root]#' + '') || document.currentScript.closest('[data-ts-root]');
-      const swiperEl = document.getElementById('tswiper-{{ section.id }}');
-      if (!swiperEl || typeof Swiper === 'undefined') return;
+      const sectionRoot = document.getElementById('testimonial-slider-{{ section.id }}');
+      const swiperEl   = document.getElementById('tswiper-{{ section.id }}');
 
-      const navScope = swiperEl.parentElement; // .ts-bleed
-      const nextEl = navScope.querySelector('.ts-next');
-      const prevEl = navScope.querySelector('.ts-prev');
+      console.group('[Testimonial Slider] {{ section.id }}');
+      console.log('Section root:', sectionRoot);
+      console.log('Swiper element:', swiperEl);
+      console.log('Viewport width:', window.innerWidth);
+      console.log('Has Swiper global:', typeof window.Swiper !== 'undefined' ? 'YES' : 'NO');
 
-      /* eslint-disable no-new */
-      new Swiper(swiperEl, {
+      if (!swiperEl) { console.warn('No swiperEl found, aborting.'); console.groupEnd(); return; }
+      if (typeof window.Swiper === 'undefined') {
+        console.error('Swiper global not found. Ensure swiper-bundle.min.js + CSS are loaded before this section.');
+        console.groupEnd(); return;
+      }
+
+      const navScope = sectionRoot.querySelector('.ts-bleed');
+      const nextEl   = navScope ? navScope.querySelector('.ts-next') : null;
+      const prevEl   = navScope ? navScope.querySelector('.ts-prev') : null;
+
+      console.log('Nav scope:', navScope);
+      console.log('Prev button found:', !!prevEl, prevEl);
+      console.log('Next button found:', !!nextEl, nextEl);
+
+      const config = {
         speed: {{ section.settings.speed | default: 500 }},
         spaceBetween: {{ section.settings.gap | default: 24 }},
         slidesPerView: 1.2,
+        watchOverflow: true,
+        navigation: nextEl && prevEl ? { nextEl, prevEl } : undefined,
         {% if section.settings.autoplay %}
         autoplay: { delay: {{ section.settings.autoplay_delay | default: 4000 }}, disableOnInteraction: false },
         {% endif %}
-        navigation: { nextEl, prevEl },
         breakpoints: {
           750: { slidesPerView: 2.1 },
           990: { slidesPerView: 3.1 }
+        },
+        on: {
+          afterInit(sw){
+            console.log('Swiper initialized. Version:', Swiper?.version);
+            console.log('slides:', sw.slides.length, 'container width:', sw.width, 'current slidesPerView:', sw.params.slidesPerView);
+          },
+          breakpoint(sw, bpParams){
+            console.log('Breakpoint hit. New slidesPerView:', bpParams.slidesPerView, 'width:', sw.width);
+          },
+          resize(sw){
+            console.log('Resize. width:', sw.width, 'slidesPerView:', sw.params.slidesPerView);
+          }
         }
-      });
+      };
+
+      let sw;
+      try {
+        sw = new Swiper(swiperEl, config);
+      } catch (e) {
+        console.error('Swiper init error:', e);
+        console.groupEnd();
+        return;
+      }
+
+      // Force update after images load & on next tick
+      const forceUpdate = () => {
+        if (!sw) return;
+        sw.update();
+        console.log('Forced update. width:', sw.width, 'slidesPerView:', sw.params.slidesPerView);
+      };
+      if (document.readyState === 'complete') {
+        setTimeout(forceUpdate, 0);
+      } else {
+        window.addEventListener('load', forceUpdate, { once: true });
+      }
+      // Also update on theme editor section select (Shopify Editor)
+      document.addEventListener('shopify:section:load', forceUpdate);
+      document.addEventListener('shopify:section:select', forceUpdate);
+
+      console.groupEnd();
     })();
   </script>
 </section>
 
 {% schema %}
 {
-  "name": "Testimonial slider",
+  "name": "Testimonial Slider",
   "class": "section",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Real customers, real results." },
@@ -184,7 +226,7 @@
   ],
   "max_blocks": 24,
   "presets": [
-    { "name": "Testimonial slider", "blocks": [ { "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" } ] }
+    { "name": "Testimonial Slider", "blocks": [ { "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" } ] }
   ]
 }
 {% endschema %}
