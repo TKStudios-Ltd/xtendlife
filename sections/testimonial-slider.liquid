@@ -42,14 +42,12 @@
     width: calc(75% + 2rem) !important;
   }
 } */
-
-  /* --- Minimal Swiper fallbacks (if CSS asset misses) --- */
-  .section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
-  .section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
-  .section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
-
+.section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
+.section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
+.section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
 .section-{{ section.id }}-padding .tswiper .swiper-slide { 
-    margin-right: 2rem !important; 
+    margin-bottom: 1rem;
+    width: auto;
 }
 /* Card styling */
 .section-{{ section.id }}-padding .ts-card{
@@ -65,10 +63,25 @@
 .section-{{ section.id }}-padding .ts-stars{ 
     margin-bottom: 2rem;
 }
-  .section-{{ section.id }}-padding .ts-title{ margin:0; }
-  .section-{{ section.id }}-padding .ts-desc{ color:#333; opacity:.9; }
-  .section-{{ section.id }}-padding .ts-person{ font-weight:600; color:#555; }
-
+.section-{{ section.id }}-padding .ts-title{ 
+    margin:0; 
+}
+.section-{{ section.id }}-padding .ts-desc{ 
+    font-size: 20px; 
+}
+.section-{{ section.id }}-padding .ts-person{ 
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    color: rgba(31, 25, 71, 0.4);
+}
+.section-{{ section.id }}-padding .ts-person::after {
+  content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
+  height: 14px;
+  width: 14px;
+  margin-left: 10px;
+}
   /* Product footer pinned to bottom */
   .section-{{ section.id }}-padding .ts-prod{
     margin-top:auto; display:grid; grid-template-columns:88px 1fr; gap:16px;
