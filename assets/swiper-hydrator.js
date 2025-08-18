@@ -30,7 +30,7 @@
       slidesPerView: 1.2,
       watchOverflow: true,
       navigation: (prevEl && nextEl) ? { prevEl, nextEl } : undefined,
-      breakpoints: { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } },
+      breakpoints: { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.15 } },
       on: {
         afterInit(sw) { console.log('[TS] init OK', { slides: sw.slides.length, width: sw.width, spv: sw.params.slidesPerView }); },
         breakpoint(sw, p) { console.log('[TS] breakpoint', { width: sw.width, spv: p.slidesPerView }); },
