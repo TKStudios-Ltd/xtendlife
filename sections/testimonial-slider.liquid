@@ -1,0 +1,356 @@
+{% comment %}
+  Testimonial Slider (Dawn + Swiper)
+  - Left heading sits inside .page-width
+  - Right slider bleeds to the viewport edge
+  - slidesPerView: 3.1 desktop / 2.1 tablet / 1.2 mobile
+  - Arrows centered below the slider
+  - Blocks: title, description, person, product (picker)
+  Assumes Swiper core + Navigation are already loaded globally.
+{% endcomment %}
+
+<section class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="title-wrapper-with-link">
+        <h2 class="title inline-richtext">{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="ts-grid">
+      <div class="ts-left"></div>
+
+      <div class="ts-right">
+        <!-- full-bleed container -->
+        <div class="ts-bleed">
+          <div
+            id="tswiper-{{ section.id }}"
+            class="swiper tswiper"
+            aria-label="{{ section.settings.heading | escape | default: 'Testimonials' }}"
+          >
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- assign b = block.settings -%}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <article class="ts-card">
+                    {% if section.settings.show_stars %}
+                      <div class="ts-stars" aria-label="{{ section.settings.star_count }} out of 5 stars">
+                        {%- for i in (1..section.settings.star_count) -%}★{%- endfor -%}
+                      </div>
+                    {% endif %}
+
+                    {% if b.title != blank %}
+                      <h3 class="ts-title h3">{{ b.title }}</h3>
+                    {% endif %}
+
+                    {% if b.description != blank %}
+                      <div class="ts-desc rte">{{ b.description }}</div>
+                    {% endif %}
+
+                    <div class="ts-person">
+                      {% if b.person != blank %}{{ b.person }}{% endif %}
+                      {% if b.person != blank and b.product != blank %} • {% endif %}
+                      {% if b.product != blank %}
+                        {%- assign prod = b.product -%}
+                        <span class="ts-product">{{ prod.title }}</span>
+                      {% endif %}
+                    </div>
+
+                    {% if b.product != blank %}
+                      <div class="ts-product-cta">
+                        <a href="{{ prod.url }}" class="button button--primary">{{ section.settings.shop_cta | default: 'Shop now' }}</a>
+                      </div>
+                    {% endif %}
+                  </article>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          {% if section.settings.show_arrows %}
+            <div class="ts-nav">
+              <button class="ts-btn ts-prev" aria-label="Previous">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button class="ts-btn ts-next" aria-label="Next">
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* section padding (Dawn convention) */
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    @media (min-width: 750px){
+      .section-{{ section.id }}-padding{
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+    /* two-col layout: left column is just a spacer to align with page-width grid */
+    .section-{{ section.id }}-padding .ts-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0;
+      align-items:start;
+    }
+    /* On mobile we stack, bleed still works */
+    @media (max-width: 989px){
+      .section-{{ section.id }}-padding .ts-grid{
+        grid-template-columns: 1fr;
+      }
+      .section-{{ section.id }}-padding .ts-left{ display:none; }
+    }
+
+    /* Right column holds the bleed container */
+    .section-{{ section.id }}-padding .ts-right{
+      position:relative;
+    }
+
+    /* BLEED the slider to viewport edge (from inside .page-width) */
+    .section-{{ section.id }}-padding .ts-bleed{
+      width: 100vw;
+      margin-left: calc(50vw - 50%); /* pushes to full viewport width */
+    }
+
+    /* Card styling (match Dawn’s rounded cards vibe) */
+    .section-{{ section.id }}-padding .ts-card{
+      background: rgb(var(--color-background));
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.06);
+      height: 100%;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+    .section-{{ section.id }}-padding .ts-stars{
+      letter-spacing: 2px;
+      font-size: 18px;
+      line-height: 1;
+      color: currentColor;
+      opacity: .9;
+    }
+    .section-{{ section.id }}-padding .ts-title{
+      margin: 0;
+    }
+    .section-{{ section.id }}-padding .ts-desc{
+      color: rgba(var(--color-foreground), .8);
+    }
+    .section-{{ section.id }}-padding .ts-person{
+      margin-top: auto;
+      font-weight: 600;
+      color: rgba(var(--color-foreground), .7);
+    }
+    .section-{{ section.id }}-padding .ts-product-cta{
+      margin-top: 10px;
+    }
+
+    /* Arrow nav */
+    .section-{{ section.id }}-padding .ts-nav{
+      display:flex;
+      justify-content:center;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .section-{{ section.id }}-padding .ts-btn{
+      appearance:none;
+      border: 1px solid rgba(var(--color-foreground), .15);
+      background: rgb(var(--color-background));
+      border-radius: 999px;
+      width: 48px; height: 48px;
+      display:grid; place-items:center;
+      cursor:pointer;
+    }
+    .section-{{ section.id }}-padding .ts-btn:hover{
+      border-color: rgba(var(--color-foreground), .35);
+    }
+
+    /* Slide spacing */
+    .section-{{ section.id }}-padding .tswiper .swiper-slide{
+      height:auto;
+    }
+  </style>
+
+  <script>
+    (function(){
+      const root = document.getElementById('tswiper-{{ section.id }}');
+      if (!root || typeof Swiper === 'undefined') return;
+
+      const swiper = new Swiper(root, {
+        speed: {{ section.settings.speed | default: 500 }},
+        spaceBetween: {{ section.settings.gap | default: 24 }},
+        slidesPerView: 1.2,
+        {% if section.settings.autoplay %}
+        autoplay: {
+          delay: {{ section.settings.autoplay_delay | default: 4000 }},
+          disableOnInteraction: false
+        },
+        {% endif %}
+        navigation: {
+          nextEl: root.parentElement.querySelector('.ts-next'),
+          prevEl: root.parentElement.querySelector('.ts-prev'),
+        },
+        breakpoints: {
+          750:  { slidesPerView: 2.1 },
+          990:  { slidesPerView: 3.1 }
+        }
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonial slider",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real customers, real results."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show stars",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "star_count",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "label": "Star count",
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "shop_cta",
+      "label": "CTA label",
+      "default": "Shop now"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1",
+      "options": [
+        { "value": "background-1", "label": "Scheme 1" },
+        { "value": "background-2", "label": "Scheme 2" },
+        { "value": "inverse", "label": "Inverse" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 56
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show arrows",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Slide gap",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Transition speed (ms)",
+      "min": 100,
+      "max": 1200,
+      "step": 50,
+      "default": 500
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay delay (ms)",
+      "min": 1500,
+      "max": 8000,
+      "step": 100,
+      "default": 4000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Heart Health Support"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>This is my go-to supplement for science-proven heart health support.</p>"
+        },
+        {
+          "type": "text",
+          "id": "person",
+          "label": "Person",
+          "default": "Brian, USA"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Related product (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Testimonial slider",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
