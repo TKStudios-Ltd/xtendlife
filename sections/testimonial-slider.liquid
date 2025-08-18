@@ -86,15 +86,31 @@
     width: 14px;
     margin-left: 10px;
 }
-  /* Product footer pinned to bottom */
-  .section-{{ section.id }}-padding .ts-prod{
-    margin-top:auto; display:grid; grid-template-columns:88px 1fr; gap:16px;
-    align-items:center; border-top:1px solid rgba(0,0,0,.08); padding-top:16px;
-  }
-  .section-{{ section.id }}-padding .ts-prod-img img{
-    width:88px; height:88px; object-fit:contain; border-radius:8px; background:#f6f6f6;
-  }
-  .section-{{ section.id }}-padding .ts-prod-title{ font-weight:700; margin-bottom:8px; }
+/* Product footer pinned to bottom */
+.section-{{ section.id }}-padding .ts-prod{
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding-top: 16px;
+}
+.section-{{ section.id }}-padding .ts-prod-img img{
+    width:80px; 
+    height:80px; 
+    object-fit:contain; 
+    border-radius:8px; 
+    background:#f6f6f6;
+}
+.section-{{ section.id }}-padding .ts-prod-title{ 
+    font-size: 14px;
+    font-weight: 400; 
+    margin-bottom:8px; 
+}
+.section-{{ section.id }}-padding .ts-prod-meta .button { 
+    font-size: 12px;
+    padding: 0.75rem 1.5rem;
+}
 
   /* Arrows */
   .section-{{ section.id }}-padding .ts-nav{
