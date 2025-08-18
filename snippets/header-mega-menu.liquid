@@ -83,7 +83,12 @@
                               <p class="mega-menu__tile_subtitle">{{ section.settings.tile_1_subtitle }}</p>
                             {% endif %}
                             {% if section.settings.tile_1_link_title %}
-                              <span class="mega-menu__tile_arrow_link">{{ section.settings.tile_1_link_title }}</span>
+                              <span class="mega-menu__tile_arrow_link">
+                                {{ section.settings.tile_1_link_title }}
+                                <span class="icon-wrap">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </span>
                             {% endif %}
                           </a>
                         </div>
@@ -101,7 +106,12 @@
                               <p class="mega-menu__tile_subtitle">{{ section.settings.tile_2_subtitle }}</p>
                             {% endif %}
                             {% if section.settings.tile_2_link_title %}
-                              <span class="mega-menu__tile_arrow_link">{{ section.settings.tile_2_link_title }}</span>
+                              <span class="mega-menu__tile_arrow_link">
+                                {{ section.settings.tile_2_link_title }}
+                                <span class="icon-wrap">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </span>
                             {% endif %}
                           </a>
                         </div>
@@ -120,7 +130,12 @@
                               <p class="mega-menu__tile_subtitle">{{ section.settings.tile_3_subtitle }}</p>
                             {% endif %}
                             {% if section.settings.tile_3_link_title %}
-                              <span class="mega-menu__tile_arrow_link">{{ section.settings.tile_3_link_title }}</span>
+                              <span class="mega-menu__tile_arrow_link">
+                                {{ section.settings.tile_3_link_title }}
+                                <span class="icon-wrap">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </span>
                             {% endif %}
                           </a>
                         </div>
@@ -138,7 +153,12 @@
                               <p class="mega-menu__tile_subtitle">{{ section.settings.tile_4_subtitle }}</p>
                             {% endif %}
                             {% if section.settings.tile_4_link_title %}
-                              <span class="mega-menu__tile_arrow_link">{{ section.settings.tile_4_link_title }}</span>
+                              <span class="mega-menu__tile_arrow_link">
+                                {{ section.settings.tile_4_link_title }}
+                                <span class="icon-wrap">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </span>
                             {% endif %}
                           </a>
                         </div>
