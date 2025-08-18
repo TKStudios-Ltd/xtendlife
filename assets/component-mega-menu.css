@@ -63,6 +63,7 @@
 .mega-menu__tile {
   position: relative;
   flex: 1 1 auto;
+  overflow: hidden;
 }
 .mega-menu__tile a {
   display: block;
@@ -101,6 +102,17 @@
   font-weight: 400;
   margin: 4px 0 0;
   display: inline-flex;
+}
+.mega-menu__tile .mega-menu__tile_arrow_link .icon-wrap {
+  margin-left: .8rem;
+  white-space: nowrap;
+  transition: transform var(--duration-short) ease;
+}
+.mega-menu__tile .mega-menu__tile_arrow_link .icon-arrow {
+  width: 1.2rem;
+}
+.mega-menu__tile a:hover .mega-menu__tile_arrow_link .icon-arrow {
+  width: calc(var(--font-heading-scale) * 1.5rem);
 }
 
 .mega-menu__list {
