@@ -3,12 +3,12 @@
   padding-left: 2rem;
 }
 
-@media screen and (min-width: 750px) {
+/* @media screen and (min-width: 750px) {
   .newsletter__wrapper {
     padding-right: 9rem;
     padding-left: 9rem;
   }
-}
+} */
 
 .newsletter__wrapper > * {
   margin-top: 0;
