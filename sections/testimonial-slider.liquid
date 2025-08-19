@@ -17,13 +17,16 @@
 .section-{{ section.id }}-padding .ts2-heading{ 
     margin: 0 0 8rem 0; 
 }
-
-/* Right-only bleed (from page-width to screen edge) */
+.section-{{ section.id }}-padding .ts-bleed {
+    width: calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem));
+}
+/* @media (max-width: 1599px) {
 .section-{{ section.id }}-padding .ts2-bleed{
     --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin)));
     width: calc(100% + var(--right-gutter));
     margin-right: var(--right-gutter);
 }
+} */
 
 /* Swiper fallbacks */
 .section-{{ section.id }}-padding .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
