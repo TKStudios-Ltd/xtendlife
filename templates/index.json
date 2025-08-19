@@ -579,78 +579,6 @@
         "padding_bottom": 36
       }
     },
-    "testimonial_slider_xafpPw": {
-      "type": "testimonial-slider",
-      "blocks": {
-        "testimonial_3EFxVt": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Heart Health Support",
-            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
-            "person": "Brian, USA",
-            "product": "cx8-heart-health-support"
-          }
-        },
-        "testimonial_qAgtVQ": {
-          "type": "testimonial",
-          "settings": {
-            "title": "One of the best",
-            "description": "<p>This is my go to supplement for science proven heart health support.</p>",
-            "person": "Brian, USA",
-            "product": "ach-eze-joint-support"
-          }
-        },
-        "testimonial_Q3THgN": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Love this Magnesium!!",
-            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
-            "person": "Brian, USA",
-            "product": "bone-support"
-          }
-        },
-        "testimonial_eGqrit": {
-          "type": "testimonial",
-          "settings": {
-            "title": "Heart Health Support",
-            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
-            "person": "Brian, USA",
-            "product": "cx8-heart-health-support"
-          }
-        },
-        "testimonial_G7ajyK": {
-          "type": "testimonial",
-          "settings": {
-            "title": "One of the best",
-            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
-            "person": "Brian, USA",
-            "product": "ach-eze-joint-support"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_3EFxVt",
-        "testimonial_qAgtVQ",
-        "testimonial_Q3THgN",
-        "testimonial_eGqrit",
-        "testimonial_G7ajyK"
-      ],
-      "name": "Testimonial slider",
-      "settings": {
-        "heading": "Real customers, real results.",
-        "bg_color": "#221d46",
-        "show_stars": true,
-        "star_count": 5,
-        "shop_cta": "Shop now",
-        "padding_top": 60,
-        "padding_bottom": 100,
-        "show_arrows": true,
-        "gap": 24,
-        "speed": 500,
-        "autoplay": false,
-        "autoplay_delay": 4000
-      }
-    },
     "reviews_slider_EnTCeY": {
       "type": "reviews-slider",
       "blocks": {
@@ -720,17 +648,75 @@
       "name": "Reviews Slider",
       "settings": {
         "heading": "Real customers, real results.",
-        "bg_color": "#221D46",
+        "bg_color": "#221d46",
         "show_stars": true,
         "star_count": 5,
         "shop_cta": "Shop now",
-        "padding_top": 56,
-        "padding_bottom": 56,
+        "padding_top": 60,
+        "padding_bottom": 100,
         "show_arrows": true,
-        "gap": 24,
+        "gap": 20,
         "speed": 500,
         "autoplay": false,
         "autoplay_delay": 4000
+      }
+    },
+    "testimonial_slider_xafpPw": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_3EFxVt": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        },
+        "testimonial_kyXBjn": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        },
+        "testimonial_wxPJKG": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        },
+        "testimonial_MNbmfK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3EFxVt",
+        "testimonial_kyXBjn",
+        "testimonial_wxPJKG",
+        "testimonial_MNbmfK"
+      ],
+      "name": "Testimonial slider",
+      "settings": {
+        "heading": "Our Health Ambassadors",
+        "bg_color": "#ffffff",
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 60,
+        "padding_bottom": 100
       }
     },
     "newsletter_qKtmmH": {
@@ -773,8 +759,8 @@
     "image_with_text_KCQTNJ",
     "featured_collection_eLXEqh",
     "featured_product_Wcd8Lt",
-    "testimonial_slider_xafpPw",
     "reviews_slider_EnTCeY",
+    "testimonial_slider_xafpPw",
     "newsletter_qKtmmH"
   ]
 }
