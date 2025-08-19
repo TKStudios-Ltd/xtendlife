@@ -1,42 +1,40 @@
 {% comment %} Testimonial Slider {% endcomment %}
 
 {%- style -%}
-  /* Section padding (Dawn convention) */
-  .section-{{ section.id }}-padding{
+.section-{{ section.id }}-padding{
     padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     overflow-x: clip; /* no sideways scroll on right-bleed */
-  }
-  @media (min-width:750px){
+}
+@media (min-width:750px){
     .section-{{ section.id }}-padding{
       padding-top:{{ section.settings.padding_top }}px;
       padding-bottom:{{ section.settings.padding_bottom }}px;
     }
-  }
+}
 
-  /* Heading */
-  .section-{{ section.id }}-padding .ts2-heading{ margin:0 0 2rem 0; }
+/* Heading */
+.section-{{ section.id }}-padding .ts2-heading{ margin:0 0 2rem 0; }
 
-  /* Right-only bleed (from page-width to screen edge) */
-  .section-{{ section.id }}-padding .ts2-bleed{
+/* Right-only bleed (from page-width to screen edge) */
+.section-{{ section.id }}-padding .ts2-bleed{
     --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin)));
     width: calc(100% + var(--right-gutter));
     margin-right: var(--right-gutter);
-  }
+}
 
-  /* Swiper fallbacks */
-  .section-{{ section.id }}-padding .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
-  .section-{{ section.id }}-padding .ts2-swiper .swiper-wrapper{ display:flex; }
-  .section-{{ section.id }}-padding .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
+/* Swiper fallbacks */
+.section-{{ section.id }}-padding .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
+.section-{{ section.id }}-padding .ts2-swiper .swiper-wrapper{ display:flex; }
+.section-{{ section.id }}-padding .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
 
-  /* Fixed-width mode → keep exactly ~1.2 slides in view */
-  .section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
+.section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
     /* each slide width = (container - gap) / 1.2  */
     width: calc((100% - var(--g)) / 1.2);
-    transition: opacity .25s ease;
-    opacity: .35;                /* dim non-active */
-  }
-  .section-{{ section.id }}-padding .ts2-swiper .swiper-slide.swiper-slide-active{ opacity: 1; }
+    transition: opacity .4s ease;
+    opacity: .3;
+}
+.section-{{ section.id }}-padding .ts2-swiper .swiper-slide.swiper-slide-active{ opacity: 1; }
 
 /* Card layout (image left, text right) */
 .section-{{ section.id }}-padding .ts2-card{
@@ -48,25 +46,32 @@
     gap: 8rem;
     align-items: center;
 }
-  @media (max-width: 989px){
+@media (max-width: 989px){
     .section-{{ section.id }}-padding .ts2-card{ grid-template-columns: 1fr; gap: 2rem; }
-  }
+}
 
-  .section-{{ section.id }}-padding .ts2-photo{
-    border-radius:16px; overflow:hidden;
+.section-{{ section.id }}-padding .ts2-photo{
+    border-radius: 10px; overflow:hidden;
     aspect-ratio: 4 / 5; /* adjust if needed */
-    background:#f3f4f6;
-  }
-  .section-{{ section.id }}-padding .ts2-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+    background: #f3f4f6;
+}
+.section-{{ section.id }}-padding .ts2-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-  .section-{{ section.id }}-padding .ts2-quote{
-    font-size: clamp(1.6rem, 1.2rem + .6vw, 2rem);
+.section-{{ section.id }}-padding .ts2-quote {
+    font-size: 24px;
     line-height: 1.5;
-    color:#1f2937;
-    margin:0 0 1.25rem 0;
-  }
-  .section-{{ section.id }}-padding .ts2-name{ font-weight:700; margin:0 0 .25rem 0; }
-  .section-{{ section.id }}-padding .ts2-role{ color:#6b7280; }
+    margin: 0 0 2rem 0;
+}
+.section-{{ section.id }}-padding .ts2-name{ 
+    font-size: 16px;
+    font-weight: 500; 
+    margin: 0; 
+}
+.section-{{ section.id }}-padding .ts2-role{ 
+    font-size: 16px;
+    opacity: .4;
+    margin: 0; 
+}
 
   /* Pagination dots (no arrows) */
   .section-{{ section.id }}-padding .ts2-pagination{ text-align:left; margin-top: 2rem; }
@@ -114,7 +119,7 @@
                 </div>
                 <div class="ts2-copy">
                   {% if b.quote != blank %}
-                    <p class="ts2-quote">“{{ b.quote | strip_html | escape }}”</p>
+                    <p class="ts2-quote">{{ b.quote | strip_html | escape }}</p>
                   {% endif %}
                   {% if b.name != blank %}
                     <p class="ts2-name">{{ b.name }}</p>
