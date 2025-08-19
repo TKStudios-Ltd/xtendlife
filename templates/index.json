@@ -746,7 +746,7 @@
         "buttons_XN8C3J"
       ],
       "custom_css": [
-        ".banner__content {padding: 3rem 2rem;}",
+        ".banner__content {padding: 3rem 2rem; justify-content: flex-start;}",
         ".banner__box {max-width: 125rem; padding: 0;}",
         "h2 {line-height: 1.2;}"
       ],
