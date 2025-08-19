@@ -754,7 +754,7 @@
       "settings": {
         "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "large",
         "wide_container": false,
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
