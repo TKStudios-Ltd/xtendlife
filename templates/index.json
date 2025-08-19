@@ -719,6 +719,48 @@
         "padding_bottom": 100
       }
     },
+    "image_banner_eNjqNa": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Xtendlife has grown into a global brand, trusted by over 400,000 customers. Our commitment to science ensures that our formulas deliver the best results to our customers, helping them live longer and healthier.",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "The Xtendlife Difference",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "buttons_XN8C3J"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -761,6 +803,7 @@
     "featured_product_Wcd8Lt",
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
+    "image_banner_eNjqNa",
     "newsletter_qKtmmH"
   ]
 }
