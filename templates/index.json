@@ -651,6 +651,88 @@
         "autoplay_delay": 4000
       }
     },
+    "reviews_slider_EnTCeY": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_dXy8WH": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "ach-eze-joint-support"
+          }
+        },
+        "review_HzjgFA": {
+          "type": "review",
+          "settings": {
+            "title": "One of the best",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "bone-support"
+          }
+        },
+        "review_KcRaMj": {
+          "type": "review",
+          "settings": {
+            "title": "Love this Magnesium!!",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_HmjwX3": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "core-wellness-mens-premium"
+          }
+        },
+        "review_96pb83": {
+          "type": "review",
+          "settings": {
+            "title": "One of the best",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "bone-support"
+          }
+        },
+        "review_KUTGUj": {
+          "type": "review",
+          "settings": {
+            "title": "Love this Magnesium!!",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        }
+      },
+      "block_order": [
+        "review_dXy8WH",
+        "review_HzjgFA",
+        "review_KcRaMj",
+        "review_HmjwX3",
+        "review_96pb83",
+        "review_KUTGUj"
+      ],
+      "name": "Reviews Slider",
+      "settings": {
+        "heading": "Real customers, real results.",
+        "bg_color": "#221D46",
+        "show_stars": true,
+        "star_count": 5,
+        "shop_cta": "Shop now",
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "show_arrows": true,
+        "gap": 24,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -692,6 +774,7 @@
     "featured_collection_eLXEqh",
     "featured_product_Wcd8Lt",
     "testimonial_slider_xafpPw",
+    "reviews_slider_EnTCeY",
     "newsletter_qKtmmH"
   ]
 }
