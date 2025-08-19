@@ -2,166 +2,117 @@
 (function () {
   'use strict';
 
-  const toInt = (v, d = 0) => {
-    const n = parseInt(v, 10);
-    return Number.isNaN(n) ? d : n;
+  // Universal selector: new API = [data-swiper]; legacy = .tswiper; also supports .ts2-swiper
+  const SWIPER_QS = '[data-swiper], .tswiper, .ts2-swiper';
+
+  const toPx = (v, fallback) => {
+    if (v == null) return fallback;
+    const s = String(v).trim();
+    if (s.endsWith('rem')) {
+      const rem = parseFloat(s);
+      const fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      return Math.round(rem * fs);
+    }
+    if (s.endsWith('px')) return Math.round(parseFloat(s));
+    const n = parseFloat(s);
+    return Number.isNaN(n) ? fallback : n;
   };
+
+  const toInt  = (v, d = 0) => (Number.isNaN(parseInt(v, 10)) ? d : parseInt(v, 10));
   const toBool = (v) => String(v).toLowerCase() === 'true';
 
-  function initOne(root) {
-    if (!root) return;
-
-    // Root may be the section or the swiper element itself
-    const swiperEl =
-      root.matches?.('.tswiper') ? root : root.querySelector?.('.tswiper');
-
-    if (!swiperEl) return;
-    if (swiperEl.dataset.swiperReady === '1') return;
-
-    // Ensure Swiper is available (covers rare race when scripts are deferred)
-    if (typeof window.Swiper === 'undefined') {
-      setTimeout(() => initOne(root), 60);
-      return;
+  // Optional fractional config string: "1.2|750:2.1|990:3.1"
+  function parseSlides(str) {
+    const cfg = { base: 1.2, bp: {} };
+    if (!str) return cfg;
+    for (const part of String(str).split('|')) {
+      const [k, v] = part.split(':');
+      if (v == null) cfg.base = parseFloat(k);
+      else cfg.bp[parseInt(k, 10)] = { slidesPerView: parseFloat(v) };
     }
+    return cfg;
+  }
 
-    // Read config from data attributes
-    const speed = toInt(swiperEl.dataset.speed || 500, 500);
-    const gap = toInt(swiperEl.dataset.gap || 20, 20);
-    const autoplay = toBool(swiperEl.dataset.autoplay || false);
-    const autoplayDelay = toInt(swiperEl.dataset.autoplayDelay || 4000, 4000);
-    const mode = (swiperEl.dataset.mode || '').toLowerCase(); // 'fixed' or ''
+  function init(el) {
+    if (!el || el.dataset.swiperReady === '1') return;
+    if (!window.Swiper) { setTimeout(() => init(el), 60); return; }
 
-    // Scope nav to this section
-    const scope =
-      swiperEl.closest?.('[data-testimonial-slider]') ||
-      swiperEl.closest?.('.ts-bleed') ||
-      root;
+    // Read per-instance options (with sensible defaults)
+    const mode          = (el.dataset.mode || '').toLowerCase();   // "fixed" | "fractional" | ""
+    const slidesCfg     = parseSlides(el.dataset.slides);           // optional
+    const gap           = toPx(el.dataset.gap ?? 20, 20);
+    const speed         = toInt(el.dataset.speed ?? 500, 500);
+    const autoplay      = toBool(el.dataset.autoplay || false);
+    const autoplayDelay = toInt(el.dataset.autoplayDelay ?? 4000, 4000);
+    const dots          = toBool(el.dataset.dots || false);
+    const pagSelector   = el.dataset.pagination || '.swiper-pagination';
+    const prevSel       = el.dataset.navPrev || '.ts-prev';
+    const nextSel       = el.dataset.navNext || '.ts-next';
 
-    const prevEl = scope?.querySelector?.('.ts-prev') || null;
-    const nextEl = scope?.querySelector?.('.ts-next') || null;
+    // Scope lookups to the nearest section-like root
+    const scope = el.closest('[data-swiper-root]') ||
+                  el.closest('[data-testimonial-slider]') ||
+                  el.closest('[data-reviews-slider]') ||
+                  el.closest('section') || document;
 
     /** @type {import('swiper').SwiperOptions} */
     const params = {
       speed,
       spaceBetween: gap,
-      watchOverflow: true,
-      navigation: prevEl && nextEl ? { prevEl, nextEl } : undefined,
-      on: {
-        afterInit(sw) {
-          console?.log?.('[TS] init OK', {
-            slides: sw.slides.length,
-            width: sw.width,
-            spv: sw.params.slidesPerView
-          });
-        },
-        breakpoint(sw, p) {
-          console?.log?.('[TS] breakpoint', {
-            width: sw.width,
-            spv: p?.slidesPerView
-          });
-        },
-        resize(sw) {
-          console?.log?.('[TS] resize', {
-            width: sw.width,
-            spv: sw.params.slidesPerView
-          });
-        }
-      }
+      watchOverflow: true
     };
 
+    // Navigation (only if both present)
+    const prevEl = scope.querySelector(prevSel);
+    const nextEl = scope.querySelector(nextSel);
+    if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
+
+    // Pagination (dots)
+    const pagEl = scope.querySelector(pagSelector);
+    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
+
+    // Slides per view
     if (mode === 'fixed') {
-      // Fixed-width slides (CSS controls width via .swiper-slide { width: ... })
+      // CSS controls width via .swiper-slide { width: ... }
       params.slidesPerView = 'auto';
     } else {
-      // Fractional slides per view
-      params.slidesPerView = 1.2;
-      params.breakpoints = {
-        750: { slidesPerView: 2.1 },
-        990: { slidesPerView: 3.1 }
-      };
+      const cfg = slidesCfg;
+      params.slidesPerView = cfg.base ?? 1.2;
+      params.breakpoints = Object.keys(cfg.bp).length
+        ? cfg.bp
+        : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
     }
 
-    if (autoplay) {
-      params.autoplay = {
-        delay: autoplayDelay,
-        disableOnInteraction: false
-      };
-    }
+    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false };
 
-    const sw = new Swiper(swiperEl, params);
-    swiperEl.dataset.swiperReady = '1';
+    const sw = new Swiper(el, params);
+    el.dataset.swiperReady = '1';
 
-    // Keep layout tight as assets/fonts load
-    const forceUpdate = () => {
-      try {
-        sw.update();
-      } catch (_) {}
-    };
+    const update = () => { try { sw.update(); } catch (_) {} };
+    if (document.readyState === 'complete') setTimeout(update, 0);
+    else window.addEventListener('load', update, { once: true });
 
-    if (document.readyState === 'complete') {
-      setTimeout(forceUpdate, 0);
-    } else {
-      window.addEventListener('load', forceUpdate, { once: true, passive: true });
-    }
-
-    // Update on image load inside slides
-    swiperEl.querySelectorAll('img').forEach((img) => {
-      if (!img.complete) {
-        img.addEventListener('load', forceUpdate, { once: true, passive: true });
-      }
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', update, { once: true });
     });
-
-    // Shopify Theme Editor hooks
-    document.addEventListener('shopify:section:load', (e) => {
-      if (e?.target && (e.target.contains(swiperEl) || swiperEl.contains(e.target))) {
-        forceUpdate();
-      } else {
-        scan(e.target);
-      }
-    }, { passive: true });
-
-    document.addEventListener('shopify:section:select', forceUpdate, { passive: true });
-    document.addEventListener('shopify:section:deselect', forceUpdate, { passive: true });
-    document.addEventListener('shopify:block:select', forceUpdate, { passive: true });
-    document.addEventListener('shopify:block:deselect', forceUpdate, { passive: true });
   }
 
-  function scan(context) {
-    const root = context || document;
-    const marked = root.querySelectorAll?.('[data-testimonial-slider]') || [];
-    const loose = root.querySelectorAll?.('.tswiper') || [];
-
-    console?.log?.('[TS] scan', {
-      marked: marked.length,
-      tswipers: loose.length
-    });
-
-    // Prefer marked sections (better scoping)
-    marked.forEach(initOne);
-    // Also catch any stray .tswiper (fallback)
-    loose.forEach(initOne);
+  function scan(root) {
+    (root || document).querySelectorAll(SWIPER_QS).forEach(init);
   }
 
   // Initial scan
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => scan(), { once: true, passive: true });
+    document.addEventListener('DOMContentLoaded', () => scan(), { once: true });
   } else {
     scan();
   }
 
-  // Watch for dynamic inserts (e.g., editor, app blocks)
+  // Watch dynamic inserts (Theme Editor, app blocks, etc.)
   if ('MutationObserver' in window) {
-    const mo = new MutationObserver((mutations) => {
-      for (const m of mutations) {
-        for (const node of m.addedNodes) {
-          if (!(node instanceof Element)) continue;
-          if (
-            node.matches?.('[data-testimonial-slider], .tswiper') ||
-            node.querySelector?.('[data-testimonial-slider], .tswiper')
-          ) {
-            scan(node);
-          }
-        }
+    const mo = new MutationObserver(muts => {
+      for (const m of muts) for (const n of m.addedNodes) {
+        if (n.nodeType === 1 && (n.matches?.(SWIPER_QS) || n.querySelector?.(SWIPER_QS))) scan(n);
       }
     });
     mo.observe(document.documentElement, { childList: true, subtree: true });
