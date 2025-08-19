@@ -46,8 +46,8 @@
   }
 {%- endstyle -%}
 
-<div class="newsletter center {% if section.settings.full_width == false %} page-width{% endif %}">
-  <div class="newsletter__wrapper newsletter__wrapper--split page-width color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+<div class="newsletter center {% if section.settings.full_width == false %} page-width{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="newsletter__wrapper newsletter__wrapper--split page-width content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
     <div class="newsletter__left">
       <h2 class="h1">Stay connected</h2>
       {% if section.settings.left_image %}
