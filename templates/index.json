@@ -745,6 +745,11 @@
         "heading_hRLdBY",
         "buttons_XN8C3J"
       ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem;}",
+        ".banner__box {max-width: 125rem; padding: 0;}",
+        "h2 {line-height: 1.2;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
