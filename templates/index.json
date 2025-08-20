@@ -525,76 +525,6 @@
         "padding_bottom": 48
       }
     },
-    "featured_product_Wcd8Lt": {
-      "type": "featured-product",
-      "blocks": {
-        "text_VtFkdz": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_kmMHtt": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_g8zfkG": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_ibyJLa": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_NyAWww": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_zyrMTT": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_zJY3MB": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_VtFkdz",
-        "title_kmMHtt",
-        "price_g8zfkG",
-        "variant_picker_ibyJLa",
-        "quantity_selector_NyAWww",
-        "buy_buttons_zyrMTT",
-        "share_zJY3MB"
-      ],
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "product": "",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "reviews_slider_EnTCeY": {
       "type": "reviews-slider",
       "blocks": {
@@ -822,7 +752,6 @@
     "image_with_text_KCQTNJ",
     "featured_collection_eLXEqh",
     "featured_product_slider_9pxfm9",
-    "featured_product_Wcd8Lt",
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
     "image_banner_eNjqNa",
