@@ -67,8 +67,12 @@
   .fps-{{ section.id }}-meta{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
   .fps-{{ section.id }}-cta{ margin-top:1rem; }
 
+.fps-{{ section.id }}-card .product-form__quantity-wrap .quantity {
+  width: 160px !important;
+}
 .fps-{{ section.id }}-card .product-form__submit-wrap {
-  flex: 0 0 calc(100% - 140px);
+  width: -webkit-fill-available;
+  flex: 0 0 calc(100% - 180px);
 }
   /* Start inside .page-width, bleed to right edge on >1600px viewports */
   .fps-{{ section.id }}-bleed{ width:100%; }
