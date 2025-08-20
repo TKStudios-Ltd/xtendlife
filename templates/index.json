@@ -475,6 +475,23 @@
         "padding_bottom": 100
       }
     },
+    "featured_product_slider_9pxfm9": {
+      "type": "featured-product-slider",
+      "name": "Featured product slider",
+      "settings": {
+        "heading": "Featured products",
+        "collection": "all-bundles",
+        "limit": 6,
+        "cta_label": "Shop now",
+        "show_arrows": true,
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "featured_collection_eLXEqh": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -506,23 +523,6 @@
         "swipe_on_mobile": true,
         "padding_top": 40,
         "padding_bottom": 80
-      }
-    },
-    "featured_product_slider_9pxfm9": {
-      "type": "featured-product-slider",
-      "name": "Featured product slider",
-      "settings": {
-        "heading": "Featured products",
-        "collection": "all-bundles",
-        "limit": 6,
-        "cta_label": "Shop now",
-        "show_arrows": true,
-        "gap": 20,
-        "speed": 500,
-        "autoplay": false,
-        "autoplay_delay": 4000,
-        "padding_top": 48,
-        "padding_bottom": 48
       }
     },
     "reviews_slider_EnTCeY": {
@@ -750,8 +750,8 @@
     "rich_text_WMG6Jn",
     "image_infinite_scroll_KcRcLX",
     "image_with_text_KCQTNJ",
-    "featured_collection_eLXEqh",
     "featured_product_slider_9pxfm9",
+    "featured_collection_eLXEqh",
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
     "image_banner_eNjqNa",
