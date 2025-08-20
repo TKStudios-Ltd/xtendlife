@@ -1491,8 +1491,7 @@ a.product__text {
 /* Subscription */
 
 .shopify-block.recharge-subscription-widget {
-  display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 .compact .rc-purchase-option__label {
   border: 2px solid #1F1946 !important;
