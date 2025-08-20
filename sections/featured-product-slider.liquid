@@ -12,7 +12,7 @@
     }
   }
   @media screen and (min-width: 750px) {
-    .extra-side-padding {
+    .extra-padding {
         padding: 5rem 8rem;
     }
   }
@@ -62,7 +62,7 @@
 {%- endstyle -%}
 
 <section class="section-{{ section.id }}-padding">
-  <div class="page-width extra-side-padding">
+  <div class="page-width extra-padding">
     <div class="fps-{{ section.id }}-head">
       <h2 class="fps-{{ section.id }}-heading h1">{{ section.settings.heading | escape }}</h2>
       {% if section.settings.show_arrows %}
@@ -83,7 +83,7 @@
   </div>
 
   <!-- slider starts inside page-width then bleeds to right edge -->
-  <div class="page-width extra-side-padding">
+  <div class="page-width extra-padding">
     <div class="fps-{{ section.id }}-bleed ts-bleed">
       <div
         class="swiper tswiper fps-{{ section.id }}-swiper"
