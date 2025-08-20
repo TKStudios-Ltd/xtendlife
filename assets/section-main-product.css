@@ -1490,6 +1490,14 @@ a.product__text {
 
 /* Subscription */
 
+.compact .rc-purchase-option__label {
+  border: 2px solid #1F1946 !important;
+  border-radius: 40px !important;
+  padding: 11px 20px 11px 50px !important;
+  color: #1F1946;
+}
+
+
 .rc-container {
   margin-bottom: 1rem;
 }
@@ -1521,12 +1529,7 @@ a.product__text {
   color: #FCF7EB !important;
   background-color: #4A2E20 !important;
 }
-.rc-template__button-group .rc-radio {
-  border: 2px solid #4A2E20 !important;
-  border-radius: 40px !important;
-  padding: 11px 20px 11px 50px !important;
-  color: #4A2E20;
-}
+
 .rc-template__button-group .rc-radio .rc-radio__input {
   all: unset;
   appearance: none;
