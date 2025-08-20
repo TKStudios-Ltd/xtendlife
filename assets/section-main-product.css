@@ -30,9 +30,6 @@ product-info {
     top: 3rem;
     z-index: 2;
   }
-  .product__media-wrapper {
-    margin-top: -34px;
-  }
   .product--thumbnail .thumbnail-list {
     padding-right: var(--media-shadow-horizontal-offset);
   }
