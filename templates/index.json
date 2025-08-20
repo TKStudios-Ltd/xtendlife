@@ -692,6 +692,24 @@
         "padding_bottom": 100
       }
     },
+    "featured_blog_rTpRWK": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "health-articles",
+        "post_limit": 3,
+        "heading": "The Health Hub Journal",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_banner_eNjqNa": {
       "type": "image-banner",
       "blocks": {
@@ -781,6 +799,7 @@
     "featured_collection_eLXEqh",
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
+    "featured_blog_rTpRWK",
     "image_banner_eNjqNa",
     "newsletter_qKtmmH"
   ]
