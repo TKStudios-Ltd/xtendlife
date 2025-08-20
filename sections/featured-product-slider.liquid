@@ -66,13 +66,13 @@
 
     <div
       class="swiper fps-swiper"
-      data-swiper                         <!-- universal hydrator picks this up -->
-      data-slides="1"                     <!-- always 1 per view -->
+      data-swiper
+      data-slides="1"
       data-gap="{{ section.settings.gap | default: 24 }}"
       data-speed="{{ section.settings.speed | default: 500 }}"
       data-autoplay="{{ section.settings.autoplay | default: false }}"
       data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
-      data-nav-prev=".fps-prev"           <!-- scoped custom arrows -->
+      data-nav-prev=".fps-prev"
       data-nav-next=".fps-next"
     >
       <div class="swiper-wrapper">
