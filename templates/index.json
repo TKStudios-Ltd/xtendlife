@@ -557,78 +557,6 @@
         "padding_bottom": 80
       }
     },
-    "featured_product_CEP6jE": {
-      "type": "featured-product",
-      "blocks": {
-        "text_wiwJEA": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "rating_NFW8Kp": {
-          "type": "rating",
-          "settings": {}
-        },
-        "title_yf9yh9": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h2"
-          }
-        },
-        "price_78JxaD": {
-          "type": "price",
-          "disabled": true,
-          "settings": {}
-        },
-        "variant_picker_Ckf4TL": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_KNNV8z": {
-          "type": "quantity_selector",
-          "disabled": true,
-          "settings": {}
-        },
-        "buy_buttons_yXkURR": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
-          }
-        }
-      },
-      "block_order": [
-        "text_wiwJEA",
-        "rating_NFW8Kp",
-        "title_yf9yh9",
-        "price_78JxaD",
-        "variant_picker_Ckf4TL",
-        "quantity_selector_KNNV8z",
-        "buy_buttons_yXkURR"
-      ],
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "product": "bone-support",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "reviews_slider_EnTCeY": {
       "type": "reviews-slider",
       "blocks": {
@@ -874,7 +802,6 @@
     "image_with_text_KCQTNJ",
     "featured_product_slider_9pxfm9",
     "featured_collection_eLXEqh",
-    "featured_product_CEP6jE",
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
     "featured_blog_rTpRWK",
