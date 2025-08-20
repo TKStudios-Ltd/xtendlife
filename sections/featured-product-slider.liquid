@@ -75,15 +75,14 @@
       - nav selectors scoped to this section id (no cross-talk)
     {%- endcomment -%}
     <div
-      class="swiper fps-{{ section.id }}-swiper"
-      data-swiper
-      data-slides="1|750:1|990:1"
-      data-gap="{{ section.settings.gap | default: 24 }}"
-      data-speed="{{ section.settings.speed | default: 500 }}"
-      data-autoplay="{{ section.settings.autoplay | default: false }}"
-      data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
-      data-nav-prev=".fps-prev-{{ section.id }}"
-      data-nav-next=".fps-next-{{ section.id }}"
+    class="swiper tswiper fps-{{ section.id }}-swiper"
+    data-mode="fixed"
+    data-gap="{{ section.settings.gap | default: 20 }}"
+    data-speed="{{ section.settings.speed | default: 500 }}"
+    data-autoplay="{{ section.settings.autoplay | default: false }}"
+    data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
+    data-nav-prev=".fps-prev-{{ section.id }}"
+    data-nav-next=".fps-next-{{ section.id }}"
     >
       <div class="swiper-wrapper">
         {%- if col and prods.size > 0 -%}
@@ -204,10 +203,8 @@
                                 </div>
                                 </product-form>
                             {%- else -%}
-                                {#- No product => no form. Show a disabled CTA or nothing. -#}
-                                <button class="button" disabled>{{ 'products.product.sold_out' | t }}</button>
+                                {% comment %} No product => no form. {% endcomment %}
                             {%- endif -%}
-
 
                         {%- when 'share' -%}
                           {% liquid
