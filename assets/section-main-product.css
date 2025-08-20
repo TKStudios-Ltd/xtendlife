@@ -1490,6 +1490,10 @@ a.product__text {
 
 /* Subscription */
 
+.shopify-block.recharge-subscription-widget {
+  display: flex;
+  justify-content: flex-start;
+}
 .compact .rc-purchase-option__label {
   border: 2px solid #1F1946 !important;
   border-radius: 40px !important;
