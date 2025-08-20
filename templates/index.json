@@ -568,6 +568,10 @@
             "text_style": "uppercase"
           }
         },
+        "rating_NFW8Kp": {
+          "type": "rating",
+          "settings": {}
+        },
         "title_yf9yh9": {
           "type": "title",
           "settings": {
@@ -602,6 +606,7 @@
       },
       "block_order": [
         "text_wiwJEA",
+        "rating_NFW8Kp",
         "title_yf9yh9",
         "price_78JxaD",
         "variant_picker_Ckf4TL",
