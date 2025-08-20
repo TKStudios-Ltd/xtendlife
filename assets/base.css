@@ -4009,3 +4009,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     height: 100%;
   }
 }
+
+.article-card {
+  --ratio-percent: 100%;
+}
