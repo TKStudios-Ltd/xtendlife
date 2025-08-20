@@ -477,12 +477,39 @@
     },
     "featured_product_slider_9pxfm9": {
       "type": "featured-product-slider",
+      "blocks": {
+        "title_ABDKJM": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "text_tU8LkY": {
+          "type": "text",
+          "settings": {
+            "text": "[Metafield Description]",
+            "text_style": "body"
+          }
+        },
+        "buy_buttons_7k66ND": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_ABDKJM",
+        "text_tU8LkY",
+        "buy_buttons_7k66ND"
+      ],
       "name": "Featured product slider",
       "settings": {
         "heading": "Featured products",
         "collection": "all-bundles",
         "limit": 6,
-        "cta_label": "Shop now",
+        "view_details_label": "View full details",
         "show_arrows": true,
         "gap": 20,
         "speed": 500,
