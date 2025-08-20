@@ -211,12 +211,6 @@
 
                       {%- endcase -%}
                     {%- endfor -%}
-
-                    <!-- Minimal ATC support form anchor (for payment terms etc.) -->
-                    {%- form 'product', p -%}
-                      <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-                      {{ form | payment_terms }}
-                    {%- endform -%}
                   </product-info>
                   <a class="link animate-arrow fps-{{ section.id }}-cta" href="{{ p.url }}">
                     {{ section.settings.view_details_label | default: 'View full details' }} {{ 'icon-arrow.svg' | inline_asset_content }}
