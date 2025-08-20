@@ -212,35 +212,13 @@
                             </div>
 
                           {%- when 'buy_buttons' -%}
-                            {%- assign product_in_context = p -%}
-                            {%- if product_in_context and product_in_context.id -%}
-                              <product-form class="product-form" data-hide-errors="false" data-section-id="{{ section.id }}-{{ pid }}">
-                                {%- form 'product', product_in_context, id: form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                                  <input type="hidden" name="id" value="{{ product_in_context.selected_or_first_available_variant.id }}">
-                                  <div class="product-form__buttons">
-                                    <button
-                                      type="submit"
-                                      name="add"
-                                      class="product-form__submit button button--primary"
-                                      {%- unless product_in_context.selected_or_first_available_variant.available -%}disabled{%- endunless -%}
-                                    >
-                                      {%- if product_in_context.selected_or_first_available_variant.available -%}
-                                        {{ 'products.product.add_to_cart' | t }}
-                                      {%- else -%}
-                                        {{ 'products.product.sold_out' | t }}
-                                      {%- endif -%}
-                                    </button>
-                                    {%- if block.settings.show_dynamic_checkout -%}
-                                      {{ form | payment_button }}
-                                    {%- endif -%}
-                                  </div>
-                                {%- endform -%}
-                                <div class="product-form__error-message-wrapper" role="alert" hidden>
-                                  <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
-                                  <span class="product-form__error-message"></span>
-                                </div>
-                              </product-form>
-                            {%- endif -%}
+                            {% render 'buy-buttons',
+                              block: block,
+                              product: p,
+                              product_form_id: form_id,
+                              section_id: section.id | append: '-' | append: pid,
+                              show_pickup_availability: false
+                            %}
 
                           {%- when 'share' -%}
                             {% liquid
