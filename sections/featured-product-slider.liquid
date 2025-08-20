@@ -1,109 +1,225 @@
-{% comment %} Featured Product Slider {% endcomment %}
+{% comment %} Featured Product Slider — 1 product per slide {% endcomment %}
 {%- liquid
-  assign col = section.settings.collection
-  assign limit = section.settings.limit | default: 6
-  assign prods = col.products | slice: 0, limit
+  assign col    = section.settings.collection
+  assign limit  = section.settings.limit | default: 6
+  assign prods  = col.products | slice: 0, limit
 -%}
 
 {%- style -%}
-.section-{{ section.id }}-padding{
-  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-}
-@media (min-width:750px){
   .section-{{ section.id }}-padding{
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-}
+  @media (min-width:750px){
+    .section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
 
-/* Header */
-.section-{{ section.id }}-padding .fps-head{
-  display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem;
-}
-.section-{{ section.id }}-padding .fps-heading{ margin:0; }
+  /* Header (title + arrows) */
+  .fps-{{ section.id }}-head{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; }
+  .fps-{{ section.id }}-heading{ margin:0; }
+  .fps-{{ section.id }}-arrows{ display:flex; gap:.75rem; }
+  .fps-{{ section.id }}-btn{
+    appearance:none; border:1px solid rgba(0,0,0,.15); background:#fff;
+    width:42px; height:42px; border-radius:999px; display:grid; place-items:center; cursor:pointer;
+  }
+  .fps-{{ section.id }}-btn:hover{ border-color:rgba(0,0,0,.35); }
 
-/* Arrows (top-right) */
-.section-{{ section.id }}-padding .fps-arrows{ display:flex; gap:.75rem; }
-.section-{{ section.id }}-padding .fps-btn{
-  appearance:none; border:1px solid rgba(0,0,0,.15); background:#fff;
-  width:42px; height:42px; border-radius:999px; display:grid; place-items:center; cursor:pointer;
-}
-.section-{{ section.id }}-padding .fps-btn:hover{ border-color:rgba(0,0,0,.35); }
+  /* Swiper base */
+  .fps-{{ section.id }}-swiper{ width:100%; }
+  .fps-{{ section.id }}-swiper .swiper-wrapper{ display:flex; }
+  .fps-{{ section.id }}-swiper .swiper-slide{ height:auto; }
 
-/* Swiper base */
-.section-{{ section.id }}-padding .fps-swiper .swiper-wrapper{ display:flex; }
-.section-{{ section.id }}-padding .fps-swiper .swiper-slide{ height:auto; }
+  /* Slide card layout (full width) */
+  .fps-{{ section.id }}-card{
+    width:100%;
+    background:#fff; border-radius:16px;
+    box-shadow:0 1px 2px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.06);
+    padding:2rem;
+    display:grid; gap:2rem;
+    grid-template-columns: 1fr 1fr; /* media left / info right */
+  }
+  @media (max-width: 990px){
+    .fps-{{ section.id }}-card{ grid-template-columns: 1fr; }
+  }
 
-/* Card: media left, info right */
-.section-{{ section.id }}-padding .fps-card{
-  background:#fff; border-radius:16px; box-shadow:0 1px 2px rgba(0,0,0,.05), 0 6px 24px rgba(0,0,0,.06);
-  padding:2rem; display:grid; grid-template-columns: 1fr 1fr; gap:2rem;
-}
-@media (max-width:989px){
-  .section-{{ section.id }}-padding .fps-card{ grid-template-columns: 1fr; }
-}
-.section-{{ section.id }}-padding .fps-media{ border-radius:12px; overflow:hidden; background:#f5f5f5; }
-.section-{{ section.id }}-padding .fps-media img{ width:100%; height:100%; object-fit:contain; display:block; }
-.section-{{ section.id }}-padding .fps-title{ margin:0 0 .5rem 0; }
-.section-{{ section.id }}-padding .fps-cta{ margin-top:1rem; }
+  .fps-{{ section.id }}-media{ border-radius:12px; overflow:hidden; background:#f5f5f5; }
+  .fps-{{ section.id }}-media img{ width:100%; height:100%; object-fit:contain; display:block; }
 
-/* Optional: keep bullets off; this slider uses arrows only */
-.section-{{ section.id }}-padding .swiper-pagination{ display:none; }
+  .fps-{{ section.id }}-title{ margin:0 0 .5rem 0; }
+  .fps-{{ section.id }}-meta{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+  .fps-{{ section.id }}-cta{ margin-top:1rem; }
+
+  /* Optional: bullets off for this slider */
+  .fps-{{ section.id }}-pagination{ display:none; }
 {%- endstyle -%}
 
 <section class="section-{{ section.id }}-padding" data-swiper-root>
   <div class="page-width">
-    <div class="fps-head">
-      <h2 class="fps-heading h2">{{ section.settings.heading | escape }}</h2>
+    <div class="fps-{{ section.id }}-head">
+      <h2 class="fps-{{ section.id }}-heading h2">{{ section.settings.heading | escape }}</h2>
       {% if section.settings.show_arrows %}
-      <div class="fps-arrows">
-        <button class="fps-btn fps-prev" aria-label="Previous">ARROW</button>
-        <button class="fps-btn fps-next" aria-label="Next" style="transform:scaleX(-1)">ARROW</button>
-      </div>
+        <div class="fps-{{ section.id }}-arrows">
+          <button class="fps-{{ section.id }}-btn fps-prev-{{ section.id }}" aria-label="Previous">{% render 'icon-caret' %}</button>
+          <button class="fps-{{ section.id }}-btn fps-next-{{ section.id }}" aria-label="Next" style="transform:scaleX(-1)">{% render 'icon-caret' %}</button>
+        </div>
       {% endif %}
     </div>
 
+    {%- comment -%}
+      Universal hydrator:
+      - data-swiper to init
+      - data-slides="1|750:1|990:1" -> 1 per view at all sizes
+      - nav selectors scoped to this section id (no cross-talk)
+    {%- endcomment -%}
     <div
-      class="swiper fps-swiper"
+      class="swiper fps-{{ section.id }}-swiper"
       data-swiper
-      data-slides="1"
+      data-slides="1|750:1|990:1"
       data-gap="{{ section.settings.gap | default: 24 }}"
       data-speed="{{ section.settings.speed | default: 500 }}"
       data-autoplay="{{ section.settings.autoplay | default: false }}"
       data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
-      data-nav-prev=".fps-prev"
-      data-nav-next=".fps-next"
+      data-nav-prev=".fps-prev-{{ section.id }}"
+      data-nav-next=".fps-next-{{ section.id }}"
     >
       <div class="swiper-wrapper">
         {%- if col and prods.size > 0 -%}
-          {%- for product in prods -%}
+          {%- for p in prods -%}
+            {%- assign pid = p.id -%}
+            {%- assign form_id = 'product-form-' | append: section.id | append: '-' | append: pid -%}
             <div class="swiper-slide">
-              <article class="fps-card">
-                <div class="fps-media">
-                  {% assign fm = product.selected_or_first_available_variant.featured_media | default: product.featured_media %}
+              <article class="fps-{{ section.id }}-card">
+                <!-- Media -->
+                <div class="fps-{{ section.id }}-media">
+                  {%- assign fm = p.selected_or_first_available_variant.featured_media | default: p.featured_media -%}
                   {% if fm %}
-                    {{ fm | image_url: width: 1200 | image_tag:
+                    {{ fm | image_url: width: 1400 | image_tag:
                         loading: 'lazy',
-                        sizes: '(min-width: 990px) 600px, 100vw',
-                        widths: '400,600,800,1000,1200',
-                        alt: product.title | escape }}
+                        sizes: '(min-width: 990px) 700px, 100vw',
+                        widths: '500,700,900,1200,1400',
+                        alt: p.title | escape }}
                   {% else %}
                     {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
-                <div class="fps-info">
-                  <h3 class="fps-title h3"><a href="{{ product.url }}">{{ product.title }}</a></h3>
-                  <div class="fps-price">
-                    {% render 'price', product: product, use_variant: true, show_badges: true %}
-                  </div>
 
-                  {% comment %}
-                    Keep CTA simple to avoid heavy multi-form JS per slide.
-                    Swap to a full buy-buttons render if you really want ATC here.
-                  {% endcomment %}
-                  <a class="button button--primary fps-cta" href="{{ product.url }}">
-                    {{ section.settings.cta_label | default: 'Shop now' }}
+                <!-- Info -->
+                <div class="fps-{{ section.id }}-info">
+                  <product-info
+                    data-section="{{ section.id }}-{{ pid }}"
+                    data-product-id="{{ p.id }}"
+                    data-update-url="false"
+                    data-url="{{ p.url }}"
+                  >
+                    {%- comment -%} bring in Dawn component CSS once per section (safe to include again; browser dedupes) {%- endcomment -%}
+                    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+                    {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+                    {% unless p.has_only_default_variant %}
+                      {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+                      {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+                      {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+                    {% endunless %}
+
+                    {%- for block in section.blocks -%}
+                      {%- case block.type -%}
+                        {%- when 'text' -%}
+                          <p class="inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.text }}</p>
+
+                        {%- when 'title' -%}
+                          <h3 class="fps-{{ section.id }}-title {{ block.settings.heading_size }}"><a href="{{ p.url }}">{{ p.title | escape }}</a></h3>
+
+                        {%- when 'price' -%}
+                          <div id="price-{{ section.id }}-{{ pid }}" class="fps-{{ section.id }}-meta" role="status">
+                            {% render 'price', product: p, use_variant: true, show_badges: true, price_class: 'price--large' %}
+                          </div>
+                          {% if p.quantity_price_breaks_configured? %}
+                            <div class="volume-pricing-note"><span>{{ 'products.product.volume_pricing.note' | t }}</span></div>
+                          {% endif %}
+
+                        {%- when 'sku' -%}
+                          <p class="{% if block.settings.text_style == 'uppercase' %}caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %}subtitle{% endif %}{% if p.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
+                             id="Sku-{{ section.id }}-{{ pid }}" role="status">
+                            <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
+                            {{- p.selected_or_first_available_variant.sku -}}
+                          </p>
+
+                        {%- when 'variant_picker' -%}
+                          {% render 'product-variant-picker', product: p, block: block, product_form_id: form_id %}
+
+                        {%- when 'quantity_selector' -%}
+                          {% assign cart_qty = cart | item_count_for_variant: p.selected_or_first_available_variant.id %}
+                          <div id="Quantity-Form-{{ section.id }}-{{ pid }}" class="product-form__input product-form__quantity">
+                            <label class="quantity__label form__label" for="Quantity-{{ section.id }}-{{ pid }}">
+                              <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
+                            </label>
+                            <div class="price-per-item__container">
+                              <quantity-input class="quantity">
+                                <button class="quantity__button" name="minus" type="button"><span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: p.title | escape }}</span><span class="svg-wrapper">{{ 'icon-minus.svg' | inline_asset_content }}</span></button>
+                                <input class="quantity__input" type="number" name="quantity" id="Quantity-{{ section.id }}-{{ pid }}"
+                                       data-cart-quantity="{{ cart_qty }}"
+                                       data-min="{{ p.selected_or_first_available_variant.quantity_rule.min }}"
+                                       min="{{ p.selected_or_first_available_variant.quantity_rule.min }}"
+                                       {% if p.selected_or_first_available_variant.quantity_rule.max != null %}data-max="{{ p.selected_or_first_available_variant.quantity_rule.max }}" max="{{ p.selected_or_first_available_variant.quantity_rule.max }}"{% endif %}
+                                       step="{{ p.selected_or_first_available_variant.quantity_rule.increment }}"
+                                       value="{{ p.selected_or_first_available_variant.quantity_rule.min }}"
+                                       form="{{ form_id }}">
+                                <button class="quantity__button" name="plus" type="button"><span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: p.title | escape }}</span><span class="svg-wrapper">{{ 'icon-plus.svg' | inline_asset_content }}</span></button>
+                              </quantity-input>
+                            </div>
+                          </div>
+
+                        {%- when 'buy_buttons' -%}
+                          {%- render 'buy-buttons',
+                            block: block,
+                            product: p,
+                            product_form_id: form_id,
+                            section_id: section.id
+                          -%}
+
+                        {%- when 'share' -%}
+                          {% liquid
+                            assign share_url = p.selected_variant.url | default: p.url | prepend: request.origin
+                            render 'share-button', block: block, share_link: share_url
+                          %}
+
+                        {%- when 'custom_liquid' -%}
+                          {{ block.settings.custom_liquid }}
+
+                        {%- when 'rating' -%}
+                          {%- if p.metafields.reviews.rating.value != blank -%}
+                            <div class="rating-wrapper">
+                              {% assign rating_decimal = 0 %}
+                              {% assign decimal = p.metafields.reviews.rating.value.rating | modulo: 1 %}
+                              {% if decimal >= 0.3 and decimal <= 0.7 %}
+                                {% assign rating_decimal = 0.5 %}
+                              {% elsif decimal > 0.7 %}
+                                {% assign rating_decimal = 1 %}
+                              {% endif %}
+                              <div class="rating" role="img" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: p.metafields.reviews.rating.value, rating_max: p.metafields.reviews.rating.value.scale_max }}">
+                                <span aria-hidden="true" class="rating-star" style="--rating: {{ p.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ p.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
+                              </div>
+                              <p class="rating-text caption"><span aria-hidden="true">{{- p.metafields.reviews.rating.value }} / {{ p.metafields.reviews.rating.value.scale_max -}}</span></p>
+                              <p class="rating-count caption"><span aria-hidden="true">({{ p.metafields.reviews.rating_count }})</span><span class="visually-hidden">{{- p.metafields.reviews.rating_count }} {{ 'accessibility.total_reviews' | t -}}</span></p>
+                            </div>
+                          {%- endif -%}
+
+                        {%- when 'icon-with-text' -%}
+                          {% render 'icon-with-text', block: block %}
+
+                      {%- endcase -%}
+                    {%- endfor -%}
+
+                    <!-- Minimal ATC support form anchor (for payment terms etc.) -->
+                    {%- form 'product', p -%}
+                      <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+                      {{ form | payment_terms }}
+                    {%- endform -%}
+                  </product-info>
+                  <a class="link animate-arrow fps-{{ section.id }}-cta" href="{{ p.url }}">
+                    {{ section.settings.view_details_label | default: 'View full details' }} {{ 'icon-arrow.svg' | inline_asset_content }}
                   </a>
                 </div>
               </article>
@@ -112,12 +228,12 @@
         {%- else -%}
           {%- for i in (1..3) -%}
             <div class="swiper-slide">
-              <article class="fps-card">
-                <div class="fps-media">{{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
-                <div class="fps-info">
-                  <h3 class="fps-title h3">Featured product</h3>
-                  <div class="fps-price">$99.00</div>
-                  <a class="button button--primary fps-cta" href="#">Shop now</a>
+              <article class="fps-{{ section.id }}-card">
+                <div class="fps-{{ section.id }}-media">{{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+                <div class="fps-{{ section.id }}-info">
+                  <h3 class="fps-{{ section.id }}-title h3">Featured product</h3>
+                  <div class="price">$99.00</div>
+                  <a class="button button--primary fps-{{ section.id }}-cta" href="#">Shop now</a>
                 </div>
               </article>
             </div>
@@ -126,6 +242,12 @@
       </div>
     </div>
   </div>
+
+  {%- comment -%} One-time JS includes (Dawn) used by blocks above {%- endcomment -%}
+  <script src="{{ 'product-info.js' | asset_url }}" defer></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
+  <script src="{{ 'show-more.js' | asset_url }}" defer></script>
 </section>
 
 {% schema %}
@@ -137,7 +259,7 @@
     { "type": "collection", "id": "collection", "label": "Collection" },
     { "type": "range", "id": "limit", "label": "Products to show", "min": 1, "max": 12, "step": 1, "default": 6 },
 
-    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop now" },
+    { "type": "text", "id": "view_details_label", "label": "View details label", "default": "View full details" },
 
     { "type": "checkbox", "id": "show_arrows", "label": "Show arrows", "default": true },
     { "type": "range", "id": "gap", "label": "Slide gap (px)", "min": 0, "max": 48, "step": 2, "default": 24 },
@@ -148,6 +270,19 @@
     { "type": "header", "content": "Section padding" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 48 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 48 }
+  ],
+  "blocks": [
+    { "type": "text", "name": "Text", "settings": [ { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Brand" }, { "type": "select", "id": "text_style", "label": "Style", "default": "body", "options": [ { "value":"body","label":"Body" }, { "value":"subtitle","label":"Subtitle" }, { "value":"uppercase","label":"Uppercase" } ] } ] },
+    { "type": "title", "name": "Title", "limit": 1, "settings": [ { "type": "select", "id": "heading_size", "label": "Heading size", "default": "h2", "options": [ { "value": "h2", "label": "H2" }, { "value": "h1", "label": "H1" }, { "value": "h0", "label": "H0" }, { "value": "hxl", "label": "HXL" }, { "value": "hxxl", "label": "HXXL" } ] } ] },
+    { "type": "price", "name": "Price", "limit": 1 },
+    { "type": "sku", "name": "SKU", "limit": 1, "settings": [ { "type": "select", "id": "text_style", "label": "Style", "default": "body", "options": [ { "value": "body", "label": "Body" }, { "value": "subtitle", "label": "Subtitle" }, { "value": "uppercase", "label": "Uppercase" } ] } ] },
+    { "type": "variant_picker", "name": "Variant picker", "limit": 1, "settings": [ { "type": "select", "id": "picker_type", "label": "Picker", "default": "button", "options": [ { "value": "dropdown", "label": "Dropdown" }, { "value": "button", "label": "Buttons" } ] }, { "type": "select", "id": "swatch_shape", "label": "Swatch shape", "default": "circle", "options": [ { "value":"circle","label":"Circle" }, { "value":"square","label":"Square" }, { "value":"none","label":"None" } ] } ] },
+    { "type": "quantity_selector", "name": "Quantity selector", "limit": 1 },
+    { "type": "buy_buttons", "name": "Buy buttons", "limit": 1, "settings": [ { "type": "checkbox", "id": "show_dynamic_checkout", "default": true, "label": "Show dynamic checkout" }, { "type": "checkbox", "id": "show_gift_card_recipient", "default": true, "label": "Gift card recipient (if applicable)" } ] },
+    { "type": "share", "name": "Share", "limit": 1, "settings": [ { "type":"text", "id":"share_label", "label":"Label", "default":"Share" } ] },
+    { "type": "custom_liquid", "name": "Custom liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid" } ] },
+    { "type": "rating", "name": "Rating", "limit": 1 },
+    { "type": "icon-with-text", "name": "Icon with text", "settings": [ { "type": "select", "id": "layout", "label": "Layout", "default": "horizontal", "options": [ { "value": "horizontal", "label": "Horizontal" }, { "value": "vertical", "label": "Vertical" } ] } ] }
   ],
   "presets": [{ "name": "Featured product slider" }]
 }
