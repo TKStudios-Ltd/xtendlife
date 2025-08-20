@@ -14,15 +14,19 @@
         padding: 5rem 8rem;
     }
 }
-
-  /* Head (title + arrows) */
-  .fps-{{ section.id }}-head{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; }
+.fps-{{ section.id }}-head{ 
+    display:flex; 
+    align-items: flex-start;
+    justify-content:space-between;
+    gap:1rem;
+    margin-bottom:1.5rem;
+}
 .fps-{{ section.id }}-heading{ 
     margin: 0;
     max-width: 540px;
     line-height: 1.2;
 }
-.fps-{{ section.id }}-arrows{ display:flex; gap:.75rem; }
+.fps-{{ section.id }}-arrows{ display:flex; gap: 1rem; }
 .fps-{{ section.id }}-btn {
     appearance: none;
     border: none;
