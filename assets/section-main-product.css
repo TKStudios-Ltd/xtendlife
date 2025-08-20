@@ -3,11 +3,13 @@ product-info {
 }
 
 .product {
-  margin: 0;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .product.grid {
-  gap: 0;
+  gap: 2rem;
 }
 
 .product--no-media {
