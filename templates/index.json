@@ -745,7 +745,7 @@
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "blog": "health-articles",
-        "post_limit": 3,
+        "post_limit": 4,
         "heading": "The Health Hub Journal",
         "heading_size": "h2",
         "columns_desktop": 3,
