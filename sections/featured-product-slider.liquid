@@ -5,21 +5,23 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-  @media (min-width:750px){
+@media (min-width:750px){
     .section-{{ section.id }}-padding{
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  }
-  @media screen and (min-width: 750px) {
     .extra-padding {
         padding: 5rem 8rem;
     }
-  }
+}
 
   /* Head (title + arrows) */
   .fps-{{ section.id }}-head{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; }
-  .fps-{{ section.id }}-heading{ margin:0; }
+.fps-{{ section.id }}-heading{ 
+    margin: 0;
+    max-width: 540px;
+    line-height: 1.2;
+}
   .fps-{{ section.id }}-arrows{ display:flex; gap:.75rem; }
   .fps-{{ section.id }}-btn{
     appearance:none; border:1px solid rgba(0,0,0,.15); background:#fff;
