@@ -36,7 +36,7 @@ product-info {
     padding-right: var(--media-shadow-horizontal-offset);
   }
   .product__info-wrapper {
-    padding: 10rem 8vw;
+    padding: 8rem 6vw;
   }
 
   .product__info-wrapper--extra-padding {
