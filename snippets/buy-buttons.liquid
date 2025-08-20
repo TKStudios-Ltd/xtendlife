@@ -1,15 +1,12 @@
 {% comment %}
-  Renders product buy-buttons.
-  Accepts:
-  - product: {Object} product object.
-  - block: {Object} passing the block information.
-  - product_form_id: {String} product form id.
-  - section_id: {String} id of section to which this snippet belongs.
-  - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
-
-  Usage:
-  {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
+  Buy buttons — expects:
+  - product
+  - block
+  - product_form_id
+  - section_id      (PASS A UNIQUE VALUE PER SLIDE, e.g., "{{ section.id }}-{{ product.id }}")
+  - show_pickup_availability (optional)
 {% endcomment %}
+
 <div {{ block.shopify_attributes }}>
   {%- if product != blank -%}
     {%- liquid
@@ -27,12 +24,10 @@
     <product-form
       class="product-form"
       data-hide-errors="{{ gift_card_recipient_feature_active }}"
-      data-section-id="{{ section.id }}"
+      data-section-id="{{ section_id }}"   {# <-- use the param, not global section.id #}
     >
       <div class="product-form__error-message-wrapper" role="alert" hidden>
-        <span class="svg-wrapper">
-          {{- 'icon-error.svg' | inline_asset_content -}}
-        </span>
+        <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
         <span class="product-form__error-message"></span>
       </div>
 
@@ -69,14 +64,24 @@
             if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
               assign quantity_rule_soldout = true
             endif
+
+            # FIX: compute cart_qty correctly (filter), not cart.item_count_for_variant
+            assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id
           -%}
+
           <div class="product-form__buy-row">
             <div class="product-form__quantity-wrap">
-              {%- render 'quantity-selector', product: product, product_form_id: product_form_id, section_id: section_id, cart_qty: cart.item_count_for_variant -%}
+              {%- render 'quantity-selector',
+                product: product,
+                product_form_id: product_form_id,
+                section_id: section_id,
+                cart_qty: cart_qty
+              -%}
             </div>
+
             <div class="product-form__submit-wrap">
               <button
-                id="ProductSubmitButton-{{ section_id }}"
+                id="ProductSubmitButton-{{ section_id }}-{{ product.id }}"  {# unique per slide #}
                 type="submit"
                 name="add"
                 class="product-form__submit button {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
@@ -100,6 +105,7 @@
               </button>
             </div>
           </div>
+
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
@@ -123,11 +129,9 @@
 
   {%- if show_pickup_availability -%}
     {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
-
     {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
       | where: 'pick_up_enabled', true
     -%}
-
     <pickup-availability
       class="product__pickup-availabilities quick-add-hidden"
       {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
@@ -140,9 +144,7 @@
     >
       <template>
         <pickup-availability-preview class="pickup-availability-preview">
-          <span class="svg-wrapper">
-            {{- 'icon-unavailable.svg' | inline_asset_content -}}
-          </span>
+          <span class="svg-wrapper">{{- 'icon-unavailable.svg' | inline_asset_content -}}</span>
           <div class="pickup-availability-info">
             <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
             <button class="pickup-availability-button link link--text underlined-link">
@@ -152,7 +154,6 @@
         </pickup-availability-preview>
       </template>
     </pickup-availability>
-
-    <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pickup-availability.js' | asset_url }}" defer></script>
   {%- endif -%}
 </div>
