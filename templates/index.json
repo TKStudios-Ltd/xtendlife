@@ -511,7 +511,7 @@
       ],
       "name": "Featured product slider",
       "settings": {
-        "heading": "Featured products",
+        "heading": "Get started with our best selling bundles",
         "collection": "all-bundles",
         "limit": 6,
         "view_details_label": "View full details",
