@@ -34,6 +34,11 @@
   word-break: break-word;
 }
 
+.accordion summary .icon-caret {
+  width: 12px;
+  height: 12px;
+}
+
 .accordion .svg-wrapper {
   align-self: center;
   fill: rgb(var(--color-foreground));
