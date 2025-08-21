@@ -107,7 +107,7 @@
       transform: translate(-50%, -50%);
       display:flex; align-items:center; gap:.6rem;
       border:0; background:transparent; cursor:pointer;
-      font: inherit; color: inherit;
+      font: inherit; color: inherit; transition: border-radius ease .2s;
     }
     .hotspots__pin-plus {
       display:grid; place-items:center;
@@ -129,7 +129,7 @@
         font-weight: 500;
         font-size: 20px;
         border-radius: 0 99px 99px 0;
-        transition: all .18s ease;
+        transition: all .2s ease;
     }
     .hotspots__pin[aria-expanded="true"] .hotspots__pin-label{
       opacity:1; transform: translateX(-7px); pointer-events:auto;
