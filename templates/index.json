@@ -759,7 +759,7 @@
           "type": "hotspot",
           "settings": {
             "title": "Magnesium",
-            "desc": "<p>Short description for this ingredient.</p>",
+            "desc": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
             "link_label": "Our Ingredients",
             "link_url": "#",
             "x": 30,
@@ -771,7 +771,7 @@
           "type": "hotspot",
           "settings": {
             "title": "Zinc",
-            "desc": "<p>Short description for this ingredient.</p>",
+            "desc": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
             "link_label": "Our Ingredients",
             "link_url": "#",
             "x": 40,
