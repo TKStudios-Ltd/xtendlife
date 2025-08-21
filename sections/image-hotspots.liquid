@@ -1,0 +1,244 @@
+{% comment %}
+  Image Hotspots / Tooltips — Dawn
+  - Image on right (desktop), panel on left
+  - Each hotspot is a block with X/Y (%) position, title, description, link
+  - Clicking a hotspot expands its pill and populates the left panel
+{% endcomment %}
+
+<section class="hotspots {{ section.settings.color_scheme }} section-{{ section.id }}" id="hotspots-{{ section.id }}">
+  <div class="hotspots__inner page-width">
+    <div class="hotspots__grid">
+
+      {%- comment -%} LEFT PANEL {%- endcomment -%}
+      <div class="hotspots__panel"
+           style="--panel-bg: {{ section.settings.panel_bg }}; --panel-text: {{ section.settings.panel_text }};">
+        <div class="hotspots__panel-card">
+          <div class="hotspots__panel-content" id="hotspots-panel-{{ section.id }}">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="hotspots__heading">{{ section.settings.heading }}</h2>
+            {%- endif -%}
+            {%- if section.settings.body != blank -%}
+              <div class="hotspots__body rte">{{ section.settings.body }}</div>
+            {%- endif -%}
+            {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+              <a class="button button--primary" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      {%- comment -%} RIGHT IMAGE + HOTSPOTS {%- endcomment -%}
+      <div class="hotspots__media">
+        <div class="hotspots__image-wrap" style="max-width: {{ section.settings.media_max_width }}px">
+          {%- if section.settings.image != blank -%}
+            {{ section.settings.image
+              | image_url: width: 2200
+              | image_tag:
+                loading: 'lazy',
+                widths: '400, 800, 1200, 1600, 2000, 2200',
+                class: 'hotspots__image',
+                alt: section.settings.image.alt | escape
+            }}
+          {%- else -%}
+            <div class="hotspots__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+          {%- endif -%}
+
+          <div class="hotspots__pins" id="hotspots-pins-{{ section.id }}">
+            {%- for block in section.blocks -%}
+              {%- assign bx = block.settings.x | default: 50 -%}
+              {%- assign by = block.settings.y | default: 50 -%}
+              <button
+                {{ block.shopify_attributes }}
+                type="button"
+                class="hotspots__pin"
+                style="--x: {{ bx }}%; --y: {{ by }}%;"
+                data-block-id="{{ block.id }}"
+                aria-expanded="false"
+                aria-controls="hotspots-panel-{{ section.id }}"
+                title="{{ block.settings.title | escape }}"
+              >
+                <span class="hotspots__pin-plus" aria-hidden="true">+</span>
+                <span class="hotspots__pin-label">{{ block.settings.title }}</span>
+              </button>
+
+              {%- comment -%} Template for the left panel content {%- endcomment -%}
+              <template id="hotspots-tpl-{{ block.id }}">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="hotspots__panel-title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.desc != blank -%}
+                  <div class="hotspots__panel-desc rte">{{ block.settings.desc }}</div>
+                {%- endif -%}
+                {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
+                  <a class="button button--secondary" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+                {%- endif -%}
+              </template>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .section-{{ section.id }} .hotspots__grid{
+      display:grid; gap:2rem; align-items:center;
+      grid-template-columns: 1fr minmax(0,1fr);
+    }
+    /* Image on right */
+    .section-{{ section.id }} .hotspots__panel{order:1}
+    .section-{{ section.id }} .hotspots__media{order:2}
+
+    .hotspots__panel-card{
+      background:var(--panel-bg, #F2F6F9);
+      color:var(--panel-text, #1a1a1a);
+      border-radius:24px; padding:32px;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
+    }
+    .hotspots__heading{margin:0 0 .5rem 0}
+    .hotspots__body{margin:0 0 1rem 0}
+
+    .hotspots__image-wrap{position:relative; width:100%}
+    .hotspots__image{display:block; width:100%; height:auto}
+    .hotspots__pins{position:absolute; inset:0}
+    .hotspots__pin{
+      position:absolute; top:var(--y); left:var(--x);
+      transform: translate(-50%, -50%);
+      display:flex; align-items:center; gap:.6rem;
+      border:0; background:transparent; cursor:pointer;
+      font: inherit; color: inherit;
+    }
+    .hotspots__pin-plus{
+      display:grid; place-items:center;
+      width:44px; height:44px; border-radius:999px;
+      background:#1F1E3D; color:#fff; font-size:22px; line-height:1;
+      transition:transform .18s ease, box-shadow .18s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,.2);
+    }
+    .hotspots__pin-label{
+      opacity:0; pointer-events:none; transform: translateX(-6px);
+      white-space:nowrap;
+      background:#1F1E3D; color:#fff; padding:.6rem 1rem; border-radius:999px;
+      transition: all .18s ease;
+      font-weight:600;
+    }
+    .hotspots__pin[aria-expanded="true"] .hotspots__pin-label{
+      opacity:1; transform: translateX(0); pointer-events:auto;
+    }
+    .hotspots__pin:hover .hotspots__pin-plus{transform:scale(1.06)}
+
+    /* Panel typography inside swapped content */
+    .hotspots__panel-title{margin:0 0 .5rem}
+    .hotspots__panel-desc{margin:0 0 1rem}
+
+    /* Mobile: stack */
+    @media (max-width: 989px){
+      .section-{{ section.id }} .hotspots__grid{
+        grid-template-columns: 1fr; gap:1.25rem;
+      }
+      .section-{{ section.id }} .hotspots__panel{order:2}
+      .section-{{ section.id }} .hotspots__media{order:1}
+    }
+  </style>
+
+  <script>
+    (function(){
+      const rootId = "{{ section.id }}";
+      const panel = document.getElementById("hotspots-panel-" + rootId);
+      const pinsWrap = document.getElementById("hotspots-pins-" + rootId);
+      if(!panel || !pinsWrap) return;
+
+      const pins = Array.from(pinsWrap.querySelectorAll(".hotspots__pin"));
+
+      function setActive(pin){
+        pins.forEach(p=>{
+          const isActive = p === pin;
+          p.setAttribute("aria-expanded", isActive ? "true" : "false");
+        });
+
+        const id = pin.getAttribute("data-block-id");
+        const tpl = document.getElementById("hotspots-tpl-" + id);
+        if(tpl){
+          panel.innerHTML = tpl.innerHTML;
+          panel.focus?.();
+        }
+      }
+
+      // Default: open first pin or one with "open by default"
+      const defaultId = "{{ section.blocks | where: 'settings.open_default', true | map: 'id' | first }}";
+      const defaultPin = defaultId
+        ? pins.find(p => p.getAttribute("data-block-id") === defaultId)
+        : pins[0];
+
+      if(defaultPin) setActive(defaultPin);
+
+      pins.forEach(pin=>{
+        pin.addEventListener("click", ()=> setActive(pin));
+        pin.addEventListener("keydown", (e)=>{
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            setActive(pin);
+          }
+        });
+      });
+    })();
+  </script>
+
+  {%- schema -%}
+  {
+    "name": "Image Hotspots (Tooltips)",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { 
+        "type": "range", 
+        "id": "media_max_width", 
+        "label": "Image max width (px)", 
+        "min": 300, 
+        "max": 1600, 
+        "step": 50, 
+        "default": 900 
+      },
+      { "type": "text", "id": "heading", "label": "Heading", "default": "We believe you deserve to know exactly what you’re putting in your body." },
+      { "type": "richtext", "id": "body", "label": "Intro text", "default": "<p>Every ingredient is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>" },
+      { "type": "text", "id": "cta_label", "label": "Intro button label", "default": "Our Ingredients →" },
+      { "type": "url", "id": "cta_url", "label": "Intro button link" },
+      { "type": "color", "id": "panel_bg", "label": "Panel background", "default": "#F2F6F9" },
+      { "type": "color", "id": "panel_text", "label": "Panel text color", "default": "#111111" },
+      { "type": "select", "id": "color_scheme", "label": "Color scheme", "default": "color-scheme-1", "options": [
+        { "value": "color-scheme-1", "label": "Scheme 1" },
+        { "value": "color-scheme-2", "label": "Scheme 2" },
+        { "value": "color-scheme-3", "label": "Scheme 3" }
+      ]}
+    ],
+    "blocks": [
+      {
+        "type": "hotspot",
+        "name": "Hotspot",
+        "settings": [
+          { "type": "text", "id": "title", "label": "Name", "default": "Vitamin A" },
+          { "type": "richtext", "id": "desc", "label": "Description", "default": "<p>Short description for this ingredient.</p>" },
+          { "type": "text", "id": "link_label", "label": "Link label", "default": "Learn more" },
+          { "type": "url", "id": "link_url", "label": "Link URL" },
+          { "type": "range", "id": "x", "label": "X position (%)", "min": 0, "max": 100, "step": 1, "default": 70 },
+          { "type": "range", "id": "y", "label": "Y position (%)", "min": 0, "max": 100, "step": 1, "default": 45 },
+          { "type": "checkbox", "id": "open_default", "label": "Open by default", "default": false }
+        ]
+      }
+    ],
+    "max_blocks": 12,
+    "presets": [
+      {
+        "name": "Image Hotspots (Tooltips)",
+        "blocks": [
+          { "type": "hotspot", "settings": { "title": "Vitamin A", "x": 78, "y": 55, "open_default": true } },
+          { "type": "hotspot", "settings": { "title": "Magnesium", "x": 64, "y": 78 } },
+          { "type": "hotspot", "settings": { "title": "Zinc", "x": 86, "y": 32 } }
+        ]
+      }
+    ]
+  }
+  {%- endschema -%}
+</section>
