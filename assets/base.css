@@ -3854,6 +3854,7 @@ details-disclosure > details {
 main#MainContent > .section:first-of-type {
   position: relative;
 }
+main#MainContent.collection-template,
 main#MainContent > .section:first-of-type .nav__offset_bg {
   padding-top: 105px;
 }
@@ -3861,9 +3862,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   main#MainContent > .section:first-of-type .nav__offset_bg {
     padding-top: 85px;
   }
-  /* .cart-drawer {
-    padding-top: 110px;
-  } */
+
 }
 @media (min-width: 750px) {
   main#MainContent.product-template > .section:first-of-type .product__info-wrapper {
