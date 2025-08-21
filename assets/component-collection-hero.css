@@ -12,6 +12,7 @@
   .collection-hero.collection-hero--with-image {
     padding: 0 2rem;
     overflow: hidden;
+    border-radius: 10px;
   }
 
   .collection-hero--with-image .collection-hero__inner {
