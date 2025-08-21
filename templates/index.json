@@ -740,6 +740,64 @@
         "padding_bottom": 100
       }
     },
+    "image_hotspots_Hi6X7c": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_fytRdk": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Vitamin A",
+            "desc": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises. </p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed. </p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 80,
+            "y": 55,
+            "open_default": true
+          }
+        },
+        "hotspot_EzN4jP": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Magnesium",
+            "desc": "<p>Short description for this ingredient.</p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 30,
+            "y": 78,
+            "open_default": false
+          }
+        },
+        "hotspot_mLbTrh": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Zinc",
+            "desc": "<p>Short description for this ingredient.</p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 40,
+            "y": 10,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_fytRdk",
+        "hotspot_EzN4jP",
+        "hotspot_mLbTrh"
+      ],
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 550,
+        "heading": "We believe you deserve to know exactly what you’re putting in your body.",
+        "body": "<p>Every ingredient is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
+        "cta_label": "Our Ingredients →",
+        "cta_url": "",
+        "panel_bg": "#F2F6F9",
+        "panel_text": "#111111",
+        "color_scheme": "color-scheme-1"
+      }
+    },
     "featured_blog_rTpRWK": {
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
@@ -848,6 +906,7 @@
     "featured_product_CEP6jE",
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
+    "image_hotspots_Hi6X7c",
     "featured_blog_rTpRWK",
     "newsletter_qKtmmH",
     "image_banner_eNjqNa"
