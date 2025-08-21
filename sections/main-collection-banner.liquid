@@ -62,7 +62,7 @@
 
 {%- comment -%} Banner {%- endcomment -%}
 <div
-  class="collection-hero{% if banner_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} gradient"
+  class="collection-hero{% if banner_img %} collection-hero--with-image collection-hero--bg{% endif %} page-width color-{{ section.settings.color_scheme }} gradient"
   {% if banner_img %}style="--banner-image: url({{ banner_img }});" {% endif %}
 >
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
