@@ -184,6 +184,9 @@
         "collapsible_row_qK6UP8",
         "collapsible_row_KrhL6f"
       ],
+      "custom_css": [
+        ".accordion__title {font-weight: 400;}"
+      ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
