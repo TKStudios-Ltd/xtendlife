@@ -4013,3 +4013,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .article-card .card__inner {
   --ratio-percent: 100% !important;
 }
+
+.swiper-pagination {
+  z-index: 2 !important;
+}
