@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 750px) {
   .collection-hero.collection-hero--with-image {
-    padding: calc(4rem + var(--page-width-margin)) 2rem calc(4rem + var(--page-width-margin));
+    padding: 0 2rem;
     overflow: hidden;
   }
 
