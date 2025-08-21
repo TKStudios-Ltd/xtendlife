@@ -758,6 +758,32 @@
         "padding_bottom": 100
       }
     },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
     "image_banner_eNjqNa": {
       "type": "image-banner",
       "blocks": {
@@ -804,32 +830,6 @@
         "mobile_content_alignment": "center",
         "show_text_below": false
       }
-    },
-    "newsletter_qKtmmH": {
-      "type": "newsletter",
-      "blocks": {
-        "paragraph_RxdmFE": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
-          }
-        },
-        "email_form_hDdFMH": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "paragraph_RxdmFE",
-        "email_form_hDdFMH"
-      ],
-      "name": "t:sections.newsletter.presets.name",
-      "settings": {
-        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
-        "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 100
-      }
     }
   },
   "order": [
@@ -849,7 +849,7 @@
     "reviews_slider_EnTCeY",
     "testimonial_slider_xafpPw",
     "featured_blog_rTpRWK",
-    "image_banner_eNjqNa",
-    "newsletter_qKtmmH"
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNa"
   ]
 }
