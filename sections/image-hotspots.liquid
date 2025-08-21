@@ -14,7 +14,7 @@
            style="--panel-bg: {{ section.settings.panel_bg }}; --panel-text: {{ section.settings.panel_text }};">
         <div class="hotspots__panel-card">
           <div class="hotspots__panel-content" id="hotspots-panel-{{ section.id }}">
-            {%- if section.settings.heading != blank -%}
+            {% comment %} {%- if section.settings.heading != blank -%}
               <h2 class="hotspots__heading">{{ section.settings.heading }}</h2>
             {%- endif -%}
             {%- if section.settings.body != blank -%}
@@ -22,7 +22,7 @@
             {%- endif -%}
             {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
               <a class="button button--small" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
           </div>
         </div>
       </div>
@@ -201,10 +201,6 @@
         "step": 50, 
         "default": 900 
       },
-      { "type": "text", "id": "heading", "label": "Heading", "default": "We believe you deserve to know exactly what you’re putting in your body." },
-      { "type": "richtext", "id": "body", "label": "Intro text", "default": "<p>Every ingredient is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>" },
-      { "type": "text", "id": "cta_label", "label": "Intro button label", "default": "Our Ingredients →" },
-      { "type": "url", "id": "cta_url", "label": "Intro button link" },
       { "type": "color", "id": "panel_bg", "label": "Panel background", "default": "#F2F6F9" },
       { "type": "color", "id": "panel_text", "label": "Panel text color", "default": "#111111" },
       { "type": "select", "id": "color_scheme", "label": "Color scheme", "default": "color-scheme-1", "options": [
