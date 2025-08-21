@@ -138,12 +138,86 @@
         "padding_top": 0,
         "padding_bottom": 100
       }
+    },
+    "image_hotspots_Hi6X7c": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_fytRdk": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Vitamin A",
+            "desc": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises. </p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed. </p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 80,
+            "y": 55,
+            "open_default": true
+          }
+        },
+        "hotspot_EzN4jP": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Magnesium",
+            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 30,
+            "y": 78,
+            "open_default": false
+          }
+        },
+        "hotspot_mLbTrh": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Zinc",
+            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 40,
+            "y": 10,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_fytRdk",
+        "hotspot_EzN4jP",
+        "hotspot_mLbTrh"
+      ],
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 550,
+        "panel_bg": "#f4f8fb",
+        "panel_text": "#1f1946",
+        "color_scheme": "color-scheme-1"
+      }
+    },
+    "featured_blog_rTpRWK": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "health-articles",
+        "post_limit": 6,
+        "heading": "The Health Hub Journal",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
     "banner",
     "product-grid",
     "collection_list_GrRzez",
-    "image_with_text_KCQTNJ"
+    "image_with_text_KCQTNJ",
+    "image_hotspots_Hi6X7c",
+    "featured_blog_rTpRWK"
   ]
 }
