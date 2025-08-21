@@ -56,13 +56,13 @@
 }
 
 .collapsible-content__heading {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0;
 }
 
 @media screen and (min-width: 750px) {
   .collapsible-content__heading {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
   }
 }
 
