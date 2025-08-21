@@ -11,7 +11,6 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "color_scheme": "scheme-1"
@@ -21,20 +20,20 @@
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 16,
-        "columns_desktop": 2,
+        "columns_desktop": 4,
         "columns_mobile": "1",
-        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
-        "image_ratio": "square",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
         "quick_add": "standard",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "vertical",
-        "enable_sorting": false,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "enable_sorting": true,
+        "padding_top": 20,
+        "padding_bottom": 100
       }
     },
     "collection_list_GrRzez": {
