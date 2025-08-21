@@ -21,7 +21,7 @@
               <div class="hotspots__body rte">{{ section.settings.body }}</div>
             {%- endif -%}
             {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
-              <a class="button button--primary" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
+              <a class="button button--small" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
             {%- endif -%}
           </div>
         </div>
@@ -70,7 +70,7 @@
                   <div class="hotspots__panel-desc rte">{{ block.settings.desc }}</div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
-                  <a class="button button--secondary" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+                  <a class="button button--small" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
                 {%- endif -%}
               </template>
             {%- endfor -%}
