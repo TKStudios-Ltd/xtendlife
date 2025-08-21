@@ -1,7 +1,51 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign banner_ref = collection.metafields.custom.collection_banner_main
+  assign banner_img = nil
+  if banner_ref != blank
+    assign banner_img = banner_ref | image_url: width: 3000
+  elsif collection.image
+    assign banner_img = collection.image | image_url: width: 3000
+  endif
+-%}
+
 {%- style -%}
+  .breadcrumbs {
+    font-size: 0.875rem;
+    margin: 0 auto 1rem;
+  }
+  .breadcrumbs a {
+    text-decoration: none;
+  }
+  .breadcrumbs__sep {
+    margin: 0 0.5rem;
+    opacity: 0.6;
+  }
+
+  .collection-hero--bg {
+    {% comment %} background image is injected via the style attribute var(--banner-image) {% endcomment %}
+    background-image: var(--banner-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Vertically center text, keep left aligned */
+  .collection-hero__inner {
+    display: flex;
+    align-items: center;
+    min-height: 340px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .collection-hero__inner {
+      min-height: 440px;
+    }
+  }
+
+  /* Minor tweak for small screens so shadows don't overlap */
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
       padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
@@ -9,7 +53,18 @@
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+{%- comment -%} Breadcrumbs {%- endcomment -%}
+<nav class="breadcrumbs page-width" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t | default: 'Home' }}</a>
+  <span class="breadcrumbs__sep">›</span>
+  <span aria-current="page">{{ collection.title | escape }}</span>
+</nav>
+
+{%- comment -%} Banner {%- endcomment -%}
+<div
+  class="collection-hero{% if banner_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} gradient"
+  {% if banner_img %}style="--banner-image: url({{ banner_img }});" {% endif %}
+>
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
       <h1 class="collection-hero__title">
@@ -17,11 +72,10 @@
         {{- collection.title | escape -}}
       </h1>
 
-      {%- if section.settings.show_collection_description -%}
+      {%- if section.settings.show_collection_description and collection.description != blank -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}
     </div>
-
   </div>
 </div>
 
