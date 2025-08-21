@@ -4011,5 +4011,5 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 
 .article-card .card__inner {
-  --ratio-percent: 100%;
+  --ratio-percent: 100% !important;
 }
