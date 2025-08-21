@@ -4010,6 +4010,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
 }
 
-.article-card {
+.article-card .card__inner {
   --ratio-percent: 100%;
 }
