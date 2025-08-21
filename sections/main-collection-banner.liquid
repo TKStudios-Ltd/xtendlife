@@ -24,6 +24,9 @@
     opacity: 0.6;
   }
 
+  .collection-hero__wrapper {
+    margin: 0 2rem;
+  }
   .collection-hero--bg {
     {% comment %} background image is injected via the style attribute var(--banner-image) {% endcomment %}
     background-image: var(--banner-image);
@@ -61,20 +64,22 @@
 </nav>
 
 {%- comment -%} Banner {%- endcomment -%}
-<div
-  class="collection-hero{% if banner_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} "
-  {% if banner_img %}style="--banner-image: url({{ banner_img }});" {% endif %}
->
-  <div class="collection-hero__inner {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+<div class="collection-hero__wrapper">
+  <div
+    class="collection-hero{% if banner_img %} collection-hero--with-image page-width collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} "
+    {% if banner_img %}style="--banner-image: url({{ banner_img }});" {% endif %}
+  >
+    <div class="collection-hero__inner {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <div class="collection-hero__text-wrapper">
+        <h1 class="collection-hero__title">
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {{- collection.title | escape -}}
+        </h1>
 
-      {%- if section.settings.show_collection_description and collection.description != blank -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
-      {%- endif -%}
+        {%- if section.settings.show_collection_description and collection.description != blank -%}
+          <div class="collection-hero__description rte">{{ collection.description }}</div>
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </div>
