@@ -63,9 +63,9 @@
 
               {%- comment -%} Template for the left panel content {%- endcomment -%}
               <template id="hotspots-tpl-{{ block.id }}">
-                {%- if block.settings.title != blank -%}
+                {% comment %} {%- if block.settings.title != blank -%}
                   <h3 class="hotspots__panel-title">{{ block.settings.title }}</h3>
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
                 {%- if block.settings.desc != blank -%}
                   <div class="hotspots__panel-desc rte">{{ block.settings.desc }}</div>
                 {%- endif -%}
