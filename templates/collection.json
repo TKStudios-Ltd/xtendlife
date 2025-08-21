@@ -11,34 +11,139 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
-        "show_collection_description": false,
-        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023"
+        "show_collection_description": true,
+        "color_scheme": "scheme-1"
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 16,
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "columns_mobile": "1",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
+        "color_scheme": "scheme-09af9ea6-d8f6-4e14-a4a1-1a0b0dde56c3",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
         "quick_add": "standard",
-        "enable_filtering": false,
-        "filter_type": "horizontal",
-        "enable_sorting": true,
-        "padding_top": 20,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": false,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "collection_list_GrRzez": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_Jf9g4L": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "supplements",
+            "custom_title": "",
+            "background_color": ""
+          }
+        },
+        "featured_collection_EpNNwA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skincare",
+            "custom_title": "Skincare",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        },
+        "featured_collection_RVqwaj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "superfoods",
+            "custom_title": "",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_Jf9g4L",
+        "featured_collection_EpNNwA",
+        "featured_collection_RVqwaj"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Explore",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_KCQTNJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_bz9N8Y": {
+          "type": "caption",
+          "settings": {
+            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
+            "additional_caption": "Go Beyond Multivitamins",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "text_fQHPQr": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "button_Qekx44": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_bz9N8Y",
+        "text_fQHPQr",
+        "button_Qekx44"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
+        ".image-with-text__media img {border-radius: 10px;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_3.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
         "padding_bottom": 100
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "collection_list_GrRzez",
+    "image_with_text_KCQTNJ"
   ]
 }
