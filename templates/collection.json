@@ -12,8 +12,8 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "show_collection_description": true,
-        "color_scheme": "scheme-1"
+        "show_collection_description": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023"
       }
     },
     "product-grid": {
