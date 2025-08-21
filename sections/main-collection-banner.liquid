@@ -13,7 +13,7 @@
 
 {%- style -%}
   .breadcrumbs {
-    font-size: 0.875rem;
+    font-size: 1.2rem;
     margin: 0 auto 1rem;
   }
   .breadcrumbs a {
@@ -21,7 +21,10 @@
   }
   .breadcrumbs__sep {
     margin: 0 0.5rem;
-    opacity: 0.6;
+    opacity: 0.5;
+  }
+  bc-current {
+    opacity: 0.5;
   }
 
   .collection-hero__wrapper {
@@ -58,9 +61,9 @@
 
 {%- comment -%} Breadcrumbs {%- endcomment -%}
 <nav class="breadcrumbs page-width" aria-label="Breadcrumb">
-  <a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t | default: 'Home' }}</a>
+  <a href="{{ routes.root_url }}">Home</a>
   <span class="breadcrumbs__sep">›</span>
-  <span aria-current="page">{{ collection.title | escape }}</span>
+  <span class="bc-current" aria-current="page">{{ collection.title | escape }}</span>
 </nav>
 
 {%- comment -%} Banner {%- endcomment -%}
