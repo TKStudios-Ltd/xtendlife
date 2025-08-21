@@ -70,7 +70,7 @@
                   <div class="hotspots__panel-desc rte">{{ block.settings.desc }}</div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
-                  <a class="button button--thin-arrow" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+                  <a class="button button--thin-arrow" href="{{ block.settings.link_url }}">{{ block.settings.link_label }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
                 {%- endif -%}
               </template>
             {%- endfor -%}
