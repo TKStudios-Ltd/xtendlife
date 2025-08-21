@@ -32,8 +32,8 @@
         "enable_filtering": false,
         "filter_type": "horizontal",
         "enable_sorting": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 20,
+        "padding_bottom": 100
       }
     }
   },
