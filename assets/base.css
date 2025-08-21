@@ -4016,6 +4016,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 @media (min-width:750px){
   .extra-padding {
-    padding: 5rem 8rem;
+    padding: 0 10rem;
   }
 }
