@@ -70,7 +70,7 @@
                   <div class="hotspots__panel-desc rte">{{ block.settings.desc }}</div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
-                  <a class="button button--small" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+                  <a class="button button--thin-arrow" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
                 {%- endif -%}
               </template>
             {%- endfor -%}
@@ -90,7 +90,7 @@
     .section-{{ section.id }} .hotspots__panel{order:1}
     .section-{{ section.id }} .hotspots__media{order:2}
 
-    .hotspots__panel-card{
+    .hotspots__panel-card {
         background:var(--panel-bg, #F2F6F9);
         color:var(--panel-text, #1F1946);
         border-radius: 16px;
@@ -136,6 +136,10 @@
     .hotspots__panel-desc p {
         font-size: 24px;
         line-height: 1.2;
+    }
+    .button--thin-arrow {
+        font-size: 14px;
+        padding: 0.8rem 2rem;
     }
 
     /* Mobile: stack */
