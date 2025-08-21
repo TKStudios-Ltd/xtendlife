@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 750px) {
   .collection-hero.collection-hero--with-image {
-    padding: 0 2rem;
+    padding: 0 3rem;
     overflow: hidden;
     border-radius: 10px;
   }
