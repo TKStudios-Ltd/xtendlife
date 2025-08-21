@@ -111,16 +111,17 @@
     }
     .hotspots__pin-plus {
       display:grid; place-items:center;
-      width:44px; height:44px; padding: 1rem; border-radius:999px;
+      width:44px; height:44px; padding: 1rem; border-radius: 99px;
       background:#1F1E3D; color:#fff; line-height:1;
+      z-index: 1;
     }
     .hotspots__pin[aria-expanded="true"] .hotspots__pin-plus {
-        border-radius: 99px 0 0 99px;
+        border-radius: 99px;
     }
     .hotspots__pin-label{
         opacity:0; pointer-events:none; transform: translateX(-30px);
         white-space:nowrap;
-        background:#1F1E3D; color:#fff; padding: .5rem 3rem .5rem 0;     
+        background:#1F1E3D; color:#fff; padding: .5rem 2rem;     
         width: 180px;
         height: 44px;
         display: flex;
@@ -128,7 +129,7 @@
         justify-content: center;
         font-weight: 500;
         font-size: 20px;
-        border-radius: 0 99px 99px 0;
+        border-radius: 99px;
         transition: all .4s ease;
     }
     .hotspots__pin[aria-expanded="true"] .hotspots__pin-label{
