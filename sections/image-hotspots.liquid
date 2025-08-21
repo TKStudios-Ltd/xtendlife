@@ -57,7 +57,7 @@
                 aria-controls="hotspots-panel-{{ section.id }}"
                 title="{{ block.settings.title | escape }}"
               >
-                <span class="hotspots__pin-plus" aria-hidden="true">+</span>
+                <span class="hotspots__pin-plus" aria-hidden="true">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
                 <span class="hotspots__pin-label">{{ block.settings.title }}</span>
               </button>
 
