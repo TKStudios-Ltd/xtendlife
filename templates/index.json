@@ -144,7 +144,7 @@
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.rich-text__wrapper {margin-bottom: 25rem; }}",
-        "@media screen and (max-width: 749px) {.rich-text__wrapper {margin-bottom: 15rem; }}"
+        "@media screen and (max-width: 749px) {.rich-text__wrapper {margin-bottom: 8rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -164,10 +164,6 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "best-sellers",
-        "collection_2": "",
-        "collection_3": "",
-        "collection_4": "",
-        "collection_5": "",
         "products_to_show": 4,
         "title": "Our Best Sellers",
         "heading_size": "h2",
@@ -529,10 +525,6 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "immunity-health",
-        "collection_2": "",
-        "collection_3": "",
-        "collection_4": "",
-        "collection_5": "",
         "products_to_show": 4,
         "title": "Superfoods",
         "heading_size": "h2",
