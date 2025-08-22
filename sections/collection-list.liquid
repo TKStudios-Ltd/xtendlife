@@ -7,16 +7,14 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-    .collection-list-wrapper {
-      flex-direction: row;
-    }
+    .collection-list-wrapper { flex-direction: row; }
   }
+
   .collection-list-wrapper {
     display: flex;
     flex-direction: column;
@@ -31,20 +29,14 @@
     flex: 0 0 75%;
     width: 100%;
   }
-  .collection-list-mobile {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-  }
-  .collection-list-mobile .swiper-wrapper {
-    display: flex;
-  }
-  .collection-list-mobile .swiper-slide {
-    flex-shrink: 0;
-    width: calc(100% * 0.75);
-    box-sizing: border-box;
-  }
 
+  /* Mobile/Tablet Swiper */
+  .collection-list-mobile { position: relative; width: 100%; overflow: hidden; }
+  .collection-list-mobile .swiper { width: 100%; }
+  .collection-list-mobile .swiper-wrapper { display: flex; }
+  .collection-list-mobile .swiper-slide { height: auto; } /* let Swiper size widths from slidesPerView */
+  /* Optional: give scrollbar a bit of breathing room */
+  .collection-list-mobile .swiper-scrollbar { margin-top: 10px; }
 {%- endstyle -%}
 
 {%- liquid
@@ -57,6 +49,7 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
+
     {%- unless section.settings.title == blank -%}
       <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin-only">
         <h2
@@ -79,8 +72,8 @@
       </div>
     {%- endunless -%}
 
-    {%- comment -%} Desktop grid layout {%- endcomment -%}
-    <div class="collection-list-desktop small-hide">
+    {%- comment -%} Desktop grid layout (unchanged) {%- endcomment -%}
+    <div class="collection-list-desktop small-hide medium-hide">
       <ul class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop contains-card">
         {%- for block in section.blocks -%}
           <li class="collection-list__item grid__item">
@@ -98,32 +91,39 @@
       </ul>
     </div>
 
-    {%- comment -%} Mobile Swiper layout {%- endcomment -%}
-    <div class="collection-list-mobile swiper-container medium-hide large-up-hide">
-      <div class="swiper-wrapper">
-        {%- for block in section.blocks -%}
-          <div class="swiper-slide">
-            {% render 'card-collection',
-              card_collection: block.settings.collection,
-              media_aspect_ratio: section.settings.image_ratio,
-              columns: 1,
-              placeholder_image: 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1,
-              custom_image: block.settings.custom_image,
-              custom_title: block.settings.custom_title,
-              background_color: block.settings.background_color
-            %}
-          </div>
-        {%- endfor -%}
+    {%- comment -%} Mobile/Tablet Swiper (1.3 @ <750, 2.3 @ >=750) {%- endcomment -%}
+    <div class="collection-list-mobile large-up-hide">
+      <div
+        class="swiper cl-swiper-{{ section.id }}"
+        data-swiper
+        data-slides="1.3|750:2.3"
+        data-gap="16"
+        data-speed="500"
+        data-scrollbar="1"
+      >
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide">
+              {% render 'card-collection',
+                card_collection: block.settings.collection,
+                media_aspect_ratio: section.settings.image_ratio,
+                columns: 1,
+                placeholder_image: 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1,
+                custom_image: block.settings.custom_image,
+                custom_title: block.settings.custom_title,
+                background_color: block.settings.background_color
+              %}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="swiper-scrollbar"></div>
       </div>
     </div>
-
 
     {%- if section.settings.show_view_all and section.blocks.size < collections.size -%}
       <div
         class="center collection-list-view-all{% if show_mobile_slider %} small-hide medium-hide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-        {% if settings.animations_reveal_on_scroll %}
-          data-cascade
-        {% endif %}
+        {% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}
       >
         <a
           href="{{ routes.collections_url }}"
@@ -137,6 +137,7 @@
     {%- endif -%}
   </div>
 </div>
+
 
 {% schema %}
 {
