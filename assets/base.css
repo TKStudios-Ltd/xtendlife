@@ -4018,3 +4018,16 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     padding: 0 10rem;
   }
 }
+
+.swiper-pagination-progressbar {
+  position: static;
+  height: 7px;
+  background: #F4F8FB;
+  margin-top: 4rem;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.swiper-pagination-progressbar-fill {
+  background: #1F1946;
+  border-radius: 999px;
+}
