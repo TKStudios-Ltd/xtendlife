@@ -106,13 +106,18 @@
   width: 100%;
   min-height: 24px;
 }
-  /* Start inside .page-width, bleed to right edge on >1600px viewports */
-  .fps-{{ section.id }}-bleed{ width:100%; }
-  @media (min-width: 1600px){
-    .fps-{{ section.id }}-bleed{
-      width: calc(100vw - ((100vw - 1600px)/2));
-    }
+.fps-{{ section.id }}-bleed{ width:100%; }
+@media (min-width: 1600px){
+  .fps-{{ section.id }}-bleed{
+    width: calc(100vw - ((100vw - 1600px)/2));
   }
+}
+@media (max-width: 749px) {
+  .fps-{{ section.id }}-arrows svg {
+    width: 34px;
+    height: 34px;
+  }
+}
 {%- endstyle -%}
 
 <section class="section-{{ section.id }}-padding">
