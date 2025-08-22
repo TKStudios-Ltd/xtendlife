@@ -121,33 +121,43 @@
 </div>
 
 <script>
-/* Scoped init: 1.3 slides, progress bar, no cross-talk */
 (function(){
   const el = document.querySelector('#fc-swiper-{{ section.id }}');
   if (!el) return;
 
-  function go(){
-    if (typeof window.Swiper === 'undefined') { setTimeout(go, 50); return; }
+  function init(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(init, 50); return; }
     if (el.dataset.swiperReady === '1') return;
 
     const sw = new Swiper(el, {
+      // mobile first
       slidesPerView: 1.3,
       spaceBetween: 24,
       speed: 500,
       watchOverflow: true,
-      pagination: { el: '#fc-pagination-{{ section.id }}', type: 'progressbar' }
+      // tablet & desktop overrides
+      breakpoints: {
+        750: { slidesPerView: 2.3 },                              // tablet => 2.3 slides
+        990: { slidesPerView: {{ section.settings.columns_desktop | default: 4 }} } // desktop => match "Columns"
+      },
+      pagination: {
+        el: '#fc-pagination-{{ section.id }}',
+        type: 'progressbar'
+      }
     });
 
     el.dataset.swiperReady = '1';
-    window.addEventListener('load', () => { try{ sw.update(); }catch(e){} }, { once:true, passive:true });
+    // keep layout tight as images/fonts load
+    const update = () => { try { sw.update(); } catch(e) {} };
+    window.addEventListener('load', update, { once:true, passive:true });
     el.querySelectorAll('img').forEach(img => {
-      if (!img.complete) img.addEventListener('load', () => { try{ sw.update(); }catch(e){} }, { once:true, passive:true });
+      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
     });
   }
-  go();
+
+  init();
 })();
 </script>
-
 
 
 {% schema %}
