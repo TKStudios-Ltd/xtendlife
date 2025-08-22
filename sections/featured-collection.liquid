@@ -130,15 +130,13 @@
     if (el.dataset.swiperReady === '1') return;
 
     const sw = new Swiper(el, {
-      // mobile first
       slidesPerView: 1.3,
       spaceBetween: 24,
       speed: 500,
       watchOverflow: true,
-      // tablet & desktop overrides
       breakpoints: {
-        750: { slidesPerView: 2.3 },                              // tablet => 2.3 slides
-        990: { slidesPerView: {{ section.settings.columns_desktop | default: 4 }} } // desktop => match "Columns"
+        750: { slidesPerView: 2.3 },
+        990: { slidesPerView: {{ section.settings.columns_desktop | default: 4 }} }
       },
       pagination: {
         el: '#fc-pagination-{{ section.id }}',
