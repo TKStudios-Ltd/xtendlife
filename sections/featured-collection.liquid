@@ -1,118 +1,103 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
-
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
+{% endif %}
 
 {%- unless section.settings.quick_add == 'none' -%}
   {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
 {%- endunless -%}
-
 {%- if section.settings.quick_add == 'standard' -%}
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
 {%- endif -%}
-
 {%- if section.settings.quick_add == 'bulk' -%}
-  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer></script>
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
+  .section-{{ section.id }}-padding{
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
+  @media (min-width:750px){
+    .section-{{ section.id }}-padding{
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Title row */
+  #collection-{{ section.id }} .collection__title_inline{
+    display:flex; justify-content:space-between; gap:1rem; align-items:center;
+  }
+
+  /* Swiper basics */
+  #collection-{{ section.id }} .fc-swiper{ width:100%; }
+  #collection-{{ section.id }} .fc-swiper .swiper-wrapper{ display:flex; }
+  #collection-{{ section.id }} .fc-swiper .swiper-slide{ height:auto; }
+
+  /* Ensure Dawn card fits the slide width */
+  #collection-{{ section.id }} .fc-swiper .swiper-slide > .grid__item{ width:100%; }
+
+  /* Progressbar pagination look */
+  #collection-{{ section.id }} .swiper-pagination-progressbar{
+    position:static; height:4px; background:rgba(0,0,0,.12);
+    margin-top:12px; border-radius:999px; overflow:hidden;
+  }
+  #collection-{{ section.id }} .swiper-pagination-progressbar-fill{
+    background:currentColor; border-radius:999px;
+  }
 {%- endstyle -%}
 
 {%- liquid
-  assign products_to_display = section.settings.collection.all_products_count
-
-  if section.settings.collection.all_products_count > section.settings.products_to_show
-    assign products_to_display = section.settings.products_to_show
-    assign more_in_collection = true
-  endif
-
-  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
-  assign columns_desktop_int = section.settings.columns_desktop | plus: 0
-  assign show_mobile_slider = false
-  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
-    assign show_mobile_slider = true
-  endif
-
-  assign max_columns_to_show = columns_mobile_int
-  if columns_desktop_int > columns_mobile_int
-    assign max_columns_to_show = columns_desktop_int
-  endif
-
-  assign show_desktop_slider = false
-  if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
-    assign show_desktop_slider = true
+  assign col = section.settings.collection
+  assign products_to_display = 0
+  if col != blank
+    assign products_to_display = col.all_products_count
+    if products_to_display > section.settings.products_to_show
+      assign products_to_display = section.settings.products_to_show
+      assign more_in_collection = true
+    endif
   endif
 -%}
 
-<div
-  class="color-{{ section.settings.color_scheme }} isolate gradient"
->
-  <div
-    class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
-    id="collection-{{ section.id }}"
-    data-id="{{ section.id }}"
-  >
-    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div id="collection-{{ section.id }}"
+       class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+       data-id="{{ section.id }}">
+
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
       <div class="collection__title_inline">
-        {%- if section.settings.title != blank -%}
+        {% if section.settings.title != blank %}
           <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {{ section.settings.title }}
           </h2>
-        {%- endif -%}
-        <div class="featured-collections-buttons">
-          {% for i in (1..5) %}
-            {% assign col_key = 'collection_' | append: i %}
-            {% assign col = section.settings[col_key] %}
-            {% if col == blank and i == 1 %}
-              {% assign col = section.settings.collection %}
-            {% endif %}
-            {% if col != blank %}
-              <button
-                type="button"
-                class="button fc-btn{% if forloop.first %} active{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
-                data-col-index="{{ i }}"
-              >
-                Shop {{ col.title }}
-              </button>
-            {% endif %}
-          {% endfor %}
-        </div>
+        {% endif %}
       </div>
+      {% if section.settings.show_description and section.settings.description != blank %}
+        <div class="rte {{ section.settings.description_style }}">{{ section.settings.description }}</div>
+      {% endif %}
     </div>
 
     <div class="featured-collections-grids{% if section.settings.full_width %} page-width--wide{% else %} page-width{% endif %}">
-      {% for i in (1..5) %}
-        {% assign col_key = "collection_" | append: i %}
-        {% assign col = section.settings[col_key] %}
-        {% if col == blank and i == 1 %}
-          {% assign col = section.settings.collection %}
-        {% endif %}
-        {% if col != blank %}
-          <div class="fc-grid" data-col-index="{{ i }}"{% unless forloop.first %} style="display: none;"{% endunless %}>
-            {% paginate col.products by section.settings.products_to_show %}
-              <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
-                {% for product in col.products limit: section.settings.products_to_show %}
-                  <li class="grid__item">
+      {% if col != blank %}
+        {% paginate col.products by section.settings.products_to_show %}
+          <div class="swiper fc-swiper"
+               id="fc-swiper-{{ section.id }}"
+               data-slides="1.3"
+               data-gap="24"
+               data-speed="500"
+               data-pagination="#fc-pagination-{{ section.id }}">
+            <div class="swiper-wrapper">
+              {% for product in col.products limit: section.settings.products_to_show %}
+                <div class="swiper-slide">
+                  <div class="grid__item">
                     {% render 'card-product',
                       card_product: product,
                       media_aspect_ratio: section.settings.image_ratio,
@@ -123,54 +108,72 @@
                       show_rating: section.settings.show_rating,
                       section_id: section.id,
                       quick_add: section.settings.quick_add %}
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endpaginate %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div id="fc-pagination-{{ section.id }}" class="swiper-pagination swiper-pagination-progressbar"></div>
           </div>
-        {% endif %}
-      {% endfor %}
+        {% endpaginate %}
+      {% else %}
+        <div class="placeholder">
+          <p>No collection selected.</p>
+        </div>
+      {% endif %}
     </div>
 
-    {%- if section.settings.show_view_all and more_in_collection -%}
+    {% if section.settings.show_view_all and more_in_collection %}
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        <a
-          href="{{ section.settings.collection.url }}"
-          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
-          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
-        >
+        <a href="{{ section.settings.collection.url }}"
+           class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+           aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}">
           {{ 'sections.featured_collection.view_all' | t }}
         </a>
       </div>
-    {%- endif -%}
+    {% endif %}
+
     {% if section.settings.image_shape == 'arch' %}
       {{ 'mask-arch.svg' | inline_asset_content }}
-    {%- endif -%}
+    {% endif %}
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const container = document.getElementById("collection-{{ section.id }}");
-  if (!container) return;
+/* Single-collection Swiper (1.3 slides + progress bar), scoped to this section */
+(function(){
+  const root = document.getElementById('collection-{{ section.id }}');
+  if (!root) return;
 
-  const buttons = container.querySelectorAll('.featured-collections-buttons .fc-btn');
-  const grids = container.querySelectorAll('.featured-collections-grids .fc-grid');
+  function initSwiper(el){
+    if (!el || el.dataset.swiperReady === '1') return el.sw;
+    if (typeof window.Swiper === 'undefined') { return; }
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const index = button.dataset.colIndex;
+    const slides = parseFloat(el.dataset.slides || '1.3') || 1.3;
+    const gap = parseInt(el.dataset.gap || '24', 10);
+    const speed = parseInt(el.dataset.speed || '500', 10);
+    const paginationSel = el.dataset.pagination;
 
-      buttons.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
-
-      grids.forEach(grid => {
-        grid.style.display = grid.dataset.colIndex === index ? 'block' : 'none';
-      });
+    const sw = new Swiper(el, {
+      slidesPerView: slides,
+      spaceBetween: gap,
+      speed: speed,
+      watchOverflow: true,
+      pagination: paginationSel ? { el: paginationSel, type: 'progressbar' } : undefined
     });
-  });
-});
+
+    el.dataset.swiperReady = '1';
+    el.sw = sw;
+    return sw;
+  }
+
+  const el = root.querySelector('.fc-swiper');
+  const sw = initSwiper(el);
+  if (sw) {
+    window.addEventListener('load', () => sw.update(), { once:true, passive:true });
+  }
+})();
 </script>
+
 
 
 {% schema %}
@@ -186,26 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "type": "collection",
       "id": "collection",
       "label": "t:sections.featured-collection.settings.collection.label"
-    },
-    {
-      "type": "collection",
-      "id": "collection_2",
-      "label": "Collection 2"
-    },
-    {
-      "type": "collection",
-      "id": "collection_3",
-      "label": "Collection 3"
-    },
-    {
-      "type": "collection",
-      "id": "collection_4",
-      "label": "Collection 4"
-    },
-    {
-      "type": "collection",
-      "id": "collection_5",
-      "label": "Collection 5"
     },
     {
       "type": "range",
