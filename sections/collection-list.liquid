@@ -13,6 +13,23 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+    .collection-list-wrapper {
+      flex-direction: row;
+    }
+  }
+  .collection-list-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .collection-list-wrapper .title-wrapper--no-top-margin-only {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .collection-list-wrapper .collection-list-desktop {
+    flex: 0 0 75%;
+    width: 100%;
   }
   .collection-list-mobile {
     overflow: hidden;
