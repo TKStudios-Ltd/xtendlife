@@ -666,6 +666,10 @@
   width: 100%;
   flex-wrap: wrap;
 }
+.quick-add__card--mobile modal-opener, 
+.quick-add__card--mobile product-form {
+  flex: 0 0 100%;
+}
 
 .card__hover-actions .button--alt,
 .quick-add__card--mobile .button--alt {
