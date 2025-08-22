@@ -107,7 +107,7 @@
         ".grid li:not(:last-child) {border-right: 1px solid;}",
         ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
         "p {font-size: 14px; line-height: 1;}",
-        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; }}"
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
