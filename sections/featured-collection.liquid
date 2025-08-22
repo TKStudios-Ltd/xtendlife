@@ -21,38 +21,23 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding{
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-  @media (min-width:750px){
-    .section-{{ section.id }}-padding{
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
+  .section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px}
+  @media (min-width:750px){.section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
 
-  /* Title row */
-  #collection-{{ section.id }} .collection__title_inline{
-    display:flex; justify-content:space-between; gap:1rem; align-items:center;
-  }
+  /* Title row stays identical */
+  #collection-{{ section.id }} .collection__title_inline{display:flex;justify-content:space-between;gap:1rem;align-items:center}
 
-  /* Swiper basics */
-  #collection-{{ section.id }} .fc-swiper{ width:100%; }
-  #collection-{{ section.id }} .fc-swiper .swiper-wrapper{ display:flex; }
-  #collection-{{ section.id }} .fc-swiper .swiper-slide{ height:auto; }
+  /* Swiper shell */
+  #collection-{{ section.id }} .fc-swiper{width:100%}
+  #collection-{{ section.id }} .fc-swiper .swiper-wrapper{display:flex}
+  #collection-{{ section.id }} .fc-swiper .swiper-slide{height:auto}
 
-  /* Ensure Dawn card fits the slide width */
-  #collection-{{ section.id }} .fc-swiper .swiper-slide > .grid__item{ width:100%; }
+  /* Keep card markup, but ensure slide controls width (not Dawn grid rules) */
+  #collection-{{ section.id }} .fc-swiper .swiper-slide > .grid__item{width:100% !important;flex:0 0 auto}
 
-  /* Progressbar pagination look */
-  #collection-{{ section.id }} .swiper-pagination-progressbar{
-    position:static; height:4px; background:rgba(0,0,0,.12);
-    margin-top:12px; border-radius:999px; overflow:hidden;
-  }
-  #collection-{{ section.id }} .swiper-pagination-progressbar-fill{
-    background:currentColor; border-radius:999px;
-  }
+  /* Progress bar pagination */
+  #collection-{{ section.id }} .swiper-pagination-progressbar{position:static;height:4px;background:rgba(0,0,0,.12);margin-top:12px;border-radius:999px;overflow:hidden}
+  #collection-{{ section.id }} .swiper-pagination-progressbar-fill{background:currentColor;border-radius:999px}
 {%- endstyle -%}
 
 {%- liquid
@@ -68,10 +53,11 @@
 -%}
 
 <div class="color-{{ section.settings.color_scheme }} isolate gradient">
-  <div id="collection-{{ section.id }}"
-       class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
-       data-id="{{ section.id }}">
-
+  <div
+    id="collection-{{ section.id }}"
+    class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+    data-id="{{ section.id }}"
+  >
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
       <div class="collection__title_inline">
         {% if section.settings.title != blank %}
@@ -88,12 +74,8 @@
     <div class="featured-collections-grids{% if section.settings.full_width %} page-width--wide{% else %} page-width{% endif %}">
       {% if col != blank %}
         {% paginate col.products by section.settings.products_to_show %}
-          <div class="swiper fc-swiper"
-               id="fc-swiper-{{ section.id }}"
-               data-slides="1.3"
-               data-gap="24"
-               data-speed="500"
-               data-pagination="#fc-pagination-{{ section.id }}">
+          <!-- Swiper replacing the old UL grid -->
+          <div class="swiper fc-swiper" id="fc-swiper-{{ section.id }}">
             <div class="swiper-wrapper">
               {% for product in col.products limit: section.settings.products_to_show %}
                 <div class="swiper-slide">
@@ -116,17 +98,17 @@
           </div>
         {% endpaginate %}
       {% else %}
-        <div class="placeholder">
-          <p>No collection selected.</p>
-        </div>
+        <div class="page-width"><p>No collection selected.</p></div>
       {% endif %}
     </div>
 
     {% if section.settings.show_view_all and more_in_collection %}
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        <a href="{{ section.settings.collection.url }}"
-           class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
-           aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}">
+        <a
+          href="{{ section.settings.collection.url }}"
+          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
+        >
           {{ 'sections.featured_collection.view_all' | t }}
         </a>
       </div>
@@ -139,38 +121,30 @@
 </div>
 
 <script>
-/* Single-collection Swiper (1.3 slides + progress bar), scoped to this section */
+/* Scoped init: 1.3 slides, progress bar, no cross-talk */
 (function(){
-  const root = document.getElementById('collection-{{ section.id }}');
-  if (!root) return;
+  const el = document.querySelector('#fc-swiper-{{ section.id }}');
+  if (!el) return;
 
-  function initSwiper(el){
-    if (!el || el.dataset.swiperReady === '1') return el.sw;
-    if (typeof window.Swiper === 'undefined') { return; }
-
-    const slides = parseFloat(el.dataset.slides || '1.3') || 1.3;
-    const gap = parseInt(el.dataset.gap || '24', 10);
-    const speed = parseInt(el.dataset.speed || '500', 10);
-    const paginationSel = el.dataset.pagination;
+  function go(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(go, 50); return; }
+    if (el.dataset.swiperReady === '1') return;
 
     const sw = new Swiper(el, {
-      slidesPerView: slides,
-      spaceBetween: gap,
-      speed: speed,
+      slidesPerView: 1.3,
+      spaceBetween: 24,
+      speed: 500,
       watchOverflow: true,
-      pagination: paginationSel ? { el: paginationSel, type: 'progressbar' } : undefined
+      pagination: { el: '#fc-pagination-{{ section.id }}', type: 'progressbar' }
     });
 
     el.dataset.swiperReady = '1';
-    el.sw = sw;
-    return sw;
+    window.addEventListener('load', () => { try{ sw.update(); }catch(e){} }, { once:true, passive:true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', () => { try{ sw.update(); }catch(e){} }, { once:true, passive:true });
+    });
   }
-
-  const el = root.querySelector('.fc-swiper');
-  const sw = initSwiper(el);
-  if (sw) {
-    window.addEventListener('load', () => sw.update(), { once:true, passive:true });
-  }
+  go();
 })();
 </script>
 
