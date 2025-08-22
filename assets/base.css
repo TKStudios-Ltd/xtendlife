@@ -2856,9 +2856,9 @@ details[open] .modal-overlay::after {
   }
 }
 
-.header__search > details > summary.header__icon--search {
+/* .header__search > details > summary.header__icon--search {
   display: none !important;
-}
+} */
 .header-inline-search .inline-search__field {
   display: flex;
   align-items: center;
