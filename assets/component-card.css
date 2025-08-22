@@ -306,20 +306,6 @@
   margin-bottom: 0;
 }
 
-.collection-list-wrapper {
-  display: flex;
-}
-.collection-list-wrapper .title-wrapper--no-top-margin-only {
-  flex: 0 0 25%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.collection-list-wrapper .collection-list-desktop {
-  flex: 0 0 75%;
-  width: 100%;
-}
-
 .collection-list-wrapper .card-wrapper:hover {
   cursor: pointer;
 }
