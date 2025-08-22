@@ -70,6 +70,11 @@
 .collection__title.title-wrapper {
   margin-bottom: 10rem;
 }
+@media (max-width: 749px) {
+  .collection__title.title-wrapper {
+    margin-bottom: 6rem;
+  }
+}
 
 .collection__title_inline {
   display: flex;
