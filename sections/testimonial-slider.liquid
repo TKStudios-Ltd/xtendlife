@@ -28,7 +28,7 @@
     margin-right: -2rem;
   }
   .section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
-    width: calc(100% - var(--g));
+    width: 100%;
   }
   .section-{{ section.id }}-padding .ts2-card {
     padding: 2rem 0 !important;
@@ -52,10 +52,9 @@
 .section-{{ section.id }}-padding .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
 
 .section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
-    /* each slide width = (container - gap) / 1.2  */
-    width: calc((100% - var(--g)) / 1.2);
-    transition: opacity .4s ease;
-    opacity: .3;
+  width: calc((100% - var(--g)) / 1.2);
+  transition: opacity .4s ease;
+  opacity: .3;
 }
 .section-{{ section.id }}-padding .ts2-swiper .swiper-slide.swiper-slide-active{ opacity: 1; }
 
