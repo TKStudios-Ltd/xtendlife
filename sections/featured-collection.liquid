@@ -79,20 +79,13 @@
           </h2>
         {% endif %}
         <div class="featured-collections-buttons">
-          {% for i in (1..5) %}
-            {% assign col_key = 'collection_' | append: i %}
-            {% assign col = section.settings[col_key] %}
-            {% if col == blank and i == 1 %}
-              {% assign col = section.settings.collection %}
-            {% endif %}
-            {% if col != blank %}
-              <button type="button"
-                      class="button fc-btn{% if forloop.first %} active{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                      data-col-index="{{ i }}">
-                Shop {{ col.title }}
-              </button>
-            {% endif %}
-          {% endfor %}
+          <a
+            href="{{ section.settings.collection.url }}"
+            class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+            aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title | escape }}"
+          >
+            Shop {{ section.settings.title }}
+          </a>
         </div>
       </div>
     </div>
