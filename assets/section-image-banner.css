@@ -459,10 +459,12 @@
 }
 
 @media screen and (max-width: 749px) {
+  .banner__buttons {
+    gap: 1rem;
+  }
   .banner--content-align-mobile-right .banner__buttons--multiple {
     justify-content: flex-end;
   }
-
   .banner--content-align-mobile-center .banner__buttons--multiple > * {
     flex-grow: 1;
     min-width: 20rem;
@@ -485,6 +487,9 @@
 }
 
 @media screen and (max-width: 749px) {
+  .banner__box > * + .banner__buttons {
+    margin-top: 6rem;
+  }
   .banner:not(.slideshow) .rte a,
   .banner:not(.slideshow) .inline-richtext a:hover,
   .banner:not(.slideshow) .rte a:hover {
