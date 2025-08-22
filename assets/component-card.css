@@ -661,6 +661,12 @@
   pointer-events: auto;
 }
 
+.quick-add__card--mobile {
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
 .card__hover-actions .button--alt,
 .quick-add__card--mobile .button--alt {
   background-color: #5FC4FF !important;
