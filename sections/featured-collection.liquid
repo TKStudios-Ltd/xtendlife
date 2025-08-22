@@ -21,23 +21,36 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px}
-  @media (min-width:750px){.section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
+.section-{{ section.id }}-padding{
+  padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px
+}
+@media (min-width:750px){
+  .section-{{ section.id }}-padding{
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px
+  }
+}
+#collection-{{ section.id }} .collection__title_inline{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:center
+}
+#collection-{{ section.id }} .fc-swiper{width:100%}
+#collection-{{ section.id }} .fc-swiper .swiper-wrapper{display:flex}
+#collection-{{ section.id }} .fc-swiper .swiper-slide{height:auto}
+#collection-{{ section.id }} .fc-swiper .swiper-slide > .grid__item{width:100% !important; max-width: 100%; flex:0 0 auto}
 
-  /* Title row stays identical */
-  #collection-{{ section.id }} .collection__title_inline{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+/* Progress bar pagination */
+#collection-{{ section.id }} .swiper-pagination-progressbar{position:static;height:4px;background:rgba(0,0,0,.12);margin-top:12px;border-radius:999px;overflow:hidden}
+#collection-{{ section.id }} .swiper-pagination-progressbar-fill{background:currentColor;border-radius:999px}
 
-  /* Swiper shell */
-  #collection-{{ section.id }} .fc-swiper{width:100%}
-  #collection-{{ section.id }} .fc-swiper .swiper-wrapper{display:flex}
-  #collection-{{ section.id }} .fc-swiper .swiper-slide{height:auto}
-
-  /* Keep card markup, but ensure slide controls width (not Dawn grid rules) */
-  #collection-{{ section.id }} .fc-swiper .swiper-slide > .grid__item{width:100% !important; max-width: 100%; flex:0 0 auto}
-
-  /* Progress bar pagination */
-  #collection-{{ section.id }} .swiper-pagination-progressbar{position:static;height:4px;background:rgba(0,0,0,.12);margin-top:12px;border-radius:999px;overflow:hidden}
-  #collection-{{ section.id }} .swiper-pagination-progressbar-fill{background:currentColor;border-radius:999px}
+@media (max-width: 989px) {
+  featured-collections-grids {
+    margin-right: -2rem;
+  }
+}
 {%- endstyle -%}
 
 {%- liquid
