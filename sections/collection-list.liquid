@@ -7,6 +7,7 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -15,64 +16,50 @@
     .collection-list-wrapper { flex-direction: row; }
   }
 
-  .collection-list-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
+  .collection-list-wrapper { display:flex; flex-direction: column; }
   .collection-list-wrapper .title-wrapper--no-top-margin-only {
     flex: 0 0 25%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display:flex; justify-content:flex-start; align-items:flex-start;
   }
   .collection-list-wrapper .collection-list-desktop {
     flex: 0 0 75%;
-    width: 100%;
+    width:100%;
   }
 
-  /* Mobile/Tablet Swiper */
-  .collection-list-mobile { position: relative; width: 100%; overflow: hidden; }
-  .collection-list-mobile .swiper { width: 100%; }
-  .collection-list-mobile .swiper-wrapper { display: flex; }
-  .collection-list-mobile .swiper-slide { height: auto; } /* let Swiper size widths from slidesPerView */
-  /* Optional: give scrollbar a bit of breathing room */
-  .collection-list-mobile .swiper-scrollbar { margin-top: 10px; }
+  /* Mobile/Tablet Swiper container */
+  .collection-list-mobile { overflow:hidden; width:100%; position:relative; }
+  .collection-list-mobile .swiper { overflow:visible; }
+  .collection-list-mobile .swiper-wrapper { display:flex; }
+  .collection-list-mobile .swiper-slide { height:auto; }
+
+  /* Progress bar styling */
+  #cl-pagination-{{ section.id }}.swiper-pagination-progressbar {
+    position: static;
+    height: 4px;
+    background: rgba(0,0,0,.08);
+    border-radius: 999px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  #cl-pagination-{{ section.id }} .swiper-pagination-progressbar-fill {
+    background: rgba(0,0,0,.55);
+  }
 {%- endstyle -%}
 
-{%- liquid
-  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
-  assign show_mobile_slider = false
-  if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
-    assign show_mobile_slider = true
-  endif
--%}
-
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
-
+  <div class="collection-list-wrapper page-width isolate{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.title == blank -%}
-      <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin-only">
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin-only">
         <h2
           id="SectionHeading-{{ section.id }}"
           class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         >
           {{ section.settings.title }}
         </h2>
-
-        {%- if section.settings.show_view_all and show_mobile_slider -%}
-          <a
-            href="{{ routes.collections_url }}"
-            id="ViewAll-{{ section.id }}"
-            class="link underlined-link large-up-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
-          >
-            {{- 'sections.collection_list.view_all' | t -}}
-          </a>
-        {%- endif -%}
       </div>
     {%- endunless -%}
 
-    {%- comment -%} Desktop grid layout (unchanged) {%- endcomment -%}
+    {%- comment -%} Desktop grid layout (visible ≥ 990px) {%- endcomment -%}
     <div class="collection-list-desktop small-hide medium-hide">
       <ul class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop contains-card">
         {%- for block in section.blocks -%}
@@ -91,16 +78,9 @@
       </ul>
     </div>
 
-    {%- comment -%} Mobile/Tablet Swiper (1.3 @ <750, 2.3 @ >=750) {%- endcomment -%}
+    {%- comment -%} Mobile/Tablet Swiper (visible < 990px) {%- endcomment -%}
     <div class="collection-list-mobile large-up-hide">
-      <div
-        class="swiper cl-swiper-{{ section.id }}"
-        data-swiper
-        data-slides="1.3|750:2.3"
-        data-gap="16"
-        data-speed="500"
-        data-pagination="progressbar"
-      >
+      <div class="swiper" id="cl-swiper-{{ section.id }}">
         <div class="swiper-wrapper">
           {%- for block in section.blocks -%}
             <div class="swiper-slide">
@@ -116,16 +96,16 @@
             </div>
           {%- endfor -%}
         </div>
-
-        <!-- progress bar host -->
-        <div class="swiper-pagination swiper-pagination-progressbar"></div>
       </div>
+      <div id="cl-pagination-{{ section.id }}" class="swiper-pagination"></div>
     </div>
 
     {%- if section.settings.show_view_all and section.blocks.size < collections.size -%}
       <div
-        class="center collection-list-view-all{% if show_mobile_slider %} small-hide medium-hide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-        {% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}
+        class="center collection-list-view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+        {% endif %}
       >
         <a
           href="{{ routes.collections_url }}"
@@ -139,6 +119,45 @@
     {%- endif -%}
   </div>
 </div>
+
+<script>
+(function(){
+  const el = document.querySelector('#cl-swiper-{{ section.id }}');
+  if (!el) return;
+
+  function init(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(init, 50); return; }
+    if (el.dataset.swiperReady === '1') return;
+
+    const sw = new Swiper(el, {
+      slidesPerView: 1.3,
+      spaceBetween: 16,
+      speed: 500,
+      watchOverflow: true,
+      breakpoints: {
+        750: { slidesPerView: 2.3 }
+        // ≥990 not needed because this swiper is hidden on desktop
+      },
+      pagination: {
+        el: '#cl-pagination-{{ section.id }}',
+        type: 'progressbar'
+      }
+    });
+
+    el.dataset.swiperReady = '1';
+
+    // keep layout tight as images/fonts load
+    const update = () => { try { sw.update(); } catch(e) {} };
+    window.addEventListener('load', update, { once:true, passive:true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+    });
+  }
+
+  init();
+})();
+</script>
+
 
 
 {% schema %}
