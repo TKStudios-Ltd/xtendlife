@@ -507,6 +507,9 @@
         "text_tU8LkY",
         "buy_buttons_7k66ND"
       ],
+      "custom_css": [
+        "@media (max-width: 749px) {.h1 {font-size: 20px; }}"
+      ],
       "name": "Featured product slider",
       "settings": {
         "heading": "Get started with our best selling bundles",
