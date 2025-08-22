@@ -25,6 +25,7 @@
 @media (max-width: 989px) {
   .section-{{ section.id }}-padding .ts2-bleed {
     width: 100% !important;
+    margin-right: -2rem;
   }
   .section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
     width: calc(100% - var(--g)); /* full width minus gap */
@@ -35,9 +36,8 @@
 }
 @media (min-width: 990px) and (max-width: 1599px) {
   .section-{{ section.id }}-padding .ts2-bleed{
-    --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin)));
     width: calc(100% + var(--right-gutter));
-    margin-right: var(--right-gutter);
+    margin-right: -2rem;
   }
 }
 
