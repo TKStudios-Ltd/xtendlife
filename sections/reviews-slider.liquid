@@ -37,20 +37,25 @@
 .section-{{ section.id }}-padding .ts-bleed {
     width: calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem));
 }
+@media (max-width: 1599px) {
+  .section-{{ section.id }}-padding .ts-bleed {
+    width: calc(75% + 2rem);
+  }
+}
 @media (max-width: 989px) {
   .section-{{ section.id }}-padding .ts-grid {
     flex-direction: column;
   }
   .section-{{ section.id }}-padding .ts-bleed {
-    width: 100%;
+    width: 100% !important;
   }
 }
 .section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
 .section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
 .section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
 .section-{{ section.id }}-padding .tswiper .swiper-slide { 
-  margin-bottom: 1rem;
-  width: auto;
+    margin-bottom: 1rem;
+    width: auto;
 }
 /* Card styling */
 .section-{{ section.id }}-padding .ts-card{
