@@ -21,13 +21,19 @@
 .section-{{ section.id }}-padding .ts2-bleed {
     width: calc(100vw - ((100vw - 1600px) / 2));
 }
-/* @media (max-width: 1599px) {
-.section-{{ section.id }}-padding .ts2-bleed{
+/* Force 1 slide per view on mobile/tablet */
+@media (max-width: 989px){
+  .section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
+    width: calc(100% - var(--g)); /* full width minus gap */
+  }
+}
+@media (max-width: 1599px) {
+  .section-{{ section.id }}-padding .ts2-bleed{
     --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin)));
     width: calc(100% + var(--right-gutter));
     margin-right: var(--right-gutter);
+  }
 }
-} */
 
 /* Swiper fallbacks */
 .section-{{ section.id }}-padding .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
