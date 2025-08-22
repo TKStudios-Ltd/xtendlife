@@ -51,6 +51,22 @@
   .section-{{ section.id }}-padding .ts-bleed {
     width: 100% !important;
   }
+  .section-{{ section.id }}-padding .ts-left {
+    flex: 0 0 100%;
+    width: calc(100% - 4rem);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 2rem 4rem;
+  }
+  .section-{{ section.id }}-padding .ts-left .ts-nav {
+    margin-top: 0;
+  }
+  .section-{{ section.id }}-padding .ts-left .ts-nav button,
+  .section-{{ section.id }}-padding .ts-left .ts-nav button svg {
+    width: 34px;
+    height: 34px;
+  }
 }
 .section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
 .section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
