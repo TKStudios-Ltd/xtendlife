@@ -661,14 +661,17 @@
   pointer-events: auto;
 }
 
-.card__hover-actions .button--alt {
+.card__hover-actions .button--alt,
+.quick-add__card--mobile .button--alt {
   background-color: #5FC4FF !important;
   color: #1F1946;
 }
-.card__hover-actions .button--alt:after {
+.card__hover-actions .button--alt:after,
+.quick-add__card--mobile .button--alt:after {
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #5FC4FF,0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
 }
-.card__hover-actions .button--alt:hover:after {
+.card__hover-actions .button--alt:hover:after,
+.quick-add__card--mobile .button--alt:hover:after {
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #5FC4FF,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
 }
 .card__hover-actions .button--white {
