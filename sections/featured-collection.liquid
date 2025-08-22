@@ -48,6 +48,9 @@
     margin-left: -2rem;
     margin-right: -2rem;
   }
+  #collection-{{ section.id }} .swiper-pagination-progressbar {
+    padding: 0 2rem;
+  }
 }
 {%- endstyle -%}
 
@@ -148,7 +151,7 @@
 
     const sw = new Swiper(el, {
       slidesPerView: 1.3,
-      spaceBetween: 24,
+      spaceBetween: 20,
       speed: 500,
       watchOverflow: true,
       breakpoints: {
