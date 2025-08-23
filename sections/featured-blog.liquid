@@ -31,7 +31,13 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin: 0 2rem 4rem;
+      margin: 0 2rem;
+    }
+  }
+  @media (max-width: 749px) {
+    .section-{{ section.id }}-padding .title-wrapper-with-link {
+      max-width: 200px;
+      line-height: 1;
     }
   }
   .section-{{ section.id }}-padding {
