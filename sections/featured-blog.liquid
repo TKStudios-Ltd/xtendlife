@@ -14,13 +14,21 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  @media (max-width: 989px) {
+    .section-{{ section.id }}-padding {
+      flex-direction: column;
+    }
+    .section-{{ section.id }}-padding .swiper-slide:first-child {
+      padding-left: 2rem;
+    }
+  }
   .section-{{ section.id }}-padding {
-    display:flex; 
-    align-items:flex-start; 
-    gap:2rem;
+    display: flex; 
+    align-items: flex-start; 
+    gap: 2rem;
   }
   .section-{{ section.id }}-padding .blog__content { 
-    width:100%; 
+    width: 100%; 
   }
   @media (min-width: 990px) {
     .section-{{ section.id }}-padding .title-wrapper-with-link { flex:0 0 25%; }
