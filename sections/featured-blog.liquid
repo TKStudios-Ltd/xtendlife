@@ -18,13 +18,20 @@
     .section-{{ section.id }}-padding {
       flex-direction: column;
     }
-    .section-{{ section.id }}-padding .swiper-slide:first-child,
-    .section-{{ section.id }}-padding .title-wrapper-with-link {
+    .section-{{ section.id }}-padding .swiper-slide:first-child {
       padding-left: 2rem;
     }
     .section-{{ section.id }}-padding .swiper-pagination-progressbar {
       margin: 0 2rem;
       width: calc(100% - 4rem) !important;
+    }
+    .section-{{ section.id }}-padding .title-wrapper-with-link {
+      flex: 0 0 100%;
+      width: calc(100% - 4rem);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin: 0 2rem 4rem;
     }
   }
   .section-{{ section.id }}-padding {
@@ -38,6 +45,9 @@
   @media (min-width: 990px) {
     .section-{{ section.id }}-padding .title-wrapper-with-link { flex:0 0 25%; }
     .section-{{ section.id }}-padding .blog__content { flex:0 0 75%; }
+    .section-{{ section.id }}-padding .blog__view-all {
+      margin-top: 1.5rem;
+    }
   }
 
   /* Mobile/Tablet Swiper */
@@ -67,6 +77,21 @@
         >
           {{ section.settings.heading }}
         </h2>
+        {%- if section.settings.blog != blank
+          and section.settings.show_view_all
+          and section.settings.post_limit < section.settings.blog.articles_count
+        -%}
+          <div class="blog__view-all large-up-hide">
+            <a
+              href="{{ section.settings.blog.url }}"
+              id="ViewAll-{{ section.id }}"
+              class="blog__button button button--secondary"
+              aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+            >
+              {{ 'sections.featured_blog.view_all' | t }}
+            </a>
+          </div>
+        {%- endif -%}
       </div>
     {%- endunless -%}
 
@@ -181,7 +206,7 @@
         and section.settings.show_view_all
         and section.settings.post_limit < section.settings.blog.articles_count
       -%}
-        <div class="blog__view-all" style="margin-top:16px;">
+        <div class="blog__view-all small-hide medium-hide">
           <a
             href="{{ section.settings.blog.url }}"
             id="ViewAll-{{ section.id }}"
