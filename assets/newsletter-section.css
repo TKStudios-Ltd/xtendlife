@@ -3,12 +3,17 @@
   padding-left: 2rem;
 }
 
-/* @media screen and (min-width: 750px) {
+@media screen and (max-width: 749px) {
   .newsletter__wrapper {
-    padding-right: 9rem;
-    padding-left: 9rem;
+    text-align: left;
   }
-} */
+  .newsletter__left .h1 {
+    font-size: 2rem;
+  }
+  .newsletter__right p {
+    font-size: 1.6rem;
+  }
+}
 
 .newsletter__wrapper > * {
   margin-top: 0;
