@@ -14,6 +14,8 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
       display:flex; align-items:flex-start; gap:2rem;
     }
+  }
+  @media (min-width: 990px) {
     .section-{{ section.id }}-padding .title-wrapper-with-link { flex:0 0 25%; }
     .section-{{ section.id }}-padding .blog__content { flex:0 0 75%; width:100%; }
   }
@@ -24,18 +26,6 @@
   .fb-mobile .swiper-wrapper { display:flex; }
   .fb-mobile .swiper-slide { height:auto; }
 
-  /* Progress bar */
-  #fb-pagination-{{ section.id }}.swiper-pagination-progressbar {
-    position: static;
-    height: 4px;
-    background: rgba(0,0,0,.08);
-    border-radius: 999px;
-    margin-top: 12px;
-    overflow: hidden;
-  }
-  #fb-pagination-{{ section.id }} .swiper-pagination-progressbar-fill {
-    background: rgba(0,0,0,.55);
-  }
 {%- endstyle -%}
 
 {%- liquid
@@ -197,7 +187,7 @@
 
     const sw = new Swiper(el, {
       slidesPerView: 1.3,
-      spaceBetween: 24,
+      spaceBetween: 20,
       speed: 500,
       watchOverflow: true,
       breakpoints: {
