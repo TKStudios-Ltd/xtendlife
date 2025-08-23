@@ -12,8 +12,12 @@
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
-      display:flex; align-items:flex-start; gap:2rem;
     }
+  }
+  .section-{{ section.id }}-padding {
+    display:flex; 
+    align-items:flex-start; 
+    gap:2rem;
   }
   @media (min-width: 990px) {
     .section-{{ section.id }}-padding .title-wrapper-with-link { flex:0 0 25%; }
