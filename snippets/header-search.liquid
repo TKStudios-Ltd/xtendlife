@@ -11,17 +11,7 @@
 <details-modal class="header__search">
   <details>
     <summary
-      class="header__menu-item list-menu__item link focus-inset modal__toggle small-hide"
-      aria-haspopup="dialog"
-      aria-label="{{ 'general.search.search' | t }}"
-    >
-      <span>Search</span>
-      <span class="svg-wrapper">
-        {{- 'icon-search.svg' | inline_asset_content -}}
-      </span>
-    </summary>
-    <summary
-      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle medium-hide large-up-hide"
       aria-haspopup="dialog"
       aria-label="{{ 'general.search.search' | t }}"
     >
@@ -29,6 +19,16 @@
         <span class="svg-wrapper">
           {{- 'icon-search.svg' | inline_asset_content -}}
         </span>
+      </span>
+    </summary>
+    <summary
+      class="header__menu-item list-menu__item link focus-inset modal__toggle small-hide"
+      aria-haspopup="dialog"
+      aria-label="{{ 'general.search.search' | t }}"
+    >
+      <span>Search</span>
+      <span class="svg-wrapper">
+        {{- 'icon-search.svg' | inline_asset_content -}}
       </span>
     </summary>
     <div
