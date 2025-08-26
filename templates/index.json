@@ -45,7 +45,7 @@
       ],
       "custom_css": [
         "@media (min-width: 750px) {.banner--large {min-height: calc(100vh - 34px); } .banner__content {padding-top: 125px; } .banner__text.subtitle {max-width: 330px; }}",
-        "@media (max-width: 749px) {.banner__content {justify-content: flex-end; }}",
+        "@media (max-width: 749px) {.banner__content {justify-content: flex-end; } .banner__heading {max-width: 300px; margin: 0 auto; } .subtitle {max-width: 275px; margin: 0 auto; }}",
         ".banner__heading {max-width: 500px; line-height: 1;}"
       ],
       "settings": {
