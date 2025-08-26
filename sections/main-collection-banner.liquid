@@ -70,9 +70,9 @@
 </nav>
 
 {%- comment -%} Banner {%- endcomment -%}
-<div class="collection-hero__wrapper">
+<div class="collection-hero__wrapper page-width">
   <div
-    class="collection-hero{% if banner_img %} collection-hero--with-image page-width collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} "
+    class="collection-hero{% if banner_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} "
     {% if banner_img %}style="--banner-image: url({{ banner_img }});" {% endif %}
   >
     <div class="collection-hero__inner {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
