@@ -11,6 +11,7 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "custom_css": [],
       "settings": {
         "show_collection_description": false,
         "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023"
@@ -18,6 +19,9 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "custom_css": [
+        "@media screen and (min-width: 750px) and (max-width: 989px) {.grid__item {width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4); max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2); }}"
+      ],
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
