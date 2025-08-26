@@ -33,6 +33,12 @@
       justify-content: space-between;
       margin: 0 2rem;
     }
+    .section-{{ section.id }}-padding .swiper-wrapper.swiper-slide-active {
+      opacity: 1;
+    }
+    .section-{{ section.id }}-padding .swiper-wrapper {
+      opacity: 0.5;
+    }
   }
   @media (max-width: 749px) {
     .section-{{ section.id }}-padding .title-wrapper-with-link h2 {
