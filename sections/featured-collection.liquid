@@ -48,8 +48,6 @@
   max-width: 100%; 
   flex: 0 0 auto;
 }
-
-
 @media (max-width: 989px) {
   #collection-{{ section.id }} .featured-collections-grids {
     margin-left: -2rem;
@@ -58,6 +56,12 @@
   #collection-{{ section.id }} .swiper-pagination-progressbar {
     margin: 4rem 2rem 0;
     width: calc(100% - 4rem);
+  }
+  #collection-{{ section.id }} .swiper-slide.swiper-slide-active {
+    opacity: 1;
+  }
+  #collection-{{ section.id }} .swiper-slide {
+    opacity: 0.5;
   }
 }
 {%- endstyle -%}
