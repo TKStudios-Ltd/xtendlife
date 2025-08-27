@@ -866,7 +866,7 @@
       ],
       "custom_css": [
         ".banner__content {padding: 3rem 2rem 3.5rem;}",
-        ".banner__box {max-width: 125rem; padding: 0; height: -webkit-fill-available; display: flex; flex-direction: column; justify-content: space-between;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: space-between;}",
         "h2 {line-height: 1.2;}",
         "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
       ],
