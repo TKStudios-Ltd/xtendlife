@@ -149,8 +149,15 @@
       flex-direction: row;
       justify-content: center;
     }
+    #TabsSwiper-{{ section.id }} .swiper-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    #TabsSwiper-{{ section.id }} .swiper-slide {
+      width: 100% !important;
+      height: auto !important;
+    }
   }
-
   /* Optional rounded image corners like your mock */
   .image-pane {
     box-shadow: 0 0 0 0 rgba(0,0,0,0);
@@ -203,7 +210,7 @@
         </div>
 
         {%- comment -%} RIGHT: Image Pane (Swiper) {%- endcomment -%}
-        <div class="grid__item">
+        <div class="grid__item small-hide medium-hide">
           <div id="ImageSwiper-{{ section.id }}" class="swiper image-pane">
             <div class="swiper-wrapper">
               {%- for block in section.blocks -%}
@@ -299,45 +306,24 @@
     const autoplayDelay   = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
     const loop            = tabsEl.getAttribute('data-loop') === 'true';
 
-    // LEFT: Tabs Swiper
+    // Tabs Swiper: vertical list style everywhere; autoplay always on if enabled
     let tabsSwiper;
     try {
       tabsSwiper = new Swiper(tabsEl, {
-        direction: 'horizontal',
-        slidesPerView: 1.15,
-        spaceBetween: 8,
-        centeredSlides: false,
-        breakpoints: {
-          990: { direction: 'vertical', slidesPerView: 'auto', spaceBetween: 0 }
-        },
-        allowTouchMove: true,
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        allowTouchMove: false, // it's a list; we don't need drag
         loop: loop,
         autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
         speed: 500
       });
     } catch (e) { return; }
 
-    // RIGHT: Image Swiper
-    const paginationEl = imageEl.querySelector('.swiper-pagination');
-    let imageSwiper;
-    try {
-      imageSwiper = new Swiper(imageEl, {
-        effect: 'fade',
-        fadeEffect: { crossFade: true },
-        loop: loop,
-        speed: 600,
-        pagination: paginationEl ? { el: paginationEl, clickable: true } : undefined,
-        autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
-      });
-    } catch (e) { return; }
+    // Image Swiper: only for ≥ 990px
+    let imageSwiper = null;
+    const mq = window.matchMedia('(min-width: 990px)');
 
-    // Optional controller linking (manual sync also applied below)
-    if (tabsSwiper.controller && imageSwiper.controller) {
-      tabsSwiper.controller.control = imageSwiper;
-      imageSwiper.controller.control = tabsSwiper;
-    }
-
-    // Helpers
     const getRealIndex = sw => (typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex);
     const getTabSlides = () => tabsEl.querySelectorAll('.tabs-slide');
 
@@ -353,12 +339,54 @@
     function goToRealIndex(real) {
       if (typeof tabsSwiper.slideToLoop === 'function') tabsSwiper.slideToLoop(real);
       else tabsSwiper.slideTo(real);
-      if (typeof imageSwiper.slideToLoop === 'function') imageSwiper.slideToLoop(real);
-      else imageSwiper.slideTo(real);
-      setActiveByRealIndex(real); // instant visual feedback
+
+      if (imageSwiper) {
+        if (typeof imageSwiper.slideToLoop === 'function') imageSwiper.slideToLoop(real);
+        else imageSwiper.slideTo(real);
+      }
+      setActiveByRealIndex(real);
     }
 
-    // Event delegation (loop/clones & breakpoints safe)
+    function initImageSwiper() {
+      if (imageSwiper) return; // already initialized
+      const paginationEl = imageEl.querySelector('.swiper-pagination');
+      try {
+        imageSwiper = new Swiper(imageEl, {
+          effect: 'fade',
+          fadeEffect: { crossFade: true },
+          loop: loop,
+          speed: 600,
+          pagination: paginationEl ? { el: paginationEl, clickable: true } : undefined,
+          autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
+        });
+      } catch (e) {
+        imageSwiper = null;
+      }
+      // Keep in sync if it exists
+      if (imageSwiper) {
+        imageSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(imageSwiper)));
+      }
+    }
+
+    function destroyImageSwiper() {
+      if (!imageSwiper) return;
+      imageSwiper.destroy(true, true);
+      imageSwiper = null;
+    }
+
+    // Init/destroy image swiper based on viewport
+    function syncImagePresence() {
+      if (mq.matches) initImageSwiper();
+      else destroyImageSwiper();
+    }
+    syncImagePresence();
+
+    // Listen for viewport changes (optional but nice)
+    const mqHandler = () => syncImagePresence();
+    if (mq.addEventListener) mq.addEventListener('change', mqHandler);
+    else if (mq.addListener) mq.addListener(mqHandler); // legacy Safari
+
+    // Delegated events for the list (hover/click/keyboard)
     function delegate(type, selector, handler, opts) {
       tabsEl.addEventListener(type, function(e) {
         const el = e.target.closest(selector);
@@ -366,25 +394,20 @@
         handler(e, el);
       }, opts || false);
     }
-
     delegate('mouseenter', '.tabs-slide', (_e, el) => {
       const real = parseInt(el.getAttribute('data-index') || '-1', 10);
       if (!isNaN(real)) goToRealIndex(real);
     }, true);
-
     delegate('focusin', '.tabs-slide', (_e, el) => {
       const real = parseInt(el.getAttribute('data-index') || '-1', 10);
       if (!isNaN(real)) goToRealIndex(real);
     });
-
     delegate('click', '.tabs-slide', (e, el) => {
-      // Let inner anchors navigate; only treat clicks on the row itself
-      if (e.target.closest('a')) return;
+      if (e.target.closest('a')) return; // let inner links work normally
       e.preventDefault();
       const real = parseInt(el.getAttribute('data-index') || '-1', 10);
       if (!isNaN(real)) goToRealIndex(real);
     });
-
     delegate('keydown', '.tabs-slide', (e, el) => {
       if (e.target.closest('a')) return;
       if (e.key === 'Enter' || e.key === ' ' || e.code === 'Space') {
@@ -394,17 +417,15 @@
       }
     });
 
-    // Sync active state on Swiper changes (autoplay, drag, pagination)
+    // Keep active state in sync with tab autoplay/changes
     tabsSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(tabsSwiper)));
-    imageSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(imageSwiper)));
-
-    // Initial active
     setActiveByRealIndex(getRealIndex(tabsSwiper));
   }
 
   ensureSwiper(init);
 })();
 </script>
+
 
 {% schema %}
 {
