@@ -51,6 +51,9 @@
         "heading_4P8W9w",
         "text_FxFrdN"
       ],
+      "custom_css": [
+        ".banner {max-width: 140rem; margin: 0 auto;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/d82a25096345f69af54f65a5c278786442ee57f8.png",
