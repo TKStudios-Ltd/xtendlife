@@ -70,10 +70,234 @@
         "mobile_content_alignment": "left",
         "show_text_below": false
       }
+    },
+    "multicolumn_A6pqFF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: center;}",
+        ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "reviews_slider_EnTCee": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_dXy8WH": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "ach-eze-joint-support"
+          }
+        },
+        "review_HzjgFA": {
+          "type": "review",
+          "settings": {
+            "title": "One of the best",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "bone-support"
+          }
+        },
+        "review_KcRaMj": {
+          "type": "review",
+          "settings": {
+            "title": "Love this Magnesium!!",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_HmjwX3": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "core-wellness-mens-premium"
+          }
+        },
+        "review_96pb83": {
+          "type": "review",
+          "settings": {
+            "title": "One of the best",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "bone-support"
+          }
+        },
+        "review_KUTGUj": {
+          "type": "review",
+          "settings": {
+            "title": "Love this Magnesium!!",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        }
+      },
+      "block_order": [
+        "review_dXy8WH",
+        "review_HzjgFA",
+        "review_KcRaMj",
+        "review_HmjwX3",
+        "review_96pb83",
+        "review_KUTGUj"
+      ],
+      "name": "Reviews Slider",
+      "settings": {
+        "heading": "Real customers, real results.",
+        "bg_color": "#221d46",
+        "show_stars": true,
+        "star_count": 5,
+        "shop_cta": "Shop now",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "show_arrows": true,
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_eNjqNN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Xtendlife has grown into a global brand, trusted by over 400,000 customers. Our commitment to science ensures that our formulas deliver the best results to our customers, helping them live longer and healthier.",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "The Xtendlife Difference",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: space-between;}",
+        "h2 {line-height: 1.2;}",
+        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
     }
   },
   "order": [
     "main",
-    "image_banner_pFjbBG"
+    "image_banner_pFjbBG",
+    "multicolumn_A6pqFF",
+    "reviews_slider_EnTCee",
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNN"
   ]
 }
