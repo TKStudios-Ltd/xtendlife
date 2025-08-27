@@ -52,7 +52,8 @@
         "text_FxFrdN"
       ],
       "custom_css": [
-        ".banner {max-width: 140rem; margin: 0 auto;}"
+        ".banner {max-width: 140rem; margin: 0 auto;}",
+        ".banner__content {padding: 0 3rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
