@@ -45,13 +45,15 @@
     max-width: 140rem;
     margin: 0 auto;
   }
-  .page-width--wide .banner__content {
-    padding: 0 3rem;
-  }
   .page-width--wide .button[aria-disabled=true] {
     opacity: 1;
     font-size: 10px;
     padding: 0.75rem 1.5rem 0.6rem;
+  }
+  @media (min-width: 750px) {
+    .page-width--wide .banner__content {
+      padding: 0 3rem;
+    }
   }
 {%- endstyle -%}
 
