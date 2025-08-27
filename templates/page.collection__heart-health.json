@@ -236,7 +236,7 @@
       "name": "Reviews Slider",
       "settings": {
         "heading": "Real customers, real results.",
-        "bg_color": "#221d46",
+        "bg_color": "#dbeeff",
         "show_stars": true,
         "star_count": 5,
         "shop_cta": "Shop now",
