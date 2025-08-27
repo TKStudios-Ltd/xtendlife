@@ -254,6 +254,9 @@
         "tab_AEycWe",
         "tab_yazx7A"
       ],
+      "custom_css": [
+        "@media (max-width: 989px) {.title-wrapper-with-link {margin: -1rem 0 4rem; }}"
+      ],
       "name": "Image with Tabs",
       "settings": {
         "heading": "Shop by Benefit",
