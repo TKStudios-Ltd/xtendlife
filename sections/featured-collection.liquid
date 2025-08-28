@@ -65,6 +65,21 @@
     transition: opacity ease .4s;
   }
 }
+/* --- Neutralize Dawn grid inside this section's Swiper --- */
+#collection-{{ section.id }} .fc-swiper .grid,
+#collection-{{ section.id }} .fc-swiper [class*="grid--"]{
+  display: contents !important; /* nuke grid wrapper behavior */
+}
+#collection-{{ section.id }} .fc-swiper .grid__item{
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
+  flex: 0 0 auto !important;
+}
+/* Make Swiper the only layout system here */
+#collection-{{ section.id }} .fc-swiper{ overflow:hidden; touch-action: pan-y; }
+#collection-{{ section.id }} .fc-swiper .swiper-wrapper{ display:flex; }
+#collection-{{ section.id }} .fc-swiper .swiper-slide{ flex-shrink:0; height:auto; }
 {%- endstyle -%}
 
 {%- liquid
