@@ -164,12 +164,12 @@
       {%- endfor -%}
     </div>
   </div>
-  {% if section.settings.stack_images_on_mobile and section.settings.image != blank %}
+</div>
+{% if section.settings.stack_images_on_mobile and section.settings.image != blank %}
     <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
       <p>{{ block.settings.text }}</p>
     </div>
   {% endif %}
-</div>
 {% if section.settings.wide_container %}</div></div>{% endif %}
 
 {% schema %}
