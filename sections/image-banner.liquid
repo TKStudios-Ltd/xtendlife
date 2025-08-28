@@ -10,6 +10,9 @@
         content: '';
         display: block;
       }
+      #Banner-{{ section.id }} .banner--stacked .subtitle {
+        display: none;
+      }
     }
     @media screen and (min-width: 750px) {
       #Banner-{{ section.id }}::before,
@@ -18,6 +21,9 @@
         content: '';
         display: block;
       }
+    }
+    #Banner-{{ section.id }} .banner--stacked--mobile p {
+      color: #1F1946;
     }
   {%- endstyle -%}
 {%- endif -%}
@@ -169,7 +175,7 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'text' -%}
-      <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+      <div class="banner--stacked--mobile banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
         <p>{{ block.settings.text }}</p>
       </div>
     {%- endcase -%}
