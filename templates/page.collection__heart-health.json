@@ -254,6 +254,46 @@
         "autoplay_delay": 4000
       }
     },
+    "image_with_text_EapeUP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cpFMj7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Adopting a heart-healthy lifestyle can significantly reduce the risk of developing heart-related conditions.",
+            "heading_size": "h1"
+          }
+        },
+        "text_QNdBXj": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li>A heart-healthy lifestyle includes a balanced and diet based around unprocessed foods, regular exercise, avoiding smoking, limiting alcohol consumption and managing stress.</li><li>As we get older, our bodies are less able to produce or absorb essential nutrients such as omega-3, CoQ10 and vitamin K2.</li><li>Targeted supplementation can help make sure you are getting the right nutrients in the right amounts your body requires, which helps promote cardiovascular health and prevent disease.</li></ol>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cpFMj7",
+        "text_QNdBXj"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/b7d710c3965b09d1d9d9b600820a0588a3b743fe.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -335,6 +375,7 @@
     "multicolumn_A6pqFF",
     "featured_collection_rLeKcg",
     "reviews_slider_EnTCee",
+    "image_with_text_EapeUP",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
