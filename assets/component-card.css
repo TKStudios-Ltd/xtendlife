@@ -662,8 +662,8 @@
 }
 
 .quick-add__card--mobile {
-  gap: 1rem;
-  width: 100%;
+  gap: 1rem !important;
+  width: 100% !important;
   flex-wrap: wrap;
 }
 .quick-add__card--mobile modal-opener, 
@@ -712,6 +712,11 @@
 .card-wrapper:hover .hover--text__card {
   opacity: 1;
   transform: translateY(0);
+}
+@media (max-width: 749px) {
+  .hover--text__card {
+    display: none;
+  }
 }
 .custom--badges__card {
   transform: translateY(-5px);
