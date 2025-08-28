@@ -112,7 +112,7 @@
         "column_bqhLTR"
       ],
       "custom_css": [
-        ".grid {gap: 0; justify-content: center;}",
+        ".grid {gap: 0; justify-content: flex-start;}",
         ".multicolumn-card__info {display: flex; justify-content: flex-start; padding-bottom: 0;}",
         ".grid li:first-child .multicolumn-card__info {padding-left: 0 !important;}",
         "p {font-size: 14px; line-height: 1;}",
