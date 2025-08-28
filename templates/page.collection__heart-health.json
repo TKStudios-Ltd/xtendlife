@@ -116,7 +116,7 @@
         ".multicolumn-card__info {display: flex; justify-content: flex-start; padding-bottom: 0;}",
         ".grid li:first-child .multicolumn-card__info {padding-left: 0 !important;}",
         "p {font-size: 14px; line-height: 1;}",
-        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; } }",
         "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
