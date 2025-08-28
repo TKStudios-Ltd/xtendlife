@@ -668,7 +668,7 @@
 }
 .quick-add__card--mobile modal-opener, 
 .quick-add__card--mobile product-form {
-  flex: 0 0 100%;
+  flex: 0 0 100% !important;
 }
 
 .card__hover-actions .button--alt,
