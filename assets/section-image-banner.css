@@ -68,7 +68,7 @@
   }
 
   .banner--small:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
-    min-height: 30rem;
+    min-height: 20rem;
   }
 
   .banner--medium:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
