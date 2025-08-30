@@ -1,4 +1,5 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -58,6 +59,18 @@
     }
   }
 {% endif %}
+
+/* Collapsible rows – plus/minus toggle */
+#ImageWithText--{{ section.id }} .accordion summary .icon-minus { display: none; }
+#ImageWithText--{{ section.id }} details[open] > summary .icon-plus { display: none; }
+#ImageWithText--{{ section.id }} details[open] > summary .icon-minus { display: inline; }
+#ImageWithText--{{ section.id }} .accordion summary .icon-plus,
+#ImageWithText--{{ section.id }} .accordion summary .icon-minus {
+  width: 1.1rem; height: 1.1rem; vertical-align: middle;
+}
+#ImageWithText--{{ section.id }} .accordion summary {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+}
 
 {%- endstyle -%}
 
@@ -138,6 +151,32 @@
                 {%- when 'text' -%}
                   <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
+                  </div>
+                {%- when 'collapsible_row' -%}
+                  <div class="accordion" {{ block.shopify_attributes }}>
+                    <details
+                      id="Details-{{ block.id }}-{{ section.id }}"
+                      {% if block.settings.open %}open{% endif %}
+                    >
+                      <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                        <h3 class="accordion__title inline-richtext h4">
+                          {{ block.settings.heading | escape }}
+                        </h3>
+                        <span class="accordion__icon-set" aria-hidden="true">
+                          {{ 'icon-plus.svg'  | inline_asset_content | replace: '<svg', '<svg class="icon-plus"'  }}
+                          {{ 'icon-minus.svg' | inline_asset_content | replace: '<svg', '<svg class="icon-minus"' }}
+                        </span>
+                      </summary>
+                      <div
+                        class="accordion__content rte"
+                        id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
+                        role="region"
+                        aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
+                      >
+                        {{ block.settings.row_content }}
+                        {{ block.settings.page.content }}
+                      </div>
+                    </details>
                   </div>
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
@@ -506,6 +545,34 @@
           ],
           "default": "body",
           "label": "t:sections.image-with-text.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "collapsible_row",
+      "name": "Collapsible row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "More details"
+        },
+        {
+          "type": "richtext",
+          "id": "row_content",
+          "label": "Content"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "default": false
         }
       ]
     },
