@@ -74,6 +74,10 @@
 }
 #ImageWithText--{{ section.id }} .accordion__content {
   margin-bottom: 4rem;
+  overflow: hidden;
+  height: 0;
+  transition: height 300ms ease;
+  will-change: height;
 }
 
 {%- endstyle -%}
@@ -207,41 +211,91 @@
 
 <script>
   (() => {
-    function initSingleOpen(sectionId) {
-      const container = document.getElementById('ImageWithText--' + sectionId);
-      if (!container) return;
+    const sid = '{{ section.id }}';
+    const ANIM_MS = 300;
 
-      const detailsList = Array.from(container.querySelectorAll('.accordion details'));
+    function initAccordions(sectionId) {
+      const root = document.getElementById('ImageWithText--' + sectionId);
+      if (!root) return;
+
+      const detailsList = Array.from(root.querySelectorAll('.accordion details'));
       if (!detailsList.length) return;
 
-      // If multiple are open on load, keep only the first open
-      let firstOpenSeen = false;
-      detailsList.forEach(d => {
-        if (d.open) {
-          if (!firstOpenSeen) { firstOpenSeen = true; }
-          else { d.removeAttribute('open'); }
-        }
-      });
+      function closeAllExcept(except) {
+        detailsList.forEach(d => { if (d !== except && d.open) slideUp(d); });
+      }
 
+      // Prepare each details
       detailsList.forEach(d => {
-        d.addEventListener('toggle', () => {
-          if (!d.open) return; // only act when opening
-          detailsList.forEach(other => {
-            if (other !== d && other.open) other.removeAttribute('open');
-          });
+        const summary = d.querySelector('summary');
+        const content = d.querySelector('.accordion__content');
+        if (!summary || !content) return;
+
+        // Initial state
+        if (d.open) {
+          // Expand smoothly on load, then release to auto height
+          content.style.height = content.scrollHeight + 'px';
+          setTimeout(() => { content.style.height = ''; }, ANIM_MS);
+        } else {
+          content.style.height = '0px';
+        }
+
+        function activate(e) {
+          e.preventDefault();
+          if (d.dataset.animating) return;
+
+          if (d.open) {
+            slideUp(d);
+          } else {
+            closeAllExcept(d);
+            slideDown(d);
+          }
+        }
+
+        // Click/keyboard on summary
+        summary.addEventListener('click', activate);
+        summary.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') activate(e);
         });
       });
+
+      function slideDown(d) {
+        const content = d.querySelector('.accordion__content');
+        d.dataset.animating = '1';
+        d.open = true;                      // sets minus icon immediately
+        content.style.height = '0px';       // start collapsed
+        const target = content.scrollHeight;
+        requestAnimationFrame(() => {       // then animate to full height
+          content.style.height = target + 'px';
+        });
+        content.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName !== 'height') return;
+          content.removeEventListener('transitionend', handler);
+          content.style.height = '';        // release to auto for responsive content
+          delete d.dataset.animating;
+        });
+      }
+
+      function slideUp(d) {
+        const content = d.querySelector('.accordion__content');
+        d.dataset.animating = '1';
+        content.style.height = content.scrollHeight + 'px'; // from current height
+        requestAnimationFrame(() => {
+          content.style.height = '0px';    // animate closed
+        });
+        content.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName !== 'height') return;
+          content.removeEventListener('transitionend', handler);
+          d.open = false;                   // flip back to plus icon after animation
+          content.style.height = '0px';     // keep collapsed
+          delete d.dataset.animating;
+        });
+      }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      initSingleOpen('{{ section.id }}');
-    });
-
-    // Re-init in Theme Editor when this section reloads
+    document.addEventListener('DOMContentLoaded', () => { initAccordions(sid); });
     document.addEventListener('shopify:section:load', (e) => {
-      if (e.detail && e.detail.sectionId === '{{ section.id }}') {
-        initSingleOpen('{{ section.id }}');
-      }
+      if (e.detail && e.detail.sectionId === sid) initAccordions(sid);
     });
   })();
 </script>
