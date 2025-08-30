@@ -254,6 +254,38 @@
         "autoplay_delay": 4000
       }
     },
+    "image_with_text_3jd3Fg": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HLeMWQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why is Heart Health so Important?",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HLeMWQ"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "image_with_text_EapeUP": {
       "type": "image-with-text",
       "blocks": {
@@ -379,6 +411,7 @@
     "multicolumn_A6pqFF",
     "featured_collection_rLeKcg",
     "reviews_slider_EnTCee",
+    "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
