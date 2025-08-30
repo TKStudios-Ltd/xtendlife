@@ -399,6 +399,32 @@
         "padding_bottom": 60
       }
     },
+    "image_infinite_scroll_6YVr3i": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_EahCNG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_3680.svg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EahCNG"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#f4f8fb",
+        "image_size_constraint": "height",
+        "image_max_size": 60,
+        "scroll_speed": 20,
+        "repeat_count": 3,
+        "image_gap": 16,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "image_with_text_HHyM8a": {
       "type": "image-with-text",
       "blocks": {
@@ -686,6 +712,7 @@
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
+    "image_infinite_scroll_6YVr3i",
     "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
     "newsletter_qKtmmH",
