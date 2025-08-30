@@ -270,13 +270,13 @@
             "heading": "Risks are high",
             "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
             "page": "",
-            "open": false
+            "open": true
           }
         },
         "collapsible_row_E3dGpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Risks are high",
+            "heading": "Symptoms might be hidden",
             "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
             "page": "",
             "open": false
@@ -285,7 +285,16 @@
         "collapsible_row_mNwhUk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Risks are high",
+            "heading": "Heart Health and Men",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_hD4rk6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Heart Health and Women",
             "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
             "page": "",
             "open": false
@@ -296,7 +305,8 @@
         "heading_HLeMWQ",
         "collapsible_row_eJMy84",
         "collapsible_row_E3dGpt",
-        "collapsible_row_mNwhUk"
+        "collapsible_row_mNwhUk",
+        "collapsible_row_hD4rk6"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
