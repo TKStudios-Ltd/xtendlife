@@ -4,38 +4,38 @@
 
 {%- style -%}
 .section-{{ section.id }}-padding{
-    padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    overflow-x: clip;
+  padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  overflow-x: clip;
 }
 @media (min-width:750px){
-    .section-{{ section.id }}-padding{
-        padding-top:{{ section.settings.padding_top }}px;
-        padding-bottom:{{ section.settings.padding_bottom }}px;
-    }
+  .section-{{ section.id }}-padding{
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
 }
 /* Two-column layout */
 .section-{{ section.id }}-padding .ts-grid{ 
-    display: flex; 
-    gap: 0; 
-    align-items: flex-start; 
+  display: flex; 
+  gap: 0; 
+  align-items: flex-start; 
 }
 .section-{{ section.id }}-padding .ts-left{ 
-    flex: 0 0 25%; 
+  flex: 0 0 25%; 
 }
 .section-{{ section.id }}-padding .ts-left h2{
-    color: #F4F8FB; 
-    margin: 0;
-    line-height: 1.1;
-    max-width: 200px;
+  color: #F4F8FB; 
+  margin: 0;
+  line-height: 1.1;
+  max-width: 200px;
 }
 .section-{{ section.id }}-padding .ts-right { 
-    flex: 0 0 75%; 
-    width: 100%;
-    position: relative; 
+  flex: 0 0 75%; 
+  width: 100%;
+  position: relative; 
 }
 .section-{{ section.id }}-padding .ts-bleed {
-    width: calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem));
+  width: calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem));
 }
 @media (max-width: 1399px) {
   .section-{{ section.id }}-padding .ts-bleed {
@@ -288,6 +288,29 @@
   </div>
 </section>
 
+<script>
+(function(){
+  const section = document.getElementById('reviews-slider-{{ section.id }}');
+  const swiperEl = section && section.querySelector('#tswiper-{{ section.id }}');
+  function init(){
+    if (!swiperEl || !window.Swiper || !swiperEl.swiper) { setTimeout(init, 60); return; }
+    const sw = swiperEl.swiper;
+    const bind = (selector, handler) => {
+      section.querySelectorAll(selector).forEach(btn => {
+        // avoid duplicate bindings
+        if (!btn.dataset.bound) {
+          btn.addEventListener('click', handler);
+          btn.dataset.bound = '1';
+        }
+      });
+    };
+    // Wire up BOTH nav groups (mobile + desktop)
+    bind('.ts-nav .ts-prev', () => sw.slidePrev());
+    bind('.ts-nav .ts-next', () => sw.slideNext());
+  }
+  init();
+})();
+</script>
 
 {% schema %}
 {
