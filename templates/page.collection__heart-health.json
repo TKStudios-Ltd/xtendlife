@@ -256,7 +256,8 @@
         "review_NmNeiT"
       ],
       "custom_css": [
-        "h2 {color: #1f1946;}"
+        "h2 {color: #1f1946;}",
+        ".ts-btn svg path {fill: #1F1946;}"
       ],
       "name": "Reviews Slider",
       "settings": {
