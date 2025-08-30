@@ -377,6 +377,93 @@
         "padding_bottom": 60
       }
     },
+    "image_with_text_HHyM8a": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zhEGVe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Multivitamin for your heart",
+            "heading_size": "h1"
+          }
+        },
+        "caption_rgGCKg": {
+          "type": "caption",
+          "settings": {
+            "caption": "It’s never too late to improve your cardiovascular health, heart disease is largely preventable through lifestyle change and great supplementation. Xtendlife CX8 is developed with the best ingredients supported by science to keep you stay young at heart.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_AeCpAw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Highly Advanced Natural Supplement",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_AjWcwC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Circulation and Calcification",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_ciD4cW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Inflammation and Cellular Support",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_HfKygV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Additional Antioxidants",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zhEGVe",
+        "caption_rgGCKg",
+        "collapsible_row_AeCpAw",
+        "collapsible_row_AjWcwC",
+        "collapsible_row_ciD4cW",
+        "collapsible_row_HfKygV"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 20px; margin-bottom: 4rem;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -460,6 +547,7 @@
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
+    "image_with_text_HHyM8a",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
