@@ -446,7 +446,7 @@
         "image_nxEX3U"
       ],
       "custom_css": [
-        "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: center; }}"
+        "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: center; align-items: center; }}"
       ],
       "name": "Image Infinite Scroll",
       "settings": {
@@ -455,7 +455,7 @@
         "image_max_size": 50,
         "scroll_speed": 20,
         "repeat_count": 1,
-        "image_gap": 60,
+        "image_gap": 0,
         "padding_top": 40,
         "padding_bottom": 40
       }
