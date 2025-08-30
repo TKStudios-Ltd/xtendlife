@@ -311,7 +311,8 @@
       "custom_css": [
         ".accordion__title {font-size: 3.6rem;}",
         ".image-with-text__content {padding: 2rem 4rem 6rem 4rem;}",
-        ".image-with-text__heading {margin-bottom: 8rem;}"
+        ".image-with-text__heading {margin-bottom: 8rem;}",
+        ".icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
