@@ -276,6 +276,10 @@
         "heading_cpFMj7",
         "text_QNdBXj"
       ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 36px; line-height: 1.15;}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
