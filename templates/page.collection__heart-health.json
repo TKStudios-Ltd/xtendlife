@@ -333,7 +333,8 @@
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
         ".image-with-text__heading {margin-bottom: 6rem;}",
         ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
-        ".accordion__content.rte p {font-size: 2rem; line-height: 1.5;}"
+        ".accordion__content.rte p {font-size: 2rem; line-height: 1.5;}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2.4rem;}}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
