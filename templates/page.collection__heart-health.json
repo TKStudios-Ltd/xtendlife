@@ -308,6 +308,10 @@
         "collapsible_row_mNwhUk",
         "collapsible_row_hD4rk6"
       ],
+      "custom_css": [
+        ".accordion__title {font-size: 3.6rem;}",
+        ".image-with-text__content {padding: 2rem 4rem 6rem 4rem;}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Placeholder_Image_1.jpg",
