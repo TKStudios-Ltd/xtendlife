@@ -61,11 +61,8 @@
 {% endif %}
 
 /* Collapsible rows – plus/minus toggle */
-#ImageWithText--{{ section.id }} .accordion summary .icon-minus { display: none; }
-#ImageWithText--{{ section.id }} details[open] > summary .icon-plus { display: none; }
-#ImageWithText--{{ section.id }} details[open] > summary .icon-minus { display: inline; }
-#ImageWithText--{{ section.id }} .accordion summary .icon-plus,
-#ImageWithText--{{ section.id }} .accordion summary .icon-minus {
+#ImageWithText--{{ section.id }} details[open] > summary .icon-plus { transform: rotate(45deg); }
+#ImageWithText--{{ section.id }} .accordion summary .icon-plus { 
   width: 1.1rem; height: 1.1rem; vertical-align: middle;
 }
 #ImageWithText--{{ section.id }} .accordion summary {
@@ -164,7 +161,6 @@
                         </h3>
                         <span class="accordion__icon-set" aria-hidden="true">
                           {{ 'icon-plus.svg'  | inline_asset_content | replace: '<svg', '<svg class="icon-plus"'  }}
-                          {{ 'icon-minus.svg' | inline_asset_content | replace: '<svg', '<svg class="icon-minus"' }}
                         </span>
                       </summary>
                       <div
