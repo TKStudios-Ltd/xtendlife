@@ -405,22 +405,54 @@
         "image_EahCNG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Frame_3680.svg",
+            "image": "shopify://shop_images/Logo-USA_Today_200x_1.png",
+            "link": ""
+          }
+        },
+        "image_wQp7ij": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-CBS_News_200x_1.png",
+            "link": ""
+          }
+        },
+        "image_36p7tN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DrTalks_Logo-02_400x_1.png",
+            "link": ""
+          }
+        },
+        "image_Qw9PXi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-Fox_News_400x_1.png",
+            "link": ""
+          }
+        },
+        "image_nxEX3U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-NBC_200x_1.png",
             "link": ""
           }
         }
       },
       "block_order": [
-        "image_EahCNG"
+        "image_EahCNG",
+        "image_wQp7ij",
+        "image_36p7tN",
+        "image_Qw9PXi",
+        "image_nxEX3U"
       ],
       "name": "Image Infinite Scroll",
       "settings": {
         "background_color": "#f4f8fb",
         "image_size_constraint": "height",
-        "image_max_size": 60,
+        "image_max_size": 50,
         "scroll_speed": 20,
-        "repeat_count": 3,
-        "image_gap": 60,
+        "repeat_count": 1,
+        "image_gap": 40,
         "padding_top": 40,
         "padding_bottom": 40
       }
