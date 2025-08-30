@@ -310,7 +310,7 @@
       ],
       "custom_css": [
         ".accordion__title {font-size: 3.6rem;}",
-        ".image-with-text__content {padding: 2rem 6rem 6rem 4rem;}",
+        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
         ".image-with-text__heading {margin-bottom: 6rem;}",
         ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
         ".accordion__content.rte p {font-size: 2rem; line-height: 1.5;}"
@@ -357,7 +357,8 @@
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 36px; line-height: 1.15;}"
+        "h2 {font-size: 36px; line-height: 1.15;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 6rem 2rem 0 6rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -431,6 +432,14 @@
             "page": "",
             "open": false
           }
+        },
+        "button_CdnLhT": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop CX8",
+            "button_link": "shopify://products/cx8-heart-health-support",
+            "button_style_secondary": false
+          }
         }
       },
       "block_order": [
@@ -439,12 +448,14 @@
         "collapsible_row_AeCpAw",
         "collapsible_row_AjWcwC",
         "collapsible_row_ciD4cW",
-        "collapsible_row_HfKygV"
+        "collapsible_row_HfKygV",
+        "button_CdnLhT"
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
-        ".subtitle {font-size: 20px; margin-bottom: 4rem;}"
+        ".subtitle {font-size: 20px; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -452,6 +463,103 @@
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_83HE6c": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6bVe4M": {
+          "type": "heading",
+          "settings": {
+            "heading": "Healthy Aging with GG Pure",
+            "heading_size": "h1"
+          }
+        },
+        "caption_MdCprz": {
+          "type": "caption",
+          "settings": {
+            "caption": "Geranylgeraniol (GG) is the building block for essential-to-life nutrient. However, most people may haven't heard of it, Scientists discovered that this molecule plays a vital role in overall health. A decline in GG levels is linked to many of the common side effects experienced by those taking statins.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_4b8wHk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Highly Advanced Natural Supplement",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_XxRk8y": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Circulation and Calcification",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_VjbeiX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Inflammation and Cellular Support",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_LKKWzb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Additional Antioxidants",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "button_7xtrmP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop GG Pure",
+            "button_link": "shopify://products/gg-pure",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6bVe4M",
+        "caption_MdCprz",
+        "collapsible_row_4b8wHk",
+        "collapsible_row_XxRk8y",
+        "collapsible_row_VjbeiX",
+        "collapsible_row_LKKWzb",
+        "button_7xtrmP"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 20px; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": false,
         "content_layout": "no-overlap",
@@ -548,6 +656,7 @@
     "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
     "image_with_text_HHyM8a",
+    "image_with_text_83HE6c",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
