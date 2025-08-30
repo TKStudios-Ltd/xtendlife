@@ -3414,6 +3414,7 @@ details-disclosure > details {
 
 .rte li {
   list-style: inherit;
+  padding-bottom: 1rem;
 }
 
 .rte li:last-child {
