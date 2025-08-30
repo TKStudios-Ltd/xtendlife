@@ -79,7 +79,10 @@
     max-width: 170px;
   }
 }
-.section-{{ section.id }}-padding .tswiper{ overflow:hidden; }
+@media (min-width: 990px) {
+.section-{{ section.id }}-padding .tswiper{ overflow: visible; }
+}
+.section-{{ section.id }}-padding .tswiper{ overflow: hidden; }
 .section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
 .section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
 .section-{{ section.id }}-padding .tswiper .swiper-slide { 
