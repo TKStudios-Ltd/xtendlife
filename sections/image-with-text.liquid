@@ -205,6 +205,47 @@
   </div>
 </div>
 
+<script>
+  (() => {
+    function initSingleOpen(sectionId) {
+      const container = document.getElementById('ImageWithText--' + sectionId);
+      if (!container) return;
+
+      const detailsList = Array.from(container.querySelectorAll('.accordion details'));
+      if (!detailsList.length) return;
+
+      // If multiple are open on load, keep only the first open
+      let firstOpenSeen = false;
+      detailsList.forEach(d => {
+        if (d.open) {
+          if (!firstOpenSeen) { firstOpenSeen = true; }
+          else { d.removeAttribute('open'); }
+        }
+      });
+
+      detailsList.forEach(d => {
+        d.addEventListener('toggle', () => {
+          if (!d.open) return; // only act when opening
+          detailsList.forEach(other => {
+            if (other !== d && other.open) other.removeAttribute('open');
+          });
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initSingleOpen('{{ section.id }}');
+    });
+
+    // Re-init in Theme Editor when this section reloads
+    document.addEventListener('shopify:section:load', (e) => {
+      if (e.detail && e.detail.sectionId === '{{ section.id }}') {
+        initSingleOpen('{{ section.id }}');
+      }
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "t:sections.image-with-text.name",
