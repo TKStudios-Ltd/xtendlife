@@ -310,7 +310,8 @@
       ],
       "custom_css": [
         ".accordion__title {font-size: 3.6rem;}",
-        ".image-with-text__content {padding: 2rem 4rem 6rem 4rem;}"
+        ".image-with-text__content {padding: 2rem 4rem 6rem 4rem;}",
+        ".image-with-text__heading {margin-bottom: 8rem;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
