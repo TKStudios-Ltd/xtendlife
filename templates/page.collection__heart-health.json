@@ -455,7 +455,7 @@
         "image_max_size": 50,
         "scroll_speed": 20,
         "repeat_count": 1,
-        "image_gap": 40,
+        "image_gap": 60,
         "padding_top": 40,
         "padding_bottom": 40
       }
