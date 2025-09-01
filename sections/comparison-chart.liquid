@@ -146,16 +146,10 @@
 #cc-{{ section.id }} .cc-tick.is-on svg g path {
     fill: rgba(95, 196, 255, 1);
 }
-
-  /* Progressbar under chart (Swiper progressbar styled as “scrollbar”) */
-  #cc-{{ section.id }} .cc-progress{
-    height: 4px; border-radius: 999px; background: #E8F4FF;
-    margin-top: 2rem;
-  }
-  #cc-{{ section.id }} .cc-progress .swiper-pagination-progressbar-fill{
-    background: #1F1946;
-    border-radius: 999px;
-  }
+#cc-{{ section.id }} .cc-progress { position: static; width: 100%; height: 4px; }
+#cc-{{ section.id }} .cc-progress .swiper-pagination-progressbar-fill {
+  background: #1F1946; border-radius: 999px; transform-origin: left top;
+}
 
   /* Small-screen tweaks */
   @media (max-width: 989px){
@@ -282,37 +276,55 @@
 </section>
 
 <script>
-(function(){
+(function () {
   const el  = document.getElementById('cc-swiper-{{ section.id }}');
-  const pag = document.getElementById('cc-pagination-{{ section.id }}');
-  if (!el) return;
+  const bar = document.getElementById('cc-pagination-{{ section.id }}');
+  if (!el || !bar) return;
 
-  function init(){
-    if (typeof window.Swiper === 'undefined') { setTimeout(init, 60); return; }
-    if (el.dataset.swiperReady === '1' && el.swiper) { el.swiper.update(); return; }
+  function mount() {
+    // wait for global hydrator to attach el.swiper
+    if (typeof window.Swiper === 'undefined' || !el.swiper) { setTimeout(mount, 60); return; }
 
-    const gap   = parseInt(el.dataset.gap, 10)   || 20;
-    const speed = parseInt(el.dataset.speed, 10) || 500;
+    const sw = el.swiper;
 
-    const sw = new Swiper(el, {
-      slidesPerView: 'auto',
-      spaceBetween: gap,
-      speed,
-      watchOverflow: true, // disables sliding if columns already fit
-      pagination: { el: pag, type: 'progressbar' }
-    });
+    // ensure layout works with your fixed widths
+    const gap = parseInt(el.dataset.gap, 10) || 20;
+    sw.params.slidesPerView = 'auto';
+    sw.params.spaceBetween  = gap;
+    sw.params.watchOverflow = true;
+    sw.update();
 
-    el.dataset.swiperReady = '1';
+    // ensure we have a fill element (don't rely on Pagination module)
+    let fill = bar.querySelector('.swiper-pagination-progressbar-fill');
+    if (!fill) {
+      fill = document.createElement('span');
+      fill.className = 'swiper-pagination-progressbar-fill';
+      bar.appendChild(fill);
+    }
 
-    // keep layout tight as images load
-    const update = () => { try { sw.update(); } catch(e){} };
-    window.addEventListener('load', update, { once:true, passive:true });
+    const updateFill = () => {
+      // if no overflow, show full bar; otherwise use real progress (0..1)
+      const p = (sw.isBeginning && sw.isEnd) ? 1 : sw.progress;
+      fill.style.transform = 'scaleX(' + p + ')';
+    };
+
+    // hook into Swiper events
+    sw.on('progress', updateFill);
+    sw.on('slideChange', updateFill);
+    sw.on('resize', () => { sw.update(); updateFill(); });
+
+    // also refresh when images load
+    const refresh = () => { try { sw.update(); updateFill(); } catch (e) {} };
+    window.addEventListener('load', refresh, { once: true, passive: true });
     el.querySelectorAll('img').forEach(img => {
-      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+      if (!img.complete) img.addEventListener('load', refresh, { once: true, passive: true });
     });
+
+    // initial paint
+    updateFill();
   }
 
-  init();
+  mount();
 })();
 </script>
 
