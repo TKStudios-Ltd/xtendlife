@@ -326,7 +326,8 @@
 }
 
 .card__subheading {
-  
+  font-size: 14px;
+  color: rgba(31, 25, 71, 0.54);
 }
 
 /* .collection-list-wrapper .card__heading::after {
