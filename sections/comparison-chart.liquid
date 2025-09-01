@@ -219,7 +219,6 @@
                             {%- endif -%}
                         </div>
                         <p class="cc-title">{{ p.title | default: 'Product name' }}</p>
-                        <p class="cc-sub">{{ block.settings.subtitle | default: 'Premium' }}</p>
                         </div>
                         <!-- Rows 1–5 (ticks) -->
                         {%- for r in (1..5) -%}
@@ -320,7 +319,6 @@ This avoids writing a separate full init and keeps using your global hydrator.
       "name": "Product column",
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
-        { "type": "text", "id": "subtitle", "label": "Subtitle (optional)", "default": "Premium" },
 
         { "type": "header", "content": "Ticks (rows 1–5)" },
         { "type": "range", "id": "row1_ticks", "label": "Row 1 ticks", "min": 0, "max": 6, "step": 1, "default": 4 },
