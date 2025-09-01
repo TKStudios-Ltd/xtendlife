@@ -747,7 +747,7 @@
       "name": "Comparison Chart",
       "settings": {
         "heading": "Which Total Balance Version is Right for Me?",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "color_scheme": "",
         "row1_label": "",
         "row2_label": "Prevent Calcification",
