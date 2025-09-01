@@ -73,8 +73,7 @@
     border-bottom: var(--border);
 }
 #cc-{{ section.id }} .cc-label--spacer{ border: 0; padding: 0; background: #fff;  height: 0; }
-/* last visible label cell shouldn’t double-border */
-#cc-{{ section.id }} .cc-labels .cc-label:last-child{ border-bottom: 0; }
+#cc-{{ section.id }} .cc-labels .cc-label:last-child{ border-bottom: 0; height: 6rem; }
 
 .cc-labels, .cc-col { grid-template-rows: auto repeat(7, minmax(48px, auto)) auto; }
 
@@ -170,7 +169,7 @@
     }
 
     /* price + cta styling */
-    .cc-price { font-weight: 600; }
+    .cc-price { font-weight: 500; }
     .cc-cell--cta { padding-top: 1rem; }
     .cc-cell--cta .button { width: fit-content; }
 
