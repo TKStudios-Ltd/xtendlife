@@ -280,25 +280,32 @@
   const el = document.getElementById('cc-swiper-{{ section.id }}');
   if (!el) return;
 
-  function ready() {
-    const sw = el.swiper;
-    if (!sw) return setTimeout(ready, 40);
+  function go() {
+    const existing = el.swiper;
+    if (!existing) return setTimeout(go, 40);
 
+    // Kill the hydrator's bullet instance cleanly
+    try { existing.destroy(true, true); } catch(_) {}
+
+    // Clean any bullet markup/classes left by hydrator
     const pag = el.querySelector('.swiper-pagination');
-    // keep pagination visible even if not overflowing
-    sw.params.watchOverflow = false;
-
-    // switch bullets -> progressbar
-    sw.params.pagination = { el: pag, type: 'progressbar' };
-    if (sw.pagination) {
-      sw.pagination.destroy(); // removes bullet spans & classes
-      pag.classList.remove('swiper-pagination-bullets','swiper-pagination-clickable');
-      sw.pagination.init();
-      sw.pagination.render?.();
-      sw.pagination.update();
+    if (pag) {
+      pag.className = 'swiper-pagination cc-progress';
+      pag.innerHTML = '';
     }
 
-    // update after images/load
+    // Create OUR instance with a progressbar + no gap
+    const sw = new Swiper(el, {
+      slidesPerView: 'auto',    // fixed-width slides
+      spaceBetween: 0,          // no gap
+      speed: 500,
+      watchOverflow: false,     // keep progressbar visible even if not overflowing
+      pagination: {
+        el: pag,
+        type: 'progressbar'
+      }
+    });
+
     const upd = () => { try { sw.update(); sw.pagination?.update(); } catch(_){} };
     if (document.readyState === 'complete') setTimeout(upd, 0);
     else window.addEventListener('load', upd, { once: true });
@@ -306,7 +313,7 @@
       if (!img.complete) img.addEventListener('load', upd, { once: true });
     });
   }
-  ready();
+  go();
 })();
 </script>
 
