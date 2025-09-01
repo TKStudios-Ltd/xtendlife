@@ -689,7 +689,7 @@
           "type": "column",
           "settings": {
             "product": "cx8-heart-health-support",
-            "subtitle": "Premium",
+            "subtitle": "",
             "row1_ticks": 3,
             "row2_ticks": 3,
             "row3_ticks": 3,
@@ -702,7 +702,7 @@
           "type": "column",
           "settings": {
             "product": "xtend-quinol",
-            "subtitle": "Premium",
+            "subtitle": "",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
@@ -715,7 +715,7 @@
           "type": "column",
           "settings": {
             "product": "vasqflow",
-            "subtitle": "Premium",
+            "subtitle": "",
             "row1_ticks": 1,
             "row2_ticks": 2,
             "row3_ticks": 3,
@@ -728,7 +728,7 @@
           "type": "column",
           "settings": {
             "product": "gg-pure",
-            "subtitle": "Premium",
+            "subtitle": "",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
