@@ -46,7 +46,6 @@
 #cc-{{ section.id }} .cc-labels{
     flex: 0 0 240px;
     border: var(--border);
-    border-right: 0;
     border-radius: 0;
     overflow: hidden;
     background: #fff;
@@ -81,15 +80,15 @@
     height: auto;
   }
 
-  /* Column card -> grid for header + 7 rows */
-  #cc-{{ section.id }} .cc-col{
-    background:#fff;
+#cc-{{ section.id }} .cc-col{
+    background: #fff;
     border: var(--border);
-    border-radius: 12px;
+    border-left: 0;
+    border-radius: 0;
     overflow: hidden;
     display: grid;
     grid-template-rows: var(--header-h) repeat(7, var(--row-h));
-  }
+}
   #cc-{{ section.id }} .cc-col > *{ border-bottom: var(--border); }
   #cc-{{ section.id }} .cc-col > *:last-child{ border-bottom: 0; }
 
