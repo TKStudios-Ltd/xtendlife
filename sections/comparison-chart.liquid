@@ -90,8 +90,8 @@
     border-left: 0;
     border-radius: 0;
     overflow: hidden;
-    display: grid;
-    grid-template-rows: var(--header-h) repeat(7, var(--row-h));
+    display: flex;
+    flex-direction: column;
 }
   #cc-{{ section.id }} .cc-col > *{ border-bottom: var(--border); }
   #cc-{{ section.id }} .cc-col > *:last-child{ border-bottom: 0; }
@@ -118,13 +118,14 @@
 }
 #cc-{{ section.id }} .cc-media img{ width: 100%; height: 100%; object-fit: contain; }
 #cc-{{ section.id }} .cc-title{ margin: 0; font-weight: 500; font-size: 16px; line-height: 1.2; }
-
-  /* Cell content */
-  #cc-{{ section.id }} .cc-cell{
-    display:flex; align-items:center; justify-content:center;
-    padding: 0 .75rem;
+#cc-{{ section.id }} .cc-cell{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1.5rem;
     text-align: center;
-  }
+    height: 3rem;
+}
 
   /* Ticks (first 5 rows) */
   #cc-{{ section.id }} .cc-ticks{ display: inline-flex; gap: .5rem; }
