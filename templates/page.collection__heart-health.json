@@ -695,43 +695,54 @@
             "row3_ticks": 3,
             "row4_ticks": 3,
             "row5_ticks": 1,
-            "row6_text": "3",
-            "row7_text": "$69.95"
+            "row6_text": "3"
           }
         },
         "column_8xypY8": {
           "type": "column",
           "settings": {
-            "product": "",
+            "product": "xtend-quinol",
             "subtitle": "Premium",
-            "row1_ticks": 4,
-            "row2_ticks": 3,
-            "row3_ticks": 3,
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
             "row4_ticks": 3,
             "row5_ticks": 3,
-            "row6_text": "3",
-            "row7_text": "$99.50 NZD"
+            "row6_text": "1-2"
           }
         },
         "column_7chcQR": {
           "type": "column",
           "settings": {
-            "product": "",
+            "product": "vasqflow",
             "subtitle": "Premium",
-            "row1_ticks": 4,
-            "row2_ticks": 3,
+            "row1_ticks": 1,
+            "row2_ticks": 2,
             "row3_ticks": 3,
-            "row4_ticks": 3,
+            "row4_ticks": 1,
+            "row5_ticks": 1,
+            "row6_text": "3"
+          }
+        },
+        "column_tQCBEQ": {
+          "type": "column",
+          "settings": {
+            "product": "gg-pure",
+            "subtitle": "Premium",
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
+            "row4_ticks": 1,
             "row5_ticks": 3,
-            "row6_text": "3",
-            "row7_text": "$99.50 NZD"
+            "row6_text": "1"
           }
         }
       },
       "block_order": [
         "column_VgTzJM",
         "column_8xypY8",
-        "column_7chcQR"
+        "column_7chcQR",
+        "column_tQCBEQ"
       ],
       "name": "Comparison Chart",
       "settings": {
@@ -744,7 +755,7 @@
         "row4_label": "Blood Circulation ",
         "row5_label": "Inflammation",
         "row6_label": "Statin Support ",
-        "row7_label": "Price",
+        "shop_cta": "Shop now",
         "col_width": 280,
         "gap": 20,
         "max_ticks": 4,
