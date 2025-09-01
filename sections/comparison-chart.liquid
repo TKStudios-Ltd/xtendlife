@@ -202,6 +202,7 @@
             data-mode="fixed"
             data-gap="0"
             data-speed="500"
+            data-dots="true"
             >
             <div class="swiper-wrapper">
               {%- for block in section.blocks -%}
@@ -274,12 +275,31 @@
 (() => {
   const el = document.getElementById('cc-swiper-{{ section.id }}');
   if (!el) return;
-  function ready(){
-    if (!el.swiper) return setTimeout(ready, 40);
+
+  function ready() {
+    const sw = el.swiper;
+    if (!sw) return setTimeout(ready, 40);
+
     const pag = el.querySelector('.swiper-pagination');
-    el.swiper.params.pagination = { el: pag, type: 'progressbar' };
-    el.swiper.pagination?.init();
-    el.swiper.pagination?.update();
+    // keep pagination even when there is no overflow
+    sw.params.watchOverflow = false;
+
+    // switch pagination type to progressbar and re-init
+    sw.params.pagination = { el: pag, type: 'progressbar' };
+    if (sw.pagination) {
+      sw.pagination.destroy();
+      sw.pagination.init();
+      sw.pagination.render?.();
+      sw.pagination.update();
+    }
+
+    // in case images load later, keep it honest
+    const upd = () => { try { sw.update(); sw.pagination?.update(); } catch(_){} };
+    if (document.readyState === 'complete') setTimeout(upd, 0);
+    else window.addEventListener('load', upd, { once: true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', upd, { once: true });
+    });
   }
   ready();
 })();
