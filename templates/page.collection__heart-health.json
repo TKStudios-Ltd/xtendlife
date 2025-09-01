@@ -137,36 +137,37 @@
         "padding_bottom": 28
       }
     },
-    "featured_collection_rLeKcg": {
-      "type": "featured-collection",
+    "featured_collection_tab_grid_Ddm4Df": {
+      "type": "featured-collection-tab-grid",
       "custom_css": [
         ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
       ],
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection tab",
       "settings": {
-        "collection": "heart-health",
-        "products_to_show": 4,
         "title": "Top Supplements for Heart Health",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "",
+        "featured_collection": "heart-health",
+        "featured_count": 4,
+        "full_collection": "heart-health",
+        "full_count": 12,
+        "default_tab": "featured",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
         "quick_add": "standard",
+        "columns_desktop": 4,
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 80
       }
     },
     "reviews_slider_EnTCee": {
@@ -897,7 +898,7 @@
     "main",
     "image_banner_pFjbBG",
     "multicolumn_A6pqFF",
-    "featured_collection_rLeKcg",
+    "featured_collection_tab_grid_Ddm4Df",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
