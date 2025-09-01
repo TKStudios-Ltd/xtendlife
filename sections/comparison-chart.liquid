@@ -263,7 +263,7 @@
                 </div>
               {%- endfor -%}
             </div>
-            <div class="swiper-pagination swiper-pagination-progressbar cc-progress"></div>
+            <div class="swiper-pagination cc-progress"></div>
           </div>
         </div>
       </div>
@@ -281,19 +281,20 @@
     if (!sw) return setTimeout(ready, 40);
 
     const pag = el.querySelector('.swiper-pagination');
-    // keep pagination even when there is no overflow
+    // keep pagination visible even if not overflowing
     sw.params.watchOverflow = false;
 
-    // switch pagination type to progressbar and re-init
+    // switch bullets -> progressbar
     sw.params.pagination = { el: pag, type: 'progressbar' };
     if (sw.pagination) {
-      sw.pagination.destroy();
+      sw.pagination.destroy(); // removes bullet spans & classes
+      pag.classList.remove('swiper-pagination-bullets','swiper-pagination-clickable');
       sw.pagination.init();
       sw.pagination.render?.();
       sw.pagination.update();
     }
 
-    // in case images load later, keep it honest
+    // update after images/load
     const upd = () => { try { sw.update(); sw.pagination?.update(); } catch(_){} };
     if (document.readyState === 'complete') setTimeout(upd, 0);
     else window.addEventListener('load', upd, { once: true });
