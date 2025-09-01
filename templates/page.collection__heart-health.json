@@ -775,6 +775,7 @@
         "video_slide_mpiyEH": {
           "type": "video_slide",
           "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
             "video_url": "https://player.vimeo.com/video/903918402",
             "name": "Dr Joel Kahn",
             "role": "MD, Cardiologist",
@@ -784,6 +785,7 @@
         "video_slide_Xx7KUJ": {
           "type": "video_slide",
           "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
             "video_url": "https://player.vimeo.com/video/903918402",
             "name": "Dr Joel Kahn",
             "role": "MD, Cardiologist",
