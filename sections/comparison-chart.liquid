@@ -30,6 +30,10 @@
     line-height: 1.2;
     max-width: 500px; 
 }
+#cc-{{ section.id }} .cc-footer {
+    width: 100%;
+    display: flex;
+}
 #cc-{{ section.id }} .cc-bleed { width: calc(100vw - ((100vw - 1600px) / 2)); }
 @media (max-width: 1399px){
     #cc-{{ section.id }} .cc-bleed{
@@ -273,6 +277,11 @@
       </div>
     </div>
   </div>
+
+  <div class="page-width">
+    <h5 class="cc-footer">Need help? <a href="/contact" target="_blank">Contact us</a></h5>
+  </div>
+
 </section>
 
 <script>
