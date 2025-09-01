@@ -81,16 +81,16 @@
 .cc-labels, .cc-col { grid-template-rows: auto repeat(7, minmax(48px, auto)) auto; }
 
 
-  /* Right (swiper) */
-  #cc-{{ section.id }} .cc-right-wrap{
-    position: relative;
-  }
-  #cc-{{ section.id }} .cc-swiper{ overflow: hidden; --g: var(--gap); }
-  #cc-{{ section.id }} .cc-swiper .swiper-wrapper{ display:flex; }
-  #cc-{{ section.id }} .cc-swiper .swiper-slide{
+/* Right (swiper) */
+
+#cc-{{ section.id }} .cc-swiper .swiper-wrapper{ display:flex; }
+#cc-{{ section.id }} .cc-swiper .swiper-slide{
     width: var(--col-w);
     height: auto;
-  }
+}
+#cc-{{ section.id }} { overflow-x: clip; }
+#cc-{{ section.id }} .cc-right-wrap { position: relative; overflow: hidden; }
+#cc-{{ section.id }} .cc-swiper { overflow: hidden; }
 
 #cc-{{ section.id }} .cc-col{
     background: #fff;
@@ -203,9 +203,9 @@
             id="cc-swiper-{{ section.id }}"
             class="swiper tswiper cc-swiper"
             data-mode="fixed"
-            data-gap="{{ section.settings.gap | default: 20 }}"
+            data-gap="0"
             data-speed="500"
-          >
+            >
             <div class="swiper-wrapper">
               {%- for block in section.blocks -%}
                 {%- assign p = block.settings.product -%}
