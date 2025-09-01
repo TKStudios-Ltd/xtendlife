@@ -288,7 +288,7 @@
     const sw = el.swiper;
 
     // ensure layout works with your fixed widths
-    const gap = parseInt(el.dataset.gap, 10) || 20;
+    const gap = parseInt(el.dataset.gap, 0) || 0;
     sw.params.slidesPerView = 'auto';
     sw.params.spaceBetween  = gap;
     sw.params.watchOverflow = true;
