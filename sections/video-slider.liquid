@@ -1,0 +1,296 @@
+{% comment %} Video Slider (based on Testimonial Slider) {% endcomment %}
+
+{%- style -%}
+.section-{{ section.id }}-padding{
+  padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  overflow-x: clip; /* no sideways scroll on right-bleed */
+}
+@media (min-width:750px){
+  .section-{{ section.id }}-padding{
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
+}
+
+/* Heading */
+#video-slider-{{ section.id }} .vs-heading{ margin: 0 0 8rem 0; }
+
+/* Right-bleed like your testimonial slider */
+#video-slider-{{ section.id }} .vs-bleed {
+  width: calc(100vw - ((100vw - 1600px) / 2));
+}
+@media (min-width: 990px) and (max-width: 1599px) {
+  #video-slider-{{ section.id }} .vs-bleed{
+    width: calc(100% + var(--right-gutter));
+    margin-right: -2rem;
+  }
+}
+@media (max-width: 989px) {
+  #video-slider-{{ section.id }} .vs-bleed {
+    width: 100% !important;
+    margin-right: -2rem;
+  }
+  #video-slider-{{ section.id }} .vs-swiper[data-mode="fixed"] .swiper-slide{
+    width: 100% !important;
+  }
+  #video-slider-{{ section.id }} .vs-card {
+    padding: 2rem 0 !important;
+  }
+}
+
+/* Swiper base/fallbacks */
+#video-slider-{{ section.id }} .vs-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
+#video-slider-{{ section.id }} .vs-swiper .swiper-wrapper{ display:flex; }
+#video-slider-{{ section.id }} .vs-swiper .swiper-slide{ flex-shrink:0; height:auto; }
+#video-slider-{{ section.id }} .vs-swiper[data-mode="fixed"] .swiper-slide{
+  width: calc((100% - var(--g)) / 1.2);
+  transition: opacity .4s ease;
+  opacity: .3;
+}
+#video-slider-{{ section.id }} .vs-swiper .swiper-slide.swiper-slide-active{ opacity: 1; }
+
+/* Card layout (image/video left, text right — same structure you had) */
+#video-slider-{{ section.id }} .vs-card{
+  background:#fff; 
+  border-radius: 10px;
+  padding: 2rem 8rem 2rem 0;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+@media (max-width: 989px){
+  #video-slider-{{ section.id }} .vs-card{ grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Media + play button */
+#video-slider-{{ section.id }} .vs-media{
+  position: relative;
+  border-radius: 10px; overflow:hidden;
+  aspect-ratio: 4 / 5;
+  background: #f3f4f6;
+}
+#video-slider-{{ section.id }} .vs-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+#video-slider-{{ section.id }} .vs-play{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  background: linear-gradient(transparent, transparent); /* click layer */
+}
+#video-slider-{{ section.id }} .vs-play button{
+  appearance:none; border:0; background: rgba(255,255,255,.9);
+  width:72px; height:72px; border-radius:999px; cursor:pointer;
+  display:grid; place-items:center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+#video-slider-{{ section.id }} .vs-play button svg{ width:28px; height:28px; }
+
+/* Copy */
+#video-slider-{{ section.id }} .vs-quote { font-size: 24px; line-height: 1.35; margin: 0 0 2.5rem 0; }
+#video-slider-{{ section.id }} .vs-name  { font-size: 16px; font-weight: 500; margin: 0; }
+#video-slider-{{ section.id }} .vs-role  { font-size: 16px; opacity: .4; margin: 0; }
+
+/* Pagination dots */
+#video-slider-{{ section.id }} .vs-pagination{ 
+  position: relative;
+  text-align: left;
+  margin-top: 8rem; 
+}
+#video-slider-{{ section.id }} .vs-pagination .swiper-pagination-bullet {
+  width: 10px; height: 10px; border-radius: 999px; background: #DBEEFF; opacity: 1;
+}
+#video-slider-{{ section.id }} .vs-pagination .swiper-pagination-bullet-active {
+  background: #1F1946; opacity: 1; width: 46px;
+}
+
+/* Modal */
+#video-slider-{{ section.id }} .vs-modal{
+  position: fixed; inset: 0; z-index: 9999;
+  display: none;
+  background: rgba(0,0,0,.6);
+  padding: 3vw;
+}
+#video-slider-{{ section.id }} .vs-modal[aria-hidden="false"]{ display: grid; place-items: center; }
+#video-slider-{{ section.id }} .vs-modal__box{
+  position: relative;
+  width: min(1000px, 100%);
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#video-slider-{{ section.id }} .vs-modal__box iframe{
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+#video-slider-{{ section.id }} .vs-close{
+  position: absolute; top: 8px; right: 8px;
+  appearance: none; border: 0; background: rgba(0,0,0,.5);
+  color:#fff; width: 40px; height: 40px; border-radius: 999px; cursor: pointer;
+  display:grid; place-items:center;
+}
+{%- endstyle -%}
+
+<section
+  id="video-slider-{{ section.id }}"
+  class="section-{{ section.id }}-padding"
+  style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
+>
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="vs-heading h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+
+  <!-- slider starts inside page-width then bleeds to right edge -->
+  <div class="page-width" data-swiper-root>
+    <div class="vs-bleed">
+      <div
+        class="swiper vs-swiper"
+        data-mode="fixed"
+        data-gap="{{ section.settings.gap | default: 32 }}"
+        data-speed="{{ section.settings.speed | default: 500 }}"
+        data-autoplay="{{ section.settings.autoplay | default: false }}"
+        data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
+        data-dots="true"
+      >
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            {%- assign b = block.settings -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <article class="vs-card">
+                <div class="vs-media" {% if b.video_url != blank %}data-video-src="{{ b.video_url | escape }}"{% endif %}>
+                  {% if b.image != blank %}
+                    {{ b.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 420px, 100vw', widths: '420,640,840,1200', alt: b.name | escape }}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag }}
+                  {% endif %}
+
+                  {% if b.video_url != blank %}
+                    <div class="vs-play">
+                      <button type="button" class="vs-play-btn" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <circle cx="12" cy="12" r="11" fill="none"></circle>
+                          <path d="M9 8v8l7-4-7-4z" fill="#1F1946"/>
+                        </svg>
+                      </button>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="vs-copy">
+                  {% if b.quote != blank %}
+                    <p class="vs-quote">{{ b.quote | strip_html | escape }}</p>
+                  {% endif %}
+                  {% if b.name != blank %}
+                    <p class="vs-name">{{ b.name }}</p>
+                  {% endif %}
+                  {% if b.role != blank %}
+                    <p class="vs-role">{{ b.role }}</p>
+                  {% endif %}
+                </div>
+              </article>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dots live inside the page-width, left aligned -->
+  <div class="page-width">
+    <div class="vs-pagination swiper-pagination"></div>
+  </div>
+
+  <!-- single modal per section -->
+  <div class="vs-modal" aria-hidden="true" role="dialog" aria-label="Video player">
+    <div class="vs-modal__box">
+      <button class="vs-close" type="button" aria-label="Close">
+        ✕
+      </button>
+      <iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vimeo video"></iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('video-slider-{{ section.id }}');
+  if (!root) return;
+
+  // --- Modal helpers ---
+  const modal  = root.querySelector('.vs-modal');
+  const iframe = modal.querySelector('iframe');
+  const closeBtn = modal.querySelector('.vs-close');
+
+  function toVimeoEmbed(url) {
+    try {
+      const s = String(url);
+      const m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      if (m && m[1]) return `https://player.vimeo.com/video/${m[1]}?autoplay=1`;
+      // already an embed link
+      if (s.includes('player.vimeo.com')) return s.includes('autoplay=') ? s : s + (s.includes('?') ? '&' : '?') + 'autoplay=1';
+    } catch(e) {}
+    return null;
+  }
+
+  function openModal(src) {
+    const embed = toVimeoEmbed(src);
+    if (!embed) return;
+    iframe.src = embed;
+    modal.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('no-scroll');
+  }
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    iframe.removeAttribute('src'); // stop playback
+    document.documentElement.classList.remove('no-scroll');
+  }
+
+  // Click handlers: play button or image overlay
+  root.addEventListener('click', (e) => {
+    const btn = e.target.closest('.vs-play-btn');
+    if (btn) {
+      const media = btn.closest('.vs-media');
+      const src = media?.dataset.videoSrc;
+      if (src) openModal(src);
+    }
+    if (e.target === modal) closeModal(); // click backdrop
+  });
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); }, { passive: true });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Video slider",
+  "class": "section",
+  "settings": [
+    { "type": "text",  "id": "heading", "label": "Heading", "default": "Our Health Ambassadors" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#FFFFFF" },
+    { "type": "range", "id": "gap", "label": "Slide gap (px)", "min": 0, "max": 48, "step": 2, "default": 32 },
+    { "type": "range", "id": "speed", "label": "Transition speed (ms)", "min": 100, "max": 1200, "step": 50, "default": 500 },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (ms)", "min": 1500, "max": 8000, "step": 100, "default": 4000 },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 56 }
+  ],
+  "blocks": [
+    {
+      "type": "video_slide",
+      "name": "Video slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (thumbnail/poster)" },
+        { "type": "text", "id": "video_url", "label": "Vimeo video URL", "default": "https://player.vimeo.com/video/903918402" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr Joel Kahn" },
+        { "type": "text", "id": "role", "label": "Role", "default": "MD, Cardiologist" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry." }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    { "name": "Video slider", "blocks": [ { "type": "video_slide" }, { "type": "video_slide" }, { "type": "video_slide" } ] }
+  ]
+}
+{% endschema %}
