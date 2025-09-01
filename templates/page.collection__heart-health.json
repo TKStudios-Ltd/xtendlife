@@ -759,6 +759,55 @@
         "padding_bottom": 80
       }
     },
+    "video_slider_QxaRdC": {
+      "type": "video-slider",
+      "blocks": {
+        "video_slide_YgV6cd": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "Learn more about calcification and the ingredients in CX8, Dr. Joel Kahn and Ivor Cummins discuss the importance of key ingredients and the role they play in supporting a healthy cardiovascular system."
+          }
+        },
+        "video_slide_mpiyEH": {
+          "type": "video_slide",
+          "settings": {
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          }
+        },
+        "video_slide_Xx7KUJ": {
+          "type": "video_slide",
+          "settings": {
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_YgV6cd",
+        "video_slide_mpiyEH",
+        "video_slide_Xx7KUJ"
+      ],
+      "name": "Video slider",
+      "settings": {
+        "heading": "",
+        "bg_color": "#f4f8fb",
+        "gap": 32,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -855,6 +904,7 @@
     "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
+    "video_slider_QxaRdC",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
