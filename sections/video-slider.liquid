@@ -66,11 +66,22 @@
 #video-slider-{{ section.id }} .vs-play{ position:absolute; inset:0; display:none; place-items:center; }
 #video-slider-{{ section.id }} .swiper-slide-active .vs-play{ display:grid; }
 #video-slider-{{ section.id }} .vs-play button{
-  appearance:none; border:0; background: rgba(255,255,255,.9);
-  width:72px; height:72px; border-radius:999px; cursor:pointer;
-  display:grid; place-items:center; box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    appearance: none;
+    border: 0;
+    background: rgba(31, 25, 70, 1);
+    width: 90px;
+    height: 90px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transform: scale(1);
+    transition: transform .4s ease;
 }
-#video-slider-{{ section.id }} .vs-play button svg{ width:28px; height:28px; }
+#video-slider-{{ section.id }} .vs-media:hover .vs-play button {
+    transform: scale(1.05);
+}
+#video-slider-{{ section.id }} .vs-play button svg{ width:58px; height:58px; }
 
 /* Copy */
 #video-slider-{{ section.id }} .ts2-quote{ font-size: 24px; line-height: 1.35; margin: 0 0 2.5rem 0; }
@@ -147,8 +158,8 @@
                   {% if b.video_url != blank %}
                     <div class="vs-play">
                       <button type="button" class="vs-play-btn" aria-label="Play video">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M9 8v8l7-4-7-4z" fill="#1F1946"/>
+                        <svg width="39" height="44" viewBox="0 0 39 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M36.5 17.6699C39.8333 19.5944 39.8333 24.4056 36.5 26.3301L8 42.7846C4.66667 44.7091 0.500002 42.3035 0.500002 38.4545L0.500003 5.54551C0.500003 1.69651 4.66667 -0.709112 8 1.21539L36.5 17.6699Z" fill="white"/>
                         </svg>
                       </button>
                     </div>
