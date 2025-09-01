@@ -29,7 +29,7 @@
 }
 
 /* Swiper fallbacks */
-#video-slider-{{ section.id }} .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
+#video-slider-{{ section.id }} .ts2-swiper{ overflow: visible; --g: {{ section.settings.gap | default: 32 }}px; }
 #video-slider-{{ section.id }} .ts2-swiper .swiper-wrapper{ display:flex; }
 #video-slider-{{ section.id }} .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
 
@@ -39,9 +39,9 @@
   transition: opacity .4s ease;
   opacity: .3;
 }
-#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-active,
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-active { opacity: 1; }
 #video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-next,
-#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-prev{ opacity: 1; }
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-prev{ opacity: 0.3; }
 
 /* Card */
 #video-slider-{{ section.id }} .ts2-card{
