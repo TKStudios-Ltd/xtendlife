@@ -220,10 +220,11 @@
                     </div>
                     {%- endfor -%}
 
-                    <!-- Row 6 text -->
-                    <div class="cc-cell">{{ block.settings.row6_text | escape }}</div>
-                    <!-- Row 7 text -->
-                    <div class="cc-cell">{{ block.settings.row7_text | escape }}</div>
+                    <!-- Row 6 & 7 text -->
+                    {%- capture text_key6 -%}row6_text{%- endcapture -%}
+                    {%- capture text_key7 -%}row7_text{%- endcapture -%}
+                    <div class="cc-cell">{{ block.settings[text_key6] | default: '-' }}</div>
+                    <div class="cc-cell">{{ block.settings[text_key7] | default: '-' }}</div>
                   </div>
                 </div>
               {%- endfor -%}
