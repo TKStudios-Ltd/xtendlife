@@ -265,10 +265,8 @@
                 </div>
               {%- endfor -%}
             </div>
+            <div class="swiper-pagination swiper-pagination-progressbar cc-progress"></div>
           </div>
-
-          <!-- Progress bar (styled as a scrollbar) -->
-          <div id="cc-pagination-{{ section.id }}" class="cc-progress swiper-pagination swiper-pagination-progressbar"></div>
         </div>
       </div>
     </div>
@@ -276,55 +274,17 @@
 </section>
 
 <script>
-(function () {
-  const el  = document.getElementById('cc-swiper-{{ section.id }}');
-  const bar = document.getElementById('cc-pagination-{{ section.id }}');
-  if (!el || !bar) return;
-
-  function mount() {
-    // wait for global hydrator to attach el.swiper
-    if (typeof window.Swiper === 'undefined' || !el.swiper) { setTimeout(mount, 60); return; }
-
-    const sw = el.swiper;
-
-    // ensure layout works with your fixed widths
-    const gap = parseInt(el.dataset.gap, 0) || 0;
-    sw.params.slidesPerView = 'auto';
-    sw.params.spaceBetween  = gap;
-    sw.params.watchOverflow = true;
-    sw.update();
-
-    // ensure we have a fill element (don't rely on Pagination module)
-    let fill = bar.querySelector('.swiper-pagination-progressbar-fill');
-    if (!fill) {
-      fill = document.createElement('span');
-      fill.className = 'swiper-pagination-progressbar-fill';
-      bar.appendChild(fill);
-    }
-
-    const updateFill = () => {
-      // if no overflow, show full bar; otherwise use real progress (0..1)
-      const p = (sw.isBeginning && sw.isEnd) ? 1 : sw.progress;
-      fill.style.transform = 'scaleX(' + p + ')';
-    };
-
-    // hook into Swiper events
-    sw.on('progress', updateFill);
-    sw.on('slideChange', updateFill);
-    sw.on('resize', () => { sw.update(); updateFill(); });
-
-    // also refresh when images load
-    const refresh = () => { try { sw.update(); updateFill(); } catch (e) {} };
-    window.addEventListener('load', refresh, { once: true, passive: true });
-    el.querySelectorAll('img').forEach(img => {
-      if (!img.complete) img.addEventListener('load', refresh, { once: true, passive: true });
-    });
-
-    // initial paint
-    updateFill();
+(() => {
+  const el = document.getElementById('cc-swiper-{{ section.id }}');
+  if (!el) return;
+  function ready(){
+    if (!el.swiper) return setTimeout(ready, 40);
+    const pag = el.querySelector('.swiper-pagination');
+    el.swiper.params.pagination = { el: pag, type: 'progressbar' };
+    el.swiper.pagination?.init();
+    el.swiper.pagination?.update();
   }
-
-  mount();
+  ready();
 })();
 </script>
 
