@@ -30,6 +30,16 @@
     padding-bottom:{{ section.settings.padding_bottom }}px;
   }
 }
+@media (max-width:749px){
+    #fctg-{{ section.id }} .collection__title_inline{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem !important;
+    }
+    #fctg-{{ section.id }} .collection__title.title-wrapper {
+        margin-bottom: 4rem !important;
+    }
+}
 
 /* Title row */
 #fctg-{{ section.id }} .collection__title_inline{
