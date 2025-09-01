@@ -171,9 +171,9 @@
                 </div>
 
                 <div class="ts2-copy">
-                  {% if b.quote != blank %}<p class="ts2-quote">{{ b.quote | strip_html | escape }}</p>{% endif %}
+                  {% if b.title  != blank %}<h4 class="ts2-role">{{ b.title }}</h4>{% endif %}
                   {% if b.name  != blank %}<p class="ts2-name">{{ b.name }}</p>{% endif %}
-                  {% if b.role  != blank %}<p class="ts2-role">{{ b.role }}</p>{% endif %}
+                  {% if b.description != blank %}<p class="ts2-quote">{{ b.description | strip_html | escape }}</p>{% endif %}
                 </div>
               </article>
             </div>
@@ -276,9 +276,9 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image (thumbnail/poster)" },
         { "type": "text", "id": "video_url", "label": "Vimeo video URL", "default": "https://player.vimeo.com/video/903918402" },
-        { "type": "text", "id": "name", "label": "Name", "default": "Dr Joel Kahn" },
-        { "type": "text", "id": "role", "label": "Role", "default": "MD, Cardiologist" },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry." }
+        { "type": "text", "id": "title", "label": "Title", "default": "Manage Statin Side Effects" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr. Kahn" },
+        { "type": "textarea", "id": "descriptions", "label": "Description", "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry." }
       ]
     }
   ],
