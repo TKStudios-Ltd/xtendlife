@@ -257,7 +257,7 @@
       ],
       "custom_css": [
         "h2 {color: #1f1946;}",
-        ".ts-btn svg path {fill: #1F1946;}"
+        ".ts-btn svg path {fill: #1f1946;}"
       ],
       "name": "Reviews Slider",
       "settings": {
@@ -682,6 +682,76 @@
         "padding_bottom": 60
       }
     },
+    "comparison_chart_Ehzkpz": {
+      "type": "comparison-chart",
+      "blocks": {
+        "column_VgTzJM": {
+          "type": "column",
+          "settings": {
+            "product": "cx8-heart-health-support",
+            "subtitle": "Premium",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6_text": "3",
+            "row7_text": "$69.95"
+          }
+        },
+        "column_8xypY8": {
+          "type": "column",
+          "settings": {
+            "product": "",
+            "subtitle": "Premium",
+            "row1_ticks": 4,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 3,
+            "row6_text": "3",
+            "row7_text": "$99.50 NZD"
+          }
+        },
+        "column_7chcQR": {
+          "type": "column",
+          "settings": {
+            "product": "",
+            "subtitle": "Premium",
+            "row1_ticks": 4,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 3,
+            "row6_text": "3",
+            "row7_text": "$99.50 NZD"
+          }
+        }
+      },
+      "block_order": [
+        "column_VgTzJM",
+        "column_8xypY8",
+        "column_7chcQR"
+      ],
+      "name": "Comparison Chart",
+      "settings": {
+        "heading": "Which Total Balance Version is Right for Me?",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "row1_label": "",
+        "row2_label": "Prevent Calcification",
+        "row3_label": "Cholesterol",
+        "row4_label": "Blood Circulation ",
+        "row5_label": "Inflammation",
+        "row6_label": "Statin Support ",
+        "row7_label": "Price",
+        "col_width": 280,
+        "gap": 20,
+        "max_ticks": 4,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -777,6 +847,7 @@
     "image_infinite_scroll_6YVr3i",
     "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
+    "comparison_chart_Ehzkpz",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
