@@ -99,25 +99,25 @@
         {% endif %}
         <div class="featured-collections-buttons" role="tablist" aria-label="Collection tabs">
           <button
-            class="fctab"
+            class="fctab button"
             type="button"
             role="tab"
             data-target="featured"
             aria-controls="fctg-featured-{{ section.id }}"
             {% if active_tab == 'featured' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
           >
-            {{ featured_col.title | default: 'Featured' }}
+            Featured
           </button>
 
           <button
-            class="fctab"
+            class="fctab button"
             type="button"
             role="tab"
             data-target="full"
             aria-controls="fctg-full-{{ section.id }}"
             {% if active_tab == 'full' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
           >
-            {{ full_col.title | default: 'All' }}
+            Full Range
           </button>
         </div>
       </div>
