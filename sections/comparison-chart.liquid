@@ -43,19 +43,15 @@
     gap: var(--gap);
     align-items: start;
 }
-
-  /* Left column (row labels) */
 #cc-{{ section.id }} .cc-labels{
-  border: var(--border);
-  border-right: 0;
-  border-radius: 12px 0 0 12px;
-  overflow: hidden;
-  background: #fff;
-
-  /* must match the column’s row grid:
-     [header spacer] + [7 data rows] + [CTA spacer] */
-  display: grid;
-  grid-template-rows: auto repeat(7, var(--row-h)) auto;
+    flex: 0 0 240px;
+    border: var(--border);
+    border-right: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: #fff;
+    display: grid;
+    grid-template-rows: auto repeat(7, var(--row-h)) auto;
 }
 
 #cc-{{ section.id }} .cc-label{
