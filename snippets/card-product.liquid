@@ -108,7 +108,9 @@
                 >
               {%- endif -%}
               <div class="hover--text__card">
-                <span class="h4">[Create custom product metafield for here. Then populate the fields for each product.]</span>
+                {% if product.metafields.custom.key_feature_content != blank %}
+                  <span class="h4">{{ product.metafields.custom.key_feature_content }}</span>
+                {% endif %}
               </div>
               {% comment %}
               <div class="custom--badges__card">
