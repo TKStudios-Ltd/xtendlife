@@ -281,27 +281,41 @@
   </div>
 </section>
 
-{%- comment -%}
-Hook the already-initialized Swiper (from swiper-hydrator) and add a progressbar pagination.
-This avoids writing a separate full init and keeps using your global hydrator.
-{%- endcomment -%}
 <script>
 (function(){
-  const el = document.getElementById('cc-swiper-{{ section.id }}');
+  const el  = document.getElementById('cc-swiper-{{ section.id }}');
   const pag = document.getElementById('cc-pagination-{{ section.id }}');
-  function mount(){
-    if (!el || typeof Swiper === 'undefined' || !el.swiper) { setTimeout(mount, 60); return; }
-    // add/enable progressbar pagination after the hydrator has created the instance
-    el.swiper.params.pagination = { el: pag, type: 'progressbar' };
-    if (el.swiper.pagination) {
-      el.swiper.pagination.init();
-      el.swiper.pagination.render();
-      el.swiper.pagination.update();
-    }
+  if (!el) return;
+
+  function init(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(init, 60); return; }
+    if (el.dataset.swiperReady === '1' && el.swiper) { el.swiper.update(); return; }
+
+    const gap   = parseInt(el.dataset.gap, 10)   || 20;
+    const speed = parseInt(el.dataset.speed, 10) || 500;
+
+    const sw = new Swiper(el, {
+      slidesPerView: 'auto',
+      spaceBetween: gap,
+      speed,
+      watchOverflow: true, // disables sliding if columns already fit
+      pagination: { el: pag, type: 'progressbar' }
+    });
+
+    el.dataset.swiperReady = '1';
+
+    // keep layout tight as images load
+    const update = () => { try { sw.update(); } catch(e){} };
+    window.addEventListener('load', update, { once:true, passive:true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+    });
   }
-  mount();
+
+  init();
 })();
 </script>
+
 
 {% schema %}
 {
