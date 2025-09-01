@@ -1,10 +1,11 @@
-{% comment %} Video Slider (based on Testimonial Slider) {% endcomment %}
+{% comment %} Video Slider (matches Testimonial slider behavior) {% endcomment %}
 
 {%- style -%}
+/* --- same section padding pattern --- */
 .section-{{ section.id }}-padding{
   padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
   padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  overflow-x: clip; /* no sideways scroll on right-bleed */
+  overflow-x: clip;
 }
 @media (min-width:750px){
   .section-{{ section.id }}-padding{
@@ -14,57 +15,47 @@
 }
 
 /* Heading */
-#video-slider-{{ section.id }} .vs-heading{ margin: 0 0 8rem 0; }
+#video-slider-{{ section.id }} .ts2-heading{ margin: 0 0 8rem 0; }
 
-/* Right-bleed like your testimonial slider */
-#video-slider-{{ section.id }} .vs-bleed {
-  width: calc(100vw - ((100vw - 1600px) / 2));
-}
+/* Right-bleed exactly like testimonial */
+#video-slider-{{ section.id }} .ts2-bleed { width: calc(100vw - ((100vw - 1600px) / 2)); }
 @media (min-width: 990px) and (max-width: 1599px) {
-  #video-slider-{{ section.id }} .vs-bleed{
-    width: calc(100% + var(--right-gutter));
-    margin-right: -2rem;
-  }
+  #video-slider-{{ section.id }} .ts2-bleed{ width: calc(100% + var(--right-gutter)); margin-right: -2rem; }
 }
 @media (max-width: 989px) {
-  #video-slider-{{ section.id }} .vs-bleed {
-    width: 100% !important;
-    margin-right: -2rem;
-  }
-  #video-slider-{{ section.id }} .vs-swiper[data-mode="fixed"] .swiper-slide{
-    width: 100% !important;
-  }
-  #video-slider-{{ section.id }} .vs-card {
-    padding: 2rem 0 !important;
-  }
+  #video-slider-{{ section.id }} .ts2-bleed { width: 100% !important; margin-right: -2rem; }
+  #video-slider-{{ section.id }} .ts2-swiper[data-mode="fixed"] .swiper-slide{ width: 100% !important; }
+  #video-slider-{{ section.id }} .ts2-card { padding: 2rem 0 !important; }
 }
 
-/* Swiper base/fallbacks */
-#video-slider-{{ section.id }} .vs-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
-#video-slider-{{ section.id }} .vs-swiper .swiper-wrapper{ display:flex; }
-#video-slider-{{ section.id }} .vs-swiper .swiper-slide{ flex-shrink:0; height:auto; }
-#video-slider-{{ section.id }} .vs-swiper[data-mode="fixed"] .swiper-slide{
+/* Swiper fallbacks — SAME selectors/classes as testimonial */
+#video-slider-{{ section.id }} .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
+#video-slider-{{ section.id }} .ts2-swiper .swiper-wrapper{ display:flex; }
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
+
+/* Opacity rule: only slides NOT in view are dimmed */
+#video-slider-{{ section.id }} .ts2-swiper[data-mode="fixed"] .swiper-slide{
   width: calc((100% - var(--g)) / 1.2);
   transition: opacity .4s ease;
   opacity: .3;
 }
-#video-slider-{{ section.id }} .vs-swiper .swiper-slide.swiper-slide-active{ opacity: 1; }
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-active,
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-next,
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-prev{
+  opacity: 1;
+}
 
-/* Card layout (image/video left, text right — same structure you had) */
-#video-slider-{{ section.id }} .vs-card{
-  background:#fff; 
-  border-radius: 10px;
+/* Card layout (same grid) */
+#video-slider-{{ section.id }} .ts2-card{
+  background:#fff; border-radius: 10px;
   padding: 2rem 8rem 2rem 0;
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 8rem;
-  align-items: center;
+  display: grid; grid-template-columns: 420px 1fr; gap: 8rem; align-items: center;
 }
 @media (max-width: 989px){
-  #video-slider-{{ section.id }} .vs-card{ grid-template-columns: 1fr; gap: 2rem; }
+  #video-slider-{{ section.id }} .ts2-card{ grid-template-columns: 1fr; gap: 2rem; }
 }
 
-/* Media + play button */
+/* Media + play overlay */
 #video-slider-{{ section.id }} .vs-media{
   position: relative;
   border-radius: 10px; overflow:hidden;
@@ -73,60 +64,43 @@
 }
 #video-slider-{{ section.id }} .vs-media img{ width:100%; height:100%; object-fit:cover; display:block; }
 #video-slider-{{ section.id }} .vs-play{
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-  background: linear-gradient(transparent, transparent); /* click layer */
+  position:absolute; inset:0; display:none; place-items:center;
 }
+#video-slider-{{ section.id }} .swiper-slide-active .vs-play{ display:grid; }
 #video-slider-{{ section.id }} .vs-play button{
   appearance:none; border:0; background: rgba(255,255,255,.9);
   width:72px; height:72px; border-radius:999px; cursor:pointer;
-  display:grid; place-items:center;
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  display:grid; place-items:center; box-shadow: 0 8px 24px rgba(0,0,0,.15);
 }
 #video-slider-{{ section.id }} .vs-play button svg{ width:28px; height:28px; }
 
-/* Copy */
-#video-slider-{{ section.id }} .vs-quote { font-size: 24px; line-height: 1.35; margin: 0 0 2.5rem 0; }
-#video-slider-{{ section.id }} .vs-name  { font-size: 16px; font-weight: 500; margin: 0; }
-#video-slider-{{ section.id }} .vs-role  { font-size: 16px; opacity: .4; margin: 0; }
+/* Copy (same sizes) */
+#video-slider-{{ section.id }} .ts2-quote{ font-size: 24px; line-height: 1.35; margin: 0 0 2.5rem 0; }
+#video-slider-{{ section.id }} .ts2-name{ font-size: 16px; font-weight: 500; margin: 0; }
+#video-slider-{{ section.id }} .ts2-role{ font-size: 16px; opacity: .4; margin: 0; }
 
-/* Pagination dots */
-#video-slider-{{ section.id }} .vs-pagination{ 
-  position: relative;
-  text-align: left;
-  margin-top: 8rem; 
-}
-#video-slider-{{ section.id }} .vs-pagination .swiper-pagination-bullet {
+/* Pagination dots — same */
+#video-slider-{{ section.id }} .ts2-pagination{ position: relative; text-align: left; margin-top: 8rem; }
+#video-slider-{{ section.id }} .ts2-pagination .swiper-pagination-bullet{
   width: 10px; height: 10px; border-radius: 999px; background: #DBEEFF; opacity: 1;
 }
-#video-slider-{{ section.id }} .vs-pagination .swiper-pagination-bullet-active {
+#video-slider-{{ section.id }} .ts2-pagination .swiper-pagination-bullet-active{
   background: #1F1946; opacity: 1; width: 46px;
 }
 
 /* Modal */
 #video-slider-{{ section.id }} .vs-modal{
-  position: fixed; inset: 0; z-index: 9999;
-  display: none;
-  background: rgba(0,0,0,.6);
-  padding: 3vw;
+  position: fixed; inset: 0; z-index: 9999; display: none; background: rgba(0,0,0,.6); padding: 3vw;
 }
 #video-slider-{{ section.id }} .vs-modal[aria-hidden="false"]{ display: grid; place-items: center; }
 #video-slider-{{ section.id }} .vs-modal__box{
-  position: relative;
-  width: min(1000px, 100%);
-  aspect-ratio: 16/9;
-  background: #000;
-  border-radius: 10px;
-  overflow: hidden;
+  position: relative; width: min(1000px, 100%); aspect-ratio: 16/9; background: #000;
+  border-radius: 10px; overflow: hidden;
 }
-#video-slider-{{ section.id }} .vs-modal__box iframe{
-  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-}
+#video-slider-{{ section.id }} .vs-modal__box iframe{ position: absolute; inset: 0; width:100%; height:100%; border:0; }
 #video-slider-{{ section.id }} .vs-close{
-  position: absolute; top: 8px; right: 8px;
-  appearance: none; border: 0; background: rgba(0,0,0,.5);
-  color:#fff; width: 40px; height: 40px; border-radius: 999px; cursor: pointer;
-  display:grid; place-items:center;
+  position: absolute; top: 8px; right: 8px; appearance:none; border:0; background: rgba(0,0,0,.5);
+  color:#fff; width: 40px; height: 40px; border-radius: 999px; cursor: pointer; display:grid; place-items:center;
 }
 {%- endstyle -%}
 
@@ -137,15 +111,15 @@
 >
   <div class="page-width">
     {% if section.settings.heading != blank %}
-      <h2 class="vs-heading h2">{{ section.settings.heading }}</h2>
+      <h2 class="ts2-heading h2">{{ section.settings.heading }}</h2>
     {% endif %}
   </div>
 
   <!-- slider starts inside page-width then bleeds to right edge -->
   <div class="page-width" data-swiper-root>
-    <div class="vs-bleed">
+    <div class="ts2-bleed">
       <div
-        class="swiper vs-swiper"
+        class="swiper ts2-swiper"
         data-mode="fixed"
         data-gap="{{ section.settings.gap | default: 32 }}"
         data-speed="{{ section.settings.speed | default: 500 }}"
@@ -157,7 +131,7 @@
           {%- for block in section.blocks -%}
             {%- assign b = block.settings -%}
             <div class="swiper-slide" {{ block.shopify_attributes }}>
-              <article class="vs-card">
+              <article class="ts2-card">
                 <div class="vs-media" {% if b.video_url != blank %}data-video-src="{{ b.video_url | escape }}"{% endif %}>
                   {% if b.image != blank %}
                     {{ b.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 420px, 100vw', widths: '420,640,840,1200', alt: b.name | escape }}
@@ -169,7 +143,6 @@
                     <div class="vs-play">
                       <button type="button" class="vs-play-btn" aria-label="Play video">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <circle cx="12" cy="12" r="11" fill="none"></circle>
                           <path d="M9 8v8l7-4-7-4z" fill="#1F1946"/>
                         </svg>
                       </button>
@@ -177,16 +150,10 @@
                   {% endif %}
                 </div>
 
-                <div class="vs-copy">
-                  {% if b.quote != blank %}
-                    <p class="vs-quote">{{ b.quote | strip_html | escape }}</p>
-                  {% endif %}
-                  {% if b.name != blank %}
-                    <p class="vs-name">{{ b.name }}</p>
-                  {% endif %}
-                  {% if b.role != blank %}
-                    <p class="vs-role">{{ b.role }}</p>
-                  {% endif %}
+                <div class="ts2-copy">
+                  {% if b.quote != blank %}<p class="ts2-quote">{{ b.quote | strip_html | escape }}</p>{% endif %}
+                  {% if b.name  != blank %}<p class="ts2-name">{{ b.name }}</p>{% endif %}
+                  {% if b.role  != blank %}<p class="ts2-role">{{ b.role }}</p>{% endif %}
                 </div>
               </article>
             </div>
@@ -196,17 +163,15 @@
     </div>
   </div>
 
-  <!-- dots live inside the page-width, left aligned -->
+  <!-- dots inside page-width, left-aligned (same as testimonial) -->
   <div class="page-width">
-    <div class="vs-pagination swiper-pagination"></div>
+    <div class="ts2-pagination swiper-pagination"></div>
   </div>
 
-  <!-- single modal per section -->
+  <!-- one modal per section -->
   <div class="vs-modal" aria-hidden="true" role="dialog" aria-label="Video player">
     <div class="vs-modal__box">
-      <button class="vs-close" type="button" aria-label="Close">
-        ✕
-      </button>
+      <button class="vs-close" type="button" aria-label="Close">✕</button>
       <iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vimeo video"></iframe>
     </div>
   </div>
@@ -217,7 +182,6 @@
   const root = document.getElementById('video-slider-{{ section.id }}');
   if (!root) return;
 
-  // --- Modal helpers ---
   const modal  = root.querySelector('.vs-modal');
   const iframe = modal.querySelector('iframe');
   const closeBtn = modal.querySelector('.vs-close');
@@ -227,12 +191,10 @@
       const s = String(url);
       const m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
       if (m && m[1]) return `https://player.vimeo.com/video/${m[1]}?autoplay=1`;
-      // already an embed link
       if (s.includes('player.vimeo.com')) return s.includes('autoplay=') ? s : s + (s.includes('?') ? '&' : '?') + 'autoplay=1';
     } catch(e) {}
     return null;
   }
-
   function openModal(src) {
     const embed = toVimeoEmbed(src);
     if (!embed) return;
@@ -242,11 +204,10 @@
   }
   function closeModal() {
     modal.setAttribute('aria-hidden', 'true');
-    iframe.removeAttribute('src'); // stop playback
+    iframe.removeAttribute('src');
     document.documentElement.classList.remove('no-scroll');
   }
 
-  // Click handlers: play button or image overlay
   root.addEventListener('click', (e) => {
     const btn = e.target.closest('.vs-play-btn');
     if (btn) {
@@ -254,7 +215,7 @@
       const src = media?.dataset.videoSrc;
       if (src) openModal(src);
     }
-    if (e.target === modal) closeModal(); // click backdrop
+    if (e.target === modal) closeModal();
   });
   closeBtn.addEventListener('click', closeModal);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); }, { passive: true });
