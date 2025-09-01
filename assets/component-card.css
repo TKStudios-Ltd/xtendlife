@@ -330,6 +330,10 @@
   color: rgba(31, 25, 71, 0.54) !important;
 }
 
+.card-information .price {
+  margin-top: 0;
+}
+
 /* .collection-list-wrapper .card__heading::after {
   content: '';
   position: absolute;
