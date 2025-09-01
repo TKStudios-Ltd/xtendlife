@@ -543,10 +543,6 @@
   margin-top: 0;
 }
 
-.card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
-  margin-top: 0.5rem;
-}
-
 .card-information .caption {
   letter-spacing: 0;
 }
