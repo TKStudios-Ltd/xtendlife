@@ -33,9 +33,9 @@
 #cc-{{ section.id }} .cc-bleed { width: calc(100vw - ((100vw - 1600px) / 2)); }
 @media (max-width: 1399px){
     #cc-{{ section.id }} .cc-bleed{
-        --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin)));
-        width: calc(100% + var(--right-gutter));
-        margin-right: var(--right-gutter);
+        /* --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin))); */
+        width: calc(100% + 2rem);
+        margin-right: 2rem;
     }
 }
 #cc-{{ section.id }} .cc-frame{
@@ -80,7 +80,7 @@
     height: auto;
 }
 #cc-{{ section.id }} { overflow-x: clip; }
-#cc-{{ section.id }} .cc-right-wrap { position: relative; }
+#cc-{{ section.id }} .cc-right-wrap { position: relative; overflow: hidden }
 #cc-{{ section.id }} .cc-swiper { overflow: hidden; }
 #cc-{{ section.id }} .cc-col{
     background: #fff;
