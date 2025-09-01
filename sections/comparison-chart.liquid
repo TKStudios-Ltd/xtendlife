@@ -53,8 +53,8 @@
     border-radius: 0;
     overflow: hidden;
     background: #fff;
-    display: grid;
-    grid-template-rows: auto repeat(7, var(--row-h)) auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #cc-{{ section.id }} .cc-label{
@@ -68,9 +68,7 @@
     background: #fff;
     height: 3.5rem;
 }
-#cc-{{ section.id }} .cc-label--spacer{
-  padding: 0; background: #fff;
-}
+#cc-{{ section.id }} .cc-label--spacer{ border-top: 0; padding: 0; background: #fff;  height: 0; }
 /* last visible label cell shouldn’t double-border */
 #cc-{{ section.id }} .cc-labels .cc-label:last-child{ border-bottom: 0; }
 
