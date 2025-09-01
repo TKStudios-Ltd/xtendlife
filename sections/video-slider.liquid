@@ -1,7 +1,6 @@
-{% comment %} Video Slider (matches Testimonial slider behavior) {% endcomment %}
+{% comment %} Video Slider (arrows left, dots right, same hydrator wiring) {% endcomment %}
 
 {%- style -%}
-/* --- same section padding pattern --- */
 .section-{{ section.id }}-padding{
   padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
   padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -17,7 +16,7 @@
 /* Heading */
 #video-slider-{{ section.id }} .ts2-heading{ margin: 0 0 8rem 0; }
 
-/* Right-bleed exactly like testimonial */
+/* Right-bleed like testimonial */
 #video-slider-{{ section.id }} .ts2-bleed { width: calc(100vw - ((100vw - 1600px) / 2)); }
 @media (min-width: 990px) and (max-width: 1599px) {
   #video-slider-{{ section.id }} .ts2-bleed{ width: calc(100% + var(--right-gutter)); margin-right: -2rem; }
@@ -26,14 +25,15 @@
   #video-slider-{{ section.id }} .ts2-bleed { width: 100% !important; margin-right: -2rem; }
   #video-slider-{{ section.id }} .ts2-swiper[data-mode="fixed"] .swiper-slide{ width: 100% !important; }
   #video-slider-{{ section.id }} .ts2-card { padding: 2rem 0 !important; }
+  #video-slider-{{ section.id }} .vs-controls { margin-top: 4rem !important; }
 }
 
-/* Swiper fallbacks — SAME selectors/classes as testimonial */
+/* Swiper fallbacks */
 #video-slider-{{ section.id }} .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
 #video-slider-{{ section.id }} .ts2-swiper .swiper-wrapper{ display:flex; }
 #video-slider-{{ section.id }} .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
 
-/* Opacity rule: only slides NOT in view are dimmed */
+/* Dim only slides not in view */
 #video-slider-{{ section.id }} .ts2-swiper[data-mode="fixed"] .swiper-slide{
   width: calc((100% - var(--g)) / 1.2);
   transition: opacity .4s ease;
@@ -41,11 +41,9 @@
 }
 #video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-active,
 #video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-next,
-#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-prev{
-  opacity: 1;
-}
+#video-slider-{{ section.id }} .ts2-swiper .swiper-slide.swiper-slide-prev{ opacity: 1; }
 
-/* Card layout (same grid) */
+/* Card */
 #video-slider-{{ section.id }} .ts2-card{
   background:#fff; border-radius: 10px;
   padding: 2rem 8rem 2rem 0;
@@ -55,17 +53,13 @@
   #video-slider-{{ section.id }} .ts2-card{ grid-template-columns: 1fr; gap: 2rem; }
 }
 
-/* Media + play overlay */
+/* Media + play overlay (only active slide shows button) */
 #video-slider-{{ section.id }} .vs-media{
-  position: relative;
-  border-radius: 10px; overflow:hidden;
-  aspect-ratio: 4 / 5;
-  background: #f3f4f6;
+  position: relative; border-radius: 10px; overflow:hidden;
+  aspect-ratio: 4 / 5; background: #f3f4f6;
 }
 #video-slider-{{ section.id }} .vs-media img{ width:100%; height:100%; object-fit:cover; display:block; }
-#video-slider-{{ section.id }} .vs-play{
-  position:absolute; inset:0; display:none; place-items:center;
-}
+#video-slider-{{ section.id }} .vs-play{ position:absolute; inset:0; display:none; place-items:center; }
 #video-slider-{{ section.id }} .swiper-slide-active .vs-play{ display:grid; }
 #video-slider-{{ section.id }} .vs-play button{
   appearance:none; border:0; background: rgba(255,255,255,.9);
@@ -74,18 +68,29 @@
 }
 #video-slider-{{ section.id }} .vs-play button svg{ width:28px; height:28px; }
 
-/* Copy (same sizes) */
+/* Copy */
 #video-slider-{{ section.id }} .ts2-quote{ font-size: 24px; line-height: 1.35; margin: 0 0 2.5rem 0; }
 #video-slider-{{ section.id }} .ts2-name{ font-size: 16px; font-weight: 500; margin: 0; }
 #video-slider-{{ section.id }} .ts2-role{ font-size: 16px; opacity: .4; margin: 0; }
 
-/* Pagination dots — same */
-#video-slider-{{ section.id }} .ts2-pagination{ position: relative; text-align: left; margin-top: 8rem; }
+/* Controls bar (arrows left, dots right) */
+#video-slider-{{ section.id }} .vs-controls{
+  display:flex; justify-content:space-between; align-items:center; gap:1.5rem; margin-top: 8rem;
+}
+#video-slider-{{ section.id }} .vs-arrows{ display:flex; gap: 1rem; }
+#video-slider-{{ section.id }} .vs-btn{
+  appearance:none; border:none; background:transparent; cursor:pointer;
+  width: 50px; height: 50px; padding: 0;
+}
+#video-slider-{{ section.id }} .vs-btn.swiper-button-disabled{ opacity:.5; pointer-events:none; }
+
+/* Dots (right aligned) */
+#video-slider-{{ section.id }} .ts2-pagination{ text-align: right; }
 #video-slider-{{ section.id }} .ts2-pagination .swiper-pagination-bullet{
-  width: 10px; height: 10px; border-radius: 999px; background: #DBEEFF; opacity: 1;
+  width: 10px; height: 10px; border-radius: 999px; background: #DBEEFF; opacity: 1; margin: 0 6px !important;
 }
 #video-slider-{{ section.id }} .ts2-pagination .swiper-pagination-bullet-active{
-  background: #1F1946; opacity: 1; width: 46px;
+  background: #1F1946; width: 46px;
 }
 
 /* Modal */
@@ -104,18 +109,14 @@
 }
 {%- endstyle -%}
 
-<section
-  id="video-slider-{{ section.id }}"
-  class="section-{{ section.id }}-padding"
-  style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
->
+<section id="video-slider-{{ section.id }}" class="section-{{ section.id }}-padding" style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}">
   <div class="page-width">
     {% if section.settings.heading != blank %}
       <h2 class="ts2-heading h2">{{ section.settings.heading }}</h2>
     {% endif %}
   </div>
 
-  <!-- slider starts inside page-width then bleeds to right edge -->
+  <!-- keep slider + controls inside the same data-swiper-root so the hydrator finds them -->
   <div class="page-width" data-swiper-root>
     <div class="ts2-bleed">
       <div
@@ -160,15 +161,28 @@
           {%- endfor -%}
         </div>
       </div>
+
+      <!-- controls bar under the slider (left = arrows, right = dots) -->
+      <div class="vs-controls">
+        <div class="vs-arrows">
+          <button class="vs-btn ts-prev" aria-label="Previous">
+            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M45.9375 24.5C45.9375 24.0939 45.7762 23.7044 45.489 23.4172C45.2018 23.1301 44.8124 22.9687 44.4062 22.9687H8.2902L17.9279 13.3341C18.2154 13.0466 18.3769 12.6566 18.3769 12.25C18.3769 11.8434 18.2154 11.4534 17.9279 11.1659C17.6403 10.8783 17.2504 10.7168 16.8438 10.7168C16.4371 10.7168 16.0472 10.8783 15.7596 11.1659L3.5096 23.4159C3.367 23.5581 3.2539 23.7271 3.1767 23.9131C3.0995 24.0991 3.0598 24.2986 3.0598 24.5C3.0598 24.7014 3.0995 24.9008 3.1767 25.0869C3.2539 25.2729 3.367 25.4419 3.5096 25.5841L15.7596 37.8341C16.0472 38.1216 16.4371 38.2832 16.8438 38.2832C17.2504 38.2832 17.6403 38.1216 17.9279 37.8341C18.2154 37.5466 18.3769 37.1566 18.3769 36.75C18.3769 36.3434 18.2154 35.9534 17.9279 35.6659L8.2902 26.0312H44.4062C44.8124 26.0312 45.2018 25.8699 45.489 25.5828C45.7762 25.2956 45.9375 24.9061 45.9375 24.5Z" fill="#1F1946"/>
+            </svg>
+          </button>
+          <button class="vs-btn ts-next" aria-label="Next">
+            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.0625 24.4995C3.0625 24.0934 3.22383 23.7039 3.51099 23.4167C3.79816 23.1296 4.18764 22.9682 4.59375 22.9682H40.7098L31.0721 13.3336C30.7846 13.0461 30.6231 12.6561 30.6231 12.2495C30.6231 11.8429 30.7846 11.4529 31.0721 11.1654C31.3597 10.8778 31.7496 10.7163 32.1562 10.7163C32.5629 10.7163 32.9528 10.8778 33.2404 11.1654L45.4904 23.4154C45.633 23.5576 45.7461 23.7266 45.8233 23.9126C45.9005 24.0986 45.9402 24.2981 45.9402 24.4995C45.9402 24.7009 45.9005 24.9003 45.8233 25.0864C45.7461 25.2724 45.633 25.4414 45.4904 25.5836L33.2404 37.8336C32.9528 38.1211 32.5629 38.2827 32.1562 38.2827C31.7496 38.2827 31.3597 38.1211 31.0721 37.8336C30.7846 37.5461 30.6231 37.1561 30.6231 36.7495C30.6231 36.3429 30.7846 35.9529 31.0721 35.6654L40.7098 26.0307H4.59375C4.18764 26.0307 3.79816 25.8694 3.51099 25.5823C3.22383 25.2951 3.0625 24.9056 3.0625 24.4995Z" fill="#1F1946"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="ts2-pagination swiper-pagination"></div>
+      </div>
     </div>
   </div>
 
-  <!-- dots inside page-width, left-aligned (same as testimonial) -->
-  <div class="page-width">
-    <div class="ts2-pagination swiper-pagination"></div>
-  </div>
-
-  <!-- one modal per section -->
+  <!-- modal -->
   <div class="vs-modal" aria-hidden="true" role="dialog" aria-label="Video player">
     <div class="vs-modal__box">
       <button class="vs-close" type="button" aria-label="Close">✕</button>
