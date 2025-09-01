@@ -152,11 +152,14 @@
   background: #1F1946; border-radius: 999px; transform-origin: left top;
 }
 
-  /* Small-screen tweaks */
-  @media (max-width: 989px){
-    #cc-{{ section.id }} .cc-left .cc-rowlabel{ font-size: 15px; }
-    #cc-{{ section.id }} .cc-media img{ width: 100px; height: 100px; }
-  }
+@media (max-width: 749px){
+    #cc-{{ section.id }} .cc-labels{
+        flex: 0 0 200px !important;
+    }
+    #cc-{{ section.id }} .cc-label {
+        font-size: 16px !important;
+    }
+}
 
   /* header + 7 data rows + CTA row */
     .cc-labels,
