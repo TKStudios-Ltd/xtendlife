@@ -337,6 +337,8 @@
               </a>
             </h4>
 
+            <span class="card__subheading">XX Supply | XX Tablets</span>
+
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants_count == 1 and quick_add == 'bulk' %}

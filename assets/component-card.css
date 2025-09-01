@@ -325,6 +325,10 @@
   opacity: 1;
 }
 
+.card__subheading {
+  
+}
+
 /* .collection-list-wrapper .card__heading::after {
   content: '';
   position: absolute;
