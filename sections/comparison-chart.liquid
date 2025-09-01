@@ -97,9 +97,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border-bottom: 0;
 }
-  #cc-{{ section.id }} .cc-col > *{ border-bottom: var(--border); }
-  #cc-{{ section.id }} .cc-col > *:last-child{ border-bottom: 0; }
+#cc-{{ section.id }} .cc-col > *{ border-bottom: var(--border); }
+#cc-{{ section.id }} .cc-col > *:last-child{ border-bottom: 0; }
 
 #cc-{{ section.id }} .cc-header{
     padding: 1rem;
