@@ -689,7 +689,6 @@
           "type": "column",
           "settings": {
             "product": "cx8-heart-health-support",
-            "subtitle": "",
             "row1_ticks": 3,
             "row2_ticks": 3,
             "row3_ticks": 3,
@@ -702,7 +701,6 @@
           "type": "column",
           "settings": {
             "product": "xtend-quinol",
-            "subtitle": "",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
@@ -715,7 +713,6 @@
           "type": "column",
           "settings": {
             "product": "vasqflow",
-            "subtitle": "",
             "row1_ticks": 1,
             "row2_ticks": 2,
             "row3_ticks": 3,
@@ -728,7 +725,6 @@
           "type": "column",
           "settings": {
             "product": "gg-pure",
-            "subtitle": "",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
@@ -749,12 +745,12 @@
         "heading": "Which Total Balance Version is Right for Me?",
         "heading_size": "h1",
         "color_scheme": "",
-        "row1_label": "",
-        "row2_label": "Prevent Calcification",
-        "row3_label": "Cholesterol",
-        "row4_label": "Blood Circulation ",
-        "row5_label": "Inflammation",
-        "row6_label": "Statin Support ",
+        "row1_label": "Prevent Calcification",
+        "row2_label": "Cholesterol",
+        "row3_label": "Blood Circulation ",
+        "row4_label": "Inflammation",
+        "row5_label": "Statin Support ",
+        "row6_label": "Dosage Per Day ",
         "shop_cta": "Shop now",
         "col_width": 300,
         "gap": 0,
