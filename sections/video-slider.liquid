@@ -88,8 +88,16 @@
 }
 
 /* Copy */
-#video-slider-{{ section.id }} .ts2-role{ font-size: 36px; font-weight: 500; line-height: 1.5; margin: 0 0 1rem; }
-#video-slider-{{ section.id }} .ts2-name{ font-size: 20px; line-height: 1.35; margin: 0 0 1rem; }
+#video-slider-{{ section.id }} .ts2-pill { 
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: rgba(219, 238, 255, 1);
+    padding: 0.5rem;
+    border-radius: 99px;
+}
+#video-slider-{{ section.id }} .ts2-role{ font-size: 36px; font-weight: 500; line-height: 1.5; margin: 0 0 0.75rem; }
+#video-slider-{{ section.id }} .ts2-name{ font-size: 20px; line-height: 1.35; margin: 0 0 1.5rem; }
 #video-slider-{{ section.id }} .ts2-quote{ font-size: 20px; line-height: 1.35; margin: 0; }
 
 /* Controls bar (arrows left, dots right) */
@@ -171,6 +179,7 @@
                 </div>
 
                 <div class="ts2-copy">
+                  <span class="ts2-pill">Experts Talk</span>
                   {% if b.title  != blank %}<h4 class="ts2-role">{{ b.title }}</h4>{% endif %}
                   {% if b.name  != blank %}<p class="ts2-name">{{ b.name }}</p>{% endif %}
                   {% if b.description != blank %}<p class="ts2-quote">{{ b.description | strip_html | escape }}</p>{% endif %}
