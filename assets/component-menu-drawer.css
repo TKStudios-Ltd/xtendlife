@@ -27,15 +27,16 @@ menu-drawer > details[open] > summary::before {
 
 .menu-drawer {
   position: absolute;
-  transform: translateX(-100%);
+  transform: translateY(-100%);
   visibility: hidden;
   z-index: 3;
-  left: -2px;
-  top: calc(100% + 10px);
-  width: calc(100% + 4px);
+  left: 0;
+  top: calc(100% - 8px);
+  width: 100%;
   padding: 0;
   background: white;
-  border-radius: 40px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 8px -8px #00000024;
   overflow-x: hidden;
 }
 
@@ -50,7 +51,7 @@ menu-drawer > details[open] > summary::before {
 
 .js details[open].menu-opening > .menu-drawer,
 details[open].menu-opening > .menu-drawer__submenu {
-  transform: translateX(0);
+  transform: translateY(0);
   visibility: visible;
 }
 
