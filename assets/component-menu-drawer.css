@@ -27,7 +27,7 @@ menu-drawer > details[open] > summary::before {
 
 .menu-drawer {
   position: absolute;
-  transform: translateY(-100%);
+  transform: translateY(-20px);
   visibility: hidden;
   z-index: 3;
   left: 0;
