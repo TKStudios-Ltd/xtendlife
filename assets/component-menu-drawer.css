@@ -91,9 +91,9 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__menu-item {
-  padding: 1.1rem 3rem;
+  padding: 0.5rem 2rem;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
 }
 
 .menu-drawer summary.menu-drawer__menu-item {
