@@ -3949,13 +3949,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   width:100%;
   height:100%;
   object-fit:cover;
-  border:1px solid transparent;
+  border:1px solid white;
   border-radius:8px;
   cursor:pointer;
 }
 .custom-gallery-thumbnails .swiper-slide-thumb-active .custom-gallery-thumbnail-image,
 .custom-gallery-thumbnail-image.swiper-slide-thumb-active{
-  border-color:#4B2B2AAD;
+  border-color:rgba(31, 25, 70, 1);
 }
 
 .custom-gallery-main{
