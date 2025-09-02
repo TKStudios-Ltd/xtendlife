@@ -4054,7 +4054,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 @media (max-width: 749px) {
   .product-template .breadcrumbs {
-    margin: 1rem auto;
+    margin: 1.5rem auto;
   }
 }
 .breadcrumbs a {
