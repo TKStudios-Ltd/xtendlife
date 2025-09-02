@@ -32,10 +32,14 @@
     {% if product.media.size > 1 %}
       <div class="custom-gallery-arrows">
         <button class="swiper-button-prev custom-gallery-prev" aria-label="Previous image">
-          <!-- your left SVG -->
+          <span class="svg-wrapper">
+            {{- 'icon-arrow-long.svg' | inline_asset_content -}}
+          </span>
         </button>
         <button class="swiper-button-next custom-gallery-next" aria-label="Next image">
-          <!-- your right SVG -->
+          <span class="svg-wrapper">
+            {{- 'icon-arrow-long.svg' | inline_asset_content -}}
+          </span>
         </button>
       </div>
     {% endif %}
