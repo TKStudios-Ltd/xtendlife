@@ -171,6 +171,85 @@
         "padding_bottom": 36
       }
     },
+    "image_with_text_3jd3FP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HLeMWQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why is Heart Health so Important?",
+            "heading_size": "h2"
+          }
+        },
+        "collapsible_row_eJMy84": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Risks are high",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_E3dGpt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Symptoms might be hidden",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_mNwhUk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Heart Health and Men",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_hD4rk6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Heart Health and Women",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_HLeMWQ",
+        "collapsible_row_eJMy84",
+        "collapsible_row_E3dGpt",
+        "collapsible_row_mNwhUk",
+        "collapsible_row_hD4rk6"
+      ],
+      "custom_css": [
+        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
+        ".image-with-text__heading {margin-bottom: 6rem;}",
+        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
+        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "collapsible_content_DpPkPP": {
       "type": "collapsible-content",
       "blocks": {
@@ -556,6 +635,7 @@
     "main",
     "image-with-text",
     "multicolumn",
+    "image_with_text_3jd3FP",
     "collapsible_content_DpPkPP",
     "image_hotspots_Hi6X7P",
     "1756789925579c1cf4",
