@@ -1345,11 +1345,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (window.innerWidth > 768) {
     thumbsSwiper = new Swiper('.custom-gallery-thumbnails', {
+      direction: 'vertical',
       slidesPerView: 'auto',
-      spaceBetween: 10,
+      spaceBetween: 12,
       freeMode: true,
       watchSlidesProgress: true,
-      direction: 'horizontal',
+      mousewheel: true
     });
   }
 
@@ -1361,24 +1362,19 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     thumbs: window.innerWidth > 768 ? { swiper: thumbsSwiper } : undefined,
     breakpoints: {
-      0: {
-        slidesPerView: 1.5,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-      }
+      0:   { slidesPerView: 1.5, spaceBetween: 20 },
+      768: { slidesPerView: 1,   spaceBetween: 0  }
     },
   });
 
-  // Auto-scroll thumbnails into view on active slide
+  // Keep active thumb auto-scrolled into view (desktop)
   if (thumbsSwiper) {
     mainSwiper.on('slideChange', () => {
-      const activeIndex = mainSwiper.realIndex; // 0‑based
+      const activeIndex = mainSwiper.realIndex; // 0-based
       thumbsSwiper.slideTo(activeIndex);
     });
   }
 });
+
 
 
