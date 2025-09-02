@@ -3973,9 +3973,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   border-radius:12px;
   overflow:hidden;
 }
-.custom-gallery-main .swiper-wrapper,
+.custom-gallery-main .swiper-wrapper {
+  height: 100%;
+  display: flex;
+}
 .custom-gallery-main .swiper-slide{
   height:100%;
+  flex: 0 0 100%;
 }
 .custom-gallery-media-image,
 .custom-gallery-media-other{
