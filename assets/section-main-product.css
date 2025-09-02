@@ -265,7 +265,7 @@ a.product__text {
 }
 
 .product__subheading {
-  font-size: 1.4rem;
+  font-size: 1.4rem !important;
   color: rgba(31, 25, 70, 0.4);
 }
 
