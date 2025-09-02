@@ -487,6 +487,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
+        "quick_add": "standard",
         "padding_top": 60,
         "padding_bottom": 100
       }
