@@ -3930,7 +3930,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 .custom-gallery-wrapper{
   display:flex;
-  gap:1rem;
+  gap:1.5rem;
   align-items:stretch;
 }
 .custom-gallery-thumbnails{
@@ -3942,7 +3942,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .custom-gallery-thumbnails .swiper-wrapper{
   display:flex !important;
   flex-direction:column !important;
-  /* gap:12px; */
+  gap:1.5rem;
 }
 .custom-gallery-thumbnails .swiper-slide{
   width:100% !important;

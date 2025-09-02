@@ -1348,7 +1348,7 @@ document.addEventListener('DOMContentLoaded', function () {
     thumbsSwiper = new Swiper('.custom-gallery-thumbnails', {
       direction: 'vertical',
       slidesPerView: 'auto',
-      spaceBetween: 12,
+      spaceBetween: 0,
       freeMode: true,
       watchSlidesProgress: true,
       mousewheel: true
