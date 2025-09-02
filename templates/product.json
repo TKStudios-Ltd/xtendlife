@@ -340,17 +340,12 @@
     "1756789925579c1cf4": {
       "type": "apps",
       "blocks": {
-        "klaviyo_reviews_product_reviews_list_7XPpEV": {
-          "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews-list/db20e365-d984-4ac4-9655-e1588d951ca9",
-          "settings": {}
-        },
         "klaviyo_reviews_product_reviews_gMycLN": {
           "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews/db20e365-d984-4ac4-9655-e1588d951ca9",
           "settings": {}
         }
       },
       "block_order": [
-        "klaviyo_reviews_product_reviews_list_7XPpEV",
         "klaviyo_reviews_product_reviews_gMycLN"
       ],
       "settings": {
@@ -612,8 +607,8 @@
     "multicolumn",
     "image_with_text_3jd3FP",
     "product_faqs_collapsible_wJ8Q99",
-    "image_hotspots_Hi6X7P",
     "1756789925579c1cf4",
+    "image_hotspots_Hi6X7P",
     "testimonial_slider_xafpPP",
     "image_with_text_KCQTNP",
     "related-products",
