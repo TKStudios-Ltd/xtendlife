@@ -525,6 +525,15 @@
     },
     "175456835163db47af": {
       "type": "apps",
+      "blocks": {
+        "klaviyo_reviews_product_reviews_wTQyaQ": {
+          "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews/db20e365-d984-4ac4-9655-e1588d951ca9",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "klaviyo_reviews_product_reviews_wTQyaQ"
+      ],
       "settings": {
         "include_margins": true
       }
