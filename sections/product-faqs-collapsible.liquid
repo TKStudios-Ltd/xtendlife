@@ -9,6 +9,14 @@
   .section-{{ section.id }}-padding .collapsible-content__heading {
     margin-bottom: 4rem;
   }
+  .section-{{ section.id }}-padding .faq__more_questions {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .section-{{ section.id }}-padding .faq__more_questions p {
+    font-size: 1.6rem;
+    display: inline-flex;
+  }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -55,6 +63,9 @@
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </div>
           </div>
+        </div>
+        <div class="faq__more_questions">
+            <p>More questions? Visit our <a href="/pages/faq" target="_blank">FAQ</a></p>
         </div>
       </div>
     </div>
