@@ -4,7 +4,7 @@ product-info {
 
 .product {
   max-width: var(--page-width);
-  margin: 0 auto;
+  margin: 6rem auto 0;
   padding: 0 2rem;
 }
 
