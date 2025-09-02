@@ -3998,6 +3998,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display:flex !important;
   align-items:center;
   justify-content:center;
+  background: transparent;
+  border: none;
 }
 .custom-gallery-prev::after,
 .custom-gallery-next::after{ display:none; }
