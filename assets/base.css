@@ -4000,6 +4000,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   justify-content:center;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 .custom-gallery-prev.swiper-button-disabled,
 .custom-gallery-next.swiper-button-disabled {
