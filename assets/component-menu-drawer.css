@@ -89,6 +89,10 @@ details[open].menu-opening > .menu-drawer__submenu {
   position: relative;
 }
 
+.menu-drawer__submenu.has-submenu .menu-drawer__menu {
+  padding: 2rem 0;
+}
+
 .js .menu-drawer__menu li {
   margin-bottom: 0.2rem;
 }
