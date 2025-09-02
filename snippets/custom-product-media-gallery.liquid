@@ -16,10 +16,12 @@
     <div class="swiper-wrapper">
       {% for media in product.media %}
         <div class="swiper-slide">
+          {% assign alt_text = media.alt | escape %}
           {% if media.media_type == 'image' %}
-            {%- assign load_attr = 'lazy' -%}
-            {%- if forloop.first -%}{%- assign load_attr = 'eager' -%}{%- endif -%}
-            {{ media | image_url: width: 1600 | image_tag: loading: load_attr, class: 'custom-gallery-media-image', alt: media.alt | escape, fetchpriority: 'high' }}
+            {{ media
+              | image_url: width: 1600
+              | image_tag: class: 'custom-gallery-media-image', alt: alt_text, loading: load_attr
+            }}
           {% else %}
             {{ media | media_tag: image_size: '2048x', autoplay: false, loop: false, controls: true, class: 'custom-gallery-media-other' }}
           {% endif %}
