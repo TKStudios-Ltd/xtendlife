@@ -124,6 +124,7 @@
                       {{ product.title | escape }}
                     </h2>
                   </a>
+                  <span class="product__subheading">{{ product.metafields.custom_fields.option_text | remove: 'Size:' }}</span>
                 </div>
                 {%- if product.tags contains 'enhance' 
                     or product.tags contains 'soothe' 
