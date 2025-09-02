@@ -171,6 +171,174 @@
         "padding_bottom": 36
       }
     },
+    "image_hotspots_Hi6X7P": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_fytRdk": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Vitamin A",
+            "desc": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises. </p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed. </p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 80,
+            "y": 55,
+            "open_default": true
+          }
+        },
+        "hotspot_EzN4jP": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Magnesium",
+            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 30,
+            "y": 78,
+            "open_default": false
+          }
+        },
+        "hotspot_mLbTrh": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Zinc",
+            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "link_label": "Our Ingredients",
+            "link_url": "#",
+            "x": 40,
+            "y": 10,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_fytRdk",
+        "hotspot_EzN4jP",
+        "hotspot_mLbTrh"
+      ],
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 550,
+        "panel_bg": "#f4f8fb",
+        "panel_text": "#1f1946",
+        "color_scheme": "color-scheme-1"
+      }
+    },
+    "testimonial_slider_xafpPP": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_3EFxVt": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        },
+        "testimonial_kyXBjn": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        },
+        "testimonial_wxPJKG": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        },
+        "testimonial_MNbmfK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9.png",
+            "name": "Dr Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3EFxVt",
+        "testimonial_kyXBjn",
+        "testimonial_wxPJKG",
+        "testimonial_MNbmfK"
+      ],
+      "name": "Testimonial slider",
+      "settings": {
+        "heading": "Our Health Ambassadors",
+        "bg_color": "#ffffff",
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_KCQTNP": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_bz9N8Y": {
+          "type": "caption",
+          "settings": {
+            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
+            "additional_caption": "Go Beyond Multivitamins",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "text_fQHPQr": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "button_Qekx44": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_bz9N8Y",
+        "text_fQHPQr",
+        "button_Qekx44"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
+        ".image-with-text__media img {border-radius: 10px;}",
+        "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 0; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_3.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -301,6 +469,9 @@
     "main",
     "image-with-text",
     "multicolumn",
+    "image_hotspots_Hi6X7P",
+    "testimonial_slider_xafpPP",
+    "image_with_text_KCQTNP",
     "related-products",
     "175456835163db47af",
     "featured_blog_rTpRWP",
