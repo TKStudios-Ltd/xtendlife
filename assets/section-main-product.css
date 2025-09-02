@@ -264,6 +264,11 @@ a.product__text {
   margin-bottom: 1.5rem;
 }
 
+.product__subheading {
+  font-size: 1.4rem;
+  color: rgba(31, 25, 70, 0.4);
+}
+
 .product__title > * {
   font-size: 2.6rem;
   margin: 0;
