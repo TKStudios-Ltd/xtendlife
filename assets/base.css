@@ -4052,6 +4052,11 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   font-size: 1.2rem;
   margin: 0 auto 1rem;
 }
+@media (max-width: 749px) {
+  .product-template .breadcrumbs {
+    margin: 1rem auto;
+  }
+}
 .breadcrumbs a {
   text-decoration: none;
   color: #1F1946;
