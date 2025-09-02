@@ -4062,3 +4062,21 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   background: #1F1946 !important;
   border-radius: 999px;
 }
+
+.breadcrumbs {
+  font-size: 1.2rem;
+  margin: 0 auto 1rem;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: #1F1946;
+  opacity: 0.5;
+}
+.breadcrumbs__sep {
+  margin: 0 0.5rem;
+  opacity: 0.5;
+}
+.breadcrumbs .bc-current {
+  color: #1F1946;
+  opacity: 1;
+}
