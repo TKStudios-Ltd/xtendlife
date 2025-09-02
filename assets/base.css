@@ -3932,9 +3932,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display:flex;
   gap:1rem;
   align-items:stretch;
-  background:#F5DFAC; 
 }
-
 .custom-gallery-thumbnails{
   flex:0 0 85px;
   overflow-y:auto;
