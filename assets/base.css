@@ -3984,10 +3984,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 .custom-gallery-arrows{
   position:absolute;
-  right:1rem;
-  bottom:1rem;
+  right:2rem;
+  bottom:2rem;
   display:flex;
-  gap:12px;
+  gap:0;
   z-index:5;
 }
 .custom-gallery-prev,
