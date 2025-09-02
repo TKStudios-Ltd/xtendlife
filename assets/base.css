@@ -3967,9 +3967,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   border-radius: 4px;
   cursor: pointer;
 }
-/* .swiper-slide-active .custom-gallery-thumbnail-image {
-  border-color: #4B2B2AAD;
-} */
 .custom-gallery-thumbnails .swiper-slide-thumb-active .custom-gallery-thumbnail-image,
 .custom-gallery-thumbnail-image.swiper-slide-thumb-active {
   border-color: #4B2B2AAD;
