@@ -1341,9 +1341,10 @@ document.addEventListener('scroll', () => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  const isDesktop = window.matchMedia('(min-width: 769px)').matches;
   let thumbsSwiper;
 
-  if (window.innerWidth > 768) {
+  if (isDesktop) {
     thumbsSwiper = new Swiper('.custom-gallery-thumbnails', {
       direction: 'vertical',
       slidesPerView: 'auto',
@@ -1355,23 +1356,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const mainSwiper = new Swiper('.custom-gallery-main', {
-    loop: true,
-    navigation: {
+    loop: false, // keep in sync with thumbs
+    navigation: isDesktop ? {
       nextEl: '.custom-gallery-next',
       prevEl: '.custom-gallery-prev',
-    },
-    thumbs: window.innerWidth > 768 ? { swiper: thumbsSwiper } : undefined,
+    } : {},
+    thumbs: isDesktop ? { swiper: thumbsSwiper } : undefined,
     breakpoints: {
-      0:   { slidesPerView: 1.5, spaceBetween: 20 },
-      768: { slidesPerView: 1,   spaceBetween: 0  }
+      0:   { slidesPerView: 1,   spaceBetween: 0 },
+      768: { slidesPerView: 1,   spaceBetween: 0 }
     },
+    observer: true,
+    observeParents: true
   });
 
-  // Keep active thumb auto-scrolled into view (desktop)
+  // Keep the active thumb scrolled into view
   if (thumbsSwiper) {
     mainSwiper.on('slideChange', () => {
-      const activeIndex = mainSwiper.realIndex; // 0-based
-      thumbsSwiper.slideTo(activeIndex);
+      thumbsSwiper.slideTo(mainSwiper.activeIndex);
     });
   }
 });
