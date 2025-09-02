@@ -276,7 +276,7 @@
         "open_first_collapsible_row": false,
         "show_when_empty": true,
         "fallback_heading": "FAQs",
-        "layout": "row",
+        "layout": "none",
         "container_color_scheme": "scheme-5",
         "color_scheme": "scheme-5",
         "padding_top": 100,
