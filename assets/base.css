@@ -3928,108 +3928,94 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 /* Product Image Gallery */
 
-/* Layout */
 .custom-gallery-wrapper{
-  position: relative;
-  display: flex;
-  gap: 1rem;
-  height: 100vh;
-  background: #F5DFAC;
-  overflow: hidden;
+  display:flex;
+  gap:1rem;
+  align-items:stretch;
+  background:#F5DFAC; 
 }
 
-/* Thumbs column (left, vertical) */
 .custom-gallery-thumbnails{
-  flex: 0 0 80px;                 /* column width */
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 1rem 0;
+  flex:0 0 90px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:.5rem 0;
+  max-height:100%;
 }
 .custom-gallery-thumbnails .swiper-wrapper{
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px;
 }
 .custom-gallery-thumbnails .swiper-slide{
-  width: 100% !important;         /* fill column width */
-  height: 64px;                   /* thumb height */
-  background: #FCF1D6;
-  border-radius: 8px;
-  display: flex;
+  width:100% !important;
+  height:68px;
+  background:#FCF1D6;
+  border-radius:8px;
+  display:flex;
 }
 .custom-gallery-thumbnail-image{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  cursor: pointer;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:1px solid transparent;
+  border-radius:8px;
+  cursor:pointer;
 }
 .custom-gallery-thumbnails .swiper-slide-thumb-active .custom-gallery-thumbnail-image,
 .custom-gallery-thumbnail-image.swiper-slide-thumb-active{
-  border-color: #4B2B2AAD;
+  border-color:#4B2B2AAD;
 }
 
-/* Main image area */
 .custom-gallery-main{
-  position: relative;
-  flex: 1 1 auto;
-  height: 100vh;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #F6FAFF;
+  position:relative;
+  flex:1 1 auto;
+  width:100%;
+  aspect-ratio: 5 / 4;
+  background:#F6FAFF;
+  border-radius:12px;
+  overflow:hidden;
 }
+.custom-gallery-main .swiper-wrapper,
 .custom-gallery-main .swiper-slide{
-  height: 100vh;
+  height:100%;
 }
-.custom-gallery-media-image{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.custom-gallery-media-image,
+.custom-gallery-media-other{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#F6FAFF;
 }
 
-/* Arrows overlay (bottom-right of main image) */
 .custom-gallery-arrows{
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  display: flex;
-  gap: 12px;
-  z-index: 5;
+  position:absolute;
+  right:1rem;
+  bottom:1rem;
+  display:flex;
+  gap:12px;
+  z-index:5;
 }
 .custom-gallery-prev,
 .custom-gallery-next{
-  position: static !important;    /* Swiper defaults off */
-  width: 56px !important;
-  height: 56px !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 9999px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  position:static !important;
+  width:56px !important;
+  height:56px !important;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border-radius:9999px;
+  box-shadow:0 4px 20px rgba(0,0,0,.12);
 }
 .custom-gallery-prev::after,
-.custom-gallery-next::after{ display: none; }
+.custom-gallery-next::after{ display:none; }
 
-/* Mobile */
-@media screen and (max-width: 749px){
-  .custom-gallery-wrapper{
-    height: auto;
-    background: transparent;
-    margin-top: 9rem;
-    margin-bottom: 1rem;
-  }
-  .custom-gallery-thumbnails,
-  .custom-gallery-arrows{ display: none !important; }
-  .custom-gallery-main{ height: auto; }
-  .custom-gallery-main .swiper-slide{
-    width: 66.66%;
-    height: auto;
-    border-radius: 8px;
-    background: #f5dfac;
-  }
+@media (max-width: 749px){
+  .custom-gallery-wrapper{ background:transparent; margin-top:9rem; margin-bottom:1rem; }
+  .custom-gallery-thumbnails, .custom-gallery-arrows{ display:none !important; }
+  .custom-gallery-main{ aspect-ratio: 4 / 5; } /* a bit taller on mobile; tweak if you like */
+  .custom-gallery-main .swiper-slide{ border-radius:8px; background:#f5dfac; }
 }
 
 
