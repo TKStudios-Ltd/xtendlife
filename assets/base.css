@@ -3928,108 +3928,110 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 /* Product Image Gallery */
 
-.custom-gallery-wrapper {
+/* Layout */
+.custom-gallery-wrapper{
   position: relative;
   display: flex;
+  gap: 1rem;
   height: 100vh;
-  overflow: hidden;
   background: #F5DFAC;
+  overflow: hidden;
 }
-.custom-gallery-thumbnails {
-  position: absolute !important;
-  bottom: 1.4rem;
-  left: 2rem;
-  width: calc(100% - 165px);
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  padding-right: 2rem;
+
+/* Thumbs column (left, vertical) */
+.custom-gallery-thumbnails{
+  flex: 0 0 80px;                 /* column width */
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem 0;
 }
-.custom-gallery-thumbnails .swiper-wrapper {
-  display: inline-flex !important;
-  /* flex-direction: row !important; */
-  /* gap: 1rem; */
+.custom-gallery-thumbnails .swiper-wrapper{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px;
 }
-.custom-gallery-thumbnails .swiper-slide {
+.custom-gallery-thumbnails .swiper-slide{
+  width: 100% !important;         /* fill column width */
+  height: 64px;                   /* thumb height */
   background: #FCF1D6;
-  border-radius: 4px;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 0 !important;
+  border-radius: 8px;
+  display: flex;
 }
-.custom-gallery-thumbnail-image {
-  width: 54px;
-  height: 54px;
+.custom-gallery-thumbnail-image{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
 }
 .custom-gallery-thumbnails .swiper-slide-thumb-active .custom-gallery-thumbnail-image,
-.custom-gallery-thumbnail-image.swiper-slide-thumb-active {
+.custom-gallery-thumbnail-image.swiper-slide-thumb-active{
   border-color: #4B2B2AAD;
 }
-.custom-gallery-main {
-  flex-grow: 1;
-  height: 100vh;
+
+/* Main image area */
+.custom-gallery-main{
   position: relative;
+  flex: 1 1 auto;
+  height: 100vh;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F6FAFF;
 }
-.custom-gallery-main .swiper-slide {
+.custom-gallery-main .swiper-slide{
   height: 100vh;
 }
-.custom-gallery-media-image {
+.custom-gallery-media-image{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.custom-gallery-prev,
-.custom-gallery-next {
-  left: auto !important;
-  top: auto !important;
+
+/* Arrows overlay (bottom-right of main image) */
+.custom-gallery-arrows{
+  position: absolute;
+  right: 2rem;
   bottom: 2rem;
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+.custom-gallery-prev,
+.custom-gallery-next{
+  position: static !important;    /* Swiper defaults off */
   width: 56px !important;
   height: 56px !important;
   display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
 }
 .custom-gallery-prev::after,
-.custom-gallery-next::after {
-  display: none;
-}
-.custom-gallery-prev {
-  right: calc(56px + 2rem) !important;
-}
-.custom-gallery-next {
-  right: 2rem !important;
-}
+.custom-gallery-next::after{ display: none; }
 
-@media screen and (max-width: 749px) {
-  .custom-gallery-thumbnails,
-  .custom-gallery-prev,
-  .custom-gallery-next {
-    display: none !important;
-  }
-  .custom-gallery-main .swiper-slide {
-    width: 66.66%;
-    height: auto;
-    border-radius: 8px;
-    background: #f5dfac;
-  }
-  .custom-gallery-main .swiper-slide:first-child {
-    margin-left: 2rem;
-  }
-  .custom-gallery-wrapper {
+/* Mobile */
+@media screen and (max-width: 749px){
+  .custom-gallery-wrapper{
     height: auto;
     background: transparent;
     margin-top: 9rem;
     margin-bottom: 1rem;
   }
-  .custom-gallery-main,
-  .custom-gallery-media-image {
-    height: 100%;
+  .custom-gallery-thumbnails,
+  .custom-gallery-arrows{ display: none !important; }
+  .custom-gallery-main{ height: auto; }
+  .custom-gallery-main .swiper-slide{
+    width: 66.66%;
+    height: auto;
+    border-radius: 8px;
+    background: #f5dfac;
   }
 }
+
 
 .article-card .card__inner {
   --ratio-percent: 100% !important;
