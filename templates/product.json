@@ -350,9 +350,9 @@
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
         "media_max_width": 550,
-        "panel_bg": "#ffffff",
+        "panel_bg": "#f4f8fb",
         "panel_text": "#1f1946",
-        "color_scheme": "color-scheme-2"
+        "color_scheme": "color-scheme-1"
       }
     },
     "testimonial_slider_xafpPP": {
@@ -403,8 +403,8 @@
       ],
       "name": "Testimonial slider",
       "settings": {
-        "heading": "Our Health Ambassadors",
-        "bg_color": "#ffffff",
+        "heading": "Approved by experts",
+        "bg_color": "#f4f8fb",
         "gap": 20,
         "speed": 500,
         "autoplay": false,
@@ -465,20 +465,20 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-1",
-        "padding_top": 0,
+        "padding_top": 100,
         "padding_bottom": 100
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h1",
-        "products_to_show": 3,
-        "columns_desktop": 3,
+        "heading": "Others also considered",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
         "columns_mobile": "1",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
