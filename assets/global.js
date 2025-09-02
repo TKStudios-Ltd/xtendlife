@@ -1342,41 +1342,38 @@ document.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', function () {
   const isDesktop = window.matchMedia('(min-width: 769px)').matches;
-  let thumbsSwiper;
 
+  let thumbsSwiper = null;
   if (isDesktop) {
     thumbsSwiper = new Swiper('.custom-gallery-thumbnails', {
       direction: 'vertical',
       slidesPerView: 'auto',
-      spaceBetween: 0,
+      spaceBetween: 12,
       freeMode: true,
       watchSlidesProgress: true,
+      slideToClickedSlide: true,
       mousewheel: true
     });
   }
 
   const mainSwiper = new Swiper('.custom-gallery-main', {
-    loop: false, // keep in sync with thumbs
-    navigation: isDesktop ? {
+    loop: false,
+    preloadImages: true,
+    navigation: {                          // <- always enable
       nextEl: '.custom-gallery-next',
       prevEl: '.custom-gallery-prev',
-    } : {},
-    thumbs: isDesktop ? { swiper: thumbsSwiper } : undefined,
-    breakpoints: {
-      0:   { slidesPerView: 1,   spaceBetween: 0 },
-      768: { slidesPerView: 1,   spaceBetween: 0 }
     },
+    thumbs: thumbsSwiper ? { swiper: thumbsSwiper } : undefined,
     observer: true,
     observeParents: true
   });
 
-  // Keep the active thumb scrolled into view
-  if (thumbsSwiper) {
-    mainSwiper.on('slideChange', () => {
-      thumbsSwiper.slideTo(mainSwiper.activeIndex);
-    });
-  }
+  window.addEventListener('resize', () => {
+    mainSwiper.update();
+    if (thumbsSwiper) thumbsSwiper.update();
+  });
 });
+
 
 
 
