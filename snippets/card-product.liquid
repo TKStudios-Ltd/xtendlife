@@ -337,7 +337,7 @@
               </a>
             </h4>
 
-            <span class="card__subheading">XX Supply | XX Tablets</span>
+            <span class="card__subheading">{{ card_product.metafields.custom_fields.option_text | remove: 'Size:' }}</span>
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             {%- if card_product.quantity_price_breaks_configured? -%}
