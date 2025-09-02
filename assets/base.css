@@ -4001,6 +4001,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   background: transparent;
   border: none;
 }
+.custom-gallery-prev.swiper-button-disabled,
+.custom-gallery-next.swiper-button-disabled {
+  opacity: 0.4;
+}
 .custom-gallery-prev::after,
 .custom-gallery-next::after{ display:none; }
 .custom-gallery-prev svg {
