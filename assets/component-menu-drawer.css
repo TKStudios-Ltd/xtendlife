@@ -151,8 +151,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__close-button {
-  margin-top: 1.5rem;
-  padding: 1.2rem 2.6rem 1.2rem 3rem;
+  margin-top: 4rem;
+  padding: 1rem 2rem;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -162,12 +162,15 @@ details[open].menu-opening > .menu-drawer__submenu {
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   text-align: left;
+  position: absolute;
+  bottom: 1rem;
 }
 
 .menu-drawer__close-button .svg-wrapper {
   transform: rotate(180deg);
-  margin-right: 1rem;
-  width: 15px;
+  margin-right: 0;
+  width: 30px;
+  height: 100%;
 }
 
 .menu-drawer__utility-links {
