@@ -77,7 +77,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation {
-  padding: 3rem 0;
+  padding: 2rem 0 4rem;
+  min-height: 35rem;
 }
 
 .menu-drawer__inner-submenu {
