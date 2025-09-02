@@ -4012,7 +4012,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   transform: rotate(180deg);
 }
 @media (max-width: 749px){
-  .custom-gallery-wrapper{ background:transparent; margin-top:9rem; margin-bottom:1rem; }
+  .custom-gallery-wrapper{ background:transparent; margin-bottom:1rem; }
   .custom-gallery-thumbnails, .custom-gallery-arrows{ display:none !important; }
   .custom-gallery-main{ aspect-ratio: 4 / 5; }
   .custom-gallery-main .swiper-slide{ border-radius:8px; background:#f5dfac; }
