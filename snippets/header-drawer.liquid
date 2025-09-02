@@ -43,12 +43,6 @@
                         tabindex="-1"
                       >
                         <div class="menu-drawer__inner-submenu">
-                          <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                            <span class="svg-wrapper">
-                              {{- 'icon-arrow-long.svg' | inline_asset_content -}}
-                            </span>
-                            {{ link.title | escape }}
-                          </button>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
@@ -116,6 +110,11 @@
                               </li>
                             {%- endfor -%}
                           </ul>
+                          <button class="menu-drawer__close-button link focus-inset" aria-expanded="true">
+                            <span class="svg-wrapper">
+                              {{- 'icon-arrow-long.svg' | inline_asset_content -}}
+                            </span>
+                          </button>
                         </div>
                       </div>
                     </details>
