@@ -3988,7 +3988,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   bottom:1.5rem;
   display:flex;
   gap:0.5rem;
-  z-index:5;
+  z-index:1;
 }
 .custom-gallery-prev,
 .custom-gallery-next{
