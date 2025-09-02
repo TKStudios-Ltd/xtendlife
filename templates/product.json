@@ -260,6 +260,24 @@
         "padding_bottom": 0
       }
     },
+    "product_faqs_collapsible_wJ8Q99": {
+      "type": "product-faqs-collapsible",
+      "name": "Product FAQs (metafield)",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "open_first_collapsible_row": false,
+        "show_when_empty": true,
+        "fallback_heading": "FAQs",
+        "layout": "none",
+        "container_color_scheme": "scheme-5",
+        "color_scheme": "scheme-5",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
     "collapsible_content_DpPkPP": {
       "type": "collapsible-content",
       "blocks": {
@@ -655,6 +673,7 @@
     "image-with-text",
     "multicolumn",
     "image_with_text_3jd3FP",
+    "product_faqs_collapsible_wJ8Q99",
     "collapsible_content_DpPkPP",
     "image_hotspots_Hi6X7P",
     "1756789925579c1cf4",
