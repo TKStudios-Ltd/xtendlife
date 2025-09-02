@@ -7,6 +7,11 @@ product-info {
   margin: 6rem auto 0;
   padding: 0 2rem;
 }
+@media (max-width: 749px){
+  .product {
+    margin: 3rem auto 0;
+  }
+}
 
 .product.grid {
   gap: 2rem;
