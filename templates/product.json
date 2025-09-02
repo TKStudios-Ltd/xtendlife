@@ -244,7 +244,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Placeholder_Image_1.jpg",
+        "image": "shopify://shop_images/Placeholder_Image_2.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
