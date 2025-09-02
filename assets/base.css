@@ -3993,8 +3993,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .custom-gallery-prev,
 .custom-gallery-next{
   position:static !important;
-  width:48px !important;
-  height:48px !important;
+  width:40px !important;
+  height:40px !important;
   display:flex !important;
   align-items:center;
   justify-content:center;
