@@ -361,7 +361,7 @@
       "name": "Testimonial slider",
       "settings": {
         "heading": "Our Health Ambassadors",
-        "bg_color": "#f4f8fb",
+        "bg_color": "#ffffff",
         "gap": 20,
         "speed": 500,
         "autoplay": false,
