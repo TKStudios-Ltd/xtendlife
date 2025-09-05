@@ -88,6 +88,17 @@
         "padding_bottom": 100
       }
     },
+    "product_tabs_accordion_YzW3EK": {
+      "type": "product-tabs-accordion",
+      "name": "Product Tabs & Accordion",
+      "settings": {
+        "label_details": "Details",
+        "label_ingredients": "Ingredients",
+        "label_directions": "Directions & Dosage",
+        "label_shipping": "Shipping & Returns",
+        "shipping_returns": "<p>Standard shipping & returns info goes here.</p>"
+      }
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -611,6 +622,7 @@
   },
   "order": [
     "main",
+    "product_tabs_accordion_YzW3EK",
     "image-with-text",
     "multicolumn",
     "image_with_text_3jd3FP",
