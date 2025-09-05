@@ -1,29 +1,39 @@
 {% comment %}
   Product Tabs → Mobile Accordion (Dawn)
   Desktop tabs / Mobile accordion
+  Bonify Custom Fields namespace: custom_fields
+  Keys used:
+    - product_ingredients  => {{ product.metafields.custom_fields['product_ingredients'] }}
+    - product_directions   => {{ product.metafields.custom_fields['product_directions'] }}
+  This version ALWAYS renders the 4 tabs so you see headers even if metafields are blank.
 {% endcomment %}
 
 <section class="product-tabs-accordion product-tabs-accordion--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-tabs-accordion">
   <div class="page-width">
-    {%- assign tabs = '' -%}
+    {%- if product -%}
+      {%- comment -%} Pull content safely using bracket notation {%- endcomment -%}
+      {%- assign details_html    = product.description -%}
+      {%- assign ingredients_html = product.metafields.custom_fields['product_ingredients'] -%}
+      {%- assign directions_html  = product.metafields.custom_fields['product_directions'] -%}
+      {%- assign shipping_html    = section.settings.shipping_returns -%}
 
-    {%- assign details_html = product.description -%}
-    {%- if details_html == blank and product.metafields.custom_fields['product_description'] != blank -%}
-      {%- assign details_html = product.metafields.custom_fields['product_description'] -%}
-    {%- endif -%}
+      {%- comment -%} Fallbacks so the section isn’t empty {%- endcomment -%}
+      {%- if shipping_html == blank -%}
+        {%- assign shipping_html = '<p>Shipping & returns information coming soon.</p>' -%}
+      {%- endif -%}
+      {%- if details_html == blank -%}
+        {%- assign details_html = '<p>No additional details available.</p>' -%}
+      {%- endif -%}
+      {%- if ingredients_html == blank -%}
+        {%- assign ingredients_html = '' -%}
+      {%- endif -%}
+      {%- if directions_html == blank -%}
+        {%- assign directions_html = '' -%}
+      {%- endif -%}
 
-    {%- assign ingredients_html = product.metafields.custom_fields['product_ingredients'] -%}
-    {%- assign directions_html  = product.metafields.custom_fields['product_directions'] -%}
-    {%- assign shipping_html    = section.settings.shipping_returns -%}
+      {%- comment -%} Fixed 4 tabs so headers ALWAYS render {%- endcomment -%}
+      {%- assign tabs_array = 'details,ingredients,directions,shipping' | split: ',' -%}
 
-    {%- if details_html != blank -%}{% assign tabs = tabs | append: 'details,' %}{%- endif -%}
-    {%- if ingredients_html != blank -%}{% assign tabs = tabs | append: 'ingredients,' %}{%- endif -%}
-    {%- if directions_html != blank -%}{% assign tabs = tabs | append: 'directions,' %}{%- endif -%}
-    {%- if shipping_html != blank -%}{% assign tabs = tabs | append: 'shipping,' %}{%- endif -%}
-
-    {%- assign tabs_array = tabs | split: ',' | reject: '' -%}
-
-    {%- if tabs_array.size > 0 -%}
       <div class="pta__tabs-nav" role="tablist" aria-label="Product information tabs">
         <ul class="pta__tabs-nav-list">
           {%- for key in tabs_array -%}
@@ -76,9 +86,17 @@
                   {%- when 'details' -%}
                     {{ details_html }}
                   {%- when 'ingredients' -%}
-                    {{ ingredients_html }}
+                    {%- if product.metafields.custom_fields['product_ingredients'] != blank -%}
+                      {{ ingredients_html }}
+                    {%- else -%}
+                      <p>No ingredients provided.</p>
+                    {%- endif -%}
                   {%- when 'directions' -%}
-                    {{ directions_html }}
+                    {%- if product.metafields.custom_fields['product_directions'] != blank -%}
+                      {{ directions_html }}
+                    {%- else -%}
+                      <p>No directions provided.</p>
+                    {%- endif -%}
                   {%- when 'shipping' -%}
                     {{ shipping_html }}
                 {%- endcase -%}
@@ -86,6 +104,10 @@
             </div>
           </div>
         {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="color-subtext" style="padding:1rem 0">
+        <em>This section must be used on a product template.</em>
       </div>
     {%- endif -%}
   </div>
@@ -106,7 +128,6 @@
   }
   .pta__tab-btn.is-active { border-color: currentColor; }
 
-  .pta__panels { }
   .pta__panel { border-top: 1px solid var(--color-border, #e5e5e5); }
   .pta__panel.is-active:first-child { border-top: none; }
 
@@ -125,19 +146,14 @@
   .pta__accordion-icon { transition: transform 200ms ease; }
   .pta__panel.is-active .pta__accordion-trigger[aria-expanded="true"] .pta__accordion-icon { transform: rotate(45deg); }
 
-  .pta__accordion-content {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 250ms ease;
-  }
+  .pta__accordion-content { overflow: hidden; max-height: 0; transition: max-height 250ms ease; }
 
   .pta__content { line-height: 1.6; }
   @media (min-width: 990px) {
     .pta__tabs-nav { display: block; }
-    .pta__panel { border-top: none; }
     .pta__accordion-trigger { display: none; }
     .pta__accordion-content { max-height: none !important; overflow: visible; }
-    .pta__panels > .pta__panel { display: none; padding-top: 1rem; }
+    .pta__panels > .pta__panel { display: none; padding-top: 1rem; border-top: none; }
     .pta__panels > .pta__panel.is-active { display: block; }
 
     .pta__content--twocol {
@@ -164,11 +180,7 @@
       panels.forEach(p => {
         const isTarget = p.id === targetId;
         p.classList.toggle('is-active', isTarget);
-        if (isTarget) {
-          p.removeAttribute('hidden');
-        } else {
-          p.setAttribute('hidden', 'hidden');
-        }
+        if (isTarget) p.removeAttribute('hidden'); else p.setAttribute('hidden', 'hidden');
       });
       tabButtons.forEach(btn => {
         const selected = btn.getAttribute('data-tab-target') === targetId;
@@ -182,11 +194,7 @@
       }
     }
 
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        activateTab(btn.getAttribute('data-tab-target'));
-      });
-    });
+    tabButtons.forEach(btn => btn.addEventListener('click', () => activateTab(btn.getAttribute('data-tab-target'))));
 
     const accordionTriggers = section.querySelectorAll('.pta__accordion-trigger');
     accordionTriggers.forEach(trigger => {
@@ -194,52 +202,28 @@
       const content = panel.querySelector('.pta__accordion-content');
 
       function setOpen(el, open) {
-        if (open) {
-          el.dataset.open = 'true';
-          el.style.maxHeight = el.scrollHeight + 'px';
-        } else {
-          el.dataset.open = 'false';
-          el.style.maxHeight = '0px';
-        }
+        if (open) { el.dataset.open = 'true'; el.style.maxHeight = el.scrollHeight + 'px'; }
+        else { el.dataset.open = 'false'; el.style.maxHeight = '0px'; }
       }
 
-      if (panel.classList.contains('is-active')) {
-        setOpen(content, true);
-        trigger.setAttribute('aria-expanded', 'true');
-      } else {
-        setOpen(content, false);
-        trigger.setAttribute('aria-expanded', 'false');
-      }
+      if (panel.classList.contains('is-active')) { setOpen(content, true); trigger.setAttribute('aria-expanded', 'true'); }
+      else { setOpen(content, false); trigger.setAttribute('aria-expanded', 'false'); }
 
       trigger.addEventListener('click', () => {
         const isOpen = trigger.getAttribute('aria-expanded') === 'true';
         section.querySelectorAll('.pta__panel').forEach(p => {
           const t = p.querySelector('.pta__accordion-trigger');
           const c = p.querySelector('.pta__accordion-content');
-          if (t && c) {
-            t.setAttribute('aria-expanded', 'false');
-            setOpen(c, false);
-            p.classList.remove('is-active');
-          }
+          if (t && c) { t.setAttribute('aria-expanded', 'false'); setOpen(c, false); p.classList.remove('is-active'); }
         });
-        if (!isOpen) {
-          trigger.setAttribute('aria-expanded', 'true');
-          setOpen(content, true);
-          panel.classList.add('is-active');
-        }
+        if (!isOpen) { trigger.setAttribute('aria-expanded', 'true'); setOpen(content, true); panel.classList.add('is-active'); }
       });
 
-      const ro = new ResizeObserver(() => {
-        if (content.dataset.open === 'true') {
-          content.style.maxHeight = content.scrollHeight + 'px';
-        }
-      });
+      const ro = new ResizeObserver(() => { if (content.dataset.open === 'true') content.style.maxHeight = content.scrollHeight + 'px'; });
       ro.observe(content);
     });
 
-    if (!nav) {
-      panels.forEach((p, i) => p.classList.toggle('is-active', i === 0));
-    }
+    if (!nav) { panels.forEach((p, i) => p.classList.toggle('is-active', i === 0)); }
   })();
 </script>
 
