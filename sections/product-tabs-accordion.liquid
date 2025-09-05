@@ -1,0 +1,337 @@
+{% comment %}
+  Product Tabs → Mobile Accordion (Dawn)
+  - Desktop: tabbed interface
+  - Mobile: single-open accordion
+  - Details: product.description
+  - Ingredients: product.metafields.custom_fields.product_ingredients
+  - Directions & Dosage: product.metafields.custom_fields.product_directions
+  - Shipping & Returns: section-level richtext (global across products)
+{% endcomment %}
+
+<section class="product-tabs-accordion product-tabs-accordion--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-tabs-accordion">
+  <div class="page-width">
+    {%- assign has_ingredients = false -%}
+    {%- if product.metafields.custom_fields.product_ingredients != blank -%}{% assign has_ingredients = true %}{%- endif -%}
+
+    {%- assign has_directions = false -%}
+    {%- if product.metafields.custom_fields.product_directions != blank -%}{% assign has_directions = true %}{%- endif -%}
+
+    {%- assign has_shipping = false -%}
+    {%- if section.settings.shipping_returns != blank -%}{% assign has_shipping = true %}{%- endif -%}
+
+    {%- assign has_details = false -%}
+    {%- if product.description != blank -%}{% assign has_details = true %}{%- endif -%}
+
+    {%- assign tabs = '' -%}
+
+    {% if has_details %}
+      {% assign tabs = tabs | append: 'details,' %}
+    {% endif %}
+
+    {% if has_ingredients %}
+      {% assign tabs = tabs | append: 'ingredients,' %}
+    {% endif %}
+
+    {% if has_directions %}
+      {% assign tabs = tabs | append: 'directions,' %}
+    {% endif %}
+
+    {% if has_shipping %}
+      {% assign tabs = tabs | append: 'shipping,' %}
+    {% endif %}
+
+    {%- assign tabs_array = tabs | split: ',' | reject: '' -%}
+
+    {%- if tabs_array.size > 0 -%}
+
+      {% comment %} ---------- Desktop Tabs Nav ---------- {% endcomment %}
+      <div class="pta__tabs-nav" role="tablist" aria-label="Product information tabs">
+        <ul class="pta__tabs-nav-list">
+          {%- for key in tabs_array -%}
+            {%- assign is_active = forloop.first -%}
+            <li>
+              <button
+                class="pta__tab-btn{% if is_active %} is-active{% endif %}"
+                role="tab"
+                aria-selected="{% if is_active %}true{% else %}false{% endif %}"
+                aria-controls="pta-panel-{{ key }}-{{ section.id }}"
+                id="pta-tab-{{ key }}-{{ section.id }}"
+                data-tab-target="pta-panel-{{ key }}-{{ section.id }}">
+                {%- case key -%}
+                  {%- when 'details' -%}{{ section.settings.label_details }}
+                  {%- when 'ingredients' -%}{{ section.settings.label_ingredients }}
+                  {%- when 'directions' -%}{{ section.settings.label_directions }}
+                  {%- when 'shipping' -%}{{ section.settings.label_shipping }}
+                {%- endcase -%}
+              </button>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {% comment %} ---------- Panels (also serve as mobile accordions) ---------- {% endcomment %}
+      <div class="pta__panels">
+        {%- for key in tabs_array -%}
+          {%- assign is_active = forloop.first -%}
+          <div
+            id="pta-panel-{{ key }}-{{ section.id }}"
+            class="pta__panel{% if is_active %} is-active{% endif %}"
+            role="tabpanel"
+            aria-labelledby="pta-tab-{{ key }}-{{ section.id }}"
+            {% unless is_active %}hidden{% endunless %}>
+
+            {% comment %} Mobile Accordion Header {% endcomment %}
+            <button class="pta__accordion-trigger" aria-expanded="{% if is_active %}true{% else %}false{% endif %}" aria-controls="pta-acc-content-{{ key }}-{{ section.id }}">
+              <span class="pta__accordion-title">
+                {%- case key -%}
+                  {%- when 'details' -%}{{ section.settings.label_details }}
+                  {%- when 'ingredients' -%}{{ section.settings.label_ingredients }}
+                  {%- when 'directions' -%}{{ section.settings.label_directions }}
+                  {%- when 'shipping' -%}{{ section.settings.label_shipping }}
+                {%- endcase -%}
+              </span>
+              <span class="pta__accordion-icon" aria-hidden="true">+</span>
+            </button>
+
+            <div class="pta__accordion-content" id="pta-acc-content-{{ key }}-{{ section.id }}">
+              <div class="pta__content pta__content--twocol">
+                {%- case key -%}
+                  {%- when 'details' -%}
+                    {{ product.description }}
+                  {%- when 'ingredients' -%}
+                    {{ product.metafields.custom_fields.product_ingredients }}
+                  {%- when 'directions' -%}
+                    {{ product.metafields.custom_fields.product_directions }}
+                  {%- when 'shipping' -%}
+                    {{ section.settings.shipping_returns }}
+                {%- endcase -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    {%- endif -%}
+  </div>
+</section>
+
+{%- style -%}
+  .product-tabs-accordion { margin-top: 2rem; }
+  .pta__tabs-nav { display: none; border-bottom: 1px solid var(--color-border, #e5e5e5); margin-bottom: 1rem; }
+  .pta__tabs-nav-list { display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+  .pta__tab-btn {
+    position: relative;
+    padding: 0.75rem 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    border-bottom: 2px solid transparent;
+  }
+  .pta__tab-btn.is-active { border-color: currentColor; }
+
+  .pta__panels { }
+  .pta__panel { border-top: 1px solid var(--color-border, #e5e5e5); }
+  .pta__panel.is-active:first-child { border-top: none; }
+
+  /* Mobile accordion trigger */
+  .pta__accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .pta__accordion-icon { transition: transform 200ms ease; }
+  .pta__panel.is-active .pta__accordion-trigger[aria-expanded="true"] .pta__accordion-icon { transform: rotate(45deg); } /* + to × */
+
+  /* Accordion content animation */
+  .pta__accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 250ms ease;
+  }
+  .pta__panel.is-active .pta__accordion-content[data-open="true"] {
+    /* max-height set inline by JS for smooth height animation */
+  }
+
+  /* Two-column content on desktop */
+  .pta__content { line-height: 1.6; }
+  @media (min-width: 990px) {
+    .pta__tabs-nav { display: block; }
+    .pta__panel { border-top: none; }
+    .pta__accordion-trigger { display: none; } /* hide accordion headers on desktop */
+    .pta__accordion-content { max-height: none !important; overflow: visible; }
+    .pta__panels > .pta__panel { display: none; padding-top: 1rem; }
+    .pta__panels > .pta__panel.is-active { display: block; }
+
+    .pta__content--twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    /* Make long continuous HTML from metafields flow nicely */
+    .pta__content--twocol > * { break-inside: avoid; }
+  }
+
+  /* Dawn theme color tokens fallback */
+  :root {
+    --color-border: rgba(0,0,0,.08);
+  }
+{%- endstyle -%}
+
+<script>
+  (function() {
+    const section = document.querySelector('.product-tabs-accordion--{{ section.id }}');
+    if (!section) return;
+
+    const nav = section.querySelector('.pta__tabs-nav');
+    const tabButtons = section.querySelectorAll('.pta__tab-btn');
+    const panels = section.querySelectorAll('.pta__panel');
+
+    // Desktop tabs: switch visible panel
+    function activateTab(targetId) {
+      panels.forEach(p => {
+        const isTarget = p.id === targetId;
+        p.classList.toggle('is-active', isTarget);
+        if (isTarget) {
+          p.removeAttribute('hidden');
+        } else {
+          p.setAttribute('hidden', 'hidden');
+        }
+      });
+      tabButtons.forEach(btn => {
+        const selected = btn.getAttribute('data-tab-target') === targetId;
+        btn.classList.toggle('is-active', selected);
+        btn.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
+      // Ensure accordion content is marked open for the active panel on desktop
+      const activePanel = section.querySelector('#' + targetId);
+      if (activePanel) {
+        const acc = activePanel.querySelector('.pta__accordion-content');
+        if (acc) acc.dataset.open = 'true';
+      }
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.getAttribute('data-tab-target'));
+      });
+    });
+
+    // Mobile accordion: only one open at a time
+    const accordionTriggers = section.querySelectorAll('.pta__accordion-trigger');
+    accordionTriggers.forEach(trigger => {
+      const panel = trigger.closest('.pta__panel');
+      const content = panel.querySelector('.pta__accordion-content');
+
+      // Helper to set max-height for smooth animation
+      function setOpen(el, open) {
+        if (open) {
+          el.dataset.open = 'true';
+          // Temporarily set max-height to scrollHeight for transition
+          el.style.maxHeight = el.scrollHeight + 'px';
+        } else {
+          el.dataset.open = 'false';
+          el.style.maxHeight = '0px';
+        }
+      }
+
+      // Initialize default open state (first panel open on load)
+      if (panel.classList.contains('is-active')) {
+        setOpen(content, true);
+        trigger.setAttribute('aria-expanded', 'true');
+      } else {
+        setOpen(content, false);
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+        // Close all others
+        section.querySelectorAll('.pta__panel').forEach(p => {
+          const t = p.querySelector('.pta__accordion-trigger');
+          const c = p.querySelector('.pta__accordion-content');
+          if (t && c) {
+            t.setAttribute('aria-expanded', 'false');
+            setOpen(c, false);
+            p.classList.remove('is-active');
+          }
+        });
+
+        // Open this one (if it was closed)
+        if (!isOpen) {
+          trigger.setAttribute('aria-expanded', 'true');
+          setOpen(content, true);
+          panel.classList.add('is-active');
+        }
+      });
+
+      // Recompute height on content changes (e.g., images load inside metafield HTML)
+      const ro = new ResizeObserver(() => {
+        if (content.dataset.open === 'true') {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+      ro.observe(content);
+    });
+
+    // If no desktop nav (e.g., mobile), ensure only first is marked active
+    if (!nav) {
+      panels.forEach((p, i) => p.classList.toggle('is-active', i === 0));
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product Tabs & Accordion",
+  "tag": "section",
+  "class": "section product-tabs",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "label_details",
+      "label": "Details tab label",
+      "default": "Details"
+    },
+    {
+      "type": "text",
+      "id": "label_ingredients",
+      "label": "Ingredients tab label",
+      "default": "Ingredients"
+    },
+    {
+      "type": "text",
+      "id": "label_directions",
+      "label": "Directions & Dosage tab label",
+      "default": "Directions & Dosage"
+    },
+    {
+      "type": "text",
+      "id": "label_shipping",
+      "label": "Shipping & Returns tab label",
+      "default": "Shipping & Returns"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_returns",
+      "label": "Shipping & Returns content (applies to all products)",
+      "default": "<p>Standard shipping & returns info goes here.</p>"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Product Tabs & Accordion"
+    }
+  ]
+}
+{% endschema %}
