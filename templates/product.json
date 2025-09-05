@@ -93,10 +93,13 @@
       "name": "Product Tabs & Accordion",
       "settings": {
         "label_details": "Details",
+        "details_image": "shopify://shop_images/Placeholder_Image.png",
         "label_ingredients": "Ingredients",
+        "ingredients_text": "",
         "label_directions": "Directions & Dosage",
         "label_shipping": "Shipping & Returns",
-        "shipping_returns": "<p>Standard shipping & returns info goes here....</p>"
+        "shipping_col1": "",
+        "shipping_col2": ""
       }
     },
     "image-with-text": {
