@@ -97,9 +97,10 @@
         "label_ingredients": "Ingredients",
         "ingredients_text": "",
         "label_directions": "Directions & Dosage",
+        "directions_image": "shopify://shop_images/Placeholder_Image_1.png",
         "label_shipping": "Shipping & Returns",
-        "shipping_col1": "",
-        "shipping_col2": ""
+        "shipping_col1": "<p>After 25 years and millions of orders to customers around the world*, we know how important shipping is. That is why we continue to deliver the following to our customers including a commitment to dispatch your order within one business day.</p><p>For more information please view our shipping page</p>",
+        "shipping_col2": "<p>Not 100% happy with your purchase from us?</p><p>Send it back within 365 days (a full year) of the purchase for a full refund. Xtendlife does not want you to have any product from us that does not fully meet or exceed your expectations. When requesting a refund, the cost of shipping the items back is the responsibility of the customer, not Xtendlife.If you need to return a product for any reason - we make it easy for you. You can either call us on any of our contact numbers or you can email us with the details at refunds@xtend-life.com. For more information please view our refunds and returns page</p>"
       }
     },
     "image-with-text": {
