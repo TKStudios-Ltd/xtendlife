@@ -167,19 +167,15 @@
         border-bottom: 2px solid transparent;
     }
     .pta__tab-btn.is-active { border-color: currentColor; font-weight: 500; }
-
-  .pta__panel { border-top: 2px solid rgba(31, 25, 70, 1); }
-  .pta__panel.is-active:first-child { border-top: none; }
-
-  .pta__accordion-trigger {
-    width: 100%; text-align: left; background: none; border: none; padding: 1rem 0; font: inherit;
-    display: flex; align-items: center; justify-content: space-between; cursor: pointer;
-  }
-  .pta__accordion-icon { transition: transform 200ms ease; }
-  .pta__panel.is-active .pta__accordion-trigger[aria-expanded="true"] .pta__accordion-icon { transform: rotate(45deg); }
-
-  .pta__accordion-content { overflow: hidden; max-height: 0; transition: max-height 250ms ease; }
-
+    .pta__panel { border-top: 2px solid rgba(31, 25, 70, 1); }
+    .pta__panel.is-active:first-child { border-top: none; }
+    .pta__accordion-trigger {
+        width: 100%; text-align: left; background: none; border: none; padding: 1rem 0; font: inherit;
+        display: flex; align-items: center; justify-content: space-between; cursor: pointer;
+    }
+    .pta__accordion-icon { transition: transform 200ms ease; }
+    .pta__panel.is-active .pta__accordion-trigger[aria-expanded="true"] .pta__accordion-icon { transform: rotate(45deg); }
+    .pta__accordion-content { overflow: hidden; max-height: 0; transition: max-height 250ms ease; }
     .pta__content { line-height: 1.6; }
     .pta__content--twocol { display: flex; gap: 2rem; }
     .pta__content--twocol .pta__col { flex: 0 0 100%; }
@@ -213,6 +209,9 @@
     .pta__content--twocol .pta__col .ingredient-table .content table:not([class]) th a { color: #5fc4ff; }
     .pta__content--twocol .pta__col .ingredient-table .footer { display: block; padding-bottom: 2rem; }
     .pta__content--twocol .pta__col .ingredient-table .footer td { padding: 0 1.5rem; }
+    @media (max-width: 989px) {
+        .pta__panel { border-top: 2px solid rgba(31, 25, 70, 1); }
+    }
     @media (min-width: 990px) {
         .pta__tabs-nav { display: block; }
         .pta__accordion-trigger { display: none; }
