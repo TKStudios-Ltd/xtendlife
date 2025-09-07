@@ -27,7 +27,7 @@ product-info {
 }
 
 .product__info-wrapper {
-  padding: 2rem;
+  padding: 0 0 2rem;
 }
 
 @media screen and (min-width: 750px) {
