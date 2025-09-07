@@ -65,8 +65,7 @@
             id="pta-panel-{{ key }}-{{ section.id }}"
             class="pta__panel{% if is_active %} is-active{% endif %}"
             role="tabpanel"
-            aria-labelledby="pta-tab-{{ key }}-{{ section.id }}"
-            {% unless is_active %}hidden{% endunless %}>
+            aria-labelledby="pta-tab-{{ key }}-{{ section.id }}">
 
             <button class="pta__accordion-trigger" aria-expanded="{% if is_active %}true{% else %}false{% endif %}" aria-controls="pta-acc-content-{{ key }}-{{ section.id }}">
               <span class="pta__accordion-title">
