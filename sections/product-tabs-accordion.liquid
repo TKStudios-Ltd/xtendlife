@@ -150,15 +150,21 @@
         flex-wrap: wrap; 
     }
     .pta__tabs-nav-list li {
-        flex: 0 0 25%;
+        flex: 0 0 calc(25% - 1rem)%;
     }
     .pta__tab-btn {
         position: relative; 
-        padding: 0.75rem 0.25rem; 
+        font-family: var(--font-body-family);
+        font-size: 24px;
+        font-weight: 400;
+        color: rgba(var(--color-foreground), 1);
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: left;
+        margin-bottom: -2px;
         background: none; 
         border: none; 
         cursor: pointer; 
-        font: inherit; 
         border-bottom: 2px solid transparent;
     }
   .pta__tab-btn.is-active { border-color: currentColor; }
