@@ -68,15 +68,19 @@
             aria-labelledby="pta-tab-{{ key }}-{{ section.id }}">
 
             <button class="pta__accordion-trigger" aria-expanded="{% if is_active %}true{% else %}false{% endif %}" aria-controls="pta-acc-content-{{ key }}-{{ section.id }}">
-              <span class="pta__accordion-title">
-                {%- case key -%}
-                  {%- when 'details' -%}{{ section.settings.label_details }}
-                  {%- when 'ingredients' -%}{{ section.settings.label_ingredients }}
-                  {%- when 'directions' -%}{{ section.settings.label_directions }}
-                  {%- when 'shipping' -%}{{ section.settings.label_shipping }}
-                {%- endcase -%}
-              </span>
-              <span class="pta__accordion-icon" aria-hidden="true">+</span>
+                <span class="pta__accordion-title">
+                    {%- case key -%}
+                    {%- when 'details' -%}{{ section.settings.label_details }}
+                    {%- when 'ingredients' -%}{{ section.settings.label_ingredients }}
+                    {%- when 'directions' -%}{{ section.settings.label_directions }}
+                    {%- when 'shipping' -%}{{ section.settings.label_shipping }}
+                    {%- endcase -%}
+                </span>
+                <span class="pta__accordion-icon" aria-hidden="true">
+                    <span class="svg-wrapper">
+                        {{- 'icon-plus.svg' | inline_asset_content -}}
+                    </span>
+                </span>
             </button>
 
             <div class="pta__accordion-content" id="pta-acc-content-{{ key }}-{{ section.id }}">
