@@ -182,8 +182,9 @@
   .pta__accordion-content { overflow: hidden; max-height: 0; transition: max-height 250ms ease; }
 
   .pta__content { line-height: 1.6; }
-  .pta__content--twocol { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-  .pta__col > *:first-child { margin-top: 0; }
+    .pta__content--twocol { display: flex; gap: 3rem; }
+    .pta__content--twocol .pta__col { flex: 0 0 calc(50% - 3rem); }
+    .pta__col > *:first-child { margin-top: 0; }
   @media (min-width: 990px) {
     .pta__tabs-nav { display: block; }
     .pta__accordion-trigger { display: none; }
