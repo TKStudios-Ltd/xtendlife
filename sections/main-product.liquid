@@ -719,101 +719,31 @@
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
               {%- when 'sticky_bar' -%}
-  {%- assign link1_label = block.settings.link1_label | default: 'Details' -%}
-  {%- assign link1_selector = block.settings.link1_selector -%}
-  {%- assign link2_label = block.settings.link2_label | default: 'Reviews' -%}
-  {%- assign link2_selector = block.settings.link2_selector -%}
+                {%- assign link1_label = block.settings.link1_label | default: 'Details' -%}
+                {%- assign link1_selector = block.settings.link1_selector -%}
+                {%- assign link2_label = block.settings.link2_label | default: 'Reviews' -%}
+                {%- assign link2_selector = block.settings.link2_selector -%}
+                <div id="p-stickybar-{{ section.id }}" class="p-stickybar" hidden>
+                  <div class="page-width">
+                    <div class="p-stickybar__inner">
+                      <div class="p-stickybar__left">
+                        <p class="p-stickybar__title">{{ product.title | escape }}</p>
+                      </div>
 
-  <div id="p-stickybar-{{ section.id }}" class="p-stickybar" hidden>
-    <div class="page-width">
-      <div class="p-stickybar__inner">
-        <div class="p-stickybar__left">
-          <p class="p-stickybar__title">{{ product.title | escape }}</p>
-        </div>
+                      <nav class="p-stickybar__links" aria-label="Quick links">
+                        <a href="#" class="link" data-target="{{ link1_selector | escape }}">{{ link1_label }}</a>
+                        <a href="#" class="link" data-target="{{ link2_selector | escape }}">{{ link2_label }}</a>
+                      </nav>
 
-        <nav class="p-stickybar__links" aria-label="Quick links">
-          <a href="#" class="link" data-target="{{ link1_selector | escape }}">{{ link1_label }}</a>
-          <a href="#" class="link" data-target="{{ link2_selector | escape }}">{{ link2_label }}</a>
-        </nav>
-
-        <div class="p-stickybar__right">
-          <button type="button" class="button button--primary p-stickybar__btn">
-            {{ 'products.product.add_to_cart' | t }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function(){
-      const bar = document.getElementById('p-stickybar-{{ section.id }}');
-      const defaultTarget = document.getElementById('ProductInfo-{{ section.id }}');
-
-      if (!bar || !defaultTarget) return;
-
-      /* Read editor settings */
-      const targetSel = '{{ block.settings.trigger_selector | strip | escape }}';
-      const offsetPx  = {{ block.settings.trigger_offset | default: 0 | plus: 0 }};
-
-      /* Resolve trigger element */
-      let triggerBase = defaultTarget;
-      if (targetSel && document.querySelector(targetSel)) {
-        triggerBase = document.querySelector(targetSel);
-      }
-
-      /* Create trigger sentinel just AFTER the chosen element, with extra offset */
-      let sentinel = document.getElementById('p-stickybar-sentinel-{{ section.id }}');
-      if (!sentinel) {
-        sentinel = document.createElement('div');
-        sentinel.id = 'p-stickybar-sentinel-{{ section.id }}';
-        sentinel.setAttribute('aria-hidden', 'true');
-        sentinel.style.cssText = 'height:1px;width:1px; margin-top:'+ offsetPx +'px;';
-        triggerBase.insertAdjacentElement('afterend', sentinel);
-      }
-
-      /* Show when sentinel has moved above the viewport (i.e., scrolled past) */
-      const io = new IntersectionObserver((entries) => {
-        const e = entries[0];
-        const past = e.boundingClientRect.top < 0; // sentinel above viewport top
-        if (past) { bar.removeAttribute('hidden'); bar.classList.add('is-visible'); }
-        else { bar.classList.remove('is-visible'); bar.setAttribute('hidden','hidden'); }
-      }, { threshold: [0] });
-      io.observe(sentinel);
-
-      /* Submit the REAL product form */
-      bar.querySelector('.p-stickybar__btn')?.addEventListener('click', () => {
-        const form = document.querySelector('form[action$="/cart/add"][id^="product-form-"]');
-        if (form) { form.requestSubmit ? form.requestSubmit() : form.submit(); }
-      });
-
-      /* Smooth scroll for the two center links (with fallbacks) */
-      const FALLBACKS = {
-        details: [
-          '#pta-panel-details-{{ section.id }}',
-          '#pta-acc-content-details-{{ section.id }}',
-          '.product__description'
-        ],
-        reviews: [
-          '#Reviews', '#shopify-product-reviews', '#judgeme_product_reviews', '#looxReviews'
-        ]
-      };
-      function resolveTarget(sel, group){
-        if (sel && document.querySelector(sel)) return document.querySelector(sel);
-        const list = FALLBACKS[group] || [];
-        for (const s of list) { const el = document.querySelector(s); if (el) return el; }
-        return null;
-      }
-      bar.querySelectorAll('.p-stickybar__links a').forEach(a => {
-        a.addEventListener('click', (e) => {
-          const raw = a.getAttribute('data-target') || '';
-          const group = /review/i.test(a.textContent) ? 'reviews' : 'details';
-          const target = resolveTarget(raw, group);
-          if (target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
-        });
-      });
-    })();
-  </script>
+                      <div class="p-stickybar__right">
+                        <button type="button" class="button button--primary p-stickybar__btn">
+                          {{ 'products.product.add_to_cart' | t }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script src="{{ 'sticky-add-to-cart.js' | asset_url }}" defer="defer"></script>
 
             {%- endcase -%}
           {%- endfor -%}
@@ -2226,6 +2156,18 @@
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
+      ]
+    },
+    {
+      "type": "sticky_bar",
+      "name": "Sticky buy bar",
+      "settings": [
+        { "type": "text", "id": "link1_label", "label": "Center link 1 label", "default": "Details" },
+        { "type": "text", "id": "link1_selector", "label": "Center link 1 target selector (CSS)", "info": "e.g. .product-tabs-accordion, #pta-panel-details-<id>, .your-section" },
+        { "type": "text", "id": "link2_label", "label": "Center link 2 label", "default": "Reviews" },
+        { "type": "text", "id": "link2_selector", "label": "Center link 2 target selector (CSS)", "info": "e.g. #Reviews" },
+        { "type": "text", "id": "trigger_selector", "label": "Show after element (CSS selector)", "info": "Leave blank to use the product info area. Example: .product-tabs-accordion or #Reviews" },
+        { "type": "range", "id": "trigger_offset", "label": "Extra offset after element (px)", "min": 0, "max": 2000, "step": 100, "default": 300 }
       ]
     }
   ],
