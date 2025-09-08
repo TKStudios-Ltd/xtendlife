@@ -48,6 +48,8 @@ product-recommendations:not(.is-accordion) .complementary-products__container {
 }
 .complementary-slide .card__subheading {
   font-size: 12px;
+  margin: 2px 0 6px;
+  display: block;
 }
 
 .complementary-slide.complementary-slide--standard > ul {
