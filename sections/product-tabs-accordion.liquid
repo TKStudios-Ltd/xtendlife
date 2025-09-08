@@ -104,7 +104,7 @@
                       {%- endif -%}
                       <a class="button button--thin-arrow" href="/pages/ingredients" style="color: white;">Our Ingredients <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
                     </div>
-                    <div class="pta__col pta__col-2">
+                    <div class="pta__col pta__col-2 pta__col-ingredients">
                       {{ ingredients_meta }}
                     </div>
 
@@ -214,6 +214,7 @@
     .pta__content--twocol .pta__col .ingredient-table .content table:not([class]) th a { color: #5fc4ff; }
     .pta__content--twocol .pta__col .ingredient-table .footer { display: block; padding-bottom: 2rem; }
     .pta__content--twocol .pta__col .ingredient-table .footer td { padding: 0 1.5rem; }
+    .pta__col-ingredients p { font-size: 16px; }
     @media (max-width: 989px) {
         .pta__panels { border-bottom: 1px solid rgba(31, 25, 70, 1); margin-bottom: 4rem; }
         .pta__panel { border-top: none; }
