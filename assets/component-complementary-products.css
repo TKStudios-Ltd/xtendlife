@@ -93,7 +93,7 @@ product-recommendations.is-accordion + .accordion {
   padding: 0;
 }
 
-.complementary-products__container .card--horizontal .card__inner {
+/* .complementary-products__container .card--horizontal .card__inner {
   max-width: 20%;
 }
 
@@ -101,7 +101,7 @@ product-recommendations.is-accordion + .accordion {
   .complementary-products__container .card--horizontal .card__inner {
     max-width: 25%;
   }
-}
+} */
 
 .complementary-slide .card--text .card__content {
   grid-template-rows: minmax(0, 1fr) max-content auto;
