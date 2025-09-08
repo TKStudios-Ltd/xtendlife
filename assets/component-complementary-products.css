@@ -164,3 +164,20 @@ product-recommendations.is-accordion + .accordion {
     font-size: 1.3rem;
   }
 }
+
+
+/* Complementary (Swiper) */
+.comp { position: relative; }
+.comp__header { display:flex; align-items:center; gap:.75rem; }
+.comp__header .accordion__title { margin-right:auto; }
+
+/* Inline arrows */
+.comp__nav { display:flex; gap:.5rem; margin-left:auto; }
+.comp__btn { appearance:none; border:0; background:transparent; padding:.25rem; cursor:pointer;
+  width:38px; height:38px; display:grid; place-items:center; }
+.comp__btn.swiper-button-disabled { opacity:.4; pointer-events:none; }
+
+/* Show a peek of the next card */
+.comp__swiper { overflow: visible; }
+.comp__swiper .swiper-wrapper { display:flex; }
+.comp__swiper .swiper-slide { height:auto; }
