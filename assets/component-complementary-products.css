@@ -41,7 +41,7 @@ product-recommendations:not(.is-accordion) .complementary-products__container {
   opacity: 1 !important;
   transform: scale(1);
   object-fit: contain;
-  padding: 1.5rem;
+  padding: 2rem;
   object-position: center;
   transform-origin: center center;
   transition: transform .6s ease;
