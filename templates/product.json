@@ -80,10 +80,16 @@
             "enable_quick_add": false
           }
         },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {}
+        "sticky_bar_UrQJry": {
+          "type": "sticky_bar",
+          "settings": {
+            "link1_label": "Details",
+            "link1_selector": "",
+            "link2_label": "Reviews",
+            "link2_selector": "",
+            "trigger_selector": ".pta__panels",
+            "trigger_offset": 100
+          }
         }
       },
       "block_order": [
@@ -98,7 +104,7 @@
         "text_y7ay8t",
         "custom_liquid_dyRLCQ",
         "complementary_jVgWrd",
-        "description"
+        "sticky_bar_UrQJry"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -446,7 +452,7 @@
       ],
       "custom_css": [
         ".ts2-pagination {display: flex; gap: 0.5rem; margin-top: 5rem;}",
-        ".ts2-card {padding: 2rem 8rem 2rem 2rem; background: #F4F8FB;}"
+        ".ts2-card {padding: 2rem 8rem 2rem 2rem; background: #f4f8fb;}"
       ],
       "name": "Testimonial slider",
       "settings": {
