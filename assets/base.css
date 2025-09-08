@@ -4070,3 +4070,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   color: #1F1946;
   opacity: 1;
 }
+
+
+
+
+.compact.rc-selection__root {
+  background: red;
+}
