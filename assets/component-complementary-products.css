@@ -125,6 +125,15 @@ product-recommendations.is-accordion + .accordion {
   top: -45px;
   right: 0;
 }
+.complementary-products__container .slider-button .icon {
+  height: 2.3rem;
+}
+.complementary-products__container .slider-button--next .icon {
+  transform: rotate(0deg);
+}
+.complementary-products__container .slider-button--prev .icon {
+  transform: rotate(-180deg);
+}
 
 /* .complementary-products__container .card--horizontal .card__inner {
   max-width: 20%;
