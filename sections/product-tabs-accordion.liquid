@@ -88,41 +88,41 @@
                 {%- case key -%}
 
                   {%- when 'details' -%}
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-1">
                       {{ details_meta }}
                     </div>
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-2">
                       {%- if details_image != blank -%}
                         {{ details_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title }}
                       {%- endif -%}
                     </div>
 
                   {%- when 'ingredients' -%}
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-1">
                       {%- if ingredients_text != blank -%}
                         {{ ingredients_text }}
                       {%- endif -%}
                       <a class="button button--thin-arrow" href="/pages/ingredients" style="color: white;">Our Ingredients <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
                     </div>
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-2">
                       {{ ingredients_meta }}
                     </div>
 
                   {%- when 'directions' -%}
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-1">
                       {{ directions_meta }}
                     </div>
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-2">
                       {%- if directions_image != blank -%}
                         {{ directions_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title }}
                       {%- endif -%}
                     </div>
 
                   {%- when 'shipping' -%}
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-1">
                       {{ shipping_col1 }}
                     </div>
-                    <div class="pta__col">
+                    <div class="pta__col pta__col-2">
                       {{ shipping_col2 }}
                     </div>
 
