@@ -34,6 +34,11 @@ product-recommendations:not(.is-accordion) .complementary-products__container {
   gap: calc(var(--grid-mobile-vertical-spacing) + 8px);
 }
 
+@media (max-width: 749px) {
+  .complementary-products {
+    display: none !important;
+  }
+}
 @media screen and (min-width: 750px) {
   .complementary-slide > ul {
     gap: var(--grid-desktop-vertical-spacing);
