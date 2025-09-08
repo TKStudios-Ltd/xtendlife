@@ -30,6 +30,9 @@ product-info {
   padding: 0 0 2rem;
 }
 
+.product-hero__summary p {
+  line-height: 1.4;
+}
 .product-hero__summary ul {
   display: none;
 }
