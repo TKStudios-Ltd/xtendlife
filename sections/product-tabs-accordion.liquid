@@ -102,7 +102,7 @@
                       {%- if ingredients_text != blank -%}
                         {{ ingredients_text }}
                       {%- endif -%}
-                      <a class="button button--thin-arrow" href="/pages/ingredients" style="color: white;">Our Ingredients <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
+                      <a class="button button--thin-arrow" href="/pages/ingredients">Our Ingredients <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
                     </div>
                     <div class="pta__col pta__col-2 pta__col-ingredients">
                       {{ ingredients_meta }}
@@ -187,6 +187,7 @@
     .pta__content--twocol .pta__col img { width: 100%; height: auto; }
     .pta__content--twocol .pta__col strong { font-weight: 500; }
     .pta__content--twocol .pta__col a { color: rgba(31, 25, 70, 1); }
+    .pta__content--twocol .pta__col .button--thin-arrow { color: white; margin-top: 2rem; }
     .pta__content--twocol .pta__col > *:first-child { margin-top: 0; }
     .pta__content--twocol .pta__col .ingredient-table {
         margin: 0;
