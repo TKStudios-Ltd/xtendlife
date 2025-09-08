@@ -574,36 +574,27 @@
                     <aside
                       aria-label="{{ 'accessibility.complementary_products' | t }}"
                       {{ block.shopify_attributes -}}
-                      {% if block.settings.make_collapsible_row %}class="product__accordion accordion"{% endif %}
+                      {% if block.settings.make_collapsible_row %}
+                        class="product__accordion accordion"
+                      {% endif %}
                     >
-                      <div id="comp-{{ section.id }}-{{ block.id }}" class="complementary-products__container comp" data-swiper-root>
+                      <div class="complementary-products__container">
                         {%- if block.settings.make_collapsible_row -%}
                           <details id="Details-{{ block.id }}-{{ section.id }}" open>
                             <summary>
-                        {%- endif -%}
-
-                        <div class="summary__title comp__header">
+                        {%- endif %}
+                        <div class="summary__title">
                           {%- if block.settings.make_collapsible_row -%}
                             {% render 'icon-accordion', icon: block.settings.icon %}
+                            <h4 class="accordion__title">{{ block.settings.block_heading }}</h4>
+                          {%- else -%}
+                            <h4 class="accordion__title">{{ block.settings.block_heading }}</h4>
                           {%- endif -%}
-                          <h4 class="accordion__title">{{ block.settings.block_heading }}</h4>
-
-                          <!-- inline nav beside the title -->
-                          <div class="comp__nav" aria-hidden="false">
-                            <button class="comp__btn ts-prev" type="button" aria-label="Previous">
-                              <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-                            </button>
-                            <button class="comp__btn ts-next" type="button" aria-label="Next">
-                              <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-                            </button>
-                          </div>
                         </div>
-
                         {%- if block.settings.make_collapsible_row -%}
                           {{- 'icon-caret.svg' | inline_asset_content -}}
                           </summary>
                         {%- endif -%}
-
                         <!-- Swiper (auto-initialized by swiper-hydrator.js) -->
                         <div
                           class="swiper tswiper comp__swiper"
@@ -632,23 +623,19 @@
                             {%- endfor -%}
                           </div>
                         </div>
-
                         {%- if block.settings.make_collapsible_row -%}
                           </details>
                         {%- endif -%}
                       </div>
                     </aside>
                   {%- endif -%}
-
                   {{ 'component-card.css' | asset_url | stylesheet_tag }}
                   {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
-                  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
                   {%- if block.settings.enable_quick_add -%}
                     {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-                    <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
+                    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
                   {%- endif -%}
                 </product-recommendations>
-
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
