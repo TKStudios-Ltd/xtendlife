@@ -67,6 +67,19 @@
             "custom_liquid": "<h4>Key Benefits</h4>\n<div class=\"product-benefits__icons\">\n          {% for img_data in product.metafields.custom.key_benefits.value %}\n              <div class=\"product-benefits__icon\">\n              <img src=\"{{ img_data.icon_image | file_url }}\">\n                <p>{{ img_data.benefit_text }} </p>\n              </div>\n          {% endfor %}\n          </div>"
           }
         },
+        "complementary_jVgWrd": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Bundle and save",
+            "make_collapsible_row": false,
+            "icon": "none",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "portrait",
+            "enable_quick_add": false
+          }
+        },
         "description": {
           "type": "description",
           "disabled": true,
@@ -84,6 +97,7 @@
         "buy_buttons",
         "text_y7ay8t",
         "custom_liquid_dyRLCQ",
+        "complementary_jVgWrd",
         "description"
       ],
       "settings": {
