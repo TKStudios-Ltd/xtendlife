@@ -54,6 +54,19 @@
             "show_gift_card_recipient": false
           }
         },
+        "text_y7ay8t": {
+          "type": "text",
+          "settings": {
+            "text": "Free shipping on orders over $100. Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>",
+            "text_style": "body"
+          }
+        },
+        "custom_liquid_dyRLCQ": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-benefits__icons\">\n          {% for img_data in product.metafields.custom.key_benefits.value %}\n              <div class=\"product-benefits__icon\">\n              <img src=\"{{ img_data.icon_image | file_url }}\">\n                <p>{{ img_data.benefit_text }} </p>\n              </div>\n          {% endfor %}\n          </div>"
+          }
+        },
         "description": {
           "type": "description",
           "disabled": true,
@@ -69,6 +82,8 @@
         "quantity_selector",
         "recharge_subscriptions_subscription_widget_v2_qcnK66",
         "buy_buttons",
+        "text_y7ay8t",
+        "custom_liquid_dyRLCQ",
         "description"
       ],
       "settings": {
