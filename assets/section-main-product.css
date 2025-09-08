@@ -1625,6 +1625,9 @@ a.product__text {
 .product-form__submit-wrap {
   flex: 0 0 calc(100% - 135px);
 }
+
+/* Key Benefits */
+
 .product-benefits__icons {
   display: flex;
   gap: 0.75rem;
@@ -1647,4 +1650,12 @@ a.product__text {
   text-align: center;
   font-size: 1rem;
   margin: 0;
+}
+
+/* Sitcky Bar */
+
+.p-stickybar {
+  background: white;
+  border-radius: 100px;
+  padding: 1rem 2rem;
 }
