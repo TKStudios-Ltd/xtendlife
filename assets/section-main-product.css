@@ -1627,7 +1627,7 @@ a.product__text {
   gap: 0.75rem;
 }
 .product-benefits__icon {
-  flex: 0 0 33.3333%;
+  flex: 0 0 calc(33.3333% - 0.5rem);
   display: flex;
   gap: 0.75rem;
   background: rgba(244, 248, 251, 1);
