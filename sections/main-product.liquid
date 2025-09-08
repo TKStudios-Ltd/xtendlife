@@ -564,94 +564,84 @@
                   </div>
                 {%- endif -%}
               {%- when 'complementary' -%}
+  {%- when 'complementary' -%}
+  {%- assign limit = block.settings.product_list_limit | default: 8 -%}
+
   <product-recommendations
+    id="PR-{{ block.id }}-{{ section.id }}"
     class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
-    data-url="{{ routes.product_recommendations_url }}?limit={{ block.settings.product_list_limit }}&intent=complementary"
-    data-section-id="{{ section.id }}"
-    data-product-id="{{ product.id }}"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ limit }}&intent=complementary"
+    {{ block.shopify_attributes }}
   >
-    <h2>Test 1</h2>
-    {%- if recommendations.performed and recommendations.products_count > 0 -%}
-      <aside
-        aria-label="{{ 'accessibility.complementary_products' | t }}"
-        {{ block.shopify_attributes -}}
-        {% if block.settings.make_collapsible_row %}class="product__accordion accordion"{% endif %}
-      >
-        <h2>Test 2</h2>
-        <div class="complementary-products__container comp" data-swiper-root>
+    {%- comment -%}
+      We render a visible header/shell immediately so the page never looks blank.
+      When the fetch returns, we replace ALL innerHTML with the server-rendered content.
+    {%- endcomment -%}
+    <aside aria-label="{{ 'accessibility.complementary_products' | t }}"{% if block.settings.make_collapsible_row %} class="product__accordion accordion"{% endif %}>
+      <div class="complementary-products__container">
+        {%- if block.settings.make_collapsible_row -%}
+          <details id="Details-{{ block.id }}-{{ section.id }}" open>
+            <summary>
+        {%- endif -%}
+        <div class="summary__title">
           {%- if block.settings.make_collapsible_row -%}
-            <details id="Details-{{ block.id }}-{{ section.id }}" open>
-              <summary>
+            {% render 'icon-accordion', icon: block.settings.icon %}
           {%- endif -%}
-          <h2>Test 3</h2>
-
-          <div class="summary__title comp__header">
-            {%- if block.settings.make_collapsible_row -%}
-              {% render 'icon-accordion', icon: block.settings.icon %}
-            {%- endif -%}
-            <h4 class="accordion__title">{{ block.settings.block_heading }}</h4>
-
-            <!-- Prev/Next beside the title (scoped via data-swiper-root) -->
-            <div class="comp__nav">
-              <button class="comp__btn ts-prev" type="button" aria-label="{{ 'general.slider.previous_slide' | t }}">
-                <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-              </button>
-              <button class="comp__btn ts-next" type="button" aria-label="{{ 'general.slider.next_slide' | t }}">
-                <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-              </button>
-            </div>
-          </div>
-
-          {%- if block.settings.make_collapsible_row -%}
-            {{- 'icon-caret.svg' | inline_asset_content -}}
-            </summary>
-          {%- endif -%}
-
-          <!-- Swiper (hydrator auto-inits; no extra JS) -->
-          <div
-            class="swiper tswiper comp__swiper"
-            data-mode="fractional"
-            data-slides="1.2|750:2.05|990:2.05"
-            data-gap="16"
-            data-speed="400"
-          >
-            <div class="swiper-wrapper">
-              {%- assign skip_card_product_styles = false -%}
-              {%- for rec in recommendations.products -%}
-                <div class="swiper-slide">
-                  {%- assign quick_add = block.settings.enable_quick_add | default: false | ternary: 'standard', 'none' -%}
-                  {% render 'card-product',
-                    card_product: rec,
-                    media_aspect_ratio: block.settings.image_ratio,
-                    show_secondary_image: false,
-                    lazy_load: false,
-                    skip_styles: skip_card_product_styles,
-                    quick_add: quick_add,
-                    section_id: section.id,
-                    horizontal_class: true,
-                    horizontal_quick_add: true
-                  %}
-                  {%- assign skip_card_product_styles = true -%}
-                </div>
-              {%- endfor -%}
-            </div>
-          </div>
-
-          {%- if block.settings.make_collapsible_row -%}
-            </details>
-          {%- endif -%}
+          <h4 class="accordion__title">{{ block.settings.block_heading }}</h4>
         </div>
-      </aside>
-    {%- endif -%}
+        {%- if block.settings.make_collapsible_row -%}
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+        {%- endif -%}
+
+        <!-- Lightweight placeholder while we fetch -->
+        <div class="complementary-products__loading" aria-hidden="true" style="min-height: 80px;"></div>
+
+        {%- if block.settings.make_collapsible_row -%}
+          </details>
+        {%- endif -%}
+      </div>
+    </aside>
 
     {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
-    {{ 'component-slider.css' | asset_url | stylesheet_tag }}
     {%- if block.settings.enable_quick_add -%}
       {{ 'quick-add.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
     {%- endif -%}
   </product-recommendations>
+
+  <script>
+    (function(){
+      const root = document.getElementById('PR-{{ block.id }}-{{ section.id }}');
+      if (!root) return;
+
+      const url = root.getAttribute('data-url');
+      if (!url) return;
+
+      // Fetch the server-rendered recommendations for this exact section+product
+      fetch(url, { credentials: 'same-origin' })
+        .then(r => r.text())
+        .then(html => {
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          // The endpoint returns an entire section; grab the <product-recommendations> in it
+          const pr = doc.querySelector('product-recommendations');
+          if (!pr) return; // nothing came back (no rules / app not configured)
+
+          // Replace ALL inner content so Dawn's slider markup/events are intact
+          root.innerHTML = pr.innerHTML;
+
+          // Nudge Dawn’s slider/accordion scripts in case they need to bind on dynamic HTML
+          // (safe no-op if those listeners aren’t present)
+          document.dispatchEvent(new CustomEvent('shopify:section:load', { detail: { sectionId: '{{ section.id }}' }}));
+          window.requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+        })
+        .catch(err => {
+          // Leave the shell visible; optionally log
+          console.error('Complementary fetch failed:', err);
+        });
+    })();
+  </script>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
