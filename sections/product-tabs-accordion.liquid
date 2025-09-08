@@ -98,13 +98,13 @@
                     </div>
 
                   {%- when 'ingredients' -%}
-                    <div class="pta__col pta__col-1">
+                    <div class="pta__col pta__col-1 pta__col-i">
                       {%- if ingredients_text != blank -%}
                         {{ ingredients_text }}
                       {%- endif -%}
                       <a class="button button--thin-arrow" href="/pages/ingredients">Our Ingredients <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
                     </div>
-                    <div class="pta__col pta__col-2 pta__col-ingredients">
+                    <div class="pta__col pta__col-2 pta__col-i">
                       {{ ingredients_meta }}
                     </div>
 
@@ -215,7 +215,7 @@
     .pta__content--twocol .pta__col .ingredient-table .content table:not([class]) th a { color: #5fc4ff; }
     .pta__content--twocol .pta__col .ingredient-table .footer { display: block; padding-bottom: 2rem; }
     .pta__content--twocol .pta__col .ingredient-table .footer td { padding: 0 1.5rem; }
-    .pta__col-ingredients p { font-size: 16px; }
+    .pta__content--twocol .pta__col-2.pta__col-i p { font-size: 16px; }
     @media (max-width: 989px) {
         .pta__panels { border-bottom: 1px solid rgba(31, 25, 70, 1); margin-bottom: 4rem; }
         .pta__panel { border-top: none; }
@@ -239,7 +239,7 @@
         .pta__content--twocol .pta__col > *:first-child { padding-right: 2rem; }
         .pta__content--twocol .pta__col p { font-size: 20px; line-height: 1.35; }
         .pta__content--twocol .pta__col h3 { font-size: 24px; }
-        #pta-acc-content-ingredients-template--17170117558359__product_tabs_accordion_YzW3EK .pta__col p { font-size: 24px; line-height: 1.2; }
+        .pta__content--twocol .pta__col-1.pta__col-i p { font-size: 24px; line-height: 1.2; }
     }
 
   :root { --color-border: rgba(0,0,0,.08); }
