@@ -608,7 +608,7 @@
                                   {{- 'icon-arrow.svg' | inline_asset_content -}}
                                 </span>
                               </button>
-                              {% comment %} <div class="slider-counter slider-counter--{{ block.settings.pagination_style }}{% if block.settings.pagination_style == 'counter' or block.settings.pagination_style == 'numbers' %} caption{% endif %}">
+                              <div class="slider-counter slider-counter--{{ block.settings.pagination_style }}{% if block.settings.pagination_style == 'counter' or block.settings.pagination_style == 'numbers' %} caption{% endif %}">
                                 {%- if block.settings.pagination_style == 'counter' -%}
                                   <span class="slider-counter--current">1</span>
                                   <span aria-hidden="true"> / </span>
@@ -631,7 +631,7 @@
                                     {%- endfor -%}
                                   </div>
                                 {%- endif -%}
-                              </div> {% endcomment %}
+                              </div>
                               <button
                                 type="button"
                                 class="slider-button slider-button--next"
