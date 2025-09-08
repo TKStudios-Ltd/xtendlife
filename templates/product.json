@@ -20,11 +20,10 @@
           "type": "title",
           "settings": {}
         },
-        "caption": {
-          "type": "text",
+        "custom_liquid_7HtAwq": {
+          "type": "custom_liquid",
           "settings": {
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-            "text_style": "body"
+            "custom_liquid": "{%- if product.metafields.custom_fields.product_summary != blank -%}\n{%- assign product_summary = product.metafields.custom_fields.product_summary -%}\n{%- endif -%}\n{%- if product_summary != blank -%}\n<div class=\"product-hero__summary\">{{ product_summary }}</div>\n{% endif %}"
           }
         },
         "price": {
@@ -64,7 +63,7 @@
       "block_order": [
         "rating_kqeM8T",
         "title",
-        "caption",
+        "custom_liquid_7HtAwq",
         "price",
         "variant_picker",
         "quantity_selector",
