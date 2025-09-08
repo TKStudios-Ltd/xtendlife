@@ -30,6 +30,10 @@ product-info {
   padding: 0 0 2rem;
 }
 
+.product-hero__summary ul {
+  display: none;
+}
+
 @media screen and (min-width: 750px) {
   .product__column-sticky {
     display: block;
