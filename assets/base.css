@@ -3936,7 +3936,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .custom-gallery-thumbnails .swiper-wrapper{
   display:flex !important;
   flex-direction:column !important;
-  gap:1.5rem;
+  gap: 0.3rem;
 }
 .custom-gallery-thumbnails .swiper-slide{
   width:100% !important;
