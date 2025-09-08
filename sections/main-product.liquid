@@ -570,17 +570,20 @@
     data-section-id="{{ section.id }}"
     data-product-id="{{ product.id }}"
   >
+    <h2>Test 1</h2>
     {%- if recommendations.performed and recommendations.products_count > 0 -%}
       <aside
         aria-label="{{ 'accessibility.complementary_products' | t }}"
         {{ block.shopify_attributes -}}
         {% if block.settings.make_collapsible_row %}class="product__accordion accordion"{% endif %}
       >
+        <h2>Test 2</h2>
         <div class="complementary-products__container comp" data-swiper-root>
           {%- if block.settings.make_collapsible_row -%}
             <details id="Details-{{ block.id }}-{{ section.id }}" open>
               <summary>
           {%- endif -%}
+          <h2>Test 3</h2>
 
           <div class="summary__title comp__header">
             {%- if block.settings.make_collapsible_row -%}
