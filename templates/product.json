@@ -393,9 +393,9 @@
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
         "media_max_width": 550,
-        "panel_bg": "#f4f8fb",
+        "panel_bg": "#ffffff",
         "panel_text": "#1f1946",
-        "color_scheme": "color-scheme-1"
+        "color_scheme": "color-scheme-5"
       }
     },
     "testimonial_slider_xafpPP": {
@@ -451,7 +451,7 @@
       "name": "Testimonial slider",
       "settings": {
         "heading": "Approved by experts",
-        "bg_color": "#f4f8fb",
+        "bg_color": "#ffffff",
         "gap": 20,
         "speed": 500,
         "autoplay": false,
@@ -533,21 +533,6 @@
         "quick_add": "standard",
         "padding_top": 60,
         "padding_bottom": 100
-      }
-    },
-    "175456835163db47af": {
-      "type": "apps",
-      "blocks": {
-        "klaviyo_reviews_product_reviews_wTQyaQ": {
-          "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews/db20e365-d984-4ac4-9655-e1588d951ca9",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "klaviyo_reviews_product_reviews_wTQyaQ"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "featured_blog_rTpRWP": {
@@ -664,7 +649,6 @@
     "testimonial_slider_xafpPP",
     "image_with_text_KCQTNP",
     "related-products",
-    "175456835163db47af",
     "featured_blog_rTpRWP",
     "newsletter_qKtmmP",
     "image_banner_eNjqNP"
