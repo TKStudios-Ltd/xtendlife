@@ -36,6 +36,11 @@ product-recommendations:not(.is-accordion) .complementary-products__container {
 
 .complementary-slide .card__media .media img {
   opacity: 1 !important;
+  transform: scale(1);
+  transition: transform .8s ease;
+}
+.complementary-slide product-card-wrapper:hover .card__media .media img {
+  transform: scale(1.05);
 }
 
 .complementary-slide.complementary-slide--standard > ul {
