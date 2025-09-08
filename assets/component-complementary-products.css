@@ -41,8 +41,11 @@ product-recommendations:not(.is-accordion) .complementary-products__container {
   opacity: 1 !important;
   transform: scale(1);
   object-fit: contain;
-  padding: 2rem;
-  transition: transform .8s ease;
+  padding: 1.5rem;
+  object-position: center;
+  transform-origin: center center;
+  transition: transform .6s ease;
+  will-change: transform;
 }
 .complementary-slide .product-card-wrapper:hover .card__media .media img {
   transform: scale(1.05);
