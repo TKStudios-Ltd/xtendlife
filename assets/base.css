@@ -4074,6 +4074,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 /* Klaviyo Review */
 
-.kl_reviews__summary__image_grid {
+.kl_reviews__summary__image_grid,
+.kl_reviews__review__image_row {
   display: none;
 }
