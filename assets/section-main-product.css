@@ -1664,7 +1664,7 @@ a.product__text {
   transform: translateY(100%);
   opacity: 0;
   transition: transform .25s ease, opacity .2s ease;
-  pointer-events: none; /* no clicks while hidden */
+  pointer-events: none;
 }
 .p-stickybar.is-visible{
   transform: translateY(0);

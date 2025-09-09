@@ -1,174 +1,98 @@
-/* assets/sticky-add-to-cart.js */
-(function () {
-  'use strict';
+/* sticky-add-to-cart.js */
+(() => {
+  const DEBUG = false;
+  const log = (...a) => DEBUG && console.log('[StickyBar]', ...a);
 
-  console.info('[StickyBar] script loaded');
+  // Prevent double init
+  if (window.__stickyBarInit) return;
+  window.__stickyBarInit = true;
 
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  // Find all sticky bars on the page (usually 1)
+  const bars = document.querySelectorAll('.p-stickybar[data-section-id]');
+  if (!bars.length) return log('no bars found');
 
-  function logFactory(bar) {
-    const DEBUG = bar?.dataset?.debug === '1' || window.STICKY_BAR_DEBUG === true;
-    return (...args) => { if (DEBUG) console.log('[StickyBar]', ...args); };
-  }
+  const pageY = () => window.pageYOffset || document.documentElement.scrollTop || 0;
 
-  function resolveTarget(customSel, fallbacks, log) {
-    if (customSel) {
-      const el = document.querySelector(customSel);
-      log('resolveTarget(custom)', customSel, '->', !!el);
-      if (el) return el;
-    }
-    for (const s of fallbacks) {
-      if (!s) continue;
-      const el = document.querySelector(s);
-      log('resolveTarget(fallback)', s, '->', !!el);
-      if (el) return el;
-    }
-    log('resolveTarget: nothing found');
-    return null;
-  }
-
-  function initBar(bar) {
-    if (!bar || bar.dataset.ready === '1') return;
-    const log = logFactory(bar);
+  bars.forEach((bar) => {
+    if (bar.dataset.ready === '1') return;
     bar.dataset.ready = '1';
 
-    const sectionId     = bar.dataset.sectionId;
-    const triggerSel    = bar.dataset.triggerSelector;
-    const triggerOffset = parseInt(bar.dataset.triggerOffset || '300', 10);
+    // Remove HTML hidden attribute; JS controls visibility via class
+    if (bar.hasAttribute('hidden')) bar.removeAttribute('hidden');
 
-    const link1Sel = bar.dataset.link1Selector;
-    const link2Sel = bar.dataset.link2Selector;
-
-    log('initBar', { sectionId, triggerSel, triggerOffset, link1Sel, link2Sel });
-
-    // Basic environment checks
-    const stickySupported = CSS && CSS.supports && (CSS.supports('position', 'sticky') || CSS.supports('position', '-webkit-sticky'));
-    log('CSS position:sticky support =', stickySupported);
-
-    // Reasonable defaults
-    const DETAILS_FALLBACKS = [
-      `#pta-panel-details-${sectionId}`,
-      `#pta-acc-content-details-${sectionId}`,
-      '.product__description'
-    ];
-    const REVIEWS_FALLBACKS = ['#Reviews', '#shopify-product-reviews', '#judgeme_product_reviews', '#looxReviews'];
-
-    // Determine the element after which we start showing the bar
-    const defaultTrigger = document.getElementById(`ProductInfo-${sectionId}`);
-    const triggerBase = resolveTarget(
-      triggerSel,
-      [`.product-tabs-accordion--${sectionId}`, defaultTrigger && `#${defaultTrigger.id}`],
-      log
-    );
-
-    if (!triggerBase) {
-      log('ABORT: No trigger element found. Set a valid "Show after element" selector in the block settings.');
-      return;
-    }
-    log('Trigger element =', triggerBase);
-
-    // Create sentinel after trigger + offset
-    let sentinel = document.getElementById(`p-stickybar-sentinel-${sectionId}`);
-    if (!sentinel) {
-      sentinel = document.createElement('div');
-      sentinel.id = `p-stickybar-sentinel-${sectionId}`;
-      sentinel.setAttribute('aria-hidden', 'true');
-      sentinel.style.cssText = `height:1px;width:1px;margin-top:${triggerOffset}px;`;
-      triggerBase.insertAdjacentElement('afterend', sentinel);
-      log('Sentinel created after trigger with offset', triggerOffset);
-    } else {
-      log('Sentinel already present');
+    // Portal to <body> so no parent transform/sticky can trap it
+    if (bar.parentElement !== document.body) {
+      document.body.appendChild(bar);
+      log('moved to <body>');
     }
 
-    function show() {
-      if (bar.hidden) { bar.hidden = false; log('bar.hidden -> false'); }
-      bar.classList.add('is-visible');
-      log('STATE: show (is-visible added)');
+    // Read config
+    const triggerSelector = bar.dataset.triggerSelector || '#product-tabs-accordion';
+    const offset = parseInt(bar.dataset.triggerOffset || '0', 10);
+    const minScroll = parseInt(bar.dataset.minScroll || '60', 10); // user must scroll at least this much
+
+    // Links mapping (from schema)
+    const mapLinkToken = (token) => {
+      if (!token) return null;
+      if (token === 'link1') return bar.dataset.link1Selector || null;
+      if (token === 'link2') return bar.dataset.link2Selector || null;
+      return token; // assume it's already a selector like "#id" or ".class"
+    };
+
+    const trigger = document.querySelector(triggerSelector);
+    if (!trigger) {
+      log('trigger not found:', triggerSelector, '→ keeping bar hidden');
     }
 
-    function hide() {
-      bar.classList.remove('is-visible');
-      if (!bar.hidden) { bar.hidden = true; log('bar.hidden -> true'); }
-      log('STATE: hide (is-visible removed)');
-    }
+    const baselineY = pageY(); // where the page was when loaded
+    const trigBottom = () =>
+      trigger ? trigger.getBoundingClientRect().bottom + pageY() : Infinity;
 
-    // IntersectionObserver (preferred)
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        const e = entries[0];
-        const top = e.boundingClientRect.top;
-        const pastTop = top < 0;
-        log('IO update → sentinel.top=', Math.round(top), 'pastTop=', pastTop, 'isIntersecting=', e.isIntersecting);
-        pastTop ? show() : hide();
-      }, { threshold: [0] });
-      io.observe(sentinel);
-      log('IntersectionObserver attached');
-    } else {
-      // Fallback: scroll listener
-      log('IntersectionObserver not supported; using scroll fallback');
-      const onScroll = () => {
-        const rect = sentinel.getBoundingClientRect();
-        const pastTop = rect.top < 0;
-        log('Scroll update → sentinel.top=', Math.round(rect.top), 'pastTop=', pastTop);
-        pastTop ? show() : hide();
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    }
+    // Ensure hidden on load
+    bar.classList.remove('is-visible');
 
-    // Hook up add-to-cart to the main product form
-    const findProductForm = () => document.querySelector('form[action$="/cart/add"][id^="product-form-"]');
-    const btn = bar.querySelector('.p-stickybar__btn');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const form = findProductForm();
-        log('Add to cart clicked; form found =', !!form, form);
-        if (form) { (form.requestSubmit ? form.requestSubmit() : form.submit()); }
-      });
-    } else {
-      log('WARNING: .p-stickybar__btn not found inside bar');
-    }
+    const onScroll = () => {
+      const y = pageY();
+      const viewBottom = y + window.innerHeight;
 
-    // Smooth-scroll links
-    bar.querySelectorAll('.p-stickybar__links a').forEach(a => {
-      a.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        const which = a.getAttribute('data-target'); // "link1" | "link2"
-        const custom = which === 'link1' ? link1Sel : link2Sel;
-        const groupFallbacks = which === 'link1' ? DETAILS_FALLBACKS : REVIEWS_FALLBACKS;
-        const target = resolveTarget(custom, groupFallbacks, log);
-        log('Nav click', which, '→ target =', target);
+      // Show only after:
+      // 1) user scrolled at least minScroll beyond baseline, AND
+      // 2) viewport bottom passes trigger bottom minus offset
+      const shouldShow =
+        y > baselineY + minScroll &&
+        trigger &&
+        viewBottom >= (trigBottom() - offset);
+
+      bar.classList.toggle('is-visible', !!shouldShow);
+      log('update', { y, baselineY, minScroll, viewBottom, trigBtm: trigBottom(), offset, shouldShow });
+    };
+
+    // Wire up
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    // Run once after paint (keeps it hidden unless conditions already met)
+    requestAnimationFrame(onScroll);
+
+    // Links → smooth scroll
+    bar.querySelectorAll('.p-stickybar__links .link').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        let sel = a.dataset.target;
+        sel = mapLinkToken(sel);
+        const target = sel ? document.querySelector(sel) : null;
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else log('link target not found for', a, '→', sel);
       });
     });
 
-    // Helpful warnings about parent overflow (can break sticky)
-    const parents = [];
-    let p = bar.parentElement;
-    while (p && parents.length < 6) { parents.push(p); p = p.parentElement; }
-    const breaking = parents.find(el => {
-      const cs = getComputedStyle(el);
-      return /(auto|scroll|hidden)/.test(cs.overflow) || /(auto|scroll|hidden)/.test(cs.overflowY);
-    });
-    if (breaking) log('WARNING: Ancestor has overflow that can break sticky →', breaking);
-  }
-
-  function scan(root) {
-    (root || document).querySelectorAll('.p-stickybar').forEach(initBar);
-  }
-
-  // Initial scan
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => scan(), { once: true });
-  } else {
-    scan();
-  }
-
-  // Theme editor / dynamic content
-  if ('Shopify' in window && Shopify.designMode) {
-    document.addEventListener('shopify:section:load', (e) => { console.info('[StickyBar] section:load'); scan(e.target); });
-    document.addEventListener('shopify:block:select', (e) => { console.info('[StickyBar] block:select'); scan(e.target); });
-    document.addEventListener('shopify:block:deselect', (e) => { console.info('[StickyBar] block:deselect'); scan(e.target); });
-  }
+    // Add to cart → submit the product form on the page
+    const addBtn = bar.querySelector('.p-stickybar__btn');
+    if (addBtn) {
+      // Dawn product form id starts with "product-form-"
+      const productForm =
+        document.querySelector('form[id^="product-form-"]') ||
+        document.querySelector('product-form form');
+      addBtn.addEventListener('click', () => productForm?.requestSubmit());
+    }
+  });
 })();
-
