@@ -1639,7 +1639,7 @@ a.product__text {
   gap: 0;
   background: rgba(244, 248, 251, 1);
   border-radius: 4px;
-  padding: 1.25rem;
+  padding: 0.5rem 1.25rem 1.25rem;
   flex-direction: column;
   align-items: center;
 }
