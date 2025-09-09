@@ -4077,9 +4077,15 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .js .kl_reviews__summary__image_grid,
 .js .kl_reviews__review__image_row,
 .js .kl_reviews__histogram,
-.js .kl_reviews__filters {
+.js .kl_reviews__filters,
+.js .kl_reviews__answers__view_all.kl_reviews__answers__view_all.kl_reviews__answers__view_all {
   display: none !important;
 }
 .js .reviews_all_container {
   padding: 2rem 0 !important;
+}
+.js .kl_reviews__summary {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
