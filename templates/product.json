@@ -312,9 +312,10 @@
     "product_faqs_collapsible_wJ8Q99": {
       "type": "product-faqs-collapsible",
       "custom_css": [
-        ".accordion__title {font-size: 24px; font-weight: 400;}",
+        ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
         ".icon-caret {display: none;}",
-        ".accordion__content p {line-height: 1.4;}"
+        ".accordion__content p {line-height: 1.4;}",
+        "@media (max-width: 749px) {.accordion__title, .accordion__content p {font-size: 1.6rem; }}"
       ],
       "name": "Product FAQs (metafield)",
       "settings": {
