@@ -4160,6 +4160,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   -webkit-appearance: none;
   appearance: none;
 }
-.js .kl_reviews__stars_badge svg path {
+.js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item .kl_reviews__stars_badge svg path {
   fill: rgb(var(--color-foreground)) !important;
 }
