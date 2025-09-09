@@ -4089,3 +4089,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   justify-content: space-between;
   width: 100%;
 }
+.js .kl_reviews__summary__grid--1-2:not(.kl_preview *) .kl_reviews__summary__rating--1 {
+  flex-basis: 100% !important;
+}
