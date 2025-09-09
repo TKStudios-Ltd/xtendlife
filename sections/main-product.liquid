@@ -723,15 +723,26 @@
                 {%- assign link1_selector = block.settings.link1_selector -%}
                 {%- assign link2_label = block.settings.link2_label | default: 'Reviews' -%}
                 {%- assign link2_selector = block.settings.link2_selector -%}
-                <div id="p-stickybar-{{ section.id }}" class="p-stickybar" hidden>
+
+                <div
+                  id="p-stickybar-{{ section.id }}"
+                  class="p-stickybar"
+                  hidden
+                  data-section-id="{{ section.id }}"
+                  data-trigger-selector="{{ block.settings.trigger_selector | strip | escape }}"
+                  data-trigger-offset="{{ block.settings.trigger_offset | default: 300 | plus: 0 }}"
+                  data-link1-selector="{{ link1_selector | escape }}"
+                  data-link2-selector="{{ link2_selector | escape }}"
+                >
+                  <div class="page-width">
                     <div class="p-stickybar__inner">
                       <div class="p-stickybar__left">
                         <p class="p-stickybar__title">{{ product.title | escape }}</p>
                       </div>
 
                       <nav class="p-stickybar__links" aria-label="Quick links">
-                        <a href="#" class="link" data-target="{{ link1_selector | escape }}">{{ link1_label }}</a>
-                        <a href="#" class="link" data-target="{{ link2_selector | escape }}">{{ link2_label }}</a>
+                        <a href="#" class="link" data-target="link1">{{ link1_label }}</a>
+                        <a href="#" class="link" data-target="link2">{{ link2_label }}</a>
                       </nav>
 
                       <div class="p-stickybar__right">
@@ -740,8 +751,10 @@
                         </button>
                       </div>
                     </div>
+                  </div>
                 </div>
-                <script src="{{ 'sticky-add-to-cart.js' | asset_url }}" defer="defer"></script>
+
+                <script src="{{ 'sticky-add-to-cart.js' | asset_url }}" defer></script>
 
             {%- endcase -%}
           {%- endfor -%}
