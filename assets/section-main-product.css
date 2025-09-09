@@ -1654,37 +1654,34 @@ a.product__text {
 
 /* Sticky Bar */
 
-.p-stickybar {
-  position: fixed;          /* more reliable than sticky for overlays */
-  left: 0;
-  right: 0;
-  bottom: 0;                /* stick to viewport bottom */
+.p-stickybar{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
   z-index: 999999;
   background: var(--color-base-background-1, #fff);
   border-top: 1px solid rgba(0,0,0,.08);
   box-shadow: 0 -8px 20px rgba(0,0,0,.06);
-  transform: translateY(100%);   /* slide out of view */
+  transform: translateY(100%);
   opacity: 0;
   transition: transform .25s ease, opacity .2s ease;
-  pointer-events: none;     /* don’t capture clicks while hidden */
+  pointer-events: none; /* no clicks while hidden */
 }
-
-.p-stickybar.is-visible {
+.p-stickybar.is-visible{
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
 
-/* your inner layout */
-.p-stickybar__inner {
+/* your existing layout rules */
+.p-stickybar__inner{
   display: grid;
-  grid-template-columns: 1fr auto auto; /* title | links | button */
+  grid-template-columns: 1fr auto auto;
   gap: 1rem;
   align-items: center;
   padding: .75rem 0;
 }
 @media (max-width: 749px){
-  .p-stickybar__inner {
+  .p-stickybar__inner{
     grid-template-columns: 1fr auto;
     grid-template-areas:
       "title btn"
