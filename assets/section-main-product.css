@@ -1674,16 +1674,17 @@ a.product__text {
   pointer-events: auto;
 }
 .p-stickybar__inner{
-  display: grid;
-  grid-template-columns: 1fr auto auto;
+  display: flex;
   gap: 1rem;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 .p-stickybar__title {
   margin: 0;
   font-size: 1.6rem;
   font-weight: 500;
+  padding-left: 1rem;
 }
 @media (max-width: 749px){
   .p-stickybar__inner{
