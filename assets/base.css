@@ -4172,3 +4172,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .js .kl_reviews__review__verified svg {
   display: none;
 }
+@media (max-width: 749px) {
+  .js .kl_reviews__summary {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .js .kl_reviews__button_bar {
+    justify-content: flex-start;
+  }
+}
