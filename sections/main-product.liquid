@@ -755,91 +755,106 @@
                 </div>
                 <script>
 (() => {
-  const bar = document.getElementById('p-stickybar-{{ section.id }}') || document.querySelector('#p-stickybar-{{ section.id }}');
-  if (!bar) { console.warn('[StickyBar] not found'); return; }
+  const bar = document.getElementById('p-stickybar-{{ section.id }}');
+  if (!bar) { console.warn('[StickyBar] bar not found'); return; }
 
-  // ---- CONFIG (from data-attrs) ----
-  const debug   = (bar.dataset.debug || '0') === '1';
-  const sel     = bar.dataset.triggerSelector || '#ProductInfo-{{ section.id }}';
-  const edge    = (bar.dataset.triggerEdge || 'top').toLowerCase();   // 'top' | 'bottom'
-  const offset  = parseInt(bar.dataset.triggerOffset || '100', 10) || 0;
+  // ---- Config from data-attrs ----
+  const cfg = {
+    debug: (bar.dataset.debug || '0') === '1',
+    sel: bar.dataset.triggerSelector || '#ProductInfo-{{ section.id }}',
+    edge: (bar.dataset.triggerEdge || 'top').toLowerCase(), // 'top' | 'bottom'
+    offset: parseInt(bar.dataset.triggerOffset || '100', 10) || 0,
+    link1Sel: bar.dataset.link1Selector || '',
+    link2Sel: bar.dataset.link2Selector || '',
+  };
+  const log = (...a) => cfg.debug && console.log('[StickyBar]', ...a);
 
-  const link1Sel = bar.dataset.link1Selector || '';
-  const link2Sel = bar.dataset.link2Selector || '';
+  const q = (s) => document.querySelector(s);
 
-  const trigger = document.querySelector(sel);
-  if (!trigger) {
-    console.warn('[StickyBar] trigger not found:', sel, '→ forcing visible so you can see it.');
-    bar.hidden = false;
-    bar.classList.add('is-visible');
-    return;
+  function waitForTrigger(done){
+    const now = q(cfg.sel);
+    if (now) { log('trigger found immediately:', cfg.sel, now); return done(now); }
+
+    log('waiting for trigger:', cfg.sel);
+    const obs = new MutationObserver(() => {
+      const el = q(cfg.sel);
+      if (el) { log('trigger found via observer'); obs.disconnect(); done(el); }
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+
+    window.addEventListener('load', () => {
+      const el = q(cfg.sel);
+      if (el) { log('trigger found on load'); obs.disconnect(); done(el); }
+    }, { once: true });
+
+    setTimeout(() => {
+      const el = q(cfg.sel);
+      if (el) { log('trigger found after timeout'); obs.disconnect(); done(el); }
+      else { console.warn('[StickyBar] trigger still not found:', cfg.sel); }
+    }, 3000);
   }
 
-  const pageWidthWrap = bar.querySelector('.page-width') || bar.firstElementChild;
+  function attach(trigger){
+    log('init with trigger=', trigger, { edge: cfg.edge, offset: cfg.offset });
 
-  function getThresholdY() {
-    const r = trigger.getBoundingClientRect();
-    const y = window.scrollY || window.pageYOffset;
-    return (edge === 'bottom' ? r.bottom + y : r.top + y);
+    const thresholdY = () => {
+      const r = trigger.getBoundingClientRect();
+      const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      return (cfg.edge === 'bottom' ? r.bottom + y : r.top + y);
+    };
+
+    let last = null;
+    const update = () => {
+      const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const th = thresholdY();
+      const show = (y + cfg.offset) >= th;
+      if (show !== last) {
+        last = show;
+        bar.hidden = !show;
+        bar.classList.toggle('is-visible', show);
+        log('scroll y=', y, 'threshold=', th, 'offset=', cfg.offset, 'edge=', cfg.edge, '→', show ? 'SHOW' : 'HIDE');
+      }
+    };
+
+    // kick & wire
+    update();
+    const raf = () => requestAnimationFrame(update);
+    window.addEventListener('scroll', raf, { passive: true });
+    window.addEventListener('resize', raf);
+    window.addEventListener('load', raf, { once: true });
   }
 
-  // ---- SHOW/HIDE ON SCROLL ----
-  let lastState = null;
-  function update() {
-    const y   = window.scrollY || window.pageYOffset;
-    const th  = getThresholdY();
-    const show = (y + offset) >= th;
-
-    if (show !== lastState) {
-      lastState = show;
-      bar.hidden = !show;
-      bar.classList.toggle('is-visible', show);
-      if (debug) console.log('[StickyBar] y=', y, 'threshold=', th, 'offset=', offset, 'edge=', edge, '→', show ? 'SHOW' : 'HIDE');
-    }
-  }
-
-  // ---- LINKS (smooth scroll) ----
+  // Links: smooth scroll to configured selectors
   bar.querySelectorAll('.p-stickybar__links .link').forEach(a => {
-    a.addEventListener('click', e => {
+    a.addEventListener('click', (e) => {
       e.preventDefault();
-      const key = a.dataset.target; // 'link1' | 'link2' | a CSS selector
-      const sel = key === 'link1' ? link1Sel : key === 'link2' ? link2Sel : key;
+      const key = a.dataset.target; // 'link1' | 'link2' | actual selector
+      const sel = key === 'link1' ? cfg.link1Sel : key === 'link2' ? cfg.link2Sel : key;
       if (!sel) return;
-      const tgt = document.querySelector(sel);
-      if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (debug) console.log('[StickyBar] link →', sel);
+      const tgt = q(sel);
+      if (tgt) {
+        tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        log('nav →', sel);
+      } else {
+        console.warn('[StickyBar] target not found for', sel);
+      }
     });
   });
 
-  // ---- ADD TO CART (submit main form) ----
+  // Add-to-cart: submit main product form
   const btn = bar.querySelector('.p-stickybar__btn');
   if (btn) {
     btn.addEventListener('click', () => {
-      const form = document.getElementById('product-form-{{ section.id }}') || document.querySelector('form[action*="/cart/add"]');
+      const form = document.getElementById('product-form-{{ section.id }}') || q('form[action*="/cart/add"]');
       if (form) (form.requestSubmit ? form.requestSubmit() : form.submit());
       else console.warn('[StickyBar] add-to-cart form not found');
     });
   }
 
-  // ---- INITIALIZE ----
-  if (debug) {
-    console.log('[StickyBar] init', {
-      barId: bar.id,
-      triggerSel: sel,
-      triggerEdge: edge,
-      offset
-    });
-    console.log('[StickyBar] trigger element =', trigger);
-  }
-
-  // fire once now and on scroll/resize
-  update();
-  const rafUpdate = () => requestAnimationFrame(update);
-  window.addEventListener('scroll', rafUpdate, { passive: true });
-  window.addEventListener('resize', rafUpdate);
-  window.addEventListener('load', rafUpdate, { once: true });
+  waitForTrigger(attach);
 })();
 </script>
+
 
 
             {%- endcase -%}
