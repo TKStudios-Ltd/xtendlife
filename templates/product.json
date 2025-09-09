@@ -64,7 +64,7 @@
         "custom_liquid_dyRLCQ": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<h4>Key Benefits</h4>\n<div class=\"product-benefits__icons\">\n          {% for img_data in product.metafields.custom.key_benefits.value %}\n              <div class=\"product-benefits__icon\">\n              <img src=\"{{ img_data.icon_image | file_url }}\">\n                <p>{{ img_data.benefit_text }} </p>\n              </div>\n          {% endfor %}\n          </div>"
+            "custom_liquid": "<h4>Key Benefits</h4>\n{%- assign benefits = product.metafields.custom.key_benefits.value -%}\n\n{%- if benefits != blank -%}\n  <div class=\"product-benefits__icons\">\n    {%- for entry in benefits -%}\n      {%- comment -%}\n        Try multiple access patterns just in case the metaobject fields are exposed as\n        direct fields or under `fields`.\n      {%- endcomment -%}\n      {%- assign text = entry.benefit_text | default: entry['benefit_text'] | default: entry.fields.benefit_text -%}\n      {%- assign icon = entry.icon_image   | default: entry['icon_image']   | default: entry.fields.icon_image   -%}\n\n      <div class=\"product-benefits__icon\">\n        {%- if icon != blank -%}\n          {{ icon | image_url: width: 160 | image_tag: alt: text }}\n        {%- endif -%}\n        {%- if text != blank -%}\n          <p>{{ text }}</p>\n        {%- endif -%}\n      </div>\n    {%- endfor -%}\n  </div>\n{%- endif -%}"
           }
         },
         "complementary_jVgWrd": {
