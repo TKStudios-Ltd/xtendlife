@@ -753,65 +753,7 @@
                     </div>
                   </div>
                 </div>
-                <script>
-(() => {
-  const bar = document.getElementById('p-stickybar-{{ section.id }}');
-  if (!bar) return console.warn('[StickyBar] not found');
-
-  // Never keep the HTML "hidden" attribute (it forces display:none)
-  if (bar.hasAttribute('hidden')) bar.removeAttribute('hidden');
-
-  // PORTAL: move to <body> so transforms in product column can't trap it
-  if (bar.parentElement !== document.body) {
-    document.body.appendChild(bar);
-    // console.log('[StickyBar] moved to <body>');
-  }
-
-  // Read config from data-attributes
-  const triggerSelector = bar.dataset.triggerSelector || '#product-tabs-accordion';
-  const offset = parseInt(bar.dataset.triggerOffset || '0', 10);
-
-  const trigger = document.querySelector(triggerSelector);
-  if (!trigger) {
-    console.warn('[StickyBar] trigger not found:', triggerSelector, '→ showing for debug');
-    bar.classList.add('is-visible');
-    return;
-  }
-
-  // Helpers using document coordinates (not affected by transforms)
-  const pageY = () => window.pageYOffset || document.documentElement.scrollTop || 0;
-  const docBottomOf = (el) => el.getBoundingClientRect().bottom + pageY();
-
-  const onScroll = () => {
-    const viewBottom = pageY() + window.innerHeight;
-    const shouldShow = viewBottom >= (docBottomOf(trigger) - offset);
-    bar.classList.toggle('is-visible', shouldShow);
-  };
-
-  // Run and wire up
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  requestAnimationFrame(onScroll);
-
-  // Link clicks → smooth scroll
-  bar.querySelectorAll('.p-stickybar__links .link').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const sel = a.dataset.target;
-      const t = sel && document.querySelector(sel);
-      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  // Add to cart → submit the main product form
-  const form = document.getElementById('product-form-{{ section.id }}');
-  bar.querySelector('.p-stickybar__btn')?.addEventListener('click', () => form?.requestSubmit());
-})();
-</script>
-
-
-
-
+                <script src="{{ 'sticky-add-to-cart.js' | asset_url }}" defer></script>
 
             {%- endcase -%}
           {%- endfor -%}
