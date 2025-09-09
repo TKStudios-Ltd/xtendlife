@@ -755,103 +755,107 @@
                 </div>
                 <script>
 (() => {
-  const bar = document.getElementById('p-stickybar-{{ section.id }}');
-  if (!bar) { console.warn('[StickyBar] bar not found'); return; }
+  console.log('[StickyBar] boot (inline)');
 
-  // ---- Config from data-attrs ----
-  const cfg = {
-    debug: (bar.dataset.debug || '0') === '1',
-    sel: bar.dataset.triggerSelector || '#ProductInfo-{{ section.id }}',
-    edge: (bar.dataset.triggerEdge || 'top').toLowerCase(), // 'top' | 'bottom'
-    offset: parseInt(bar.dataset.triggerOffset || '100', 10) || 0,
-    link1Sel: bar.dataset.link1Selector || '',
-    link2Sel: bar.dataset.link2Selector || '',
-  };
-  const log = (...a) => cfg.debug && console.log('[StickyBar]', ...a);
+  // Find the bar for this section id (works whether the id uses the full template id or not)
+  const bar =
+    document.getElementById('p-stickybar-{{ section.id }}') ||
+    document.querySelector('.p-stickybar[data-section-id="{{ section.id }}"]') ||
+    document.querySelector('.p-stickybar');
 
-  const q = (s) => document.querySelector(s);
+  console.log('[StickyBar] bar node =', bar);
+  if (!bar) { console.warn('[StickyBar] bar not found — abort'); return; }
 
-  function waitForTrigger(done){
-    const now = q(cfg.sel);
-    if (now) { log('trigger found immediately:', cfg.sel, now); return done(now); }
+  // Turn on debug
+  bar.dataset.debug = '1';
 
-    log('waiting for trigger:', cfg.sel);
-    const obs = new MutationObserver(() => {
-      const el = q(cfg.sel);
-      if (el) { log('trigger found via observer'); obs.disconnect(); done(el); }
+  // Read config from data-attrs
+  const sel    = bar.dataset.triggerSelector || '#ProductInfo-{{ section.id }}';
+  const edge   = (bar.dataset.triggerEdge || 'bottom').toLowerCase(); // 'top' | 'bottom'
+  const offset = parseInt(bar.dataset.triggerOffset || '0', 10) || 0;
+
+  console.log('[StickyBar] config', { sel, edge, offset, link1: bar.dataset.link1Selector, link2: bar.dataset.link2Selector });
+
+  const q = (s) => (s ? document.querySelector(s) : null);
+
+  function attach(trigger){
+    console.log('[StickyBar] attach → trigger:', trigger);
+
+    const getThreshold = () => {
+      const r = trigger.getBoundingClientRect();
+      const pageY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      return (edge === 'bottom' ? r.bottom + pageY : r.top + pageY);
+    };
+
+    let lastShow = null;
+    const update = () => {
+      const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const th = getThreshold();
+      const show = (y + offset) >= th;
+      if (show !== lastShow) {
+        lastShow = show;
+        bar.hidden = !show;
+        bar.classList.toggle('is-visible', show);
+        console.log('[StickyBar] update', { y, th, offset, edge, show });
+      }
+    };
+
+    update();
+    const raf = (fn) => () => requestAnimationFrame(fn);
+    window.addEventListener('scroll', raf(update), { passive: true });
+    window.addEventListener('resize', raf(update));
+    window.addEventListener('load', update, { once: true });
+  }
+
+  function waitForTrigger(){
+    const now = q(sel);
+    if (now) { console.log('[StickyBar] trigger found immediately:', sel); attach(now); return; }
+
+    console.warn('[StickyBar] waiting for trigger:', sel);
+    const mo = new MutationObserver(() => {
+      const el = q(sel);
+      if (el) { console.log('[StickyBar] trigger found via MutationObserver'); mo.disconnect(); attach(el); }
     });
-    obs.observe(document.documentElement, { childList: true, subtree: true });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
 
-    window.addEventListener('load', () => {
-      const el = q(cfg.sel);
-      if (el) { log('trigger found on load'); obs.disconnect(); done(el); }
-    }, { once: true });
-
+    // Last-chance fallback: after 3s, force-show so you can see the bar is alive
     setTimeout(() => {
-      const el = q(cfg.sel);
-      if (el) { log('trigger found after timeout'); obs.disconnect(); done(el); }
-      else { console.warn('[StickyBar] trigger still not found:', cfg.sel); }
+      const el = q(sel);
+      if (el) { console.log('[StickyBar] trigger found after timeout'); mo.disconnect(); attach(el); }
+      else {
+        console.warn('[StickyBar] trigger NOT found:', sel, '→ forcing bar visible for debug');
+        bar.hidden = false;
+        bar.classList.add('debug-force');
+      }
     }, 3000);
   }
 
-  function attach(trigger){
-    log('init with trigger=', trigger, { edge: cfg.edge, offset: cfg.offset });
-
-    const thresholdY = () => {
-      const r = trigger.getBoundingClientRect();
-      const y = window.pageYOffset || document.documentElement.scrollTop || 0;
-      return (cfg.edge === 'bottom' ? r.bottom + y : r.top + y);
-    };
-
-    let last = null;
-    const update = () => {
-      const y = window.pageYOffset || document.documentElement.scrollTop || 0;
-      const th = thresholdY();
-      const show = (y + cfg.offset) >= th;
-      if (show !== last) {
-        last = show;
-        bar.hidden = !show;
-        bar.classList.toggle('is-visible', show);
-        log('scroll y=', y, 'threshold=', th, 'offset=', cfg.offset, 'edge=', cfg.edge, '→', show ? 'SHOW' : 'HIDE');
-      }
-    };
-
-    // kick & wire
-    update();
-    const raf = () => requestAnimationFrame(update);
-    window.addEventListener('scroll', raf, { passive: true });
-    window.addEventListener('resize', raf);
-    window.addEventListener('load', raf, { once: true });
-  }
-
-  // Links: smooth scroll to configured selectors
+  // Link handlers (center area)
   bar.querySelectorAll('.p-stickybar__links .link').forEach(a => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
-      const key = a.dataset.target; // 'link1' | 'link2' | actual selector
-      const sel = key === 'link1' ? cfg.link1Sel : key === 'link2' ? cfg.link2Sel : key;
-      if (!sel) return;
-      const tgt = q(sel);
-      if (tgt) {
-        tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        log('nav →', sel);
-      } else {
-        console.warn('[StickyBar] target not found for', sel);
-      }
+      const key = a.dataset.target; // 'link1' | 'link2' | selector
+      const targetSel =
+        key === 'link1' ? bar.dataset.link1Selector :
+        key === 'link2' ? bar.dataset.link2Selector : key;
+      const tgt = q(targetSel);
+      console.log('[StickyBar] link click →', { key, targetSel, found: !!tgt });
+      if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  // Add-to-cart: submit main product form
+  // Add-to-cart (right button)
   const btn = bar.querySelector('.p-stickybar__btn');
   if (btn) {
     btn.addEventListener('click', () => {
       const form = document.getElementById('product-form-{{ section.id }}') || q('form[action*="/cart/add"]');
+      console.log('[StickyBar] add-to-cart click → form=', form);
       if (form) (form.requestSubmit ? form.requestSubmit() : form.submit());
-      else console.warn('[StickyBar] add-to-cart form not found');
     });
   }
 
-  waitForTrigger(attach);
+  // Kick off
+  waitForTrigger();
 })();
 </script>
 
