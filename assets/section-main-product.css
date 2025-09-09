@@ -1631,11 +1631,12 @@ a.product__text {
 .product-benefits__icons {
   display: flex;
   gap: 0.75rem;
+  margin: 1.5rem 0;
 }
 .product-benefits__icon {
   flex: 0 0 calc(33.3333% - 0.5rem);
   display: flex;
-  gap: 0.75rem;
+  gap: 0;
   background: rgba(244, 248, 251, 1);
   border-radius: 4px;
   padding: 1.25rem;
