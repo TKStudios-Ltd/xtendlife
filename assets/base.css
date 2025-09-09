@@ -4076,7 +4076,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 .kl_reviews__summary__image_grid,
 .kl_reviews__review__image_row,
-.kl_reviews__histogram {
+.kl_reviews__histogram,
+.kl_reviews__filters {
   display: none;
 }
 .reviews_all_container {
