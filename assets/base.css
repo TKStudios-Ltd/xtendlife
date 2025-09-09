@@ -4146,7 +4146,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .js .kl_reviews__reviews_list.kl_reviews__reviews_list button.kl_reviews__button {
   font-family: var(--font-heading-family);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   letter-spacing: 0;
   font-weight: 500;
   line-height: calc(1 + .2 / var(--font-body-scale));
