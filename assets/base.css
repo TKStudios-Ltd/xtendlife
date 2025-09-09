@@ -4163,6 +4163,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item .kl_reviews__stars_badge svg path {
   fill: rgb(var(--color-foreground)) !important;
 }
+.js .kl_reviews__review__verified {
+  background: rgba(219, 238, 255, 1);
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 20px;
+}
 .js .kl_reviews__review__verified svg {
   display: none;
 }
