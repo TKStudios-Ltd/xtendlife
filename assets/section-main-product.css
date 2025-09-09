@@ -1655,12 +1655,14 @@ a.product__text {
 /* Sticky Bar */
 
 .p-stickybar{
+  max-width: calc(var(--page-width) - 4rem);
+  margin: 0 auto;
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0; right: 0; bottom: 2rem;
   z-index: 999999;
-  background: var(--color-base-background-1, #fff);
-  border-top: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 -8px 20px rgba(0,0,0,.06);
+  border-radius: 100px;
+  background: rgb(var(--color-background));
+  box-shadow: 0px 0px 8px 0px #00000024;
   transform: translateY(100%);
   opacity: 0;
   transition: transform .25s ease, opacity .2s ease;
