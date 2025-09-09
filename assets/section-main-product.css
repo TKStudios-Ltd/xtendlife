@@ -1690,3 +1690,6 @@ a.product__text {
   display: flex;
   gap: 2rem;
 }
+.p-stickybar__btn {
+  min-width: 180px;
+}
