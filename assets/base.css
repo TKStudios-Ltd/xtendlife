@@ -4133,3 +4133,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item > div {
   gap: 0.5rem;
 }
+.js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-heading-family) !important;
+  border-bottom: 1px solid rgb(var(--color-foreground));
+}
