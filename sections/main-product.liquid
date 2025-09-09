@@ -756,49 +756,44 @@
                 <script>
 (() => {
   const bar = document.getElementById('p-stickybar-{{ section.id }}');
-  if (!bar) return;
+  if (!bar) return console.warn('[StickyBar] not found');
 
-  console.log('[StickyBar] init', bar);
+  // Never keep the HTML "hidden" attribute (it forces display:none)
+  if (bar.hasAttribute('hidden')) bar.removeAttribute('hidden');
 
-  // 1) Never keep the HTML "hidden" attribute on once JS runs
-  //    (that attribute forces display:none)
-  if (bar.hasAttribute('hidden')) {
-    bar.removeAttribute('hidden');
-    console.log('[StickyBar] removed [hidden] attribute');
+  // PORTAL: move to <body> so transforms in product column can't trap it
+  if (bar.parentElement !== document.body) {
+    document.body.appendChild(bar);
+    // console.log('[StickyBar] moved to <body>');
   }
 
-  // Config
+  // Read config from data-attributes
   const triggerSelector = bar.dataset.triggerSelector || '#product-tabs-accordion';
   const offset = parseInt(bar.dataset.triggerOffset || '0', 10);
 
-  const link1Sel = bar.dataset.link1Selector || bar.querySelector('[data-target]')?.dataset?.target;
-  const link2Sel = bar.dataset.link2Selector;
-
-  // 2) Find trigger
-  let trigger = document.querySelector(triggerSelector);
+  const trigger = document.querySelector(triggerSelector);
   if (!trigger) {
-    console.warn('[StickyBar] trigger not found:', triggerSelector, '→ showing bar so you can see it');
+    console.warn('[StickyBar] trigger not found:', triggerSelector, '→ showing for debug');
     bar.classList.add('is-visible');
     return;
   }
-  console.log('[StickyBar] trigger:', trigger);
 
-  // 3) Scroll handler: show when bottom of trigger is within viewport,
-  //    minus offset
+  // Helpers using document coordinates (not affected by transforms)
+  const pageY = () => window.pageYOffset || document.documentElement.scrollTop || 0;
+  const docBottomOf = (el) => el.getBoundingClientRect().bottom + pageY();
+
   const onScroll = () => {
-    const rect = trigger.getBoundingClientRect();
-    const triggerBottom = rect.bottom;                 // px from viewport top
-    const threshold = window.innerHeight - offset;     // viewport bottom minus offset
-    const shouldShow = triggerBottom <= threshold;
+    const viewBottom = pageY() + window.innerHeight;
+    const shouldShow = viewBottom >= (docBottomOf(trigger) - offset);
     bar.classList.toggle('is-visible', shouldShow);
-    // console.log('[StickyBar] update', { y: window.scrollY, triggerBottom, threshold, shouldShow });
   };
 
+  // Run and wire up
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
-  requestAnimationFrame(onScroll); // initial calc after paint
+  requestAnimationFrame(onScroll);
 
-  // 4) Smooth scroll for links
+  // Link clicks → smooth scroll
   bar.querySelectorAll('.p-stickybar__links .link').forEach(a => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
@@ -808,14 +803,12 @@
     });
   });
 
-  // 5) Hook "Add to cart" to the product form
-  const formId = 'product-form-{{ section.id }}';
-  const form = document.getElementById(formId);
-  bar.querySelector('.p-stickybar__btn')?.addEventListener('click', () => {
-    if (form) form.requestSubmit();
-  });
+  // Add to cart → submit the main product form
+  const form = document.getElementById('product-form-{{ section.id }}');
+  bar.querySelector('.p-stickybar__btn')?.addEventListener('click', () => form?.requestSubmit());
 })();
 </script>
+
 
 
 
