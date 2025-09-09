@@ -4079,3 +4079,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .kl_reviews__histogram {
   display: none;
 }
+.reviews_all_container {
+  padding: 2rem 0;
+}
