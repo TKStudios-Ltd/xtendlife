@@ -1678,7 +1678,7 @@ a.product__text {
   grid-template-columns: 1fr auto auto;
   gap: 1rem;
   align-items: center;
-  padding: .75rem 0;
+  padding: 1rem;
 }
 .p-stickybar__title {
   margin: 0;
