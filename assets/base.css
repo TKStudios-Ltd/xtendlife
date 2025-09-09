@@ -4100,7 +4100,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   border-bottom: none;
   margin: 0;
   font-family: var(--font-heading-family);
-  font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   color: rgb(var(--color-foreground));
   font-size: calc(var(--font-heading-scale) * 2.4rem);
@@ -4109,7 +4108,28 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .js .kl_reviews__summary__average_value,
 .js .kl_reviews__summary__average_denominator {
   font-family: var(--font-heading-family);
-  font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   color: rgb(var(--color-foreground));
+}
+.js .kl_reviews__summary__stars__count,
+.js .kl_reviews__review__title,
+.js .kl_reviews__review__author,
+.js .kl_reviews__review_item p {
+  font-family: var(--font-heading-family) !important;
+  font-weight: 400 !important;
+  color: rgb(var(--color-foreground));
+}
+.js .kl_reviews__review__title {
+  font-size: 2rem;
+}
+.js .kl_reviews__review__author {
+  font-size: 1.4rem;
+  justify-content: space-between;
+}
+.js .kl_reviews__review_item p {
+  font-size: 1.6rem;
+  max-width: 700px;
+}
+.js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item > div {
+  gap: 0.5rem;
 }
