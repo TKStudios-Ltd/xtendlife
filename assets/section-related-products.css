@@ -5,3 +5,8 @@
 .related-products__heading {
   margin: 0 0 3rem;
 }
+@media (max-width: 989px) {
+  .related-products__heading {
+    padding: 0 2rem;
+  }
+}
