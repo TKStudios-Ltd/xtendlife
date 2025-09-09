@@ -2171,14 +2171,17 @@
     },
     {
       "type": "sticky_bar",
-      "name": "Sticky buy bar",
+      "name": "Sticky Bar",
+      "limit": 1,
       "settings": [
         { "type": "text", "id": "link1_label", "label": "Center link 1 label", "default": "Details" },
-        { "type": "text", "id": "link1_selector", "label": "Center link 1 target selector (CSS)", "info": "e.g. .product-tabs-accordion, #pta-panel-details-<id>, .your-section" },
+        { "type": "text", "id": "link1_selector", "label": "Center link 1 target selector (CSS)", "info": "e.g. .product-tabs-accordion" },
+
         { "type": "text", "id": "link2_label", "label": "Center link 2 label", "default": "Reviews" },
         { "type": "text", "id": "link2_selector", "label": "Center link 2 target selector (CSS)", "info": "e.g. #Reviews" },
+
         { "type": "text", "id": "trigger_selector", "label": "Show after element (CSS selector)", "info": "Leave blank to use the product info area. Example: .product-tabs-accordion or #Reviews" },
-        { "type": "range", "id": "trigger_offset", "label": "Extra offset after element (px)", "min": 0, "max": 1000, "step": 10, "default": 200 }
+        { "type": "range", "id": "trigger_offset", "label": "Extra offset after element (px)", "min": 0, "max": 1000, "step": 10, "default": 300 }
       ]
     }
   ],
