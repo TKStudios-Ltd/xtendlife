@@ -1681,7 +1681,7 @@ a.product__text {
   padding: .75rem 0;
 }
 .p-stickybar__title {
-  padding: 0;
+  margin: 0;
   font-size: 1.6rem;
   font-weight: 500;
 }
