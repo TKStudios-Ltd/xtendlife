@@ -4074,12 +4074,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 /* Klaviyo Review */
 
-.kl_reviews__summary__image_grid,
-.kl_reviews__review__image_row,
-.kl_reviews__histogram,
-.kl_reviews__filters {
-  display: none;
+.js .kl_reviews__summary__image_grid,
+.js .kl_reviews__review__image_row,
+.js .kl_reviews__histogram,
+.js .kl_reviews__filters {
+  display: none !important;
 }
-.reviews_all_container {
-  padding: 2rem 0;
+.js .reviews_all_container {
+  padding: 2rem 0 !important;
 }
