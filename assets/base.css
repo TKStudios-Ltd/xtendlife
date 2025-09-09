@@ -4083,7 +4083,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: none !important;
 }
 .js .reviews_all_container {
-  padding: 2rem 0 !important;
+  padding: 4rem 0 !important;
 }
 .js .kl_reviews__summary {
   display: flex;
