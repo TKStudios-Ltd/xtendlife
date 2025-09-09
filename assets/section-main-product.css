@@ -1673,14 +1673,17 @@ a.product__text {
   opacity: 1;
   pointer-events: auto;
 }
-
-/* your existing layout rules */
 .p-stickybar__inner{
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 1rem;
   align-items: center;
   padding: .75rem 0;
+}
+.p-stickybar__title {
+  padding: 0;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 @media (max-width: 749px){
   .p-stickybar__inner{
