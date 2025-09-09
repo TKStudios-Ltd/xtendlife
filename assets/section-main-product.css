@@ -1686,15 +1686,7 @@ a.product__text {
   font-weight: 500;
   padding-left: 1rem;
 }
-@media (max-width: 749px){
-  .p-stickybar__inner{
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "title btn"
-      "links links";
-    row-gap: .5rem;
-  }
-  .p-stickybar__left  { grid-area: title; }
-  .p-stickybar__links { grid-area: links; }
-  .p-stickybar__right { grid-area: btn; }
+.p-stickybar__links {
+  display: flex;
+  gap: 2rem;
 }
