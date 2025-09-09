@@ -88,7 +88,7 @@
             "link2_label": "Customer Reviews",
             "link2_selector": "#shopify-block-AZEFrZXlnWHlGWFBOO__klaviyo_reviews_product_reviews_gMycLN",
             "trigger_selector": "#product-tabs-accordion",
-            "trigger_offset": 100
+            "trigger_offset": 0
           }
         }
       },
