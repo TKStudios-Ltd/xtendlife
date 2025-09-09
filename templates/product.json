@@ -315,7 +315,7 @@
         ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
         ".icon-caret {display: none;}",
         ".accordion__content p {line-height: 1.4;}",
-        "@media (max-width: 749px) {.accordion__title, .accordion__content p {font-size: 1.6rem; }}"
+        "@media (max-width: 749px) {.accordion__title, .accordion__content p {font-size: 1.6rem; } .collapsible-content__heading {text-align: left; margin-top: -5rem; }}"
       ],
       "name": "Product FAQs (metafield)",
       "settings": {
