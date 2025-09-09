@@ -753,6 +753,93 @@
                     </div>
                   </div>
                 </div>
+                <script>
+(() => {
+  const bar = document.getElementById('p-stickybar-{{ section.id }}') || document.querySelector('#p-stickybar-{{ section.id }}');
+  if (!bar) { console.warn('[StickyBar] not found'); return; }
+
+  // ---- CONFIG (from data-attrs) ----
+  const debug   = (bar.dataset.debug || '0') === '1';
+  const sel     = bar.dataset.triggerSelector || '#ProductInfo-{{ section.id }}';
+  const edge    = (bar.dataset.triggerEdge || 'top').toLowerCase();   // 'top' | 'bottom'
+  const offset  = parseInt(bar.dataset.triggerOffset || '100', 10) || 0;
+
+  const link1Sel = bar.dataset.link1Selector || '';
+  const link2Sel = bar.dataset.link2Selector || '';
+
+  const trigger = document.querySelector(sel);
+  if (!trigger) {
+    console.warn('[StickyBar] trigger not found:', sel, '→ forcing visible so you can see it.');
+    bar.hidden = false;
+    bar.classList.add('is-visible');
+    return;
+  }
+
+  const pageWidthWrap = bar.querySelector('.page-width') || bar.firstElementChild;
+
+  function getThresholdY() {
+    const r = trigger.getBoundingClientRect();
+    const y = window.scrollY || window.pageYOffset;
+    return (edge === 'bottom' ? r.bottom + y : r.top + y);
+  }
+
+  // ---- SHOW/HIDE ON SCROLL ----
+  let lastState = null;
+  function update() {
+    const y   = window.scrollY || window.pageYOffset;
+    const th  = getThresholdY();
+    const show = (y + offset) >= th;
+
+    if (show !== lastState) {
+      lastState = show;
+      bar.hidden = !show;
+      bar.classList.toggle('is-visible', show);
+      if (debug) console.log('[StickyBar] y=', y, 'threshold=', th, 'offset=', offset, 'edge=', edge, '→', show ? 'SHOW' : 'HIDE');
+    }
+  }
+
+  // ---- LINKS (smooth scroll) ----
+  bar.querySelectorAll('.p-stickybar__links .link').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const key = a.dataset.target; // 'link1' | 'link2' | a CSS selector
+      const sel = key === 'link1' ? link1Sel : key === 'link2' ? link2Sel : key;
+      if (!sel) return;
+      const tgt = document.querySelector(sel);
+      if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (debug) console.log('[StickyBar] link →', sel);
+    });
+  });
+
+  // ---- ADD TO CART (submit main form) ----
+  const btn = bar.querySelector('.p-stickybar__btn');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const form = document.getElementById('product-form-{{ section.id }}') || document.querySelector('form[action*="/cart/add"]');
+      if (form) (form.requestSubmit ? form.requestSubmit() : form.submit());
+      else console.warn('[StickyBar] add-to-cart form not found');
+    });
+  }
+
+  // ---- INITIALIZE ----
+  if (debug) {
+    console.log('[StickyBar] init', {
+      barId: bar.id,
+      triggerSel: sel,
+      triggerEdge: edge,
+      offset
+    });
+    console.log('[StickyBar] trigger element =', trigger);
+  }
+
+  // fire once now and on scroll/resize
+  update();
+  const rafUpdate = () => requestAnimationFrame(update);
+  window.addEventListener('scroll', rafUpdate, { passive: true });
+  window.addEventListener('resize', rafUpdate);
+  window.addEventListener('load', rafUpdate, { once: true });
+})();
+</script>
 
                 <script src="{{ 'sticky-add-to-cart.js' | asset_url }}" defer></script>
 
