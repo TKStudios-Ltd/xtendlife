@@ -4140,3 +4140,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   font-family: var(--font-heading-family) !important;
   border-bottom: 1px solid rgb(var(--color-foreground));
 }
+.js .kl_reviews__reviews_list.kl_reviews__reviews_list.kl_reviews__reviews_list .kl_reviews__list__tabs {
+  border-bottom: none;
+  margin: 0;
+}
