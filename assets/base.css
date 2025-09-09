@@ -4092,3 +4092,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .js .kl_reviews__summary__grid--1-2:not(.kl_preview *) .kl_reviews__summary__rating--1 {
   flex-basis: 100% !important;
 }
+.js .kl_reviews__summary__average_and_stars {
+  margin-bottom: 0 !important;
+}
