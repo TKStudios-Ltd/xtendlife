@@ -388,7 +388,7 @@
       "custom_css": [
         ".newsletter__wrapper {padding: 0 !important;}",
         ".h1 {display: none;}",
-        ".h2 {margin: 2rem 0 4rem;}"
+        ".h2 {font-size: 4rem; margin: 2rem 0 4rem;}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
