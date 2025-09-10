@@ -338,7 +338,7 @@
         "button_jHmbq7"
       ],
       "custom_css": [
-        "@media screen and (min-width: 990px) {.image-with-text__content > * + * {margin-top: 1rem !important; } .image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important; } .image-with-text__media {padding: 0 4rem; }}",
+        "@media screen and (min-width: 990px) {.image-with-text__content > * + * {margin-top: 1rem !important; max-width: 400px } .image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important; } .image-with-text__media {max-width: 500px; margin: 0 auto; padding-bottom: 90% !important; }}",
         ".image-with-text__media {border-radius: 16px;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
