@@ -1,0 +1,67 @@
+<script>
+  (function () {
+    const DOC = document;
+
+    // Ensure .hide actually hides (lightweight safety if your CSS doesn't already handle it)
+    (function ensureHideRule() {
+      const id = 'ingredients-hide-style';
+      if (!DOC.getElementById(id)) {
+        const s = DOC.createElement('style');
+        s.id = id;
+        s.textContent = '.js-filterable .hide{display:none!important}';
+        DOC.head.appendChild(s);
+      }
+    })();
+
+    function applyLetterFilter(filterFor, letter) {
+      letter = (letter || '').toUpperCase();
+
+      // Toggle card visibility
+      const containers = DOC.querySelectorAll(`.js-filterable[data-filter-name="${filterFor}"]`);
+      containers.forEach(container => {
+        container.querySelectorAll('.js-ingredient-card').forEach(card => {
+          const cardLetter = (card.getAttribute('data-filter-letter') || '').toUpperCase();
+          const show = cardLetter === letter;
+          card.classList.toggle('hide', !show);
+          card.toggleAttribute('hidden', !show); // graceful to assistive tech
+        });
+      });
+
+      // Update active state on letter buttons (across any duplicate filter UIs for same target)
+      DOC.querySelectorAll(`.js-filter-letter[data-filter-for="${filterFor}"]`).forEach(btn => {
+        const isActive = (btn.value || '').toUpperCase() === letter;
+        btn.classList.toggle('filter__letter--active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      // Let the section JS know to (re)hydrate visible cards
+      DOC.dispatchEvent(new CustomEvent('letterFiltered', { detail: { filterFor, letter } }));
+    }
+
+    // Delegate clicks from any letter button
+    DOC.addEventListener('click', function (e) {
+      const btn = e.target.closest('.js-filter-letter');
+      if (!btn) return;
+
+      const filterFor = btn.getAttribute('data-filter-for');
+      if (!filterFor) return;
+
+      e.preventDefault();
+      applyLetterFilter(filterFor, btn.value);
+    });
+
+    // Re-apply current active letter when the section reloads in the theme editor
+    function reapplyForSection(sectionId) {
+      const root = DOC.querySelector(`[data-section-id="${sectionId}"]`);
+      if (!root) return;
+      const active =
+        root.querySelector('.js-filter-letter.filter__letter--active') ||
+        root.querySelector('.js-filter-letter[value="A"]');
+      if (!active) return;
+      applyLetterFilter(active.getAttribute('data-filter-for'), active.value || 'A');
+    }
+
+    DOC.addEventListener('shopify:section:load', e => reapplyForSection(e.detail.sectionId));
+    DOC.addEventListener('shopify:section:select', e => reapplyForSection(e.detail.sectionId));
+  })();
+</script>
