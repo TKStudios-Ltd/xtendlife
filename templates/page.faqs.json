@@ -337,7 +337,10 @@
         "text_jBQ7it",
         "button_jHmbq7"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.image-with-text__content > * + * {margin-top: 1rem !important; } .image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important; } .image-with-text__media {padding: 0 4rem; }}",
+        ".image-with-text__media {border-radius: 16px;}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/1f613a848249190b57aae966ee9e44daec599335.png",
@@ -347,7 +350,7 @@
         "image_behavior": "none",
         "image_bleed": false,
         "content_layout": "no-overlap",
-        "desktop_content_position": "top",
+        "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "scheme-5",
