@@ -39,11 +39,16 @@
         "heading_h9iRzH",
         "text_wMgUTy"
       ],
+      "custom_css": [
+        ".banner__box {max-width: 100%; display: flex; align-items: flex-start; gap: 2rem;}",
+        ".banner__heading {flex: 0 0 50%; padding-right: 4rem; line-height: 1.2;}",
+        ".banner__text.subtitle {margin-top: 0; padding-right: 4rem;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/6a8436c4f27e130483d6297855ae96dc3e63fb7c.png",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "small",
         "wide_container": true,
         "image_behavior": "none",
         "desktop_content_position": "top-center",
