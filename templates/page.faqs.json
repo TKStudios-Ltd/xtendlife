@@ -386,7 +386,7 @@
         "email_form_J6MkXK"
       ],
       "custom_css": [
-        ".newsletter__wrapper {padding: 0 !important;}",
+        ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
         ".h1 {display: none;}",
         ".h2 {font-size: 4rem; margin: 3rem 0 6rem;}"
       ],
