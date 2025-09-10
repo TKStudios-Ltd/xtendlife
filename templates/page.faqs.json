@@ -163,7 +163,7 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 0,
+        "padding_top": 60,
         "padding_bottom": 0
       }
     },
@@ -298,7 +298,7 @@
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 0,
-        "padding_bottom": 80
+        "padding_bottom": 100
       }
     }
   },
