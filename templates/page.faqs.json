@@ -339,10 +339,10 @@
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.image-with-text__media {max-width: 500px; margin: 0 auto; padding-bottom: 90% !important; }}",
-        ".image-with-text__content > * + * {margin-top: 1rem !important; max-width: 400px; }",
-        " .image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important;}",
+        ".image-with-text__content > * + * {margin-top: 1rem !important; max-width: 400px;}",
+        ".image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important;}",
         ".image-with-text__media {border-radius: 16px;}",
-        "@media (max-width: 749px) {.image-with-text .grid {flex-direction: column-reverse; gap: 4rem !important; }}"
+        "@media (max-width: 749px) {.image-with-text .grid {gap: 4rem !important; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
