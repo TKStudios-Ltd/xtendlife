@@ -42,7 +42,8 @@
       "custom_css": [
         ".banner__box {max-width: 100%; display: flex; align-items: flex-start; gap: 2rem;}",
         ".banner__heading {flex: 0 0 50%; padding-right: 4rem; line-height: 1.2;}",
-        ".banner__text.subtitle {margin-top: 0; padding-right: 4rem;}"
+        ".banner__text.subtitle {margin-top: 0; padding-right: 4rem;}",
+        "img {transform: scaleX(-1);}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
