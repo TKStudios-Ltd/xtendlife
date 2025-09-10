@@ -11,13 +11,64 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "image_banner_DKEV6V": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_h9iRzH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Using Science to get the best out of Nature",
+            "heading_size": "h1"
+          }
+        },
+        "text_wMgUTy": {
+          "type": "text",
+          "settings": {
+            "text": "At Xtendlife, we ensure that only the best goes into our quality supplements. No expense is spared in the sourcing of raw ingredients, and each is carefully selected for purity, potency and bioavailability. We then optimize these ingredients by blending them with complementary ingredients to ensure optimal synergy within the formulations.",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_h9iRzH",
+        "text_wMgUTy"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/6a8436c4f27e130483d6297855ae96dc3e63fb7c.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "ingredients_page_UWQnDk": {
+      "type": "ingredients-page",
+      "name": "Ingredients Page",
+      "settings": {
+        "supplement_intro": "<p>Intro copy for Supplement ingredients.</p>",
+        "blog_category": "",
+        "skincare_intro": "<p>Intro copy for Skincare ingredients.</p>",
+        "blog_category_1": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_banner_DKEV6V",
+    "ingredients_page_UWQnDk"
   ]
 }
