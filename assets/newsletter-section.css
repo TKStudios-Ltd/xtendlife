@@ -6,12 +6,17 @@
 @media screen and (max-width: 749px) {
   .newsletter__wrapper {
     text-align: left;
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
   }
   .newsletter__left .h1 {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
   .newsletter__right p {
     font-size: 1.6rem;
+  }
+  .newsletter__subheading {
+    margin-bottom: 5rem;
   }
 }
 
@@ -30,8 +35,6 @@
 
 .newsletter__subheading {
   max-width: 70rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .newsletter__wrapper .newsletter-form__field-wrapper {
