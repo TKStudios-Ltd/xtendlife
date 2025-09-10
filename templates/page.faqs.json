@@ -288,7 +288,7 @@
       "custom_css": [
         ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
         "@media (min-width: 749px) {.icon-caret {display: none; } .collapsible-content__heading {font-size: 3.6rem; margin-bottom: 4rem; }}",
-        "@media (max-width: 749px) {.collapsible-content__heading {text-align: left; } .accordion__title {font-size: 1.6rem; }}"
+        "@media (max-width: 749px) {.collapsible-content__heading {text-align: left; } .accordion__title {font-size: 1.6rem; } .accordion summary {}}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
@@ -305,6 +305,56 @@
         "padding_top": 0,
         "padding_bottom": 100
       }
+    },
+    "image_with_text_C9qw4b": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_7gy9tj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still need help?",
+            "heading_size": "h1"
+          }
+        },
+        "text_jBQ7it": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Xtendlife is a vertically integrated global health supplement and skincare company with its own specialised GMP and ISO facilities (take the tour). </p>",
+            "text_style": "body"
+          }
+        },
+        "button_jHmbq7": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact us",
+            "button_link": "shopify://pages/contact-us",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_7gy9tj",
+        "text_jBQ7it",
+        "button_jHmbq7"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1f613a848249190b57aae966ee9e44daec599335.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-5",
+        "color_scheme": "scheme-5",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
@@ -313,6 +363,7 @@
     "rich_text_NeYwpz",
     "collapsible_content_VwREVa",
     "collapsible_content_89AQGH",
-    "collapsible_content_wrM63W"
+    "collapsible_content_wrM63W",
+    "image_with_text_C9qw4b"
   ]
 }
