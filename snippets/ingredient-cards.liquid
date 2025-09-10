@@ -1,0 +1,74 @@
+{% comment %}
+  INGREDIENT CARDS (Dawn)
+  - Expects 'articles' (array of ArticleDrop) and 'blog' (BlogDrop) optionally passed by the section.
+  - Falls back to blog.articles if 'articles' not provided.
+  - Each card:
+      .ingredient-card.js-ingredient-card
+      data-filter-letter
+      data-article-url  (preferred by the Dawn section JS)
+      data-blog-handle / data-article-handle (fallbacks)
+      .js-ingredient-products (AJAX target)
+{% endcomment %}
+
+{% liquid
+  assign cards_blog = blog
+  if cards_blog == blank and section and section.settings and section.settings.blog_category
+    assign cards_blog = blogs[section.settings.blog_category]
+  endif
+
+  if articles == blank
+    if cards_blog
+      assign articles = cards_blog.articles
+    else
+      assign articles = empty
+    endif
+  endif
+
+  assign sorted_articles = articles | sort: 'title'
+%}
+
+<section class="ingredient-cards js-filterable" data-filter-name="ingredients">
+  <div class="grid grid--2-col-tablet grid--4-col-desktop">
+    {% for article in sorted_articles %}
+      {% assign first_letter = article.title | slice: 0, 1 | upcase %}
+      {% if first_letter == '0' or first_letter == '1' or first_letter == '2' or first_letter == '3' or first_letter == '4' or first_letter == '5' or first_letter == '6' or first_letter == '7' or first_letter == '8' or first_letter == '9' %}
+        {% assign first_letter = '0-9' %}
+      {% endif %}
+
+      <div class="grid__item">
+        <article
+          class="ingredient-card js-ingredient-card{% unless first_letter == 'A' %} hide{% endunless %}"
+          data-filter-letter="{{ first_letter }}"
+          data-article-url="{{ article.url }}"
+          {% if cards_blog %}data-blog-handle="{{ cards_blog.handle }}"{% endif %}
+          data-article-handle="{{ article.handle }}"
+        >
+          <a class="ingredient-card__media" href="{{ article.url }}">
+            {% if article.image %}
+              {{
+                article.image
+                | image_url: width: 220, height: 220, crop: 'center'
+                | image_tag:
+                  alt: article.image.alt | default: article.title,
+                  loading: 'lazy',
+                  widths: '110,220,330',
+                  sizes: '(min-width: 990px) 110px, 25vw'
+              }}
+            {% endif %}
+          </a>
+
+          <div class="ingredient-card__details">
+            <h3 class="ingredient-card__title">
+              <a class="ingredient-card__title--link" href="{{ article.url }}">{{ article.title }}</a>
+            </h3>
+            {% if article.excerpt != blank %}
+              <p class="ingredient-card__excerpt">{{ article.excerpt | strip_html }}</p>
+            {% endif %}
+          </div>
+
+          <div class="ingredient-card__products js-ingredient-products" aria-live="polite"></div>
+        </article>
+      </div>
+    {% endfor %}
+  </div>
+</section>
