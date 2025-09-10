@@ -4,8 +4,8 @@
 }
 
 .collapsible-section-layout {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
 }
 
 @media screen and (min-width: 750px) {
