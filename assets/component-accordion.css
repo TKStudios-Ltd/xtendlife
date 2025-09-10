@@ -3,6 +3,8 @@
   position: relative;
   line-height: 1;
   padding: 1.5rem 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .accordion .summary__title {
@@ -60,4 +62,10 @@
 
 .accordion__content img {
   max-width: 100%;
+}
+
+@media (max-width: 749px) {
+  .accordion summary {
+    padding: 1rem 0;
+  }
 }
