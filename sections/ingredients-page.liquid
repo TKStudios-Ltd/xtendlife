@@ -1,0 +1,251 @@
+{% comment %}
+  INGREDIENTS PAGE (Dawn compatible)
+  - Two tabs (Supplement / Skincare)
+  - Optional intros (rich text)
+  - A–Z filter snippet (expects to dispatch a CustomEvent 'letterFiltered' on document)
+  - Renders your existing 'ingredient-cards' snippet
+  - Hydrates each .js-ingredient-card with related products via ?view=ajax-ingredient
+
+  EXPECTED MARKUP FROM 'ingredient-cards' SNIPPET:
+  Each ingredient card should include:
+    - class="js-ingredient-card"
+    - EITHER data-article-url="/blogs/ingredients/articles/curcumin"  (preferred)
+      OR    data-blog-handle="ingredients" data-article-handle="curcumin"
+    - a descendant container: <div class="js-ingredient-products"></div> for AJAX injection
+
+  EXPECTED AJAX VIEW:
+  Create an alternate view (e.g. article template view) that returns the related products HTML:
+    - /blogs/{{ blog.handle }}/articles/{{ article.handle }}?view=ajax-ingredient
+  OR support the legacy URL if you already have it.
+{% endcomment %}
+
+<section class="section page_content ingredients_content" data-section-id="{{ section.id }}">
+  <div class="page-width ingredient_content">
+
+    <div class="ingredint__buttons slideshow-classic__buttons" role="tablist" aria-label="Ingredient categories">
+      <a href="#supplements_blog_{{ section.id }}" class="button button--primary active" role="tab"
+         aria-selected="true" aria-controls="supplements_blog_{{ section.id }}">Supplement</a>
+      <a href="#skincare_blog_{{ section.id }}" class="button button--primary" role="tab"
+         aria-selected="false" aria-controls="skincare_blog_{{ section.id }}">Skincare</a>
+    </div>
+
+    {%- render 'filter', filter_letters: true, filter_for: 'ingredients' -%}
+  </div>
+
+  <ul class="tabs-content" style="list-style:none; padding-left:0; margin:0;">
+    <li class="tab-panel active" id="supplements_blog_{{ section.id }}" role="tabpanel" aria-labelledby="supplement-tab-{{ section.id }}">
+      <div class="page-width max-width-container">
+        {%- if section.settings.supplement_intro != blank -%}
+          <section class="text__layout ingredient__container rte">
+            {{ section.settings.supplement_intro }}
+          </section>
+        {%- endif -%}
+
+        {%- assign blog = blogs[section.settings.blog_category] -%}
+        {%- if blog and blog.articles_count > 0 -%}
+          {%- paginate blog.articles by 500 -%}
+            {%- render 'ingredient-cards', articles: paginate.items, blog: blog -%}
+          {%- endpaginate -%}
+        {%- else -%}
+          <p class="color-foreground-50">No supplement ingredients found.</p>
+        {%- endif -%}
+      </div>
+    </li>
+
+    <li class="tab-panel" id="skincare_blog_{{ section.id }}" role="tabpanel" aria-labelledby="skincare-tab-{{ section.id }}" hidden>
+      <div class="page-width max-width-container">
+        {%- if section.settings.skincare_intro != blank -%}
+          <section class="text__layout ingredient__container rte">
+            {{ section.settings.skincare_intro }}
+          </section>
+        {%- endif -%}
+
+        {%- assign blog = blogs[section.settings.blog_category_1] -%}
+        {%- if blog and blog.articles_count > 0 -%}
+          {%- paginate blog.articles by 500 -%}
+            {%- render 'ingredient-cards', articles: paginate.items, blog: blog -%}
+          {%- endpaginate -%}
+        {%- else -%}
+          <p class="color-foreground-50">No skincare ingredients found.</p>
+        {%- endif -%}
+      </div>
+    </li>
+  </ul>
+
+  <style>
+    /* Scoped to this section */
+    [data-section-id="{{ section.id }}"] .image-element__wrap img { border-radius: 20px; }
+    [data-section-id="{{ section.id }}"] .ingredient-card { padding-top: 15px; padding-bottom: 15px; }
+
+    [data-section-id="{{ section.id }}"] .slideshow-classic__buttons { justify-content: flex-start; margin-top: 25px; gap: 10px; flex-wrap: wrap; }
+    [data-section-id="{{ section.id }}"] .slideshow-classic__buttons .button.button--primary {
+      background: #fff; color: #000; text-transform: uppercase; border: 1px solid rgb(var(--color-foreground), 0.15);
+    }
+    [data-section-id="{{ section.id }}"] .slideshow-classic__buttons .button.button--primary.active {
+      background: #4271a9; color: #fff; border-color: #4271a9;
+    }
+
+    [data-section-id="{{ section.id }}"] .tab-panel[hidden] { display: none !important; }
+  </style>
+
+  <script>
+    (function() {
+      const root = document.querySelector('[data-section-id="{{ section.id }}"]');
+      if (!root) return;
+
+      const qs = (sel, ctx = root) => ctx.querySelector(sel);
+      const qsa = (sel, ctx = root) => Array.from(ctx.querySelectorAll(sel));
+
+      function cardUrlFromDataset(card) {
+        // Prefer explicit article URL (most robust)
+        const explicit = card.getAttribute('data-article-url');
+        if (explicit) return explicit;
+
+        // Fallback to blog/article handles (legacy)
+        const blogHandle = card.getAttribute('data-blog-handle');
+        const articleHandle = card.getAttribute('data-article-handle');
+        if (blogHandle && articleHandle) {
+          return `/blogs/${blogHandle}/articles/${articleHandle}`;
+        }
+
+        // Last resort (legacy legacy): treat data-handle as a full path after /blogs/
+        const legacy = card.getAttribute('data-handle');
+        if (legacy) return `/blogs/${legacy}`;
+
+        return null;
+      }
+
+      async function hydrateCard(card) {
+        if (card.classList.contains('hide')) return; // filtered out
+        const target = qs('.js-ingredient-products', card);
+        if (!target) return;
+
+        const urlBase = cardUrlFromDataset(card);
+        if (!urlBase) return;
+
+        const url = urlBase.includes('?') ? `${urlBase}&view=ajax-ingredient` : `${urlBase}?view=ajax-ingredient`;
+
+        // Avoid double fetching
+        if (card.dataset.hydrated === 'true') return;
+
+        try {
+          const res = await fetch(url, { credentials: 'same-origin' });
+          if (!res.ok) return;
+          const html = await res.text();
+          target.innerHTML = html;
+          card.dataset.hydrated = 'true';
+        } catch (e) {
+          // swallow silently to avoid console noise in production
+        }
+      }
+
+      function buildProducts() {
+        const cards = qsa('.js-ingredient-card');
+        cards.forEach(hydrateCard);
+      }
+
+      function setupTabs() {
+        const buttonsWrap = qs('.ingredint__buttons');
+        if (!buttonsWrap) return;
+
+        const links = qsa('a.button', buttonsWrap);
+        if (links.length === 0) return;
+
+        // init
+        let active = links[0];
+        let currentPanel = qs(active.getAttribute('href'));
+        if (currentPanel) currentPanel.removeAttribute('hidden');
+
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (link === active) return;
+
+            // deactivate old
+            active.classList.remove('active');
+            if (currentPanel) currentPanel.setAttribute('hidden', '');
+
+            // activate new
+            active = link;
+            active.classList.add('active');
+            currentPanel = qs(active.getAttribute('href'));
+            if (currentPanel) currentPanel.removeAttribute('hidden');
+
+            // re-hydrate visible tab’s cards (useful if filter changed while hidden)
+            buildProducts();
+          });
+        });
+      }
+
+      function onLetterFiltered() {
+        // Custom event expected from your A–Z filter snippet when visibility changes
+        buildProducts();
+      }
+
+      function init() {
+        setupTabs();
+        buildProducts();
+        document.addEventListener('letterFiltered', onLetterFiltered);
+      }
+
+      function destroy() {
+        document.removeEventListener('letterFiltered', onLetterFiltered);
+      }
+
+      // Boot now
+      init();
+
+      // Design mode support
+      document.addEventListener('shopify:section:load', (evt) => {
+        if (evt.detail.sectionId === '{{ section.id }}') {
+          destroy(); init();
+        }
+      });
+      document.addEventListener('shopify:section:select', (evt) => {
+        if (evt.detail.sectionId === '{{ section.id }}') {
+          destroy(); init();
+        }
+      });
+      document.addEventListener('shopify:section:deselect', (evt) => {
+        if (evt.detail.sectionId === '{{ section.id }}') {
+          destroy(); init();
+        }
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "supplement_intro",
+      "label": "Supplement intro",
+      "default": "<p>Intro copy for Supplement ingredients.</p>"
+    },
+    {
+      "type": "blog",
+      "id": "blog_category",
+      "label": "Supplement blog"
+    },
+    {
+      "type": "richtext",
+      "id": "skincare_intro",
+      "label": "Skincare intro",
+      "default": "<p>Intro copy for Skincare ingredients.</p>"
+    },
+    {
+      "type": "blog",
+      "id": "blog_category_1",
+      "label": "Skincare blog"
+    }
+  ],
+  "presets": [
+    { "name": "Ingredients Page" }
+  ]
+}
+{% endschema %}
