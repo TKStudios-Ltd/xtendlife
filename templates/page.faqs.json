@@ -11,13 +11,117 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "custom_css": [
+        "h1 {text-align: center; margin-top: 4rem;}"
+      ],
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 100,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_xwchJj": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_PbXBpi": {
+          "type": "caption",
+          "settings": {
+            "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "button_zCbN7n": {
+          "type": "button",
+          "settings": {
+            "button_label": "Orders",
+            "button_link": "#",
+            "button_style_secondary": true,
+            "button_label_2": "Shipping",
+            "button_link_2": "#",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "caption_PbXBpi",
+        "button_zCbN7n"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_VwREVa": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_aX4CdD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have more than one serving of *Product* per day?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Heczkt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ymq6Jc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Duis aute irure dolor in reprehenderit?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_arMyAk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Excepteur sint occaecat cupidatat non proident?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_aX4CdD",
+        "collapsible_row_Heczkt",
+        "collapsible_row_ymq6Jc",
+        "collapsible_row_arMyAk"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "orders",
+        "heading": "Orders",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rich_text_xwchJj",
+    "collapsible_content_VwREVa"
   ]
 }
