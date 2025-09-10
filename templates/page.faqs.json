@@ -366,10 +366,10 @@
           "type": "heading",
           "settings": {
             "heading": "Stay connected",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         },
-        "paragraph_9g9Gca": {
+        "paragraph_3mLhbG": {
           "type": "paragraph",
           "settings": {
             "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
@@ -382,12 +382,13 @@
       },
       "block_order": [
         "heading_KYi7rf",
-        "paragraph_9g9Gca",
+        "paragraph_3mLhbG",
         "email_form_J6MkXK"
       ],
       "custom_css": [
         ".newsletter__wrapper {padding: 0 !important;}",
-        ".newsletter__left .h1 {display: none;}"
+        ".h1 {display: none;}",
+        ".h2 {margin: 2rem 0 4rem;}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
