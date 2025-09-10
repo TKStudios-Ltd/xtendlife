@@ -66,9 +66,9 @@
       "name": "Ingredients Page",
       "settings": {
         "supplement_intro": "<p>Intro copy for Supplement ingredients.</p>",
-        "blog_category": "",
+        "blog_category": "supplement-ingredients",
         "skincare_intro": "<p>Intro copy for Skincare ingredients.</p>",
-        "blog_category_1": ""
+        "blog_category_1": "skincare-ingredients"
       }
     }
   },
