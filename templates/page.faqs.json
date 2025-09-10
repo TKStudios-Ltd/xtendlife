@@ -388,8 +388,8 @@
       "custom_css": [
         ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
         ".h1 {display: none;}",
-        ".h2 {font-size: 4rem; margin: 3rem 0 6rem;}",
-        "@media screen and (min-width: 750px) {.newsletter__left {min-height: 40rem; max-height: 60rem; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
+        "@media (max-width: 749px) {.newsletter__right {padding: 0 2rem 4rem; }}",
+        "@media screen and (min-width: 750px) {.h2 {font-size: 4rem; margin: 3rem 0 6rem; } .newsletter__left {min-height: 40rem; height: 30vw; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
