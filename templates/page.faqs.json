@@ -51,16 +51,40 @@
           "type": "button",
           "settings": {
             "button_label": "Orders",
-            "button_link": "#",
+            "button_link": "#orders",
             "button_style_secondary": true,
-            "button_label_2": "Shipping",
-            "button_link_2": "#",
-            "button_style_secondary_2": true
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_4Uq3Aw": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shipping",
+            "button_link": "#shipping",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_idbXEU": {
+          "type": "button",
+          "settings": {
+            "button_label": "Subscriptions",
+            "button_link": "#subscriptions",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "button_YmfrTG"
+        "button_YmfrTG",
+        "button_4Uq3Aw",
+        "button_idbXEU"
       ],
       "custom_css": [
         ".rich-text__buttons {max-width: 100%; border-top: 1px solid rgba(31, 25, 71, 0.3); border-bottom: 1px solid rgba(31, 25, 71, 0.3); padding: 3rem 0;}",
