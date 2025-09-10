@@ -164,7 +164,7 @@
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 100,
-        "padding_bottom": 60
+        "padding_bottom": 0
       }
     },
     "collapsible_content_89AQGH": {
@@ -230,8 +230,8 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 40,
-        "padding_bottom": 60
+        "padding_top": 80,
+        "padding_bottom": 0
       }
     },
     "collapsible_content_wrM63W": {
@@ -297,7 +297,7 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 40,
+        "padding_top": 80,
         "padding_bottom": 100
       }
     }
