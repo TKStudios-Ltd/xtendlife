@@ -1,3 +1,104 @@
+<section class="filter__container">
+
+  {% if filter_search %}
+    <div class="filter collection-filter">
+      <p class="filter-text_new">Search By</p>
+      <form class="filter__form js-filter-search search" action="/search" data-filter-for="{{ filter_for }}">
+        {% if filter_placeholder_text %}
+        	{% assign filter_placeholder_string = filter_placeholder_text | prepend: 'Search our ' %}
+        {% else %}
+        	{% assign filter_placeholder_string = 'Search' %}
+        {% endif %}
+        <input class="filter__search js-filter-search-input" type="text" placeholder="{{filter_placeholder_string}}" aria-label="{{filter_placeholder_string}}">
+        <button type="submit" class="filter__search-submit" aria-label="Search">{% include 'svg-search' %}</button>
+      </form>
+    </div>
+  {% endif %}
+
+  {% if filter_dropdown %}
+    <div class="filter">
+      {% comment %} Get all tags in collection that contains 'filter-option::' {% endcomment %}
+      {% assign filter_string = '' %}
+      {% for tag in tags %}
+        {% if tag contains 'filter-option::' %}
+          {% assign filter_option = tag | remove: 'filter-option::' %}
+          {% assign filter_string = filter_string | append: ',' | append: filter_option %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} Create an array of filter values {% endcomment %}
+      {% unless filter_string == blank %}
+        {% assign filter_array = filter_string | remove_first: ',' | split: ',' %}
+      {% endunless %}
+
+      {% comment %} Create a select dropdown from filter values {% endcomment %}
+      {% if filter_array %}
+        <select class="js-dropdown js-filter-select" data-filter-for="{{ filter_for }}">
+          <option value="">Choose a Product Category</option>
+          {% for filter in filter_array %}
+            <option value="{{ filter | handle }}">{{ filter }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if filter_gender %}
+    <div class="filter">
+      <div class="filter__buttons">
+        <button type="button" class="filter__button js-filter-gender" value="w" data-filter-for="{{ filter_for }}">Women's</button>
+        <button type="button" class="filter__button js-filter-gender" value="m" data-filter-for="{{ filter_for }}">Men's</button>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if filter_all_gender_pet %}
+    <div class="filter">
+      <div class="filter__buttons">
+        <button type="button" class="filter__button js-filter-all-gender-pet" value="all" data-filter-for="{{ filter_for }}">All</button>
+        <button type="button" class="filter__button js-filter-all-gender-pet" value="m" data-filter-for="{{ filter_for }}">For Him</button>
+        <button type="button" class="filter__button js-filter-all-gender-pet" value="w" data-filter-for="{{ filter_for }}">For Her</button>
+        <button type="button" class="filter__button js-filter-all-gender-pet" value="p" data-filter-for="{{ filter_for }}">For Pets</button>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if filter_letters %}
+    <div class="filter">
+      <ul class="filter__letters js-filter-letters">
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="0-9" data-filter-for="{{ filter_for }}">0-9</button></li>
+        <li class="filter__letter"><button class="filter__letter-button filter__letter--active js-filter-letter" type="button" value="A" data-filter-for="{{ filter_for }}">A</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="B" data-filter-for="{{ filter_for }}">B</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="C" data-filter-for="{{ filter_for }}">C</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="D" data-filter-for="{{ filter_for }}">D</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="E" data-filter-for="{{ filter_for }}">E</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="F" data-filter-for="{{ filter_for }}">F</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="G" data-filter-for="{{ filter_for }}">G</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="H" data-filter-for="{{ filter_for }}">H</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="I" data-filter-for="{{ filter_for }}">I</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="J" data-filter-for="{{ filter_for }}">J</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="K" data-filter-for="{{ filter_for }}">K</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="L" data-filter-for="{{ filter_for }}">L</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="M" data-filter-for="{{ filter_for }}">M</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="N" data-filter-for="{{ filter_for }}">N</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="O" data-filter-for="{{ filter_for }}">O</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="P" data-filter-for="{{ filter_for }}">P</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="Q" data-filter-for="{{ filter_for }}">Q</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="R" data-filter-for="{{ filter_for }}">R</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="S" data-filter-for="{{ filter_for }}">S</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="T" data-filter-for="{{ filter_for }}">T</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="U" data-filter-for="{{ filter_for }}">U</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="V" data-filter-for="{{ filter_for }}">V</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="W" data-filter-for="{{ filter_for }}">W</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="X" data-filter-for="{{ filter_for }}">X</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="Y" data-filter-for="{{ filter_for }}">Y</button></li>
+        <li class="filter__letter"><button class="filter__letter-button js-filter-letter" type="button" value="Z" data-filter-for="{{ filter_for }}">Z</button></li>
+      </ul>
+    </div>
+  {% endif %}
+
+</section>
+
 <script>
   (function () {
     const DOC = document;
