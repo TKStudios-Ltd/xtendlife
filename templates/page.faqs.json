@@ -385,6 +385,10 @@
         "paragraph_9g9Gca",
         "email_form_J6MkXK"
       ],
+      "custom_css": [
+        ".newsletter__wrapper {padding: 0 !important;}",
+        ".newsletter__left .h1 {display: none;}"
+      ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
