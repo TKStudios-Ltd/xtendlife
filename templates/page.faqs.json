@@ -342,7 +342,7 @@
         ".image-with-text__content > * + * {margin-top: 1rem !important; max-width: 400px;}",
         ".image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important;}",
         ".image-with-text__media {border-radius: 16px;}",
-        "@media (max-width: 749px) {.image-with-text .grid {gap: 4rem !important; }}"
+        "@media (max-width: 749px) {.image-with-text .grid {gap: 4rem !important; } .button {max-width: inherit; width: auto; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
