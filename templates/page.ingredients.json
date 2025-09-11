@@ -57,8 +57,8 @@
         "show_text_box": false,
         "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
         "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "mobile_content_alignment": "left",
+        "show_text_below": false
       }
     },
     "ingredients_page_UWQnDk": {
