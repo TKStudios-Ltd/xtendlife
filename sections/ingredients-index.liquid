@@ -1,12 +1,13 @@
 <section class="ingredients-index" data-section-id="{{ section.id }}">
   <div class="page-width">
 
-    {%- comment -%} Resolve blogs (falls back to typical handles if pickers not set) {%- endcomment -%}
+    {%- comment -%} Resolve blogs (use pickers, fallback to typical handles) {%- endcomment -%}
     {%- assign supp_handle = section.settings.supp_blog | default: 'supplement-ingredients' -%}
     {%- assign skin_handle = section.settings.skin_blog  | default: 'skincare-ingredients' -%}
     {%- assign supp_blog   = blogs[supp_handle] -%}
     {%- assign skin_blog   = blogs[skin_handle] -%}
 
+    <!-- Tabs -->
     <div class="ingr-tabs">
       <button class="tab-btn active" data-tab="supp-{{ section.id }}">Supplements</button>
       <button class="tab-btn" data-tab="skin-{{ section.id }}">Skincare</button>
@@ -29,56 +30,45 @@
 
       {% if supp_blog and supp_blog.articles_count > 0 %}
         {% assign supp_sorted = supp_blog.articles | sort: 'title' %}
-        <div class="ingr-grid">
-          <!-- LEFT: title list (desktop) / full rows (mobile) -->
-          <div class="ingredients-list" data-list-for="supplements">
-            {% for article in supp_sorted limit: 1000 %}
-              {% if article.handle != blank %}
-                {% assign first = article.title | slice: 0, 1 | upcase %}
-                {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
-                  {% assign first = '0-9' %}
-                {% endif %}
-
-                {% assign img_url = '' %}
-                {% if article.image %}
-                  {% assign img_url = article.image | image_url: width: 720, height: 480, crop: 'center' %}
-                {% endif %}
-                {% assign excerpt_txt = article.excerpt | strip_html %}
-
-                <article
-                  class="ingredient-row"
-                  data-letter="{{ first }}"
-                  data-title="{{ article.title | escape }}"
-                  data-url="{{ article.url }}"
-                  data-image="{{ img_url }}"
-                  data-image-alt="{{ article.image.alt | default: article.title | escape }}"
-                  data-excerpt="{{ excerpt_txt | escape }}"
-                  tabindex="0"
-                >
-                  <div class="row-line">
-                    <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
-                  </div>
-
-                  <!-- MOBILE inline content (always visible on mobile) -->
-                  <div class="row-inline">
-                    {% if img_url != blank %}
-                      <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="360" height="240" loading="lazy">
-                    {% endif %}
-                    {% if section.settings.show_excerpt and excerpt_txt != blank %}
-                      <div class="row-excerpt">{{ excerpt_txt }}</div>
-                    {% endif %}
-                  </div>
-                </article>
+        <div class="ingredients-list" data-list-for="supplements">
+          {% for article in supp_sorted limit: 1000 %}
+            {% if article.handle != blank %}
+              {% assign first = article.title | slice: 0, 1 | upcase %}
+              {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                {% assign first = '0-9' %}
               {% endif %}
-            {% endfor %}
-          </div>
 
-          <!-- RIGHT: detail panel (desktop only) -->
-          <aside class="ingredient-detail" aria-live="polite">
-            <a class="detail-title" href="#" target="_self"></a>
-            <div class="detail-excerpt"></div>
-            <div class="detail-media"><img class="detail-img" alt="" width="720" height="480" loading="lazy"></div>
-          </aside>
+              {% assign img_url = '' %}
+              {% if article.image %}
+                {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
+              {% endif %}
+              {% assign excerpt_txt = article.excerpt | strip_html %}
+
+              <article
+                class="ingredient-row"
+                data-letter="{{ first }}"
+                data-title="{{ article.title | escape }}"
+                data-url="{{ article.url }}"
+                data-image="{{ img_url }}"
+                data-image-alt="{{ article.image.alt | default: article.title | escape }}"
+                data-excerpt="{{ excerpt_txt | escape }}"
+                tabindex="0"
+              >
+                <div class="row-line">
+                  <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                </div>
+
+                <div class="row-content">
+                  {% if img_url != blank %}
+                    <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="480" height="320" loading="lazy">
+                  {% endif %}
+                  {% if section.settings.show_excerpt and excerpt_txt != blank %}
+                    <div class="row-excerpt">{{ excerpt_txt }}</div>
+                  {% endif %}
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
         </div>
       {% else %}
         <p>No published articles in <code>{{ supp_handle }}</code>.</p>
@@ -99,52 +89,45 @@
 
       {% if skin_blog and skin_blog.articles_count > 0 %}
         {% assign skin_sorted = skin_blog.articles | sort: 'title' %}
-        <div class="ingr-grid">
-          <div class="ingredients-list" data-list-for="skincare">
-            {% for article in skin_sorted limit: 1000 %}
-              {% if article.handle != blank %}
-                {% assign first = article.title | slice: 0, 1 | upcase %}
-                {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
-                  {% assign first = '0-9' %}
-                {% endif %}
-
-                {% assign img_url = '' %}
-                {% if article.image %}
-                  {% assign img_url = article.image | image_url: width: 720, height: 480, crop: 'center' %}
-                {% endif %}
-                {% assign excerpt_txt = article.excerpt | strip_html %}
-
-                <article
-                  class="ingredient-row"
-                  data-letter="{{ first }}"
-                  data-title="{{ article.title | escape }}"
-                  data-url="{{ article.url }}"
-                  data-image="{{ img_url }}"
-                  data-image-alt="{{ article.image.alt | default: article.title | escape }}"
-                  data-excerpt="{{ excerpt_txt | escape }}"
-                  tabindex="0"
-                >
-                  <div class="row-line">
-                    <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
-                  </div>
-                  <div class="row-inline">
-                    {% if img_url != blank %}
-                      <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="360" height="240" loading="lazy">
-                    {% endif %}
-                    {% if section.settings.show_excerpt and excerpt_txt != blank %}
-                      <div class="row-excerpt">{{ excerpt_txt }}</div>
-                    {% endif %}
-                  </div>
-                </article>
+        <div class="ingredients-list" data-list-for="skincare">
+          {% for article in skin_sorted limit: 1000 %}
+            {% if article.handle != blank %}
+              {% assign first = article.title | slice: 0, 1 | upcase %}
+              {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                {% assign first = '0-9' %}
               {% endif %}
-            {% endfor %}
-          </div>
 
-          <aside class="ingredient-detail" aria-live="polite">
-            <a class="detail-title" href="#" target="_self"></a>
-            <div class="detail-excerpt"></div>
-            <div class="detail-media"><img class="detail-img" alt="" width="720" height="480" loading="lazy"></div>
-          </aside>
+              {% assign img_url = '' %}
+              {% if article.image %}
+                {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
+              {% endif %}
+              {% assign excerpt_txt = article.excerpt | strip_html %}
+
+              <article
+                class="ingredient-row"
+                data-letter="{{ first }}"
+                data-title="{{ article.title | escape }}"
+                data-url="{{ article.url }}"
+                data-image="{{ img_url }}"
+                data-image-alt="{{ article.image.alt | default: article.title | escape }}"
+                data-excerpt="{{ excerpt_txt | escape }}"
+                tabindex="0"
+              >
+                <div class="row-line">
+                  <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                </div>
+
+                <div class="row-content">
+                  {% if img_url != blank %}
+                    <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="480" height="320" loading="lazy">
+                  {% endif %}
+                  {% if section.settings.show_excerpt and excerpt_txt != blank %}
+                    <div class="row-excerpt">{{ excerpt_txt }}</div>
+                  {% endif %}
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
         </div>
       {% else %}
         <p>No published articles in <code>{{ skin_handle }}</code>.</p>
@@ -153,49 +136,37 @@
   </div>
 
   <style>
-    /* --- Scoped to this section --- */
-    [data-section-id="{{ section.id }}"] .ingr-tabs { display:flex; gap:24px; margin-bottom: 16px; }
+    /* ---- Scoped styles ---- */
+    [data-section-id="{{ section.id }}"] .ingr-tabs { display:flex; gap:24px; margin-bottom: 12px; }
     [data-section-id="{{ section.id }}"] .tab-btn { background:none; border:0; cursor:pointer; font-size:1.125rem; opacity:.6; }
     [data-section-id="{{ section.id }}"] .tab-btn.active { font-weight:600; opacity:1; }
     [data-section-id="{{ section.id }}"] .hidden { display:none !important; }
-    [data-section-id="{{ section.id }}"] .ingr-hr { margin: 0 0 24px; }
+    [data-section-id="{{ section.id }}"] .ingr-hr { margin: 0 0 20px; }
+    [data-section-id="{{ section.id }}"] .ingr-intro { margin-bottom: 16px; }
 
-    [data-section-id="{{ section.id }}"] .letters { display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 20px; }
+    [data-section-id="{{ section.id }}"] .letters { display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 18px; }
     [data-section-id="{{ section.id }}"] .letters li { list-style:none; }
     [data-section-id="{{ section.id }}"] .letter { background:none; border:0; cursor:pointer; opacity:.55; }
     [data-section-id="{{ section.id }}"] .letter.active { text-decoration: underline; opacity:1; }
 
-    /* Grid: desktop = list + detail, mobile = single column */
-    [data-section-id="{{ section.id }}"] .ingr-grid { display:grid; gap:24px; }
-    @media (min-width: 990px) {
-      [data-section-id="{{ section.id }}"] .ingr-grid { grid-template-columns: minmax(280px, 1fr) 1fr; align-items: start; }
-    }
-
-    /* Rows */
-    [data-section-id="{{ section.id }}"] .ingredients-list { display:grid; gap: 8px; }
-    [data-section-id="{{ section.id }}"] .ingredient-row { border-bottom: 1px solid rgba(0,0,0,.08); padding: 10px 0; outline: none; }
-    [data-section-id="{{ section.id }}"] .ingredient-row.is-active .row-line .ingredient-link { text-decoration: underline; }
+    [data-section-id="{{ section.id }}"] .ingredients-list { display:grid; gap: 12px; }
+    [data-section-id="{{ section.id }}"] .ingredient-row { border-bottom: 1px solid rgba(0,0,0,.08); padding: 14px 0; outline: none; }
+    [data-section-id="{{ section.id }}"] .ingredient-row.is-open .ingredient-link { text-decoration: underline; }
 
     [data-section-id="{{ section.id }}"] .row-line { display:flex; justify-content: space-between; align-items:center; gap:12px; }
-    [data-section-id="{{ section.id }}"] .ingredient-link { font-weight:600; line-height:1.3; }
+    [data-section-id="{{ section.id }}"] .ingredient-link { font-weight:700; line-height:1.3; }
 
-    /* Mobile inline content: visible on mobile, hidden on desktop */
-    [data-section-id="{{ section.id }}"] .row-inline { margin-top: 8px; display:block; }
-    [data-section-id="{{ section.id }}"] .row-img { width: 100%; height: auto; border-radius: 8px; display:block; }
-    [data-section-id="{{ section.id }}"] .row-excerpt { margin-top:6px; opacity:.85; }
+    /* Accordion content */
+    [data-section-id="{{ section.id }}"] .row-content { display:block; margin-top:10px; }
+    [data-section-id="{{ section.id }}"] .row-excerpt { margin-top:8px; opacity:.9; }
+    [data-section-id="{{ section.id }}"] .row-img { width: 100%; height: auto; border-radius: 10px; display:block; }
 
+    /* Desktop accordion behavior: hide content unless row is open */
     @media (min-width: 990px) {
-      [data-section-id="{{ section.id }}"] .row-inline { display:none; }
-    }
-
-    /* Detail panel (desktop only) */
-    [data-section-id="{{ section.id }}"] .ingredient-detail { display:none; }
-    @media (min-width: 990px) {
-      [data-section-id="{{ section.id }}"] .ingredient-detail { display:block; position:sticky; top: var(--sticky-top, 24px); }
-      [data-section-id="{{ section.id }}"] .detail-title { font-size:1.375rem; font-weight:700; display:inline-block; margin-bottom:8px; }
-      [data-section-id="{{ section.id }}"] .detail-excerpt { margin-bottom:12px; opacity:.9; }
-      [data-section-id="{{ section.id }}"] .detail-media { border-radius:12px; overflow:hidden; }
-      [data-section-id="{{ section.id }}"] .detail-img { width:100%; height:auto; display:block; }
+      [data-section-id="{{ section.id }}"] .row-content { display:none; }
+      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-content { display:flex; gap:16px; align-items:flex-start; }
+      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-img { width: 220px; max-width: 35%; }
+      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-excerpt { flex:1; }
     }
   </style>
 
@@ -213,9 +184,8 @@
         tabs.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
         Object.keys(panels).forEach(k => panels[k]?.classList.toggle('hidden', k !== id));
         const panel = panels[id];
-        // Default to A (with fallback) then activate first visible row
         applyLetter(panel, 'A', true);
-        activateFirstVisibleRow(panel);
+        openFirstVisible(panel);
       }
 
       function applyLetter(panel, letter, allowFallback){
@@ -241,79 +211,55 @@
         }
       }
 
-      function populateDetail(panel, row){
-        const detail = panel.querySelector('.ingredient-detail');
-        if (!detail) return;
-        const title = detail.querySelector('.detail-title');
-        const excerpt = detail.querySelector('.detail-excerpt');
-        const img = detail.querySelector('.detail-img');
-
-        title.textContent = row.dataset.title || '';
-        title.href = row.dataset.url || '#';
-        excerpt.textContent = row.dataset.excerpt || '';
-        if (row.dataset.image) {
-          img.src = row.dataset.image;
-          img.alt = row.dataset.imageAlt || row.dataset.title || '';
-          detail.querySelector('.detail-media').style.display = '';
-        } else {
-          img.removeAttribute('src');
-          img.alt = '';
-          detail.querySelector('.detail-media').style.display = 'none';
+      function openRow(panel, row){
+        // desktop: true accordion (single open)
+        if (mqDesktop.matches) {
+          panel.querySelectorAll('.ingredient-row.is-open').forEach(el => el.classList.remove('is-open'));
         }
+        row.classList.add('is-open');
       }
 
-      function activateRow(panel, row){
-        panel.querySelectorAll('.ingredient-row.is-active').forEach(el => el.classList.remove('is-active'));
-        row.classList.add('is-active');
-        if (mqDesktop.matches) populateDetail(panel, row);
-      }
-
-      function activateFirstVisibleRow(panel){
+      function openFirstVisible(panel){
         const first = Array.from(panel.querySelectorAll('.ingredients-list .ingredient-row'))
           .find(r => r.style.display !== 'none');
-        if (first) activateRow(panel, first);
+        if (first) openRow(panel, first);
       }
 
       // Events
       root.addEventListener('click', e => {
         const t = e.target.closest('.tab-btn');
         if (t) { e.preventDefault(); showTab(t.dataset.tab); return; }
-        const b = e.target.closest('.letters .letter');
-        if (b) {
+
+        const letterBtn = e.target.closest('.letters .letter');
+        if (letterBtn) {
           const panel = e.target.closest('.tab-panel');
-          if (panel) { e.preventDefault(); applyLetter(panel, b.dataset.letter, false); activateFirstVisibleRow(panel); }
+          if (panel) { e.preventDefault(); applyLetter(panel, letterBtn.dataset.letter, false); openFirstVisible(panel); }
           return;
-        }
-        // Make title clicks also mark row active (desktop)
-        const link = e.target.closest('.ingredient-link');
-        if (link) {
-          const row = e.target.closest('.ingredient-row');
-          const panel = e.target.closest('.tab-panel');
-          if (row && panel) activateRow(panel, row);
         }
       });
 
-      // Desktop hover / keyboard focus to preview
+      // Desktop hover -> open that row
       root.addEventListener('mouseenter', e => {
-        const row = e.target.closest('.ingredient-row');
-        if (!row || !mqDesktop.matches) return;
-        const panel = e.target.closest('.tab-panel');
-        if (panel) activateRow(panel, row);
+        const rowLine = e.target.closest('.ingredient-row .row-line');
+        if (!rowLine || !mqDesktop.matches) return;
+        const row = rowLine.parentElement;
+        const panel = row.closest('.tab-panel');
+        openRow(panel, row);
       }, true);
 
+      // Keyboard focus on row or its link also opens it
       root.addEventListener('focusin', e => {
         const row = e.target.closest('.ingredient-row');
         if (!row) return;
-        const panel = e.target.closest('.tab-panel');
-        if (panel) activateRow(panel, row);
+        const panel = row.closest('.tab-panel');
+        openRow(panel, row);
       });
 
-      // On breakpoint change, sync detail with active row
+      // Keep accordion semantics on desktop when resizing
       mqDesktop.addEventListener?.('change', () => {
-        const visiblePanel = Object.values(panels).find(p => !p.classList.contains('hidden'));
-        if (!visiblePanel) return;
-        const active = visiblePanel.querySelector('.ingredient-row.is-active');
-        if (active && mqDesktop.matches) populateDetail(visiblePanel, active);
+        const panel = Object.values(panels).find(p => !p.classList.contains('hidden'));
+        if (!panel) return;
+        if (mqDesktop.matches) openFirstVisible(panel);
       });
 
       // Boot
