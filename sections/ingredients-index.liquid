@@ -21,7 +21,7 @@
         {% if section.settings.skin_intro != blank %}
           <div class="rte ingr-intro">{{ section.settings.skin_intro }}</div>
         {% endif %}
-        <div class="image-with-text__text rte body">
+        <div class="trust-ticks">
           <ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>
         </div>
       </div>
@@ -197,7 +197,13 @@
     [data-section-id="{{ section.id }}"] .ingredients-list { display:grid; gap: 12px; }
     [data-section-id="{{ section.id }}"] .ingredient-row { border-bottom: 1px solid rgba(0,0,0,.08); padding: 14px 0; outline: none; }
     [data-section-id="{{ section.id }}"] .ingredient-row.is-open .ingredient-link { text-decoration: underline; }
-
+    .trust-ticks ul li {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      padding: 5px 6rem 5px 0;
+      border-bottom: 1px solid rgba(31, 25, 71, .4);
+    }
     [data-section-id="{{ section.id }}"] .row-line { display:flex; justify-content: space-between; align-items:center; gap:12px; }
     [data-section-id="{{ section.id }}"] .ingredient-link { font-weight:700; line-height:1.3; }
 
