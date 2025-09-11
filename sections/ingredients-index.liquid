@@ -1,20 +1,11 @@
 <section class="ingredients-index" data-section-id="{{ section.id }}">
   <div class="page-width">
 
-    {% comment %} --- Resolve blogs (robust) --- {% endcomment %}
+    {% comment %} Resolve blogs (fallback to typical handles) {% endcomment %}
     {% assign supp_handle = section.settings.supp_blog | default: 'supplement-ingredients' %}
     {% assign skin_handle = section.settings.skin_blog | default: 'skincare-ingredients' %}
     {% assign supp_blog   = blogs[supp_handle] %}
     {% assign skin_blog   = blogs[skin_handle] %}
-
-    {%- assign supp_count = supp_blog.articles_count | default: 0 -%}
-    {%- assign skin_count = skin_blog.articles_count | default: 0 -%}
-
-    <!-- DEBUG: remove after confirming -->
-    <div style="font-size:12px;opacity:.6;margin-bottom:8px">
-      Supplements: <code>{{ supp_handle }}</code> ({{ supp_count }} articles) &middot;
-      Skincare: <code>{{ skin_handle }}</code> ({{ skin_count }} articles)
-    </div>
 
     <!-- Tabs -->
     <div class="flex items-center gap-6 mb-6">
@@ -39,29 +30,27 @@
         {% endfor %}
       </ul>
 
-      {% if supp_count > 0 %}
-        {% paginate supp_blog.articles by 500 %}
-          {% assign items = paginate.items | sort: 'title' %}
-          <div class="ingredients-list" data-list-for="supplements">
-            {% for article in items %}
-              {% if article.handle != blank %}
-                {% assign first = article.title | slice: 0, 1 | upcase %}
-                {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
-                  {% assign first = '0-9' %}
-                {% endif %}
-                <article class="ingredient-row" data-letter="{{ first }}">
-                  <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
-                  {% if section.settings.show_excerpt and article.excerpt != blank %}
-                    <div class="ingredient-excerpt">{{ article.excerpt | strip_html }}</div>
-                  {% endif %}
-                </article>
+      {% if supp_blog and supp_blog.articles_count > 0 %}
+        {% assign supp_sorted = supp_blog.articles | sort: 'title' %}
+        <div class="ingredients-list" data-list-for="supplements">
+          {% for article in supp_sorted limit: 1000 %}
+            {% if article.handle != blank %}
+              {% assign first = article.title | slice: 0, 1 | upcase %}
+              {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                {% assign first = '0-9' %}
               {% endif %}
-            {% endfor %}
-          </div>
-        {% endpaginate %}
+              <article class="ingredient-row" data-letter="{{ first }}">
+                <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                {% if section.settings.show_excerpt and article.excerpt != blank %}
+                  <div class="ingredient-excerpt">{{ article.excerpt | strip_html }}</div>
+                {% endif %}
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
       {% else %}
         <div class="ingredients-list" data-list-for="supplements"></div>
-        <div style="font-size:12px;opacity:.6">No published articles found in <code>{{ supp_handle }}</code>.</div>
+        <div style="font-size:12px;opacity:.6">No published articles in <code>{{ supp_handle }}</code>.</div>
       {% endif %}
     </div>
 
@@ -79,29 +68,27 @@
         {% endfor %}
       </ul>
 
-      {% if skin_count > 0 %}
-        {% paginate skin_blog.articles by 500 %}
-          {% assign items = paginate.items | sort: 'title' %}
-          <div class="ingredients-list" data-list-for="skincare">
-            {% for article in items %}
-              {% if article.handle != blank %}
-                {% assign first = article.title | slice: 0, 1 | upcase %}
-                {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
-                  {% assign first = '0-9' %}
-                {% endif %}
-                <article class="ingredient-row" data-letter="{{ first }}">
-                  <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
-                  {% if section.settings.show_excerpt and article.excerpt != blank %}
-                    <div class="ingredient-excerpt">{{ article.excerpt | strip_html }}</div>
-                  {% endif %}
-                </article>
+      {% if skin_blog and skin_blog.articles_count > 0 %}
+        {% assign skin_sorted = skin_blog.articles | sort: 'title' %}
+        <div class="ingredients-list" data-list-for="skincare">
+          {% for article in skin_sorted limit: 1000 %}
+            {% if article.handle != blank %}
+              {% assign first = article.title | slice: 0, 1 | upcase %}
+              {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                {% assign first = '0-9' %}
               {% endif %}
-            {% endfor %}
-          </div>
-        {% endpaginate %}
+              <article class="ingredient-row" data-letter="{{ first }}">
+                <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                {% if section.settings.show_excerpt and article.excerpt != blank %}
+                  <div class="ingredient-excerpt">{{ article.excerpt | strip_html }}</div>
+                {% endif %}
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
       {% else %}
         <div class="ingredients-list" data-list-for="skincare"></div>
-        <div style="font-size:12px;opacity:.6">No published articles found in <code>{{ skin_handle }}</code>.</div>
+        <div style="font-size:12px;opacity:.6">No published articles in <code>{{ skin_handle }}</code>.</div>
       {% endif %}
     </div>
   </div>
@@ -124,7 +111,7 @@
       if (!root) return;
 
       const tabs = Array.from(root.querySelectorAll('.tab-btn'));
-      const panels = { };
+      const panels = {};
       tabs.forEach(t => panels[t.dataset.tab] = root.querySelector('#' + t.dataset.tab));
 
       function showTab(id){
@@ -142,7 +129,7 @@
         const rows = Array.from(panel.querySelectorAll('.ingredients-list .ingredient-row'));
         let visible = 0;
         rows.forEach(r => {
-          const show = (r.getAttribute('data-letter') || '').toUpperCase() === letter.toUpperCase();
+          const show = (r.dataset.letter || '').toUpperCase() === letter.toUpperCase();
           r.style.display = show ? '' : 'none';
           if (show) visible++;
         });
