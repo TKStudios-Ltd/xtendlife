@@ -257,9 +257,9 @@
       display: block;
     }
     @media (max-width: 989px) {
-      .ingredients-index__flex { flex-direction: column; }
+      .ingredients-index__flex { flex-direction: column; margin: 0 0 8rem; }
       .ingredients-index__flex-left { display: flex; flex-direction: column-reverse; }
-    }
+      [data-section-id="{{ section.id }}"] .ingr-intro p { font-size: 1.6rem; }
     @media (min-width: 990px) {
       [data-section-id="{{ section.id }}"] .row-content { display:none; }
       [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-content { display:flex; gap:2rem; align-items: flex-end; flex-direction: row-reverse; margin: 1rem 0; }
