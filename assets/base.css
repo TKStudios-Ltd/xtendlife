@@ -3888,7 +3888,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 @media (max-width: 749px) {
   main#MainContent > .section:first-of-type .nav__offset_bg {
-    padding-top: 85px;
+    padding-top: 95px;
   }
 }
 @media (min-width: 750px) and (max-width: 1099px) {
