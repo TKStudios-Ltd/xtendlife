@@ -27,7 +27,7 @@
         {%- assign blog = blogs[section.settings.blog_category] -%}
         {%- if blog and blog.articles_count > 0 -%}
           {%- paginate blog.articles by 500 -%}
-            {%- render 'ingredient-cards', articles: paginate.items, blog: blog -%}
+            {%- render 'ingredient-cards', articles: paginate.items, blog_handle: blog.handle -%}
           {%- endpaginate -%}
         {%- else -%}
           <p class="color-foreground-50">No supplement ingredients found.</p>
@@ -46,8 +46,9 @@
         {%- assign blog = blogs[section.settings.blog_category_1] -%}
         {%- if blog and blog.articles_count > 0 -%}
           {%- paginate blog.articles by 500 -%}
-            {%- render 'ingredient-cards', articles: paginate.items, blog: blog -%}
+            {%- render 'ingredient-cards', articles: paginate.items, blog_handle: blog.handle -%}
           {%- endpaginate -%}
+
         {%- else -%}
           <p class="color-foreground-50">No skincare ingredients found.</p>
         {%- endif -%}
