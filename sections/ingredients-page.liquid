@@ -71,7 +71,7 @@
     [data-section-id="{{ section.id }}"] .tab-panel[hidden] { display: none !important; }
   </style>
 
-  <script>
+<script>
   (function() {
     const DEBUG = true;
     const PFX = '[INGR]';
@@ -86,49 +86,61 @@
     const qs  = (sel, ctx = root) => ctx.querySelector(sel);
     const qsa = (sel, ctx = root) => Array.from(ctx.querySelectorAll(sel));
 
+    const isLikelyArticlePath = (path) => /^\/blogs\/[^/]+\/articles\/[^/?#]+/i.test(path);
+
+    function normalizeHref(href) {
+      if (!href) return '';
+      href = href.trim();
+      // Ignore empty, anchors, and root
+      if (!href || href === '/' || href.startsWith('#') || href.startsWith('?')) return '';
+      try {
+        const u = new URL(href, window.location.origin);
+        // Same-origin path only
+        return u.pathname + (u.search || '');
+      } catch {
+        // Treat as relative path
+        return href.startsWith('/') ? href : '/' + href.replace(/^\/+/, '');
+      }
+    }
+
     function cardUrlFromDataset(card) {
       // 1) Preferred: explicit data-article-url
-      const explicit = card.getAttribute('data-article-url');
-      if (explicit && explicit.trim() !== '') {
-        log('cardUrlFromDataset: explicit', explicit);
-        return explicit.trim();
+      let href = normalizeHref(card.getAttribute('data-article-url'));
+      if (!href) {
+        // 2) Fallback: blog/article handles
+        const blogHandle = (card.getAttribute('data-blog-handle') || '').trim();
+        const articleHandle = (card.getAttribute('data-article-handle') || '').trim();
+        if (blogHandle && articleHandle) {
+          href = `/blogs/${blogHandle}/articles/${articleHandle}`;
+          log('cardUrlFromDataset: handles', href);
+        }
       }
-
-      // 2) Fallback: blog/article handles
-      const blogHandle = card.getAttribute('data-blog-handle');
-      const articleHandle = card.getAttribute('data-article-handle');
-      if (blogHandle && blogHandle.trim() !== '' && articleHandle && articleHandle.trim() !== '') {
-        const u = `/blogs/${blogHandle.trim()}/articles/${articleHandle.trim()}`;
-        log('cardUrlFromDataset: handles', u);
-        return u;
+      if (!href) {
+        // 3) Legacy fallback: data-handle like "ingredients/curcumin"
+        const legacy = (card.getAttribute('data-handle') || '').trim();
+        if (legacy) {
+          href = normalizeHref(`/blogs/${legacy}`);
+          log('cardUrlFromDataset: legacy', href);
+        }
       }
-
-      // 3) Legacy fallback: data-handle like "ingredients/curcumin"
-      const legacy = card.getAttribute('data-handle');
-      if (legacy && legacy.trim() !== '') {
-        const u = `/blogs/${legacy.trim()}`;
-        log('cardUrlFromDataset: legacy', u);
-        return u;
-      }
-
-      // 4) NEW: Fallback to the first anchor href inside the card
-      let a = card.querySelector('a[href]');
-      if (a) {
-        let href = a.getAttribute('href').trim();
-        try {
-          const u = new URL(href, window.location.origin);
-          if (u.origin === window.location.origin) {
-            href = u.pathname + (u.search || '');
-          }
-        } catch (e) { /* non-URL or same-origin coercion failed; keep raw */ }
-        if (href) {
+      if (!href) {
+        // 4) Anchor fallback (title link/media link)
+        const a =
+          card.querySelector('.ingredient-card__title--link[href]') ||
+          card.querySelector('.ingredient-card__media[href]') ||
+          card.querySelector('a[href*="/blogs/"][href*="/articles/"]') ||
+          card.querySelector('a[href]');
+        if (a) {
+          href = normalizeHref(a.getAttribute('href'));
           log('cardUrlFromDataset: anchor fallback', href);
-          return href;
         }
       }
 
-      warn('cardUrlFromDataset: no dataset/anchor for URL', card);
-      return null;
+      if (!href || !isLikelyArticlePath(href)) {
+        warn('Invalid/missing article URL, skipping hydrate', { href, card });
+        return null;
+      }
+      return href;
     }
 
     async function hydrateCard(card) {
@@ -140,7 +152,7 @@
       const base = cardUrlFromDataset(card);
       if (!base) return;
 
-      const url = base.includes('?') ? `${base}&view=ajax-ingredient` : `${base}?view=ajax-ingredient`;
+      const url = base + (base.includes('?') ? '&' : '?') + 'view=ajax-ingredient';
       if (card.dataset.hydrated === 'true') { log('Already hydrated', url); return; }
 
       group('Hydrate card', () => { log('Fetching', url); });
@@ -149,7 +161,14 @@
         const res = await fetch(url, { credentials: 'same-origin' });
         log('Fetch status', res.status, url);
         if (!res.ok) { warn('Fetch failed', { status: res.status, url }); return; }
+
         const html = await res.text();
+        // Guard: if the response smells like a full layout (meta tags, etc), don't inject
+        if (/<!DOCTYPE|<html|<meta\s|<title>/i.test(html)) {
+          warn('Response looks like a full page, not an ajax view. Skipping inject.', url);
+          return;
+        }
+
         target.innerHTML = html;
         card.dataset.hydrated = 'true';
         log('Hydrated OK', url);
@@ -217,7 +236,7 @@
       document.removeEventListener('letterFiltered', onLetterFiltered);
     }
 
-    // Expose helpers for manual debugging in console
+    // Expose helpers
     window.INGR = Object.assign(window.INGR || {}, {
       rebuild: buildProducts,
       setDebug: (v) => (window.INGR_DEBUG = v),
