@@ -1,22 +1,5 @@
 {% comment %}
   INGREDIENTS PAGE (Dawn compatible)
-  - Two tabs (Supplement / Skincare)
-  - Optional intros (rich text)
-  - A–Z filter snippet (expects to dispatch a CustomEvent 'letterFiltered' on document)
-  - Renders your existing 'ingredient-cards' snippet
-  - Hydrates each .js-ingredient-card with related products via ?view=ajax-ingredient
-
-  EXPECTED MARKUP FROM 'ingredient-cards' SNIPPET:
-  Each ingredient card should include:
-    - class="js-ingredient-card"
-    - EITHER data-article-url="/blogs/ingredients/articles/curcumin"  (preferred)
-      OR    data-blog-handle="ingredients" data-article-handle="curcumin"
-    - a descendant container: <div class="js-ingredient-products"></div> for AJAX injection
-
-  EXPECTED AJAX VIEW:
-  Create an alternate view (e.g. article template view) that returns the related products HTML:
-    - /blogs/{{ blog.handle }}/articles/{{ article.handle }}?view=ajax-ingredient
-  OR support the legacy URL if you already have it.
 {% endcomment %}
 
 <section class="section page_content ingredients_content" data-section-id="{{ section.id }}">
@@ -89,130 +72,142 @@
   </style>
 
   <script>
-    (function() {
-      const root = document.querySelector('[data-section-id="{{ section.id }}"]');
-      if (!root) return;
+  (function() {
+    const DEBUG = true;
+    const PFX = '[INGR]';
+    const log  = (...a) => DEBUG && console.log(PFX, ...a);
+    const warn = (...a) => DEBUG && console.warn(PFX, ...a);
+    const group = (label, fn) => { if (!DEBUG) return fn(); console.groupCollapsed(PFX, label); try { fn(); } finally { console.groupEnd(); } };
 
-      const qs = (sel, ctx = root) => ctx.querySelector(sel);
-      const qsa = (sel, ctx = root) => Array.from(ctx.querySelectorAll(sel));
+    const root = document.querySelector('[data-section-id="{{ section.id }}"]');
+    if (!root) { warn('Section root not found'); return; }
+    log('Boot', { sectionId: '{{ section.id }}' });
 
-      function cardUrlFromDataset(card) {
-        // Prefer explicit article URL (most robust)
-        const explicit = card.getAttribute('data-article-url');
-        if (explicit) return explicit;
+    const qs  = (sel, ctx = root) => ctx.querySelector(sel);
+    const qsa = (sel, ctx = root) => Array.from(ctx.querySelectorAll(sel));
 
-        // Fallback to blog/article handles (legacy)
-        const blogHandle = card.getAttribute('data-blog-handle');
-        const articleHandle = card.getAttribute('data-article-handle');
-        if (blogHandle && articleHandle) {
-          return `/blogs/${blogHandle}/articles/${articleHandle}`;
-        }
-
-        // Last resort (legacy legacy): treat data-handle as a full path after /blogs/
-        const legacy = card.getAttribute('data-handle');
-        if (legacy) return `/blogs/${legacy}`;
-
-        return null;
+    function cardUrlFromDataset(card) {
+      const explicit = card.getAttribute('data-article-url');
+      if (explicit) { log('cardUrlFromDataset: explicit', explicit); return explicit; }
+      const blogHandle = card.getAttribute('data-blog-handle');
+      const articleHandle = card.getAttribute('data-article-handle');
+      if (blogHandle && articleHandle) {
+        const u = `/blogs/${blogHandle}/articles/${articleHandle}`;
+        log('cardUrlFromDataset: blog/article handles', u);
+        return u;
       }
-
-      async function hydrateCard(card) {
-        if (card.classList.contains('hide')) return; // filtered out
-        const target = qs('.js-ingredient-products', card);
-        if (!target) return;
-
-        const urlBase = cardUrlFromDataset(card);
-        if (!urlBase) return;
-
-        const url = urlBase.includes('?') ? `${urlBase}&view=ajax-ingredient` : `${urlBase}?view=ajax-ingredient`;
-
-        // Avoid double fetching
-        if (card.dataset.hydrated === 'true') return;
-
-        try {
-          const res = await fetch(url, { credentials: 'same-origin' });
-          if (!res.ok) return;
-          const html = await res.text();
-          target.innerHTML = html;
-          card.dataset.hydrated = 'true';
-        } catch (e) {
-          // swallow silently to avoid console noise in production
-        }
+      const legacy = card.getAttribute('data-handle');
+      if (legacy) {
+        const u = `/blogs/${legacy}`;
+        log('cardUrlFromDataset: legacy handle', u);
+        return u;
       }
+      warn('cardUrlFromDataset: no dataset for URL', card);
+      return null;
+    }
 
-      function buildProducts() {
-        const cards = qsa('.js-ingredient-card');
-        cards.forEach(hydrateCard);
+    async function hydrateCard(card) {
+      if (card.classList.contains('hide')) { log('Skip hidden card'); return; }
+
+      const target = qs('.js-ingredient-products', card);
+      if (!target) { warn('Missing .js-ingredient-products in card', card); return; }
+
+      const base = cardUrlFromDataset(card);
+      if (!base) return;
+
+      const url = base.includes('?') ? `${base}&view=ajax-ingredient` : `${base}?view=ajax-ingredient`;
+      if (card.dataset.hydrated === 'true') { log('Already hydrated', url); return; }
+
+      group('Hydrate card', () => {
+        log('Fetching', url);
+      });
+
+      try {
+        const res = await fetch(url, { credentials: 'same-origin' });
+        log('Fetch status', res.status, url);
+        if (!res.ok) { warn('Fetch failed', { status: res.status, url }); return; }
+        const html = await res.text();
+        target.innerHTML = html;
+        card.dataset.hydrated = 'true';
+        log('Hydrated OK', url);
+      } catch (e) {
+        warn('Fetch error', url, e);
       }
+    }
 
-      function setupTabs() {
-        const buttonsWrap = qs('.ingredint__buttons');
-        if (!buttonsWrap) return;
+    function buildProducts() {
+      const cards = qsa('.js-ingredient-card');
+      const visible = cards.filter(c => !c.classList.contains('hide') && !c.hasAttribute('hidden'));
+      group('buildProducts()', () => {
+        log('cards total', cards.length);
+        log('cards visible', visible.length);
+        if (visible.length === 0) warn('No visible cards — check letter filter or initial markup');
+      });
+      visible.forEach(hydrateCard);
+    }
 
-        const links = qsa('a.button', buttonsWrap);
-        if (links.length === 0) return;
+    function setupTabs() {
+      const buttonsWrap = qs('.ingredint__buttons');
+      if (!buttonsWrap) { warn('No .ingredint__buttons'); return; }
 
-        // init
-        let active = links[0];
-        let currentPanel = qs(active.getAttribute('href'));
-        if (currentPanel) currentPanel.removeAttribute('hidden');
+      const links = qsa('a.button', buttonsWrap);
+      log('Tab links found', links.length);
 
-        links.forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (link === active) return;
+      let active = links[0];
+      let currentPanel = qs(active?.getAttribute('href'));
+      if (currentPanel) currentPanel.removeAttribute('hidden');
 
-            // deactivate old
-            active.classList.remove('active');
-            if (currentPanel) currentPanel.setAttribute('hidden', '');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (link === active) return;
 
-            // activate new
-            active = link;
-            active.classList.add('active');
-            currentPanel = qs(active.getAttribute('href'));
-            if (currentPanel) currentPanel.removeAttribute('hidden');
+          log('Tab switch', { from: active?.textContent?.trim(), to: link.textContent?.trim() });
 
-            // re-hydrate visible tab’s cards (useful if filter changed while hidden)
-            buildProducts();
-          });
+          active.classList.remove('active');
+          if (currentPanel) currentPanel.setAttribute('hidden', '');
+
+          active = link;
+          active.classList.add('active');
+          currentPanel = qs(active.getAttribute('href'));
+          if (currentPanel) currentPanel.removeAttribute('hidden');
+
+          buildProducts();
         });
-      }
-
-      function onLetterFiltered() {
-        // Custom event expected from your A–Z filter snippet when visibility changes
-        buildProducts();
-      }
-
-      function init() {
-        setupTabs();
-        buildProducts();
-        document.addEventListener('letterFiltered', onLetterFiltered);
-      }
-
-      function destroy() {
-        document.removeEventListener('letterFiltered', onLetterFiltered);
-      }
-
-      // Boot now
-      init();
-
-      // Design mode support
-      document.addEventListener('shopify:section:load', (evt) => {
-        if (evt.detail.sectionId === '{{ section.id }}') {
-          destroy(); init();
-        }
       });
-      document.addEventListener('shopify:section:select', (evt) => {
-        if (evt.detail.sectionId === '{{ section.id }}') {
-          destroy(); init();
-        }
-      });
-      document.addEventListener('shopify:section:deselect', (evt) => {
-        if (evt.detail.sectionId === '{{ section.id }}') {
-          destroy(); init();
-        }
-      });
-    })();
-  </script>
+    }
+
+    function onLetterFiltered(ev) {
+      log('letterFiltered event', ev?.detail);
+      buildProducts();
+    }
+
+    function init() {
+      log('init()');
+      setupTabs();
+      buildProducts();
+      document.addEventListener('letterFiltered', onLetterFiltered);
+    }
+
+    function destroy() {
+      log('destroy()');
+      document.removeEventListener('letterFiltered', onLetterFiltered);
+    }
+
+    // Expose helpers for manual debugging in console
+    window.INGR = Object.assign(window.INGR || {}, {
+      rebuild: buildProducts,
+      setDebug: (v) => (window.INGR_DEBUG = v),
+    });
+
+    init();
+
+    document.addEventListener('shopify:section:load', (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
+    document.addEventListener('shopify:section:select', (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
+    document.addEventListener('shopify:section:deselect', (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
+  })();
+</script>
+
 </section>
 
 {% schema %}
