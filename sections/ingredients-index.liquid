@@ -73,9 +73,9 @@
 
                     <div class="row-content">
                       {% if img_url != blank %}
-                        <div class="row-media">
+                        <a href="{{ article.url }}" class="row-media">
                           <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" loading="lazy">
-                        </div>
+                        </a>
                       {% endif %}
                       {% if section.settings.show_excerpt and excerpt_txt != blank %}
                         <div class="row-excerpt">{{ excerpt_txt }}</div>
@@ -131,9 +131,9 @@
 
                     <div class="row-content">
                       {% if img_url != blank %}
-                        <div class="row-media">
+                        <a href="{{ article.url }}" class="row-media">
                           <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" loading="lazy">
-                        </div>
+                        </a>
                       {% endif %}
                       {% if section.settings.show_excerpt and excerpt_txt != blank %}
                         <div class="row-excerpt">{{ excerpt_txt }}</div>
