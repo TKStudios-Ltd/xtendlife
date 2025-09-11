@@ -231,7 +231,7 @@
     }
 
     /* Accordion content */
-    [data-section-id="{{ section.id }}"] .row-content { display:block; margin-top:10px; }
+    [data-section-id="{{ section.id }}"] .row-content { display:block; }
     [data-section-id="{{ section.id }}"] .row-excerpt { 
       margin-top: 3rem;
       font-size: 1.6rem;
@@ -271,6 +271,12 @@
       function showTab(id){
         tabs.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
         Object.keys(panels).forEach(k => panels[k]?.classList.toggle('hidden', k !== id));
+
+        const introSupp = root.querySelector('.ingr-intro[data-intro-for="supp"]');
+        const introSkin = root.querySelector('.ingr-intro[data-intro-for="skin"]');
+        if (introSupp) introSupp.classList.toggle('hidden', id !== 'supp-{{ section.id }}');
+        if (introSkin) introSkin.classList.toggle('hidden', id !== 'skin-{{ section.id }}');
+
         const panel = panels[id];
         applyLetter(panel, 'A', true);
         openFirstVisible(panel);
