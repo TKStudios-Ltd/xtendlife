@@ -7,136 +7,152 @@
     {%- assign supp_blog   = blogs[supp_handle] -%}
     {%- assign skin_blog   = blogs[skin_handle] -%}
 
-    <!-- Tabs -->
-    <div class="ingr-tabs">
-      <button class="tab-btn active" data-tab="supp-{{ section.id }}">Supplements</button>
-      <button class="tab-btn" data-tab="skin-{{ section.id }}">Skincare</button>
-    </div>
-    <hr class="ingr-hr" />
+    <div class="ingredients-index__flex">
 
-    {%- assign letters = 'A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|0-9' | split: '|' -%}
-
-    <!-- SUPPLEMENTS -->
-    <div class="tab-panel" id="supp-{{ section.id }}">
-      {% if section.settings.supp_intro != blank %}
-        <div class="rte ingr-intro">{{ section.settings.supp_intro }}</div>
-      {% endif %}
-
-      <ul class="letters" role="tablist" aria-label="Filter by letter">
-        {% for l in letters %}
-          <li><button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button></li>
-        {% endfor %}
-      </ul>
-
-      {% if supp_blog and supp_blog.articles_count > 0 %}
-        {% assign supp_sorted = supp_blog.articles | sort: 'title' %}
-        <div class="ingredients-list" data-list-for="supplements">
-          {% for article in supp_sorted limit: 1000 %}
-            {% if article.handle != blank %}
-              {% assign first = article.title | slice: 0, 1 | upcase %}
-              {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
-                {% assign first = '0-9' %}
-              {% endif %}
-
-              {% assign img_url = '' %}
-              {% if article.image %}
-                {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
-              {% endif %}
-              {% assign excerpt_txt = article.excerpt | strip_html %}
-
-              <article
-                class="ingredient-row"
-                data-letter="{{ first }}"
-                data-title="{{ article.title | escape }}"
-                data-url="{{ article.url }}"
-                data-image="{{ img_url }}"
-                data-image-alt="{{ article.image.alt | default: article.title | escape }}"
-                data-excerpt="{{ excerpt_txt | escape }}"
-                tabindex="0"
-              >
-                <div class="row-line">
-                  <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
-                </div>
-
-                <div class="row-content">
-                  {% if img_url != blank %}
-                    <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="480" height="320" loading="lazy">
-                  {% endif %}
-                  {% if section.settings.show_excerpt and excerpt_txt != blank %}
-                    <div class="row-excerpt">{{ excerpt_txt }}</div>
-                  {% endif %}
-                </div>
-              </article>
-            {% endif %}
-          {% endfor %}
+      <div class="ingredients-index__flex-left">
+        <!-- Tabs -->
+        <div class="ingr-tabs">
+          <button class="tab-btn active" data-tab="supp-{{ section.id }}">Supplements</button>
+          <button class="tab-btn" data-tab="skin-{{ section.id }}">Skincare</button>
         </div>
-      {% else %}
-        <p>No published articles in <code>{{ supp_handle }}</code>.</p>
-      {% endif %}
-    </div>
-
-    <!-- SKINCARE -->
-    <div class="tab-panel hidden" id="skin-{{ section.id }}">
-      {% if section.settings.skin_intro != blank %}
-        <div class="rte ingr-intro">{{ section.settings.skin_intro }}</div>
-      {% endif %}
-
-      <ul class="letters" role="tablist" aria-label="Filter by letter">
-        {% for l in letters %}
-          <li><button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button></li>
-        {% endfor %}
-      </ul>
-
-      {% if skin_blog and skin_blog.articles_count > 0 %}
-        {% assign skin_sorted = skin_blog.articles | sort: 'title' %}
-        <div class="ingredients-list" data-list-for="skincare">
-          {% for article in skin_sorted limit: 1000 %}
-            {% if article.handle != blank %}
-              {% assign first = article.title | slice: 0, 1 | upcase %}
-              {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
-                {% assign first = '0-9' %}
-              {% endif %}
-
-              {% assign img_url = '' %}
-              {% if article.image %}
-                {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
-              {% endif %}
-              {% assign excerpt_txt = article.excerpt | strip_html %}
-
-              <article
-                class="ingredient-row"
-                data-letter="{{ first }}"
-                data-title="{{ article.title | escape }}"
-                data-url="{{ article.url }}"
-                data-image="{{ img_url }}"
-                data-image-alt="{{ article.image.alt | default: article.title | escape }}"
-                data-excerpt="{{ excerpt_txt | escape }}"
-                tabindex="0"
-              >
-                <div class="row-line">
-                  <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
-                </div>
-
-                <div class="row-content">
-                  {% if img_url != blank %}
-                    <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="480" height="320" loading="lazy">
-                  {% endif %}
-                  {% if section.settings.show_excerpt and excerpt_txt != blank %}
-                    <div class="row-excerpt">{{ excerpt_txt }}</div>
-                  {% endif %}
-                </div>
-              </article>
-            {% endif %}
-          {% endfor %}
+        {% if section.settings.supp_intro != blank %}
+          <div class="rte ingr-intro">{{ section.settings.supp_intro }}</div>
+        {% endif %}
+        {% if section.settings.skin_intro != blank %}
+          <div class="rte ingr-intro">{{ section.settings.skin_intro }}</div>
+        {% endif %}
+        <div class="image-with-text__text rte body">
+          <ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>
         </div>
-      {% else %}
-        <p>No published articles in <code>{{ skin_handle }}</code>.</p>
-      {% endif %}
+      </div>
+
+      <div class="ingredients-index__flex-right">
+      
+        {%- assign letters = 'A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|0-9' | split: '|' -%}
+
+        <!-- SUPPLEMENTS -->
+        <div class="tab-panel" id="supp-{{ section.id }}">
+
+          <ul class="letters" role="tablist" aria-label="Filter by letter">
+            {% for l in letters %}
+              <li><button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button></li>
+            {% endfor %}
+          </ul>
+
+          {% if supp_blog and supp_blog.articles_count > 0 %}
+            {% assign supp_sorted = supp_blog.articles | sort: 'title' %}
+            <div class="ingredients-list" data-list-for="supplements">
+              {% for article in supp_sorted limit: 1000 %}
+                {% if article.handle != blank %}
+                  {% assign first = article.title | slice: 0, 1 | upcase %}
+                  {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                    {% assign first = '0-9' %}
+                  {% endif %}
+
+                  {% assign img_url = '' %}
+                  {% if article.image %}
+                    {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
+                  {% endif %}
+                  {% assign excerpt_txt = article.excerpt | strip_html %}
+
+                  <article
+                    class="ingredient-row"
+                    data-letter="{{ first }}"
+                    data-title="{{ article.title | escape }}"
+                    data-url="{{ article.url }}"
+                    data-image="{{ img_url }}"
+                    data-image-alt="{{ article.image.alt | default: article.title | escape }}"
+                    data-excerpt="{{ excerpt_txt | escape }}"
+                    tabindex="0"
+                  >
+                    <div class="row-line">
+                      <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                    </div>
+
+                    <div class="row-content">
+                      {% if img_url != blank %}
+                        <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="480" height="320" loading="lazy">
+                      {% endif %}
+                      {% if section.settings.show_excerpt and excerpt_txt != blank %}
+                        <div class="row-excerpt">{{ excerpt_txt }}</div>
+                      {% endif %}
+                    </div>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No published articles in <code>{{ supp_handle }}</code>.</p>
+          {% endif %}
+        </div>
+
+        <!-- SKINCARE -->
+        <div class="tab-panel hidden" id="skin-{{ section.id }}">
+
+          <ul class="letters" role="tablist" aria-label="Filter by letter">
+            {% for l in letters %}
+              <li><button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button></li>
+            {% endfor %}
+          </ul>
+
+          {% if skin_blog and skin_blog.articles_count > 0 %}
+            {% assign skin_sorted = skin_blog.articles | sort: 'title' %}
+            <div class="ingredients-list" data-list-for="skincare">
+              {% for article in skin_sorted limit: 1000 %}
+                {% if article.handle != blank %}
+                  {% assign first = article.title | slice: 0, 1 | upcase %}
+                  {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                    {% assign first = '0-9' %}
+                  {% endif %}
+
+                  {% assign img_url = '' %}
+                  {% if article.image %}
+                    {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
+                  {% endif %}
+                  {% assign excerpt_txt = article.excerpt | strip_html %}
+
+                  <article
+                    class="ingredient-row"
+                    data-letter="{{ first }}"
+                    data-title="{{ article.title | escape }}"
+                    data-url="{{ article.url }}"
+                    data-image="{{ img_url }}"
+                    data-image-alt="{{ article.image.alt | default: article.title | escape }}"
+                    data-excerpt="{{ excerpt_txt | escape }}"
+                    tabindex="0"
+                  >
+                    <div class="row-line">
+                      <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                    </div>
+
+                    <div class="row-content">
+                      {% if img_url != blank %}
+                        <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" width="480" height="320" loading="lazy">
+                      {% endif %}
+                      {% if section.settings.show_excerpt and excerpt_txt != blank %}
+                        <div class="row-excerpt">{{ excerpt_txt }}</div>
+                      {% endif %}
+                    </div>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No published articles in <code>{{ skin_handle }}</code>.</p>
+          {% endif %}
+        </div>
+      </div>
+
     </div>
   </div>
 
   <style>
     /* ---- Scoped styles ---- */
+    .ingredients-index__flex { display: flex; }
+    .ingredients-index__flex-left,
+    .ingredients-index__flex-right {
+      flex: 0 0 50%;
+    }
     [data-section-id="{{ section.id }}"] .ingr-tabs { display:flex; gap:24px; margin-bottom: 12px; }
     [data-section-id="{{ section.id }}"] .tab-btn { background:none; border:0; cursor:pointer; font-size:1.125rem; opacity:.6; }
     [data-section-id="{{ section.id }}"] .tab-btn.active { font-weight:600; opacity:1; }
