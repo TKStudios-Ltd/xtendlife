@@ -62,14 +62,9 @@
       }
     },
     "ingredients_page_UWQnDk": {
-      "type": "ingredients-page",
+      "type": "ingredients-index",
       "name": "Ingredients Page",
-      "settings": {
-        "supplement_intro": "<p>Find out the important roles each ingredient plays in Xtendlife formulations. Use this section to learn more about individual ingredients: their many benefits, ingredient origins and the Xtendlife products they feature in. All ingredients are listed alphabetically, simply click on an ingredient to learn more.</p>",
-        "blog_category": "supplement-ingredients",
-        "skincare_intro": "<p>Find out the important roles each ingredient plays in Xtendlife formulations. Use this section to learn more about individual ingredients: their many benefits, ingredient origins and the Xtendlife products they feature in. All ingredients are listed alphabetically, simply click on an ingredient to learn more.</p>",
-        "blog_category_1": "skincare-ingredients"
-      }
+      "settings": {}
     }
   },
   "order": [
