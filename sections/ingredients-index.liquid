@@ -1,45 +1,52 @@
-{% comment %}
-  INGREDIENTS INDEX (Dawn)
-  - Two blogs (supplements / skincare) chosen in settings
-  - Per-tab A–Z filter; defaults to "A" with fallback if empty
-  - Fully self-contained (no snippets required)
-{% endcomment %}
-
 <section class="ingredients-index" data-section-id="{{ section.id }}">
   <div class="page-width">
 
+    {% comment %} --- Resolve blogs (robust) --- {% endcomment %}
+    {% assign supp_handle = section.settings.supp_blog | default: 'supplement-ingredients' %}
+    {% assign skin_handle = section.settings.skin_blog | default: 'skincare-ingredients' %}
+    {% assign supp_blog   = blogs[supp_handle] %}
+    {% assign skin_blog   = blogs[skin_handle] %}
+
+    {%- assign supp_count = supp_blog.articles_count | default: 0 -%}
+    {%- assign skin_count = skin_blog.articles_count | default: 0 -%}
+
+    <!-- DEBUG: remove after confirming -->
+    <div style="font-size:12px;opacity:.6;margin-bottom:8px">
+      Supplements: <code>{{ supp_handle }}</code> ({{ supp_count }} articles) &middot;
+      Skincare: <code>{{ skin_handle }}</code> ({{ skin_count }} articles)
+    </div>
+
     <!-- Tabs -->
     <div class="flex items-center gap-6 mb-6">
-      <button class="tab-btn text-lg font-medium active" data-tab="supplements-{{ section.id }}">Supplements</button>
-      <button class="tab-btn text-lg font-medium opacity-60 hover:opacity-100" data-tab="skincare-{{ section.id }}">Skincare</button>
+      <button class="tab-btn text-lg font-medium active" data-tab="supp-{{ section.id }}">Supplements</button>
+      <button class="tab-btn text-lg font-medium opacity-60 hover:opacity-100" data-tab="skin-{{ section.id }}">Skincare</button>
     </div>
     <hr class="mb-8" />
 
-    <!-- Tab: Supplements -->
-    <div class="tab-panel" id="supplements-{{ section.id }}">
-      {% assign supp_blog = blogs[section.settings.supp_blog] %}
+    {% assign letters = 'A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|0-9' | split: '|' %}
+
+    <!-- SUPPLEMENTS -->
+    <div class="tab-panel" id="supp-{{ section.id }}">
       {% if section.settings.supp_intro != blank %}
         <div class="rte mb-6">{{ section.settings.supp_intro }}</div>
       {% endif %}
 
-      <!-- Letters -->
       <ul class="letters mb-6" role="tablist" aria-label="Filter by letter">
-        <li><button class="letter active" data-letter="A">A</button></li>
-        {% assign letters = 'B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z' | split: '|' %}
         {% for l in letters %}
-          <li><button class="letter" data-letter="{{ l }}">{{ l }}</button></li>
+          <li style="list-style:none;display:inline-block;margin-right:12px">
+            <button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button>
+          </li>
         {% endfor %}
-        <li><button class="letter" data-letter="0-9">0-9</button></li>
       </ul>
 
-      {% if supp_blog %}
+      {% if supp_count > 0 %}
         {% paginate supp_blog.articles by 500 %}
+          {% assign items = paginate.items | sort: 'title' %}
           <div class="ingredients-list" data-list-for="supplements">
-            {% assign articles_sorted = paginate.items | sort: 'title' %}
-            {% for article in articles_sorted %}
+            {% for article in items %}
               {% if article.handle != blank %}
                 {% assign first = article.title | slice: 0, 1 | upcase %}
-                {% if first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' or first == '' %}
+                {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
                   {% assign first = '0-9' %}
                 {% endif %}
                 <article class="ingredient-row" data-letter="{{ first }}">
@@ -53,34 +60,33 @@
           </div>
         {% endpaginate %}
       {% else %}
-        <p>No blog selected for Supplements.</p>
+        <div class="ingredients-list" data-list-for="supplements"></div>
+        <div style="font-size:12px;opacity:.6">No published articles found in <code>{{ supp_handle }}</code>.</div>
       {% endif %}
     </div>
 
-    <!-- Tab: Skincare -->
-    <div class="tab-panel hidden" id="skincare-{{ section.id }}">
-      {% assign skin_blog = blogs[section.settings.skin_blog] %}
+    <!-- SKINCARE -->
+    <div class="tab-panel hidden" id="skin-{{ section.id }}">
       {% if section.settings.skin_intro != blank %}
         <div class="rte mb-6">{{ section.settings.skin_intro }}</div>
       {% endif %}
 
-      <!-- Letters -->
       <ul class="letters mb-6" role="tablist" aria-label="Filter by letter">
-        <li><button class="letter active" data-letter="A">A</button></li>
         {% for l in letters %}
-          <li><button class="letter" data-letter="{{ l }}">{{ l }}</button></li>
+          <li style="list-style:none;display:inline-block;margin-right:12px">
+            <button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button>
+          </li>
         {% endfor %}
-        <li><button class="letter" data-letter="0-9">0-9</button></li>
       </ul>
 
-      {% if skin_blog %}
+      {% if skin_count > 0 %}
         {% paginate skin_blog.articles by 500 %}
+          {% assign items = paginate.items | sort: 'title' %}
           <div class="ingredients-list" data-list-for="skincare">
-            {% assign articles_sorted = paginate.items | sort: 'title' %}
-            {% for article in articles_sorted %}
+            {% for article in items %}
               {% if article.handle != blank %}
                 {% assign first = article.title | slice: 0, 1 | upcase %}
-                {% if first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' or first == '' %}
+                {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
                   {% assign first = '0-9' %}
                 {% endif %}
                 <article class="ingredient-row" data-letter="{{ first }}">
@@ -94,22 +100,18 @@
           </div>
         {% endpaginate %}
       {% else %}
-        <p>No blog selected for Skincare.</p>
+        <div class="ingredients-list" data-list-for="skincare"></div>
+        <div style="font-size:12px;opacity:.6">No published articles found in <code>{{ skin_handle }}</code>.</div>
       {% endif %}
     </div>
   </div>
 
   <style>
-    /* Scoped to this section */
-    [data-section-id="{{ section.id }}"] .tab-btn { border: none; background: none; cursor: pointer; }
-    [data-section-id="{{ section.id }}"] .tab-btn.active { color: rgb(var(--color-foreground)); font-weight: 600; }
-    [data-section-id="{{ section.id }}"] .hidden { display: none !important; }
-
-    [data-section-id="{{ section.id }}"] .letters { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
-    [data-section-id="{{ section.id }}"] .letters li { list-style:none; }
-    [data-section-id="{{ section.id }}"] .letter { border:none; background:none; cursor:pointer; opacity:.6; }
+    [data-section-id="{{ section.id }}"] .tab-btn { border:0; background:none; cursor:pointer; }
+    [data-section-id="{{ section.id }}"] .tab-btn.active { font-weight:600; }
+    [data-section-id="{{ section.id }}"] .hidden { display:none!important; }
+    [data-section-id="{{ section.id }}"] .letter { border:0; background:none; cursor:pointer; opacity:.6; }
     [data-section-id="{{ section.id }}"] .letter.active { text-decoration:underline; opacity:1; }
-
     [data-section-id="{{ section.id }}"] .ingredients-list { display:grid; gap:16px; }
     [data-section-id="{{ section.id }}"] .ingredient-row { padding:10px 0; border-bottom:1px solid rgba(0,0,0,.08); }
     [data-section-id="{{ section.id }}"] .ingredient-link { font-weight:600; }
@@ -119,36 +121,24 @@
   <script>
     (function(){
       const root = document.querySelector('[data-section-id="{{ section.id }}"]');
-      if(!root) return;
+      if (!root) return;
 
-      // Tabs
       const tabs = Array.from(root.querySelectorAll('.tab-btn'));
-      const panels = {
-        [tabs[0]?.dataset.tab]: root.querySelector('#' + (tabs[0]?.dataset.tab || '')),
-        [tabs[1]?.dataset.tab]: root.querySelector('#' + (tabs[1]?.dataset.tab || '')),
-      };
+      const panels = { };
+      tabs.forEach(t => panels[t.dataset.tab] = root.querySelector('#' + t.dataset.tab));
 
       function showTab(id){
         tabs.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
         Object.keys(panels).forEach(k => panels[k]?.classList.toggle('hidden', k !== id));
-        // When switching tabs, re-apply current (or default) letter filter
         const panel = panels[id];
-        const activeLetterBtn = panel?.querySelector('.letters .letter.active') || panel?.querySelector('.letters .letter[data-letter="A"]');
-        if (activeLetterBtn) applyLetter(panel, activeLetterBtn.dataset.letter, true);
+        const btnA = panel?.querySelector('.letters .letter[data-letter="A"]');
+        if (btnA) applyLetter(panel, 'A', true);
       }
 
-      tabs.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showTab(btn.dataset.tab);
-      }));
-
-      // Letters
       function applyLetter(panel, letter, allowFallback){
-        // update active
         panel.querySelectorAll('.letters .letter').forEach(b=>{
           b.classList.toggle('active', b.dataset.letter === letter);
         });
-
         const rows = Array.from(panel.querySelectorAll('.ingredients-list .ingredient-row'));
         let visible = 0;
         rows.forEach(r => {
@@ -156,38 +146,28 @@
           r.style.display = show ? '' : 'none';
           if (show) visible++;
         });
-
-        // Fallback to first letter that has items
         if (allowFallback && visible === 0) {
-          // build counts
+          const order = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0-9'];
           const counts = new Map();
-          rows.forEach(r => {
-            const L = (r.getAttribute('data-letter') || '').toUpperCase();
-            counts.set(L, (counts.get(L) || 0) + 1);
-          });
-          const ordered = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0-9'];
-          const fallback = ordered.find(L => counts.get(L) > 0);
-          if (fallback) {
-            const fbBtn = panel.querySelector(`.letters .letter[data-letter="${fallback}"]`);
-            panel.querySelectorAll('.letters .letter').forEach(b=>b.classList.toggle('active', b.dataset.letter === fallback));
-            rows.forEach(r => {
-              const show = (r.getAttribute('data-letter') || '').toUpperCase() === fallback;
-              r.style.display = show ? '' : 'none';
-            });
+          rows.forEach(r => { const L = (r.dataset.letter || '').toUpperCase(); counts.set(L, (counts.get(L)||0)+1); });
+          const fb = order.find(L => (counts.get(L)||0) > 0);
+          if (fb) {
+            panel.querySelectorAll('.letters .letter').forEach(b=>b.classList.toggle('active', b.dataset.letter === fb));
+            rows.forEach(r => r.style.display = ((r.dataset.letter || '').toUpperCase() === fb) ? '' : 'none');
           }
         }
       }
 
-      root.addEventListener('click', (e) => {
-        const btn = e.target.closest('.letters .letter');
-        if (!btn) return;
-        const panel = e.target.closest('.tab-panel');
-        if (!panel) return;
-        e.preventDefault();
-        applyLetter(panel, btn.dataset.letter, false);
+      root.addEventListener('click', e => {
+        const t = e.target.closest('.tab-btn');
+        if (t) { e.preventDefault(); showTab(t.dataset.tab); return; }
+        const b = e.target.closest('.letters .letter');
+        if (b) {
+          const panel = e.target.closest('.tab-panel');
+          if (panel) { e.preventDefault(); applyLetter(panel, b.dataset.letter, false); }
+        }
       });
 
-      // Boot: default to Supplements + letter A (with fallback)
       showTab(tabs[0]?.dataset.tab);
     })();
   </script>
