@@ -42,7 +42,7 @@
       "custom_css": [
         ".banner__box {max-width: 100%; display: flex; align-items: flex-start; gap: 2rem;}",
         "img {transform: scaleX(-1);}",
-        "@media (min-width: 750px) {.banner__heading {flex: 0 0 50%; padding-right: 4rem; line-height: 1.2; } .banner__text.subtitle {margin-top: 0; padding-right: 4rem; }}",
+        "@media (min-width: 750px) {.banner__heading {flex: 0 0 50%; padding-right: 4rem; line-height: 1.1; } .banner__text.subtitle {margin-top: 0; padding-right: 4rem; }}",
         "@media (max-width: 749px) {.banner__heading {font-size: 2.4rem; line-height: 1.1; } .banner__text.subtitle {margin-top: 2rem; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
