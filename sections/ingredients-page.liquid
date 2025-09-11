@@ -87,27 +87,52 @@
     const qsa = (sel, ctx = root) => Array.from(ctx.querySelectorAll(sel));
 
     function cardUrlFromDataset(card) {
+      // 1) Preferred: explicit data-article-url
       const explicit = card.getAttribute('data-article-url');
-      if (explicit) { log('cardUrlFromDataset: explicit', explicit); return explicit; }
+      if (explicit && explicit.trim() !== '') {
+        log('cardUrlFromDataset: explicit', explicit);
+        return explicit.trim();
+      }
+
+      // 2) Fallback: blog/article handles
       const blogHandle = card.getAttribute('data-blog-handle');
       const articleHandle = card.getAttribute('data-article-handle');
-      if (blogHandle && articleHandle) {
-        const u = `/blogs/${blogHandle}/articles/${articleHandle}`;
-        log('cardUrlFromDataset: blog/article handles', u);
+      if (blogHandle && blogHandle.trim() !== '' && articleHandle && articleHandle.trim() !== '') {
+        const u = `/blogs/${blogHandle.trim()}/articles/${articleHandle.trim()}`;
+        log('cardUrlFromDataset: handles', u);
         return u;
       }
+
+      // 3) Legacy fallback: data-handle like "ingredients/curcumin"
       const legacy = card.getAttribute('data-handle');
-      if (legacy) {
-        const u = `/blogs/${legacy}`;
-        log('cardUrlFromDataset: legacy handle', u);
+      if (legacy && legacy.trim() !== '') {
+        const u = `/blogs/${legacy.trim()}`;
+        log('cardUrlFromDataset: legacy', u);
         return u;
       }
-      warn('cardUrlFromDataset: no dataset for URL', card);
+
+      // 4) NEW: Fallback to the first anchor href inside the card
+      let a = card.querySelector('a[href]');
+      if (a) {
+        let href = a.getAttribute('href').trim();
+        try {
+          const u = new URL(href, window.location.origin);
+          if (u.origin === window.location.origin) {
+            href = u.pathname + (u.search || '');
+          }
+        } catch (e) { /* non-URL or same-origin coercion failed; keep raw */ }
+        if (href) {
+          log('cardUrlFromDataset: anchor fallback', href);
+          return href;
+        }
+      }
+
+      warn('cardUrlFromDataset: no dataset/anchor for URL', card);
       return null;
     }
 
     async function hydrateCard(card) {
-      if (card.classList.contains('hide')) { log('Skip hidden card'); return; }
+      if (card.classList.contains('hide') || card.hasAttribute('hidden')) { log('Skip hidden card'); return; }
 
       const target = qs('.js-ingredient-products', card);
       if (!target) { warn('Missing .js-ingredient-products in card', card); return; }
@@ -118,9 +143,7 @@
       const url = base.includes('?') ? `${base}&view=ajax-ingredient` : `${base}?view=ajax-ingredient`;
       if (card.dataset.hydrated === 'true') { log('Already hydrated', url); return; }
 
-      group('Hydrate card', () => {
-        log('Fetching', url);
-      });
+      group('Hydrate card', () => { log('Fetching', url); });
 
       try {
         const res = await fetch(url, { credentials: 'same-origin' });
@@ -202,11 +225,12 @@
 
     init();
 
-    document.addEventListener('shopify:section:load', (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
+    document.addEventListener('shopify:section:load',  (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
     document.addEventListener('shopify:section:select', (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
     document.addEventListener('shopify:section:deselect', (evt) => { if (evt.detail.sectionId === '{{ section.id }}') { destroy(); init(); } });
   })();
 </script>
+
 
 </section>
 
