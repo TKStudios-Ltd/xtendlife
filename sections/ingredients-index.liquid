@@ -16,10 +16,10 @@
           <button class="tab-btn" data-tab="skin-{{ section.id }}">Skincare</button>
         </div>
         {% if section.settings.supp_intro != blank %}
-          <div class="rte ingr-intro">{{ section.settings.supp_intro }}</div>
+          <div class="rte ingr-intro" data-intro-for="supp">{{ section.settings.supp_intro }}</div>
         {% endif %}
         {% if section.settings.skin_intro != blank %}
-          <div class="rte ingr-intro">{{ section.settings.skin_intro }}</div>
+          <div class="rte ingr-intro hidden" data-intro-for="skin">{{ section.settings.skin_intro }}</div>
         {% endif %}
         <div class="trust-ticks">
           <ul><li>Commited to 100% clean</li><li>Expert selection</li><li>Triple tested</li></ul>
