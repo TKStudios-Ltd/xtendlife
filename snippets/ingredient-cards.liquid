@@ -37,14 +37,14 @@
 
       <div class="grid__item">
         <article
-          class="ingredient-card js-ingredient-card{% unless first_letter == 'A' %} hide{% endunless %}"
-          data-filter-letter="{{ first_letter }}"
-          data-article-url="{{ article.url }}"
-          {% if cards_blog %}data-blog-handle="{{ cards_blog.handle }}"{% endif %}
-          data-article-handle="{{ article.handle }}"
-        >
-          <a class="ingredient-card__media" href="{{ article.url }}">
-            {% if article.image %}
+  class="ingredient-card js-ingredient-card{% unless first_letter == 'A' %} hide{% endunless %}"
+  data-filter-letter="{{ first_letter }}"
+  data-article-url="/blogs/{{ cards_blog.handle }}/articles/{{ article.handle }}"
+  data-blog-handle="{{ cards_blog.handle }}"
+  data-article-handle="{{ article.handle }}"
+>
+  <a class="ingredient-card__media" href="/blogs/{{ cards_blog.handle }}/articles/{{ article.handle }}">
+    {% if article.image %}
               {{
                 article.image
                 | image_url: width: 220, height: 220, crop: 'center'
@@ -55,19 +55,14 @@
                   sizes: '(min-width: 990px) 110px, 25vw'
               }}
             {% endif %}
-          </a>
-
-          <div class="ingredient-card__details">
-            <h3 class="ingredient-card__title">
-              <a class="ingredient-card__title--link" href="{{ article.url }}">{{ article.title }}</a>
-            </h3>
-            {% if article.excerpt != blank %}
-              <p class="ingredient-card__excerpt">{{ article.excerpt | strip_html }}</p>
-            {% endif %}
-          </div>
-
-          <div class="ingredient-card__products js-ingredient-products" aria-live="polite"></div>
-        </article>
+  </a>
+  <div class="ingredient-card__details">
+    <h3 class="ingredient-card__title">
+      <a class="ingredient-card__title--link" href="/blogs/{{ cards_blog.handle }}/articles/{{ article.handle }}">{{ article.title }}</a>
+    </h3>
+  </div>
+  <div class="ingredient-card__products js-ingredient-products" aria-live="polite"></div>
+</article>
       </div>
     {% endfor %}
   </div>
