@@ -253,7 +253,7 @@
     /* Desktop accordion behavior: hide content unless row is open */
     @media (min-width: 990px) {
       [data-section-id="{{ section.id }}"] .row-content { display:none; }
-      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-content { display:flex; gap:2rem; align-items:flex-start; flex-direction: row-reverse; }
+      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-content { display:flex; gap:2rem; align-items: flex-end; flex-direction: row-reverse; margin-bottom: 1rem; }
       [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-excerpt { flex:1; }
     }
   </style>
