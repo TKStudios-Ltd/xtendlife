@@ -256,10 +256,15 @@
       object-fit: cover;
       display: block;
     }
+    @media (max-width: 749px) {
+      [data-section-id="{{ section.id }}"] .ingr-tabs { height: 45px; }
+      [data-section-id="{{ section.id }}"] .ingr-tabs .tab-btn { font-size: 2rem; }
+    }
     @media (max-width: 989px) {
       .ingredients-index__flex { flex-direction: column; margin: 0 0 8rem; }
       .ingredients-index__flex-left { display: flex; flex-direction: column-reverse; }
       [data-section-id="{{ section.id }}"] .ingr-intro p { font-size: 1.6rem; }
+    }
     @media (min-width: 990px) {
       [data-section-id="{{ section.id }}"] .row-content { display:none; }
       [data-section-id="{{ section.id }}"] .ingr-intro { margin-bottom: 6rem; }
