@@ -3,61 +3,69 @@
 {{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+/* --- spacing --- */
 .section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
 @media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
 
-.blog-collage__header{display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem}
-.blog-collage__filters{display:flex;gap:1rem;flex-wrap:wrap}
+/* --- layout --- */
+.blog-{{ section.id }}{display:grid;gap:24px}
+@media(min-width:1200px){
+  .blog-{{ section.id }}{
+    grid-template-columns: 300px 1fr; /* sidebar + content */
+    align-items:start;
+  }
+}
 
-/* Collage grid */
-.blog-collage__grid{display:grid;grid-template-columns:1fr;gap:20px}
-@media(min-width:990px){.blog-collage__grid{grid-template-columns:repeat(3,1fr)}}
-.blog-collage__item--wide{grid-column:1 / -1}
-.blog-collage__item{display:block}
-.blog-collage__item[hidden]{display:none !important}
+/* --- sidebar (accordion + pills) --- */
+.blog-side{position:relative;}
+.blog-side__title{margin:0 0 12px;font-weight:600}
+.topic-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.topic{border:1px solid var(--color-border, rgba(0,0,0,.12));border-radius:12px;overflow:hidden;background:var(--color-base-background-1,#fff)}
+.topic__header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;padding:10px 12px;text-decoration:none;
+  color:inherit;
+}
+.topic__header:hover{background:rgba(0,0,0,.03)}
+.topic__label{font-weight:600}
+.topic__icon{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;border:1px solid currentColor;font-size:14px;line-height:1}
+.topic__icon--close{border:none}
 
-/* Make wide card feel “feature” */
-.blog-collage__item--wide .article-card .ratio{--ratio-percent:45%}
-.blog-collage__item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem)}
+/* children (pills) */
+.topic__body{display:none;border-top:1px solid rgba(0,0,0,.08);padding:12px}
+.topic__body.is-open{display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.45rem .7rem;border-radius:999px;border:1px solid rgba(0,0,0,.15);
+  background:#f5f5f5;text-decoration:none;color:inherit;line-height:1;
+}
+.pill:hover{background:#eee}
+.pill.is-active{background:#1a73e8;color:#fff;border-color:#1a73e8}
 
-/* Stretch cards neatly on desktop */
+/* --- content grid (collage) --- */
+.blog-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:990px){.blog-grid{grid-template-columns:repeat(3,1fr)}}
+.blog-item{display:block}
+.blog-item[hidden]{display:none !important}
+.blog-item--wide{grid-column:1 / -1}
+.blog-item--wide .ratio{--ratio-percent:45%}
+.blog-item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem)}
+
+/* stretch cards per-row nicely on desktop */
 @media(min-width:990px){
-  .blog-collage__item .article-card-wrapper,
-  .blog-collage__item .article-card{height:100%}
+  .blog-item .article-card-wrapper,
+  .blog-item .article-card{height:100%}
 }
 
-.blog-collage__viewall{margin-top:1.25rem}
+/* header */
+.blog-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px}
+.blog-head .inline-richtext{margin:0}
 
-/* Nested filter menu (accordion) */
-.blog-topics{width:100%}
-.blog-topics__title{margin:0 0 .5rem}
-.blog-topics__list{list-style:none;margin:0;padding:0;display:flex;gap:.5rem;flex-wrap:wrap}
-.blog-topics__item{position:relative}
-.blog-topics__link{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem .75rem;border:1px solid var(--color-border, rgba(0,0,0,.12));border-radius:999px;line-height:1;text-decoration:none}
-.blog-topics__link[aria-expanded="true"]{background:var(--color-bg, rgba(0,0,0,.04))}
-.blog-topics__link.is-active{border-color:currentColor;font-weight:600}
-
-.blog-topics__children{position:absolute;left:0;right:auto;min-width:260px;max-width:320px;z-index:30;background:var(--color-base-background-1,#fff);border:1px solid rgba(0,0,0,.12);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:.5rem;margin-top:.35rem;display:none}
-.blog-topics__children.is-open{display:block}
-.blog-topics__children ul{list-style:none;margin:0;padding:.25rem}
-.blog-topics__children li{margin:0}
-.blog-topics__children a{display:block;padding:.5rem .6rem;border-radius:.5rem;text-decoration:none}
-.blog-topics__children a:hover{background:rgba(0,0,0,.04)}
-
-@media(max-width:989px){
-  .blog-topics__list{flex-direction:column}
-  .blog-topics__item{width:100%}
-  .blog-topics__children{position:static;min-width:unset;max-width:none;box-shadow:none;margin-top:.5rem}
-}
-
-/* Tag select control */
-.select{min-width:220px}
 {%- endstyle -%}
 
 {%- if section.settings.blog == blank -%}
-  <div class="page-width section-{{ section.id }}-wrap">
-    <p>Add a Blog in section settings.</p>
-  </div>
+  <div class="page-width section-{{ section.id }}-wrap"><p>Add a Blog in section settings.</p></div>
   {% break %}
 {%- endif -%}
 
@@ -69,314 +77,203 @@
 <div class="blog color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width section-{{ section.id }}-wrap">
 
-    <!-- Header + Filters -->
-    <div class="blog-collage__header">
-      <div class="title-wrapper-with-link">
-        {%- unless section.settings.heading == blank -%}
-          <h2 id="SectionHeading-{{ section.id }}"
-              class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-              {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}>
-            {{ section.settings.heading }}
-          </h2>
-        {%- endunless -%}
-      </div>
+    <div class="blog-head">
+      {%- unless section.settings.heading == blank -%}
+        <h2 id="SectionHeading-{{ section.id }}"
+            class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}>
+          {{ section.settings.heading }}
+        </h2>
+      {%- endunless -%}
+    </div>
 
-      <div class="blog-collage__filters">
+    <div class="blog-{{ section.id }}">
+      <!-- Sidebar -->
+      <aside class="blog-side">
+        <h3 class="blog-side__title h5">{{ section.settings.filter_menu_title }}</h3>
         {%- if section.settings.filter_menu != blank -%}
-          <section class="blog-topics" aria-label="Blog Categories">
-            {%- if section.settings.filter_menu_title != blank -%}
-              <h3 class="blog-topics__title h5">{{ section.settings.filter_menu_title }}</h3>
-            {%- endif -%}
-            <ul class="blog-topics__list">
-              {%- for parent in section.settings.filter_menu.links -%}
-                {%- assign parent_has_children = false -%}
-                {%- if parent.links and parent.links.size > 0 -%}
-                    {%- assign parent_has_children = true -%}
-                {%- endif -%}
+          <ul class="topic-list">
+            {%- for parent in section.settings.filter_menu.links -%}
+              {%- assign parent_has_children = false -%}
+              {%- if parent.links and parent.links.size > 0 -%}{%- assign parent_has_children = true -%}{%- endif -%}
 
-                <li class="blog-topics__item">
-                    <a
-                    href="{{ parent.url }}"
-                    class="blog-topics__link"
-                    {% if parent_has_children %}aria-expanded="false" aria-controls="topics-children-{{ section.id }}-{{ forloop.index }}"{% endif %}
-                    data-topic-parent
-                    data-tag-handle="{{ parent.title | handleize }}"
-                    {% if parent_has_children %}data-sidebar-block__toggle="closed"{% endif %}
-                    >
-                    {{ parent.title }}
-                    {%- if parent_has_children -%}
-                        <svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                    {%- endif -%}
-                    </a>
+              <li class="topic">
+                <a
+                  href="{{ parent.url }}"
+                  class="topic__header"
+                  data-topic-parent
+                  data-tag-handle="{{ parent.title | handleize }}"
+                  {% if parent_has_children %}aria-expanded="false" aria-controls="topic-body-{{ section.id }}-{{ forloop.index }}"{% endif %}
+                >
+                  <span class="topic__label">{{ parent.title }}</span>
+                  <span class="topic__icon" aria-hidden="true" data-icon>
+                    {% if parent_has_children %}+{% else %}&nbsp;{% endif %}
+                  </span>
+                </a>
 
-                    {%- if parent_has_children -%}
-                    <div
-                        class="blog-topics__children"
-                        id="topics-children-{{ section.id }}-{{ forloop.index }}"
-                        hidden
-                        data-sidebar-block__content--collapsible
-                        style="overflow:hidden;height:0px"
-                    >
-                        <ul>
-                        <li>
-                            <a href="{{ parent.url }}" data-topic-child data-tag-handle="{{ parent.title | handleize }}">
-                            All {{ parent.title }}
-                            </a>
-                        </li>
-                        {%- for child in parent.links -%}
-                            <li>
-                            <a href="{{ child.url }}" data-topic-child data-tag-handle="{{ child.title | handleize }}">
-                                {{ child.title }}
-                            </a>
-                            </li>
-                        {%- endfor -%}
-                        </ul>
+                {%- if parent_has_children -%}
+                  <div class="topic__body" id="topic-body-{{ section.id }}-{{ forloop.index }}" hidden>
+                    <div class="pills">
+                      <!-- ALL -->
+                      <a href="{{ parent.url }}" class="pill" data-topic-child data-tag-handle="{{ parent.title | handleize }}">ALL {{ parent.title | upcase }}</a>
+                      {%- for child in parent.links -%}
+                        <a href="{{ child.url }}" class="pill" data-topic-child data-tag-handle="{{ child.title | handleize }}">{{ child.title }}</a>
+                      {%- endfor -%}
                     </div>
-                    {%- endif -%}
-                </li>
-                {%- endfor -%}
-            </ul>
-          </section>
+                  </div>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
+          <p>Add a menu with parent/child items.</p>
         {%- endif -%}
+      </aside>
 
-        {%- if section.settings.show_tag_filter -%}
-          <div class="select">
-            <select id="BlogTagFilter-{{ section.id }}" aria-label="Filter by tag">
-              <option value="__all__" {% unless current_tags %}selected{% endunless %}>{{ 'blogs.general.view_all' | t }}</option>
-              {%- for tag in blog_obj.all_tags -%}
-                <option value="{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
-              {%- endfor -%}
-            </select>
+      <!-- Content -->
+      <div>
+        <ul class="blog-grid" id="BlogGrid-{{ section.id }}" role="list">
+          {%- if blog_obj.articles_count > 0 -%}
+            {%- for article in blog_obj.articles limit: max_posts -%}
+              {%- capture tag_handles -%}
+                {%- for t in article.tags -%}{% unless forloop.first %},{% endunless %}{{ t | handleize }}{%- endfor -%}
+              {%- endcapture -%}
+              {%- assign pos = forloop.index0 | modulo: 7 -%}
+              {%- assign is_wide = false -%}{% if pos == 0 %}{% assign is_wide = true %}{% endif %}
+
+              <li class="blog-item {% if is_wide %}blog-item--wide{% endif %}"
+                  data-tags="{{ tag_handles | strip }}"
+                  data-title="{{ article.title | escape | downcase }}">
+                {%- render 'article-card',
+                  blog: blog_obj,
+                  article: article,
+                  media_aspect_ratio: is_wide | default: false | unless: false | endunless | default: 1.66,
+                  show_image: section.settings.show_image,
+                  show_date: section.settings.show_date,
+                  show_author: section.settings.show_author,
+                  show_excerpt: true
+                -%}
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li class="blog-item blog-item--wide">
+              <div class="article-card-wrapper card-wrapper">
+                <div class="card article-card">
+                  <div class="card__content">
+                    <div class="card__information"><h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {%- endif -%}
+        </ul>
+
+        {%- if section.settings.show_view_all and max_posts < blog_obj.articles_count -%}
+          <div style="margin-top:16px">
+            <a href="{{ blog_obj.url }}" class="button button--secondary">Read more</a>
           </div>
         {%- endif -%}
       </div>
     </div>
-
-    {%- comment -%}
-      Collage pattern: 1,3,3 repeating among *visible* items.
-      We’ll render data-tags on each item using tag handles for client-side filtering.
-    {%- endcomment -%}
-    <ul class="blog-collage__grid" role="list" id="BlogGrid-{{ section.id }}">
-      {%- if blog_obj.articles_count > 0 -%}
-        {%- for article in blog_obj.articles limit: max_posts -%}
-          {%- comment -%} build comma-separated handles for data-tags {%- endcomment -%}
-          {%- capture tag_handles -%}
-            {%- for t in article.tags -%}
-              {%- if forloop.first == false -%},{%- endif -%}{{ t | handleize }}
-            {%- endfor -%}
-          {%- endcapture -%}
-
-          {%- assign pos = forloop.index0 | modulo: 7 -%}
-          {%- assign is_wide = false -%}
-          {%- if pos == 0 -%}{%- assign is_wide = true -%}{%- endif -%}
-
-          <li
-            class="blog-collage__item {% if is_wide %}blog-collage__item--wide{% endif %}"
-            data-tags="{{ tag_handles | strip }}"
-            data-title="{{ article.title | escape | downcase }}"
-          >
-            {%- render 'article-card',
-              blog: blog_obj,
-              article: article,
-              media_aspect_ratio: is_wide | default: false | unless: false | endunless | default: 1.66,
-              show_image: section.settings.show_image,
-              show_date: section.settings.show_date,
-              show_author: section.settings.show_author,
-              show_excerpt: true
-            -%}
-          </li>
-        {%- endfor -%}
-      {%- else -%}
-        {%- for i in (1..max_posts) -%}
-          <li class="blog-collage__item {% if forloop.index0 == 0 %}blog-collage__item--wide{% endif %}">
-            <div class="article-card-wrapper card-wrapper">
-              <div class="card article-card {% if section.settings.show_image %}card--media{% else %}card--text{% endif %}">
-                <div class="card__content">
-                  <div class="card__information">
-                    <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        {%- endfor -%}
-      {%- endif -%}
-    </ul>
-
-    {%- if section.settings.show_view_all and max_posts < blog_obj.articles_count -%}
-      <div class="blog-collage__viewall">
-        <a href="{{ blog_obj.url }}" class="button button--secondary">Read more</a>
-      </div>
-    {%- endif -%}
   </div>
 </div>
 
 <script>
 (function(){
-  var rootId = '{{ section.id }}';
-  var grid = document.getElementById('BlogGrid-' + rootId);
+  var grid = document.getElementById('BlogGrid-{{ section.id }}');
   if (!grid) return;
 
-  var FILTER_MODE = {{ section.settings.filter_in_section | json }}; // true => filter in place; false => navigate
+  var FILTER_MODE = {{ section.settings.filter_in_section | json }}; // true = filter in-place; false = navigate
 
-  // Helpers
-  function getTagFromHref(href){
-    // expects /blogs/{handle}/tagged/{tag}
-    var idx = href.indexOf('/tagged/');
-    if (idx === -1) return null;
-    var tag = href.slice(idx + 8).split(/[?#]/)[0];
-    return decodeURIComponent(tag || '').trim().toLowerCase();
-  }
-
+  /* ---- helpers ---- */
   function relayout(){
-    // Re-assign wide every 7 visible items (0,7,14…) => 1,3,3 cycle
+    // wide every 7th visible (0,7,14…)
     var items = Array.from(grid.children).filter(function(li){ return !li.hasAttribute('hidden'); });
-    items.forEach(function(li){ li.classList.remove('blog-collage__item--wide'); });
-    items.forEach(function(li, i){
-      if (i % 7 === 0) li.classList.add('blog-collage__item--wide');
-    });
+    items.forEach(function(li){ li.classList.remove('blog-item--wide'); });
+    items.forEach(function(li, i){ if (i % 7 === 0) li.classList.add('blog-item--wide'); });
   }
-
   function applyFilter(tagHandle){
-    // tagHandle null/"__all__" => show all
-    var items = Array.from(grid.children);
-    var active = (tagHandle && tagHandle !== '__all__') ? tagHandle.toLowerCase() : null;
-
-    items.forEach(function(li){
-      if (!active){
-        li.removeAttribute('hidden');
-        return;
-      }
-      var tags = (li.getAttribute('data-tags') || '').toLowerCase().split(',').map(function(s){ return s.trim(); }).filter(Boolean);
-      if (tags.indexOf(active) !== -1){
-        li.removeAttribute('hidden');
-      } else {
-        li.setAttribute('hidden', '');
-      }
+    var active = (tagHandle && tagHandle !== '__all__') ? (''+tagHandle).toLowerCase() : null;
+    Array.from(grid.children).forEach(function(li){
+      if (!active){ li.removeAttribute('hidden'); return; }
+      var tags = (li.getAttribute('data-tags')||'').toLowerCase().split(',').map(function(s){return s.trim();}).filter(Boolean);
+      if (tags.indexOf(active) !== -1){ li.removeAttribute('hidden'); } else { li.setAttribute('hidden',''); }
     });
-
     relayout();
   }
-
-  // Tag SELECT handler
-  var select = document.getElementById('BlogTagFilter-{{ section.id }}');
-  if (select){
-    select.addEventListener('change', function(e){
-      var v = e.target.value;
-      if (!FILTER_MODE){
-        // navigate to blog/tagged route
-        if (v === '__all__'){
-          window.location.href = {{ section.settings.blog.url | json }};
-        } else {
-          window.location.href = {{ section.settings.blog.url | append: '/tagged/' | json }} + encodeURIComponent(v);
-        }
-      } else {
-        applyFilter(v);
-        // mark active in nested menu if exists
-        markActiveByHandle(v);
-      }
-    }, {passive:true});
-  }
-
-  // Nested MENU handlers (parents + children)
-  var parentLinks = document.querySelectorAll('[data-topic-parent]');
-  parentLinks.forEach(function(a){
-    var hasChildren = a.hasAttribute('aria-controls');
-    var tagHandle = (a.getAttribute('data-tag-handle') || '').toLowerCase();
-
-    a.addEventListener('click', function(ev){
-      if (!FILTER_MODE){
-        // Navigate normally
-        var href = a.getAttribute('href') || '#';
-        var tagged = getTagFromHref(href) || tagHandle || null;
-        if (tagged){
-          // let browser navigate
-          return;
-        }
-      }
-
-      ev.preventDefault();
-
-      // Toggle accordion if children exist
-      if (hasChildren){
-        var id = a.getAttribute('aria-controls');
-        var panel = document.getElementById(id);
-        var isOpen = a.getAttribute('aria-expanded') === 'true';
-        // Close all siblings
-        parentLinks.forEach(function(p){
-          var pid = p.getAttribute('aria-controls');
-          if (pid){
-            var pn = document.getElementById(pid);
-            if (pn){ pn.classList.remove('is-open'); pn.setAttribute('hidden',''); }
-            p.setAttribute('aria-expanded','false');
-          }
-        });
-        // Open this one
-        if (!isOpen){
-          panel.classList.add('is-open'); panel.removeAttribute('hidden');
-          a.setAttribute('aria-expanded','true');
-        } else {
-          panel.classList.remove('is-open'); panel.setAttribute('hidden','');
-          a.setAttribute('aria-expanded','false');
-        }
-      }
-
-      // Also filter to the parent tag
-      if (FILTER_MODE && tagHandle){
-        applyFilter(tagHandle);
-        markActiveByHandle(tagHandle);
-      }
-    }, {passive:false});
-  });
-
-  // Child clicks
-  var childLinks = document.querySelectorAll('[data-topic-child]');
-  childLinks.forEach(function(a){
-    var tagHandle = (a.getAttribute('data-tag-handle') || '').toLowerCase();
-    a.addEventListener('click', function(ev){
-      if (!FILTER_MODE){
-        // navigate
-        return;
-      }
-      ev.preventDefault();
-      applyFilter(tagHandle);
-      markActiveByHandle(tagHandle);
-    }, {passive:false});
-  });
-
-  function markActiveByHandle(tagHandle){
-    // Clear actives
-    document.querySelectorAll('.blog-topics__link.is-active, .blog-topics__children a.is-active').forEach(function(el){ el.classList.remove('is-active'); });
+  function markActive(tagHandle){
+    // clear
+    document.querySelectorAll('.pill.is-active, .topic__header.is-active').forEach(function(el){ el.classList.remove('is-active'); });
     if (!tagHandle || tagHandle === '__all__') return;
-    tagHandle = tagHandle.toLowerCase();
-
-    // Mark parent if matches
-    parentLinks.forEach(function(p){
-      if ((p.getAttribute('data-tag-handle') || '').toLowerCase() === tagHandle){ p.classList.add('is-active'); }
+    var h = (''+tagHandle).toLowerCase();
+    document.querySelectorAll('[data-topic-child], [data-topic-parent]').forEach(function(a){
+      var th = (a.getAttribute('data-tag-handle')||'').toLowerCase();
+      if (th === h) a.classList.add('is-active');
     });
-    // Mark child
-    childLinks.forEach(function(c){
-      if ((c.getAttribute('data-tag-handle') || '').toLowerCase() === tagHandle){ c.classList.add('is-active'); }
-    });
-    // Sync select value if present
-    if (select){
-      var found = Array.from(select.options).some(function(o){
-        if ((o.value || '').toLowerCase() === tagHandle){ select.value = o.value; return true; }
-        return false;
-      });
-      if (!found && select.value !== '__all__'){ select.value='__all__'; }
-    }
   }
 
-  // If this section renders on a tagged page, try to auto-apply that tag client-side on first load
+  /* ---- accordion behavior ---- */
+  var parents = document.querySelectorAll('[data-topic-parent]');
+  parents.forEach(function(link){
+    var hasChildren = link.hasAttribute('aria-controls');
+    var tagHandle = (link.getAttribute('data-tag-handle')||'').toLowerCase();
+    var icon = link.querySelector('[data-icon]');
+    link.addEventListener('click', function(e){
+      if (!FILTER_MODE) return; // navigate normally
+      e.preventDefault();
+
+      // toggle panel
+      if (hasChildren){
+        var id = link.getAttribute('aria-controls');
+        var panel = document.getElementById(id);
+        var open = panel && panel.classList.contains('is-open');
+        // close others
+        parents.forEach(function(p){
+          var pid = p.getAttribute('aria-controls'); if (!pid) return;
+          var pn = document.getElementById(pid);
+          if (pn){ pn.classList.remove('is-open'); pn.hidden = true; }
+          var pi = p.querySelector('[data-icon]'); if (pi) pi.textContent = '+';
+          p.setAttribute('aria-expanded','false');
+        });
+        if (panel){
+          if (!open){
+            panel.classList.add('is-open'); panel.hidden = false;
+            if (icon) icon.textContent = '×';
+            link.setAttribute('aria-expanded','true');
+          }else{
+            panel.classList.remove('is-open'); panel.hidden = true;
+            if (icon) icon.textContent = '+';
+            link.setAttribute('aria-expanded','false');
+          }
+        }
+      }
+
+      // filter by parent
+      if (tagHandle){
+        applyFilter(tagHandle);
+        markActive(tagHandle);
+      }
+    }, {passive:false});
+  });
+
+  // child pills
+  var pills = document.querySelectorAll('[data-topic-child]');
+  pills.forEach(function(a){
+    var tagHandle = (a.getAttribute('data-tag-handle')||'').toLowerCase();
+    a.addEventListener('click', function(e){
+      if (!FILTER_MODE) return; // navigate
+      e.preventDefault();
+      applyFilter(tagHandle);
+      markActive(tagHandle);
+    }, {passive:false});
+  });
+
+  // initial state
   {% if current_tags and current_tags.first %}
-    {%- assign initial = current_tags.first | handleize -%}
-    applyFilter({{ initial | json }});
-    markActiveByHandle({{ initial | json }});
+    var initial = {{ current_tags.first | handleize | json }};
+    if (FILTER_MODE){ applyFilter(initial); markActive(initial); }
   {% else %}
-    if (FILTER_MODE){
-      applyFilter('__all__');
-    }
+    if (FILTER_MODE){ applyFilter('__all__'); }
   {% endif %}
 })();
 </script>
@@ -403,13 +300,10 @@
       "label": "Heading size"
     },
 
-    { "type": "header", "content": "Filters" },
-    { "type": "link_list", "id": "filter_menu", "label": "Categories menu (supports children)" },
-    { "type": "text", "id": "filter_menu_title", "label": "Menu heading", "default": "Blog Categories" },
-    { "type": "checkbox", "id": "show_tag_filter", "label": "Show Tag dropdown (from blog tags)", "default": true },
-    { "type": "checkbox", "id": "filter_in_section", "label": "Filter in section (no page reload)", "default": true,
-      "info": "If off, clicking a filter navigates to the /tagged/{tag} page like the old theme."
-    },
+    { "type": "header", "content": "Categories (Menu)" },
+    { "type": "link_list", "id": "filter_menu", "label": "Menu with parents and children" },
+    { "type": "text", "id": "filter_menu_title", "label": "Sidebar title", "default": "Categories" },
+    { "type": "checkbox", "id": "filter_in_section", "label": "Filter in section (no page reload)", "default": true },
 
     { "type": "header", "content": "Cards" },
     { "type": "range", "id": "post_limit", "min": 1, "max": 48, "step": 1, "default": 21, "label": "Max posts to render (filtered within this set)" },
@@ -419,14 +313,12 @@
     { "type": "checkbox", "id": "show_author", "default": false, "label": "Show author" },
 
     { "type": "header", "content": "Colors" },
-    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "info": "Has cards info", "default": "scheme-1" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
 
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
   ],
-  "presets": [
-    { "name": "Featured Blog (Journal)" }
-  ]
+  "presets": [{ "name": "Featured Blog (Journal)" }]
 }
 {% endschema %}
