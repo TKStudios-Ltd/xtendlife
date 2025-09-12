@@ -1,300 +1,144 @@
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-/* --- Alternating featured list (like your old theme) --- */
-.section-{{ section.id }}-padding{display:flex;align-items:flex-start;gap:2rem;padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;}
-@media(min-width:750px){.section-{{ section.id }}-padding{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;}}
+.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
+@media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
+
+.blog-collage__header{display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem}
+.blog-collage__filters{display:flex;gap:.75rem;flex-wrap:wrap}
+.blog-collage__filters .select{min-width:200px}
+
+.blog-collage__grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:990px){.blog-collage__grid{grid-template-columns:repeat(3,1fr)}}
+
+/* Wide item spans full row on desktop */
+.blog-collage__item--wide{grid-column:1 / -1}
+
+/* Optional visual tweaks for wide card to feel “feature” */
+.blog-collage__item--wide .article-card .ratio{--ratio-percent:45%}
+.blog-collage__item--wide .article-card .card__content .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem)}
+
+/* Keep cards full-height per row for nice lines on desktop */
 @media(min-width:990px){
-  .section-{{ section.id }}-padding .title-wrapper-with-link{flex:0 0 25%;}
-  .section-{{ section.id }}-padding .blog__content{flex:0 0 calc(75% - 2rem);}
+  .blog-collage__item .article-card-wrapper,
+  .blog-collage__item .article-card{height:100%}
 }
-.section-{{ section.id }}-padding .blog__content{width:100%}
-.fb-featured{display:flex;flex-direction:column;gap:30px;margin-bottom:24px}
-.fb-featured__row{display:flex;gap:20px;align-items:stretch;background:#E8E8E8;border-radius:20px;padding:35px}
-.fb-featured__row--left .fb-featured__media{order:2}
-.fb-featured__row--left .fb-featured__content{order:1}
-.fb-featured__media{flex:0 0 55%;border-radius:20px;overflow:hidden}
-.fb-featured__media .media{height:100%}
-.fb-featured__content{flex:1 1 45%}
-.fb-featured__title{margin:0 0 10px}
-.fb-featured__excerpt{margin:0}
-@media(max-width:1023px){
-  .fb-featured__row{flex-direction:column;padding:30px 20px}
-  .fb-featured__media{flex:unset}
-  .fb-featured__content{flex:unset}
-}
-/* --- Mobile/Tablet Swiper for the grid below --- */
-.fb-mobile{overflow:hidden;width:100%;position:relative}
-.fb-mobile .swiper{overflow:visible}
-.fb-mobile .swiper-wrapper{display:flex}
-.fb-mobile .swiper-slide{height:auto}
-/* Fade inactive slides (mobile) */
-@media(max-width:989px){
-  .section-{{ section.id }}-padding .swiper-slide{opacity:.5;transition:opacity .4s ease}
-  .section-{{ section.id }}-padding .swiper-slide.swiper-slide-active{opacity:1}
-  .section-{{ section.id }}-padding .swiper-pagination-progressbar{margin:4rem 2rem 0;width:calc(100% - 4rem)!important}
-}
+
+.blog-collage__viewall{margin-top:1.25rem}
 {%- endstyle -%}
 
+{%- if section.settings.blog == blank -%}
+  <div class="page-width section-{{ section.id }}-wrap">
+    <p>Add a Blog in section settings.</p>
+  </div>
+  {% break %}
+{%- endif -%}
+
 {%- liquid
-  assign posts_displayed = section.settings.blog.articles_count
-  if section.settings.post_limit <= section.settings.blog.articles_count or section.settings.post_limit <= 4
-    assign posts_exceed_limit = true
-    assign posts_displayed = section.settings.post_limit
-  endif
+  assign blog_obj = section.settings.blog
+  assign max_posts = section.settings.post_limit
 -%}
 
-<div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
-  <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
+<div class="blog color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-wrap">
 
-    {%- unless section.settings.heading == blank -%}
-      <div class="title-wrapper-with-link title-wrapper--no-top-margin">
-        <h2
-          id="SectionHeading-{{ section.id }}"
-          class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}
-        >
-          {{ section.settings.heading }}
-        </h2>
+    <!-- Header + Filters -->
+    <div class="blog-collage__header">
+      <div class="title-wrapper-with-link">
+        {%- unless section.settings.heading == blank -%}
+          <h2 id="SectionHeading-{{ section.id }}"
+              class="inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}>
+            {{ section.settings.heading }}
+          </h2>
+        {%- endunless -%}
+      </div>
 
-        {%- if section.settings.blog != blank
-          and section.settings.show_view_all
-          and section.settings.post_limit < section.settings.blog.articles_count
-        -%}
-          <div class="blog__view-all large-up-hide">
-            <a
-              href="{{ section.settings.blog.url }}"
-              id="ViewAll-{{ section.id }}"
-              class="blog__button button button--secondary"
-              aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
-            >
-              Read more
-            </a>
+      <div class="blog-collage__filters">
+        {%- if section.settings.show_tag_filter -%}
+          <div class="select">
+            <select id="BlogTagFilter-{{ section.id }}" aria-label="Filter by tag">
+              <option value="{{ blog_obj.url }}" {% unless current_tags %}selected{% endunless %}>{{ 'blogs.general.view_all' | t }}</option>
+              {%- for tag in blog_obj.all_tags -%}
+                <option value="{{ blog_obj.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
+              {%- endfor -%}
+            </select>
           </div>
+        {%- endif -%}
+
+        {%- if section.settings.filter_menu != blank -%}
+          <nav class="menu">
+            <ul class="list-unstyled list-inline">
+              {%- for l in section.settings.filter_menu.links -%}
+                <li style="display:inline-block;margin-left:.5rem">
+                  <a class="link" href="{{ l.url }}">{{ l.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
         {%- endif -%}
       </div>
-    {%- endunless -%}
+    </div>
 
-    <div class="blog__content">
+    {%- comment -%}
+      Collage pattern (desktop): 1,3,3,1,3,3 repeating.
+      We'll render items and add a "wide" class when (index0 % 7) == 0.
+      Otherwise, items are standard thirds in the 3-col grid.
+    {%- endcomment -%}
+    <ul class="blog-collage__grid" role="list">
+      {%- if blog_obj.articles_count > 0 -%}
+        {%- for article in blog_obj.articles limit: max_posts -%}
+          {%- assign pos = forloop.index0 | modulo: 7 -%}
+          {%- assign is_wide = false -%}
+          {%- if pos == 0 -%}{%- assign is_wide = true -%}{%- endif -%}
 
-      {%- comment -%}
-        FEATURED LIST (alternating rows) — pulled from a Blog metafield list.
-        Supports either:
-          • List of strings (article handles) — legacy style (articles[handle])
-          • List of Article references — modern reference list
-      {%- endcomment -%}
-      {%- if section.settings.enable_featured and section.settings.blog != blank -%}
-        {%- assign ns = section.settings.feature_ns | default: 'custom' -%}
-        {%- assign key = section.settings.feature_key | default: 'feature_blog' -%}
-        {%- assign feat = section.settings.blog.metafields[ns][key] -%}
-        {%- assign feat_value = feat.value -%}
-        {%- if feat_value != blank -%}
-          <div class="fb-featured">
-            {%- for item in feat_value limit: section.settings.featured_limit -%}
-              {%- assign article_obj = nil -%}
-              {%- if item.title -%}
-                {%- assign article_obj = item -%}
-              {%- else -%}
-                {%- assign article_obj = articles[item] -%}
-              {%- endif -%}
-              {%- if article_obj != nil -%}
-                {%- assign mod = forloop.index | modulo: 2 -%}
-                <div class="fb-featured__row {% if mod != 0 %}fb-featured__row--left{% else %}fb-featured__row--right{% endif %}">
-                  {%- capture media -%}
-                    {%- if article_obj.image != blank -%}
-                      <div class="fb-featured__media">
-                        <a class="blog__link" href="{{ article_obj.url }}" title="{{ article_obj.title | escape }}">
-                          <div class="media">
-                            {%- render 'image', image: article_obj.image, widths: '550,750,950,1100,1400', sizes: '(min-width: 990px) 55vw, 100vw', classes: 'blog-card__image' -%}
-                          </div>
-                        </a>
-                      </div>
-                    {%- endif -%}
-                  {%- endcapture -%}
-
-                  {%- capture content -%}
-                    <div class="fb-featured__content">
-                      <a class="blog__link" href="{{ article_obj.url }}" title="{{ article_obj.title | escape }}">
-                        <h2 class="fb-featured__title h2">{{ article_obj.title }}</h2>
-                      </a>
-                      {%- if section.settings.show_excerpt and article_obj.excerpt != blank -%}
-                        <p class="fb-featured__excerpt">{{ article_obj.excerpt | strip_html }}</p>
-                      {%- endif -%}
-                      {%- if section.settings.show_meta -%}
-                        <div class="meta-info is-small">
-                          {%- if section.settings.show_date -%}
-                            <span>{{ article_obj.published_at | time_tag: format: 'date' }}</span>
-                          {%- endif -%}
-                          {%- if section.settings.show_author and article_obj.author != blank -%}
-                            <span> · {{ article_obj.author }}</span>
-                          {%- endif -%}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  {%- endcapture -%}
-
-                  {%- if mod != 0 -%}{{ content }}{{ media }}{%- else -%}{{ media }}{{ content }}{%- endif -%}
-                </div>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-      {%- endif -%}
-
-      {%- comment -%} DESKTOP GRID (standard Dawn cards) {%- endcomment -%}
-      <ul
-        class="articles-wrapper contains-card contains-card--article{% if settings.blog_card_style == 'standard' %} contains-card--standard{% endif %} grid grid--{{ section.settings.columns_desktop }}-col-desktop small-hide medium-hide"
-        role="list"
-      >
-        {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
-          {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
-            <li class="grid__item article">
-              {%- render 'article-card',
-                blog: section.settings.blog,
-                article: article,
-                media_aspect_ratio: 1.66,
-                show_image: section.settings.show_image,
-                show_date: section.settings.show_date,
-                show_author: section.settings.show_author,
-                show_excerpt: true
-              -%}
-            </li>
-          {%- endfor -%}
-        {%- else -%}
-          {%- for i in (1..section.settings.post_limit) -%}
-            {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
-            {%- assign placeholder_image = 'blog-apparel-' | append: placeholder_image_index -%}
-            <li class="grid__item article">
-              <div class="article-card-wrapper card-wrapper">
-                <div class="card article-card card--{{ settings.blog_card_style }} {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} {% if section.settings.show_image %} card--media{% else %} card--text{% endif %}">
-                  <div class="card__inner{% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} ratio" style="--ratio-percent: 80%;">
-                    {%- if section.settings.show_image -%}
-                      <div class="article-card__image-wrapper card__media">
-                        <div class="article-card__image media">
-                          {{ placeholder_image | placeholder_svg_tag: 'blog-placeholder-svg' }}
-                        </div>
-                      </div>
-                    {%- endif -%}
-                    <div class="card__content">
-                      <div class="card__information">
-                        <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card__content">
-                    <div class="card__information">
-                      <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
-                    </div>
+          <li class="blog-collage__item {% if is_wide %}blog-collage__item--wide{% endif %}">
+            {%- render 'article-card',
+              blog: blog_obj,
+              article: article,
+              media_aspect_ratio: is_wide | default: false | unless: false | endunless | default: 1.66,
+              show_image: section.settings.show_image,
+              show_date: section.settings.show_date,
+              show_author: section.settings.show_author,
+              show_excerpt: true
+            -%}
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..max_posts) -%}
+          <li class="blog-collage__item {% if forloop.index0 == 0 %}blog-collage__item--wide{% endif %}">
+            <div class="article-card-wrapper card-wrapper">
+              <div class="card article-card {% if section.settings.show_image %}card--media{% else %}card--text{% endif %}">
+                <div class="card__content">
+                  <div class="card__information">
+                    <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
                   </div>
                 </div>
               </div>
-            </li>
-          {%- endfor -%}
-        {%- endif -%}
-      </ul>
-
-      {%- comment -%} MOBILE/TABLET SWIPER {%- endcomment -%}
-      <div class="fb-mobile large-up-hide">
-        <div class="swiper" id="fb-swiper-{{ section.id }}">
-          <div class="swiper-wrapper">
-            {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
-              {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
-                <div class="swiper-slide">
-                  {%- render 'article-card',
-                    blog: section.settings.blog,
-                    article: article,
-                    media_aspect_ratio: 1.66,
-                    show_image: section.settings.show_image,
-                    show_date: section.settings.show_date,
-                    show_author: section.settings.show_author,
-                    show_excerpt: true
-                  -%}
-                </div>
-              {%- endfor -%}
-            {%- else -%}
-              {%- for i in (1..section.settings.post_limit) -%}
-                {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
-                {%- assign placeholder_image = 'blog-apparel-' | append: placeholder_image_index -%}
-                <div class="swiper-slide">
-                  <div class="article-card-wrapper card-wrapper">
-                    <div class="card article-card card--{{ settings.blog_card_style }} {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} {% if section.settings.show_image %} card--media{% else %} card--text{% endif %}">
-                      <div class="card__inner{% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} ratio" style="--ratio-percent: 80%;">
-                        {%- if section.settings.show_image -%}
-                          <div class="article-card__image-wrapper card__media">
-                            <div class="article-card__image media">
-                              {{ placeholder_image | placeholder_svg_tag: 'blog-placeholder-svg' }}
-                            </div>
-                          </div>
-                        {%- endif -%}
-                        <div class="card__content">
-                          <div class="card__information">
-                            <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card__content">
-                        <div class="card__information">
-                          <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {%- endfor -%}
-            {%- endif -%}
-          </div>
-        </div>
-        <div id="fb-pagination-{{ section.id }}" class="swiper-pagination"></div>
-      </div>
-
-      {%- if section.settings.blog != blank
-        and section.settings.show_view_all
-        and section.settings.post_limit < section.settings.blog.articles_count
-      -%}
-        <div class="blog__view-all small-hide medium-hide">
-          <a
-            href="{{ section.settings.blog.url }}"
-            id="ViewAll-{{ section.id }}"
-            class="blog__button button button--secondary"
-            aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
-          >
-            Read more
-          </a>
-        </div>
+            </div>
+          </li>
+        {%- endfor -%}
       {%- endif -%}
-    </div>
+    </ul>
+
+    {%- if section.settings.show_view_all and max_posts < blog_obj.articles_count -%}
+      <div class="blog-collage__viewall">
+        <a href="{{ blog_obj.url }}" class="button button--secondary">Read more</a>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
 <script>
-(function(){
-  const el = document.querySelector('#fb-swiper-{{ section.id }}');
-  if (!el) return;
-
-  function init(){
-    if (typeof window.Swiper === 'undefined') { setTimeout(init, 50); return; }
-    if (el.dataset.swiperReady === '1') return;
-
-    const sw = new Swiper(el, {
-      slidesPerView: 1.3,
-      spaceBetween: 20,
-      speed: 500,
-      watchOverflow: true,
-      breakpoints: { 750: { slidesPerView: 2.3 } },
-      pagination: { el: '#fb-pagination-{{ section.id }}', type: 'progressbar' }
-    });
-
-    el.dataset.swiperReady = '1';
-
-    const update = () => { try { sw.update(); } catch(e) {} };
-    window.addEventListener('load', update, { once:true, passive:true });
-    el.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', update, { once:true, passive:true }); });
-  }
-  init();
-})();
+  (function(){
+    var sel = document.getElementById('BlogTagFilter-{{ section.id }}');
+    if (!sel) return;
+    sel.addEventListener('change', function(e){
+      window.location.href = e.target.value;
+    }, {passive:true});
+  })();
 </script>
 
 {% schema %}
@@ -305,17 +149,10 @@
   "settings": [
     { "type": "blog", "id": "blog", "label": "Blog" },
 
-    { "type": "header", "content": "Featured list (metafield-driven)" },
-    { "type": "checkbox", "id": "enable_featured", "label": "Enable featured alternating list", "default": true },
-    { "type": "text", "id": "feature_ns", "label": "Metafield namespace", "default": "custom" },
-    { "type": "text", "id": "feature_key", "label": "Metafield key", "default": "feature_blog", "info": "List of article handles OR Article references" },
-    { "type": "range", "id": "featured_limit", "min": 1, "max": 8, "step": 1, "default": 4, "label": "Featured items to show" },
-    { "type": "checkbox", "id": "show_excerpt", "label": "Show excerpt in featured list", "default": true },
-    { "type": "checkbox", "id": "show_meta", "label": "Show meta (date/author) in featured list", "default": true },
-
     { "type": "header", "content": "Heading" },
-    { "type": "inline_richtext", "id": "heading", "default": "Featured articles", "label": "Heading" },
-    { "type": "select", "id": "heading_size", "options": [
+    { "type": "inline_richtext", "id": "heading", "default": "Latest stories", "label": "Heading" },
+    { "type": "select", "id": "heading_size",
+      "options": [
         { "value": "h2", "label": "H2" },
         { "value": "h1", "label": "H1" },
         { "value": "h0", "label": "H0" },
@@ -326,13 +163,16 @@
       "label": "Heading size"
     },
 
-    { "type": "header", "content": "Grid (below featured)" },
-    { "type": "range", "id": "post_limit", "min": 2, "max": 12, "step": 1, "default": 6, "label": "Posts to show" },
-    { "type": "range", "id": "columns_desktop", "min": 1, "max": 4, "step": 1, "default": 3, "label": "Grid columns (desktop)" },
+    { "type": "header", "content": "Filters" },
+    { "type": "checkbox", "id": "show_tag_filter", "label": "Show Tag dropdown (from blog tags)", "default": true },
+    { "type": "link_list", "id": "filter_menu", "label": "Optional filter menu" },
+
+    { "type": "header", "content": "Cards" },
+    { "type": "range", "id": "post_limit", "min": 1, "max": 24, "step": 1, "default": 13, "label": "Max posts to show" },
     { "type": "checkbox", "id": "show_view_all", "default": true, "label": "Show “Read more” button" },
-    { "type": "checkbox", "id": "show_image", "default": true, "label": "Show image in cards" },
-    { "type": "checkbox", "id": "show_date", "default": true, "label": "Show date in cards" },
-    { "type": "checkbox", "id": "show_author", "default": false, "label": "Show author in cards" },
+    { "type": "checkbox", "id": "show_image", "default": true, "label": "Show image" },
+    { "type": "checkbox", "id": "show_date", "default": true, "label": "Show date" },
+    { "type": "checkbox", "id": "show_author", "default": false, "label": "Show author" },
 
     { "type": "header", "content": "Colors" },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "info": "Has cards info", "default": "scheme-1" },
@@ -341,6 +181,8 @@
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
   ],
-  "presets": [{ "name": "Featured Blog (Journal)" }]
+  "presets": [
+    { "name": "Featured Blog (Journal)" }
+  ]
 }
 {% endschema %}
