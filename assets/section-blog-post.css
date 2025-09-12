@@ -183,7 +183,7 @@
 .ingredient-article-template {
   display: flex;
   gap: 2rem;
-  margin: 4rem 0 12rem;
+  margin: 4rem auto 12rem;
 }
 .ingredient-article-template__left,
 .ingredient-article-template__right {
