@@ -102,37 +102,51 @@
 
     <!-- Content -->
     <div>
-      <ul class="blog-grid" id="BlogGrid-{{ section.id }}" role="list">
-        {%- if blog_obj.articles_count > 0 -%}
-          {%- for article in blog_obj.articles limit: max_render -%}
+      {%- liquid
+        assign per_load = section.settings.posts_per_load
+        assign max_render = section.settings.max_posts_to_render
+        if template.name == 'blog'
+            assign articles_source = blog.articles
+            assign total_count = blog.articles_count
+        else
+            assign articles_source = section.settings.blog.articles
+            assign total_count = section.settings.blog.articles_count
+        endif
+        -%}
+
+        <ul class="blog-grid" id="BlogGrid-{{ section.id }}" role="list">
+        {%- if total_count > 0 -%}
+            {%- for article in articles_source limit: max_render -%}
             {%- assign idx0 = forloop.index0 -%}
-            {%- assign pos = forloop.index0 | modulo: 7 -%}
+            {%- assign pos = idx0 | modulo: 7 -%}
             <li class="blog-item {% if pos == 0 %}blog-item--wide{% endif %}"
                 data-idx="{{ idx0 }}"
                 {% if idx0 >= per_load %}hidden{% endif %}>
-              {%- render 'article-card',
-                blog: blog_obj,
+                {%- render 'article-card',
+                blog: blog,
                 article: article,
                 media_aspect_ratio: 1.66,
                 show_image: section.settings.show_image,
                 show_date: section.settings.show_date,
                 show_author: section.settings.show_author,
                 show_excerpt: true
-              -%}
+                -%}
             </li>
-          {%- endfor -%}
+            {%- endfor -%}
         {%- else -%}
-          <li class="blog-item blog-item--wide">
+            <li class="blog-item blog-item--wide">
             <div class="article-card-wrapper card-wrapper">
-              <div class="card article-card">
-                <div class="card__content"><div class="card__information">
-                  <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
-                </div></div>
-              </div>
+                <div class="card article-card">
+                <div class="card__content">
+                    <div class="card__information">
+                    <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
+                    </div>
+                </div>
+                </div>
             </div>
-          </li>
+            </li>
         {%- endif -%}
-      </ul>
+        </ul>
 
       {%- if blog_obj.articles_count > per_load -%}
         <div class="load-more">
