@@ -197,9 +197,6 @@
   max-width: 550px;
   margin: 0;
 }
-.ingredient-article-template .article-template__hero-container .media {
-  border-radius: 28px;
-}
 .ingredient-article-template strong {
   font-weight: 500 !important;
 }
@@ -212,6 +209,7 @@
   }
   .ingredient-article-template .article-template__hero-small {
     height: 30rem;
+    border-radius: 28px;
   }
 }
 @media (max-width: 989px) {
