@@ -15,6 +15,16 @@
 .blog-item[hidden]{display:none !important}
 .blog-item--wide{grid-column:1/-1}
 .blog-item--wide .ratio{--ratio-percent:65% !important; }
+.blog-item--wide { margin-bottom: 3rem; }
+.blog-item--wide .card__information {
+    position: absolute;
+    bottom: 2rem;
+    background: white;
+    right: 2rem;
+    border-radius: 1.6rem;
+    padding: 2rem;
+    max-width: 460px;
+}
 .blog-item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem)}
 @media(min-width:990px){.blog-item .article-card-wrapper,.blog-item .article-card{height:100%}}
 /* sidebar */
