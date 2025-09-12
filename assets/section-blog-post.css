@@ -205,3 +205,6 @@
 .ingredient-article-template strong {
   font-weight: 500 !important;
 }
+.ingredient-article-template p {
+  float: none;
+}
