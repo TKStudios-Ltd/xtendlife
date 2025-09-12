@@ -1,11 +1,11 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template ingredient-article-template">
+<article class="article-template ingredient-article-template page-width">
     <div class="ingredient-article-template__left">
     {%- for block in section.blocks -%}
         {%- case block.type -%}
         {%- when '@app' -%}
-            <div class="page-width page-width--narrow">
+            <div class="">
             {% render block %}
             </div>
         {%- when 'featured_image' -%}
