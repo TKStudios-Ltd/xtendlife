@@ -67,6 +67,9 @@
 .topic__toggle[aria-expanded="true"]{
   background:#1a73e8;color:#fff;border-color:#1a73e8
 }
+.topic__toggle .hidden { display:none; }
+.topic__toggle[aria-expanded="true"] .hidden { display:inline-flex; }
+.topic__toggle[aria-expanded="true"] .svg-wrapper:first-child { display:none; }
 
 /* accordion body (closed by default except first) */
 .topic__body{border-top:1px solid rgba(0,0,0,.08);padding:12px;display:none}
