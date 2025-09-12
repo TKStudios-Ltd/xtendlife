@@ -58,11 +58,17 @@
 -%}
 
 <div class="page-width section-{{ section.id }}-wrap">
-  <div class="blog-head">
-    {%- unless section.settings.heading == blank -%}
-      <h2 id="SectionHeading-{{ section.id }}" class="inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
-    {%- endunless -%}
-  </div>
+  <header class="blog-hero">
+    <div class="blog-hero__grid">
+      {%- if section.settings.hero_heading != blank -%}
+        <h1 class="blog-hero__title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.hero_subtitle != blank -%}
+        <div class="blog-hero__subtitle rte">{{ section.settings.hero_subtitle }}</div>
+      {%- endif -%}
+    </div>
+  </header>
 
   <div class="blog-layout">
     <!-- Sidebar -->
@@ -209,7 +215,7 @@
       "default": "h1",
       "label": "Heading size"
     },
-
+    { "type": "richtext", "id": "hero_subtitle", "label": "Subtitle", "default": "<p>Discover a variety of topics to delve into, covering potential causes, symptoms, and tailored advice on diet, supplements, and lifestyle adjustments.</p>" },
     { "type": "header", "content": "Categories" },
     { "type": "text", "id": "filter_menu_title", "label": "Sidebar title", "default": "Categories" },
     { "type": "link_list", "id": "filter_menu", "label": "Menu with parents and children" },
