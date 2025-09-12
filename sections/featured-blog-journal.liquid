@@ -4,9 +4,13 @@
 
 {%- style -%}
 /* --- Blog hero --- */
-.blog-hero{margin-bottom:24px; padding-bottom:16px;}
+.blog-hero{
+    margin: 4rem 0 2rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid rgba(211, 211, 211, 1);
+}
 .blog-hero--with-divider{border-bottom:1px solid var(--color-border,rgba(0,0,0,.12));}
-.blog-hero__grid{display:grid; gap:20px;}
+.blog-hero__grid{display:flex; gap:20px;}
 @media(min-width:990px){ .blog-hero__grid{ grid-template-columns:1fr 2fr; align-items:end; } }
 .blog-hero__title{margin:0;}
 .blog-hero__subtitle :where(p){margin:0; font-size:clamp(1rem, .2vw + .95rem, 1.125rem); line-height:1.6;}
