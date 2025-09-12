@@ -31,8 +31,6 @@
 .blog-side__title{margin:0 0 12px;font-weight:600}
 .topic-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .topic{border:1px solid var(--color-border,rgba(0,0,0,.12));border-radius:12px;overflow:hidden;background:#fff}
-.topic__header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;text-decoration:none;color:inherit}
-.topic__header:hover{background:rgba(0,0,0,.03)}
 .topic__label{font-weight:600}
 .topic__header.is-active{background:#1a73e8;color:#fff}
 @media(min-width:990px){ 
@@ -51,6 +49,37 @@
         padding-right: 10rem;
     }
 }
+/* --- accordion header now a div + toggle button --- */
+.topic__header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 12px;color:inherit
+}
+.topic__label-link{font-weight:600;text-decoration:none;color:inherit}
+.topic__label-link:hover{opacity:.9}
+
+/* toggle (+ / ×) */
+.topic__toggle{
+  appearance:none;border:1px solid currentColor;background:transparent;
+  width:24px;height:24px;border-radius:999px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:700;cursor:pointer
+}
+.topic__toggle[aria-expanded="true"]{
+  background:#1a73e8;color:#fff;border-color:#1a73e8
+}
+
+/* accordion body (closed by default except first) */
+.topic__body{border-top:1px solid rgba(0,0,0,.08);padding:12px;display:none}
+.topic__body.is-open{display:block}
+
+/* sticky sidebar on desktop */
+@media(min-width:990px){
+  .blog-layout aside{
+    position:sticky; top:calc(var(--header-height,70px) + 20px);
+    align-self:start
+  }
+}
+
 
 /* spacing */
 .section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
@@ -109,38 +138,60 @@
   <div class="blog-layout">
     <!-- Sidebar -->
     <aside>
-      <h3 class="blog-side__title h5">{{ section.settings.filter_menu_title }}</h3>
-      {%- if section.settings.filter_menu != blank -%}
-        <ul class="topic-list">
-          {%- for parent in section.settings.filter_menu.links -%}
-            {%- assign parent_has_children = false -%}
-            {%- if parent.links and parent.links.size > 0 -%}
-              {%- assign parent_has_children = true -%}
-            {%- endif -%}
+        <h3 class="blog-side__title h5">{{ section.settings.filter_menu_title }}</h3>
+        {%- if section.settings.filter_menu != blank -%}
+            <ul class="topic-list">
+            {%- for parent in section.settings.filter_menu.links -%}
+                {%- assign parent_has_children = false -%}
+                {%- if parent.links and parent.links.size > 0 -%}{%- assign parent_has_children = true -%}{%- endif -%}
 
-            <li class="topic">
-              <a href="{{ parent.url }}" class="topic__header {% if current_tags contains parent.title %}is-active{% endif %}">
-                <span class="topic__label">{{ parent.title }}</span>
-                {% if parent_has_children %}<span aria-hidden="true">+</span>{% endif %}
-              </a>
+                {%- assign open_now = false -%}
+                {%- if forloop.first and parent_has_children -%}{%- assign open_now = true -%}{%- endif -%}
+                {%- if current_tags contains parent.title -%}{%- assign open_now = true -%}{%- endif -%}
 
-              {% if parent_has_children %}
-                <div class="topic__body">
-                  <div class="pills">
-                    <a href="{{ parent.url }}" class="pill {% if current_tags contains parent.title %}is-active{% endif %}">All {{ parent.title }}</a>
-                    {%- for child in parent.links -%}
-                      <a href="{{ child.url }}" class="pill {% if current_tags contains child.title %}is-active{% endif %}">{{ child.title }}</a>
-                    {%- endfor -%}
-                  </div>
+                <li class="topic">
+                <div class="topic__header">
+                    <a href="{{ parent.url }}" class="topic__label-link">
+                    {{ parent.title }}
+                    </a>
+                    {% if parent_has_children %}
+                    <button
+                        type="button"
+                        class="topic__toggle"
+                        aria-controls="topic-body-{{ section.id }}-{{ forloop.index }}"
+                        aria-expanded="{{ open_now }}"
+                        aria-label="Toggle {{ parent.title }} subcategories"
+                    >
+                        {{ open_now | default: false | ternary: '×', '+' }}
+                    </button>
+                    {% endif %}
                 </div>
-              {% endif %}
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- else -%}
-        <p>Add a menu with parent/child links.</p>
-      {%- endif -%}
-    </aside>
+
+                {% if parent_has_children %}
+                    <div
+                    class="topic__body {% if open_now %}is-open{% endif %}"
+                    id="topic-body-{{ section.id }}-{{ forloop.index }}"
+                    {% unless open_now %}hidden{% endunless %}
+                    >
+                    <div class="pills">
+                        <a href="{{ parent.url }}" class="pill {% if current_tags contains parent.title %}is-active{% endif %}">
+                        All {{ parent.title }}
+                        </a>
+                        {%- for child in parent.links -%}
+                        <a href="{{ child.url }}" class="pill {% if current_tags contains child.title %}is-active{% endif %}">
+                            {{ child.title }}
+                        </a>
+                        {%- endfor -%}
+                    </div>
+                    </div>
+                {% endif %}
+                </li>
+            {%- endfor -%}
+            </ul>
+        {%- else -%}
+            <p>Add a menu with parent/child links.</p>
+        {%- endif -%}
+        </aside>
 
     <!-- Content -->
     <div>
