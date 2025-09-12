@@ -119,18 +119,20 @@
             {%- for article in articles_source limit: max_render -%}
             {%- assign idx0 = forloop.index0 -%}
             {%- assign pos = idx0 | modulo: 7 -%}
-            <li class="blog-item {% if pos == 0 %}blog-item--wide{% endif %}"
-                data-idx="{{ idx0 }}"
-                {% if idx0 >= per_load %}hidden{% endif %}>
-                {%- render 'article-card',
+            {%- assign is_wide = false -%}
+            {%- if pos == 0 -%}{%- assign is_wide = true -%}{%- endif -%}
+
+            <li class="blog-item {% if is_wide %}blog-item--wide{% endif %}">
+            {% render 'article-card',
                 blog: blog,
                 article: article,
                 media_aspect_ratio: 1.66,
                 show_image: section.settings.show_image,
                 show_date: section.settings.show_date,
                 show_author: section.settings.show_author,
-                show_excerpt: true
-                -%}
+                show_excerpt: is_wide,  <!-- only wide cards get excerpt -->
+                is_wide: is_wide
+            %}
             </li>
             {%- endfor -%}
         {%- else -%}
