@@ -261,6 +261,7 @@
 </div>
 
 <script>
+/* ---------- LOAD MORE (unchanged behavior) ---------- */
 (function(){
   var grid = document.getElementById('BlogGrid-{{ section.id }}');
   var btn  = document.getElementById('LoadMoreBtn-{{ section.id }}');
@@ -287,7 +288,52 @@
     if (hidden.length <= perLoad){ btn.remove(); }
   }, {passive:true});
 })();
+
+/* ---------- ACCORDION (Dawn icons, single-open) ---------- */
+(function(){
+  var toggles = document.querySelectorAll('.topic__toggle');
+  if (!toggles.length) return;
+
+  function closeAll(){
+    toggles.forEach(function(btn){
+      var id = btn.getAttribute('aria-controls');
+      var body = id && document.getElementById(id);
+      if (!body) return;
+      btn.setAttribute('aria-expanded','false');
+      body.classList.remove('is-open');
+      body.hidden = true;
+    });
+  }
+
+  // normalize initial state based on aria-expanded (Liquid sets first/open parent)
+  toggles.forEach(function(btn){
+    var id = btn.getAttribute('aria-controls');
+    var body = id && document.getElementById(id);
+    if (!body) return;
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    body.hidden = !open;
+    body.classList.toggle('is-open', open);
+  });
+
+  toggles.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = btn.getAttribute('aria-controls');
+      var body = id && document.getElementById(id);
+      if (!body) return;
+
+      var willOpen = btn.getAttribute('aria-expanded') !== 'true';
+      closeAll();
+      if (willOpen){
+        btn.setAttribute('aria-expanded','true');
+        body.classList.add('is-open');
+        body.hidden = false;
+      }
+    }, {passive:false});
+  });
+})();
 </script>
+
 
 {% schema %}
 {
