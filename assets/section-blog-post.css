@@ -192,6 +192,9 @@
 .ingredient-article-template__left {
   padding-right: 2rem;
 }
-..article-template__title {
+.ingredient-article-template .article-template__title {
   margin-bottom: 2rem;
+}
+.ingredient-article-template .media img {
+  border-radius: 28px;
 }
