@@ -173,3 +173,14 @@
 .article-template__back:last-child {
   margin-bottom: 3.2rem;
 }
+
+
+/* Ingredient */
+
+.ingredient-article-template {
+  display: flex;
+}
+.ingredient-article-template___left,
+.ingredient-article-template__right {
+  flex: 0 0 50%;
+}
