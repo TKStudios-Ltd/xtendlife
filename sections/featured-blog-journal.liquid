@@ -7,26 +7,51 @@
 @media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
 
 .blog-collage__header{display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem}
-.blog-collage__filters{display:flex;gap:.75rem;flex-wrap:wrap}
-.blog-collage__filters .select{min-width:200px}
+.blog-collage__filters{display:flex;gap:1rem;flex-wrap:wrap}
 
+/* Collage grid */
 .blog-collage__grid{display:grid;grid-template-columns:1fr;gap:20px}
 @media(min-width:990px){.blog-collage__grid{grid-template-columns:repeat(3,1fr)}}
-
-/* Wide item spans full row on desktop */
 .blog-collage__item--wide{grid-column:1 / -1}
+.blog-collage__item{display:block}
+.blog-collage__item[hidden]{display:none !important}
 
-/* Optional visual tweaks for wide card to feel “feature” */
+/* Make wide card feel “feature” */
 .blog-collage__item--wide .article-card .ratio{--ratio-percent:45%}
-.blog-collage__item--wide .article-card .card__content .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem)}
+.blog-collage__item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem)}
 
-/* Keep cards full-height per row for nice lines on desktop */
+/* Stretch cards neatly on desktop */
 @media(min-width:990px){
   .blog-collage__item .article-card-wrapper,
   .blog-collage__item .article-card{height:100%}
 }
 
 .blog-collage__viewall{margin-top:1.25rem}
+
+/* Nested filter menu (accordion) */
+.blog-topics{width:100%}
+.blog-topics__title{margin:0 0 .5rem}
+.blog-topics__list{list-style:none;margin:0;padding:0;display:flex;gap:.5rem;flex-wrap:wrap}
+.blog-topics__item{position:relative}
+.blog-topics__link{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem .75rem;border:1px solid var(--color-border, rgba(0,0,0,.12));border-radius:999px;line-height:1;text-decoration:none}
+.blog-topics__link[aria-expanded="true"]{background:var(--color-bg, rgba(0,0,0,.04))}
+.blog-topics__link.is-active{border-color:currentColor;font-weight:600}
+
+.blog-topics__children{position:absolute;left:0;right:auto;min-width:260px;max-width:320px;z-index:30;background:var(--color-base-background-1,#fff);border:1px solid rgba(0,0,0,.12);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:.5rem;margin-top:.35rem;display:none}
+.blog-topics__children.is-open{display:block}
+.blog-topics__children ul{list-style:none;margin:0;padding:.25rem}
+.blog-topics__children li{margin:0}
+.blog-topics__children a{display:block;padding:.5rem .6rem;border-radius:.5rem;text-decoration:none}
+.blog-topics__children a:hover{background:rgba(0,0,0,.04)}
+
+@media(max-width:989px){
+  .blog-topics__list{flex-direction:column}
+  .blog-topics__item{width:100%}
+  .blog-topics__children{position:static;min-width:unset;max-width:none;box-shadow:none;margin-top:.5rem}
+}
+
+/* Tag select control */
+.select{min-width:220px}
 {%- endstyle -%}
 
 {%- if section.settings.blog == blank -%}
@@ -57,44 +82,99 @@
       </div>
 
       <div class="blog-collage__filters">
+        {%- if section.settings.filter_menu != blank -%}
+          <section class="blog-topics" aria-label="Blog Categories">
+            {%- if section.settings.filter_menu_title != blank -%}
+              <h3 class="blog-topics__title h5">{{ section.settings.filter_menu_title }}</h3>
+            {%- endif -%}
+            <ul class="blog-topics__list">
+              {%- for parent in section.settings.filter_menu.links -%}
+                {%- assign parent_has_children = false -%}
+                {%- if parent.links and parent.links.size > 0 -%}
+                    {%- assign parent_has_children = true -%}
+                {%- endif -%}
+
+                <li class="blog-topics__item">
+                    <a
+                    href="{{ parent.url }}"
+                    class="blog-topics__link"
+                    {% if parent_has_children %}aria-expanded="false" aria-controls="topics-children-{{ section.id }}-{{ forloop.index }}"{% endif %}
+                    data-topic-parent
+                    data-tag-handle="{{ parent.title | handleize }}"
+                    {% if parent_has_children %}data-sidebar-block__toggle="closed"{% endif %}
+                    >
+                    {{ parent.title }}
+                    {%- if parent_has_children -%}
+                        <svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                    {%- endif -%}
+                    </a>
+
+                    {%- if parent_has_children -%}
+                    <div
+                        class="blog-topics__children"
+                        id="topics-children-{{ section.id }}-{{ forloop.index }}"
+                        hidden
+                        data-sidebar-block__content--collapsible
+                        style="overflow:hidden;height:0px"
+                    >
+                        <ul>
+                        <li>
+                            <a href="{{ parent.url }}" data-topic-child data-tag-handle="{{ parent.title | handleize }}">
+                            All {{ parent.title }}
+                            </a>
+                        </li>
+                        {%- for child in parent.links -%}
+                            <li>
+                            <a href="{{ child.url }}" data-topic-child data-tag-handle="{{ child.title | handleize }}">
+                                {{ child.title }}
+                            </a>
+                            </li>
+                        {%- endfor -%}
+                        </ul>
+                    </div>
+                    {%- endif -%}
+                </li>
+                {%- endfor -%}
+            </ul>
+          </section>
+        {%- endif -%}
+
         {%- if section.settings.show_tag_filter -%}
           <div class="select">
             <select id="BlogTagFilter-{{ section.id }}" aria-label="Filter by tag">
-              <option value="{{ blog_obj.url }}" {% unless current_tags %}selected{% endunless %}>{{ 'blogs.general.view_all' | t }}</option>
+              <option value="__all__" {% unless current_tags %}selected{% endunless %}>{{ 'blogs.general.view_all' | t }}</option>
               {%- for tag in blog_obj.all_tags -%}
-                <option value="{{ blog_obj.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
+                <option value="{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
               {%- endfor -%}
             </select>
           </div>
-        {%- endif -%}
-
-        {%- if section.settings.filter_menu != blank -%}
-          <nav class="menu">
-            <ul class="list-unstyled list-inline">
-              {%- for l in section.settings.filter_menu.links -%}
-                <li style="display:inline-block;margin-left:.5rem">
-                  <a class="link" href="{{ l.url }}">{{ l.title }}</a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </nav>
         {%- endif -%}
       </div>
     </div>
 
     {%- comment -%}
-      Collage pattern (desktop): 1,3,3,1,3,3 repeating.
-      We'll render items and add a "wide" class when (index0 % 7) == 0.
-      Otherwise, items are standard thirds in the 3-col grid.
+      Collage pattern: 1,3,3 repeating among *visible* items.
+      We’ll render data-tags on each item using tag handles for client-side filtering.
     {%- endcomment -%}
-    <ul class="blog-collage__grid" role="list">
+    <ul class="blog-collage__grid" role="list" id="BlogGrid-{{ section.id }}">
       {%- if blog_obj.articles_count > 0 -%}
         {%- for article in blog_obj.articles limit: max_posts -%}
+          {%- comment -%} build comma-separated handles for data-tags {%- endcomment -%}
+          {%- capture tag_handles -%}
+            {%- for t in article.tags -%}
+              {%- if forloop.first == false -%},{%- endif -%}{{ t | handleize }}
+            {%- endfor -%}
+          {%- endcapture -%}
+
           {%- assign pos = forloop.index0 | modulo: 7 -%}
           {%- assign is_wide = false -%}
           {%- if pos == 0 -%}{%- assign is_wide = true -%}{%- endif -%}
 
-          <li class="blog-collage__item {% if is_wide %}blog-collage__item--wide{% endif %}">
+          <li
+            class="blog-collage__item {% if is_wide %}blog-collage__item--wide{% endif %}"
+            data-tags="{{ tag_handles | strip }}"
+            data-title="{{ article.title | escape | downcase }}"
+          >
             {%- render 'article-card',
               blog: blog_obj,
               article: article,
@@ -132,13 +212,173 @@
 </div>
 
 <script>
-  (function(){
-    var sel = document.getElementById('BlogTagFilter-{{ section.id }}');
-    if (!sel) return;
-    sel.addEventListener('change', function(e){
-      window.location.href = e.target.value;
+(function(){
+  var rootId = '{{ section.id }}';
+  var grid = document.getElementById('BlogGrid-' + rootId);
+  if (!grid) return;
+
+  var FILTER_MODE = {{ section.settings.filter_in_section | json }}; // true => filter in place; false => navigate
+
+  // Helpers
+  function getTagFromHref(href){
+    // expects /blogs/{handle}/tagged/{tag}
+    var idx = href.indexOf('/tagged/');
+    if (idx === -1) return null;
+    var tag = href.slice(idx + 8).split(/[?#]/)[0];
+    return decodeURIComponent(tag || '').trim().toLowerCase();
+  }
+
+  function relayout(){
+    // Re-assign wide every 7 visible items (0,7,14…) => 1,3,3 cycle
+    var items = Array.from(grid.children).filter(function(li){ return !li.hasAttribute('hidden'); });
+    items.forEach(function(li){ li.classList.remove('blog-collage__item--wide'); });
+    items.forEach(function(li, i){
+      if (i % 7 === 0) li.classList.add('blog-collage__item--wide');
+    });
+  }
+
+  function applyFilter(tagHandle){
+    // tagHandle null/"__all__" => show all
+    var items = Array.from(grid.children);
+    var active = (tagHandle && tagHandle !== '__all__') ? tagHandle.toLowerCase() : null;
+
+    items.forEach(function(li){
+      if (!active){
+        li.removeAttribute('hidden');
+        return;
+      }
+      var tags = (li.getAttribute('data-tags') || '').toLowerCase().split(',').map(function(s){ return s.trim(); }).filter(Boolean);
+      if (tags.indexOf(active) !== -1){
+        li.removeAttribute('hidden');
+      } else {
+        li.setAttribute('hidden', '');
+      }
+    });
+
+    relayout();
+  }
+
+  // Tag SELECT handler
+  var select = document.getElementById('BlogTagFilter-{{ section.id }}');
+  if (select){
+    select.addEventListener('change', function(e){
+      var v = e.target.value;
+      if (!FILTER_MODE){
+        // navigate to blog/tagged route
+        if (v === '__all__'){
+          window.location.href = {{ section.settings.blog.url | json }};
+        } else {
+          window.location.href = {{ section.settings.blog.url | append: '/tagged/' | json }} + encodeURIComponent(v);
+        }
+      } else {
+        applyFilter(v);
+        // mark active in nested menu if exists
+        markActiveByHandle(v);
+      }
     }, {passive:true});
-  })();
+  }
+
+  // Nested MENU handlers (parents + children)
+  var parentLinks = document.querySelectorAll('[data-topic-parent]');
+  parentLinks.forEach(function(a){
+    var hasChildren = a.hasAttribute('aria-controls');
+    var tagHandle = (a.getAttribute('data-tag-handle') || '').toLowerCase();
+
+    a.addEventListener('click', function(ev){
+      if (!FILTER_MODE){
+        // Navigate normally
+        var href = a.getAttribute('href') || '#';
+        var tagged = getTagFromHref(href) || tagHandle || null;
+        if (tagged){
+          // let browser navigate
+          return;
+        }
+      }
+
+      ev.preventDefault();
+
+      // Toggle accordion if children exist
+      if (hasChildren){
+        var id = a.getAttribute('aria-controls');
+        var panel = document.getElementById(id);
+        var isOpen = a.getAttribute('aria-expanded') === 'true';
+        // Close all siblings
+        parentLinks.forEach(function(p){
+          var pid = p.getAttribute('aria-controls');
+          if (pid){
+            var pn = document.getElementById(pid);
+            if (pn){ pn.classList.remove('is-open'); pn.setAttribute('hidden',''); }
+            p.setAttribute('aria-expanded','false');
+          }
+        });
+        // Open this one
+        if (!isOpen){
+          panel.classList.add('is-open'); panel.removeAttribute('hidden');
+          a.setAttribute('aria-expanded','true');
+        } else {
+          panel.classList.remove('is-open'); panel.setAttribute('hidden','');
+          a.setAttribute('aria-expanded','false');
+        }
+      }
+
+      // Also filter to the parent tag
+      if (FILTER_MODE && tagHandle){
+        applyFilter(tagHandle);
+        markActiveByHandle(tagHandle);
+      }
+    }, {passive:false});
+  });
+
+  // Child clicks
+  var childLinks = document.querySelectorAll('[data-topic-child]');
+  childLinks.forEach(function(a){
+    var tagHandle = (a.getAttribute('data-tag-handle') || '').toLowerCase();
+    a.addEventListener('click', function(ev){
+      if (!FILTER_MODE){
+        // navigate
+        return;
+      }
+      ev.preventDefault();
+      applyFilter(tagHandle);
+      markActiveByHandle(tagHandle);
+    }, {passive:false});
+  });
+
+  function markActiveByHandle(tagHandle){
+    // Clear actives
+    document.querySelectorAll('.blog-topics__link.is-active, .blog-topics__children a.is-active').forEach(function(el){ el.classList.remove('is-active'); });
+    if (!tagHandle || tagHandle === '__all__') return;
+    tagHandle = tagHandle.toLowerCase();
+
+    // Mark parent if matches
+    parentLinks.forEach(function(p){
+      if ((p.getAttribute('data-tag-handle') || '').toLowerCase() === tagHandle){ p.classList.add('is-active'); }
+    });
+    // Mark child
+    childLinks.forEach(function(c){
+      if ((c.getAttribute('data-tag-handle') || '').toLowerCase() === tagHandle){ c.classList.add('is-active'); }
+    });
+    // Sync select value if present
+    if (select){
+      var found = Array.from(select.options).some(function(o){
+        if ((o.value || '').toLowerCase() === tagHandle){ select.value = o.value; return true; }
+        return false;
+      });
+      if (!found && select.value !== '__all__'){ select.value='__all__'; }
+    }
+  }
+
+  // If this section renders on a tagged page, try to auto-apply that tag client-side on first load
+  {% if current_tags and current_tags.first %}
+    {%- assign initial = current_tags.first | handleize -%}
+    applyFilter({{ initial | json }});
+    markActiveByHandle({{ initial | json }});
+  {% else %}
+    if (FILTER_MODE){
+      applyFilter('__all__');
+    }
+  {% endif %}
+})();
 </script>
 
 {% schema %}
@@ -164,11 +404,15 @@
     },
 
     { "type": "header", "content": "Filters" },
+    { "type": "link_list", "id": "filter_menu", "label": "Categories menu (supports children)" },
+    { "type": "text", "id": "filter_menu_title", "label": "Menu heading", "default": "Blog Categories" },
     { "type": "checkbox", "id": "show_tag_filter", "label": "Show Tag dropdown (from blog tags)", "default": true },
-    { "type": "link_list", "id": "filter_menu", "label": "Optional filter menu" },
+    { "type": "checkbox", "id": "filter_in_section", "label": "Filter in section (no page reload)", "default": true,
+      "info": "If off, clicking a filter navigates to the /tagged/{tag} page like the old theme."
+    },
 
     { "type": "header", "content": "Cards" },
-    { "type": "range", "id": "post_limit", "min": 1, "max": 24, "step": 1, "default": 13, "label": "Max posts to show" },
+    { "type": "range", "id": "post_limit", "min": 1, "max": 48, "step": 1, "default": 21, "label": "Max posts to render (filtered within this set)" },
     { "type": "checkbox", "id": "show_view_all", "default": true, "label": "Show “Read more” button" },
     { "type": "checkbox", "id": "show_image", "default": true, "label": "Show image" },
     { "type": "checkbox", "id": "show_date", "default": true, "label": "Show date" },
