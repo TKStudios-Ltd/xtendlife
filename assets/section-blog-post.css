@@ -194,6 +194,7 @@
 }
 .ingredient-article-template .article-template__title {
   margin-bottom: 2rem;
+  line-height: 1.1;
 }
 .ingredient-article-template .article-template__hero-container {
   max-width: 550px;
