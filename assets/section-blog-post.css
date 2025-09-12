@@ -209,3 +209,8 @@
 .ingredient-article-template p {
   float: none !important;
 }
+@media (max-width: 989px) {
+  .ingredient-article-template {
+    flex-direction: column;
+  }
+}
