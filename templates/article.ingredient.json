@@ -53,10 +53,46 @@
         "padding_top": 60,
         "padding_bottom": 100
       }
+    },
+    "newsletter_LBEMNL": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_7fFFCc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay connected",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_iLNDJw": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_p6FfXB": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_7fFFCc",
+        "paragraph_iLNDJw",
+        "email_form_p6FfXB"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "main",
-    "ingredient_related_products_qxMT44"
+    "ingredient_related_products_qxMT44",
+    "newsletter_LBEMNL"
   ]
 }
