@@ -195,6 +195,9 @@
 .ingredient-article-template .article-template__title {
   margin-bottom: 2rem;
 }
-.ingredient-article-template .media img {
+.ingredient-article-template .article-template__hero-container {
+  max-width: 550px;
+}
+.ingredient-article-template .article-template__hero-container .media img {
   border-radius: 28px;
 }
