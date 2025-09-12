@@ -152,18 +152,23 @@
                 <li class="topic">
                 <div class="topic__header">
                     <a href="{{ parent.url }}" class="topic__label-link">
-                    {{ parent.title }}
+                        {{ parent.title }}
                     </a>
                     {% if parent_has_children %}
-                    <button
+                        <button
                         type="button"
                         class="topic__toggle"
                         aria-controls="topic-body-{{ section.id }}-{{ forloop.index }}"
                         aria-expanded="{{ open_now }}"
                         aria-label="Toggle {{ parent.title }} subcategories"
-                    >
-                        {{ open_now | default: false | ternary: '×', '+' }}
-                    </button>
+                        >
+                        <span class="svg-wrapper">
+                            {{- 'icon-plus.svg' | inline_asset_content -}}
+                        </span>
+                        <span class="svg-wrapper hidden">
+                            {{- 'icon-minus.svg' | inline_asset_content -}}
+                        </span>
+                        </button>
                     {% endif %}
                 </div>
 
