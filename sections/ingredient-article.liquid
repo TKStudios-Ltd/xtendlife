@@ -1,5 +1,14 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
+{%- comment -%} Breadcrumbs {%- endcomment -%}
+<nav class="article-breadcrumbs breadcrumbs page-width" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+  <span class="breadcrumbs__sep">›</span>
+  <a href="/pages/ingredients">Ingredients Index</a>
+  <span class="breadcrumbs__sep">›</span>
+  <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
+</nav>
+
 <article class="ingredient-article-template page-width">
     <div class="ingredient-article-template__left">
     {%- for block in section.blocks -%}
