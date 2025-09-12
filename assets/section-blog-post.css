@@ -198,6 +198,6 @@
 .ingredient-article-template .article-template__hero-container {
   max-width: 550px;
 }
-.ingredient-article-template .article-template__hero-container .media img {
+.ingredient-article-template .article-template__hero-container .media {
   border-radius: 28px;
 }
