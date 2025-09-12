@@ -57,13 +57,20 @@
 @media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
 
 
-
-/* pills */
 .topic__body{border-top:1px solid rgba(0,0,0,.08);padding:12px}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{display:inline-flex;align-items:center;padding:.45rem .7rem;border-radius:999px;border:1px solid rgba(0,0,0,.15);background:#f5f5f5;text-decoration:none;color:inherit;line-height:1}
-.pill:hover{background:#eee}
-.pill.is-active{background:#1a73e8;color:#fff;border-color:#1a73e8}
+.topic-list .pills{display:flex;flex-wrap:wrap;gap:8px}
+.topic-list .pill {
+    background: #dbeeff;
+    padding: .75rem 1.25rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    border-radius: 2rem;  
+}
+.topic-list .pill:hover{background:#eee}
+.topic-list .pill.is-active{background:#1a73e8;color:#fff;border-color:#1a73e8}
 
 
 /* load more */
