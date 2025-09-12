@@ -177,6 +177,9 @@
 
 /* Ingredient */
 
+.article-breadcrumbs {
+  margin-top: 120px;
+}
 .ingredient-article-template {
   display: flex;
 }
