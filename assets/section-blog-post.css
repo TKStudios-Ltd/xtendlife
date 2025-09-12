@@ -218,5 +218,6 @@
   }
   .ingredient-article-template .article-template__hero-small {
     height: 45vw;
+    border-radius: 14px;
   }
 }
