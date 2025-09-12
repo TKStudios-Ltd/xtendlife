@@ -3,6 +3,14 @@
 {{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+/* --- Blog hero --- */
+.blog-hero{margin-bottom:24px; padding-bottom:16px;}
+.blog-hero--with-divider{border-bottom:1px solid var(--color-border,rgba(0,0,0,.12));}
+.blog-hero__grid{display:grid; gap:20px;}
+@media(min-width:990px){ .blog-hero__grid{ grid-template-columns:1fr 2fr; align-items:end; } }
+.blog-hero__title{margin:0;}
+.blog-hero__subtitle :where(p){margin:0; font-size:clamp(1rem, .2vw + .95rem, 1.125rem); line-height:1.6;}
+
 /* spacing */
 .section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
 @media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
