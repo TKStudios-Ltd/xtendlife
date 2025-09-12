@@ -209,8 +209,14 @@
 .ingredient-article-template p {
   float: none !important;
 }
+.ingredient-article-template .article-template__hero-small {
+  height: 30rem;
+}
 @media (max-width: 989px) {
   .ingredient-article-template {
     flex-direction: column;
+  }
+  .ingredient-article-template .article-template__hero-small {
+    height: 45vw;
   }
 }
