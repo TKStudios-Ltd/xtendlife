@@ -1,7 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
 <article class="article-template ingredient-article-template">
-    <div class="ingredient-article-template_left">
+    <div class="ingredient-article-template__left">
     {%- for block in section.blocks -%}
         {%- case block.type -%}
         {%- when '@app' -%}
@@ -75,7 +75,7 @@
         {%- endcase -%}
     {%- endfor -%}
     </div>
-    <div class="ingredient-article-template_right">
+    <div class="ingredient-article-template__right">
         <div class="ingredient-template__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {{ block.shopify_attributes }}
         >
