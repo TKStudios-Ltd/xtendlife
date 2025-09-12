@@ -141,11 +141,14 @@
 }
 
 .article-card__pill {
-  background: rgba(219, 238, 255, 1);
-  padding: 0.5rem 1rem;
+  background: #dbeeff;
+  padding: .75rem 1.25rem;
   text-transform: uppercase;
   font-size: 1rem;
   line-height: 1;
   font-weight: 500;
-  letter-spacing: 0.04px;
+  letter-spacing: 0.4px;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
 }
