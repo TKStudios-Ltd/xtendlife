@@ -9,8 +9,15 @@
     padding-bottom: 6rem;
     border-bottom: 1px solid rgba(211, 211, 211, 1);
 }
-@media(min-width:990px){ .blog-hero__grid{ display:flex; gap:20px; } }
-.blog-hero__title{margin:0;}
+@media(min-width:990px){ 
+    .blog-hero__grid{ 
+        display:flex; 
+        gap:20px; 
+    }
+    .blog-hero__title{
+        flex: 0 0 300px;
+    }
+}
 
 /* spacing */
 .section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
