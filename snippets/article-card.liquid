@@ -75,6 +75,20 @@
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
+            {%- comment -%} Tag pill {%- endcomment -%}
+              {%- assign pill_tag = '' -%}
+              {%- for tag in article.tags -%}
+                {%- if tag contains 'Label::' -%}
+                  {%- assign pill_tag = tag | split: '::' | last -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if pill_tag == '' and article.tags.size > 0 -%}
+                {%- assign pill_tag = article.tags.first -%}
+              {%- endif -%}
+              {%- if pill_tag != '' -%}
+                <span class="article-card__pill">{{ pill_tag }}</span>
+              {%- endif -%}
             <h3 class="card__heading{% if show_excerpt %} h3{% endif %}">
               <a href="{{ article.url }}" class="full-unstyled-link">
                 {{ article.title | truncate: 60 | escape }}
@@ -88,7 +102,7 @@
                 <span>{{ article.author }}</span>
               {%- endif -%}
             </div>
-            {% comment %} {%- if show_excerpt -%}
+            {%- if show_excerpt -%}
               {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
                 <p class="article-card__excerpt rte-width">
                   {%- if article.excerpt.size > 0 -%}
@@ -103,7 +117,7 @@
                   <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
                 {%- endif -%}
               </div>
-            {%- endif -%} {% endcomment %}
+            {%- endif -%}
           </div>
           {%- if show_badge -%}
             <div class="card__badge {{ settings.badge_position }}">
@@ -114,6 +128,20 @@
       </div>
       <div class="card__content">
         <div class="card__information">
+          {%- comment -%} Tag pill {%- endcomment -%}
+              {%- assign pill_tag = '' -%}
+              {%- for tag in article.tags -%}
+                {%- if tag contains 'Label::' -%}
+                  {%- assign pill_tag = tag | split: '::' | last -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if pill_tag == '' and article.tags.size > 0 -%}
+                {%- assign pill_tag = article.tags.first -%}
+              {%- endif -%}
+              {%- if pill_tag != '' -%}
+                <span class="article-card__pill">{{ pill_tag }}</span>
+              {%- endif -%}
           <h3 class="card__heading{% if show_excerpt %} h3{% endif %}">
             <a href="{{ article.url }}" class="full-unstyled-link">
               {{ article.title | truncate: 60 | escape }}
@@ -127,7 +155,7 @@
               <span>{{ article.author }}</span>
             {%- endif -%}
           </div>
-          {% comment %} {%- if show_excerpt -%}
+          {%- if show_excerpt -%}
             {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
               <p class="article-card__excerpt rte-width">
                 {%- if article.excerpt.size > 0 -%}
@@ -142,7 +170,7 @@
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
               {%- endif -%}
             </div>
-          {%- endif -%} {% endcomment %}
+          {%- endif -%}
         </div>
         {%- if show_badge -%}
           <div class="card__badge {{ settings.badge_position }}">
