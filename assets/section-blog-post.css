@@ -182,13 +182,16 @@
 }
 .ingredient-article-template {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   margin: 4rem auto 12rem;
 }
 .ingredient-article-template__left,
 .ingredient-article-template__right {
-  flex: 0 0 calc(50% - 1rem);
+  flex: 0 0 calc(50% - 2rem);
 }
 .ingredient-article-template__left {
-  padding-right: 4rem;
+  padding-right: 2rem;
+}
+..article-template__title {
+  margin-bottom: 2rem;
 }
