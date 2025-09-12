@@ -189,9 +189,6 @@
 .ingredient-article-template__right {
   flex: 0 0 calc(50% - 2rem);
 }
-.ingredient-article-template__left {
-  padding-right: 2rem;
-}
 .ingredient-article-template .article-template__title {
   margin-bottom: 2rem;
   line-height: 1.1;
@@ -209,8 +206,13 @@
 .ingredient-article-template p {
   float: none !important;
 }
-.ingredient-article-template .article-template__hero-small {
-  height: 30rem;
+@media (min-width: 990px) {
+  .ingredient-article-template__left {
+    padding-right: 2rem;
+  }
+  .ingredient-article-template .article-template__hero-small {
+    height: 30rem;
+  }
 }
 @media (max-width: 989px) {
   .ingredient-article-template {
