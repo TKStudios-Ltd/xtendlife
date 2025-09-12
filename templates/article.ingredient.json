@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-article",
+      "type": "ingredient-article",
       "blocks": {
         "title": {
           "type": "title",
@@ -24,16 +24,11 @@
           "settings": {
             "image_height": "adapt"
           }
-        },
-        "content": {
-          "type": "content",
-          "settings": {}
         }
       },
       "block_order": [
         "title",
-        "featured_image",
-        "content"
+        "featured_image"
       ],
       "settings": {}
     }
