@@ -206,5 +206,5 @@
   font-weight: 500 !important;
 }
 .ingredient-article-template p {
-  float: none;
+  float: none !important;
 }
