@@ -1,19 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-blog",
+      "disabled": true,
       "settings": {
         "layout": "collage",
         "show_image": true,
         "image_height": "medium",
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_journal_tGKHtV": {
+      "type": "featured-blog-journal",
+      "name": "Featured Blog (Journal)",
+      "settings": {
+        "blog": "health-articles",
+        "enable_featured": true,
+        "feature_ns": "custom",
+        "feature_key": "feature_blog",
+        "featured_limit": 4,
+        "show_excerpt": true,
+        "show_meta": false,
+        "heading": "Featured articles",
+        "heading_size": "h1",
+        "post_limit": 6,
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
         "show_date": true,
         "show_author": false,
+        "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "featured_blog_journal_tGKHtV"
   ]
 }
