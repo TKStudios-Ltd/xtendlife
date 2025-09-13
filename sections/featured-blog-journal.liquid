@@ -17,7 +17,7 @@
   font-weight: 500;
   font-size: 2.4rem;
 }
-.topic-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;}
+.topic-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-bottom: 1px solid rgba(31, 25, 70, 1);}
 .topic{overflow:hidden;}
 .topic__label{font-weight:500}
 .topic__header.is-active{background:#1a73e8;color:#fff}
@@ -108,7 +108,8 @@
   .blog-item--wide .article-card__excerpt {
     display: none;
   }
-  .blog-layout { display: flex; flex-direction: column-reverse; }
+  .blog-layout { display: flex; flex-direction: column-reverse; gap: 8rem; }
+  .blog-side__title { margin: 0 0 2rem; font-size: 2rem; }
 }
 {%- endstyle -%}
 
