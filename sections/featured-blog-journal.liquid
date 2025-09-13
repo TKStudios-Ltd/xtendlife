@@ -52,15 +52,12 @@
         padding-right: 10rem;
     }
 }
-/* --- accordion header now a div + toggle button --- */
 .topic__header{
   display:flex;align-items:center;justify-content:space-between;
   padding: 1rem 0;color:inherit; border-top: 1px solid rgba(31, 25, 70, 1);
 }
 .topic__label-link{font-weight:500;text-decoration:none;color:inherit}
 .topic__label-link:hover{opacity:.9}
-
-/* toggle (+ / ×) */
 .topic__toggle{
   appearance:none;border:none;background:transparent;
   width:24px;height:24px;line-height:1;
@@ -71,14 +68,15 @@
   transform: rotate(45deg);
 }
 .topic__toggle .hidden { display:none; }
-/* .topic__toggle[aria-expanded="true"] .hidden { display:inline-flex; }
-.topic__toggle[aria-expanded="true"] .svg-wrapper:first-child { display:none; } */
 .topic__body{padding: 0.5rem 0 1.5rem;display:none}
 .topic__body.is-open{display:block}
 @media(min-width:990px){
   .blog-layout aside{
     position:sticky; top:calc(var(--header-height,70px) + 20px);
     align-self:start
+  }
+  .load-more {
+    text-align: left;
   }
 }
 .section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
@@ -98,10 +96,7 @@
 }
 .topic-list .pill:hover{background:#eee}
 .topic-list .pill.is-active{background:#1a73e8;color:#fff;border-color:#1a73e8}
-
-
-/* load more */
-.load-more{margin-top:24px;text-align:center}
+.load-more{margin-top: 3rem;text-align: center}
 {%- endstyle -%}
 
 {%- if section.settings.blog == blank -%}
