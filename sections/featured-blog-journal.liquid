@@ -73,11 +73,9 @@
 .topic__toggle .hidden { display:none; }
 .topic__toggle[aria-expanded="true"] .hidden { display:inline-flex; }
 .topic__toggle[aria-expanded="true"] .svg-wrapper:first-child { display:none; }
-
 /* accordion body (closed by default except first) */
-.topic__body{border-top:1px solid rgba(0,0,0,.08);padding:12px;display:none}
+.topic__body{padding: 1rem 0;display:none}
 .topic__body.is-open{display:block}
-
 /* sticky sidebar on desktop */
 @media(min-width:990px){
   .blog-layout aside{
@@ -85,14 +83,9 @@
     align-self:start
   }
 }
-
-
 /* spacing */
 .section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
 @media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
-
-
-.topic__body{border-top:1px solid rgba(0,0,0,.08);padding:12px}
 .topic-list .pills{display:flex;flex-wrap:wrap;gap:8px}
 .topic-list .pill {
     background: #dbeeff;
