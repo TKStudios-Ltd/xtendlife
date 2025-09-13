@@ -9,28 +9,9 @@
     border-bottom: 1px solid rgba(211, 211, 211, 1);
 }
 .blog-grid{ display:grid;grid-template-columns:1fr;gap:20px; padding: 0; margin: 0;}
-@media(min-width:990px){
-  .blog-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-  .blog-item--wide{grid-column:1/-1}
-  .blog-item--wide .ratio{--ratio-percent:65% !important; }
-  .blog-item--wide { margin-bottom: 3rem; }
-  .blog-item--wide .card__information {
-    position: absolute;
-    bottom: 2rem;
-    background: white;
-    right: 2rem;
-    border-radius: 1.6rem;
-    padding: 2rem !important;
-    max-width: 460px;
-  }
-  .blog-item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem);}
-}
+.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
 .blog-item{display:block}
 .blog-item[hidden]{display:none !important}
-@media(min-width:990px){.blog-item .article-card-wrapper,.blog-item .article-card{height:100%}}
-/* sidebar */
 .blog-side__title{    
   margin: 0 0 4rem;
   font-weight: 500;
@@ -40,22 +21,6 @@
 .topic{overflow:hidden;}
 .topic__label{font-weight:500}
 .topic__header.is-active{background:#1a73e8;color:#fff}
-@media(min-width:990px){ 
-    .blog-hero__grid,
-    .blog-layout { 
-        display: flex; 
-        gap: 2rem; 
-    }
-    .blog-hero__title,
-    .blog-layout aside {
-        flex: 0 0 320px;
-        margin: 0;
-    }
-    .blog-hero__grid .subtitle {
-        font-size: 3.2rem;
-        padding-right: 10rem;
-    }
-}
 .topic__header{
   display:flex;align-items:center;justify-content:space-between;
   padding: 1rem 0;color:inherit; border-top: 1px solid rgba(31, 25, 70, 1);
@@ -75,17 +40,6 @@
 .topic__toggle .hidden { display:none; }
 .topic__body{padding: 0.5rem 0 1.5rem;display:none}
 .topic__body.is-open{display:block}
-@media(min-width:990px){
-  .blog-layout aside{
-    position:sticky; top:calc(var(--header-height,70px) + 20px);
-    align-self:start
-  }
-  .load-more {
-    text-align: left !important;
-  }
-}
-.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
-@media(min-width:750px){.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}}
 .topic-list .pills{display:flex;flex-wrap:wrap;gap:8px}
 .topic-list .pill {
   background: #dbeeff;
@@ -105,6 +59,56 @@
 .topic-list .pill.is-active{background:rgba(31, 25, 70, 1);color:#fff;border-color:rgba(31, 25, 70, 1);}
 .load-more{margin-top: 3rem;text-align: center}
 .load-more .button { background: transparent; color: rgba(31, 25, 70, 1); }
+@media(min-width:750px){
+  .section-{{ section.id }}-wrap{
+    padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
+}
+@media(min-width:990px){
+  .blog-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .blog-item--wide{grid-column:1/-1}
+  .blog-item--wide .ratio{--ratio-percent:65% !important; }
+  .blog-item--wide { margin-bottom: 3rem; }
+  .blog-item--wide .card__information {
+    position: absolute;
+    bottom: 2rem;
+    background: white;
+    right: 2rem;
+    border-radius: 1.6rem;
+    padding: 2rem !important;
+    max-width: 460px;
+  }
+  .blog-item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem);}
+  .blog-item .article-card-wrapper,.blog-item .article-card{ height:100%; }
+  .blog-hero__grid,
+  .blog-layout { 
+    display: flex; 
+    gap: 2rem; 
+  }
+  .blog-hero__title,
+  .blog-layout aside {
+    flex: 0 0 320px;
+    margin: 0;
+  }
+  .blog-hero__grid .subtitle {
+    font-size: 3.2rem;
+    padding-right: 10rem;
+  }
+  .blog-layout aside{
+    position:sticky; top:calc(var(--header-height,70px) + 20px);
+    align-self:start
+  }
+  .load-more {
+    text-align: left !important;
+  }
+}
+@media (max-width: 989px) {
+  .blog-item--wide .article-card__excerpt {
+    display: none;
+  }
+}
 {%- endstyle -%}
 
 {%- if section.settings.blog == blank -%}
