@@ -228,3 +228,6 @@
   padding-top: 100px;
   background: rgba(219, 238, 255, 1);
 }
+main.article-template > .section:first-of-type {
+  margin-top: 0 !important;
+}
