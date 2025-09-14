@@ -11,23 +11,21 @@
 .article-template__hero-container {
   max-width: 90rem;
   margin: 6rem auto;
+  padding: 0 2rem;
 }
 
 .article-template__hero-small {
   height: 20rem;
-  margin: 0 2rem;
   border-radius: 10px;
 }
 
 .article-template__hero-medium {
   height: 30rem;
-  margin: 0 2rem;
   border-radius: 10px;
 }
 
 .article-template__hero-large {
   height: 40rem;
-  margin: 0 2rem;
   border-radius: 10px;
 }
 
@@ -202,6 +200,7 @@
 .ingredient-article-template .article-template__hero-container {
   max-width: 550px;
   margin: 0;
+  padding: 0;
 }
 .ingredient-article-template strong {
   font-weight: 500 !important;
