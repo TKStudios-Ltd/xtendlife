@@ -16,17 +16,19 @@
 {%- endif -%}
 {%- assign crumb_handle = crumb_tag | handleize -%}
 
-<nav class="article-breadcrumbs breadcrumbs page-width" aria-label="Breadcrumb">
-  <a href="{{ routes.root_url }}">Home</a>
-  <span class="breadcrumbs__sep">›</span>
-  <a href="{{ blog.url }}">Journal</a>
-  {%- if crumb_tag != '' -%}
+<div class="article-breadcrumbs">
+  <nav class="breadcrumbs page-width" aria-label="Breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a>
     <span class="breadcrumbs__sep">›</span>
-    <a href="{{ blog.url }}/tagged/{{ crumb_handle }}">{{ crumb_tag }}</a>
-  {%- endif -%}
-  <span class="breadcrumbs__sep">›</span>
-  <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
-</nav>
+    <a href="{{ blog.url }}">Journal</a>
+    {%- if crumb_tag != '' -%}
+      <span class="breadcrumbs__sep">›</span>
+      <a href="{{ blog.url }}/tagged/{{ crumb_handle }}">{{ crumb_tag }}</a>
+    {%- endif -%}
+    <span class="breadcrumbs__sep">›</span>
+    <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
+  </nav>
+</div>
 
 <article class="article-template">
   {%- for block in section.blocks -%}
