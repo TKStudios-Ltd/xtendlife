@@ -231,3 +231,6 @@
 main.article-template > .section:first-of-type {
   margin-top: 0 !important;
 }
+.article-template__header {
+  background: rgba(219, 238, 255, 1);
+}
