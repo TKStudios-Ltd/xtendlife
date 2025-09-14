@@ -313,10 +313,13 @@ main.article-template > .section:first-of-type {
 .article-pager{ margin-top: 2.5rem; }
 .article-pager__grid{
   display:grid; gap:2rem; align-items:start;
-  grid-template-columns:1fr; border-bottom:1px solid rgba(0,0,0,.12); padding: 4rem 0 1.25rem;
+  grid-template-columns:1fr 1fr; border-bottom:1px solid rgba(0,0,0,.12); padding: 4rem 0 1.25rem;
 }
-@media(min-width:990px){
-  .article-pager__grid{ grid-template-columns:1fr 1fr; }
+@media(max-width: 749px){
+  .article-template__social-sharing { 
+    padding: 3rem 0 6rem !important;
+    margin-top: 6rem !important;
+  }
 }
 .article-pager__item{
   display:flex; flex-direction: column; text-decoration:none; color:inherit;
