@@ -192,22 +192,38 @@
                 </li>
               </ul>
             </div>
+
+            {%- comment -%} Prev / Next article navigation {%- endcomment -%}
+            {%- if article.previous or article.next -%}
+              <nav class="article-pager page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-label="Article pagination">
+                <div class="article-pager__grid">
+                  {%- if article.previous -%}
+                    <a class="article-pager__item article-pager__item--prev" href="{{ article.previous.url }}">
+                      <span class="article-pager__kicker">Previous post</span>
+                      <span class="article-pager__title">{{ article.previous.title | escape }}</span>
+                    </a>
+                  {%- else -%}
+                    <span class="article-pager__item article-pager__item--prev is-empty" aria-hidden="true"></span>
+                  {%- endif -%}
+
+                  {%- if article.next -%}
+                    <a class="article-pager__item article-pager__item--next" href="{{ article.next.url }}">
+                      <span class="article-pager__kicker">Next post</span>
+                      <span class="article-pager__title">{{ article.next.title | escape }}</span>
+                    </a>
+                  {%- else -%}
+                    <span class="article-pager__item article-pager__item--next is-empty" aria-hidden="true"></span>
+                  {%- endif -%}
+                </div>
+              </nav>
+            {%- endif -%}
+
           </div>
         </div>
 
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">
-        <span class="svg-wrapper">
-          {{- 'icon-arrow.svg' | inline_asset_content -}}
-        </span>
-      </span>
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
-    </a>
-  </div>
 </article>
 
 <script type="application/ld+json">
