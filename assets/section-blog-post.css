@@ -248,3 +248,7 @@ main.article-template > .section:first-of-type {
   color: white;
   text-decoration: none;
 }
+.article-template__header .article-template__title {
+  font-size: 4rem;
+  line-height: 1.1;
+}
