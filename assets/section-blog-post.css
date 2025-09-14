@@ -233,4 +233,6 @@ main.article-template > .section:first-of-type {
 }
 .article-template__header {
   background: rgba(219, 238, 255, 1);
+  margin: 0 !important;
+  padding: 3rem 0;
 }
