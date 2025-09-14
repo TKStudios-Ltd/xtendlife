@@ -227,6 +227,8 @@
 .article-breadcrumbs {
   padding-top: 100px;
   background: rgba(219, 238, 255, 1);
+}
+.article-breadcrumbs .breadcrumbs {
   margin-bottom: 0;
 }
 main.article-template > .section:first-of-type {
