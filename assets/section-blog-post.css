@@ -322,7 +322,8 @@ main.article-template > .section:first-of-type {
   display:block; text-decoration:none; color:inherit;
 }
 .article-pager__item--prev{ text-align:left; }
-.article-pager__item--next{ text-align:right; }
+.article-pager__item--next,
+.article-pager__item--next .article-pager__title { text-align:right; }
 .article-pager__kicker{
   display:block;
 }
@@ -330,6 +331,7 @@ main.article-template > .section:first-of-type {
   display: block;
   line-height: 1.2;
   margin: 0 0 1rem;
+  max-width: 28.5rem;
 }
 .article-pager__item:hover .article-pager__title{ text-decoration:underline; }
 .article-pager__item.is-empty{ visibility:hidden; }
