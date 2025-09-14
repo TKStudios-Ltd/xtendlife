@@ -227,6 +227,7 @@
 .article-breadcrumbs {
   padding-top: 100px;
   background: rgba(219, 238, 255, 1);
+  margin-bottom: 0;
 }
 main.article-template > .section:first-of-type {
   margin-top: 0 !important;
@@ -234,5 +235,11 @@ main.article-template > .section:first-of-type {
 .article-template__header {
   background: rgba(219, 238, 255, 1);
   margin: 0 !important;
-  padding: 3rem 0;
+  padding: 4rem 0;
+}
+.article-template__header .page-width {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
