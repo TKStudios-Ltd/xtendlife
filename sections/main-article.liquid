@@ -217,7 +217,7 @@
                 {%- if next_article -%}
                   <a class="article-pager__item article-pager__item--prev" href="{{ next_article.url }}">
                     <h4 class="h2 article-pager__title">{{ next_article.title | escape }}</h4>
-                    <span class="article-pager__kicker">Previous post</span>
+                    <p class="article-pager__kicker">Previous post</p>
                   </a>
                 {%- else -%}
                   <span class="article-pager__item article-pager__item--prev is-empty" aria-hidden="true"></span>
@@ -226,7 +226,7 @@
                 {%- if prev_article -%}
                   <a class="article-pager__item article-pager__item--next" href="{{ prev_article.url }}">
                     <h4 class="h2 article-pager__title">{{ prev_article.title | escape }}</h4>
-                    <span class="article-pager__kicker">Next post</span>
+                    <p class="article-pager__kicker">Next post</p>
                   </a>
                 {%- else -%}
                   <span class="article-pager__item article-pager__item--next is-empty" aria-hidden="true"></span>
