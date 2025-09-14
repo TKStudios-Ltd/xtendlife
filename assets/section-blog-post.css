@@ -320,6 +320,9 @@ main.article-template > .section:first-of-type {
     padding: 3rem 0 6rem !important;
     margin-top: 6rem !important;
   }
+  .article-pager__item--prev h4 {
+    display: none;
+  }
 }
 .article-pager__item{
   display:flex; flex-direction: column; text-decoration:none; color:inherit;
