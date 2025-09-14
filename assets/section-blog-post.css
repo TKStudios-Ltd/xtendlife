@@ -324,7 +324,7 @@ main.article-template > .section:first-of-type {
 .article-pager__item--prev{ text-align:left; }
 .article-pager__item--next{ text-align:right; }
 .article-pager__kicker{
-  display:block; font-size:.9rem; opacity:.6; margin-bottom:.35rem;
+  display:block;
 }
 .article-pager__title{
   display: block;
