@@ -145,68 +145,70 @@
         </div>
 
       {%- when 'share' -%}
-        <div
-          class="article-template__social-sharing page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {{ block.shopify_attributes }}
-        >
-          {%- assign share_url = request.origin | append: article.url -%}
-          {%- assign share_title = article.title | url_param_escape -%}
+        <div class="article-template__social-sharing">
+          <div
+            class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- assign share_url = request.origin | append: article.url -%}
+            {%- assign share_title = article.title | url_param_escape -%}
 
-          <div class="social-share">
-            <span class="social-share__label">Share:</span>
-            <ul class="social-share__list">
-              <!-- General (copy link) -->
-              <li>
-                <button type="button" class="social-share__btn" data-copy-link="{{ share_url }}">
-                  <span class="svg-wrapper">
-                    {{ 'icon-link.svg' | inline_asset_content }}
-                  </span>
-                  <span class="visually-hidden">Copy link</span>
-                </button>
-              </li>
+            <div class="social-share">
+              <span class="social-share__label">Share:</span>
+              <ul class="social-share__list">
+                <!-- General (copy link) -->
+                <li>
+                  <button type="button" class="social-share__btn" data-copy-link="{{ share_url }}">
+                    <span class="svg-wrapper">
+                      {{ 'icon-link.svg' | inline_asset_content }}
+                    </span>
+                    <span class="visually-hidden">Copy link</span>
+                  </button>
+                </li>
 
-              <!-- LinkedIn -->
-              <li>
-                <a
-                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | url_encode }}"
-                  target="_blank" rel="noopener"
-                  class="social-share__btn"
-                >
-                  <span class="svg-wrapper">
-                    {{ 'icon-linkedin.svg' | inline_asset_content }}
-                  </span>
-                  <span class="visually-hidden">Share on LinkedIn</span>
-                </a>
-              </li>
+                <!-- LinkedIn -->
+                <li>
+                  <a
+                    href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | url_encode }}"
+                    target="_blank" rel="noopener"
+                    class="social-share__btn"
+                  >
+                    <span class="svg-wrapper">
+                      {{ 'icon-linkedin.svg' | inline_asset_content }}
+                    </span>
+                    <span class="visually-hidden">Share on LinkedIn</span>
+                  </a>
+                </li>
 
-              <!-- X (Twitter) -->
-              <li>
-                <a
-                  href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&text={{ share_title }}"
-                  target="_blank" rel="noopener"
-                  class="social-share__btn"
-                >
-                  <span class="svg-wrapper">
-                    {{ 'icon-twitter.svg' | inline_asset_content }}
-                  </span>
-                  <span class="visually-hidden">Share on X (Twitter)</span>
-                </a>
-              </li>
+                <!-- X (Twitter) -->
+                <li>
+                  <a
+                    href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&text={{ share_title }}"
+                    target="_blank" rel="noopener"
+                    class="social-share__btn"
+                  >
+                    <span class="svg-wrapper">
+                      {{ 'icon-twitter.svg' | inline_asset_content }}
+                    </span>
+                    <span class="visually-hidden">Share on X (Twitter)</span>
+                  </a>
+                </li>
 
-              <!-- Facebook -->
-              <li>
-                <a
-                  href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}"
-                  target="_blank" rel="noopener"
-                  class="social-share__btn"
-                >
-                  <span class="svg-wrapper">
-                    {{ 'icon-facebook.svg' | inline_asset_content }}
-                  </span>
-                  <span class="visually-hidden">Share on Facebook</span>
-                </a>
-              </li>
-            </ul>
+                <!-- Facebook -->
+                <li>
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}"
+                    target="_blank" rel="noopener"
+                    class="social-share__btn"
+                  >
+                    <span class="svg-wrapper">
+                      {{ 'icon-facebook.svg' | inline_asset_content }}
+                    </span>
+                    <span class="visually-hidden">Share on Facebook</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
