@@ -243,3 +243,8 @@ main.article-template > .section:first-of-type {
   align-items: center;
   text-align: center;
 }
+.article-template__header .article-card__pill {
+  background: rgba(41, 34, 86, 1);
+  color: white;
+  text-decoration: none;
+}
