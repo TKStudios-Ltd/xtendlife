@@ -325,6 +325,11 @@ main.article-template > .section:first-of-type {
   .article-pager__item--prev h4 {
     display: none;
   }
+  .share-button__button img,
+  .social-share__btn img {
+    width: 20px;
+    height: 20px;
+  }
 }
 .article-pager__item{
   display:flex; flex-direction: column; text-decoration:none; color:inherit;
