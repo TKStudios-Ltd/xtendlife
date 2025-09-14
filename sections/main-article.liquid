@@ -66,12 +66,12 @@
             <h1 class="article-template__title">{{ article.title | escape }}</h1>
 
             {%- if block.settings.blog_show_date -%}
-              <span class="small">
+              <span class="small-text">
                 {{- article.published_at | time_tag: format: 'date' -}}
               </span>
             {%- endif -%}
             {%- if block.settings.blog_show_author -%}
-              <span class="small"><span>{{ article.author }}</span></span>
+              <span class="small-text"><span>{{ article.author }}</span></span>
             {%- endif -%}
           </div>
         </header>
