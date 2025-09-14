@@ -4056,6 +4056,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .product-template .breadcrumbs {
     margin: 1.5rem auto;
   }
+  .breadcrumbs {
+    font-size: 1rem !important;
+  }
 }
 .breadcrumbs a {
   text-decoration: none;
