@@ -322,9 +322,9 @@ main.article-template > .section:first-of-type {
     margin-top: 6rem !important;
   }
   .article-pager__title { font-size: 1.6rem; }
-  /* .article-pager__item--prev h4 {
+  .article-pager__item--prev h4 {
     display: none;
-  } */
+  }
 }
 .article-pager__item{
   display:flex; flex-direction: column; text-decoration:none; color:inherit;
