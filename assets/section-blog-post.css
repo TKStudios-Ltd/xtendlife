@@ -9,8 +9,8 @@
 }
 
 .article-template__hero-container {
-  max-width: 130rem;
-  margin: 0 auto;
+  max-width: 100rem;
+  margin: 6rem auto;
 }
 
 .article-template__hero-small {
