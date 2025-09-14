@@ -256,4 +256,5 @@ main.article-template > .section:first-of-type {
   font-size: 4rem;
   line-height: 1.1;
   margin-bottom: 0;
+  max-width: 47.5rem;
 }
