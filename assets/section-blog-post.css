@@ -9,6 +9,10 @@
   .article-template__hero-container {
     margin: 6rem auto;
   }
+  .article-template__header .article-template__title {
+    font-size: 4rem;
+    line-height: 1.1;
+  }
 }
 
 .article-template__hero-container {
@@ -261,8 +265,8 @@ main.article-template > .section:first-of-type {
   margin-bottom: 0;
 }
 .article-template__header .article-template__title {
-  font-size: 4rem;
-  line-height: 1.1;
+  font-size: 2.4rem;
+  line-height: 1;
   margin-bottom: 0;
   max-width: 47.5rem;
 }
