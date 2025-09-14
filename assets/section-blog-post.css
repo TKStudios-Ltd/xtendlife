@@ -14,28 +14,34 @@
 }
 
 .article-template__hero-small {
-  height: 11rem;
+  height: 20rem;
+  margin: 0 2rem;
+  border-radius: 10px;
 }
 
 .article-template__hero-medium {
-  height: 22rem;
+  height: 30rem;
+  margin: 0 2rem;
+  border-radius: 10px;
 }
 
 .article-template__hero-large {
-  height: 33rem;
+  height: 40rem;
+  margin: 0 2rem;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .article-template__hero-small {
-    height: 22rem;
+    height: 25rem;
   }
 
   .article-template__hero-medium {
-    height: 44rem;
+    height: 45rem;
   }
 
   .article-template__hero-large {
-    height: 66rem;
+    height: 65rem;
   }
 }
 
@@ -49,7 +55,7 @@
   }
 
   .article-template__hero-large {
-    height: 82.5rem;
+    height: 80rem;
   }
 }
 
