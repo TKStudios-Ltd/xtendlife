@@ -157,10 +157,8 @@
               <span class="social-share__label">Share</span>
               <ul class="social-share__list">
                 <li>
-                  <button type="button" class="social-share__btn" data-copy-link="{{ share_url }}">
-                    <img src="https://cdn.shopify.com/s/files/1/2714/9868/files/XL_Share-Button-Link.svg">
-                    <span class="visually-hidden">Copy link</span>
-                  </button>
+                  {% assign share_url = request.origin | append: article.url %}
+                  {% render 'share-button', block: block, share_link: share_url %}
                 </li>
                 <li>
                   <a
@@ -196,19 +194,6 @@
             </div>
           </div>
         </div>
-
-        <script>
-        document.addEventListener('click', function(e){
-          if(e.target.closest('[data-copy-link]')){
-            const btn = e.target.closest('[data-copy-link]');
-            const link = btn.getAttribute('data-copy-link');
-            navigator.clipboard.writeText(link).then(function(){
-              btn.classList.add('copied');
-              setTimeout(()=>btn.classList.remove('copied'), 2000);
-            });
-          }
-        });
-        </script>
 
     {%- endcase -%}
   {%- endfor -%}
