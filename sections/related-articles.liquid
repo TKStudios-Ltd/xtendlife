@@ -93,7 +93,6 @@
 -%}
 
 {%- if section.settings.hide_if_empty and use_auto and rel_tag == '' and template.name == 'article' -%}
-  {# If auto mode and we found no category tag, hide entirely #}
   {% break %}
 {%- endif -%}
 
@@ -165,7 +164,7 @@
             {%- assign include_article = false -%}
 
             {%- if use_auto and rel_handle != '' and template.name == 'article' -%}
-            {%- if a.id != article.id -%} {# don’t show itself #}
+            {%- if a.id != article.id -%}
                 {%- for at in a.tags -%}
                 {%- assign first_char = at | slice: 0, 1 -%}
                 {%- assign first_char_up = first_char | upcase -%}
@@ -177,7 +176,7 @@
                 {%- endfor -%}
             {%- endif -%}
             {%- else -%}
-            {%- assign include_article = true -%} {# fallback mode just shows everything #}
+            {%- assign include_article = true -%}
             {%- endif -%}
 
             {%- if include_article -%}
@@ -222,7 +221,7 @@
                         {%- endfor -%}
                     {%- endif -%}
                     {%- else -%}
-                    {%- assign include = true -%} {# non-auto mode just shows items #}
+                    {%- assign include = true -%}
                     {%- endif -%}
 
                     {%- if include -%}
