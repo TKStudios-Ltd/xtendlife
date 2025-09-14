@@ -16,6 +16,9 @@
     font-size: 2.4rem;
     text-align: center;
   }
+  .article-template__header {
+    padding: 6rem 0;
+  }
 }
 
 .article-template__hero-container {
@@ -252,7 +255,7 @@ main.article-template > .section:first-of-type {
 .article-template__header {
   background: rgba(219, 238, 255, 1);
   margin: 0 !important;
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 .article-template__header .page-width {
   display: flex;
