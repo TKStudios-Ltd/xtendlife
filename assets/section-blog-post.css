@@ -327,7 +327,9 @@ main.article-template > .section:first-of-type {
   display:block; font-size:.9rem; opacity:.6; margin-bottom:.35rem;
 }
 .article-pager__title{
-  display:block;
+  display: block;
+  line-height: 1.2;
+  margin: 0 0 1rem;
 }
 .article-pager__item:hover .article-pager__title{ text-decoration:underline; }
 .article-pager__item.is-empty{ visibility:hidden; }
