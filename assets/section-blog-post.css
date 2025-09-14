@@ -122,7 +122,10 @@
 }
 .article-template__social-sharing .social-share {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+.article-template__social-sharing .social-share__label {
+  margin-top: 0.25rem;
 }
 .article-template__social-sharing .social-share__list {
   list-style: none;
