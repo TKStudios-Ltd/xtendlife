@@ -2,10 +2,17 @@
 
 {%- comment -%} Breadcrumbs {%- endcomment -%}
 {%- assign crumb_tag = '' -%}
+{%- for tag in article.tags -%}
+  {%- if tag contains 'Label::' -%}
+    {%- assign crumb_tag = tag | split: '::' | last -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if crumb_tag == '' and article.tags.size > 0 -%}
+  {%- assign crumb_tag = article.tags.first -%}
+{%- endif -%}
 {%- if current_tags and current_tags.first -%}
   {%- assign crumb_tag = current_tags.first -%}
-{%- elsif pill_tag and pill_tag != '' -%}
-  {%- assign crumb_tag = pill_tag -%}
 {%- endif -%}
 {%- assign crumb_handle = crumb_tag | handleize -%}
 
@@ -15,7 +22,7 @@
   <a href="{{ blog.url }}">Journal</a>
   {%- if crumb_tag != '' -%}
     <span class="breadcrumbs__sep">›</span>
-    <a href="{{ blog.url | append: '/tagged/' | append: crumb_handle }}">{{ crumb_tag }}</a>
+    <a href="{{ blog.url }}/tagged/{{ crumb_handle }}">{{ crumb_tag }}</a>
   {%- endif -%}
   <span class="breadcrumbs__sep">›</span>
   <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
