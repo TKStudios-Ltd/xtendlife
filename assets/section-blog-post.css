@@ -330,6 +330,10 @@ main.article-template > .section:first-of-type {
     width: 20px;
     height: 20px;
   }
+  .article-template__social-sharing .social-share__label {
+    margin-top: 0 !important;
+    font-size: 1.4rem;
+  }
 }
 .article-pager__item{
   display:flex; flex-direction: column; text-decoration:none; color:inherit;
