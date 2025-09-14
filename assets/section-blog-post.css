@@ -177,7 +177,7 @@
 
 /* Ingredient */
 
-.article-breadcrumbs {
+.ingredient-breadcrumbs {
   margin-top: 100px;
 }
 .ingredient-article-template {
@@ -220,4 +220,11 @@
     height: 45vw;
     border-radius: 14px;
   }
+}
+
+/* Journal Article */
+
+.article-breadcrumbs {
+  padding-top: 100px;
+  background: rgba(219, 238, 255, 1);
 }
