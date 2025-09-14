@@ -193,22 +193,33 @@
               </ul>
             </div>
 
-            <nav class="article-pager page-width page-width--narrow" aria-label="Article pagination">
+            {%- comment -%} Prev / Next article navigation {%- endcomment -%}
+            <nav class="article-pager page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-label="Article pagination">
               <div class="article-pager__grid">
-                {%- if article.previous != blank -%}
+                {%- if article.previous -%}
                   <a class="article-pager__item article-pager__item--prev" href="{{ article.previous.url }}">
                     <span class="article-pager__kicker">Previous post</span>
                     <span class="article-pager__title">{{ article.previous.title | escape }}</span>
                   </a>
+                {%- else -%}
+                  <span class="article-pager__item article-pager__item--prev is-empty" aria-hidden="true"></span>
                 {%- endif -%}
 
-                {%- if article.next != blank -%}
+                {%- if article.next -%}
                   <a class="article-pager__item article-pager__item--next" href="{{ article.next.url }}">
                     <span class="article-pager__kicker">Next post</span>
                     <span class="article-pager__title">{{ article.next.title | escape }}</span>
                   </a>
+                {%- else -%}
+                  <span class="article-pager__item article-pager__item--next is-empty" aria-hidden="true"></span>
                 {%- endif -%}
               </div>
+
+              {%- unless article.previous or article.next -%}
+                <div class="article-pager__back center element-margin-top">
+                  <a href="{{ blog.url }}" class="link">Back to {{ blog.title }}</a>
+                </div>
+              {%- endunless -%}
             </nav>
 
           </div>
