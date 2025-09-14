@@ -258,3 +258,6 @@ main.article-template > .section:first-of-type {
   margin-bottom: 0;
   max-width: 47.5rem;
 }
+.article-template__header .small-text {
+  font-size: 1.4rem;
+}
