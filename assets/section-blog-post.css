@@ -120,6 +120,9 @@
 .article-template__social-sharing .page-width {
   max-width: 90rem;
 }
+.article-template__social-sharing .social-share {
+  display: flex;
+}
 
 .article-template__social-sharing + header,
 .article-template__social-sharing + .article-template__content {
