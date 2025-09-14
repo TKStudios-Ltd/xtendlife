@@ -12,7 +12,7 @@
 <nav class="article-breadcrumbs breadcrumbs page-width" aria-label="Breadcrumb">
   <a href="{{ routes.root_url }}">Home</a>
   <span class="breadcrumbs__sep">›</span>
-  <a href="{{ blog.url }}">{{ blog.title }}</a>
+  <a href="{{ blog.url }}">Journal</a>
   {%- if crumb_tag != '' -%}
     <span class="breadcrumbs__sep">›</span>
     <a href="{{ blog.url | append: '/tagged/' | append: crumb_handle }}">{{ crumb_tag }}</a>
