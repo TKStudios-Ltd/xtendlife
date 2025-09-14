@@ -19,6 +19,9 @@
   .article-template__header {
     padding: 6rem 0;
   }
+  .article-template__subheading {
+    margin: 0 auto 6rem;
+  }
 }
 
 .article-template__hero-container {
@@ -280,7 +283,7 @@ main.article-template > .section:first-of-type {
   font-size: 1.4rem;
 }
 .article-template__subheading {
-  margin: 0 auto 6rem;
+  margin: 0 auto 3rem;
   max-width: 65rem;
   font-size: 1.6rem;
   line-height: 1.3;
