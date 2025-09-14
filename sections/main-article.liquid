@@ -216,7 +216,7 @@
               <div class="article-pager__grid">
                 {%- if next_article -%}
                   <a class="article-pager__item article-pager__item--prev" href="{{ next_article.url }}">
-                    <span class="article-pager__title">{{ next_article.title | escape }}</span>
+                    <h4 class="h2 article-pager__title">{{ next_article.title | escape }}</h4>
                     <span class="article-pager__kicker">Previous post</span>
                   </a>
                 {%- else -%}
@@ -225,7 +225,7 @@
 
                 {%- if prev_article -%}
                   <a class="article-pager__item article-pager__item--next" href="{{ prev_article.url }}">
-                    <span class="article-pager__title">{{ prev_article.title | escape }}</span>
+                    <h4 class="h2 article-pager__title">{{ prev_article.title | escape }}</h4>
                     <span class="article-pager__kicker">Next post</span>
                   </a>
                 {%- else -%}
