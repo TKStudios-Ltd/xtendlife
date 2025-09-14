@@ -319,11 +319,10 @@ main.article-template > .section:first-of-type {
   .article-pager__grid{ grid-template-columns:1fr 1fr; }
 }
 .article-pager__item{
-  display:block; text-decoration:none; color:inherit;
+  display:flex; flex-direction: column; text-decoration:none; color:inherit;
 }
-.article-pager__item--prev{ text-align:left; }
-.article-pager__item--next,
-.article-pager__item--next .article-pager__title { text-align:right; }
+.article-pager__item--prev{ text-align:left; align-items: flex-start; }
+.article-pager__item--next { text-align:right; align-items: flex-end; }
 .article-pager__kicker{
   display:block;
 }
