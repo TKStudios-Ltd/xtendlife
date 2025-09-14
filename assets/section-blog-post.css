@@ -328,8 +328,6 @@ main.article-template > .section:first-of-type {
 }
 .article-pager__title{
   display:block;
-  font-size:clamp(1.125rem, .5vw + 1rem, 1.75rem);
-  line-height:1.25; font-weight:600;
 }
 .article-pager__item:hover .article-pager__title{ text-decoration:underline; }
 .article-pager__item.is-empty{ visibility:hidden; }
