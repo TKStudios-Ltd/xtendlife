@@ -212,7 +212,7 @@
               {%- endfor -%}
             {%- endif -%}
 
-            <nav class="article-pager page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-label="Article pagination">
+            <nav class="article-pager{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-label="Article pagination">
               <div class="article-pager__grid">
                 {%- if next_article -%}
                   <a class="article-pager__item article-pager__item--prev" href="{{ next_article.url }}">
