@@ -202,10 +202,10 @@
               {%- assign hit_current = false -%}
               {%- for a in blog.articles -%}
                 {%- if a.id == article.id -%}
-                  {%- assign next_article = last_seen -%}  {# newer one (previous in loop) #}
+                  {%- assign next_article = last_seen -%}
                   {%- assign hit_current = true -%}
                 {%- elsif hit_current and prev_article == blank -%}
-                  {%- assign prev_article = a -%}          {# older one (next in loop) #}
+                  {%- assign prev_article = a -%}
                   {%- break -%}
                 {%- endif -%}
                 {%- assign last_seen = a -%}
