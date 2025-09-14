@@ -7,20 +7,20 @@
     margin-top: calc(5rem + var(--page-width-margin));
   }
   .article-template__hero-container {
-    margin: 6rem auto;
+    margin: 6rem auto !important;
   }
   .article-template__header .article-template__title {
-    font-size: 4rem;
+    font-size: 4rem !important;
   }
   .article-template__subheading {
-    font-size: 2.4rem;
-    text-align: center;
+    font-size: 2.4rem !important;
+    text-align: center !important;
   }
   .article-template__header {
-    padding: 6rem 0;
+    padding: 6rem 0 !important;
   }
   .article-template__subheading {
-    margin: 0 auto 6rem;
+    margin: 0 auto 6rem !important;
   }
 }
 
