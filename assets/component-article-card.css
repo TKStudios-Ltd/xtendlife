@@ -76,6 +76,9 @@
   width: 100%;
   margin-top: 1.2rem;
 }
+.blog__content .article-card__excerpt {
+  display: none;
+}
 
 .article-card__link:not(:only-child) {
   margin-right: 3rem;
