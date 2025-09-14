@@ -308,3 +308,28 @@ main.article-template > .section:first-of-type {
   line-height: 1.35;
   text-align: left;
 }
+
+
+.article-pager{ margin-top: 2.5rem; }
+.article-pager__grid{
+  display:grid; gap:2rem; align-items:start;
+  grid-template-columns:1fr; border-bottom:1px solid rgba(0,0,0,.12); padding-bottom:1.25rem;
+}
+@media(min-width:990px){
+  .article-pager__grid{ grid-template-columns:1fr 1fr; }
+}
+.article-pager__item{
+  display:block; text-decoration:none; color:inherit;
+}
+.article-pager__item--prev{ text-align:left; }
+.article-pager__item--next{ text-align:right; }
+.article-pager__kicker{
+  display:block; font-size:.9rem; opacity:.6; margin-bottom:.35rem;
+}
+.article-pager__title{
+  display:block;
+  font-size:clamp(1.125rem, .5vw + 1rem, 1.75rem);
+  line-height:1.25; font-weight:600;
+}
+.article-pager__item:hover .article-pager__title{ text-decoration:underline; }
+.article-pager__item.is-empty{ visibility:hidden; }
