@@ -215,7 +215,7 @@
 }
 .ingredient-article-template .article-template__hero-container {
   max-width: 550px;
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
 }
 .ingredient-article-template strong {
