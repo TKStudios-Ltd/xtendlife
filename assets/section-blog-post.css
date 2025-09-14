@@ -325,6 +325,7 @@ main.article-template > .section:first-of-type {
 .article-pager__item--next { text-align:right; align-items: flex-end; }
 .article-pager__kicker{
   display:block;
+  margin: 0;
 }
 .article-pager__title{
   display: block;
