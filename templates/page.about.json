@@ -17,59 +17,28 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_pFjbBG": {
-      "type": "image-banner",
+    "rich_text_hALQxi": {
+      "type": "rich-text",
       "blocks": {
-        "buttons_JR9Vpa": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "RECOMMENDED BY DR. JOEL KHAN",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
-        "heading_4P8W9w": {
+        "heading_XH3XN3": {
           "type": "heading",
           "settings": {
-            "heading": "Nutrition for your Heart",
-            "heading_size": "h1"
-          }
-        },
-        "text_FxFrdN": {
-          "type": "text",
-          "settings": {
-            "text": "Trusted by experts, our heart health formula combines clinically studied ingredients to support circulation, cholesterol balance, and overall cardiovascular wellness—helping you stay strong at heart.",
-            "text_style": "subtitle"
+            "heading": "The search for longevity started it all",
+            "heading_size": "hxl"
           }
         }
       },
       "block_order": [
-        "buttons_JR9Vpa",
-        "heading_4P8W9w",
-        "text_FxFrdN"
+        "heading_XH3XN3"
       ],
-      "custom_css": [
-        ".subtitle {max-width: 460px; margin-top: 2rem;}",
-        ".subtitle p {font-size: 20px;}",
-        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/d82a25096345f69af54f65a5c278786442ee57f8.png",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "wide_container": true,
-        "image_behavior": "none",
-        "desktop_content_position": "top-center",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "left",
-        "show_text_below": false
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 100,
+        "padding_bottom": 60
       }
     },
     "multicolumn_A6pqFF": {
@@ -550,7 +519,7 @@
   },
   "order": [
     "main",
-    "image_banner_pFjbBG",
+    "rich_text_hALQxi",
     "multicolumn_A6pqFF",
     "image_with_text_EapeUP",
     "rich_text_YewMnP",
