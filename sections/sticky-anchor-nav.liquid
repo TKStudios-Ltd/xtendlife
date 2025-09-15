@@ -22,7 +22,8 @@
   }
   .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar{display:none;}
   .sticky-anchor-nav--{{ section.id }} .rich-text__buttons{display:inline-flex;}
-  .sticky-anchor-nav--{{ section.id }} a.button.is-active{ background: rgba(31, 25, 70, 1); color: white; }
+  .sticky-anchor-nav--{{ section.id }} a.button.is-active { background: rgba(31, 25, 70, 1); color: white; }
+  .sticky-anchor-nav--{{ section.id }} a.button.is-active:after { box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)), 0 0 0 var(--buttons-border-width) rgba(31, 25, 70, 1); }
   .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding: 3rem 0; }
   html:focus-within{ scroll-behavior:smooth; }
 {%- endstyle -%}
