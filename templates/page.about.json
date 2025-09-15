@@ -41,7 +41,7 @@
         "color_scheme": "",
         "full_width": false,
         "padding_top": 100,
-        "padding_bottom": 60
+        "padding_bottom": 80
       }
     },
     "multicolumn_A6pqFF": {
@@ -84,12 +84,11 @@
         "column_bqhLTR"
       ],
       "custom_css": [
-        ".grid {gap: 0; justify-content: flex-start;}",
-        ".multicolumn-card__info {display: flex;}",
-        ".grid li:first-child .multicolumn-card__info {padding-left: 0 !important;}",
+        ".grid {gap: 0; justify-content: center;}",
+        ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
         "p {font-size: 14px; line-height: 1;}",
-        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; } .grid li {width: auto !important; max-width: fit-content !important; }}",
-        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .grid__item {width: 50% !important; }}"
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -100,13 +99,13 @@
         "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "none",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "image_with_text_EapeUP": {
