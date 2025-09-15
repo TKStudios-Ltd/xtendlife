@@ -307,7 +307,30 @@
                             {%- endif -%}
 
                           {%- when 'icon-with-text' -%}
-                            {% render 'icon-with-text', block: block %}
+                            <h4>Key Benefits</h4>
+                            {%- assign benefits = p.metafields.custom.key_benefits.value -%}
+
+                            {%- if benefits != blank -%}
+                              <div class="product-benefits__icons">
+                                {%- for entry in benefits -%}
+                                  {%- comment -%}
+                                    Try multiple access patterns just in case the metaobject fields are exposed as
+                                    direct fields or under `fields`.
+                                  {%- endcomment -%}
+                                  {%- assign text = entry.benefit_text | default: entry['benefit_text'] | default: entry.fields.benefit_text -%}
+                                  {%- assign icon = entry.icon_image   | default: entry['icon_image']   | default: entry.fields.icon_image   -%}
+
+                                  <div class="product-benefits__icon">
+                                    {%- if icon != blank -%}
+                                      {{ icon | image_url: width: 160 | image_tag: alt: text }}
+                                    {%- endif -%}
+                                    {%- if text != blank -%}
+                                      <p>{{ text }}</p>
+                                    {%- endif -%}
+                                  </div>
+                                {%- endfor -%}
+                              </div>
+                            {%- endif -%}
 
                         {%- endcase -%}
                       {%- endfor -%}
