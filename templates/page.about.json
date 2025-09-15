@@ -221,7 +221,8 @@
         "text_xWmiWB"
       ],
       "custom_css": [
-        "p {font-size: 3.8rem; line-height: 1.4;}"
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 4rem; line-height: 1.4;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
