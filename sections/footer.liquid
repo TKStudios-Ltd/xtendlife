@@ -234,7 +234,17 @@
           <div class="footer__content-bottom__right">
             {%- if section.settings.show_policy -%}
               <ul class="policies list-unstyled">
-                {%- for policy in shop.policies -%}
+                <li>
+                  <small class="copyright__content">
+                    <a href="/pages/privacy">Privacy Policy</a>
+                  </small>
+                </li>
+                <li>
+                  <small class="copyright__content">
+                    <a href="{{ policy.url }}">Terms & Conditions</a>
+                  </small>
+                </li>
+                {% comment %} {%- for policy in shop.policies -%}
                   {%- if policy != blank -%}
                     <li>
                       <small class="copyright__content"
@@ -242,7 +252,7 @@
                       >
                     </li>
                   {%- endif -%}
-                {%- endfor -%}
+                {%- endfor -%} {% endcomment %}
               </ul>
             {%- endif -%}
             {%- if section.settings.show_social and has_social_icons -%}
