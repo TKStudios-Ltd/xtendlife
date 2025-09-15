@@ -442,4 +442,5 @@ quick-add-bulk .quantity__input {
   flex-direction: column;
   padding: 0;
   margin: 0;
+  gap: 0;
 }
