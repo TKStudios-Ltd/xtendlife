@@ -1,35 +1,24 @@
 {% comment %}
-  Sticky Anchor Nav (Dawn)
-  - Inline row of buttons that link to section anchors on the page
-  - Sticks on scroll
-  - Active button updates based on scroll position
-  - Reuses Dawn rich-text classnames for seamless styling
-
-  HOW TO USE
-  - Add this section near the top of your page.
-  - Add blocks for each button (Label + Anchor ID).
-  - On each target section (e.g., Rich text), set its Anchor ID (see #2 below).
+  Sticky Anchor Nav (Dawn) — v2
+  - Makes the wrapper sticky (outside of content-container) so overflow styles don't break it
 {% endcomment %}
 
 {%- style -%}
-  .sticky-anchor-nav--{{ section.id }} {
+  /* Make the outer wrapper sticky (not the container that has overflow/rounded corners) */
+  .sticky-anchor-nav__wrap--{{ section.id }}{
+    position: -webkit-sticky;
     position: sticky;
     top: {{ section.settings.sticky_top | default: 80 }}px;
-    z-index: 5;
+    z-index: 40;
   }
 
-  /* Container look/feel (keeps Dawn vibes) */
-  .sticky-anchor-nav--{{ section.id }}.rich-text {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+  /* Ensure the section wrapper itself doesn’t clip the sticky */
+  #shopify-section-{{ section.id }} { overflow: visible; }
 
-  /* Optional shadow */
-  .sticky-anchor-nav--{{ section.id }}.has-shadow {
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
-  }
+  /* Optional shadow when stuck (kept on inner container) */
+  .sticky-anchor-nav--{{ section.id }}.has-shadow { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
 
-  /* Inline scroller of buttons */
+  /* Inline scroller of buttons (same as before) */
   .sticky-anchor-nav--{{ section.id }} .rich-text__blocks {
     display: flex;
     gap: 10px;
@@ -39,74 +28,54 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar { display: none; }
-
-  .sticky-anchor-nav--{{ section.id }} .rich-text__buttons {
-    display: inline-flex;
-  }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar{ display: none; }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__buttons{ display: inline-flex; }
 
   /* Active state */
-  .sticky-anchor-nav--{{ section.id }} a.button.is-active {
+  .sticky-anchor-nav--{{ section.id }} a.button.is-active{
     outline: 2px solid currentColor;
     outline-offset: 1px;
   }
 
-  /* Allow slight breathing room so sticky bar doesn't feel cramped */
-  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper {
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-
-  /* Smooth scroll for browsers that support it (JS handles precise offset) */
-  html:focus-within {
-    scroll-behavior: smooth;
-  }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding-top: 8px; padding-bottom: 8px; }
+  html:focus-within{ scroll-behavior: smooth; }
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
-  <nav
-    id="sticky-anchor-nav-{{ section.id }}"
-    class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
-    data-scroll-offset="{{ section.settings.scroll_offset | default: section.settings.sticky_top | default: 80 }}"
-    aria-label="Section navigation"
-  >
-    <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
-      <div class="rich-text__blocks {{ section.settings.content_alignment }}">
-        {%- assign order = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when 'anchor_button' -%}
+  <!-- NEW: sticky wrapper -->
+  <div class="sticky-anchor-nav__wrap--{{ section.id }}">
+    <nav
+      id="sticky-anchor-nav-{{ section.id }}"
+      class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
+      data-scroll-offset="{{ section.settings.scroll_offset | default: section.settings.sticky_top | default: 80 }}"
+      aria-label="Section navigation"
+    >
+      <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+        <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+          {%- assign order = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'anchor_button' -%}
               {%- assign order = order | plus: 1 -%}
-              <div
-                class="rich-text__buttons{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ order }};"
-                {% endif %}
-              >
+              <div class="rich-text__buttons{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                   {{ block.shopify_attributes }}
+                   {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ order }};"{% endif %}>
                 {%- assign label = block.settings.button_label | strip -%}
                 {%- assign target = block.settings.anchor_id | handleize -%}
                 {%- if label != blank -%}
                   <a
-                    {% if target == blank %}
-                      role="link" aria-disabled="true"
-                    {% else %}
-                      href="#{{ target }}"
-                    {% endif %}
+                    {% if target == blank %} role="link" aria-disabled="true" {% else %} href="#{{ target }}"{% endif %}
                     class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}{% if forloop.first %} is-active{% endif %}"
                     data-anchor="{{ target }}"
                     {% if forloop.first %}aria-current="true"{% endif %}
-                  >
-                    {{- label | escape -}}
-                  </a>
+                  >{{- label | escape -}}</a>
                 {%- endif -%}
               </div>
-          {%- endcase -%}
-        {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </div>
 
 <script>
@@ -118,16 +87,15 @@
     const links = Array.from(root.querySelectorAll('a[data-anchor]'));
     const targets = links
       .map(a => a.dataset.anchor)
-      .filter(id => !!id)
+      .filter(Boolean)
       .map(id => document.getElementById(id))
       .filter(Boolean);
 
-    const setActive = (activeId) => {
+    const setActive = (id) => {
       links.forEach(a => {
-        const isActive = a.dataset.anchor === activeId;
-        a.classList.toggle('is-active', isActive);
-        if (isActive) a.setAttribute('aria-current', 'true');
-        else a.removeAttribute('aria-current');
+        const on = a.dataset.anchor === id;
+        a.classList.toggle('is-active', on);
+        if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
       });
     };
 
@@ -135,27 +103,22 @@
       if (!targets.length) return;
       const y = window.scrollY + offset + 1;
       let current = targets[0];
-
       for (const el of targets) {
-        if (el.offsetTop <= y) current = el;
-        else break;
+        if (el.offsetTop <= y) current = el; else break;
       }
       setActive(current.id);
     };
 
-    // Smooth scroll with exact offset on click
     links.forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.dataset.anchor;
-        const target = id && document.getElementById(id);
-        if (!target) return;
+        const el = id && document.getElementById(id);
+        if (!el) return;
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top, behavior: 'smooth' });
-
-        // Focus target for accessibility (won't jump because we preventScroll)
-        target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
+        el.setAttribute('tabindex','-1');
+        el.focus({ preventScroll: true });
       });
     });
 
@@ -173,67 +136,22 @@
   "class": "section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    {
-      "type": "select",
-      "id": "desktop_content_position",
-      "label": "Desktop content position",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
+    { "type": "select", "id": "desktop_content_position", "label": "Desktop content position",
+      "options": [ { "value": "left","label":"Left" }, { "value":"center","label":"Center" }, { "value":"right","label":"Right" } ],
       "default": "center"
     },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "label": "Content alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
+    { "type": "select", "id": "content_alignment", "label": "Content alignment",
+      "options": [ { "value":"left","label":"Left" }, { "value":"center","label":"Center" }, { "value":"right","label":"Right" } ],
       "default": "center"
     },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "default": true,
-      "label": "Full width"
-    },
-    {
-      "type": "range",
-      "id": "sticky_top",
-      "min": 0, "max": 200, "step": 10, "unit": "px",
-      "label": "Sticky top offset",
-      "default": 80
-    },
-    {
-      "type": "range",
-      "id": "scroll_offset",
-      "min": 0, "max": 200, "step": 10, "unit": "px",
-      "label": "Scroll offset for anchors",
-      "info": "Usually equals your sticky top offset. Increase if you have a sticky header above this.",
-      "default": 80
-    },
-    {
-      "type": "checkbox",
-      "id": "add_shadow",
-      "label": "Add subtle shadow",
-      "default": true
-    }
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "full_width", "default": true, "label": "Full width" },
+    { "type": "range", "id": "sticky_top", "min": 0, "max": 200, "step": 10, "unit": "px", "label": "Sticky top offset", "default": 80 },
+    { "type": "range", "id": "scroll_offset", "min": 0, "max": 200, "step": 10, "unit": "px", "label": "Scroll offset for anchors", "info": "Usually equals your sticky top offset. Increase if you have a sticky header above this.", "default": 80 },
+    { "type": "checkbox", "id": "add_shadow", "label": "Add subtle shadow", "default": true }
   ],
   "blocks": [
-    {
-      "type": "anchor_button",
-      "name": "Anchor button",
-      "limit": 10,
+    { "type": "anchor_button", "name": "Anchor button", "limit": 10,
       "settings": [
         { "type": "text", "id": "button_label", "label": "Button label", "default": "Our Story" },
         { "type": "text", "id": "anchor_id", "label": "Anchor ID (target)", "info": "Matches the Anchor ID on the target section (e.g. our-story)" },
@@ -242,8 +160,7 @@
     }
   ],
   "presets": [
-    {
-      "name": "Sticky Anchor Nav",
+    { "name": "Sticky Anchor Nav",
       "blocks": [
         { "type": "anchor_button", "settings": { "button_label": "Our Story", "anchor_id": "our-story" } },
         { "type": "anchor_button", "settings": { "button_label": "Our Guarantee", "anchor_id": "our-guarantee" } },
