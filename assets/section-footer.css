@@ -15,7 +15,8 @@
     display: block;
   }
   .footer__logo {
-    margin-top: 2rem;
+    margin-top:0;
+    margin-bottom: 1rem;
   }
   .footer-menu--mobile {
     display: block;
@@ -539,7 +540,6 @@
 @media screen and (min-width: 750px) {
   .policies li a {
     padding: 0;
-    text-decoration: underline;
     text-underline-offset: .3rem;
   }
 }
