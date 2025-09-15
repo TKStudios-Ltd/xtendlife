@@ -5,11 +5,13 @@
 {% endcomment %}
 
 {%- style -%}
-  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: 2; } /* prevent clipping */
+  /* keep sticky alive */
+  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: 40; }
+
   .sticky-anchor-nav__wrap--{{ section.id }}{
     position: -webkit-sticky;
     position: sticky;
-    top: {{ section.settings.sticky_top | default: 0 }}px;
+    top: {{ section.settings.sticky_top | default: 80 }}px; /* ensure non-zero default */
     z-index: 40;
   }
   .sn-fixed-placeholder--{{ section.id }}{ height: 0; }
@@ -75,11 +77,24 @@
 
   const wrap = nav.closest('[data-sticky-wrap]');
   const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
-  const offset = parseFloat(nav.dataset.scrollOffset || '80') || 80;
+  const offset = parseFloat(nav.dataset.scrollOffset || '{{ section.settings.sticky_top | default: 80 }}') || 80;
 
-  // ---- ACTIVE BUTTON SYNC ----
-  const links = Array.from(nav.querySelectorAll('a[data-anchor]'));
-  const targets = links.map(a => a.dataset.anchor).filter(Boolean).map(id => document.getElementById(id)).filter(Boolean);
+  // ---------- LINKS & TARGETS (robust) ----------
+  const links = Array.from(nav.querySelectorAll('a.button[href^="#"], a[data-anchor]'));
+  const getAnchorFromLink = (a) => {
+    const href = (a.getAttribute('href') || '').trim();
+    if (href.startsWith('#') && href.length > 1) return href.slice(1);
+    return (a.dataset.anchor || '').trim();
+  };
+  // normalize data-anchor so code below can rely on it
+  links.forEach(a => { const id = getAnchorFromLink(a); if (id) a.dataset.anchor = id; });
+
+  let targets = [];
+  const refreshTargets = () => {
+    targets = links
+      .map(a => document.getElementById(a.dataset.anchor))
+      .filter(Boolean);
+  };
 
   const setActive = (id) => {
     links.forEach(a => {
@@ -89,7 +104,24 @@
     });
   };
 
+  // ---------- CLICK: smooth scroll + immediate active ----------
+  links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.dataset.anchor;
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setActive(id); // immediate feedback
+      try { history.replaceState(null, '', '#' + id); } catch (_e) {}
+      el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+    });
+  });
+
+  // ---------- SCROLL: compute current via offset ----------
   const syncActive = () => {
+    if (!targets.length) refreshTargets(); // handles late DOM parse
     if (!targets.length) return;
     const y = window.scrollY + offset + 1;
     let current = targets[0];
@@ -97,25 +129,19 @@
     setActive(current.id);
   };
 
-  links.forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.dataset.anchor, el = id && document.getElementById(id);
-      if (!el) return;
-      e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-      el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
-    });
-  });
-
-  // ---- HYBRID STICKY/FIXED HANDLING ----
+  // ---------- HYBRID STICKY/FIXED ----------
   let usingFixed = false;
 
   const measure = () => {
-    // Measure the visual container we want to align to (page width)
     const container = nav.closest('.isolate') || nav.parentElement;
     const rect = container.getBoundingClientRect();
-    return { left: rect.left + window.pageXOffset, width: rect.width, height: nav.offsetHeight, start: (wrap.getBoundingClientRect().top + window.pageYOffset) - offset };
+    const wrapRect = wrap.getBoundingClientRect();
+    return {
+      left: rect.left + window.pageXOffset,
+      width: rect.width,
+      height: nav.offsetHeight,
+      start: (wrapRect.top + window.pageYOffset) - offset
+    };
   };
 
   const applyFixed = ({left, width, height}) => {
@@ -140,16 +166,11 @@
     nav.style.zIndex = '';
   };
 
-  // Detect whether sticky is “actually” sticking by observing wrap’s top
-  let lastStateFixed = null;
   const onScroll = () => {
     const m = measure();
     const shouldFix = window.scrollY >= m.start;
-    // If native sticky works, the nav will already be pinned by the wrapper; no harm leaving it.
-    // But if ancestor overflow breaks sticky, we enforce fixed.
     if (shouldFix) applyFixed(m); else removeFixed();
     syncActive();
-    lastStateFixed = shouldFix;
   };
 
   const onResize = () => {
@@ -160,10 +181,16 @@
     nav.style.width = m.width + 'px';
   };
 
+  // Initializations
+  // Wait for rest of DOM (targets below nav) to exist before first sync
+  document.addEventListener('DOMContentLoaded', () => { refreshTargets(); syncActive(); });
+  window.addEventListener('load', () => { refreshTargets(); syncActive(); });
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onResize);
-  document.addEventListener('DOMContentLoaded', onScroll);
-  onScroll();
+  window.addEventListener('resize', () => { onResize(); syncActive(); });
+
+  // Kick once in case everything is already there
+  refreshTargets(); onScroll();
 })();
 </script>
 
