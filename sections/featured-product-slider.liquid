@@ -211,6 +211,13 @@
                             </h3>
                             <span class="product__subheading">{{ p.metafields.custom_fields.option_text | remove: 'Size:' }}</span>
 
+                            {%- if p.metafields.custom_fields.product_summary != blank -%}
+                              {%- assign product_summary = p.metafields.custom_fields.product_summary -%}
+                            {%- endif -%}
+                            {%- if product_summary != blank -%}
+                              <div class="product-hero__summary">{{ product_summary }}</div>
+                            {% endif %}
+
                           {%- when 'price' -%}
                             <div id="price-{{ section.id }}-{{ pid }}" class="fps-{{ section.id }}-meta" role="status">
                               {% render 'price', product: p, use_variant: true, show_badges: true, price_class: 'price--large' %}
