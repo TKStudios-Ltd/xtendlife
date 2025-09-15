@@ -282,8 +282,8 @@
   width: 2.8rem;
   position: fixed;
   padding: 5px;
-  /* top: 1.5rem;
-  right: 1.5rem; */
+  right: 3.5rem;
+  top: 5rem;
 }
 
 .quick-add-modal__toggle:hover {
