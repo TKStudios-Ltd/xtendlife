@@ -210,8 +210,9 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 4rem; line-height: 1.4;}",
-        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: flex;}"
+        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -277,7 +278,7 @@
         "text_9XJ4Lg": {
           "type": "text",
           "settings": {
-            "text": "<p>We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
+            "text": "<p><strong>Our Guarantee</strong> We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
           }
         }
       },
@@ -286,7 +287,9 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 4rem; line-height: 1.4;}"
+        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -306,7 +309,7 @@
         "text_HbCdD7": {
           "type": "text",
           "settings": {
-            "text": "<p>We are up-to-the minute with science and technology but still abide by the old-fashioned principle of exceptional personal service and taking care of our customers, no matter where in the world they may live. We operate globally. Our quality guarantees have always been the best in this industry, and we intend to keep it that way.</p>"
+            "text": "<p><strong>Our Service</strong> We are up-to-the minute with science and technology but still abide by the old-fashioned principle of exceptional personal service and taking care of our customers, no matter where in the world they may live. We operate globally. Our quality guarantees have always been the best in this industry, and we intend to keep it that way.</p>"
           }
         }
       },
@@ -315,7 +318,9 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 4rem; line-height: 1.4;}"
+        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -335,7 +340,7 @@
         "text_4ezAqB": {
           "type": "text",
           "settings": {
-            "text": "<p>Xtendlife is an FDA registered and GMP certified facility</p>"
+            "text": "<p><strong>Our Quality</strong> Xtendlife is an FDA registered and GMP certified facility</p>"
           }
         }
       },
@@ -344,7 +349,9 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 4rem; line-height: 1.4;}"
+        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -550,7 +557,7 @@
         "text_JQgN3Y": {
           "type": "text",
           "settings": {
-            "text": "<p>Our Scientific Board consists of scientists, researchers, doctors, and authors across the fields of microbiology, immunology, genetics, metabolomics, gastroenterology, pediatrics, molecular biology, and transcriptomics—including primary investigators from the NIH’s Human Microbiome Project. They lead labs, teach at world-renowned academic institutions, and have among them 2800+ publications and over 140,000 citations in peer-reviewed scientific journals and textbooks.</p>"
+            "text": "<p><strong>Our Scientists</strong> Our Scientific Board consists of scientists, researchers, doctors, and authors across the fields of microbiology, immunology, genetics, metabolomics, gastroenterology, pediatrics, molecular biology, and transcriptomics—including primary investigators from the NIH’s Human Microbiome Project. They lead labs, teach at world-renowned academic institutions, and have among them 2800+ publications and over 140,000 citations in peer-reviewed scientific journals and textbooks.</p>"
           }
         }
       },
@@ -559,7 +566,9 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 4rem; line-height: 1.4;}"
+        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
