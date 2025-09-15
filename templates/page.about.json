@@ -201,8 +201,7 @@
         "text_xWmiWB": {
           "type": "text",
           "settings": {
-            "text": "<p>We believe in empowering you with the best nutritional supplements to enhance your health and well-being. </p><p>Our mission is to provide high-quality products that support your lifestyle and help you thrive. From vitamins to herbal remedies, we are committed to sourcing the finest ingredients and ensuring that every product meets our rigorous standards. Join us as we explore the path to a healthier you.</p>",
-            "pill_label": "Our Story"
+            "text": "<p><strong>Our Story</strong> We believe in empowering you with the best nutritional supplements to enhance your health and well-being. </p><p>Our mission is to provide high-quality products that support your lifestyle and help you thrive. From vitamins to herbal remedies, we are committed to sourcing the finest ingredients and ensuring that every product meets our rigorous standards. Join us as we explore the path to a healthier you.</p>"
           }
         }
       },
@@ -211,7 +210,8 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 4rem; line-height: 1.4;}"
+        "p {font-size: 4rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: flex;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -277,8 +277,7 @@
         "text_9XJ4Lg": {
           "type": "text",
           "settings": {
-            "text": "<p>We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>",
-            "pill_label": ""
+            "text": "<p>We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
           }
         }
       },
@@ -307,8 +306,7 @@
         "text_HbCdD7": {
           "type": "text",
           "settings": {
-            "text": "<p>We are up-to-the minute with science and technology but still abide by the old-fashioned principle of exceptional personal service and taking care of our customers, no matter where in the world they may live. We operate globally. Our quality guarantees have always been the best in this industry, and we intend to keep it that way.</p>",
-            "pill_label": ""
+            "text": "<p>We are up-to-the minute with science and technology but still abide by the old-fashioned principle of exceptional personal service and taking care of our customers, no matter where in the world they may live. We operate globally. Our quality guarantees have always been the best in this industry, and we intend to keep it that way.</p>"
           }
         }
       },
@@ -337,8 +335,7 @@
         "text_4ezAqB": {
           "type": "text",
           "settings": {
-            "text": "<p>Xtendlife is an FDA registered and GMP certified facility</p>",
-            "pill_label": ""
+            "text": "<p>Xtendlife is an FDA registered and GMP certified facility</p>"
           }
         }
       },
@@ -553,8 +550,7 @@
         "text_JQgN3Y": {
           "type": "text",
           "settings": {
-            "text": "<p>Our Scientific Board consists of scientists, researchers, doctors, and authors across the fields of microbiology, immunology, genetics, metabolomics, gastroenterology, pediatrics, molecular biology, and transcriptomics—including primary investigators from the NIH’s Human Microbiome Project. They lead labs, teach at world-renowned academic institutions, and have among them 2800+ publications and over 140,000 citations in peer-reviewed scientific journals and textbooks.</p>",
-            "pill_label": ""
+            "text": "<p>Our Scientific Board consists of scientists, researchers, doctors, and authors across the fields of microbiology, immunology, genetics, metabolomics, gastroenterology, pediatrics, molecular biology, and transcriptomics—including primary investigators from the NIH’s Human Microbiome Project. They lead labs, teach at world-renowned academic institutions, and have among them 2800+ publications and over 140,000 citations in peer-reviewed scientific journals and textbooks.</p>"
           }
         }
       },
