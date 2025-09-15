@@ -72,111 +72,129 @@
 
 <script>
 (() => {
+  const NS = `StickyNav[{{ section.id }}]`;
   const nav = document.getElementById('sticky-anchor-nav-{{ section.id }}');
-  if (!nav) return;
+  if (!nav) { console.warn(NS, 'nav not found'); return; }
 
+  // Debug: sticky wrapper & computed styles (for diagnosing "sticky not sticking")
   const wrap = nav.closest('[data-sticky-wrap]');
-  const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
-  const offset = parseFloat(nav.dataset.scrollOffset || '{{ section.settings.sticky_top | default: 80 }}') || 80;
+  if (!wrap) console.warn(NS, 'sticky wrapper [data-sticky-wrap] not found');
+  else {
+    const cs = getComputedStyle(wrap);
+    console.log(NS, 'sticky wrapper found', { position: cs.position, top: cs.top, zIndex: cs.zIndex });
+  }
 
-  // --- LINKS & TARGETS (href="#id" or data-anchor) ---
+  // Offset used for scroll spy + click scroll
+  const offsetAttr = nav.dataset.scrollOffset;
+  const offset = parseFloat(offsetAttr || '{{ section.settings.sticky_top | default: 80 }}') || 80;
+  console.log(NS, 'offset resolved', { dataAttr: offsetAttr, effective: offset });
+
+  // --- Gather links and targets ---
   const links = Array.from(nav.querySelectorAll('a.button[href^="#"], a[data-anchor]'));
+  console.log(NS, 'links found', links.length);
+
   const getId = (a) => {
     const href = (a.getAttribute('href') || '').trim();
-    return href.startsWith('#') && href.length > 1 ? href.slice(1) : (a.dataset.anchor || '').trim();
+    if (href.startsWith('#') && href.length > 1) return href.slice(1);
+    return (a.dataset.anchor || '').trim();
   };
-  // normalize to data-anchor for consistency
-  links.forEach(a => { const id = getId(a); if (id) a.dataset.anchor = id; });
 
-  // --- ACTIVE: click-only ---
-  const makeActive = (clicked) => {
+  // Normalize to data-anchor for consistency & log mapping
+  links.forEach((a, i) => {
+    const id = getId(a);
+    if (id) a.dataset.anchor = id;
+    console.log(NS, 'link map', { index: i, text: a.textContent?.trim(), href: a.getAttribute('href'), dataAnchor: a.dataset.anchor });
+  });
+
+  let items = links.map(a => {
+    const id = a.dataset.anchor;
+    const el = id ? document.getElementById(id) : null;
+    if (!id || !el) {
+      console.warn(NS, 'missing/mismatched anchor', { anchor: id, exists: !!el, linkText: a.textContent?.trim() });
+      return null;
+    }
+    return { a, id, el, top: 0 };
+  }).filter(Boolean);
+
+  if (!items.length) { console.warn(NS, 'no valid targets found'); return; }
+
+  // --- Active state helpers ---
+  let currentId = null;
+  const setActiveId = (id) => {
+    if (!id || currentId === id) return;
+    currentId = id;
     links.forEach(l => {
-      const on = l === clicked;
+      const on = (l.dataset.anchor === id);
       l.classList.toggle('is-active', on);
-      if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+      if (on) l.setAttribute('aria-current','true'); else l.removeAttribute('aria-current');
     });
+    console.log(NS, 'setActiveId', id);
   };
 
-  // init: if none is active, set the first one
-  const initActive = () => {
-    const preset = links.find(l => l.classList.contains('is-active'));
-    makeActive(preset || links[0]);
+  // --- Measure absolute tops and keep sorted ---
+  const computeTops = () => {
+    items.forEach(it => {
+      it.top = it.el.getBoundingClientRect().top + window.pageYOffset;
+    });
+    items.sort((a, b) => a.top - b.top);
+    console.log(NS, 'computeTops', items.map(it => ({ id: it.id, top: Math.round(it.top) })));
   };
-  initActive();
 
-  // Smooth scroll with offset + persist active on click
+  // --- Scroll spy: pick last section above the activation line ---
+  const updateActiveByScroll = () => {
+    if (!items.length) return;
+    const y = window.scrollY + offset + 1;
+    let chosen = items[0];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].top <= y) chosen = items[i];
+      else break;
+    }
+    console.log(NS, 'scroll', { y: Math.round(y), chosen: chosen.id, chosenTop: Math.round(chosen.top) });
+    setActiveId(chosen.id);
+  };
+
+  // --- Click: smooth scroll with offset + immediate active feedback ---
   links.forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.dataset.anchor;
       const el = id && document.getElementById(id);
-      if (el) {
-        e.preventDefault();
-        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-        el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
-      }
-      makeActive(a);
+      console.log(NS, 'click', { id, hasTarget: !!el });
+      if (!el) return;
+
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      console.log(NS, 'scrollTo', { targetTop: Math.round(top) });
+      window.scrollTo({ top, behavior: 'smooth' });
+
+      setActiveId(id);
+      try { history.replaceState(null, '', '#' + id); } catch (_) {}
+      el.setAttribute('tabindex', '-1');
+      el.focus({ preventScroll: true });
     });
   });
 
-  // --- HYBRID STICKY/FIXED (unchanged, no active-on-scroll) ---
-  let usingFixed = false;
+  // --- Init & listeners (no layout changes) ---
+  const init = () => { computeTops(); updateActiveByScroll(); };
+  document.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('load', () => { computeTops(); updateActiveByScroll(); });
+  window.addEventListener('resize', () => { computeTops(); updateActiveByScroll(); });
+  window.addEventListener('scroll', updateActiveByScroll, { passive: true });
 
-  const measure = () => {
-    const container = nav.closest('.isolate') || nav.parentElement;
-    const rect = container.getBoundingClientRect();
-    const wrapRect = wrap.getBoundingClientRect();
-    return {
-      left: rect.left + window.pageXOffset,
-      width: rect.width,
-      height: nav.offsetHeight,
-      start: (wrapRect.top + window.pageYOffset) - offset
-    };
-  };
+  // Re-run after potential layout shifts (images/fonts)
+  setTimeout(() => { computeTops(); updateActiveByScroll(); }, 250);
+  setTimeout(() => { computeTops(); updateActiveByScroll(); }, 1500);
 
-  const applyFixed = ({left, width, height}) => {
-    if (usingFixed) return;
-    usingFixed = true;
-    placeholder.style.height = height + 'px';
-    nav.style.position = 'fixed';
-    nav.style.top = offset + 'px';
-    nav.style.left = left + 'px';
-    nav.style.width = width + 'px';
-    nav.style.zIndex = 60;
-  };
-
-  const removeFixed = () => {
-    if (!usingFixed) return;
-    usingFixed = false;
-    placeholder.style.height = '0px';
-    nav.style.position = '';
-    nav.style.top = '';
-    nav.style.left = '';
-    nav.style.width = '';
-    nav.style.zIndex = '';
-  };
-
-  const onScroll = () => {
-    const m = measure();
-    const shouldFix = window.scrollY >= m.start;
-    if (shouldFix) applyFixed(m); else removeFixed();
-  };
-
-  const onResize = () => {
-    if (!usingFixed) return;
-    const m = measure();
-    placeholder.style.height = m.height + 'px';
-    nav.style.left = m.left + 'px';
-    nav.style.width = m.width + 'px';
-  };
-
-  document.addEventListener('DOMContentLoaded', onScroll);
-  window.addEventListener('load', onScroll);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onResize);
-  onScroll();
+  // Honor initial hash if present
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    if (document.getElementById(id)) {
+      console.log(NS, 'honor hash', id);
+      setActiveId(id);
+    }
+  }
 })();
 </script>
+
 
 
 {% schema %}
