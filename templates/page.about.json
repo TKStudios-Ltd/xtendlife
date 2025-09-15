@@ -32,7 +32,7 @@
         "heading_XH3XN3"
       ],
       "custom_css": [
-        ".rich-text__blocks {max-width: 80rem; margin-top: 5rem;}"
+        ".rich-text__blocks {max-width: 80rem; margin-top: 6rem;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
