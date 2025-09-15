@@ -40,6 +40,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": false,
+        "anchor_id": "",
+        "anchor_offset": 120,
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -126,85 +128,66 @@
         "show_text_below": true
       }
     },
-    "rich_text_p3DHhi": {
-      "type": "rich-text",
+    "sticky_anchor_nav_hYGgLL": {
+      "type": "sticky-anchor-nav",
       "blocks": {
-        "button_8wPYD9": {
-          "type": "button",
+        "anchor_button_3LQgTi": {
+          "type": "anchor_button",
           "settings": {
             "button_label": "Our Story",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "anchor_id": "our-story",
+            "button_style_secondary": false
           }
         },
-        "button_QpbfCg": {
-          "type": "button",
+        "anchor_button_BdVRen": {
+          "type": "anchor_button",
           "settings": {
             "button_label": "Our Guarantee",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "anchor_id": "our-guarantee",
+            "button_style_secondary": false
           }
         },
-        "button_KykTaC": {
-          "type": "button",
+        "anchor_button_gyF3nE": {
+          "type": "anchor_button",
           "settings": {
             "button_label": "Our Service",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "anchor_id": "our-service",
+            "button_style_secondary": false
           }
         },
-        "button_FJEgWz": {
-          "type": "button",
+        "anchor_button_DjiQUG": {
+          "type": "anchor_button",
           "settings": {
             "button_label": "Our Quality",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "anchor_id": "our-quality",
+            "button_style_secondary": false
           }
         },
-        "button_DJEXnb": {
-          "type": "button",
+        "anchor_button_7VVeQP": {
+          "type": "anchor_button",
           "settings": {
             "button_label": "Our Scientists",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "anchor_id": "our-scientists",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "button_8wPYD9",
-        "button_QpbfCg",
-        "button_KykTaC",
-        "button_FJEgWz",
-        "button_DJEXnb"
+        "anchor_button_3LQgTi",
+        "anchor_button_BdVRen",
+        "anchor_button_gyF3nE",
+        "anchor_button_DjiQUG",
+        "anchor_button_7VVeQP"
       ],
-      "custom_css": [
-        ".rich-text__blocks {max-width: 100%; padding: 2rem 0; display: flex; justify-content: center;}",
-        ".rich-text__buttons {margin-top: 0; padding: 0.75rem; width: auto;}",
-        "@media (max-width: 749px) {.rich-text__buttons {padding: 0.5rem; } .button {font-size: 1.2rem; padding: 0.5rem 1.5rem; }}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
+      "name": "Sticky Anchor Nav",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
         "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "sticky_top": 80,
+        "scroll_offset": 80,
+        "add_shadow": false
       }
     },
     "rich_text_d3NGdF": {
@@ -230,6 +213,8 @@
         "content_alignment": "left",
         "color_scheme": "",
         "full_width": false,
+        "anchor_id": "our-story",
+        "anchor_offset": 120,
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -280,6 +265,35 @@
         "padding_bottom": 60
       }
     },
+    "rich_text_pTcALB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9XJ4Lg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9XJ4Lg"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 4rem; line-height: 1.4;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-story",
+        "anchor_offset": 120,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "rich_text_YewMnP": {
       "type": "rich-text",
       "blocks": {
@@ -300,6 +314,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-5",
         "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
         "padding_top": 60,
         "padding_bottom": 20
       }
@@ -650,9 +666,10 @@
     "rich_text_hALQxi",
     "multicolumn_A6pqFF",
     "image_banner_GTdJkt",
-    "rich_text_p3DHhi",
+    "sticky_anchor_nav_hYGgLL",
     "rich_text_d3NGdF",
     "image_with_text_EapeUP",
+    "rich_text_pTcALB",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
     "image_with_text_HHyM8a",
