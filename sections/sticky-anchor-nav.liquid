@@ -75,93 +75,108 @@
   const nav = document.getElementById('sticky-anchor-nav-{{ section.id }}');
   if (!nav) return;
 
+  const wrap = nav.closest('[data-sticky-wrap]');
+  const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
   const offset = parseFloat(nav.dataset.scrollOffset || '{{ section.settings.sticky_top | default: 80 }}') || 80;
 
-  // --- Gather links and their target sections by href="#id" or data-anchor
+  // --- LINKS & TARGETS (href="#id" or data-anchor) ---
   const links = Array.from(nav.querySelectorAll('a.button[href^="#"], a[data-anchor]'));
-  if (!links.length) return;
-
   const getId = (a) => {
     const href = (a.getAttribute('href') || '').trim();
-    if (href.startsWith('#') && href.length > 1) return href.slice(1);
-    return (a.dataset.anchor || '').trim();
+    return href.startsWith('#') && href.length > 1 ? href.slice(1) : (a.dataset.anchor || '').trim();
   };
+  // normalize to data-anchor for consistency
+  links.forEach(a => { const id = getId(a); if (id) a.dataset.anchor = id; });
 
-  const items = links.map(a => {
-    const id = getId(a);
-    const el = id ? document.getElementById(id) : null;
-    if (id) a.dataset.anchor = id; // normalize
-    return el ? { a, id, el, top: 0 } : null;
-  }).filter(Boolean);
-
-  if (!items.length) return;
-
-  // --- Active state helpers
-  let currentId = null;
-  const setActiveId = (id) => {
-    if (currentId === id) return;
-    currentId = id;
-    items.forEach(({ a, id: _id }) => {
-      const on = _id === id;
-      a.classList.toggle('is-active', on);
-      if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+  // --- ACTIVE: click-only ---
+  const makeActive = (clicked) => {
+    links.forEach(l => {
+      const on = l === clicked;
+      l.classList.toggle('is-active', on);
+      if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
     });
   };
 
-  // --- Measure absolute tops (robust to transforms); keep sorted
-  const computeTops = () => {
-    items.forEach(it => {
-      it.top = it.el.getBoundingClientRect().top + window.pageYOffset;
-    });
-    items.sort((a, b) => a.top - b.top);
+  // init: if none is active, set the first one
+  const initActive = () => {
+    const preset = links.find(l => l.classList.contains('is-active'));
+    makeActive(preset || links[0]);
   };
+  initActive();
 
-  // --- Pick the last section whose top has crossed the activation line
-  const updateActiveByScroll = () => {
-    if (!items.length) return;
-    const y = window.scrollY + offset + 1;
-    let chosen = items[0];
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].top <= y) chosen = items[i]; else break;
-    }
-    setActiveId(chosen.id);
-  };
-
-  // --- Click: smooth scroll to target (with offset) and set active immediately
+  // Smooth scroll with offset + persist active on click
   links.forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.dataset.anchor;
       const el = id && document.getElementById(id);
-      if (!el) return;
-      e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-      setActiveId(id); // immediate feedback
-      try { history.replaceState(null, '', '#' + id); } catch (_) {}
-      el.setAttribute('tabindex', '-1');
-      el.focus({ preventScroll: true });
+      if (el) {
+        e.preventDefault();
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+      }
+      makeActive(a);
     });
   });
 
-  // --- Init & listeners
-  const init = () => { computeTops(); updateActiveByScroll(); };
-  document.addEventListener('DOMContentLoaded', init);
-  window.addEventListener('load', init);
-  window.addEventListener('resize', () => { computeTops(); updateActiveByScroll(); });
-  window.addEventListener('scroll', updateActiveByScroll, { passive: true });
+  // --- HYBRID STICKY/FIXED (unchanged, no active-on-scroll) ---
+  let usingFixed = false;
 
-  // Re-measure a couple times to catch late image loads/layout shifts
-  setTimeout(() => { computeTops(); updateActiveByScroll(); }, 250);
-  setTimeout(() => { computeTops(); updateActiveByScroll(); }, 1500);
+  const measure = () => {
+    const container = nav.closest('.isolate') || nav.parentElement;
+    const rect = container.getBoundingClientRect();
+    const wrapRect = wrap.getBoundingClientRect();
+    return {
+      left: rect.left + window.pageXOffset,
+      width: rect.width,
+      height: nav.offsetHeight,
+      start: (wrapRect.top + window.pageYOffset) - offset
+    };
+  };
 
-  // If page loads with a hash, honor it
-  if (location.hash) {
-    const id = location.hash.slice(1);
-    if (document.getElementById(id)) setActiveId(id);
-  }
+  const applyFixed = ({left, width, height}) => {
+    if (usingFixed) return;
+    usingFixed = true;
+    placeholder.style.height = height + 'px';
+    nav.style.position = 'fixed';
+    nav.style.top = offset + 'px';
+    nav.style.left = left + 'px';
+    nav.style.width = width + 'px';
+    nav.style.zIndex = 60;
+  };
+
+  const removeFixed = () => {
+    if (!usingFixed) return;
+    usingFixed = false;
+    placeholder.style.height = '0px';
+    nav.style.position = '';
+    nav.style.top = '';
+    nav.style.left = '';
+    nav.style.width = '';
+    nav.style.zIndex = '';
+  };
+
+  const onScroll = () => {
+    const m = measure();
+    const shouldFix = window.scrollY >= m.start;
+    if (shouldFix) applyFixed(m); else removeFixed();
+  };
+
+  const onResize = () => {
+    if (!usingFixed) return;
+    const m = measure();
+    placeholder.style.height = m.height + 'px';
+    nav.style.left = m.left + 'px';
+    nav.style.width = m.width + 'px';
+  };
+
+  document.addEventListener('DOMContentLoaded', onScroll);
+  window.addEventListener('load', onScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
+  onScroll();
 })();
 </script>
-
 
 
 {% schema %}
