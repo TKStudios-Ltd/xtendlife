@@ -538,6 +538,35 @@
         "padding_bottom": 60
       }
     },
+    "rich_text_cYkFfa": {
+      "type": "rich-text",
+      "blocks": {
+        "text_JQgN3Y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our Scientific Board consists of scientists, researchers, doctors, and authors across the fields of microbiology, immunology, genetics, metabolomics, gastroenterology, pediatrics, molecular biology, and transcriptomics—including primary investigators from the NIH’s Human Microbiome Project. They lead labs, teach at world-renowned academic institutions, and have among them 2800+ publications and over 140,000 citations in peer-reviewed scientific journals and textbooks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_JQgN3Y"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 4rem; line-height: 1.4;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-scientists",
+        "anchor_offset": 120,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "image_with_text_83HE6c": {
       "type": "image-with-text",
       "blocks": {
@@ -733,6 +762,7 @@
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
     "image_with_text_HHyM8a",
+    "rich_text_cYkFfa",
     "image_with_text_83HE6c",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
