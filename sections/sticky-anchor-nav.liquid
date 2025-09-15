@@ -5,11 +5,11 @@
 {% endcomment %}
 
 {%- style -%}
-  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: 40; } /* prevent clipping */
+  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: 2; } /* prevent clipping */
   .sticky-anchor-nav__wrap--{{ section.id }}{
     position: -webkit-sticky;
     position: sticky;
-    top: {{ section.settings.sticky_top | default: 80 }}px;
+    top: {{ section.settings.sticky_top | default: 0 }}px;
     z-index: 40;
   }
   .sn-fixed-placeholder--{{ section.id }}{ height: 0; }
