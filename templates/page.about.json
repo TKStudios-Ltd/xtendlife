@@ -192,14 +192,45 @@
         "button_FJEgWz",
         "button_DJEXnb"
       ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 100%; padding: 2rem 0; display: flex; justify-content: center;}",
+        ".rich-text__buttons {margin-top: 0; padding: 0.75rem; width: auto;}",
+        "@media (max-width: 749px) {.rich-text__buttons {padding: 0.5rem; } .button {font-size: 1.2rem; padding: 0.5rem 1.5rem; }}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "",
+        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_d3NGdF": {
+      "type": "rich-text",
+      "blocks": {
+        "text_xWmiWB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We believe in empowering you with the best nutritional supplements to enhance your health and well-being. </p><p>Our mission is to provide high-quality products that support your lifestyle and help you thrive. From vitamins to herbal remedies, we are committed to sourcing the finest ingredients and ensuring that every product meets our rigorous standards. Join us as we explore the path to a healthier you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_xWmiWB"
+      ],
+      "custom_css": [
+        "p {font-size: 3.8rem; line-height: 1.4;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "image_with_text_EapeUP": {
@@ -619,6 +650,7 @@
     "multicolumn_A6pqFF",
     "image_banner_GTdJkt",
     "rich_text_p3DHhi",
+    "rich_text_d3NGdF",
     "image_with_text_EapeUP",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
