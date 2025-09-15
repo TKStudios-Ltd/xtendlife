@@ -23,7 +23,7 @@
   .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar{display:none;}
   .sticky-anchor-nav--{{ section.id }} .rich-text__buttons{display:inline-flex;}
   .sticky-anchor-nav--{{ section.id }} a.button.is-active{ outline:2px solid currentColor; outline-offset:1px; }
-  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding:8px 0; }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding: 3rem 0; }
   html:focus-within{ scroll-behavior:smooth; }
 {%- endstyle -%}
 
@@ -72,99 +72,74 @@
   const nav = document.getElementById('sticky-anchor-nav-{{ section.id }}');
   if (!nav) return;
 
-  const wrap = nav.closest('[data-sticky-wrap]');
-  const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
-  const offset = parseFloat(nav.dataset.scrollOffset || '80') || 80;
+  const offset = parseFloat(nav.dataset.scrollOffset || '{{ section.settings.sticky_top | default: 80 }}') || 80;
 
-  // ---- ACTIVE BUTTON SYNC ----
-  const links = Array.from(nav.querySelectorAll('a[data-anchor]'));
-  const targets = links.map(a => a.dataset.anchor).filter(Boolean).map(id => document.getElementById(id)).filter(Boolean);
+  // Collect links and normalize anchors from href="#id"
+  const links = Array.from(nav.querySelectorAll('a.button'));
+  links.forEach(a => {
+    const href = (a.getAttribute('href') || '').trim();
+    const id = href.startsWith('#') ? href.slice(1) : (a.dataset.anchor || '').trim();
+    if (id) a.dataset.anchor = id;
+  });
+
+  const getTarget = (a) => a.dataset.anchor ? document.getElementById(a.dataset.anchor) : null;
+  let targets = links.map(getTarget).filter(Boolean);
 
   const setActive = (id) => {
     links.forEach(a => {
       const on = a.dataset.anchor === id;
       a.classList.toggle('is-active', on);
-      if (on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+      if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
   };
 
-  const syncActive = () => {
-    if (!targets.length) return;
-    const y = window.scrollY + offset + 1;
-    let current = targets[0];
-    for (const el of targets) { if (el.offsetTop <= y) current = el; else break; }
-    setActive(current.id);
-  };
-
+  // Immediate visual feedback on click
   links.forEach(a => {
     a.addEventListener('click', (e) => {
-      const id = a.dataset.anchor, el = id && document.getElementById(id);
+      const id = a.dataset.anchor;
+      const el = id && document.getElementById(id);
       if (!el) return;
+      // smooth scroll with offset
       e.preventDefault();
       const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top, behavior: 'smooth' });
-      el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+      setActive(id);
+      el.setAttribute('tabindex','-1');
+      el.focus({ preventScroll: true });
     });
   });
 
-  // ---- HYBRID STICKY/FIXED HANDLING ----
-  let usingFixed = false;
+  // Recompute targets if DOM shifts (optional safety)
+  const refreshTargets = () => { targets = links.map(getTarget).filter(Boolean); };
 
-  const measure = () => {
-    // Measure the visual container we want to align to (page width)
-    const container = nav.closest('.isolate') || nav.parentElement;
-    const rect = container.getBoundingClientRect();
-    return { left: rect.left + window.pageXOffset, width: rect.width, height: nav.offsetHeight, start: (wrap.getBoundingClientRect().top + window.pageYOffset) - offset };
-  };
+  // Scroll-based active state
+  if ('IntersectionObserver' in window && targets.length) {
+    const io = new IntersectionObserver((entries) => {
+      // consider the top-most visible target as active
+      const visible = entries.filter(e => e.isIntersecting)
+                             .sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]) setActive(visible[0].target.id);
+    }, { root: null, rootMargin: `-${offset + 1}px 0px -70% 0px`, threshold: [0, 0.01, 0.25] });
 
-  const applyFixed = ({left, width, height}) => {
-    if (usingFixed) return;
-    usingFixed = true;
-    placeholder.style.height = height + 'px';
-    nav.style.position = 'fixed';
-    nav.style.top = offset + 'px';
-    nav.style.left = left + 'px';
-    nav.style.width = width + 'px';
-    nav.style.zIndex = 60;
-  };
-
-  const removeFixed = () => {
-    if (!usingFixed) return;
-    usingFixed = false;
-    placeholder.style.height = '0px';
-    nav.style.position = '';
-    nav.style.top = '';
-    nav.style.left = '';
-    nav.style.width = '';
-    nav.style.zIndex = '';
-  };
-
-  // Detect whether sticky is “actually” sticking by observing wrap’s top
-  let lastStateFixed = null;
-  const onScroll = () => {
-    const m = measure();
-    const shouldFix = window.scrollY >= m.start;
-    // If native sticky works, the nav will already be pinned by the wrapper; no harm leaving it.
-    // But if ancestor overflow breaks sticky, we enforce fixed.
-    if (shouldFix) applyFixed(m); else removeFixed();
-    syncActive();
-    lastStateFixed = shouldFix;
-  };
-
-  const onResize = () => {
-    if (!usingFixed) return;
-    const m = measure();
-    placeholder.style.height = m.height + 'px';
-    nav.style.left = m.left + 'px';
-    nav.style.width = m.width + 'px';
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onResize);
-  document.addEventListener('DOMContentLoaded', onScroll);
-  onScroll();
+    targets.forEach(t => io.observe(t));
+    window.addEventListener('resize', () => { refreshTargets(); });
+  } else {
+    // Fallback: measure on scroll
+    const onScroll = () => {
+      if (!targets.length) return;
+      const y = window.scrollY + offset + 1;
+      let current = targets[0];
+      for (const el of targets) { if (el.offsetTop <= y) current = el; else break; }
+      setActive(current.id);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => { refreshTargets(); onScroll(); });
+    document.addEventListener('DOMContentLoaded', onScroll);
+    onScroll();
+  }
 })();
 </script>
+
 
 {% schema %}
 {
