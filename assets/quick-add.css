@@ -63,7 +63,8 @@
   background-color: rgb(var(--color-background));
   overflow: hidden;
   max-width: var(--page-width);
-  width: calc(100% - 3rem);
+  width: calc(100% - 4rem);
+  border-radius: 16px;
 }
 
 .quick-add-modal__content .breadcrumbs,
