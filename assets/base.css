@@ -3395,6 +3395,14 @@ details-disclosure > details {
   }
 }
 
+.main-page-flex .rte table td {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+.main-page-flex .rte table tr th {
+  text-align: left;
+}
+
 .rte img {
   height: auto;
   max-width: 100%;
