@@ -126,6 +126,82 @@
         "show_text_below": true
       }
     },
+    "rich_text_p3DHhi": {
+      "type": "rich-text",
+      "blocks": {
+        "button_8wPYD9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Story",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_QpbfCg": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Guarantee",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_KykTaC": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Service",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_FJEgWz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Quality",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_DJEXnb": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Scientists",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_8wPYD9",
+        "button_QpbfCg",
+        "button_KykTaC",
+        "button_FJEgWz",
+        "button_DJEXnb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "image_with_text_EapeUP": {
       "type": "image-with-text",
       "blocks": {
@@ -542,6 +618,7 @@
     "rich_text_hALQxi",
     "multicolumn_A6pqFF",
     "image_banner_GTdJkt",
+    "rich_text_p3DHhi",
     "image_with_text_EapeUP",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
