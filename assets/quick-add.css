@@ -438,4 +438,5 @@ quick-add-bulk .quantity__input {
 .quick-add-modal__content-info .product.grid {
   flex-direction: column;
   padding: 0;
+  margin: 0;
 }
