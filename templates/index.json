@@ -489,8 +489,15 @@
             "heading_size": "h2"
           }
         },
+        "custom_liquid_irTPxG": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- if p.metafields.custom_fields.product_summary != blank -%}\n{%- assign product_summary = p.metafields.custom_fields.product_summary -%}\n{%- endif -%}\n{%- if product_summary != blank -%}\n<div class=\"product-hero__summary\">{{ product_summary }}</div>\n{% endif %}"
+          }
+        },
         "text_tU8LkY": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "[Metafield Description] Your comprehensive 3 step, premium range of supplements, provides all the essential nutrients for men to function optimally, fight aging and support heart, brain, and digestive health",
             "text_style": "body"
@@ -507,6 +514,7 @@
       "block_order": [
         "rating_pXjyQW",
         "title_ABDKJM",
+        "custom_liquid_irTPxG",
         "text_tU8LkY",
         "buy_buttons_7k66ND"
       ],
