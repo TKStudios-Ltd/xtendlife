@@ -1,49 +1,39 @@
 {% comment %}
-  Sticky Anchor Nav (Dawn) — v2
-  - Makes the wrapper sticky (outside of content-container) so overflow styles don't break it
+  Sticky Anchor Nav (Dawn) — v3 hybrid
+  - Uses position: sticky when possible
+  - Falls back to position: fixed with a placeholder to avoid layout jump
 {% endcomment %}
 
 {%- style -%}
-  /* Make the outer wrapper sticky (not the container that has overflow/rounded corners) */
+  #shopify-section-{{ section.id }} { overflow: visible; } /* prevent clipping */
+
   .sticky-anchor-nav__wrap--{{ section.id }}{
     position: -webkit-sticky;
     position: sticky;
     top: {{ section.settings.sticky_top | default: 80 }}px;
     z-index: 40;
   }
+  .sn-fixed-placeholder--{{ section.id }}{ height: 0; }
 
-  /* Ensure the section wrapper itself doesn’t clip the sticky */
-  #shopify-section-{{ section.id }} { overflow: visible; }
-
-  /* Optional shadow when stuck (kept on inner container) */
   .sticky-anchor-nav--{{ section.id }}.has-shadow { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
 
-  /* Inline scroller of buttons (same as before) */
-  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    white-space: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks{
+    display:flex; gap:10px; align-items:center; white-space:nowrap;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
   }
-  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar{ display: none; }
-  .sticky-anchor-nav--{{ section.id }} .rich-text__buttons{ display: inline-flex; }
-
-  /* Active state */
-  .sticky-anchor-nav--{{ section.id }} a.button.is-active{
-    outline: 2px solid currentColor;
-    outline-offset: 1px;
-  }
-
-  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding-top: 8px; padding-bottom: 8px; }
-  html:focus-within{ scroll-behavior: smooth; }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar{display:none;}
+  .sticky-anchor-nav--{{ section.id }} .rich-text__buttons{display:inline-flex;}
+  .sticky-anchor-nav--{{ section.id }} a.button.is-active{ outline:2px solid currentColor; outline-offset:1px; }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding:8px 0; }
+  html:focus-within{ scroll-behavior:smooth; }
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
-  <!-- NEW: sticky wrapper -->
-  <div class="sticky-anchor-nav__wrap--{{ section.id }}">
+  <!-- placeholder to preserve height when we switch to fixed -->
+  <div class="sn-fixed-placeholder--{{ section.id }}" aria-hidden="true"></div>
+
+  <!-- sticky wrapper (works if ancestors allow it) -->
+  <div class="sticky-anchor-nav__wrap--{{ section.id }}" data-sticky-wrap>
     <nav
       id="sticky-anchor-nav-{{ section.id }}"
       class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
@@ -63,7 +53,7 @@
                 {%- assign target = block.settings.anchor_id | handleize -%}
                 {%- if label != blank -%}
                   <a
-                    {% if target == blank %} role="link" aria-disabled="true" {% else %} href="#{{ target }}"{% endif %}
+                    {% if target == blank %}role="link" aria-disabled="true"{% else %}href="#{{ target }}"{% endif %}
                     class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}{% if forloop.first %} is-active{% endif %}"
                     data-anchor="{{ target }}"
                     {% if forloop.first %}aria-current="true"{% endif %}
@@ -79,54 +69,102 @@
 </div>
 
 <script>
-  (() => {
-    const root = document.getElementById('sticky-anchor-nav-{{ section.id }}');
-    if (!root) return;
+(() => {
+  const nav = document.getElementById('sticky-anchor-nav-{{ section.id }}');
+  if (!nav) return;
 
-    const offset = parseFloat(root.dataset.scrollOffset || '80') || 80;
-    const links = Array.from(root.querySelectorAll('a[data-anchor]'));
-    const targets = links
-      .map(a => a.dataset.anchor)
-      .filter(Boolean)
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
+  const wrap = nav.closest('[data-sticky-wrap]');
+  const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
+  const offset = parseFloat(nav.dataset.scrollOffset || '80') || 80;
 
-    const setActive = (id) => {
-      links.forEach(a => {
-        const on = a.dataset.anchor === id;
-        a.classList.toggle('is-active', on);
-        if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-      });
-    };
+  // ---- ACTIVE BUTTON SYNC ----
+  const links = Array.from(nav.querySelectorAll('a[data-anchor]'));
+  const targets = links.map(a => a.dataset.anchor).filter(Boolean).map(id => document.getElementById(id)).filter(Boolean);
 
-    const onScroll = () => {
-      if (!targets.length) return;
-      const y = window.scrollY + offset + 1;
-      let current = targets[0];
-      for (const el of targets) {
-        if (el.offsetTop <= y) current = el; else break;
-      }
-      setActive(current.id);
-    };
-
+  const setActive = (id) => {
     links.forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.dataset.anchor;
-        const el = id && document.getElementById(id);
-        if (!el) return;
-        e.preventDefault();
-        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-        el.setAttribute('tabindex','-1');
-        el.focus({ preventScroll: true });
-      });
+      const on = a.dataset.anchor === id;
+      a.classList.toggle('is-active', on);
+      if (on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
     });
+  };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    document.addEventListener('DOMContentLoaded', onScroll);
-    onScroll();
-  })();
+  const syncActive = () => {
+    if (!targets.length) return;
+    const y = window.scrollY + offset + 1;
+    let current = targets[0];
+    for (const el of targets) { if (el.offsetTop <= y) current = el; else break; }
+    setActive(current.id);
+  };
+
+  links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.dataset.anchor, el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+    });
+  });
+
+  // ---- HYBRID STICKY/FIXED HANDLING ----
+  let usingFixed = false;
+
+  const measure = () => {
+    // Measure the visual container we want to align to (page width)
+    const container = nav.closest('.isolate') || nav.parentElement;
+    const rect = container.getBoundingClientRect();
+    return { left: rect.left + window.pageXOffset, width: rect.width, height: nav.offsetHeight, start: (wrap.getBoundingClientRect().top + window.pageYOffset) - offset };
+  };
+
+  const applyFixed = ({left, width, height}) => {
+    if (usingFixed) return;
+    usingFixed = true;
+    placeholder.style.height = height + 'px';
+    nav.style.position = 'fixed';
+    nav.style.top = offset + 'px';
+    nav.style.left = left + 'px';
+    nav.style.width = width + 'px';
+    nav.style.zIndex = 60;
+  };
+
+  const removeFixed = () => {
+    if (!usingFixed) return;
+    usingFixed = false;
+    placeholder.style.height = '0px';
+    nav.style.position = '';
+    nav.style.top = '';
+    nav.style.left = '';
+    nav.style.width = '';
+    nav.style.zIndex = '';
+  };
+
+  // Detect whether sticky is “actually” sticking by observing wrap’s top
+  let lastStateFixed = null;
+  const onScroll = () => {
+    const m = measure();
+    const shouldFix = window.scrollY >= m.start;
+    // If native sticky works, the nav will already be pinned by the wrapper; no harm leaving it.
+    // But if ancestor overflow breaks sticky, we enforce fixed.
+    if (shouldFix) applyFixed(m); else removeFixed();
+    syncActive();
+    lastStateFixed = shouldFix;
+  };
+
+  const onResize = () => {
+    if (!usingFixed) return;
+    const m = measure();
+    placeholder.style.height = m.height + 'px';
+    nav.style.left = m.left + 'px';
+    nav.style.width = m.width + 'px';
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
+  document.addEventListener('DOMContentLoaded', onScroll);
+  onScroll();
+})();
 </script>
 
 {% schema %}
