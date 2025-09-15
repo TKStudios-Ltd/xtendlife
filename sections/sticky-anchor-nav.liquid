@@ -79,57 +79,47 @@
   const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
   const offset = parseFloat(nav.dataset.scrollOffset || '{{ section.settings.sticky_top | default: 80 }}') || 80;
 
-  // ---------- LINKS & TARGETS (robust) ----------
+  // --- LINKS & TARGETS (href="#id" or data-anchor) ---
   const links = Array.from(nav.querySelectorAll('a.button[href^="#"], a[data-anchor]'));
-  const getAnchorFromLink = (a) => {
+  const getId = (a) => {
     const href = (a.getAttribute('href') || '').trim();
-    if (href.startsWith('#') && href.length > 1) return href.slice(1);
-    return (a.dataset.anchor || '').trim();
+    return href.startsWith('#') && href.length > 1 ? href.slice(1) : (a.dataset.anchor || '').trim();
   };
-  // normalize data-anchor so code below can rely on it
-  links.forEach(a => { const id = getAnchorFromLink(a); if (id) a.dataset.anchor = id; });
+  // normalize to data-anchor for consistency
+  links.forEach(a => { const id = getId(a); if (id) a.dataset.anchor = id; });
 
-  let targets = [];
-  const refreshTargets = () => {
-    targets = links
-      .map(a => document.getElementById(a.dataset.anchor))
-      .filter(Boolean);
-  };
-
-  const setActive = (id) => {
-    links.forEach(a => {
-      const on = a.dataset.anchor === id;
-      a.classList.toggle('is-active', on);
-      if (on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+  // --- ACTIVE: click-only ---
+  const makeActive = (clicked) => {
+    links.forEach(l => {
+      const on = l === clicked;
+      l.classList.toggle('is-active', on);
+      if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
     });
   };
 
-  // ---------- CLICK: smooth scroll + immediate active ----------
+  // init: if none is active, set the first one
+  const initActive = () => {
+    const preset = links.find(l => l.classList.contains('is-active'));
+    makeActive(preset || links[0]);
+  };
+  initActive();
+
+  // Smooth scroll with offset + persist active on click
   links.forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.dataset.anchor;
       const el = id && document.getElementById(id);
-      if (!el) return;
-      e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-      setActive(id); // immediate feedback
-      try { history.replaceState(null, '', '#' + id); } catch (_e) {}
-      el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+      if (el) {
+        e.preventDefault();
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+      }
+      makeActive(a);
     });
   });
 
-  // ---------- SCROLL: compute current via offset ----------
-  const syncActive = () => {
-    if (!targets.length) refreshTargets(); // handles late DOM parse
-    if (!targets.length) return;
-    const y = window.scrollY + offset + 1;
-    let current = targets[0];
-    for (const el of targets) { if (el.offsetTop <= y) current = el; else break; }
-    setActive(current.id);
-  };
-
-  // ---------- HYBRID STICKY/FIXED ----------
+  // --- HYBRID STICKY/FIXED (unchanged, no active-on-scroll) ---
   let usingFixed = false;
 
   const measure = () => {
@@ -170,7 +160,6 @@
     const m = measure();
     const shouldFix = window.scrollY >= m.start;
     if (shouldFix) applyFixed(m); else removeFixed();
-    syncActive();
   };
 
   const onResize = () => {
@@ -181,18 +170,14 @@
     nav.style.width = m.width + 'px';
   };
 
-  // Initializations
-  // Wait for rest of DOM (targets below nav) to exist before first sync
-  document.addEventListener('DOMContentLoaded', () => { refreshTargets(); syncActive(); });
-  window.addEventListener('load', () => { refreshTargets(); syncActive(); });
-
+  document.addEventListener('DOMContentLoaded', onScroll);
+  window.addEventListener('load', onScroll);
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => { onResize(); syncActive(); });
-
-  // Kick once in case everything is already there
-  refreshTargets(); onScroll();
+  window.addEventListener('resize', onResize);
+  onScroll();
 })();
 </script>
+
 
 {% schema %}
 {
