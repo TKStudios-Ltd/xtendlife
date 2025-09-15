@@ -81,7 +81,7 @@
     overflow-y: auto;
   }
   quick-add-modal .quick-add-modal__toggle {
-    top: 13rem;
+    top: 11rem;
     right: 4rem;
   }
 }
@@ -266,7 +266,7 @@
 }
 
 .quick-add-modal__toggle {
-  background-color: none;
+  background-color: transparent;
   border: none;
   border-radius: 0;
   color: rgba(var(--color-foreground), 1);
