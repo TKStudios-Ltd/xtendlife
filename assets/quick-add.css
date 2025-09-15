@@ -96,6 +96,9 @@
 .quick-add-modal__content img {
   max-width: 160px;
   height: 100%;
+  background: rgba(244, 248, 251, 1);
+  padding: 2.5rem 0;
+  border-radius: 8px;
 }
 
 .quick-add-modal__content-info.quick-add-modal__content-info--bulk {
