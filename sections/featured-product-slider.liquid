@@ -209,7 +209,7 @@
                             <h3 class="fps-{{ section.id }}-title {{ block.settings.heading_size }}">
                               <a href="{{ p.url }}">{{ p.title | escape }}</a>
                             </h3>
-                            <span class="product__subheading">{{ product.metafields.custom_fields.option_text | remove: 'Size:' }}</span>
+                            <span class="product__subheading">{{ p.metafields.custom_fields.option_text | remove: 'Size:' }}</span>
 
                           {%- when 'price' -%}
                             <div id="price-{{ section.id }}-{{ pid }}" class="fps-{{ section.id }}-meta" role="status">
