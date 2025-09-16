@@ -211,7 +211,7 @@
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
         "p {font-size: 3.8rem; line-height: 1.4;}",
-        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.75rem 2rem; display: inline; margin: 0px 1.5rem 0 0;}",
         "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
