@@ -52,3 +52,9 @@
     grid-column-gap: 2rem;
   }
 }
+
+#ContactForm {
+  background: rgba(31, 25, 70, 1);
+  padding: 1rem;
+  border-radius: 20px;
+}
