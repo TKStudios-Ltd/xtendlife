@@ -47,12 +47,16 @@
   #cl-pagination-{{ section.id }}.swiper-pagination-progressbar {
     margin-top: 4rem;
   }
-  /* Show titles on desktop; Dawn defaults to hover-only */
-  .section-{{ section.id }}-padding .collection-list-desktop .card__heading,
-  .section-{{ section.id }}-padding .collection-list-desktop .card__heading .icon-wrap {
-    opacity: 1;
-    transform: none;
-  }
+  /* Force reveal of card content on desktop */
+.section-{{ section.id }}-padding .collection-list-desktop .card__content,
+.section-{{ section.id }}-padding .collection-list-desktop .card__information,
+.section-{{ section.id }}-padding .collection-list-desktop .card__heading,
+.section-{{ section.id }}-padding .collection-list-desktop .card__heading .icon-wrap {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
 
 {%- endstyle -%}
 
@@ -169,6 +173,32 @@
 <script>
 (function(){
   const el = document.querySelector('#cl-swiper-{{ section.id }}');
+
+console.group('FeaturedArticleList[{{ section.id }}]');
+console.log('Section ID:', '{{ section.id }}');
+console.log('Blocks count:', {{ section.blocks.size }});
+
+const items = [
+  {% for block in section.blocks -%}
+  {
+    i: {{ forloop.index0 }},
+    hasArt: {% if block.settings.article %}true{% else %}false{% endif %},
+    url: {{ block.settings.article.url | default: '' | json }},
+    title: {{ block.settings.custom_title | default: block.settings.article.title | default: 'Select an article' | json }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+console.table(items);
+
+
+// Check computed styles of headings (desktop)
+document.querySelectorAll('.section-{{ section.id }}-padding .collection-list-desktop .card__information').forEach((el, i) => {
+  const cs = getComputedStyle(el);
+  console.log('card__information['+i+'] opacity:', cs.opacity, 'transform:', cs.transform, 'visibility:', cs.visibility, 'height:', el.offsetHeight);
+});
+console.groupEnd();
+
+
   if (!el) return;
 
   function init(){
