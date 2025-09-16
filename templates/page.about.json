@@ -377,7 +377,8 @@
     "image_banner_CjmVRz": {
       "type": "image-banner",
       "custom_css": [
-        ".page-width--wide {max-width: 114rem; margin-bottom: 8rem;}"
+        ".page-width--wide {max-width: 114rem; margin-bottom: 8rem;}",
+        "@media screen and (max-width: 749px) {.banner__media {height: 60vw; } .page-width--wide {margin-bottom: 4rem !important; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
