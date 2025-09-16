@@ -481,7 +481,7 @@
       ],
       "custom_css": [
         ".image-scroll-section {position: relative; z-index: 1;}",
-        "@media (min-width: 1240px) {.image-scroll-section {margin-top: -200px; }}"
+        "@media (min-width: 1240px) {.image-scroll-section {margin-top: -200px; margin-bottom: 0 !important; }}"
       ],
       "name": "Image Infinite Scroll",
       "settings": {
@@ -492,7 +492,7 @@
         "repeat_count": 3,
         "image_gap": 16,
         "padding_top": 0,
-        "padding_bottom": 100
+        "padding_bottom": 40
       }
     },
     "rich_text_cYkFfa": {
