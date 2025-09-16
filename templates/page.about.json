@@ -444,7 +444,8 @@
       "custom_css": [
         "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; } p {font-size: 2rem; } .image-with-text__grid--reverse {flex-direction: row; } .image-with-text__text-item > .page-width {margin: 0 auto 0 0; } .image-with-text__media-item {margin-right: 0; }}",
         "@media (min-width: 1400px) {.image-with-text__media-item {margin-left: calc((100vw - 1400px) / -2); }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; }}"
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; }}",
+        ".image-with-text {z-index: 2;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -461,7 +462,7 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 20,
-        "padding_bottom": 0
+        "padding_bottom": 80
       }
     },
     "image_infinite_scroll_4bijFC": {
