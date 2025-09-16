@@ -762,7 +762,7 @@
   top: 15px;
   translate: -50% -50%;
 }
-.custom--badge.enhance--badge::before {
+/* .custom--badge.enhance--badge::before {
   content: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Enhance_Brown.svg');
 }
 .custom--badge.soothe--badge::before {
@@ -773,4 +773,8 @@
 }
 .custom--badge.defend--badge::before {
   content: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Defend_Brown.svg');
+} */
+
+.collection-list-wrapper .swiper-slide-next .card .card__inner .card__media {
+  opacity: 0.2;
 }
