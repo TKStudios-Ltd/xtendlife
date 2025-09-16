@@ -325,14 +325,18 @@
         "hotspot_e97iLc"
       ],
       "custom_css": [
-        ".hotspots__pin-label {width: 250px;}"
+        ".hotspots__pin-label {width: 250px;}",
+        ".hotspots__grid {align-items: center;}",
+        ".hotspots__media {order: 1;}",
+        ".hotspots__panel {order: 2;}",
+        "@media (min-width: 750px) {.hotspots__panel-desc p {font-size: 20px; line-height: 1.4; }}"
       ],
       "name": "Image Hotspots (Tooltips)",
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
         "media_max_width": 550,
-        "panel_bg": "#F2F6F9",
-        "panel_text": "#111111",
+        "panel_bg": "#f2f6f9",
+        "panel_text": "#1f1946",
         "color_scheme": "color-scheme-1"
       }
     },
