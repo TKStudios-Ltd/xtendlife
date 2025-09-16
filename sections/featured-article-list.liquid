@@ -84,45 +84,43 @@
                         <div class="card-wrapper animate-arrow collection-card-wrapper">
                             <div class="card card--standard card--media" style="--ratio-percent: {{ ratio_percent }}%;">
                                 <div class="card__inner gradient ratio" style="--ratio-percent: {{ ratio_percent }}%; background-color: transparent !important; transform: none !important;">
-                                <div class="card__media">
-                                    <div class="media media--transparent media--hover-effect">
-                                    {%- if img -%}
-                                        {{ img | image_url: width: 750 | image_tag: loading: 'lazy', class: 'motion-reduce', alt: alt_text, widths: '360, 533, 720, 750, 940, 1200' }}
-                                    {%- else -%}
-                                        {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
-                                    {%- endif -%}
-                                    </div>
-                                </div>
-
-                                <div class="card__content">
-                                    <div class="card__information">
-                                    <h3 class="card__heading">
-                                        {%- if art -%}
-                                        <a href="{{ art.url }}" class="full-unstyled-link">{{ block.settings.custom_title | default: art.title }}</a>
+                                    <div class="card__media">
+                                        <div class="media media--transparent media--hover-effect">
+                                        {%- if img -%}
+                                            {{ img | image_url: width: 750 | image_tag: loading: 'lazy', class: 'motion-reduce', alt: alt_text, widths: '360, 533, 720, 750, 940, 1200' }}
                                         {%- else -%}
-                                        <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                            {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
                                         {%- endif -%}
-                                    </h3>
-                                    {%- if art -%}
-                                        <p class="card__caption">{{ art.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
-                                    {%- endif -%}
+                                        </div>
                                     </div>
-                                </div>
-                                </div>
-
-                                <div class="card__content">
-                                <div class="card__information">
-                                    <h3 class="card__heading h2">
-                                    {%- if art -%}
-                                        <a href="{{ art.url }}" class="full-unstyled-link">
-                                        {{ block.settings.custom_title | default: art.title }}
-                                        <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
-                                        </a>
-                                    {%- else -%}
-                                        <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
-                                    {%- endif -%}
-                                    </h3>
-                                </div>
+                                    <div class="card__content">
+                                        <div class="card__information">
+                                        <h3 class="card__heading">
+                                            {%- if art -%}
+                                            <a href="{{ art.url }}" class="full-unstyled-link">{{ block.settings.custom_title | default: art.title }}</a>
+                                            {%- else -%}
+                                            <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                            {%- endif -%}
+                                        </h3>
+                                        {%- if art -%}
+                                            <p class="card__caption">{{ art.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+                                        {%- endif -%}
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="card__content">
+                                    <div class="card__information">
+                                        <h3 class="card__heading h2">
+                                        {%- if art -%}
+                                            <a href="{{ art.url }}" class="full-unstyled-link">
+                                            {{ block.settings.custom_title | default: art.title }}
+                                            <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                                            </a>
+                                        {%- else -%}
+                                            <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                        {%- endif -%}
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
