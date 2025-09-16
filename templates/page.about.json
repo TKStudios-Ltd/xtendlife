@@ -329,7 +329,8 @@
         ".hotspots__grid {align-items: center;}",
         ".hotspots__media {order: 1;}",
         ".hotspots__panel {order: 2;}",
-        "@media (min-width: 750px) {.hotspots__panel-desc p {font-size: 20px; line-height: 1.4; }}"
+        "@media (min-width: 750px) {.hotspots__panel-desc p {font-size: 20px; line-height: 1.4; } .page-width {margin-bottom: 8rem; }}",
+        ".page-width {margin-bottom: 4rem;}"
       ],
       "name": "Image Hotspots (Tooltips)",
       "settings": {
@@ -374,7 +375,7 @@
     "image_banner_CjmVRz": {
       "type": "image-banner",
       "custom_css": [
-        ".page-width--wide {max-width: 114rem; margin-bottom: 6rem;}"
+        ".page-width--wide {max-width: 114rem; margin-bottom: 8rem;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -420,7 +421,7 @@
         "anchor_id": "our-quality",
         "anchor_offset": 100,
         "padding_top": 100,
-        "padding_bottom": 100
+        "padding_bottom": 80
       }
     },
     "image_with_text_EapeUP": {
