@@ -52,6 +52,7 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-list-wrapper page-width isolate{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
+    <div class="pw-border">  
     {%- unless section.settings.title == blank -%}
       <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin-only">
         <h2
@@ -159,6 +160,7 @@
         </a>
       </div>
     {%- endif -%}
+    </div>
   </div>
 </div>
 
