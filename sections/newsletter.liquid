@@ -60,11 +60,6 @@
       {% endif %}
     </div>
     <div class="newsletter__right">
-      {% if section.settings.display_klaviyoform and section.settings.code_klaviyoform != blank %}
-        <div class="newsletter__klaviyo-form" data-form-source="klaviyo">
-          {{ section.settings.code_klaviyoform }}
-        </div>
-      {% else %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when '@app' -%}
@@ -95,6 +90,11 @@
               </div>
 
             {%- when 'email_form' -%}
+              {% if section.settings.display_klaviyoform and section.settings.code_klaviyoform != blank %}
+                <div class="newsletter__klaviyo-form" data-form-source="klaviyo">
+                  {{ section.settings.code_klaviyoform }}
+                </div>
+              {% else %}
               <div {{ block.shopify_attributes }}>
                 {% form 'customer', class: 'newsletter-form' %}
                   <input type="hidden" name="contact[tags]" value="newsletter">
@@ -166,9 +166,9 @@
                   {%- endif -%}
                 {% endform %}
               </div>
+              {% endif %}
           {%- endcase -%}
         {%- endfor -%}
-      {% endif %}
     </div> <!-- .newsletter__right -->
   </div> <!-- .newsletter__wrapper -->
 </div>
