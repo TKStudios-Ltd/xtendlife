@@ -31,6 +31,89 @@
         "padding_bottom": 80
       }
     },
+    "contact_details_e9DUcV": {
+      "type": "contact-details",
+      "blocks": {
+        "location_jzUxTf": {
+          "type": "location",
+          "settings": {
+            "location": "USA & Canada",
+            "details": "<p>Phone Toll Free<br/>1 888 487 9304<br/>Sun–Thu 3:00pm–10:30pm (USEST)</p>"
+          }
+        },
+        "location_AX7BXH": {
+          "type": "location",
+          "settings": {
+            "location": "Australia",
+            "details": "<p>Phone Toll Free <br/>1 800 983 635 <br/>Mon-Fri 5:00am-1:30pm (AEST)</p>"
+          }
+        },
+        "location_jqCyym": {
+          "type": "location",
+          "settings": {
+            "location": "New Zealand",
+            "details": "<p>Phone Toll Free <br/>0508 983 635 <br/>or +64 3 384 2116 <br/>Mon-Fri 8:00am-4:30pm (NZT)</p>"
+          }
+        },
+        "location_X9UHRK": {
+          "type": "location",
+          "settings": {
+            "location": "United Kingdom",
+            "details": "<p>Phone Toll Free <br/>0800 520 0311 <br/>Sun-Thu 8:00pm-4:30am (UKEST)</p>"
+          }
+        },
+        "location_rm9HUP": {
+          "type": "location",
+          "settings": {
+            "location": "Thailand Distributors",
+            "details": "<p>Phone +66 2 0260140 <br/>Mobile +66 8 14478492 <br/>Exclusive Natural Product Company Limited, <br/>Rama 9 Road, <br/>G Tower (Level 32), Huay Kwang District, <br/>Huay Kwang Bangkok 10310, Thailand</p>"
+          }
+        },
+        "location_qRMg8h": {
+          "type": "location",
+          "settings": {
+            "location": "Rest of the World",
+            "details": "<p>Phone Toll Free <br/>0508 983 635 <br/>or +64 3 384 2116 <br/>Mon-Fri 8:00am-4:30pm (NZT)</p>"
+          }
+        },
+        "location_WKM3xL": {
+          "type": "location",
+          "settings": {
+            "location": "Head Office",
+            "details": "<p>12 Mary Muller Dr. Hillsborough, <br/>Christchurch 8022, New Zealand</p>"
+          }
+        },
+        "location_pda6Yh": {
+          "type": "location",
+          "settings": {
+            "location": "Mailing Address",
+            "details": "<p>PO Box 19640 <br/>Woolston <br/>Christchurch 8241 <br/>New Zealand</p>"
+          }
+        }
+      },
+      "block_order": [
+        "location_jzUxTf",
+        "location_AX7BXH",
+        "location_jqCyym",
+        "location_X9UHRK",
+        "location_rm9HUP",
+        "location_qRMg8h",
+        "location_WKM3xL",
+        "location_pda6Yh"
+      ],
+      "name": "Contact details",
+      "settings": {
+        "heading": "Telephone and LiveChat",
+        "heading_size": "h2",
+        "body": "<p>Our office hours in New Zealand are 8:00am - 4:30pm Monday to Friday New Zealand time (Saturday - Sunday Closed). Note this is 18 hours ahead of USA Eastern Standard Time and 12 hours ahead of GMT (not taking into account any potential daylight savings time changes).</p><p>After office hours, your call will be diverted to our voicemail system where you can leave us a message. All customers who leave us a message will be responded to by phone or email the next business day.</p>",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
     "newsletter_F83hpp": {
       "type": "newsletter",
       "blocks": {
@@ -78,6 +161,7 @@
   "order": [
     "main",
     "contact_form_n64yQh",
+    "contact_details_e9DUcV",
     "newsletter_F83hpp"
   ]
 }
