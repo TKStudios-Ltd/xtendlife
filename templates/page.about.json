@@ -481,7 +481,7 @@
       ],
       "custom_css": [
         ".image-scroll-section {position: relative; z-index: 1;}",
-        "@media (min-width: 1240px) {.image-scroll-section {margin-top: -200px; margin-bottom: 0 !important; }}"
+        "@media (min-width: 1240px) {.image-scroll-section {margin-top: -200px; margin-bottom: 4rem !important; }}"
       ],
       "name": "Image Infinite Scroll",
       "settings": {
