@@ -775,6 +775,7 @@
   content: url('https://cdn.shopify.com/s/files/1/0013/7445/3812/files/Wedd_Defend_Brown.svg');
 } */
 
-.collection-list-wrapper .swiper-slide-next .card .card__inner .card__media {
+.collection-list-wrapper .swiper-slide-next .card .card__inner .card__media,
+.collection-list-wrapper .swiper-slide-prev .card .card__inner .card__media {
   opacity: 0.2;
 }
