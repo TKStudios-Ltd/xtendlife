@@ -226,6 +226,69 @@
         "padding_bottom": 80
       }
     },
+    "collage_QFYQLH": {
+      "type": "collage",
+      "blocks": {
+        "image_9NWcxX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/a062036b4a5f11574416789412928d61021aaae7.jpg"
+          }
+        },
+        "image_aabbLN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSF6381_2200x_3_1_2196566d-d45f-450a-b74d-5cd62a6bf981.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_9NWcxX",
+        "image_aabbLN"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_pTcALB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9XJ4Lg": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Guarantee</strong> We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9XJ4Lg"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-guarantee",
+        "anchor_offset": 90,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "image_with_text_EapeUP": {
       "type": "image-with-text",
       "blocks": {
@@ -270,37 +333,6 @@
         "color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 60
-      }
-    },
-    "rich_text_pTcALB": {
-      "type": "rich-text",
-      "blocks": {
-        "text_9XJ4Lg": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Our Guarantee</strong> We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_9XJ4Lg"
-      ],
-      "custom_css": [
-        ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 3.8rem; line-height: 1.4;}",
-        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.6rem !important; font-weight: 500; padding: 1rem 2.25rem; display: inline; margin: 0px 2rem 0 0;}",
-        "@media (max-width: 749px) {p {font-size: 2rem; }}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "left",
-        "color_scheme": "",
-        "full_width": false,
-        "anchor_id": "our-guarantee",
-        "anchor_offset": 90,
-        "padding_top": 80,
-        "padding_bottom": 80
       }
     },
     "rich_text_D7wric": {
@@ -770,8 +802,9 @@
     "image_banner_GTdJkt",
     "sticky_anchor_nav_hYGgLL",
     "rich_text_d3NGdF",
-    "image_with_text_EapeUP",
+    "collage_QFYQLH",
     "rich_text_pTcALB",
+    "image_with_text_EapeUP",
     "rich_text_D7wric",
     "rich_text_XRCKpg",
     "rich_text_YewMnP",
