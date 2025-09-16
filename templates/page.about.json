@@ -461,7 +461,33 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 20,
-        "padding_bottom": 100
+        "padding_bottom": 0
+      }
+    },
+    "image_infinite_scroll_4bijFC": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_HkePd8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-07-30_084250_2.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_HkePd8"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#ffffff",
+        "image_size_constraint": "height",
+        "image_max_size": 100,
+        "scroll_speed": 20,
+        "repeat_count": 3,
+        "image_gap": 16,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "rich_text_cYkFfa": {
@@ -678,6 +704,7 @@
     "image_banner_CjmVRz",
     "rich_text_XRCKpg",
     "image_with_text_EapeUP",
+    "image_infinite_scroll_4bijFC",
     "rich_text_cYkFfa",
     "multicolumn_KgjtXM",
     "newsletter_qKtmmH",
