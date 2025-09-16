@@ -10,6 +10,9 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+    .contact-details__body {
+        margin: 0 4rem 4rem 0;
+    }
   }
   /* Layout */
   .contact-details {
@@ -71,7 +74,7 @@
       <div class="contact-details__list">
         {%- if section.settings.body != blank -%}
           <div
-            class="subtitle rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="contact-details__body subtitle rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: 2;"{% endif %}
           >
             {{ section.settings.body }}
