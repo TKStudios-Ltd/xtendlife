@@ -42,7 +42,7 @@
       data-scroll-offset="{{ section.settings.scroll_offset | default: section.settings.sticky_top | default: 80 }}"
       aria-label="Section navigation"
     >
-      <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+      <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}">
         <div class="rich-text__blocks {{ section.settings.content_alignment }}">
           {%- assign order = 0 -%}
           {%- for block in section.blocks -%}
