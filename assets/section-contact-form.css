@@ -55,9 +55,12 @@
 
 #ContactForm {
   background: rgba(31, 25, 70, 1);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 20px;
 }
 #ContactForm .field__input {
   background: white;
+}
+#ContactForm .text-area {
+  min-height: 15rem;
 }
