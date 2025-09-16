@@ -292,6 +292,47 @@
         "padding_bottom": 80
       }
     },
+    "image_hotspots_9TbyJz": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_bcKaTz": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Quality Ingredients",
+            "desc": "<p>We guarantee that you will always get the purest and highest quality ingredients in whatever products you purchase from Xtendlife. This applies equally to all categories of products, whether they are dietary supplements, superfoods or skincare products.</p>",
+            "link_label": "Learn more",
+            "link_url": "",
+            "x": 75,
+            "y": 60,
+            "open_default": true
+          }
+        },
+        "hotspot_e97iLc": {
+          "type": "hotspot",
+          "settings": {
+            "title": "True to label",
+            "desc": "<p>Short description for this ingredient.</p>",
+            "link_label": "Learn more",
+            "link_url": "",
+            "x": 50,
+            "y": 32,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_bcKaTz",
+        "hotspot_e97iLc"
+      ],
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 900,
+        "panel_bg": "#F2F6F9",
+        "panel_text": "#111111",
+        "color_scheme": "color-scheme-1"
+      }
+    },
     "image_with_text_EapeUP": {
       "type": "image-with-text",
       "blocks": {
@@ -807,6 +848,7 @@
     "rich_text_d3NGdF",
     "collage_QFYQLH",
     "rich_text_pTcALB",
+    "image_hotspots_9TbyJz",
     "image_with_text_EapeUP",
     "rich_text_D7wric",
     "rich_text_XRCKpg",
