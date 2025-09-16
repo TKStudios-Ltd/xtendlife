@@ -606,6 +606,7 @@
         "paragraph_RxdmFE",
         "email_form_hDdFMH"
       ],
+      "disabled": true,
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
@@ -620,15 +621,8 @@
         "heading_hRLdBY": {
           "type": "heading",
           "settings": {
-            "heading": "Life Long. Life Strong.",
+            "heading": "Xtendlife has grown into a global brand, trusted by over 400,000 customers. Our commitment to science ensures that our formulas deliver the best results to our customers, helping them live longer and healthier.",
             "heading_size": "h1"
-          }
-        },
-        "text_VhCp7b": {
-          "type": "text",
-          "settings": {
-            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
-            "text_style": "subtitle"
           }
         },
         "buttons_XN8C3J": {
@@ -645,13 +639,12 @@
       },
       "block_order": [
         "heading_hRLdBY",
-        "text_VhCp7b",
         "buttons_XN8C3J"
       ],
       "custom_css": [
         ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: space-between;}",
         "h2 {line-height: 1.2;}",
-        ".subtitle {max-width: 500px;}",
         "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
@@ -661,8 +654,8 @@
         "image_height": "large",
         "wide_container": false,
         "image_behavior": "none",
-        "desktop_content_position": "top-left",
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
