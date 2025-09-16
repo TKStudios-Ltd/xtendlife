@@ -416,6 +416,9 @@
     },
     "image_banner_CjmVRz": {
       "type": "image-banner",
+      "custom_css": [
+        ".page-width--wide {max-width: 110rem;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/455d449bea39f56653446bf558e064366adeb8c7.png",
