@@ -66,11 +66,8 @@
           </div>
         </div>
       {%- elsif card_collection.featured_image -%}
-        <div class="card__media media--collection-hover">
-          <div
-            class="media media--transparent"
-            style="{% if background_color != blank %}background-color: {{ background_color }};{% endif %}"
-          >
+        <div class="card__media">
+          <div class="media media--transparent media--hover-effect">
             <img
               src="{{ card_collection.featured_image | image_url: width: 750 }}"
               alt="{{ card_collection.featured_image.alt | escape }}"
