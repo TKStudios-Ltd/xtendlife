@@ -17,16 +17,16 @@
     display: flex;
     gap: 6rem;
     align-items: start;
+    flex-direction: column;
   }
   @media (min-width: 990px) {
     .article-list {
-      /* grid-template-columns: minmax(280px, 340px) 1fr; */
+      flex-direction: row;
       gap: 2rem;
     }
-  }
-
-  .article-list__title {
-    flex: 0 0 calc(25% - 2rem);
+    .article-list__title {
+        flex: 0 0 calc(25% - 2rem);
+    }
   }
 
   .article-list__items {
