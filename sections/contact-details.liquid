@@ -1,0 +1,224 @@
+{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  [data-anchor-target] {
+    scroll-margin-top: {{ section.settings.anchor_offset | default: 120 }}px;
+  }
+
+  /* Layout */
+  .contact-details {
+    display: grid;
+    gap: 2rem;
+  }
+  @media (min-width: 990px) {
+    .contact-details {
+      grid-template-columns: minmax(220px, 280px) 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .contact-details__intro .contact-details__title {
+    margin: 0 0 1.2rem;
+  }
+
+  .contact-details__list {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .contact-details__item {
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(var(--color-foreground), 0.12);
+  }
+
+  .contact-details__item:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .contact-details__location {
+    font-weight: 600;
+    margin: 0 0 .4rem;
+  }
+
+  .contact-details__details p {
+    margin: .25rem 0;
+  }
+{%- endstyle -%}
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div class="content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+    <div class="contact-details rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+
+      <!-- Left: Title + Body -->
+      <div class="contact-details__intro {{ section.settings.content_alignment }}">
+        {%- if section.settings.heading != blank -%}
+          <h2
+            class="contact-details__title rte inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: 1;"{% endif %}
+          >
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div
+            class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: 2;"{% endif %}
+          >
+            {{ section.settings.body }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Right: Locations -->
+      <div class="contact-details__list">
+        {%- for block in section.blocks -%}
+          <div class="contact-details__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+               {{ block.shopify_attributes }}
+               {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
+            {%- if block.settings.location != blank -%}
+              <h3 class="contact-details__location">{{ block.settings.location | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.details != blank -%}
+              <div class="contact-details__details rte">
+                {{ block.settings.details }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact details",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Telephone and LiveChat"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "Display" },
+        { "value": "hxl", "label": "XL" },
+        { "value": "hxxl", "label": "XXL" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Our office hours in New Zealand are 8:00am - 4:30pm Monday to Friday (NZT). After hours, your call will divert to voicemail and we will respond the next business day.</p>"
+    },
+
+    { "type": "header", "content": "Layout & style" },
+
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "label": "Desktop content position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "Make section full width"
+    },
+
+    { "type": "header", "content": "Padding" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Bottom padding",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location name",
+          "default": "USA & Canada"
+        },
+        {
+          "type": "richtext",
+          "id": "details",
+          "label": "Details",
+          "default": "<p>Phone Toll Free<br/>1 888 487 9304<br/>Sun–Thu 3:00pm–10:30pm (USEST)</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact details",
+      "blocks": [
+        { "type": "location" },
+        { "type": "location" },
+        { "type": "location" }
+      ]
+    }
+  ]
+}
+{% endschema %}
