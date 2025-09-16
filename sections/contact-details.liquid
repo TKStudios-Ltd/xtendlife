@@ -59,6 +59,7 @@
   @media (max-width: 749px) {
     .contact-details__intro .contact-details__title {
         font-size: 2.4rem;
+        max-width: none;
     }
   }
 {%- endstyle -%}
@@ -94,10 +95,10 @@
                {{ block.shopify_attributes }}
                {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
             {%- if block.settings.location != blank -%}
-              <h4 class="contact-details__location">{{ block.settings.location | escape }}</h4>
+              <h4 class="contact-details__location subtitle rte">{{ block.settings.location | escape }}</h4>
             {%- endif -%}
             {%- if block.settings.details != blank -%}
-              <div class="contact-details__details rte">
+              <div class="contact-details__details subtitle rte">
                 {{ block.settings.details }}
               </div>
             {%- endif -%}
