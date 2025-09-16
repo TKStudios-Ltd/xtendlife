@@ -434,7 +434,7 @@
         "text_QNdBXj"
       ],
       "custom_css": [
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; } p {font-size: 2rem; }}",
         "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
