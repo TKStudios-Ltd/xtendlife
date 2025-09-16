@@ -289,7 +289,7 @@
         "anchor_id": "our-guarantee",
         "anchor_offset": 90,
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 100
       }
     },
     "image_hotspots_9TbyJz": {
@@ -358,6 +358,7 @@
         "heading_cpFMj7",
         "text_QNdBXj"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 3.6rem; line-height: 1.15;}",
@@ -409,8 +410,26 @@
         "full_width": false,
         "anchor_id": "our-service",
         "anchor_offset": 100,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_CjmVRz": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/455d449bea39f56653446bf558e064366adeb8c7.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     },
     "rich_text_XRCKpg": {
@@ -854,6 +873,7 @@
     "image_hotspots_9TbyJz",
     "image_with_text_EapeUP",
     "rich_text_D7wric",
+    "image_banner_CjmVRz",
     "rich_text_XRCKpg",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
