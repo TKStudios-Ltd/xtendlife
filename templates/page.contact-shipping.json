@@ -19,16 +19,14 @@
     },
     "contact_form_n64yQh": {
       "type": "contact-form",
-      "custom_css": [
-        ".page-width {margin-top: 2rem;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.contact-form.presets.name",
       "settings": {
         "heading": "Old fashioned service",
         "heading_size": "h1",
         "color_scheme": "",
         "padding_top": 100,
-        "padding_bottom": 36
+        "padding_bottom": 80
       }
     },
     "newsletter_F83hpp": {
