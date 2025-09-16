@@ -246,6 +246,9 @@
         "image_9NWcxX",
         "image_aabbLN"
       ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.collage {grid-template-columns: repeat(2, minmax(0, 1fr)); } .collage__item--left:nth-child(3n-1) {grid-column-start: 2; } .collage__item--left:nth-child(3n-1):last-child {grid-row: span 1; } .collage__item--left:nth-child(3n-2) {grid-column: 1 / span 1; grid-row: span 1; }}"
+      ],
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "",
