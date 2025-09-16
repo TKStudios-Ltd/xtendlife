@@ -12,7 +12,8 @@
     "main": {
       "type": "main-page",
       "custom_css": [
-        "p {margin: 2rem 0; font-size: 3.2rem; line-height: 1.3;}"
+        "p {margin: 2rem 0; font-size: 3.2rem; line-height: 1.3;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
       ],
       "settings": {
         "padding_top": 100,
