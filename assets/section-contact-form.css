@@ -65,6 +65,6 @@
   min-height: 15rem;
 }
 #ContactForm .contact__button .button {
-  color: rgba(var(--color-button);
-  background-color: #rgba(95, 196, 255, 1);
+  color: rgba(var(--color-button));
+  background-color: rgba(95, 196, 255, 1);
 }
