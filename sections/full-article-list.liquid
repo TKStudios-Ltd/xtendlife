@@ -59,10 +59,10 @@
 
         <div>
           {%- if section.settings.blog -%}
-            {%- assign all_sorted = section.settings.blog.articles | sort: 'title' -%}
-            {%- paginate all_sorted by 1000 -%}
+            {%- paginate section.settings.blog.articles by 1000 -%}
+              {%- assign all_sorted = paginate.items | sort: 'title' -%}
               <ul class="article-list__items">
-                {%- for article in paginate.items -%}
+                {%- for article in all_sorted -%}
                   <li class="article-list__item">
                     <a class="article-list__link" href="{{ article.url }}">{{ article.title }}</a>
                   </li>
