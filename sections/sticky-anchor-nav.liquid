@@ -35,7 +35,7 @@
   <div class="sn-fixed-placeholder--{{ section.id }}" aria-hidden="true"></div>
 
   <!-- sticky wrapper (works if ancestors allow it) -->
-  <div class="sticky-anchor-nav__wrap--{{ section.id }}" data-sticky-wrap>
+  <div class="sticky-anchor-nav__wrap--{{ section.id }} header site-header--floating" data-sticky-wrap>
     <nav
       id="sticky-anchor-nav-{{ section.id }}"
       class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
