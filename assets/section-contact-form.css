@@ -58,3 +58,6 @@
   padding: 1rem;
   border-radius: 20px;
 }
+#ContactForm .field__input {
+  background: white;
+}
