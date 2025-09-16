@@ -73,7 +73,7 @@
       <div class="contact-details__list">
         {%- if section.settings.body != blank -%}
           <div
-            class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="subtitle rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: 2;"{% endif %}
           >
             {{ section.settings.body }}
