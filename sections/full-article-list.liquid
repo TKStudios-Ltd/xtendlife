@@ -15,7 +15,7 @@
 
   .article-list {
     display: grid;
-    gap: 2rem;
+    gap: 6rem;
     align-items: start;
   }
   @media (min-width: 990px) {
@@ -54,7 +54,11 @@
   .article-list__link:hover {
     color: rgba(95, 196, 255, 1);
   }
-  .article-list__link:hover { text-decoration: underline; }
+  @media (max-width: 989px) {
+        .article-list__link {
+            font-size: 2rem;
+        }
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
