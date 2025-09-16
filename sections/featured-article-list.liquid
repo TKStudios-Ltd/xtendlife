@@ -56,6 +56,17 @@
   transform: none !important;
   visibility: visible !important;
 }
+/* Force article cards to lay out text below the image (no overlay) */
+.section-{{ section.id }}-padding .card__content--static {
+  position: static !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  padding-top: 0.8rem;
+}
+.section-{{ section.id }}-padding .card__content--static .card__information {
+  height: auto !important;
+}
 
 
 {%- endstyle -%}
@@ -93,7 +104,7 @@
                       {%- endif -%}
                     </div>
                   </div>
-                  <div class="card__content">
+                  <div class="card__content card__content--static">
                     <div class="card__information">
                       <h3 class="card__heading h5">
                         {%- if art != blank -%}
@@ -136,7 +147,7 @@
                         {%- endif -%}
                       </div>
                     </div>
-                    <div class="card__content">
+                    <div class="card__content card__content--static">
                       <div class="card__information">
                         <h3 class="card__heading h5">
                           {%- if art != blank -%}
@@ -189,6 +200,11 @@ const items = [
   {% endfor %}
 ];
 console.table(items);
+document.querySelectorAll('.section-{{ section.id }}-padding .card__content').forEach((n,i)=>{
+  const cs = getComputedStyle(n);
+  console.log('card__content['+i+'] pos:', cs.position, 'opacity:', cs.opacity, 'vis:', cs.visibility, 'h:', n.offsetHeight);
+});
+
 
 
 // Check computed styles of headings (desktop)
