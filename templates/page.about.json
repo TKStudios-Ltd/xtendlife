@@ -489,6 +489,36 @@
     "multicolumn_KgjtXM": {
       "type": "multicolumn",
       "blocks": {
+        "column_qyR4iF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/gregor-reid_eg6rdi_1.png",
+            "title": "Jan Claesen, PhD",
+            "text": "<p>Scientific Advisor</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YwH6Gx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Janet_JanssoN_1.png",
+            "title": "Jan Claesen, PhD",
+            "text": "<p>Scientific Advisor</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cCXhB6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Maria_Gloria_Dominguez-Bello_1.png",
+            "title": "Jan Claesen, PhD",
+            "text": "<p>Scientific Advisor</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
         "column_Wwj3f6": {
           "type": "column",
           "settings": {
@@ -499,32 +529,37 @@
             "link": ""
           }
         },
-        "column_6a8mCp": {
+        "column_tp6cXX": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/Janet_JanssoN_1.png",
+            "title": "Jan Claesen, PhD",
+            "text": "<p>Scientific Advisor</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_jUmrXN": {
+        "column_xYTEY8": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/Maria_Gloria_Dominguez-Bello_1.png",
+            "title": "Jan Claesen, PhD",
+            "text": "<p>Scientific Advisor</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
+        "column_qyR4iF",
+        "column_YwH6Gx",
+        "column_cCXhB6",
         "column_Wwj3f6",
-        "column_6a8mCp",
-        "column_jUmrXN"
+        "column_tp6cXX",
+        "column_xYTEY8"
       ],
       "custom_css": [
-        ".page-width {max-width: 110rem;}"
+        ".page-width {max-width: 114rem;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
