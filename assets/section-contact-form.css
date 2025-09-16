@@ -23,6 +23,9 @@
 }
 .contact__details p a {
   color: inherit;
+  text-decoration: none;
+}
+.contact__details p a:hover {
   text-decoration: underline;
 }
 
