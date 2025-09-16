@@ -44,6 +44,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
         "padding_top": 0,
         "padding_bottom": 100
       }
@@ -101,6 +103,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -399,6 +403,8 @@
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
         "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
+        "display_klaviyoform": true,
+        "code_klaviyoform": "<div class=\"klaviyo-form-Yimj9Z\"></div>",
         "padding_top": 0,
         "padding_bottom": 0
       }
