@@ -56,9 +56,7 @@
         "featured_article_W6wXcf",
         "featured_article_EVCPkF"
       ],
-      "custom_css": [
-        ".page-width {border-top: 1px solid rgba(211, 211, 211, 1);}"
-      ],
+      "custom_css": [],
       "name": "Featured article list",
       "settings": {
         "title": "Common concerns",
