@@ -479,6 +479,10 @@
       "block_order": [
         "image_HkePd8"
       ],
+      "custom_css": [
+        ".image-scroll-section {position: relative; z-index: 1;}",
+        "@media (min-width: 1200px) {.image-scroll-section {margin-top: -200px; }}"
+      ],
       "name": "Image Infinite Scroll",
       "settings": {
         "background_color": "#ffffff",
