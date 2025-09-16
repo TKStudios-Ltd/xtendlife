@@ -20,6 +20,57 @@
         "padding_bottom": 100
       }
     },
+    "featured_article_list_yctg6T": {
+      "type": "featured-article-list",
+      "blocks": {
+        "featured_article_TnKt4X": {
+          "type": "featured_article",
+          "settings": {
+            "article": "health-articles/a-neuroscientist-s-guide-to-nutrition-for-brain-health",
+            "custom_title": "",
+            "background_color": ""
+          }
+        },
+        "featured_article_W6wXcf": {
+          "type": "featured_article",
+          "settings": {
+            "article": "health-articles/7-common-omega-3-myths-busted",
+            "custom_title": "",
+            "background_color": ""
+          }
+        },
+        "featured_article_EVCPkF": {
+          "type": "featured_article",
+          "settings": {
+            "article": "supplement-ingredients/reducose",
+            "custom_title": "",
+            "background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_article_TnKt4X",
+        "featured_article_W6wXcf",
+        "featured_article_EVCPkF"
+      ],
+      "custom_css": [
+        ".page-width {border-top: 1px solid rgba(211, 211, 211, 1);}"
+      ],
+      "name": "Featured article list",
+      "settings": {
+        "title": "Common concerns",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "view_all_link": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 100
+      }
+    },
     "collection_list_AnC8fW": {
       "type": "collection-list",
       "blocks": {
@@ -114,6 +165,7 @@
   },
   "order": [
     "main",
+    "featured_article_list_yctg6T",
     "collection_list_AnC8fW",
     "newsletter_F83hpp"
   ]
