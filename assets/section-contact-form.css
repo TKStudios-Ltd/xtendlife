@@ -11,6 +11,11 @@
   .contact .contact_flex__right {
     flex: 0 0 calc(50% - 4rem);
   }
+  .contact .contact_flex__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 .contact img {
