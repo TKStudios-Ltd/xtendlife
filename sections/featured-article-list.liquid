@@ -1,0 +1,259 @@
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .collection-list-wrapper { flex-direction: row !important; }
+  }
+  @media (max-width: 749px) {
+    .collection-list-wrapper .title-wrapper--no-top-margin-only {
+      margin-bottom: 3rem;
+      padding: 0 2rem;
+    }
+  }
+  .collection-list-wrapper { display:flex; flex-direction: column; }
+  .collection-list-wrapper .title-wrapper--no-top-margin-only {
+    flex: 0 0 25%;
+    display:flex; justify-content:flex-start; align-items:flex-start;
+  }
+  .collection-list-wrapper .collection-list-desktop {
+    flex: 0 0 75%;
+    width:100%;
+  }
+  .collection-list-mobile .swiper-slide-active .card-wrapper .card__heading .icon-wrap,
+  .collection-list-mobile .swiper-slide-active .card-wrapper .card__heading {
+    opacity: 1;
+  }
+  .collection-list-mobile { 
+    overflow:hidden; 
+    width:100%; 
+    position:relative; 
+    padding: 0 2rem;
+  }
+  .collection-list-mobile .swiper { overflow:visible; }
+  .collection-list-mobile .swiper-wrapper { display:flex; }
+  .collection-list-mobile .swiper-slide { height:auto; }
+
+  #cl-pagination-{{ section.id }}.swiper-pagination-progressbar {
+    margin-top: 4rem;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-list-wrapper page-width isolate{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin-only">
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        >
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endunless -%}
+
+    {%- comment -%} ===== DESKTOP GRID (≥ 990px) ===== {%- endcomment -%}
+    <div class="collection-list-desktop small-hide medium-hide">
+      <ul class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop contains-card">
+        {%- for block in section.blocks -%}
+          {%- assign art = block.settings.article -%}
+          {%- assign img = block.settings.custom_image | default: art.image -%}
+          {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
+          <li class="collection-list__item grid__item" {{ block.shopify_attributes }}>
+            <div class="card-wrapper underline-links-hover">
+              <div class="card card--standard card--media">
+                <div class="card__inner gradient" {% if block.settings.background_color != blank %} style="background-color: {{ block.settings.background_color }}"{% endif %}>
+                  <div class="card__media">
+                    <div class="media media--{{ section.settings.image_ratio }}">
+                      {%- if img != blank -%}
+                        {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 85vw', widths: '165, 360, 533, 720, 940, 1200', alt: alt_text }}
+                      {%- else -%}
+                        {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                  <div class="card__content">
+                    <div class="card__information">
+                      <h3 class="card__heading h5">
+                        {%- if art != blank -%}
+                          <a href="{{ art.url }}" class="full-unstyled-link">
+                            {{ block.settings.custom_title | default: art.title }}
+                            <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+                          </a>
+                        {%- else -%}
+                          <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                        {%- endif -%}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- comment -%} ===== MOBILE/TABLET SWIPER (< 990px) ===== {%- endcomment -%}
+    <div class="collection-list-mobile large-up-hide">
+      <div class="swiper" id="cl-swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            {%- assign art = block.settings.article -%}
+            {%- assign img = block.settings.custom_image | default: art.image -%}
+            {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <div class="card-wrapper underline-links-hover">
+                <div class="card card--standard card--media">
+                  <div class="card__inner gradient" {% if block.settings.background_color != blank %} style="background-color: {{ block.settings.background_color }}"{% endif %}>
+                    <div class="card__media">
+                      <div class="media media--{{ section.settings.image_ratio }}">
+                        {%- if img != blank -%}
+                          {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 85vw', widths: '165, 360, 533, 720, 940, 1200', alt: alt_text }}
+                        {%- else -%}
+                          {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- endif -%}
+                      </div>
+                    </div>
+                    <div class="card__content">
+                      <div class="card__information">
+                        <h3 class="card__heading h5">
+                          {%- if art != blank -%}
+                            <a href="{{ art.url }}" class="full-unstyled-link">
+                              {{ block.settings.custom_title | default: art.title }}
+                              <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+                            </a>
+                          {%- else -%}
+                            <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                          {%- endif -%}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div id="cl-pagination-{{ section.id }}" class="swiper-pagination"></div>
+    </div>
+
+    {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
+      <div class="center collection-list-view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
+        <a href="{{ section.settings.view_all_link }}" class="button" id="ViewAllButton-{{ section.id }}" aria-labelledby="ViewAllButton-{{ section.id }} SectionHeading-{{ section.id }}">
+          {{ 'sections.collection_list.view_all' | t | default: 'View all' }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+(function(){
+  const el = document.querySelector('#cl-swiper-{{ section.id }}');
+  if (!el) return;
+
+  function init(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(init, 50); return; }
+    if (el.dataset.swiperReady === '1') return;
+
+    const sw = new Swiper(el, {
+      slidesPerView: 1.3,
+      spaceBetween: 16,
+      speed: 500,
+      watchOverflow: true,
+      breakpoints: { 750: { slidesPerView: 2.3 } },
+      pagination: { el: '#cl-pagination-{{ section.id }}', type: 'progressbar' }
+    });
+
+    el.dataset.swiperReady = '1';
+    const update = () => { try { sw.update(); } catch(e) {} };
+    window.addEventListener('load', update, { once:true, passive:true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+    });
+  }
+
+  init();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Featured article list",
+  "tag": "section",
+  "class": "section section-collection-list",
+  "max_blocks": 15,
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "title", "default": "Featured reads", "label": "Heading" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "Display" },
+        { "value": "hxl", "label": "XL" },
+        { "value": "hxxl", "label": "XXL" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "square",
+      "label": "Image ratio"
+    },
+    { "type": "range", "id": "columns_desktop", "min": 1, "max": 6, "step": 1, "default": 3, "label": "Columns (desktop)" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "info": "Cards use this scheme’s surfaces", "default": "scheme-1" },
+    { "type": "checkbox", "id": "show_view_all", "default": false, "label": "Show “View all” button" },
+    { "type": "url", "id": "view_all_link", "label": "View all link (e.g., /blogs/news)" },
+    { "type": "header", "content": "Mobile" },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ],
+      "default": "1",
+      "label": "Columns (mobile)"
+    },
+    { "type": "checkbox", "id": "swipe_on_mobile", "default": false, "label": "Swipe on mobile (parity only)" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "featured_article",
+      "name": "Article",
+      "settings": [
+        { "type": "article", "id": "article", "label": "Article" },
+        { "type": "image_picker", "id": "custom_image", "label": "Custom image (optional)" },
+        { "type": "text", "id": "custom_title", "label": "Custom title (optional)" },
+        { "type": "color", "id": "background_color", "label": "Background color (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Featured article list", "blocks": [ { "type": "featured_article" }, { "type": "featured_article" }, { "type": "featured_article" } ] }
+  ]
+}
+{% endschema %}
