@@ -19,13 +19,15 @@
     },
     "contact_form_n64yQh": {
       "type": "contact-form",
-      "custom_css": [],
+      "custom_css": [
+        "a {display: block;}"
+      ],
       "name": "t:sections.contact-form.presets.name",
       "settings": {
         "heading": "Old fashioned service",
         "heading_size": "h1",
         "body": "Xtendlife Natural Products takes pride in our customer service and the ease with which our customers around the world can contact a 'real' person and get answers to questions. You can contact us by filling in and submitting the form below or through our LiveChat service, by telephone, email, or post.",
-        "details": "NZ Phone Toll Free 0508 983 635Global Phone (64) 3 384 2116",
+        "details": "NZ Phone Toll Free <a href=\"tel:+64508983 35\" title=\"tel:+64508983 35\">0508 983 635</a>Global Phone <a href=\"tel:+6433842116 \" title=\"tel:+6433842116 \">(64) 3 384 2116 </a><a href=\"mailto:customer.service@xtend-life.com\" title=\"mailto:customer.service@xtend-life.com\">customer.service@xtend-life.com</a>",
         "color_scheme": "",
         "padding_top": 100,
         "padding_bottom": 80
