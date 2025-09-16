@@ -17,12 +17,24 @@
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="contact page-width section-{{ section.id }}-padding">
     <div class="contact_flex__left">
+      <div>
       {%- if section.settings.heading != blank -%}
         <h1 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.heading }}
         </h1>
       {%- else -%}
         <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      {%- endif -%}
+      {%- if section.settings.body != blank -%}
+        <p class="subtitle">
+          {{ section.settings.body }}
+        </p>
+      {%- endif -%}
+      </div>
+      {%- if section.settings.details != blank -%}
+        <p class="subtitle">
+          {{ section.settings.details }}
+        </p>
       {%- endif -%}
     </div>
     <div class="contact_flex__right">
@@ -181,6 +193,16 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "details",
+      "label": "Details"
     },
     {
       "type": "color_scheme",

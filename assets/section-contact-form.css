@@ -5,11 +5,11 @@
 @media screen and (min-width: 990px) {
   .contact {
     display: flex;
-    gap: 2rem;
+    gap: 4rem;
   }
   .contact .contact_flex__left,
   .contact .contact_flex__right {
-    flex: 0 0 calc(50% - 1rem);
+    flex: 0 0 calc(50% - 2rem);
   }
 }
 
