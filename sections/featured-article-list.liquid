@@ -92,36 +92,17 @@
           {%- assign img = block.settings.custom_image | default: art.image -%}
           {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
           <li class="collection-list__item grid__item" {{ block.shopify_attributes }}>
-            <div class="card-wrapper underline-links-hover">
-              <div class="card card--standard card--media">
-                <div class="card__inner gradient" {% if block.settings.background_color != blank %} style="background-color: {{ block.settings.background_color }}"{% endif %}>
-                  <div class="card__media">
-                    <div class="media media--{{ section.settings.image_ratio }}">
-                      {%- if img != blank -%}
-                        {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 85vw', widths: '165, 360, 533, 720, 940, 1200', alt: alt_text }}
-                      {%- else -%}
-                        {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
-                      {%- endif -%}
-                    </div>
-                  </div>
-                  <div class="card__content card__content--static">
-                    <div class="card__information">
-                      <h3 class="card__heading h5">
-                        {%- if art != blank -%}
-                          <a href="{{ art.url }}" class="full-unstyled-link">
-                            {{ block.settings.custom_title | default: art.title }}
-                            <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
-                          </a>
-                        {%- else -%}
-                          <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
-                        {%- endif -%}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
+  {% render 'card-collection',
+    card_collection: block.settings.article,
+    media_aspect_ratio: section.settings.image_ratio,
+    columns: 3,
+    placeholder_image: 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1,
+    custom_image: block.settings.custom_image,
+    custom_title: block.settings.custom_title,
+    background_color: block.settings.background_color
+  %}
+</li>
+
         {%- endfor -%}
       </ul>
     </div>
@@ -135,36 +116,17 @@
             {%- assign img = block.settings.custom_image | default: art.image -%}
             {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
             <div class="swiper-slide" {{ block.shopify_attributes }}>
-              <div class="card-wrapper underline-links-hover">
-                <div class="card card--standard card--media">
-                  <div class="card__inner gradient" {% if block.settings.background_color != blank %} style="background-color: {{ block.settings.background_color }}"{% endif %}>
-                    <div class="card__media">
-                      <div class="media media--{{ section.settings.image_ratio }}">
-                        {%- if img != blank -%}
-                          {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 85vw', widths: '165, 360, 533, 720, 940, 1200', alt: alt_text }}
-                        {%- else -%}
-                          {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
-                        {%- endif -%}
-                      </div>
-                    </div>
-                    <div class="card__content card__content--static">
-                      <div class="card__information">
-                        <h3 class="card__heading h5">
-                          {%- if art != blank -%}
-                            <a href="{{ art.url }}" class="full-unstyled-link">
-                              {{ block.settings.custom_title | default: art.title }}
-                              <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
-                            </a>
-                          {%- else -%}
-                            <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
-                          {%- endif -%}
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  {% render 'card-collection',
+    card_collection: block.settings.article,
+    media_aspect_ratio: section.settings.image_ratio,
+    columns: 1,
+    placeholder_image: 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1,
+    custom_image: block.settings.custom_image,
+    custom_title: block.settings.custom_title,
+    background_color: block.settings.background_color
+  %}
+</div>
+
           {%- endfor -%}
         </div>
       </div>
