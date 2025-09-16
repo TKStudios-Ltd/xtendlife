@@ -27,7 +27,8 @@
           "type": "featured_article",
           "settings": {
             "article": "health-articles/a-neuroscientist-s-guide-to-nutrition-for-brain-health",
-            "custom_title": "",
+            "custom_image": "shopify://shop_images/bda052882c6bfa6f46c76b58344b4fd09bae4cf4.png",
+            "custom_title": "Energy",
             "background_color": ""
           }
         },
@@ -35,7 +36,8 @@
           "type": "featured_article",
           "settings": {
             "article": "health-articles/7-common-omega-3-myths-busted",
-            "custom_title": "",
+            "custom_image": "shopify://shop_images/64444a98a6e2e80c196423cad54522eb9ab147d9.png",
+            "custom_title": "Healthy Aging",
             "background_color": ""
           }
         },
@@ -43,7 +45,8 @@
           "type": "featured_article",
           "settings": {
             "article": "supplement-ingredients/reducose",
-            "custom_title": "",
+            "custom_image": "shopify://shop_images/12a9648b99d244769e7421153cc18e81205d88be.png",
+            "custom_title": "Thyroid Health",
             "background_color": ""
           }
         }
