@@ -12,10 +12,6 @@
     }
   }
 
-  [data-anchor-target] {
-    scroll-margin-top: {{ section.settings.anchor_offset | default: 120 }}px;
-  }
-
   /* Layout */
   .contact-details {
     display: grid;
@@ -71,7 +67,10 @@
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
+      </div>
 
+      <!-- Right: Locations -->
+      <div class="contact-details__list">
         {%- if section.settings.body != blank -%}
           <div
             class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -80,10 +79,6 @@
             {{ section.settings.body }}
           </div>
         {%- endif -%}
-      </div>
-
-      <!-- Right: Locations -->
-      <div class="contact-details__list">
         {%- for block in section.blocks -%}
           <div class="contact-details__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                {{ block.shopify_attributes }}
