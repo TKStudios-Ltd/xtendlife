@@ -434,7 +434,7 @@
         "text_QNdBXj"
       ],
       "custom_css": [
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; } p {font-size: 2rem; } .image-with-text__grid--reverse {flex-direction: row; } .image-with-text__grid.image-with-text__grid--reverse .image-with-text__media-item {margin-right: 0; margin-left: calc((100vw - 1400px) / -2); }}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; } p {font-size: 2rem; } .image-with-text__grid--reverse {flex-direction: row; } .image-with-text__text-item > .page-width {margin: 0 auto 0 0; } .image-with-text__grid.image-with-text__grid--reverse .image-with-text__media-item {margin-right: 0; margin-left: calc((100vw - 1400px) / -2); }}",
         "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
