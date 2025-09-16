@@ -47,6 +47,13 @@
   #cl-pagination-{{ section.id }}.swiper-pagination-progressbar {
     margin-top: 4rem;
   }
+  /* Show titles on desktop; Dawn defaults to hover-only */
+  .section-{{ section.id }}-padding .collection-list-desktop .card__heading,
+  .section-{{ section.id }}-padding .collection-list-desktop .card__heading .icon-wrap {
+    opacity: 1;
+    transform: none;
+  }
+
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -88,7 +95,7 @@
                         {%- if art != blank -%}
                           <a href="{{ art.url }}" class="full-unstyled-link">
                             {{ block.settings.custom_title | default: art.title }}
-                            <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+                            <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
                           </a>
                         {%- else -%}
                           <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
@@ -131,7 +138,7 @@
                           {%- if art != blank -%}
                             <a href="{{ art.url }}" class="full-unstyled-link">
                               {{ block.settings.custom_title | default: art.title }}
-                              <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+                              <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
                             </a>
                           {%- else -%}
                             <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
