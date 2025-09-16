@@ -38,7 +38,7 @@
   <div class="sticky-anchor-nav__wrap--{{ section.id }} header site-header--floating" data-sticky-wrap>
     <nav
       id="sticky-anchor-nav-{{ section.id }}"
-      class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
+      class="rich-text content-container color-{{ section.settings.color_scheme }} {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
       data-scroll-offset="{{ section.settings.scroll_offset | default: section.settings.sticky_top | default: 80 }}"
       aria-label="Section navigation"
     >
