@@ -189,7 +189,7 @@
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
-        "full_width": false,
+        "full_width": true,
         "sticky_top": 80,
         "scroll_offset": 80,
         "add_shadow": false
