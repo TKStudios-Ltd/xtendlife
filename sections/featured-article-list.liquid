@@ -71,17 +71,16 @@
           {%- assign img = block.settings.custom_image | default: art.image -%}
           {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
           <li class="collection-list__item grid__item" {{ block.shopify_attributes }}>
-  {% render 'card-collection',
-    card_collection: block.settings.article,
-    media_aspect_ratio: section.settings.image_ratio,
-    columns: 3,
-    placeholder_image: 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1,
-    custom_image: block.settings.custom_image,
-    custom_title: block.settings.custom_title,
-    background_color: block.settings.background_color
-  %}
-</li>
-
+            {% render 'card-collection',
+                card_collection: block.settings.article,
+                media_aspect_ratio: section.settings.image_ratio,
+                columns: 3,
+                placeholder_image: 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1,
+                custom_image: block.settings.custom_image,
+                custom_title: block.settings.custom_title,
+                background_color: block.settings.background_color
+            %}
+            </li>
         {%- endfor -%}
       </ul>
     </div>
