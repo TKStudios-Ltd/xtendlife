@@ -18,6 +18,14 @@
   }
 }
 
+.contact__details p {
+  margin: 0;
+}
+.contact__details p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .contact img {
   max-width: 100%;
 }
