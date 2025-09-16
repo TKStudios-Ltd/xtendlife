@@ -324,10 +324,13 @@
         "hotspot_bcKaTz",
         "hotspot_e97iLc"
       ],
+      "custom_css": [
+        ".hotspots__pin-label {width: 250px;}"
+      ],
       "name": "Image Hotspots (Tooltips)",
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
-        "media_max_width": 900,
+        "media_max_width": 550,
         "panel_bg": "#F2F6F9",
         "panel_text": "#111111",
         "color_scheme": "color-scheme-1"
