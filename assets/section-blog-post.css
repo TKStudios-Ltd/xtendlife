@@ -390,6 +390,8 @@ main.article-template > .section:first-of-type {
   }
   .hc-article-template__content h3 {
     font-size: 3.6rem;
+    line-height: 1.2;
+    max-width: 500px;
   }
 }
 @media (max-width: 989px) {
