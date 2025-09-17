@@ -77,7 +77,7 @@
       "name": "Full article list",
       "settings": {
         "title": "All Health Concerns",
-        "blog": "health-articles",
+        "blog": "health-concerns",
         "heading_size": "h2",
         "color_scheme": "",
         "full_width": false,
