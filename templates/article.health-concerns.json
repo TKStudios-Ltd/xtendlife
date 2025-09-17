@@ -11,27 +11,9 @@
   "sections": {
     "main": {
       "type": "health-concerns-article-header",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {
-            "blog_show_date": false,
-            "blog_show_author": false
-          }
-        },
-        "featured_image": {
-          "type": "featured_image",
-          "settings": {
-            "image_height": "small"
-          }
-        }
-      },
-      "block_order": [
-        "title",
-        "featured_image"
-      ],
-      "disabled": true,
-      "settings": {}
+      "settings": {
+        "image_height": "adapt"
+      }
     },
     "ingredient_related_products_qxMT44": {
       "type": "ingredient-related-products",
