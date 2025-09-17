@@ -76,7 +76,7 @@
           {{ section.settings.title }}
         </div>
 
-        <div>
+        <div style="width: 100%;">
           {%- if section.settings.blog -%}
             {%- paginate section.settings.blog.articles by 1000 -%}
               {%- assign all_sorted = section.settings.blog.articles | sort: 'title' -%}
