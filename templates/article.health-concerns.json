@@ -79,6 +79,11 @@
         "padding_bottom": 16
       }
     },
+    "health_concerns_article_body_UGAqbi": {
+      "type": "health-concerns-article-body",
+      "name": "HC article body",
+      "settings": {}
+    },
     "ingredient_related_products_qxMT44": {
       "type": "ingredient-related-products",
       "name": "Related products (ingr.)",
@@ -159,8 +164,9 @@
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
         "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
-        "display_klaviyoform": false,
-        "code_klaviyoform": "",
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -169,6 +175,7 @@
   "order": [
     "main",
     "multicolumn_A6pqFG",
+    "health_concerns_article_body_UGAqbi",
     "ingredient_related_products_qxMT44",
     "related_articles_MWCfXa",
     "newsletter_LBEMNL"
