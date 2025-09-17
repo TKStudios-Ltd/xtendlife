@@ -359,7 +359,7 @@ main.article-template > .section:first-of-type {
 .hc-article-template {
   display: flex;
   gap: 4rem;
-  margin: 4rem auto 12rem;
+  margin: 4rem auto 8rem;
 }
 .hc-article-template__left,
 .hc-article-template__right {
