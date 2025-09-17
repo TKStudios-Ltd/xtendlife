@@ -480,4 +480,7 @@ main.article-template > .section:first-of-type {
   .hc-article-template .stats-card__text {
     font-size: 1.4rem;
   }
+  .hc-article-template .stats-card__item {
+    gap: 2rem;
+  }
 }
