@@ -1,0 +1,38 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+
+<article class="hc-article-template page-width">
+  <div class="hc-article-template__left">
+    <div class="sticky-stats">
+      <p>hello</p>
+    </div>
+  </div>
+
+  <div class="hc-article-template__right">
+    <div class="hc-article-template__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ article.content }}
+    </div>
+  </div>
+
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "HC article body",
+  "tag": "section",
+  "class": "section",
+  "templates": ["article"],
+  "settings": [
+
+  ],
+  "presets": [
+    {
+      "name": "HC article body"
+    }
+  ]
+}
+{% endschema %}
