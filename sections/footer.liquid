@@ -303,9 +303,9 @@
 
 </footer>
 
+{%- if section.settings.enable_klaviyo_footer_attach and section.settings.klaviyo_footer_list_id != blank -%}
 <script>
   (function() {
-    // Load once per page
     if (!window.__kl_subscribe_loading) {
       window.__kl_subscribe_loading = true;
       var s = document.createElement('script');
@@ -327,15 +327,15 @@
           KlaviyoSubscribe.attachToForms('#ContactFooter', {
             hide_form_on_success: true,
             custom_success_message: true,
-            list_id: "Ram9Tc", // your list
+            list_id: "{{ section.settings.klaviyo_footer_list_id | escape }}",
             success: function() { showFooterSuccess(); },
             extra_properties: {
-              $source: "footer_newsletter",
+              $source: "{{ section.settings.klaviyo_footer_source | default: 'footer_newsletter' | escape }}",
               section_id: "{{ section.id }}",
               theme: "dawn"
             }
           });
-        } catch (e) { console.warn('Klaviyo footer attach failed:', e); }
+        } catch(e) { console.warn('Klaviyo footer attach failed:', e); }
       } else {
         setTimeout(attachFooterWhenReady, 200);
       }
@@ -343,6 +343,7 @@
     attachFooterWhenReady();
   })();
 </script>
+{%- endif -%}
 
 
 {% schema %}
@@ -470,6 +471,24 @@
       "id": "newsletter_heading",
       "default": "t:sections.footer.settings.newsletter_heading.default",
       "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_klaviyo_footer_attach",
+      "label": "Enable Klaviyo attach for footer form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_footer_list_id",
+      "label": "Klaviyo List ID",
+      "default": "Ram9Tc"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_footer_source",
+      "label": "Source tag (optional)",
+      "default": "footer_newsletter"
     },
     {
       "type": "header",
