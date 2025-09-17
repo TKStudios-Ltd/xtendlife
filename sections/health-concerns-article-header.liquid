@@ -53,11 +53,13 @@
           <!-- mobile overlay -->
           <header class="overlay-title mobile-only">
             {{ article.title | escape }}
-            {%- if article.metafields.custom.article_subheading != blank -%}
-              <p>{{ article.metafields.custom.article_subheading }}</p>
-            {%- endif -%}
           </header>
         </div>
+        {%- if article.metafields.custom.article_subheading != blank -%}
+          <p class="hc-article-template__subheading mobile-only">
+            {{ article.metafields.custom.article_subheading }}
+          </p>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
