@@ -68,7 +68,7 @@
 }
 
 .collection__title.title-wrapper {
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
 }
 @media (max-width: 749px) {
   .collection__title.title-wrapper {
