@@ -462,11 +462,12 @@ main.article-template > .section:first-of-type {
   .hc-article-template__right::before {
     content: attr(data-title);
   }
-  .hc-article-template__right .overlay-title {
+  .hc-article-template__right .overlay-title article-template__title {
     position: absolute;
     left: 2rem !important;
     top: 50% !important;
     transform: translateY(-50%);
     color: #fff;
+    margin: 0;
   }
 }
