@@ -366,11 +366,12 @@ main.article-template > .section:first-of-type {
   flex: 0 0 calc(50% - 2rem);
 }
 .hc-article-template .article-template__title {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   line-height: 1.1;
 }
 .hc-article-template__subheading {
   font-size: 2rem;
+  line-height: 1.35;
 }
 .hc-article-template .article-template__hero-container {
   margin: 0 !important;
