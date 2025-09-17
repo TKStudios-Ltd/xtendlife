@@ -110,8 +110,8 @@
       "type": "related-articles",
       "name": "Related articles",
       "settings": {
-        "auto_from_article": true,
-        "blog": "",
+        "auto_from_article": false,
+        "blog": "health-concerns",
         "heading": "Related articles",
         "auto_heading_prefix": "",
         "heading_size": "h2",
