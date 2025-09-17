@@ -30,6 +30,7 @@
         "title",
         "featured_image"
       ],
+      "disabled": true,
       "settings": {}
     },
     "ingredient_related_products_qxMT44": {
