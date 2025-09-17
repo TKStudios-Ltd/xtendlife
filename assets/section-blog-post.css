@@ -450,10 +450,10 @@ main.article-template > .section:first-of-type {
   .hc-article-template .mobile-only { 
     display: block; 
   }
-  .hc-article-template__left {
+  .hc-article-template-header .hc-article-template__left {
     display: none;
   }
-  .hc-article-template__right {
+  .hc-article-template-header .hc-article-template__right {
     position: relative;
   }
   .hc-article-template__right .article-template__hero-container {
@@ -462,7 +462,7 @@ main.article-template > .section:first-of-type {
   .hc-article-template__right::before {
     content: attr(data-title);
   }
-  .hc-article-template__right .overlay-title .article-template__title {
+  .hc-article-template-header.hc-article-template__right .overlay-title .article-template__title {
     position: absolute;
     left: 2rem !important;
     top: 50% !important;
