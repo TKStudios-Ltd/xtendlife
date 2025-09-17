@@ -32,7 +32,7 @@
         {%- assign refs = article.metafields.custom.references.value -%}
         {%- if refs and refs.size > 0 -%}
             <div class="hc-article-template__refs">
-                <h6>References</h6>
+                <h5>References</h5>
                 <ul class="refs__list" role="list">
                     {%- for line in refs -%}
                         <li class="refs__item">
