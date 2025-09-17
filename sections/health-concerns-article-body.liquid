@@ -1,7 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
 
-<article class="hc-article-template page-width">
+<article class="hc-article-template hc-article-template-body page-width">
   <div class="hc-article-template__left">
     {%- assign bullets = article.metafields.custom.stats_bullets.value -%}
     {%- if bullets and bullets.size > 0 -%}
