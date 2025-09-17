@@ -355,3 +355,39 @@ main.article-template > .section:first-of-type {
 
 
 /* Health Concerns */
+
+.hc-article-template {
+  display: flex;
+  gap: 4rem;
+  margin: 4rem auto 12rem;
+}
+.hc-article-template__left,
+.hc-article-template__right {
+  flex: 0 0 calc(50% - 2rem);
+}
+.hc-article-template .article-template__title {
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+.hc-article-template .article-template__hero-container {
+  margin: 0 !important;
+  padding: 0;
+}
+@media (min-width: 990px) {
+  .hc-article-template__left {
+    padding-right: 2rem;
+  }
+  .hc-article-template .article-template__hero-small {
+    height: 30rem;
+    border-radius: 28px;
+  }
+}
+@media (max-width: 989px) {
+  .hc-article-template {
+    flex-direction: column;
+  }
+  .hc-article-template .article-template__hero-small {
+    height: 45vw;
+    border-radius: 14px;
+  }
+}
