@@ -383,7 +383,7 @@ main.article-template > .section:first-of-type {
 .hc-article-template .stats-card {
   background: #292256;
   border-radius: 14px;
-  padding: 2rem 2rem 2.5rem;
+  padding: 2rem 2rem 4rem;
   color: white;
   max-width: 400px;
 }
@@ -392,14 +392,15 @@ main.article-template > .section:first-of-type {
   margin: 0 0 3rem;
   color: white;
 }
-.hc-article-template .stats-card__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.hc-article-template .stats-card__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
 .hc-article-template .stats-card__item { display: grid; grid-template-columns: 24px 1fr; align-items: start; gap: 1rem; }
 .hc-article-template .stats-card__icon { display: inline-flex; line-height: 0; color: white; }
 .hc-article-template .stats-card__text {     
   font-family: var(--font-body-family);
   font-weight: var(--font-body-weight);
   font-size: 2rem; 
-  line-height: 1.35; 
+  line-height: 1.35;
+  max-width: 300px;
 }
 
 @media (min-width: 990px) {
