@@ -16,9 +16,7 @@
     margin-top: 0;
     text-align: left;
   }
-  .newsletter__right h2 {
-    margin: 0;
-  }
+  .newsletter__right h2 { margin: 0; }
   .newsletter__right p {
     max-width: 480px;
     margin-top: 0.5rem;
@@ -34,9 +32,7 @@
       flex-wrap: wrap;
       align-items: flex-start;
     }
-    .newsletter__left {
-      flex: 0 0 50%;
-    }
+    .newsletter__left { flex: 0 0 50%; }
     .newsletter__right {
       flex: 0 0 50%;
       margin-top: 0;
@@ -48,6 +44,7 @@
 
 <div class="newsletter center {% if section.settings.full_width == false %} page-width{% endif %} color-{{ section.settings.color_scheme }} gradient">
   <div class="newsletter__wrapper newsletter__wrapper--split page-width content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+
     <div class="newsletter__left">
       <h2 class="h1">Stay connected</h2>
       {% if section.settings.left_image %}
@@ -59,9 +56,21 @@
         >
       {% endif %}
     </div>
+
     <div class="newsletter__right">
+      {%- comment -%}
+        If Klaviyo embed toggle is ON and code provided, render that.
+        Otherwise, render Dawn blocks. If Attach Mode is enabled, the Dawn form will submit to Klaviyo.
+      {%- endcomment -%}
+
+      {% if section.settings.display_klaviyoform and section.settings.code_klaviyoform != blank %}
+        <div class="newsletter__klaviyo-form" data-form-source="klaviyo">
+          {{ section.settings.code_klaviyoform }}
+        </div>
+      {% else %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
+
             {%- when '@app' -%}
               {% render block %}
 
@@ -90,13 +99,9 @@
               </div>
 
             {%- when 'email_form' -%}
-              {% if section.settings.display_klaviyoform and section.settings.code_klaviyoform != blank %}
-                <div class="newsletter__klaviyo-form" data-form-source="klaviyo">
-                  {{ section.settings.code_klaviyoform }}
-                </div>
-              {% else %}
               <div {{ block.shopify_attributes }}>
-                {% form 'customer', class: 'newsletter-form' %}
+                {% comment %} Keep Dawn UI, give the FORM a stable ID for attach mode {% endcomment %}
+                {% form 'customer', class: 'newsletter-form', id: 'NewsletterForm--' | append: section.id %}
                   <input type="hidden" name="contact[tags]" value="newsletter">
                   <div
                     class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -107,7 +112,7 @@
                   >
                     <div class="field">
                       <input
-                        id="NewsletterForm--{{ section.id }}"
+                        id="Email--{{ section.id }}"
                         type="email"
                         name="contact[email]"
                         class="field__input"
@@ -117,127 +122,120 @@
                         autocapitalize="off"
                         autocomplete="email"
                         {% if form.errors %}
-                          autofocus
-                          aria-invalid="true"
-                          aria-describedby="Newsletter-error--{{ section.id }}"
-                        {% elsif form.posted_successfully? %}
-                          aria-describedby="Newsletter-success--{{ section.id }}"
+                          autofocus aria-invalid="true" aria-describedby="Newsletter-error--{{ section.id }}"
                         {% endif %}
                         placeholder="{{ 'newsletter.label' | t }}"
                         required
                       >
-                      <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                        Your email
-                      </label>
+                      <label class="field__label" for="Email--{{ section.id }}">Your email</label>
                       <button
                         type="submit"
                         class="newsletter-form__button field__button"
                         name="commit"
-                        id="Subscribe"
+                        id="Subscribe--{{ section.id }}"
                         aria-label="{{ 'newsletter.button_label' | t }}"
                       >
-                        <span class="svg-wrapper">
-                          {{- 'icon-arrow.svg' | inline_asset_content -}}
-                        </span>
+                        <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
                       </button>
                     </div>
+
                     {%- if form.errors -%}
                       <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
-                        <span class="svg-wrapper">
-                          {{- 'icon-error.svg' | inline_asset_content -}}
-                        </span>
-                        {{- form.errors.translated_fields.email | capitalize }}
-                        {{ form.errors.messages.email -}}
+                        <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+                        {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
                       </small>
                     {%- endif -%}
                   </div>
-                  {%- if form.posted_successfully? -%}
-                    <h3
-                      class="newsletter-form__message newsletter-form__message--success form__message"
-                      id="Newsletter-success--{{ section.id }}"
-                      tabindex="-1"
-                      autofocus
-                    >
-                      <span class="svg-wrapper">
-                        {{- 'icon-success.svg' | inline_asset_content -}}
-                      </span>
-                      {{- 'newsletter.success' | t }}
-                    </h3>
-                  {%- endif -%}
+
+                  {%- comment -%}
+                    Always render a success container; we control visibility from JS on Klaviyo success.
+                  {%- endcomment -%}
+                  <h3
+                    class="newsletter-form__message newsletter-form__message--success form__message"
+                    id="Newsletter-success--{{ section.id }}"
+                    hidden
+                  >
+                    <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
+                    {{- 'newsletter.success' | t }}
+                  </h3>
                 {% endform %}
               </div>
-              {% endif %}
+
           {%- endcase -%}
         {%- endfor -%}
+      {% endif %}
     </div> <!-- .newsletter__right -->
+
   </div> <!-- .newsletter__wrapper -->
 </div>
+
+{%- comment -%}
+  Attach Mode: load Klaviyo subscribe helper and bind to the Dawn form
+{%- endcomment -%}
+{%- if section.settings.enable_klaviyo_attach and section.settings.klaviyo_list_id != blank -%}
+  <script>
+    (function() {
+      if (!window.__kl_subscribe_loading) {
+        window.__kl_subscribe_loading = true;
+        var s = document.createElement('script');
+        s.src = "//www.klaviyo.com/media/js/public/klaviyo_subscribe.js";
+        s.async = true;
+        document.head.appendChild(s);
+      }
+
+      function showSuccess() {
+        var successEl = document.getElementById('Newsletter-success--{{ section.id }}');
+        if (successEl) successEl.hidden = false;
+      }
+
+      function attachWhenReady() {
+        if (window.KlaviyoSubscribe && typeof window.KlaviyoSubscribe.attachToForms === 'function') {
+          try {
+            KlaviyoSubscribe.attachToForms('#NewsletterForm--{{ section.id }}', {
+              hide_form_on_success: true,
+              custom_success_message: true,
+              list_id: "{{ section.settings.klaviyo_list_id | escape }}",
+              success: function() { showSuccess(); },
+              extra_properties: {
+                $source: "{{ section.settings.klaviyo_source | default: 'newsletter_section' | escape }}",
+                section_id: "{{ section.id }}",
+                theme: "dawn"
+              }
+            });
+          } catch (e) { console.warn('Klaviyo attach failed:', e); }
+        } else {
+          setTimeout(attachWhenReady, 200);
+        }
+      }
+      attachWhenReady();
+    })();
+  </script>
+{%- endif -%}
 
 {% schema %}
 {
   "name": "t:sections.newsletter.name",
   "tag": "section",
   "class": "section",
-  "disabled_on": {
-    "groups": ["header"]
-  },
+  "disabled_on": { "groups": ["header"] },
   "settings": [
-    {
-      "type": "paragraph",
-      "content": "t:sections.newsletter.settings.paragraph.content"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "default": true,
-      "label": "t:sections.newsletter.settings.full_width.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "left_image",
-      "label": "Left Column Image"
-    },
-    {
-      "type": "checkbox",
-      "id": "display_klaviyoform",
-      "label": "Enable Klaviyo form"
-    },
-    {
-      "type": "html",
-      "id": "code_klaviyoform",
-      "label": "Klaviyo form code",
-      "info": "Paste your Klaviyo embed (e.g., <div class='klaviyo-form-XXXX'></div>). If enabled, this replaces the default newsletter blocks."
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 52
-    }
+    { "type": "paragraph", "content": "t:sections.newsletter.settings.paragraph.content" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "checkbox", "id": "full_width", "default": true, "label": "t:sections.newsletter.settings.full_width.label" },
+    { "type": "image_picker", "id": "left_image", "label": "Left Column Image" },
+
+    /* --- Optional Klaviyo embed path (renders the <div class="klaviyo-form-XXXX">) --- */
+    { "type": "checkbox", "id": "display_klaviyoform", "label": "Enable Klaviyo form (embed)" },
+    { "type": "html", "id": "code_klaviyoform", "label": "Klaviyo form code", "info": "Paste Klaviyo embed, e.g. <div class='klaviyo-form-XXXX'></div>." },
+
+    /* --- Attach Mode (recommended): Dawn UI → Klaviyo list --- */
+    { "type": "checkbox", "id": "enable_klaviyo_attach", "label": "Enable Klaviyo attach mode (use Dawn UI, submit to Klaviyo)" },
+    { "type": "text", "id": "klaviyo_list_id", "label": "Klaviyo List ID", "default": "Ram9Tc" },
+    { "type": "text", "id": "klaviyo_source", "label": "Source tag (optional)", "default": "newsletter_section" },
+
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 52 }
   ],
   "blocks": [
     {
@@ -245,36 +243,16 @@
       "name": "t:sections.newsletter.blocks.heading.name",
       "limit": 1,
       "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "t:sections.newsletter.blocks.heading.settings.heading.default",
-          "label": "t:sections.newsletter.blocks.heading.settings.heading.label"
-        },
+        { "type": "inline_richtext", "id": "heading", "default": "t:sections.newsletter.blocks.heading.settings.heading.default", "label": "t:sections.newsletter.blocks.heading.settings.heading.label" },
         {
           "type": "select",
           "id": "heading_size",
           "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            },
-            {
-              "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
-            },
-            {
-              "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
-            }
+            { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+            { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+            { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" },
+            { "value": "hxl", "label": "t:sections.all.heading_size.options__4.label" },
+            { "value": "hxxl", "label": "t:sections.all.heading_size.options__5.label" }
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
@@ -286,12 +264,7 @@
       "name": "t:sections.newsletter.blocks.paragraph.name",
       "limit": 1,
       "settings": [
-        {
-          "type": "richtext",
-          "id": "text",
-          "default": "t:sections.newsletter.blocks.paragraph.settings.paragraph.default",
-          "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
-        }
+        { "type": "richtext", "id": "text", "default": "t:sections.newsletter.blocks.paragraph.settings.paragraph.default", "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label" }
       ]
     },
     {
@@ -299,23 +272,15 @@
       "name": "t:sections.newsletter.blocks.email_form.name",
       "limit": 1
     },
-    {
-      "type": "@app"
-    }
+    { "type": "@app" }
   ],
   "presets": [
     {
       "name": "t:sections.newsletter.presets.name",
       "blocks": [
-        {
-          "type": "heading"
-        },
-        {
-          "type": "paragraph"
-        },
-        {
-          "type": "email_form"
-        }
+        { "type": "heading" },
+        { "type": "paragraph" },
+        { "type": "email_form" }
       ]
     }
   ]
