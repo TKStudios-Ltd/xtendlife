@@ -11,15 +11,10 @@
 
 <article class="ingredient-article-template page-width">
     <div class="ingredient-article-template__left">
-      <header
-            class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-            {{ block.shopify_attributes }}
-            >
-            <h1
-                class="article-template__title"
-            >
-                {{ article.title | escape }}
-            </h1>
+      <header class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}" >
+        <h1 class="article-template__title">
+          {{ article.title | escape }}
+        </h1>
       </header>
     </div>
 
