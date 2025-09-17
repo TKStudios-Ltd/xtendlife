@@ -369,6 +369,9 @@ main.article-template > .section:first-of-type {
   margin-bottom: 2rem;
   line-height: 1.1;
 }
+.hc-article-template__subheading {
+  font-size: 2rem;
+}
 .hc-article-template .article-template__hero-container {
   margin: 0 !important;
   padding: 0;
