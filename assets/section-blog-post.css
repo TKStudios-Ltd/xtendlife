@@ -483,4 +483,7 @@ main.article-template > .section:first-of-type {
   .hc-article-template .stats-card__item {
     gap: 2rem;
   }
+  .hc-article-template__refs {
+    margin-top: 4rem;
+  }
 }
