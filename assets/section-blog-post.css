@@ -447,26 +447,21 @@ main.article-template > .section:first-of-type {
     height: 45vw;
     border-radius: 14px;
   }
-  /* hide the left column entirely */
+  .hc-article-template .mobile-only { 
+    display: block; 
+  }
   .hc-article-template__left {
     display: none;
   }
-
-  /* make the right column full width */
   .hc-article-template__right {
     position: relative;
   }
-
-  /* pull the header into the right column */
   .hc-article-template__right .article-template__hero-container {
     position: relative;
   }
-
   .hc-article-template__right::before {
     content: attr(data-title);
   }
-
-  /* style the overlaid title */
   .hc-article-template__right .overlay-title {
     position: absolute;
     left: 2rem;          /* adjust padding from left */
