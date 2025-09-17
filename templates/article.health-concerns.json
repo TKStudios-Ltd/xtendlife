@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "ingredient-article",
+      "type": "health-concerns-article-header",
       "blocks": {
         "title": {
           "type": "title",
