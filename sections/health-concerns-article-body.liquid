@@ -31,13 +31,16 @@
         {{ article.content }}
         {%- assign refs = article.metafields.custom.references.value -%}
         {%- if refs and refs.size > 0 -%}
-            <ul class="refs__list" role="list">
-                {%- for line in refs -%}
-                    <li class="refs__item">
-                        {{ line }}
-                    </li>
-                {%- endfor -%}
-            </ul>
+            <div class="hc-article-template__refs">
+                <h6>References</h6>
+                <ul class="refs__list" role="list">
+                    {%- for line in refs -%}
+                        <li class="refs__item">
+                            {{ line }}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
         {%- endif -%}
     </div>
   </div>
