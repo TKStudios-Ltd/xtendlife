@@ -73,10 +73,34 @@
         "tile_4_link": "#",
         "tile_4_link_title": "Learn more"
       }
+    },
+    "popup_newsletter_QNXYFP": {
+      "type": "popup-newsletter",
+      "name": "Popup newsletter",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "bg_tint_opacity": 0,
+        "heading": "Stay connected",
+        "copy": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>",
+        "input_label": "Enter your email",
+        "input_placeholder": "Enter your email",
+        "success_copy": "Thanks for subscribing",
+        "show_delay_ms": 800,
+        "trigger_scroll_percent": 0,
+        "enable_exit_intent": false,
+        "once_per_session": false,
+        "hide_days": 14,
+        "auto_close_ms": 2000,
+        "hide_on_mobile": false,
+        "exclude_paths": "/cart\n/checkout\n/account",
+        "klaviyo_list_id": "Ram9Tc",
+        "source_tag": "popup_newsletter"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "popup_newsletter_QNXYFP"
   ]
 }
