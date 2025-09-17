@@ -380,12 +380,6 @@ main.article-template > .section:first-of-type {
 .hc-article-template .article-template__hero-container .media {
   border-radius: 10px;
 }
-.hc-article-template .stats-card-wrapper {
-  position: sticky;
-  top: 120px;
-  align-self: start;
-  z-index: 2;
-}
 .hc-article-template .stats-card {
   background: #292256;
   border-radius: 14px;
@@ -434,6 +428,12 @@ main.article-template > .section:first-of-type {
   }
   .hc-article-template__refs {
     margin-top: 8rem;
+  }
+  .hc-article-template .stats-card-wrapper {
+    position: sticky;
+    top: 90px;
+    align-self: start;
+    z-index: 2;
   }
 }
 @media (max-width: 989px) {
