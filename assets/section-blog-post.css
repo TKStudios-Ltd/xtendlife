@@ -470,4 +470,7 @@ main.article-template > .section:first-of-type {
     color: #fff;
     margin: 0;
   }
+  .hc-article-template .stats-card-wrapper {
+    position: static;
+  }
 }
