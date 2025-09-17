@@ -352,3 +352,6 @@ main.article-template > .section:first-of-type {
 }
 .article-pager__item:hover .article-pager__title{ text-decoration:underline; }
 .article-pager__item.is-empty{ visibility:hidden; }
+
+
+/* Health Concerns */
