@@ -436,7 +436,7 @@ main.article-template > .section:first-of-type {
     z-index: 2;
   }
   .hc-article-template .mobile-only { 
-    display: none; 
+    display: none !important; 
   }
 }
 @media (max-width: 989px) {
