@@ -402,8 +402,12 @@ main.article-template > .section:first-of-type {
   line-height: 1.35;
   max-width: 300px;
 }
+.hc-article-template__refs h5 {
+  margin: 0;
+}
 .hc-article-template__refs .refs__list li {
   font-size: 1.4rem;
+      padding-bottom: 0.5rem;
 }
 
 @media (min-width: 990px) {
