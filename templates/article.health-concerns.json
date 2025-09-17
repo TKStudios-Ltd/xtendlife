@@ -108,6 +108,10 @@
     },
     "related_articles_MWCfXa": {
       "type": "related-articles",
+      "custom_css": [
+        ".article-card__pill {display: none;}",
+        ".border-top {border-top: 1px solid rgba(211, 211, 211, 1);}"
+      ],
       "name": "Related articles",
       "settings": {
         "auto_from_article": false,
