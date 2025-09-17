@@ -477,4 +477,7 @@ main.article-template > .section:first-of-type {
     font-size: 2rem;
     margin: 0 0 2rem;
   }
+  .hc-article-template .stats-card__text {
+    font-size: 1.4rem;
+  }
 }
