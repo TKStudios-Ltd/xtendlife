@@ -22,12 +22,11 @@
   padding: 2.5rem;
 }
 .popup-newsletter__heading {
-  margin: 0 0 12px;
+  margin: 0 0 3rem;
 }
-.popup-newsletter__copy {
+.popup-newsletter__copy p {
   font-size: 2rem;
-  margin: 0 0 18px;
-  max-width: 48ch;
+  margin: 0 0 2rem;
 }
 
 /* Close (X) */
@@ -128,7 +127,7 @@
         <h3 class="popup-newsletter__heading h2">{{ section.settings.heading }}</h3>
       {%- endif -%}
       {%- if section.settings.copy != blank -%}
-        <p class="popup-newsletter__copy">{{ section.settings.copy }}</p>
+        <span class="popup-newsletter__copy">{{ section.settings.copy }}</span>
       {%- endif -%}
 
       {%- comment -%} Dawn UI form; Klaviyo attach mode will hook this ID {%- endcomment -%}
