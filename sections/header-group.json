@@ -89,7 +89,7 @@
         "trigger_scroll_percent": 0,
         "enable_exit_intent": false,
         "once_per_session": false,
-        "hide_days": 14,
+        "hide_days": 1,
         "auto_close_ms": 2000,
         "hide_on_mobile": false,
         "exclude_paths": "/cart\n/checkout\n/account",
