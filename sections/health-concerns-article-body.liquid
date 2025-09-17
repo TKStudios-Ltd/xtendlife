@@ -29,6 +29,16 @@
   <div class="hc-article-template__right">
     <div class="hc-article-template__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ article.content }}
+        {%- assign refs = article.metafields.custom.references.value -%}
+        {%- if refs and refs.size > 0 -%}
+            <ul class="refs__list" role="list">
+                {%- for line in refs -%}
+                    <li class="refs__item">
+                        {{ line }}
+                    </li>
+                {%- endfor -%}
+            </ul>
+        {%- endif -%}
     </div>
   </div>
 
