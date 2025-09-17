@@ -52,7 +52,9 @@
           >
           <!-- mobile overlay -->
           <header class="overlay-title mobile-only">
-            {{ article.title | escape }}
+            <h1 class="article-template__title">
+              {{ article.title | escape }}
+            </h1>
           </header>
         </div>
         {%- if article.metafields.custom.article_subheading != blank -%}
