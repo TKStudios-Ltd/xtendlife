@@ -6,22 +6,20 @@
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-/* Position & card */
+
 .popup-newsletter {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 70; /* above footer & content, below drawers if needed */
-  max-width: min(92vw, 560px);
+  z-index: 70;
+  max-width: min(90vw, 500px);
+  border-radius: 16px;
 }
 .popup-newsletter__card {
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+  box-shadow: 0 8px 8px rgba(0,0,0,.1);
 }
-
-/* Inner spacing and typography to match Dawn’s tone */
 .popup-newsletter__inner {
-  padding: 28px 28px 24px;
+  padding: 2rem;
 }
 .popup-newsletter__heading {
   margin: 0 0 12px;
@@ -126,7 +124,7 @@
 
     <div class="popup-newsletter__inner popup-newsletter__content">
       {%- if section.settings.heading != blank -%}
-        <h2 class="popup-newsletter__heading h1">{{ section.settings.heading }}</h2>
+        <h3 class="popup-newsletter__heading h2">{{ section.settings.heading }}</h3>
       {%- endif -%}
       {%- if section.settings.copy != blank -%}
         <p class="popup-newsletter__copy">{{ section.settings.copy }}</p>
