@@ -388,6 +388,9 @@ main.article-template > .section:first-of-type {
     height: 30rem;
     border-radius: 28px;
   }
+  .hc-article-template__content h3 {
+    font-size: 3.6rem;
+  }
 }
 @media (max-width: 989px) {
   .hc-article-template {
