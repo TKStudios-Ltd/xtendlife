@@ -50,6 +50,13 @@
             height="{{ article.image.height }}"
             alt="{{ article.image.alt | escape }}"
           >
+          <!-- mobile overlay -->
+          <header class="overlay-title mobile-only">
+            {{ article.title | escape }}
+            {%- if article.metafields.custom.article_subheading != blank -%}
+              <p>{{ article.metafields.custom.article_subheading }}</p>
+            {%- endif -%}
+          </header>
         </div>
       </div>
     {%- endif -%}
