@@ -402,6 +402,9 @@ main.article-template > .section:first-of-type {
   line-height: 1.35;
   max-width: 300px;
 }
+.hc-article-template__refs .refs__list li {
+  font-size: 1.4rem;
+}
 
 @media (min-width: 990px) {
   .hc-article-template__left {
@@ -415,6 +418,9 @@ main.article-template > .section:first-of-type {
     font-size: 3.6rem;
     line-height: 1.2;
     max-width: 500px;
+  }
+  .hc-article-template__refs {
+    margin-top: 8rem;
   }
 }
 @media (max-width: 989px) {
