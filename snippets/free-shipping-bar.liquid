@@ -25,13 +25,18 @@
 
 {% if threshold_cents > 0 %}
   <div class="fsb" role="status" aria-live="polite">
-    <p class="fsb__text">
-      {% if remaining_cents > 0 %}
-        {{ remaining_cents | money }} away from free shipping
-      {% else %}
-        Free shipping unlocked 🎉
-      {% endif %}
-    </p>
+    <div class="title-wrapper-with-link">
+      <p class="fsb__text">
+        {% if remaining_cents > 0 %}
+            {{ remaining_cents | money }} away from free shipping
+        {% else %}
+            Free shipping unlocked 🎉
+        {% endif %}
+        </p>
+      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+        {{- 'general.continue_shopping' | t -}}
+      </a>
+    </div>
     <div class="fsb__bar" aria-hidden="true">
       <span class="fsb__fill" style="width: {{ progress }}%"></span>
     </div>
@@ -39,7 +44,7 @@
 
   <style>
     .fsb{margin:12px 0 16px}
-    .fsb__text{margin:0 0 8px;font-weight:600}
+    .fsb__text{ margin:0 0 8px; font-weight:500; font-size: 1.6rem; }
     .fsb__bar{height:10px;background:rgba(38,138,255,0.12);border-radius:999px;overflow:hidden}
     .fsb__fill{display:block;height:100%;width:0;border-radius:999px;background:#5FC4FF;transition:width .35s ease}
   </style>
