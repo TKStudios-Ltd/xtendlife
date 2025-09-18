@@ -4207,14 +4207,14 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     margin: 0;
   }
   .cart-template#MainContent .title-wrapper-with-link {
-    margin: 1rem 0 0.5rem;
+    margin: 1.5rem 0 1rem;
   }
   .cart-template#MainContent .title-wrapper-with-link a,
   .cart-template#MainContent .fsb__text {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   .cart-template#MainContent .fsb__bar {
-    height: 7px;
+    height: 8px;
   }
   .cart-template#MainContent .cart__blocks {
     margin-top: 2rem;
