@@ -4212,6 +4212,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .cart-template#MainContent .cart__blocks {
     margin-top: 2rem;
   }
+  .cart-template [id^="shopify-section-"][id$="__cart-items"] .page-width {
+    margin-top: 4rem;
+  }
 }
 @media (min-width: 990px) {
   .cart-template#MainContent {
