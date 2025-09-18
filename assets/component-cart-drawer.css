@@ -50,6 +50,9 @@ body.scrolled .cart-drawer {
 .cart-drawer .fsb__text {
   font-size: 1.2rem;
 }
+.cart-drawer .fsb__bar {
+  height: 7px;
+}
 
 .drawer__inner-empty {
   height: 100%;
