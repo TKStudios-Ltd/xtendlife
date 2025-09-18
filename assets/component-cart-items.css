@@ -125,6 +125,10 @@ cart-items .title-wrapper-with-link {
   padding: 0;
 }
 
+.cart-item__price-wrapper .price {
+  font-weight: 500;
+}
+
 .cart-item__discounted-prices dd {
   margin: 0;
 }
