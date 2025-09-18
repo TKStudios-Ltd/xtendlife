@@ -18,7 +18,7 @@ cart-items .title-wrapper-with-link {
 }
 .cart-item__quantity {
   grid-column: 2 / 5;
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 .cart-item__totals {
   display: flex;
