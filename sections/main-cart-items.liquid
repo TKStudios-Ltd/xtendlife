@@ -207,6 +207,24 @@
                           {% render 'unit-price', price: item.unit_price, measurement: item.unit_price_measurement %}
                         {%- endif -%}
                       </div>
+                      <cart-remove-button
+                            id="Remove-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                            {% assign can_remove = item.instructions.can_remove | default: true %}
+                            {% if can_remove == false %}
+                              class="hidden"
+                            {% endif %}
+                          >
+                            <a
+                              href="{{ item.url_to_remove }}"
+                              class="button button--tertiary"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                            >
+                              <span class="svg-wrapper">
+                                {{- 'icon-remove.svg' | inline_asset_content -}}
+                              </span>
+                            </a>
+                        </cart-remove-button>
                     </td>
                     {%- liquid
                       assign has_qty_rules = false
@@ -291,24 +309,6 @@
                               </button>
                             </quantity-input>
                           </div>
-                          <cart-remove-button
-                            id="Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                            {% assign can_remove = item.instructions.can_remove | default: true %}
-                            {% if can_remove == false %}
-                              class="hidden"
-                            {% endif %}
-                          >
-                            <a
-                              href="{{ item.url_to_remove }}"
-                              class="button button--tertiary"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                            >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
-                              </span>
-                            </a>
-                          </cart-remove-button>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button
@@ -434,6 +434,24 @@
                           {% render 'unit-price', price: item.unit_price, measurement: item.unit_price_measurement %}
                         {%- endif -%}
                       </div>
+                      <cart-remove-button
+                            id="Remove-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                            {% assign can_remove = item.instructions.can_remove | default: true %}
+                            {% if can_remove == false %}
+                              class="hidden"
+                            {% endif %}
+                          >
+                            <a
+                              href="{{ item.url_to_remove }}"
+                              class="button button--tertiary"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                            >
+                              <span class="svg-wrapper">
+                                {{- 'icon-remove.svg' | inline_asset_content -}}
+                              </span>
+                            </a>
+                      </cart-remove-button>
                     </td>
                   </tr>
                 {%- endfor -%}
