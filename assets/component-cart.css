@@ -177,7 +177,7 @@ cart-items {
 }
 
 .cart__blocks > * + * {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .cart-note__label {
