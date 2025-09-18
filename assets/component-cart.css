@@ -139,8 +139,8 @@ cart-items {
     align-items: flex-start;
   }
 
-  .cart__footer .h2,
-  cart-items .h2 {
+  .cart__footer .h1,
+  cart-items .h1 {
     font-size: 3.6rem;
   }
 
