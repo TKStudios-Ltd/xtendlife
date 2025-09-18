@@ -4212,7 +4212,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .cart-template#MainContent .cart__blocks {
     margin-top: 2rem;
   }
-  .cart-template [id^="shopify-section-"][id$="__cart-items"] .page-width {
+  .cart-template .page-width {
     margin-top: 4rem;
   }
 }
