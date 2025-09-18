@@ -140,9 +140,9 @@ cart-items .title-wrapper-with-link {
 .cart-quantity .quantity__input {
   font-size: 1.2rem;
 }
-.cart-quantity .quantity {
-  width: calc(8rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
-  min-height: calc((var(--inputs-border-width) * 2) + 2.5rem);
+.cart-item__quantity .quantity {
+  width: calc(8rem / var(--font-body-scale) + var(--inputs-border-width) * 2) !important;
+  min-height: calc((var(--inputs-border-width) * 2) + 2.5rem) !important;
 }
 
 .cart-item__discounted-prices dd {
