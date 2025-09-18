@@ -55,6 +55,10 @@ cart-items {
   display: block;
 }
 
+.cart-items thead {
+  display: none;
+}
+
 .cart__items {
   position: relative;
   padding-bottom: 3rem;
