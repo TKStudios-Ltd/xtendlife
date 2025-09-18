@@ -1451,5 +1451,17 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Free shipping",
+    "settings": [
+      {
+        "type": "text",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (store currency)",
+        "default": "150",
+        "info": "Enter a number only, e.g. 150 for $150."
+      }
+    ]
   }
 ]
