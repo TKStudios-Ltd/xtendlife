@@ -5,6 +5,9 @@ cart-items .title-wrapper-with-link {
 .cart-item {
   display: grid;
   grid-template: repeat(2, auto) / repeat(5, 1fr);
+  gap: 2rem;
+}
+.cart-drawer .cart-item {
   gap: 1rem;
 }
 .cart-item__media {
