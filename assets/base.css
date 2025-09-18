@@ -4201,11 +4201,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 
 @media (min-width: 990px) {
-  .cart-template #MainContent {
+  .cart-template#MainContent {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
+    padding-top: 100px;
   }
   .cart-template [id^="shopify-section-"][id$="__cart-items"] { grid-column: 1; }
   .cart-template [id^="shopify-section-"][id$="__cart-footer"] { grid-column: 2; }
