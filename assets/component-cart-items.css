@@ -323,6 +323,9 @@ cart-remove-button .icon-remove {
   .cart-item__media {
     width: 20rem;
   }
+  .cart-drawer .cart-item__media {
+    width: 7rem;
+  }
 
   .cart-item__price-wrapper > *:only-child:not(.cart-item__discounted-prices) {
     margin-top: 1rem;
