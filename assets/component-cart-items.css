@@ -6,9 +6,13 @@ cart-items .title-wrapper-with-link {
   display: grid;
   grid-template: repeat(2, auto) / repeat(5, 1fr);
   gap: 2rem;
+  border-top: .1rem solid rgba(var(--color-foreground), 1);
+  margin-top: 2rem;
 }
 .cart-drawer .cart-item {
   gap: 1rem;
+  border: none;
+  margin: 0;
 }
 .cart-item__media {
   grid-row: 1 / 3;
