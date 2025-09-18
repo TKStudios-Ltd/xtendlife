@@ -4223,5 +4223,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
   .cart-template .shopify-section:not([id$="__cart-items"]):not([id$="__cart-footer"]) {
     grid-column: 1 / -1;
+    width: 100%;
   }
 }
