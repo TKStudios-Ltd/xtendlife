@@ -4201,17 +4201,21 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 
 @media (min-width: 990px) {
-  .template-cart #MainContent {
+  .cart-template #MainContent {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    align-items: start;
   }
-  .template-cart #shopify-section-main-cart-items { grid-column: 1; }
-  .template-cart #shopify-section-main-cart-footer { grid-column: 2; align-self: start; }
-  .template-cart #shopify-section-main-cart-items .page-width,
-  .template-cart #shopify-section-main-cart-footer .page-width {
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
+  .cart-template [id^="shopify-section-"][id$="__cart-items"] { grid-column: 1; }
+  .cart-template [id^="shopify-section-"][id$="__cart-footer"] { grid-column: 2; }
+  .cart-template [id^="shopify-section-"][id$="__cart-items"] .page-width,
+  .cart-template [id^="shopify-section-"][id$="__cart-footer"] .page-width {
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .cart-template .shopify-section:not([id$="__cart-items"]):not([id$="__cart-footer"]) {
+    grid-column: 1 / -1;
   }
 }
