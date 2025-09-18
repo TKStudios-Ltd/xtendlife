@@ -4206,6 +4206,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .cart-template#MainContent .title--primary {
     margin: 0;
   }
+  .cart-template#MainContent .title-wrapper-with-link {
+    margin-bottom: 0;
+  }
 }
 @media (min-width: 990px) {
   .cart-template#MainContent {
