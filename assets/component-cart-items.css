@@ -140,9 +140,6 @@ cart-items .title-wrapper-with-link {
   width: calc(8rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
   min-height: calc((var(--inputs-border-width) * 2) + 2.5rem);
 }
-.cart-quantity {
-  
-}
 
 .cart-item__discounted-prices dd {
   margin: 0;
@@ -344,10 +341,6 @@ cart-remove-button .icon-remove {
 
   .cart-items .cart-item__nested-line td {
     padding-top: 1rem;
-  }
-
-  .cart-item {
-    display: table-row;
   }
 
   .cart-item > td + td {
