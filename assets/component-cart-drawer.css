@@ -118,7 +118,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 
 .cart-drawer__warnings .drawer__close {
-  right: 2rem;
+  right: 1.5rem;
   top: 2rem;
   position: absolute;
 }
