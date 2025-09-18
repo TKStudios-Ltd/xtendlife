@@ -18,8 +18,8 @@ cart-items .title-wrapper-with-link {
 }
 .cart-item__totals {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 .cart-items td,
@@ -289,12 +289,6 @@ cart-remove-button .icon-remove {
 
   .cart-item__quantity-wrapper {
     flex-wrap: wrap;
-  }
-
-  .cart-item__totals {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
   }
 }
 
