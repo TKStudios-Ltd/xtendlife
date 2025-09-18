@@ -41,6 +41,13 @@ body.scrolled .cart-drawer {
   box-shadow: 0px 0px 8px 0px #00000024;
 }
 
+.cart-drawer .title-wrapper-with-link {
+  margin: 0 0 1rem;
+}
+.cart-drawer .title-wrapper-with-link a {
+  display: none;
+}
+
 .drawer__inner-empty {
   height: 100%;
   padding: 0 1.5rem;
