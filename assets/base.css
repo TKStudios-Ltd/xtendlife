@@ -4218,6 +4218,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
   .cart-template [id^="shopify-section-"][id$="__cart-footer"] .page-width {
     max-width: 450px !important;
+    width: 450px;
   }
   .cart-template .shopify-section:not([id$="__cart-items"]):not([id$="__cart-footer"]) {
     grid-column: 1 / -1;
