@@ -29,6 +29,7 @@
   <div class="page-width">
     <h1 class="title title--primary h1">Your Order</h1>
     <div class="title-wrapper-with-link">
+      {% render 'free-shipping-bar', threshold: section.settings.free_shipping_threshold %}
       <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
         {{- 'general.continue_shopping' | t -}}
       </a>
