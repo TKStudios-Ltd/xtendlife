@@ -55,9 +55,9 @@ cart-items {
   display: block;
 }
 
-/* .cart-items thead {
+.cart-items thead {
   display: none;
-} */
+}
 
 .cart__items {
   position: relative;
