@@ -4206,6 +4206,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
+    justify-items: center;
     padding-top: 90px;
   }
   .cart-template [id^="shopify-section-"][id$="__cart-items"] { grid-column: 1; }
