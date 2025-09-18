@@ -4207,13 +4207,20 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     margin: 0;
   }
   .cart-template#MainContent .title-wrapper-with-link {
-    margin-bottom: 0;
+    margin: 1rem 0 0.5rem;
+  }
+  .cart-template#MainContent .title-wrapper-with-link a,
+  .cart-template#MainContent .fsb__text {
+    font-size: 1.2rem;
+  }
+  .cart-template#MainContent .fsb__bar {
+    height: 7px;
   }
   .cart-template#MainContent .cart__blocks {
     margin-top: 2rem;
   }
-  .cart-template .page-width {
-    margin-top: 4rem;
+  .cart-template [id^="shopify-section-"][id$="__cart-items"] .page-width {
+    margin-bottom: 4rem;
   }
 }
 @media (min-width: 990px) {
