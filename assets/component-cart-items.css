@@ -187,12 +187,12 @@ cart-items .title-wrapper-with-link {
   margin-left: 1rem;
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
+/* @media screen and (min-width: 750px) and (max-width: 989px) {
   .cart-item cart-remove-button {
     width: 4.5rem;
     height: 4.5rem;
   }
-}
+} */
 
 cart-remove-button .button {
   min-width: inherit;
