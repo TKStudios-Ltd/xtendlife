@@ -4212,14 +4212,14 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .cart-template [id^="shopify-section-"][id$="__cart-items"] { grid-column: 1; }
   .cart-template [id^="shopify-section-"][id$="__cart-footer"] { grid-column: 2; }
   .cart-template [id^="shopify-section-"][id$="__cart-items"] .page-width {
-    max-width: none !important;
-    padding-left: 8rem !important;
-    padding-right: 0 !important;
+    max-width: 550px !important;
+    /* padding-left: 8rem !important;
+    padding-right: 0 !important; */
   }
   .cart-template [id^="shopify-section-"][id$="__cart-footer"] .page-width {
-    max-width: none !important;
-    padding-left: 6rem !important;
-    padding-right: 6rem !important;
+    max-width: 440px !important;
+    /* padding-left: 6rem !important;
+    padding-right: 6rem !important; */
   }
   .cart-template .shopify-section:not([id$="__cart-items"]):not([id$="__cart-footer"]) {
     grid-column: 1 / -1;
