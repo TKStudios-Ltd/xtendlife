@@ -77,7 +77,7 @@
           </button>
         </div>
       </div>
-      {% render 'free-shipping-bar', threshold: section.settings.free_shipping_threshold %}
+      {% render 'free-shipping-bar' %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
