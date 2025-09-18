@@ -105,9 +105,12 @@ cart-items .title-wrapper-with-link {
 }
 
 .cart-item__name {
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   display: block;
+}
+.cart-drawer .cart-item__name {
+  font-size: 12px;
 }
 
 .cart-item__name:hover {
