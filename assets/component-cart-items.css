@@ -14,7 +14,7 @@ cart-items .title-wrapper-with-link {
   grid-row: 1 / 3;
 }
 .cart-item__details {
-  grid-column: 2 / 4;
+  grid-column: 2 / 5;
 }
 .cart-item__quantity {
   grid-column: 2 / 5;
@@ -299,7 +299,7 @@ cart-remove-button .icon-remove {
     margin-bottom: 0;
   }
 
-  .cart-item__media {
+  /* .cart-item__media {
     grid-row: 1 / 3;
   }
 
@@ -309,7 +309,7 @@ cart-remove-button .icon-remove {
 
   .cart-item__quantity {
     grid-column: 2 / 5;
-  }
+  } */
 
   .cart-item__quantity-wrapper {
     flex-wrap: wrap;
