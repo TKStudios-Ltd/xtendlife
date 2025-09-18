@@ -1,0 +1,52 @@
+{% liquid
+  # Prefer a value passed in, then section setting, then theme setting
+  assign threshold_input = threshold | default: section.settings.free_shipping_threshold | default: settings.free_shipping_threshold
+
+  if threshold_input == blank
+    assign threshold_input = 0
+  endif
+
+  # Accept plain numbers like "150" (means $150). Commas are normalized.
+  assign threshold_float  = threshold_input | replace: ',', '.' | plus: 0
+  assign threshold_cents  = threshold_float | times: 100 | round
+
+  # Use discounted subtotal (what customers actually pay)
+  assign subtotal_cents = cart.total_price
+
+  assign remaining_cents = threshold_cents | minus: subtotal_cents
+  if remaining_cents < 0
+    assign remaining_cents = 0
+  endif
+
+  if threshold_cents > 0
+    assign progress = subtotal_cents | times: 100 | divided_by: threshold_cents
+  else
+    assign progress = 0
+  endif
+
+  if progress > 100
+    assign progress = 100
+  endif
+%}
+
+{% if threshold_cents > 0 %}
+  <div class="fsb" role="status" aria-live="polite">
+    <p class="fsb__text">
+      {% if remaining_cents > 0 %}
+        {{ remaining_cents | money }} away from free shipping
+      {% else %}
+        Free shipping unlocked 🎉
+      {% endif %}
+    </p>
+    <div class="fsb__bar" aria-hidden="true">
+      <span class="fsb__fill" style="width: {{ progress }}%"></span>
+    </div>
+  </div>
+
+  <style>
+    .fsb{margin:12px 0 16px}
+    .fsb__text{margin:0 0 8px;font-weight:600}
+    .fsb__bar{height:10px;background:rgba(38,138,255,0.12);border-radius:999px;overflow:hidden}
+    .fsb__fill{display:block;height:100%;width:0;border-radius:999px;background:#5FC4FF;transition:width .35s ease}
+  </style>
+{% endif %}
