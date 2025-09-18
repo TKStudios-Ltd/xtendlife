@@ -4202,6 +4202,11 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .cart-template#MainContent {
   padding-top: 100px;
 }
+@media (max-width: 989px) {
+  .cart-template#MainContent .title--primary {
+    margin: 0;
+  }
+}
 @media (min-width: 990px) {
   .cart-template#MainContent {
     display: grid;
