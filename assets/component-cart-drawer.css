@@ -42,10 +42,13 @@ body.scrolled .cart-drawer {
 }
 
 .cart-drawer .title-wrapper-with-link {
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
 }
 .cart-drawer .title-wrapper-with-link a {
   display: none;
+}
+.cart-drawer .fsb__text {
+  font-size: 1.2rem;
 }
 
 .drawer__inner-empty {
