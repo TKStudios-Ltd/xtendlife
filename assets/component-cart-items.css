@@ -1,5 +1,9 @@
 cart-items .title-wrapper-with-link {
-  margin: 0.5rem;
+  margin: 1rem;
+}
+cart-items .title-wrapper-with-link a {
+  font-weight: 500;
+  color: rgba(var(--color-link),1);
 }
 
 .cart-item {
