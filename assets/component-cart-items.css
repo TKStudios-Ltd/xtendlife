@@ -129,6 +129,21 @@ cart-items .title-wrapper-with-link {
   font-weight: 500;
 }
 
+.cart-quantity .quantity__button {
+  width: calc(3rem / var(--font-body-scale));
+  font-size: 1.2rem;
+}
+.cart-quantity .quantity__input {
+  font-size: 1.2rem;
+}
+.cart-quantity .quantity {
+  width: calc(8rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  min-height: calc((var(--inputs-border-width) * 2) + 2.5rem);
+}
+.cart-quantity {
+  
+}
+
 .cart-item__discounted-prices dd {
   margin: 0;
 }
