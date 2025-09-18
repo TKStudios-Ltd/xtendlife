@@ -29,7 +29,7 @@
   <div class="page-width">
     <h1 class="title title--primary h1">Your Order</h1>
     <div class="title-wrapper-with-link">
-      {% render 'free-shipping-bar', threshold: section.settings.free_shipping_threshold %}
+      {% render 'free-shipping-bar' %}
       <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
         {{- 'general.continue_shopping' | t -}}
       </a>
@@ -428,13 +428,6 @@
 {
   "name": "t:sections.main-cart-items.name",
   "settings": [
-    {
-      "type": "text",
-      "id": "free_shipping_threshold",
-      "label": "Free shipping threshold (store currency)",
-      "default": "150",
-      "info": "Enter a number only (e.g. 150 for $150)."
-    },
     {
       "type": "color_scheme",
       "id": "color_scheme",

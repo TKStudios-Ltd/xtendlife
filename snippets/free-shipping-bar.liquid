@@ -1,18 +1,13 @@
 {% liquid
-  # Prefer a value passed in, then section setting, then theme setting
   assign threshold_input = threshold | default: section.settings.free_shipping_threshold | default: settings.free_shipping_threshold
-
   if threshold_input == blank
     assign threshold_input = 0
   endif
 
-  # Accept plain numbers like "150" (means $150). Commas are normalized.
-  assign threshold_float  = threshold_input | replace: ',', '.' | plus: 0
-  assign threshold_cents  = threshold_float | times: 100 | round
+  assign threshold_float = threshold_input | replace: ',', '.' | plus: 0
+  assign threshold_cents = threshold_float | times: 100 | round
 
-  # Use discounted subtotal (what customers actually pay)
   assign subtotal_cents = cart.total_price
-
   assign remaining_cents = threshold_cents | minus: subtotal_cents
   if remaining_cents < 0
     assign remaining_cents = 0
@@ -23,7 +18,6 @@
   else
     assign progress = 0
   endif
-
   if progress > 100
     assign progress = 100
   endif
