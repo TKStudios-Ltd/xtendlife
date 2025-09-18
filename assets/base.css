@@ -4199,7 +4199,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
 }
 
-
+.cart-template#MainContent {
+  padding-top: 100px;
+}
 @media (min-width: 990px) {
   .cart-template#MainContent {
     display: grid;
@@ -4207,7 +4209,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     gap: 0;
     align-items: start;
     justify-items: center;
-    padding-top: 90px;
+    padding-top: 100px;
   }
   .cart-template [id^="shopify-section-"][id$="__cart-items"] { grid-column: 1; }
   .cart-template [id^="shopify-section-"][id$="__cart-footer"] { grid-column: 2; }
