@@ -87,6 +87,7 @@ cart-items .title-wrapper-with-link {
 @media (max-width: 989px) {
   .cart-template .cart-item {
     gap: 0rem;
+    padding-top: 2rem;
   }
   .cart-template .cart-item__image {
     width: 100%;
@@ -297,6 +298,10 @@ cart-remove-button .icon-remove {
     justify-content: space-between;
     border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
     margin-bottom: 4rem;
+  }
+  .cart-template .cart-item__media {
+    width: 8rem;
+    margin-right: 1.5rem;
   }
 
   /* .cart-item {
