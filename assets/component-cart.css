@@ -139,6 +139,10 @@ cart-items {
     align-items: flex-start;
   }
 
+  .cart__footer .h2 {
+    font-size: 3.6rem;
+  }
+
   .cart__footer-wrapper:last-child {
     padding-top: 0;
   }
