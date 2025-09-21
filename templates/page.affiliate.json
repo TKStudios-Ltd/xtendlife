@@ -432,7 +432,8 @@
         ".accordion summary {padding: 0;}",
         ".accordion__content {margin: 1rem 0 2.5rem; max-width: 350px;}",
         ".image-with-text__content {padding: 0 4rem;}",
-        "@media (min-width: 990px) {.accordion__title {font-size: 6rem; }}"
+        "@media (min-width: 990px) {.accordion__title {font-size: 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 0; } .accordion summary {padding: 0.5rem 0; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
