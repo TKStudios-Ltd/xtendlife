@@ -9,60 +9,6 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_bUHWHX": {
-          "type": "heading",
-          "settings": {
-            "heading": "Build a better baseline for your health",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Bundle up with the essentials you need to keep going.",
-            "text_style": "subtitle"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop now",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Learn more",
-            "button_link_2": "#",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_bUHWHX",
-        "text",
-        "button"
-      ],
-      "custom_css": [
-        "@media (min-width: 750px) {.banner--large {min-height: calc(100vh - 34px); } .banner__content {padding-top: 125px; } .banner__text.subtitle {max-width: 330px; }}",
-        "@media (max-width: 749px) {.banner__content {justify-content: flex-end; } .banner__heading {max-width: 300px; margin: 0 auto; } .subtitle {max-width: 275px; margin: 2rem auto 0; }}",
-        ".banner__heading {max-width: 500px; line-height: 1;}"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "wide_container": false,
-        "image_behavior": "fixed",
-        "desktop_content_position": "top-center",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
@@ -89,16 +35,16 @@
             "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
             "video_mp4": "",
             "video_adapt_ratio": 57,
-            "heading": "Your headline here",
+            "heading": "Build a better baseline for your health",
             "heading_size": "h1",
-            "text": "Add supporting copy here.",
+            "text": "Bundle up with the essentials you need to keep going.",
             "text_style": "body",
             "button_label_1": "Shop now",
-            "button_link_1": "",
+            "button_link_1": "#",
             "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label_2": "Learn More",
+            "button_link_2": "#",
+            "button_style_secondary_2": true
           }
         }
       },
@@ -117,7 +63,7 @@
         "show_text_box": true,
         "color_scheme": "scheme-3",
         "stack_text_on_mobile": false,
-        "autoplay": true,
+        "autoplay": false,
         "autoplay_delay": 4000,
         "loop": true,
         "speed": 500
@@ -969,7 +915,6 @@
     }
   },
   "order": [
-    "image_banner",
     "media_hero_slider_VC34DA",
     "multicolumn_A6pqFE",
     "rich_text_e8Phjw",
