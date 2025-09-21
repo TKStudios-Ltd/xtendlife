@@ -106,9 +106,7 @@
         "slide_Bwck6W",
         "slide_4TWen8"
       ],
-      "custom_css": [
-        "@media (min-width: 750px) {.banner--large {min-height: calc(100vh - 34px); }}"
-      ],
+      "custom_css": [],
       "name": "Video Hero Slider",
       "settings": {
         "wide_container": false,
