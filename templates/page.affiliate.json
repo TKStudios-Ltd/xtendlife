@@ -249,7 +249,8 @@
         "column_imwYgV"
       ],
       "custom_css": [
-        ".h1 {margin-bottom: 3rem;}"
+        ".h1 {margin-bottom: 3rem;}",
+        "h3 {font-size: 1.6rem; margin-bottom: 2rem;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
