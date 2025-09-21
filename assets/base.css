@@ -4247,3 +4247,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     width: 100%;
   }
 }
+
+
+/* Search */
+
+.pre-search {
+  display: block;
+}
+.pre-search.is-hidden {
+  display: none;
+}

@@ -79,26 +79,34 @@
             </button>
           </div>
 
-          <ul class="popular-terms">
-            {% for block in section.blocks %}
-              {% if block.type == 'popular_term' %}
-                <li><a href="{{ routes.search_url }}?q={{ block.settings.term | url_encode }}">{{ block.settings.term }}</a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-
-          <div class="featured-collections">
-            {% for block in section.blocks %}
-              {% if block.type == 'featured_collection' and block.settings.collection != blank %}
-                {% assign c = block.settings.collection %}
-                <a href="{{ c.url }}">
-                  {% if c.image %}
-                    <img src="{{ c.image | img_url: '400x' }}" alt="{{ c.title }}">
+          <div id="PreSearchContent" class="pre-search">
+            <div class="pre-search__col pre-search__col--left">
+              <h3>Most popular search terms</h3>
+              <ul>
+                {% for block in section.blocks %}
+                  {% if block.type == 'popular_term' %}
+                    <li><a href="{{ routes.search_url }}?q={{ block.settings.term | url_encode }}">{{ block.settings.term }}</a></li>
                   {% endif %}
-                  <span>{{ c.title }}</span>
-                </a>
-              {% endif %}
-            {% endfor %}
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="pre-search__col pre-search__col--right">
+              <h3>Featured</h3>
+              <div class="pre-search__collections">
+                {% for block in section.blocks %}
+                  {% if block.type == 'featured_collection' and block.settings.collection != blank %}
+                    {% assign c = block.settings.collection %}
+                    <a href="{{ c.url }}" class="pre-search__collection-tile">
+                      {% if c.image %}
+                        <img src="{{ c.image | img_url: '400x' }}" alt="{{ c.title }}">
+                      {% endif %}
+                      <span>{{ c.title }}</span>
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
           </div>
 
           {%- if settings.predictive_search_enabled -%}
