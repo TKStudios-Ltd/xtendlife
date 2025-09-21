@@ -87,7 +87,7 @@
         "slide_Bwck6W": {
           "type": "slide",
           "settings": {
-            "video_mp4": "",
+            "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
             "video_adapt_ratio": 57,
             "heading": "Your headline here",
             "heading_size": "h1",
@@ -114,7 +114,7 @@
         "wide_container": false,
         "image_overlay_opacity": 0,
         "image_height": "large",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "top-left",
         "desktop_content_alignment": "left",
         "show_text_box": true,
         "color_scheme": "scheme-3",
