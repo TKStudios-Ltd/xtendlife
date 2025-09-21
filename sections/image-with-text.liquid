@@ -100,9 +100,9 @@
         {% assign replacement_text = section.settings.image_replacement_text | strip %}
         {% if replacement_text != blank %}
           <div class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}">
-            <div class="image-with-text__media-text">
+            <h2 class="image-with-text__heading inline-richtext h1">
               {{ replacement_text | escape }}
-            </div>
+            </h2>
           </div>
         {% else %}
           <div
