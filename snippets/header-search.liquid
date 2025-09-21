@@ -79,6 +79,28 @@
             </button>
           </div>
 
+          <ul class="popular-terms">
+            {% for block in section.blocks %}
+              {% if block.type == 'popular_term' %}
+                <li><a href="{{ routes.search_url }}?q={{ block.settings.term | url_encode }}">{{ block.settings.term }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          <div class="featured-collections">
+            {% for block in section.blocks %}
+              {% if block.type == 'featured_collection' and block.settings.collection != blank %}
+                {% assign c = block.settings.collection %}
+                <a href="{{ c.url }}">
+                  {% if c.image %}
+                    <img src="{{ c.image | img_url: '400x' }}" alt="{{ c.title }}">
+                  {% endif %}
+                  <span>{{ c.title }}</span>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
           {%- if settings.predictive_search_enabled -%}
             <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
               {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
