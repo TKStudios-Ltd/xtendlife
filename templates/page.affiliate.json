@@ -52,6 +52,36 @@
         "show_text_below": false
       }
     },
+    "rich_text_fRcgNk": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_mC97Kh": {
+          "type": "caption",
+          "settings": {
+            "caption": "Get paid to promote Xtendlife product. Join our affiliate program and earn commissions on all of your referrals.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "caption_mC97Kh"
+      ],
+      "custom_css": [
+        ".page-width {margin-bottom: 6rem;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 28,
+        "padding_bottom": 100
+      }
+    },
     "multicolumn_A6pqFF": {
       "type": "multicolumn",
       "blocks": {
@@ -882,6 +912,7 @@
   "order": [
     "main",
     "image_banner_pFjbBG",
+    "rich_text_fRcgNk",
     "multicolumn_A6pqFF",
     "featured_collection_tab_grid_Ddm4Df",
     "reviews_slider_EnTCee",
