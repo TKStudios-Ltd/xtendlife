@@ -64,12 +64,23 @@
     display: flex;
     justify-content: flex-end;
 }
-
 /* Overlay per slide banner */
 #MediaHero-{{ section.id }} .banner::after{
   content:""; position:absolute; inset:0; background:#000;
   opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   pointer-events:none;
+}
+#MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet {
+    width: 10px; 
+    height: 10px; 
+    border-radius: 999px; 
+    background: #DBEEFF; 
+    opacity: 1;
+}
+#MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet-active {
+    background: #1F1946; 
+    opacity: 1;
+    width: 46px;
 }
 {%- endstyle -%}
 
@@ -184,7 +195,7 @@
 
             <!-- Dots inside each banner so they overlap media -->
             <div class="page-width">
-                <div class="hero-pagination ts2-pagination swiper-pagination"></div>
+                <div class="hero-pagination swiper-pagination"></div>
             </div>
           </div>
         </div>
