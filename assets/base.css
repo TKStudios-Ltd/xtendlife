@@ -4266,4 +4266,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .pre-search__collection-tile {
   flex: 0 0 30%;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.pre-search__collection-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
