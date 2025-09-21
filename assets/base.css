@@ -4258,6 +4258,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: flex;
   justify-content: space-between;
 }
+.pre-search__col h4 {
+  margin: 3rem 0 1.5rem;
+}
 .pre-search__col--left ul {
   margin: 4rem 0 0;
   padding: 0;
