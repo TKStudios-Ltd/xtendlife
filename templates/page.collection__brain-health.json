@@ -34,7 +34,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Hormonal Health",
+            "heading": "Mental & Brain Health",
             "heading_size": "h1"
           }
         },
@@ -58,7 +58,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/4a23c63ab8d80620368a688bab6a7ec6da737e16.jpg",
+        "image": "shopify://shop_images/iStock-1413988774_3.png",
         "image_overlay_opacity": 20,
         "image_height": "small",
         "wide_container": true,
@@ -144,14 +144,14 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Hormonal Health",
+        "title": "Top Supplements for Mental & Brain Health",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "featured_collection": "hormonal-health",
+        "featured_collection": "mental-and-brain-health",
         "featured_count": 4,
-        "full_collection": "hormonal-health",
+        "full_collection": "mental-and-brain-health",
         "full_count": 12,
         "default_tab": "featured",
         "image_ratio": "portrait",
