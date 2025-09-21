@@ -45,8 +45,11 @@
   }
 } */
 
-.facet-filters .select__select:focus {
+.facet-filters .select__select:focus,
+.facet-filters .facet-filters__sort:focus-visible {
   box-shadow: none;
+  outline: none;
+  outline-offset: 0;
 }
 
 .facet-filters__label {
