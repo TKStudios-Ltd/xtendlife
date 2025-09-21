@@ -557,7 +557,7 @@
           "settings": {
             "heading": "Who can become an Xtendlife affiliate?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Anyone can become an Xtendlife affiliate. Our affiliates come from all over the world. You are most likely to be successful if you have prior online marketing skills and experience.</p>",
             "page": ""
           }
         },
@@ -566,7 +566,7 @@
           "settings": {
             "heading": "How do I generate commissions?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>By referring people to our website who make a purchase, either using your unique affiliate link or your unique discount code during checkout.<br/><br/>If you refer someone who is already associated with another affiliate no commission will be generated.</p>",
             "page": ""
           }
         },
@@ -575,7 +575,7 @@
           "settings": {
             "heading": "Someone I referred did not use my affiliate link when purchasing from Xtendlife. Can you add the customer to my affiliate account retroactively?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>No, unfortunately, this isn’t possible. The new customer must use your unique affiliate link or discount code when registering in order to be linked with your affiliate account.</p>",
             "page": ""
           }
         },
@@ -584,7 +584,7 @@
           "settings": {
             "heading": "How will I receive my payments?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
             "page": ""
           }
         },
@@ -593,7 +593,7 @@
           "settings": {
             "heading": "Can I run paid ads using my affiliate link or discount code?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Yes, but you have to follow the rules that are part of our Terms & Conditions. Affiliate users shall not use the keyword “Xtendlife” or any variations in ads, nowhere in an ad copy - title or body text. Affiliate users can’t use the keyword \"Xtendlife\" or any variations and any Xtendlife Trademark within online ad campaigns (including, without limitation, within metadata or search-based advertising such as Google Adwords) without prior written consent from Xtendlife.</p>",
             "page": ""
           }
         },
@@ -602,7 +602,7 @@
           "settings": {
             "heading": "How long does the cookie last?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Visitors have 90 days to make a purchase after clicking on your affiliate link.</p>",
             "page": ""
           }
         },
@@ -611,7 +611,7 @@
           "settings": {
             "heading": "How often do you process payouts for referrals?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Commissions are paid out every month. You will receive your payout in your PayPal account by the end of each month.</p>",
             "page": ""
           }
         }
@@ -645,6 +645,61 @@
         "padding_bottom": 60
       }
     },
+    "image_banner_eNjqNN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join us on the Journey",
+            "heading_size": "h1"
+          }
+        },
+        "text_VhCp7b": {
+          "type": "text",
+          "settings": {
+            "text": "At Xtendlife, we believe in offering a better way for our customers to take care of their health. With our commitment to scientific research, quality, and our expert team, we are dedicated to improving the health and well-being of our customers. Join us on this journey and experience the difference that Xtendlife can make in your health and vitality.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Apply now",
+            "button_link_1": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_VhCp7b",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        "h2 {line-height: 1.2;}",
+        ".subtitle {max-width: 630px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1ef6e5b3badfbad0f6509a58da515a4246ece173_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -673,62 +728,6 @@
         "padding_top": 60,
         "padding_bottom": 100
       }
-    },
-    "image_banner_eNjqNN": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_hRLdBY": {
-          "type": "heading",
-          "settings": {
-            "heading": "Life Long. Life Strong.",
-            "heading_size": "h1"
-          }
-        },
-        "text_VhCp7b": {
-          "type": "text",
-          "settings": {
-            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons_XN8C3J": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "The Xtendlife Difference",
-            "button_link_1": "#",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "#",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_hRLdBY",
-        "text_VhCp7b",
-        "buttons_XN8C3J"
-      ],
-      "custom_css": [
-        ".banner__content {padding: 3rem 2rem 3.5rem;}",
-        "h2 {line-height: 1.2;}",
-        ".subtitle {max-width: 500px;}",
-        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "wide_container": false,
-        "image_behavior": "none",
-        "desktop_content_position": "top-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
     }
   },
   "order": [
@@ -744,7 +743,7 @@
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
     "collapsible_content_8VjQPY",
-    "newsletter_qKtmmH",
-    "image_banner_eNjqNN"
+    "image_banner_eNjqNN",
+    "newsletter_qKtmmH"
   ]
 }
