@@ -248,6 +248,9 @@
         "column_gea4K6",
         "column_imwYgV"
       ],
+      "custom_css": [
+        ".h1 {margin-bottom: 3rem;}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "Affiliate Testimonials",
