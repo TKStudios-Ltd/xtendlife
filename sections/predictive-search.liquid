@@ -13,16 +13,20 @@
         class="predictive-search__results-groups-wrapper{% unless products_count > 0 %} predictive-search__results-groups-wrapper--no-products{% endunless %}"
       >
         <div class="predictive-search__result-group predictive-search__result-group--two-col">
+
           <div class="result-group__column result-group__column--left">
             <div class="predictive-search__heading-row">
               <h2 id="predictive-search-products" class="predictive-search__heading text-body">
                 {{ products_count }} products
               </h2>
-              <a class="predictive-search__view-all button button--primary"
-                 href="{{ routes.search_url }}?q={{ term | url_encode }}&type=product&options%5Bprefix%5D=last">
+              <a
+                class="predictive-search__view-all button button--primary"
+                href="{{ routes.search_url }}?q={{ term | url_encode }}&type=product&options%5Bprefix%5D=last"
+              >
                 View all
               </a>
             </div>
+
             <ul
               id="predictive-search-results-products-list"
               class="predictive-search__results-list list-unstyled"
@@ -70,12 +74,14 @@
               {%- endfor -%}
             </ul>
           </div>
+
           <div class="result-group__column result-group__column--right">
             <div class="predictive-search__heading-row">
               <h2 id="predictive-search-articles" class="predictive-search__heading text-body">
                 Articles
               </h2>
             </div>
+
             <ul
               id="predictive-search-results-articles-list"
               class="predictive-search__results-list list-unstyled"
@@ -97,8 +103,11 @@
                 </li>
               {%- endfor -%}
             </ul>
-            <a class="predictive-search__view-all button button--primary"
-                href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
+
+            <a
+              class="predictive-search__view-all button button--primary"
+              href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last"
+            >
               View all
             </a>
           </div>
@@ -133,6 +142,7 @@
       </button>
     </div>
   </div>
+
   <span class="hidden" data-predictive-search-live-region-count-value>
     {% liquid
       assign total_results = products_count | plus: articles_count
