@@ -626,7 +626,7 @@
         "collapsible_row_jjMAK9"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 12rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 10rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
         ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
