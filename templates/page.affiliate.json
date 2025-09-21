@@ -425,7 +425,8 @@
       ],
       "custom_css": [
         ".accordion {border: none;}",
-        "@media (min-width: 990px) {.accordion__title {font-size: 6.4rem;}}"
+        ".accordion summary .icon-plus {display: none;}",
+        "@media (min-width: 990px) {.accordion__title {font-size: 6.4rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
