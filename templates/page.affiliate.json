@@ -166,7 +166,7 @@
         "button_7xtrmP": {
           "type": "button",
           "settings": {
-            "button_label": "Apply",
+            "button_label": "Apply now",
             "button_link": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
             "button_style_secondary": false
           }
@@ -180,8 +180,9 @@
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1;}",
-        ".subtitle {font-size: 20px; line-height: 1.35; margin-top: 4rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; } h2 {margin-bottom: 6rem; }}",
         "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
