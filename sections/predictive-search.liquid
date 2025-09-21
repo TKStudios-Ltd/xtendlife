@@ -138,10 +138,6 @@
               <h2 id="predictive-search-articles" class="predictive-search__heading text-body">
                 Articles
               </h2>
-              <a class="predictive-search__view-all button button--primary"
-                href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
-                View all
-              </a>
             </div>
 
             <ul
@@ -165,6 +161,11 @@
                 </li>
               {%- endfor -%}
             </ul>
+
+            <a class="predictive-search__view-all button button--primary"
+                href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
+                View all
+            </a>
 
             {%- if articles_count == 0 -%}
               <p class="predictive-search__empty text-body">No articles found</p>
