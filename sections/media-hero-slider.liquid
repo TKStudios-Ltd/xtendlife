@@ -77,8 +77,6 @@
           <div
             class="
               banner
-              banner--content-align-{{ section.settings.desktop_content_alignment }}
-              banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}
               banner--{{ section.settings.image_height }}
               {% if section.settings.show_text_box == false %}banner--desktop-transparent{% endif %}
               {% if section.settings.stack_text_on_mobile %}banner--stacked{% endif %}
@@ -110,8 +108,8 @@
               {% endif %}
             </div>
 
-            <div class="banner__content banner__content--{{ section.settings.desktop_content_position }}">
-              <div class="page-width">
+            <div class="banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}">
+              <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
                 <div class="banner__box content-container content-container--full-width-mobile gradient">
                   {% if b.heading != blank %}
                     <h2 class="banner__heading inline-richtext {{ b.heading_size }}">{{ b.heading }}</h2>
