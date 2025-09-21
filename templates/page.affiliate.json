@@ -475,7 +475,7 @@
         "full_width": true,
         "anchor_id": "",
         "anchor_offset": 120,
-        "padding_top": 60,
+        "padding_top": 80,
         "padding_bottom": 20
       }
     },
@@ -485,35 +485,42 @@
         "image_EahCNG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Logo-USA_Today_200x_1.png",
+            "image": "shopify://shop_images/NPA-80x60pix_x60_d31236bb-3c1f-40c5-a912-2ac720291ea3.png",
             "link": ""
           }
         },
         "image_wQp7ij": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Logo-CBS_News_200x_1.png",
+            "image": "shopify://shop_images/NZ-57x60pix_x60_e89473ec-1d52-43e0-ac04-3917ba125305.webp",
             "link": ""
           }
         },
         "image_36p7tN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/DrTalks_Logo-02_400x_1.png",
+            "image": "shopify://shop_images/FDA-160x60pix_x60_6213b4be-0c71-4fc4-991b-1c9d7582b95d.png",
             "link": ""
           }
         },
         "image_Qw9PXi": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Logo-Fox_News_400x_1.png",
+            "image": "shopify://shop_images/image_68.png",
             "link": ""
           }
         },
         "image_nxEX3U": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Logo-NBC_200x_1.png",
+            "image": "shopify://shop_images/HACCP-106x60pix_x60_760ee935-bb03-4b37-9193-ce05d7385853.png",
+            "link": ""
+          }
+        },
+        "image_QXQebq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_69.png",
             "link": ""
           }
         }
@@ -523,7 +530,8 @@
         "image_wQp7ij",
         "image_36p7tN",
         "image_Qw9PXi",
-        "image_nxEX3U"
+        "image_nxEX3U",
+        "image_QXQebq"
       ],
       "custom_css": [
         "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
@@ -531,7 +539,7 @@
       ],
       "name": "Image Infinite Scroll",
       "settings": {
-        "background_color": "#f4f8fb",
+        "background_color": "#ffffff",
         "image_size_constraint": "height",
         "image_max_size": 50,
         "scroll_speed": 15,
@@ -539,6 +547,98 @@
         "image_gap": 0,
         "padding_top": 20,
         "padding_bottom": 60
+      }
+    },
+    "collapsible_content_8VjQPY": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_89AqTf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who can become an Xtendlife affiliate?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_fp9kgF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I generate commissions?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cnj6hi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Someone I referred did not use my affiliate link when purchasing from Xtendlife. Can you add the customer to my affiliate account retroactively?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_erfxjF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How will I receive my payments?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_CEPPJf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I run paid ads using my affiliate link or discount code?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_g9cpCf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the cookie last?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_jjMAK9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often do you process payouts for referrals?",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_89AqTf",
+        "collapsible_row_fp9kgF",
+        "collapsible_row_Cnj6hi",
+        "collapsible_row_erfxjF",
+        "collapsible_row_CEPPJf",
+        "collapsible_row_g9cpCf",
+        "collapsible_row_jjMAK9"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 100
       }
     },
     "newsletter_qKtmmH": {
@@ -639,6 +739,7 @@
     "image_with_text_RRFdfM",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
+    "collapsible_content_8VjQPY",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
