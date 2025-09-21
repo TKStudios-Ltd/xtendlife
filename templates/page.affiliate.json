@@ -20,36 +20,16 @@
     "image_banner_pFjbBG": {
       "type": "image-banner",
       "blocks": {
-        "buttons_JR9Vpa": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "RECOMMENDED BY DR. JOEL KHAN",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
             "heading": "Nutrition for your Heart",
             "heading_size": "h1"
           }
-        },
-        "text_FxFrdN": {
-          "type": "text",
-          "settings": {
-            "text": "Trusted by experts, our heart health formula combines clinically studied ingredients to support circulation, cholesterol balance, and overall cardiovascular wellness—helping you stay strong at heart.",
-            "text_style": "subtitle"
-          }
         }
       },
       "block_order": [
-        "buttons_JR9Vpa",
-        "heading_4P8W9w",
-        "text_FxFrdN"
+        "heading_4P8W9w"
       ],
       "custom_css": [
         ".subtitle {max-width: 460px; margin-top: 2rem;}",
@@ -421,6 +401,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-5",
         "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
         "padding_top": 60,
         "padding_bottom": 20
       }
@@ -833,6 +815,9 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
       }

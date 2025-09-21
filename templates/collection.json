@@ -34,7 +34,7 @@
         "show_rating": true,
         "quick_add": "standard",
         "enable_filtering": false,
-        "filter_type": "vertical",
+        "filter_type": "horizontal",
         "enable_sorting": true,
         "padding_top": 20,
         "padding_bottom": 100
@@ -303,6 +303,9 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
       }

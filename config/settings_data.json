@@ -181,6 +181,11 @@
         "type": "shopify://apps/recharge-subscriptions/blocks/storefront-experiences/371eed76-0b44-4869-9813-730372ea378e",
         "disabled": true,
         "settings": {}
+      },
+      "16881471024131275657": {
+        "type": "shopify://apps/searchanise-search-filter/blocks/app-embed/d8f24ada-02b1-458a-bbeb-5bf16d5c921e",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
