@@ -34,7 +34,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Hormonal Health",
+            "heading": "Immunity Health",
             "heading_size": "h1"
           }
         },
@@ -58,8 +58,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/4a23c63ab8d80620368a688bab6a7ec6da737e16.jpg",
-        "image_overlay_opacity": 20,
+        "image": "shopify://shop_images/iStock-1135154329_3_1.jpg",
+        "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
         "image_behavior": "none",
@@ -144,14 +144,14 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Hormonal Health",
+        "title": "Top Supplements for Immunity Health",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "featured_collection": "hormonal-health",
+        "featured_collection": "immunity-health",
         "featured_count": 4,
-        "full_collection": "hormonal-health",
+        "full_collection": "immunity-health",
         "full_count": 12,
         "default_tab": "featured",
         "image_ratio": "portrait",
