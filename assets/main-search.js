@@ -43,3 +43,19 @@ class MainSearch extends SearchForm {
 }
 
 customElements.define('main-search', MainSearch);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.querySelector('.search-modal__form input[type="search"]');
+  const preSearch = document.getElementById('PreSearchContent');
+
+  if (input && preSearch) {
+    input.addEventListener('input', () => {
+      if (input.value.trim() === '') {
+        preSearch.classList.remove('is-hidden');
+      } else {
+        preSearch.classList.add('is-hidden');
+      }
+    });
+  }
+});
