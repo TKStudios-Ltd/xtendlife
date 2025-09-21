@@ -99,12 +99,16 @@
                 {% for block in section.blocks %}
                   {% if block.type == 'featured_collection' and block.settings.collection != blank %}
                     {% assign c = block.settings.collection %}
-                    <a href="{{ c.url }}" class="pre-search__collection-tile">
-                      {% if c.image %}
-                        <img src="{{ c.image | img_url: '400x' }}" alt="{{ c.title }}">
-                      {% endif %}
-                      <span>{{ c.title }}</span>
-                    </a>
+                    <div class="pre-search__collection-tile--wrapper">
+                      <a href="{{ c.url }}" class="pre-search__collection-tile">
+                        {% if c.image %}
+                          <img src="{{ c.image | img_url: '400x' }}" alt="{{ c.title }}">
+                        {% endif %}
+                      </a>
+                      <a href="{{ c.url }}">
+                        <h4>{{ c.title }}</h4>
+                      </a>
+                    </div>
                   {% endif %}
                 {% endfor %}
               </div>
