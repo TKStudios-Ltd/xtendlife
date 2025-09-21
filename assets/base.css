@@ -4295,7 +4295,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .pre-search__collections {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .pre-search__collection-tile--wrapper {
   flex: 0 0 calc(30% - 2rem);
@@ -4326,6 +4326,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .result-group__column--left {
   flex: auto;
+}
+/predictive-search__results-list {
+  display: flex;
+  gap: 1.5rem;
 }
 .result-group__column--right {
   flex: 0 0 320px;
