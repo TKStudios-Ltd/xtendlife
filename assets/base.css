@@ -4344,8 +4344,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .result-group__column--right {
   flex: 0 0 320px;
 }
-.result-group__column--right {
-  
+.result-group__column--right .predictive-search__results-list {
+  flex-direction: column;
 }
 @media (max-width: 989px) {
   .pre-search {
