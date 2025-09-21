@@ -34,14 +34,14 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Nutrition for your Heart",
+            "heading": "Hormonal Health",
             "heading_size": "h1"
           }
         },
         "text_FxFrdN": {
           "type": "text",
           "settings": {
-            "text": "Trusted by experts, our heart health formula combines clinically studied ingredients to support circulation, cholesterol balance, and overall cardiovascular wellness—helping you stay strong at heart.",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
             "text_style": "subtitle"
           }
         }
@@ -58,8 +58,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/d82a25096345f69af54f65a5c278786442ee57f8.png",
-        "image_overlay_opacity": 0,
+        "image": "shopify://shop_images/4a23c63ab8d80620368a688bab6a7ec6da737e16.jpg",
+        "image_overlay_opacity": 20,
         "image_height": "small",
         "wide_container": true,
         "image_behavior": "none",
@@ -144,14 +144,14 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Heart Health",
+        "title": "Top Supplements for Hormonal Health",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "featured_collection": "heart-health",
+        "featured_collection": "hormonal-health",
         "featured_count": 4,
-        "full_collection": "heart-health",
+        "full_collection": "hormonal-health",
         "full_count": 12,
         "default_tab": "featured",
         "image_ratio": "portrait",
@@ -282,15 +282,15 @@
         "heading_HLeMWQ": {
           "type": "heading",
           "settings": {
-            "heading": "Why is Heart Health so Important?",
+            "heading": "Lorem ipsum dolor sit amet",
             "heading_size": "h2"
           }
         },
         "collapsible_row_eJMy84": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Risks are high",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
             "page": "",
             "open": true
           }
@@ -298,8 +298,8 @@
         "collapsible_row_E3dGpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Symptoms might be hidden",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
             "page": "",
             "open": false
           }
@@ -307,8 +307,8 @@
         "collapsible_row_mNwhUk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Heart Health and Men",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
             "page": "",
             "open": false
           }
@@ -316,8 +316,8 @@
         "collapsible_row_hD4rk6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Heart Health and Women",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
             "page": "",
             "open": false
           }
@@ -421,6 +421,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-5",
         "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
         "padding_top": 60,
         "padding_bottom": 20
       }
@@ -833,6 +835,9 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
       }
