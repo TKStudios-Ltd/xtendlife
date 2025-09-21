@@ -626,7 +626,8 @@
         "collapsible_row_jjMAK9"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 12rem 0; }}"
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 12rem 0; }}",
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
