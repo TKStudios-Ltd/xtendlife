@@ -4331,6 +4331,11 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 2rem 0;
+}
+.predictive-search__view-all {
+  font-size: 1.5rem;
+  padding: 0.75rem 1.75rem;
 }
 .predictive-search__results-list {
   display: flex;
