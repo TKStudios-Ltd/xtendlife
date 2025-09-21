@@ -4261,6 +4261,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .pre-search__col h4.pre-search__col-title {
   margin: 3rem 0 1.5rem;
 }
+.pre-search__collection-title {
+  text-decoration: none;
+}
+.pre-search__collection-title h4 {
+  margin: 1rem 0 0;
+}
 .pre-search__col h4 {
   margin: 1rem 0 0;
 }
@@ -4279,7 +4285,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   font-size: 3.2rem;
   text-decoration: none;
 }
-.pre-search__col--left ul li a:hover {
+.pre-search__col--left ul li a:hover,
+.pre-search__collection-title:hover {
   text-decoration: underline;
   text-underline-offset: .3rem;
 }
