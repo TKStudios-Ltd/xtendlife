@@ -4327,7 +4327,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .result-group__column--left {
   flex: auto;
 }
-/predictive-search__results-list {
+.predictive-search__heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.predictive-search__results-list {
   display: flex;
   gap: 1.5rem;
 }
