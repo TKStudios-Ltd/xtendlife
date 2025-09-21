@@ -155,6 +155,30 @@
                 >
                   <a href="{{ article.url }}" class="predictive-search__item link link--text" tabindex="-1">
                     <div class="predictive-search__item-content predictive-search__item-content--centered">
+                      {%- comment -%} Tag pill {%- endcomment -%}
+                      {%- assign pill_tag = '' -%}
+
+                      {%- for tag in article.tags -%}
+                        {%- if tag contains 'Label::' -%}
+                          {%- assign pill_tag = tag | split: '::' | last -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      {%- if pill_tag == '' -%}
+                        {%- for tag in article.tags -%}
+                          {%- assign first_char = tag | slice: 0, 1 -%}
+                          {%- assign first_char_up = first_char | upcase -%}
+                          {%- if first_char == first_char_up -%}
+                            {%- assign pill_tag = tag -%}
+                            {%- break -%}
+                          {%- endif -%}
+                        {%- endfor -%}
+                      {%- endif -%}
+
+                      {%- if pill_tag != '' -%}
+                        <span class="article-card__pill">{{ pill_tag }}</span>
+                      {%- endif -%}
                       <p class="predictive-search__item-heading h5">{{ article.title | escape }}</p>
                     </div>
                   </a>
