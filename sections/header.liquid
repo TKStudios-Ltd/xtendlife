@@ -771,9 +771,38 @@
       "type": "text",
       "id": "tile_4_link_title",
       "label": "Tile 4 link title"
+    },
+    {
+      "type": "header",
+      "content": "Search"
     }
   ],
   "blocks": [
+    {
+      "type": "popular_term",
+      "name": "Popular search term",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "term",
+          "label": "Term",
+          "default": "Total Balance"
+        }
+      ]
+    },
+    {
+      "type": "featured_collection",
+      "name": "Featured collection",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    },
     {
       "type": "@app"
     }
