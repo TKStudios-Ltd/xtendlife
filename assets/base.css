@@ -4276,4 +4276,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(1);
+  transition: transform ease 1s;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.pre-search__collection-tile:hover img {
+  transform: scale(1.05);
 }
