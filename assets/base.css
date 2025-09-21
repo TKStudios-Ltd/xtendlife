@@ -4251,9 +4251,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 
 /* Search */
 
-.pre-search {
-  display: block;
-}
 .pre-search.is-hidden {
   display: none;
+}
+.pre-search {
+  display: flex;
+  justify-content: space-between;
+}
+.pre-search__col--right {
+  flex: 0 0 800px;
 }
