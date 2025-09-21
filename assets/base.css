@@ -4324,3 +4324,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .pre-search__collection-tile:hover img {
   transform: scale(1.05);
 }
+@media (max-width: 989px) {
+  .pre-search {
+    display: none;
+  }
+}
