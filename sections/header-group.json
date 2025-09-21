@@ -56,6 +56,12 @@
             "term": "Wellness"
           }
         },
+        "popular_term_zW6N6R": {
+          "type": "popular_term",
+          "settings": {
+            "term": "NR6"
+          }
+        },
         "popular_term_8h7dLg": {
           "type": "popular_term",
           "settings": {
@@ -85,6 +91,7 @@
         "popular_term_yUPAx8",
         "popular_term_NXr6AD",
         "popular_term_hP3QK3",
+        "popular_term_zW6N6R",
         "popular_term_8h7dLg",
         "featured_collection_CwmwH7",
         "featured_collection_fgencR",
