@@ -51,6 +51,10 @@
   outline: none;
   outline-offset: 0;
 }
+.facet-filters .facet-filters__sort .svg-wrapper {
+    height: 1rem;
+    top: calc(50% - .5rem);
+}
 
 .facet-filters__label {
   display: block;
