@@ -4344,8 +4344,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .result-group__column--right {
   flex: 0 0 320px;
 }
-.result-group__column--right .predictive-search__results-list {
+#predictive-search-results-articles-list.predictive-search__results-list {
   flex-direction: column;
+  margin-bottom: 3rem;
+}
+#predictive-search-results-articles-list .predictive-search__item h5 {
+  font-size: 2rem;
 }
 @media (max-width: 989px) {
   .pre-search {
