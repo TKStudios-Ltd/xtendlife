@@ -4288,7 +4288,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   gap: 2rem;
 }
 .pre-search__collection-tile {
-  flex: 0 0 30%;
+  flex: 0 0 calc(30% - 2rem);
   position: relative;
   border-radius: 10px;
   overflow: hidden;
