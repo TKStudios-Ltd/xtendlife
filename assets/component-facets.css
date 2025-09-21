@@ -1141,6 +1141,15 @@ input.mobile-facets__checkbox {
   width: 1.8rem;
 }
 
+.facets-vertical-form {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(31, 25, 71, 0.3);
+    border-bottom: 1px solid rgba(31, 25, 71, 0.3);
+    margin-bottom: 5px;
+  }
+
 @media screen and (min-width: 750px) {
   .facets-vertical {
     display: flex;
