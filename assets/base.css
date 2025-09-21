@@ -4353,6 +4353,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 #predictive-search-results-articles-list .predictive-search__item .h5 {
   font-size: 2rem;
 }
+#predictive-search-results-articles-list .article-card__pill {
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
 @media (max-width: 989px) {
   .pre-search {
     display: none;
