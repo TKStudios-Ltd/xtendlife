@@ -8,15 +8,37 @@
 
 {%- style -%}
 
-
-@media (min-width: 750px) {
-  #MediaHero-{{ section.id }} .banner--large {
-    min-height: calc(100vh - 34px);
-    align-items: center;
-  }
-}
 #MediaHero-{{ section.id }} .banner__box {
     background: transparent;
+}
+#MediaHero-{{ section.id }} .banner__heading {
+    max-width: 500px;
+    line-height: 1;
+}
+@media (min-width: 750px) {
+    #MediaHero-{{ section.id }} .banner--large {
+        min-height: calc(100vh - 34px);
+        align-items: center;
+    }
+    #MediaHero-{{ section.id }} .banner__content {
+        padding-top: 125px;
+    }
+    #MediaHero-{{ section.id }} .banner__text.subtitle {
+        max-width: 330px;
+    }
+}
+@media (max-width: 749px) {
+    #MediaHero-{{ section.id }} .banner__content {
+        justify-content: flex-end;
+    }
+    #MediaHero-{{ section.id }} .banner__heading {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    #MediaHero-{{ section.id }} .subtitle {
+        max-width: 275px;
+        margin: 2rem auto 0;
+    }
 }
 
 /* Full-bleed helper */
@@ -127,7 +149,7 @@
                     <h2 class="banner__heading inline-richtext {{ b.heading_size }}">{{ b.heading }}</h2>
                   {% endif %}
                   {% if b.text != blank %}
-                    <div class="banner__text rte {{ b.text_style }}"><p>{{ b.text }}</p></div>
+                    <div class="banner__text rte {{ b.text_style }}"><p class="subtitle">{{ b.text }}</p></div>
                   {% endif %}
 
                   {% if b.button_label_1 != blank or b.button_label_2 != blank %}
