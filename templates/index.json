@@ -71,16 +71,16 @@
           "settings": {
             "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
             "video_adapt_ratio": 57,
-            "heading": "Your headline here",
+            "heading": "Build a better baseline for your health",
             "heading_size": "h1",
-            "text": "Add supporting copy here.",
+            "text": "Bundle up with the essentials you need to keep going.",
             "text_style": "body",
             "button_label_1": "Shop now",
-            "button_link_1": "",
+            "button_link_1": "shopify://collections/all-bundles",
             "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label_2": "Learn more",
+            "button_link_2": "#",
+            "button_style_secondary_2": true
           }
         },
         "slide_4TWen8": {
