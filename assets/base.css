@@ -4344,7 +4344,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   gap: 1.5rem;
 }
 .result-group__column--right {
-  flex: 0 0 300px;
+  flex: 0 0 280px;
 }
 #predictive-search-results-articles-list.predictive-search__results-list {
   flex-direction: column;
@@ -4369,7 +4369,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .result-group__column--left .predictive-search__results-list li:nth-child(n+5) { display: none !important; }
- .predictive-search__result-group--two-col { gap: 6rem; }
+ .predictive-search__result-group--two-col { gap: 6rem !important; }
 }
 /* Tablet 750–989px: 3 columns, show up to 3 */
 @media (min-width: 750px) and (max-width: 989px) {
