@@ -45,6 +45,10 @@
   }
 } */
 
+.facet-filters .select__select:focus {
+  box-shadow: none;
+}
+
 .facet-filters__label {
   display: block;
   color: rgba(var(--color-foreground), 1);
