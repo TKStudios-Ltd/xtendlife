@@ -63,6 +63,65 @@
         "show_text_below": false
       }
     },
+    "media_hero_slider_VC34DA": {
+      "type": "media-hero-slider",
+      "blocks": {
+        "slide_4TWen8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DSF6381_2200x_1.jpg",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "heading": "Your headline here",
+            "heading_size": "h1",
+            "text": "Add supporting copy here.",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "slide_Bwck6W": {
+          "type": "slide",
+          "settings": {
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "heading": "Your headline here",
+            "heading_size": "h1",
+            "text": "Add supporting copy here.",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_4TWen8",
+        "slide_Bwck6W"
+      ],
+      "name": "Video Hero Slider",
+      "settings": {
+        "wide_container": false,
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_text_on_mobile": false,
+        "autoplay": true,
+        "autoplay_delay": 4000,
+        "loop": true,
+        "speed": 500
+      }
+    },
     "multicolumn_A6pqFE": {
       "type": "multicolumn",
       "blocks": {
@@ -910,6 +969,7 @@
   },
   "order": [
     "image_banner",
+    "media_hero_slider_VC34DA",
     "multicolumn_A6pqFE",
     "rich_text_e8Phjw",
     "featured_collection_jqXfKn",
