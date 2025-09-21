@@ -37,6 +37,31 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "popular_term_yUPAx8": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Total Balance"
+          }
+        },
+        "popular_term_NXr6AD": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Omega-3"
+          }
+        },
+        "popular_term_hP3QK3": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Wellness"
+          }
+        }
+      },
+      "block_order": [
+        "popular_term_yUPAx8",
+        "popular_term_NXr6AD",
+        "popular_term_hP3QK3"
+      ],
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
