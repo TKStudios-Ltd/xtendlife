@@ -203,6 +203,63 @@
         "padding_bottom": 100
       }
     },
+    "multicolumn_DymD7U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VnqTUe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Ivor-Cummins_405x323_526c0773-69fd-45c7-b292-99985c27e863_1.png",
+            "title": "Ivor Cummins",
+            "text": "<p>Ivor is best known for his series of videos as 'The Fat Emperor' for his work on Low Carb and Cardiovascular issues. After visiting New Zealand, meeting the team at Xtendlife and using the products he was converted and is now a supporter of Xtendlife with regular podcasts of the products he has an interest in. Ivor is based in Dublin, Ireland.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gea4K6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.png",
+            "title": "Dan Ho",
+            "text": "<p>Dan was one of the first affiliates to join up with Xtendlife over 20 years ago. He has been an enthusiastic supporter ever since with earnings into the seven figures. Dan has been responsible for introducing other good affiliates over the years as well. Dan is based in Michigan, USA.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_imwYgV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Paul_405x323_7ea21a4f-217d-431f-a1da-cca6ba075186_1.png",
+            "title": "Paul Mealing",
+            "text": "<p>Paul has been an affiliate with Xtendlife for around 15 years and is a significant user of Xtendlife’s products. He is a physical therapist with an interest in full body function, performance and aging. Paul is based in London, UK.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VnqTUe",
+        "column_gea4K6",
+        "column_imwYgV"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Affiliate Testimonials",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 100
+      }
+    },
     "image_with_text_HHyM8a": {
       "type": "image-with-text",
       "blocks": {
@@ -741,6 +798,7 @@
     "rich_text_fRcgNk",
     "multicolumn_A6pqFF",
     "image_with_text_83HE6c",
+    "multicolumn_DymD7U",
     "image_with_text_HHyM8a",
     "image_with_text_A8yDrr",
     "image_with_text_EapeUP",
