@@ -272,7 +272,7 @@ predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predict
 }
 
 .predictive-search__image__container {
-  background: #FCF1D6;
+  background: rgba(244, 248, 251, 1);
   border-radius: 10px;
   padding: 5rem 2rem;
   text-align: center;
