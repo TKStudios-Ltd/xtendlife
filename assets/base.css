@@ -4258,6 +4258,19 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: flex;
   justify-content: space-between;
 }
+.pre-search__col--left ul {
+  margin: 0;
+  padding: 0;
+}
+.pre-search__col--left ul li {
+  list-style: none;
+}
+.pre-search__col--left ul li a {
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  color: rgb(var(--color-foreground));
+  font-size: 3.2rem;
+}
 .pre-search__col--right {
   flex: 0 0 800px;
 }
