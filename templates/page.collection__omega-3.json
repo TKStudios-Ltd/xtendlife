@@ -23,7 +23,7 @@
         "buttons_JR9Vpa": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "RECOMMENDED BY DR. JOEL KHAN",
+            "button_label_1": "SERVING 400,000 CUSTOMERS GLOBALLY",
             "button_link_1": "",
             "button_style_secondary_1": false,
             "button_label_2": "",
@@ -34,14 +34,14 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Hormonal Health",
+            "heading": "Essential Omega-3 for Optimal Health",
             "heading_size": "h1"
           }
         },
         "text_FxFrdN": {
           "type": "text",
           "settings": {
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+            "text": "Omega-3 fatty acids are essential nutrients crucial for health. Our ultra fresh, purified deep sea fish and algae oils are packed with essential omega-3 fatty acids to support inflammation, brain, heart and joint health.",
             "text_style": "subtitle"
           }
         }
@@ -52,13 +52,14 @@
         "text_FxFrdN"
       ],
       "custom_css": [
-        ".subtitle {max-width: 460px; margin-top: 2rem;}",
+        "h2 {line-height: 1.1; max-width: 440px;}",
+        ".subtitle {max-width: 480px; margin-top: 2rem;}",
         ".subtitle p {font-size: 20px;}",
         "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/4a23c63ab8d80620368a688bab6a7ec6da737e16.jpg",
+        "image": "shopify://shop_images/344983159ba8cb342c611a2d3a33c57514ff55dd.jpg",
         "image_overlay_opacity": 20,
         "image_height": "small",
         "wide_container": true,
@@ -144,14 +145,14 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Hormonal Health",
+        "title": "Top Supplements for Omega-3",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "featured_collection": "hormonal-health",
+        "featured_collection": "omega-3-health",
         "featured_count": 4,
-        "full_collection": "hormonal-health",
+        "full_collection": "omega-3-health",
         "full_count": 12,
         "default_tab": "featured",
         "image_ratio": "portrait",
