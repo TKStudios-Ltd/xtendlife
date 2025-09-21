@@ -55,12 +55,40 @@
           "settings": {
             "term": "Wellness"
           }
+        },
+        "popular_term_8h7dLg": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Heart Health"
+          }
+        },
+        "featured_collection_CwmwH7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "supplements"
+          }
+        },
+        "featured_collection_fgencR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "heart-health"
+          }
+        },
+        "featured_collection_dKrjiR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "best-sellers"
+          }
         }
       },
       "block_order": [
         "popular_term_yUPAx8",
         "popular_term_NXr6AD",
-        "popular_term_hP3QK3"
+        "popular_term_hP3QK3",
+        "popular_term_8h7dLg",
+        "featured_collection_CwmwH7",
+        "featured_collection_fgencR",
+        "featured_collection_dKrjiR"
       ],
       "settings": {
         "logo_position": "middle-center",
