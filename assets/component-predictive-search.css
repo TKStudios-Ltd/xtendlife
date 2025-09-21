@@ -7,8 +7,8 @@
   padding: 0 3rem 3rem;
   border-radius: 0 0 6rem 6rem;
   z-index: 3;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  /* overflow-y: auto;
+  -webkit-overflow-scrolling: touch; */
   box-shadow: 0 4px 5px #00000024;
 }
 
