@@ -139,34 +139,34 @@
                 Articles
               </h2>
               <a class="predictive-search__view-all button button--primary"
-                 href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
+                href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
                 View all
               </a>
             </div>
 
-            {%- if articles_count > 0 -%}
-              <ul
-                id="predictive-search-results-articles-list"
-                class="predictive-search__results-list list-unstyled"
-                role="group"
-                aria-labelledby="predictive-search-articles"
-              >
-                {%- for article in articles -%}
-                  <li
-                    id="predictive-search-option-article-{{ forloop.index }}"
-                    class="predictive-search__list-item"
-                    role="option"
-                    aria-selected="false"
-                  >
-                    <a href="{{ article.url }}" class="predictive-search__item link link--text" tabindex="-1">
-                      <div class="predictive-search__item-content predictive-search__item-content--centered">
-                        <p class="predictive-search__item-heading h5">{{ article.title | escape }}</p>
-                      </div>
-                    </a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- else -%}
+            <ul
+              id="predictive-search-results-articles-list"
+              class="predictive-search__results-list list-unstyled"
+              role="group"
+              aria-labelledby="predictive-search-articles"
+            >
+              {%- for article in articles -%}
+                <li
+                  id="predictive-search-option-article-{{ forloop.index }}"
+                  class="predictive-search__list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a href="{{ article.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                    <div class="predictive-search__item-content predictive-search__item-content--centered">
+                      <p class="predictive-search__item-heading h5">{{ article.title | escape }}</p>
+                    </div>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            {%- if articles_count == 0 -%}
               <p class="predictive-search__empty text-body">No articles found</p>
             {%- endif -%}
           </div>
