@@ -8,10 +8,8 @@
 
   <div id="predictive-search-results" role="listbox">
     {%- if products_count > 0 or articles_count > 0 -%}
-      <div
-        id="predictive-search-results-groups-wrapper"
-        class="predictive-search__results-groups-wrapper{% unless products_count > 0 %} predictive-search__results-groups-wrapper--no-products{% endunless %}"
-      >
+      <div id="predictive-search-results-groups-wrapper"
+           class="predictive-search__results-groups-wrapper{% unless products_count > 0 %} predictive-search__results-groups-wrapper--no-products{% endunless %}">
         <div class="predictive-search__result-group predictive-search__result-group--two-col">
 
           <div class="result-group__column result-group__column--left">
@@ -21,15 +19,13 @@
               </h2>
               <a class="predictive-search__view-all button button--primary"
                  href="{{ routes.search_url }}?q={{ term | url_encode }}&type=product&options%5Bprefix%5D=last">
-                {{ 'sections.collection_template.view_all' | t }}
+                View all
               </a>
             </div>
-            <ul
-              id="predictive-search-results-products-list"
-              class="predictive-search__results-list list-unstyled"
-              role="group"
-              aria-labelledby="predictive-search-products"
-            >
+            <ul id="predictive-search-results-products-list"
+                class="predictive-search__results-list list-unstyled"
+                role="group"
+                aria-labelledby="predictive-search-products">
               {%- for product in products -%}
                 <li id="predictive-search-option-product-{{ forloop.index }}"
                     class="predictive-search__list-item"
@@ -66,11 +62,11 @@
           <div class="result-group__column result-group__column--right">
             <div class="predictive-search__heading-row">
               <h2 id="predictive-search-articles" class="predictive-search__heading text-body">
-                {{ 'templates.search.articles' | t }}
+                Articles
               </h2>
               <a class="predictive-search__view-all button button--primary"
                  href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
-                {{ 'sections.collection_template.view_all' | t }}
+                View all
               </a>
             </div>
             <ul id="predictive-search-results-articles-list"
@@ -108,9 +104,7 @@
 
     <div id="predictive-search-option-search-keywords" class="predictive-search__search-for-button" style="display: none;">
       <button class="predictive-search__item predictive-search__item--term link link--text h5 animate-arrow"
-              tabindex="-1"
-              role="option"
-              aria-selected="false">
+              tabindex="-1" role="option" aria-selected="false">
         <span data-predictive-search-search-for-text>
           {{ 'templates.search.search_for' | t: terms: predictive_search.terms }}
         </span>
