@@ -13,20 +13,16 @@
         class="predictive-search__results-groups-wrapper{% unless products_count > 0 %} predictive-search__results-groups-wrapper--no-products{% endunless %}"
       >
         <div class="predictive-search__result-group predictive-search__result-group--two-col">
-
-          {# ------------------ LEFT COLUMN: PRODUCTS ------------------ #}
           <div class="result-group__column result-group__column--left">
             <div class="predictive-search__heading-row">
               <h2 id="predictive-search-products" class="predictive-search__heading text-body">
-                {{ products_count }} {{ 'templates.search.products' | t | downcase }}
+                {{ products_count }} products
               </h2>
-              <a class="predictive-search__view-all link link--text animate-arrow"
+              <a class="predictive-search__view-all button button--primary"
                  href="{{ routes.search_url }}?q={{ term | url_encode }}&type=product&options%5Bprefix%5D=last">
-                {{ 'sections.collection_template.view_all' | t | default: 'View all' }}
-                <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                View all
               </a>
             </div>
-
             <ul
               id="predictive-search-results-products-list"
               class="predictive-search__results-list list-unstyled"
@@ -74,20 +70,12 @@
               {%- endfor -%}
             </ul>
           </div>
-
-          {# ------------------ RIGHT COLUMN: ARTICLES ------------------ #}
           <div class="result-group__column result-group__column--right">
             <div class="predictive-search__heading-row">
               <h2 id="predictive-search-articles" class="predictive-search__heading text-body">
-                {{ articles_count }} {{ 'templates.search.articles' | t | default: 'articles' }}
+                Articles
               </h2>
-              <a class="predictive-search__view-all link link--text animate-arrow"
-                 href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
-                {{ 'sections.collection_template.view_all' | t | default: 'View all' }}
-                <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
-              </a>
             </div>
-
             <ul
               id="predictive-search-results-articles-list"
               class="predictive-search__results-list list-unstyled"
@@ -109,12 +97,15 @@
                 </li>
               {%- endfor -%}
             </ul>
+            <a class="predictive-search__view-all button button--primary"
+                href="{{ routes.search_url }}?q={{ term | url_encode }}&type=article&options%5Bprefix%5D=last">
+              View all
+            </a>
           </div>
 
         </div>
       </div>
     {%- else -%}
-      {# -------- Optional: Empty state when no products and no articles -------- #}
       <div class="predictive-search__results-groups-wrapper predictive-search__results-groups-wrapper--empty">
         <div class="predictive-search__result-group">
           <p class="predictive-search__empty text-body">
@@ -143,8 +134,6 @@
       </button>
     </div>
   </div>
-
-  {# Live region for a11y — keep structure so JS continues to work #}
   <span class="hidden" data-predictive-search-live-region-count-value>
     {% liquid
       assign total_results = products_count | plus: articles_count
