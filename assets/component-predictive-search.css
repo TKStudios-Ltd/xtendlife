@@ -132,9 +132,11 @@ predictive-search[loading] .predictive-search {
 .predictive-search__heading {
   border-bottom: none;
   margin: 0;
-  padding: 1.5rem 0 .75rem;
+  padding: 0;
   font-weight: 500;
-  color: rgba(var(--color-foreground), .2);
+  color: rgba(var(--color-foreground), 1);
+  letter-spacing: 0;
+  font-size: 1.6rem;
 }
 
 predictive-search .spinner {
