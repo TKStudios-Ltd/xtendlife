@@ -682,7 +682,7 @@
       "custom_css": [
         "h2 {line-height: 1.2;}",
         ".subtitle {max-width: 630px;}",
-        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
+        "@media (max-width: 749px) {h2 {font-size: 2rem; } .banner__box {align-items: flex-start; text-align: left; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
