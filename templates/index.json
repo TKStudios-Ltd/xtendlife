@@ -66,6 +66,23 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_Bwck6W": {
+          "type": "slide",
+          "settings": {
+            "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
+            "video_adapt_ratio": 57,
+            "heading": "Your headline here",
+            "heading_size": "h1",
+            "text": "Add supporting copy here.",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_4TWen8": {
           "type": "slide",
           "settings": {
@@ -83,28 +100,11 @@
             "button_link_2": "",
             "button_style_secondary_2": false
           }
-        },
-        "slide_Bwck6W": {
-          "type": "slide",
-          "settings": {
-            "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
-            "video_adapt_ratio": 57,
-            "heading": "Your headline here",
-            "heading_size": "h1",
-            "text": "Add supporting copy here.",
-            "text_style": "body",
-            "button_label_1": "Shop now",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
         }
       },
       "block_order": [
-        "slide_4TWen8",
-        "slide_Bwck6W"
+        "slide_Bwck6W",
+        "slide_4TWen8"
       ],
       "custom_css": [
         "@media (min-width: 750px) {.banner--large {min-height: calc(100vh - 34px); }}"
