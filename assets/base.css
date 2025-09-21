@@ -4287,15 +4287,17 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: flex;
   gap: 2rem;
 }
-.pre-search__collection-tile {
+.pre-search__collection-tile--wrapper {
   flex: 0 0 calc(30% - 2rem);
+  height: 265px;
+}
+.pre-search__collection-tile--wrapper:last-child {
+  flex: 0 0 40%;
+}
+.pre-search__collection-tile {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  height: 265px;
-}
-.pre-search__collection-tile:last-child {
-  flex: 0 0 40%;
 }
 .pre-search__collection-tile img {
   width: 100%;
