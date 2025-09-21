@@ -191,7 +191,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/1f613a848249190b57aae966ee9e44daec599335.png",
-        "height": "medium",
+        "height": "large",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
         "layout": "text_first",
