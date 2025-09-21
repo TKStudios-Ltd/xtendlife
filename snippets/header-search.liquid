@@ -83,7 +83,7 @@
 
           <div id="PreSearchContent" class="pre-search">
             <div class="pre-search__col pre-search__col--left">
-              <h4>Most popular search terms</h4>
+              <h4 class="pre-search__col-title">Most popular search terms</h4>
               <ul>
                 {% for block in section.blocks %}
                   {% if block.type == 'popular_term' %}
@@ -94,7 +94,7 @@
             </div>
 
             <div class="pre-search__col pre-search__col--right">
-              <h4>Featured</h4>
+              <h4 class="pre-search__col-title">Featured</h4>
               <div class="pre-search__collections">
                 {% for block in section.blocks %}
                   {% if block.type == 'featured_collection' and block.settings.collection != blank %}

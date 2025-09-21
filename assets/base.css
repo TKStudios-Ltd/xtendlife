@@ -4258,8 +4258,11 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: flex;
   justify-content: space-between;
 }
-.pre-search__col h4 {
+.pre-search__col h4.pre-search__col-title {
   margin: 3rem 0 1.5rem;
+}
+.pre-search__col h4 {
+  margin: 1rem 0 0;
 }
 .pre-search__col--left ul {
   margin: 4rem 0 0;
@@ -4289,15 +4292,16 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .pre-search__collection-tile--wrapper {
   flex: 0 0 calc(30% - 2rem);
-  height: 265px;
 }
 .pre-search__collection-tile--wrapper:last-child {
   flex: 0 0 40%;
 }
 .pre-search__collection-tile {
+  display: block;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
+  height: 265px;
 }
 .pre-search__collection-tile img {
   width: 100%;
