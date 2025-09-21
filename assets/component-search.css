@@ -3,6 +3,7 @@
   box-shadow: none !important;
   height: 8rem;
   font-size: 6rem;
+  border-radius: 0;
 }
 .search-modal__form .field {
   padding-bottom: 0;
