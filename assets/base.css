@@ -4263,6 +4263,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .pre-search__collections {
   display: flex;
+  gap: 2rem;
 }
 .pre-search__collection-tile {
   flex: 0 0 30%;
