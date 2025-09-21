@@ -34,7 +34,7 @@
         "show_rating": true,
         "quick_add": "standard",
         "enable_filtering": false,
-        "filter_type": "horizontal",
+        "filter_type": "vertical",
         "enable_sorting": true,
         "padding_top": 20,
         "padding_bottom": 100
@@ -129,6 +129,7 @@
         "image": "shopify://shop_images/DSF6381_2200x_3.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "image_first",
         "image_behavior": "none",
         "image_bleed": false,
