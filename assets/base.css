@@ -4356,3 +4356,26 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     display: none;
   }
 }
+/* Desktop ≥ 990px: 4 columns, show up to 4 */
+@media (min-width: 990px) {
+  .result-group__column--left .predictive-search__results-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .result-group__column--left .predictive-search__results-list li:nth-child(n+5) { display: none !important; }
+}
+/* Tablet 750–989px: 3 columns, show up to 3 */
+@media (min-width: 750px) and (max-width: 989px) {
+  .result-group__column--left .predictive-search__results-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Mobile < 750px: 2 columns, show up to 2 */
+@media (max-width: 749px) {
+  .result-group__column--left .predictive-search__results-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
