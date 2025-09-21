@@ -4388,4 +4388,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
   .result-group__column--left .predictive-search__results-list li:nth-child(n+3) { display: none !important; }
   .predictive-search__heading-row { margin: 1rem 0 !important; }
+  .predictive-search__view-all {
+    font-size: 1.4rem !important;
+    padding: .65rem 1.5rem !important;
+  }
 }
