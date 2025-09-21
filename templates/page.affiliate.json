@@ -23,7 +23,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Nutrition for your Heart",
+            "heading": "Become an Xtendlife Affiliate",
             "heading_size": "h1"
           }
         }
@@ -38,7 +38,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/d82a25096345f69af54f65a5c278786442ee57f8.png",
+        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
