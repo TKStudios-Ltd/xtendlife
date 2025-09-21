@@ -4293,6 +4293,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   border-radius: 10px;
   overflow: hidden;
 }
+.pre-search__collection-tile:last-child {
+  flex: 0 0 40%;
+}
 .pre-search__collection-tile img {
   width: 100%;
   height: 100%;
