@@ -2,7 +2,7 @@
 // Safe: does not modify predictive-search.js. Works by observing the dropdown render.
 
 (function () {
-  const MAX_ARTICLES = 6;
+  const MAX_ARTICLES = 3;
 
   // Utility: debounce to avoid hammering suggest endpoint while typing fast
   function debounce(fn, delay) {
