@@ -625,6 +625,9 @@
         "collapsible_row_g9cpCf",
         "collapsible_row_jjMAK9"
       ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 12rem 0; }}"
+      ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
@@ -638,7 +641,7 @@
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 60,
-        "padding_bottom": 100
+        "padding_bottom": 60
       }
     },
     "newsletter_qKtmmH": {
