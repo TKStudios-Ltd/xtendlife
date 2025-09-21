@@ -7,6 +7,15 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+
+
+@media (min-width: 750px) {
+  #MediaHero-{{ section.id }} .banner--large {
+    min-height: calc(100vh - 34px);
+    align-items: center;
+  }
+}
+
 /* Full-bleed helper */
 #MediaHero-{{ section.id }} .is-fullbleed{
   width: 100vw;
