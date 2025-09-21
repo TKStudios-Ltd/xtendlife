@@ -304,10 +304,12 @@
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
-        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
+        "h2 {font-size: 48px; line-height: 1.1;}",
+        ".image-with-text__text--caption.subtitle {font-size: 1.6rem; max-width: 500px;}",
+        ".subtitle {font-size: 2rem;}",
+        ".rte ul {padding-left: 3rem; max-width: 450px;}",
         "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -354,6 +356,7 @@
         "h2 {font-size: 48px; line-height: 1.1;}",
         ".subtitle {font-size: 20px; line-height: 1.35;}",
         ".image-with-text__text p {margin-bottom: 2rem;}",
+        ".rte ul {padding-left: 3rem; max-width: 450px;}",
         "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
         "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
       ],
