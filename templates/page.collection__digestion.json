@@ -34,7 +34,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Hormonal Health",
+            "heading": "Digestive Health",
             "heading_size": "h1"
           }
         },
@@ -58,8 +58,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/4a23c63ab8d80620368a688bab6a7ec6da737e16.jpg",
-        "image_overlay_opacity": 20,
+        "image": "shopify://shop_images/83a07cfe262fa7c0f1aa9a25aced6c7acf0a6e66.jpg",
+        "image_overlay_opacity": 10,
         "image_height": "small",
         "wide_container": true,
         "image_behavior": "none",
@@ -144,14 +144,14 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Hormonal Health",
+        "title": "Top Supplements for Digestive Health",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "featured_collection": "hormonal-health",
+        "featured_collection": "digestive-health-and-detox",
         "featured_count": 4,
-        "full_collection": "hormonal-health",
+        "full_collection": "digestive-health-and-detox",
         "full_count": 12,
         "default_tab": "featured",
         "image_ratio": "portrait",
