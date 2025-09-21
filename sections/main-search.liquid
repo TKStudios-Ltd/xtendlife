@@ -18,8 +18,10 @@
   .template-search__header {
     margin: 2.5rem auto;
   }
-  .template-search__header .predictive-search {
-    display: none;
+  .template-search__header .predictive-search,
+  .template-search__header predictive-search[open] .predictive-search, 
+  .template-search__header predictive-search[loading] .predictive-search {
+    display: none !important;
   }
 
   .template-search__search {
