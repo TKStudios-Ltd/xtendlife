@@ -98,8 +98,9 @@
     {%- endif -%}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
-      {% comment %} {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+      {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+      {% comment %} 
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
@@ -115,7 +116,8 @@
             paginate: paginate
           %}
         </aside>
-      {%- endif -%} {% endcomment %}
+      {%- endif -%} 
+      {% endcomment %}
 
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
