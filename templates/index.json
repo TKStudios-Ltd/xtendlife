@@ -253,7 +253,7 @@
           "settings": {
             "title": "Energy",
             "button_label": "Shop now",
-            "button_link": "#",
+            "button_link": "shopify://collections/energy",
             "image": "shopify://shop_images/iStock-1413988774_2.jpg"
           }
         }
