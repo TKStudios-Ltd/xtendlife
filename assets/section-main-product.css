@@ -1675,7 +1675,7 @@ a.product__text {
   gap: 1.5rem;
 }
 .p-stickybar__right .quantity {
-  width: 120px !important;
+  width: 100px !important;
   min-height: 3.9rem !important;
   border: 1px solid;
   border-radius: 40px !important;
@@ -1688,13 +1688,18 @@ a.product__text {
   font-size: 1.4rem;
   min-height: 3.9rem;
   height: 3.9rem;
-
 }
 .select .p-stickybar__plan-select .svg-wrapper {
   height: 1.4rem;
   width: 1.4rem;
   top: calc(50% - .7rem);
   right: 1.5rem;
+}
+
+@media (max-width: 989px) {
+  .p-stickybar__links {
+    display: none;
+  }
 }
 
 .p-stickybar.is-visible{
