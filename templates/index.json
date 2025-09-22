@@ -217,7 +217,7 @@
           "settings": {
             "title": "Gut Protection",
             "button_label": "Shop now",
-            "button_link": "#",
+            "button_link": "shopify://collections/gut-protection",
             "image": "shopify://shop_images/Hiking-1185397615_2.jpg"
           }
         },
