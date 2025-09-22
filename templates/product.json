@@ -12,9 +12,11 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "rating_kqeM8T": {
-          "type": "rating",
-          "settings": {}
+        "klaviyo_reviews_average_rating_nrAJTz": {
+          "type": "shopify://apps/klaviyo-reviews/blocks/average-rating/db20e365-d984-4ac4-9655-e1588d951ca9",
+          "settings": {
+            "product": "{{product}}"
+          }
         },
         "title": {
           "type": "title",
@@ -93,7 +95,7 @@
         }
       },
       "block_order": [
-        "rating_kqeM8T",
+        "klaviyo_reviews_average_rating_nrAJTz",
         "title",
         "custom_liquid_7HtAwq",
         "price",
@@ -163,6 +165,7 @@
       "settings": {
         "height": "small",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": false,
@@ -185,7 +188,8 @@
             "title": "Free Shipping",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column-1": {
@@ -194,7 +198,8 @@
             "title": "Hassle-Free Exchanges",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         }
       },
@@ -296,6 +301,7 @@
         "image": "shopify://shop_images/Placeholder_Image_2.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": true,
@@ -510,6 +516,7 @@
         "image": "shopify://shop_images/DSF6381_2200x_3.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "image_first",
         "image_behavior": "none",
         "image_bleed": false,
@@ -582,6 +589,9 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
       }
