@@ -418,7 +418,8 @@
         ".multicolumn-card__rte {align-items: flex-start; flex-direction: column; font-size: 2rem;}",
         ".content-container {height: 100%;}",
         ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
-        "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}"
+        "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -436,284 +437,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 100
-      }
-    },
-    "image_with_text_HHyM8a": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_zhEGVe": {
-          "type": "heading",
-          "settings": {
-            "heading": "Your Benefits",
-            "heading_size": "h1"
-          }
-        },
-        "text_fxdVQW": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Trusted partner with a solid 25+ year record</li><li>Hassle free... all orders, shipping, customer service taken care of</li><li>Global coverage* (excluding China)</li><li>Special offers to attract new customers</li></ul>",
-            "text_style": "subtitle"
-          }
-        },
-        "caption_rgGCKg": {
-          "type": "caption",
-          "settings": {
-            "caption": "*We may be unable to ship to certain countries due to their import regulations. If we receive an order that doesn't meet the necessary criteria, we will inform you.",
-            "additional_caption": "",
-            "text_style": "subtitle",
-            "text_size": "small"
-          }
-        }
-      },
-      "block_order": [
-        "heading_zhEGVe",
-        "text_fxdVQW",
-        "caption_rgGCKg"
-      ],
-      "custom_css": [
-        ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1;}",
-        ".image-with-text__text--caption.subtitle {font-size: 1.6rem; max-width: 500px;}",
-        ".subtitle {font-size: 2rem;}",
-        ".rte ul {padding-left: 3rem; max-width: 450px;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 32,
-        "padding_bottom": 36
-      }
-    },
-    "image_with_text_A8yDrr": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_c9mVw4": {
-          "type": "heading",
-          "settings": {
-            "heading": "Your program",
-            "heading_size": "h1"
-          }
-        },
-        "text_xCfEAF": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>20% Commission for first order only</li><li>10% Commissions on all recurring orders</li><li>Commissions paid monthly</li><li>Bonus incentives based on total commission earnings calculated and paid twice yearly</li></ul>",
-            "text_style": "subtitle"
-          }
-        }
-      },
-      "block_order": [
-        "heading_c9mVw4",
-        "text_xCfEAF"
-      ],
-      "custom_css": [
-        ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1;}",
-        ".subtitle {font-size: 20px; line-height: 1.35;}",
-        ".image-with-text__text p {margin-bottom: 2rem;}",
-        ".rte ul {padding-left: 3rem; max-width: 450px;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 100
-      }
-    },
-    "image_with_text_RRFdfM": {
-      "type": "image-with-text",
-      "blocks": {
-        "collapsible_row_dTV7LK": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "1. Apply",
-            "row_content": "<p>Provide a few details about yourself so your application can be processed.</p>",
-            "page": "",
-            "open": true
-          }
-        },
-        "collapsible_row_7NXDUR": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "2. Confirmation",
-            "row_content": "<p>You will receive an email within 2 business days advising you the outcome of your application</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_xGW9yV": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "3. Getting Paid",
-            "row_content": "<p>Within your affiliate account you will find details of the payment options along with all the tools needed to make your program a success.</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "button_mfQmaA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Apply now",
-            "button_link": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_dTV7LK",
-        "collapsible_row_7NXDUR",
-        "collapsible_row_xGW9yV",
-        "button_mfQmaA"
-      ],
-      "custom_css": [
-        ".accordion {border: none;}",
-        ".accordion summary .icon-plus {display: none;}",
-        ".accordion summary {padding: 0;}",
-        ".accordion__content {margin: 1rem 0 2.5rem; max-width: 350px;}",
-        ".image-with-text__content {padding: 0 4rem;}",
-        "@media (min-width: 990px) {.accordion__title {font-size: 6rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 0; } .accordion summary {padding: 0.5rem 0; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "Getting Started",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-5",
-        "color_scheme": "scheme-5",
-        "padding_top": 48,
-        "padding_bottom": 100
-      }
-    },
-    "rich_text_YewMnP": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_RGRz3y": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our Certifications",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_RGRz3y"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "anchor_id": "",
-        "anchor_offset": 120,
-        "padding_top": 80,
-        "padding_bottom": 20
-      }
-    },
-    "image_infinite_scroll_6YVr3i": {
-      "type": "image-infinite-scroll",
-      "blocks": {
-        "image_EahCNG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NPA-80x60pix_x60_d31236bb-3c1f-40c5-a912-2ac720291ea3.png",
-            "link": ""
-          }
-        },
-        "image_wQp7ij": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NZ-57x60pix_x60_e89473ec-1d52-43e0-ac04-3917ba125305.webp",
-            "link": ""
-          }
-        },
-        "image_36p7tN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/FDA-160x60pix_x60_6213b4be-0c71-4fc4-991b-1c9d7582b95d.png",
-            "link": ""
-          }
-        },
-        "image_Qw9PXi": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_68.png",
-            "link": ""
-          }
-        },
-        "image_nxEX3U": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/HACCP-106x60pix_x60_760ee935-bb03-4b37-9193-ce05d7385853.png",
-            "link": ""
-          }
-        },
-        "image_QXQebq": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_69.png",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_EahCNG",
-        "image_wQp7ij",
-        "image_36p7tN",
-        "image_Qw9PXi",
-        "image_nxEX3U",
-        "image_QXQebq"
-      ],
-      "custom_css": [
-        "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
-        "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
-      ],
-      "name": "Image Infinite Scroll",
-      "settings": {
-        "background_color": "#ffffff",
-        "image_size_constraint": "height",
-        "image_max_size": 50,
-        "scroll_speed": 15,
-        "repeat_count": 1,
-        "image_gap": 0,
-        "padding_top": 20,
-        "padding_bottom": 60
       }
     },
     "collapsible_content_8VjQPY": {
@@ -793,13 +516,14 @@
         "collapsible_row_jjMAK9"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 10rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 10rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
         ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
-        "heading": "Frequently Asked Questions",
+        "heading": "Subscribe & Save FAQs",
         "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
@@ -908,11 +632,6 @@
     "image_with_text_VqfQk4",
     "featured_collection_tab_grid_bgqKeg",
     "multicolumn_DymD7U",
-    "image_with_text_HHyM8a",
-    "image_with_text_A8yDrr",
-    "image_with_text_RRFdfM",
-    "rich_text_YewMnP",
-    "image_infinite_scroll_6YVr3i",
     "collapsible_content_8VjQPY",
     "image_banner_eNjqNN",
     "newsletter_qKtmmH"
