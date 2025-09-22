@@ -1615,7 +1615,7 @@ a.product__text {
 .product-form__quantity-wrap .quantity {
   width: 120px !important;
   min-height: 38px !important;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 40px !important;
 }
 .product-form__quantity-wrap .quantity:before,
@@ -1668,6 +1668,21 @@ a.product__text {
   opacity: 0;
   transition: transform .25s ease, opacity .2s ease;
   pointer-events: none;
+}
+.p-stickybar__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.p-stickybar__right .quantity {
+  width: 120px !important;
+  min-height: 38px !important;
+  border: 1px solid;
+  border-radius: 40px !important;
+}
+.p-stickybar__right .quantity:before,
+.p-stickybar__right .quantity:after {
+  display: none;
 }
 .p-stickybar.is-visible{
   transform: translateY(0);
