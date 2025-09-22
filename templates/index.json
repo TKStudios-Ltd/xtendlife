@@ -226,7 +226,7 @@
           "settings": {
             "title": "Immunity",
             "button_label": "Shop now",
-            "button_link": "#",
+            "button_link": "shopify://collections/immunity",
             "image": "shopify://shop_images/iStock-1135154329_2.jpg"
           }
         },
