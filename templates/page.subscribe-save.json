@@ -445,27 +445,27 @@
         "collapsible_row_89AqTf": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Who can become an Xtendlife affiliate?",
+            "heading": "How do I create a subscription?",
             "icon": "none",
-            "row_content": "<p>Anyone can become an Xtendlife affiliate. Our affiliates come from all over the world. You are most likely to be successful if you have prior online marketing skills and experience.</p>",
+            "row_content": "<p>Please watch our video walkthrough or download the PDF version on this page.</p>",
             "page": ""
           }
         },
         "collapsible_row_fp9kgF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I generate commissions?",
+            "heading": "How do I reschedule my next order?",
             "icon": "none",
-            "row_content": "<p>By referring people to our website who make a purchase, either using your unique affiliate link or your unique discount code during checkout.<br/><br/>If you refer someone who is already associated with another affiliate no commission will be generated.</p>",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Reschedule'</li><li>Choose how you wish to reschedule by selecting the most suitable option for your needs and Save Changes.</li></ul>",
             "page": ""
           }
         },
         "collapsible_row_Cnj6hi": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Someone I referred did not use my affiliate link when purchasing from Xtendlife. Can you add the customer to my affiliate account retroactively?",
+            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
             "icon": "none",
-            "row_content": "<p>No, unfortunately, this isn’t possible. The new customer must use your unique affiliate link or discount code when registering in order to be linked with your affiliate account.</p>",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on the Skip tab</li><li>You will be given the option to either gift your order to someone else or you can select 'Yes, Skip this order'.</li></ul>",
             "page": ""
           }
         },
