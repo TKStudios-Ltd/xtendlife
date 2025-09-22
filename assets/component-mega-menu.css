@@ -210,9 +210,10 @@
   padding-right: 2.4rem;
 }
 
-.mega-menu__link:hover,
+.mega-menu__link:hover {
+  color: rgba(var(--color-foreground),.75);
+}
 .mega-menu__link--active {
-  color: rgb(var(--color-foreground));
   text-decoration: underline;
 }
 
