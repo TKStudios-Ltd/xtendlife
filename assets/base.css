@@ -4293,11 +4293,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   color: rgb(var(--color-foreground));
   font-size: 3.2rem;
   text-decoration: none;
+  transition: opacity ease .2s;
 }
 .pre-search__col--left ul li a:hover,
 .pre-search__collection-title:hover {
-  text-decoration: underline;
-  text-underline-offset: .3rem;
+  color: rgba(var(--color-foreground), 0.75);
+  /* text-decoration: underline;
+  text-underline-offset: .3rem; */
 }
 .pre-search__col--right {
   flex: 0 0 800px;

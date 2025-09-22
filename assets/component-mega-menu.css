@@ -179,7 +179,7 @@
   line-height: 1.2;
   padding-bottom: 7.5px;
   text-decoration: none;
-  transition: color var(--duration-short) ease;
+  transition: color .2s ease;
   word-wrap: break-word;
   font-weight: 400;
 }
