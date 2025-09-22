@@ -376,7 +376,10 @@
         "column_gea4K6",
         "column_VnqTUe"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".multicolumn-card__rte {align-items: flex-start; flex-direction: column; font-size: 2rem;}",
+        ".multicolumn.background-none .multicolumn-card {display: flex; height: 100%; align-items: center; padding: 0 6rem;}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
