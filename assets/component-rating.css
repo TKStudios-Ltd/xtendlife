@@ -24,30 +24,24 @@
   --font-size: 1.6;
 }
 
-.rating-star {
+.rating-star{
   --star-size: 16px;
-  --color-rating-star: #F4A72C;
-  --percent: calc(
-    (
-      var(--rating) / var(--rating-max) +
-      var(--rating-decimal) * var(--font-size) /
-      (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))
-    ) * 100%
-  );
-
+  --rating-max: 5;
   position: relative;
   display: inline-block;
-  width: calc(var(--star-size) * 5);
+  width: calc(var(--star-size) * 69 / 12);
   height: var(--star-size);
-  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left / 100% 100%;
+  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars-Outline.svg')
+              no-repeat left / 100% 100%;
 }
-
-.rating-star::before {
+.rating-star::before{
   content: "";
   position: absolute;
   inset: 0;
-  width: var(--percent);
-  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left / 100% 100%;
+  width: calc((var(--rating) + var(--rating-decimal, 0)) / var(--rating-max) * 100%);
+  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg')
+              no-repeat left / 100% 100%;
+  pointer-events: none;
 }
 
 
