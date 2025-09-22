@@ -24,25 +24,19 @@
   --font-size: 1.6;
 }
 
-/* Custom SVG stars (dynamic; uses your two CDN files) */
 .rating-star{
-  --star-size: 16px;
-  --rating-max: 5;
-  position: relative;
-  display: inline-block;
-  width: calc(var(--star-size) * 69 / 12); /* keep 69×12 ratio */
-  height: var(--star-size);
-  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars--Outline.svg') no-repeat left / 100% 100%;
+  --star-size:16px; --rating-max:5;
+  position:relative; display:inline-block;
+  width:calc(var(--star-size)*69/12); height:var(--star-size);
+  background:url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars--Outline.svg') no-repeat left/100% 100%;
+}
+.rating-star::before{
+  content:""; position:absolute; inset:0;
+  width:calc((var(--rating)+var(--rating-decimal,0))/var(--rating-max)*100% + 0.3px);
+  background:url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left/100% 100%;
+  pointer-events:none;
 }
 
-.rating-star::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: calc((var(--rating) + var(--rating-decimal,0)) / var(--rating-max) * 100% + 0.3px);
-  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left / 100% 100%;
-  pointer-events: none;
-}
 
 
 .rating-text {
