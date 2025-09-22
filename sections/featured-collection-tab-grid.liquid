@@ -84,27 +84,58 @@
   assign full_limit     = section.settings.full_count     | default: 12
   assign alt_limit      = section.settings.alt_count      | default: 12
 
-  assign active_tab     = section.settings.default_tab    | default: 'featured'
-
   assign tab_featured_label = section.settings.tab_featured_label | default: 'Featured'
-  assign tab_full_label     = section.settings.tab_full_label     | default: 'Full'
+  assign tab_full_label     = section.settings.tab_full_label     | default: 'Full Range'
   assign tab_alt_label      = section.settings.tab_alt_label      | default: 'Alt'
 
-  assign more_featured = false
-  if featured_col and featured_col.all_products_count > featured_limit
-    assign more_featured = true
-  endif
-
-  assign more_full = false
-  if full_col and full_col.all_products_count > full_limit
-    assign more_full = true
-  endif
-
-  assign more_alt = false
-  if alt_col and alt_col.all_products_count > alt_limit
-    assign more_alt = true
-  endif
+  assign active_tab = section.settings.default_tab | default: 'featured'
 -%}
+
+{%- assign has_featured = false -%}
+{%- if featured_col != blank -%}{%- assign has_featured = true -%}{%- endif -%}
+
+{%- assign has_full = false -%}
+{%- if full_col != blank -%}{%- assign has_full = true -%}{%- endif -%}
+
+{%- assign has_alt = false -%}
+{%- if alt_col != blank -%}{%- assign has_alt = true -%}{%- endif -%}
+
+{%- assign active_ok = false -%}
+{%- if has_featured and active_tab == 'featured' -%}
+  {%- assign active_ok = true -%}
+{%- elsif has_full and active_tab == 'full' -%}
+  {%- assign active_ok = true -%}
+{%- elsif has_alt and active_tab == 'alt' -%}
+  {%- assign active_ok = true -%}
+{%- endif -%}
+
+{%- unless active_ok -%}
+  {%- if has_featured -%}
+    {%- assign active_tab = 'featured' -%}
+  {%- elsif has_full -%}
+    {%- assign active_tab = 'full' -%}
+  {%- elsif has_alt -%}
+    {%- assign active_tab = 'alt' -%}
+  {%- else -%}
+    {%- assign active_tab = '' -%}
+  {%- endif -%}
+{%- endunless -%}
+
+
+{%- assign more_featured = false -%}
+{%- if has_featured and featured_col.all_products_count > featured_limit -%}
+  {%- assign more_featured = true -%}
+{%- endif -%}
+
+{%- assign more_full = false -%}
+{%- if has_full and full_col.all_products_count > full_limit -%}
+  {%- assign more_full = true -%}
+{%- endif -%}
+
+{%- assign more_alt = false -%}
+{%- if has_alt and alt_col.all_products_count > alt_limit -%}
+  {%- assign more_alt = true -%}
+{%- endif -%}
 
 <div id="fctg-{{ section.id }}" class="color-{{ section.settings.color_scheme }} isolate gradient">
   <div
@@ -119,48 +150,51 @@
           </h2>
         {% endif %}
 
-        <div class="featured-collections-buttons" role="tablist" aria-label="Collection tabs">
-          {%- comment -%} Tab 1: Featured {%- endcomment -%}
-          <button
-            id="fctab-featured-{{ section.id }}"
-            class="fctab button"
-            type="button"
-            role="tab"
-            data-target="featured"
-            aria-controls="fctg-featured-{{ section.id }}"
-            {% if active_tab == 'featured' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
-          >
-            {{ tab_featured_label }}
-          </button>
+        {% if has_featured or has_full or has_alt %}
+          <div class="featured-collections-buttons" role="tablist" aria-label="Collection tabs">
+            {% if has_featured %}
+              <button
+                id="fctab-featured-{{ section.id }}"
+                class="fctab button"
+                type="button"
+                role="tab"
+                data-target="featured"
+                aria-controls="fctg-featured-{{ section.id }}"
+                {% if active_tab == 'featured' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+              >
+                {{ tab_featured_label }}
+              </button>
+            {% endif %}
 
-          {%- comment -%} Tab 2: Full {%- endcomment -%}
-          <button
-            id="fctab-full-{{ section.id }}"
-            class="fctab button"
-            type="button"
-            role="tab"
-            data-target="full"
-            aria-controls="fctg-full-{{ section.id }}"
-            {% if active_tab == 'full' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
-          >
-            {{ tab_full_label }}
-          </button>
+            {% if has_full %}
+              <button
+                id="fctab-full-{{ section.id }}"
+                class="fctab button"
+                type="button"
+                role="tab"
+                data-target="full"
+                aria-controls="fctg-full-{{ section.id }}"
+                {% if active_tab == 'full' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+              >
+                {{ tab_full_label }}
+              </button>
+            {% endif %}
 
-          {%- comment -%} Tab 3: Alt (only render if alt collection is set) {%- endcomment -%}
-          {% if alt_col %}
-            <button
-              id="fctab-alt-{{ section.id }}"
-              class="fctab button"
-              type="button"
-              role="tab"
-              data-target="alt"
-              aria-controls="fctg-alt-{{ section.id }}"
-              {% if active_tab == 'alt' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
-            >
-              {{ tab_alt_label }}
-            </button>
-          {% endif %}
-        </div>
+            {% if has_alt %}
+              <button
+                id="fctab-alt-{{ section.id }}"
+                class="fctab button"
+                type="button"
+                role="tab"
+                data-target="alt"
+                aria-controls="fctg-alt-{{ section.id }}"
+                {% if active_tab == 'alt' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+              >
+                {{ tab_alt_label }}
+              </button>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
 
       {% if section.settings.show_description and section.settings.description != blank %}
@@ -172,15 +206,18 @@
 
     <div class="featured-collections-grids{% if section.settings.full_width %} page-width--wide{% else %} page-width{% endif %}">
 
-      {%- comment -%} Featured tab panel {%- endcomment -%}
-      <div
-        id="fctg-featured-{{ section.id }}"
-        class="fctab-panel"
-        role="tabpanel"
-        aria-labelledby="fctab-featured-{{ section.id }}"
-        {% unless active_tab == 'featured' %}hidden{% endunless %}
-      >
-        {% if featured_col %}
+      {% if active_tab == '' %}
+        <p class="page-width">No collections selected.</p>
+      {% endif %}
+
+      {% if has_featured %}
+        <div
+          id="fctg-featured-{{ section.id }}"
+          class="fctab-panel"
+          role="tabpanel"
+          aria-labelledby="fctab-featured-{{ section.id }}"
+          {% unless active_tab == 'featured' %}hidden{% endunless %}
+        >
           <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
             {% for product in featured_col.products limit: featured_limit %}
               <li class="grid__item">
@@ -209,20 +246,17 @@
               </a>
             </div>
           {% endif %}
-        {% else %}
-          <p>No featured collection selected.</p>
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
 
-      {%- comment -%} Full tab panel {%- endcomment -%}
-      <div
-        id="fctg-full-{{ section.id }}"
-        class="fctab-panel"
-        role="tabpanel"
-        aria-labelledby="fctab-full-{{ section.id }}"
-        {% unless active_tab == 'full' %}hidden{% endunless %}
-      >
-        {% if full_col %}
+      {% if has_full %}
+        <div
+          id="fctg-full-{{ section.id }}"
+          class="fctab-panel"
+          role="tabpanel"
+          aria-labelledby="fctab-full-{{ section.id }}"
+          {% unless active_tab == 'full' %}hidden{% endunless %}
+        >
           <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
             {% for product in full_col.products limit: full_limit %}
               <li class="grid__item">
@@ -251,13 +285,10 @@
               </a>
             </div>
           {% endif %}
-        {% else %}
-          <p>No full collection selected.</p>
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
 
-      {%- comment -%} Alt tab panel (optional) {%- endcomment -%}
-      {% if alt_col %}
+      {% if has_alt %}
         <div
           id="fctg-alt-{{ section.id }}"
           class="fctab-panel"
@@ -305,15 +336,12 @@
   const root = document.getElementById('fctg-{{ section.id }}');
   if (!root) return;
 
-  const tabs = root.querySelectorAll('.fctab');
+  const tabs = root.querySelectorAll('.fctab'); // only tabs that actually rendered
   const panels = {};
-  const featured = root.querySelector('#fctg-featured-{{ section.id }}');
-  const full     = root.querySelector('#fctg-full-{{ section.id }}');
-  const alt      = root.querySelector('#fctg-alt-{{ section.id }}');
-
-  if (featured) panels.featured = featured;
-  if (full)     panels.full     = full;
-  if (alt)      panels.alt      = alt;
+  ['featured','full','alt'].forEach(k => {
+    const el = root.querySelector('#fctg-' + k + '-{{ section.id }}');
+    if (el) panels[k] = el;
+  });
 
   function activate(which){
     tabs.forEach(btn => btn.setAttribute('aria-selected', btn.dataset.target === which ? 'true' : 'false'));
