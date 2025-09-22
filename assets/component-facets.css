@@ -54,7 +54,7 @@
 .facet-filters .select .svg-wrapper {
   height: 1.2rem;
   width: 1.2rem;
-  top: calc(50% - .5rem);
+  top: calc(50% - .6rem);
 }
 
 .facet-filters__label {
