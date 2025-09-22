@@ -164,36 +164,27 @@
         "text_hiq8D3": {
           "type": "text",
           "settings": {
-            "text": "<p>Xtendlife is a vertically integrated global health supplement and skincare company with its own specialised GMP and ISO facilities (take the tour). Xtendlife was a pioneer in trusted affiliate programs having paid out millions of dollars in commissions to its affiliates.</p><p>Xtendlife directly services customers in more than 90 countries, the majority being in the USA, Canada, UK, Australia, Singapore and other Asian countries. Xtendlife handles all shipping, billing and customer service.</p><p>Xtendlife products are all unique, scientifically formulated and 100% controlled by Xtendlife with no compromises in quality. They are only available online.</p>",
+            "text": "<p>Select the \"Subscribe & Save\" option before adding your favourite products to your cart, and see the 10% savings! Plus enjoy free shipping on all NZ orders with all ongoing subscription orders.</p>",
             "text_style": "subtitle"
-          }
-        },
-        "button_7xtrmP": {
-          "type": "button",
-          "settings": {
-            "button_label": "Apply now",
-            "button_link": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
-            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading_6bVe4M",
-        "text_hiq8D3",
-        "button_7xtrmP"
+        "text_hiq8D3"
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         ".subtitle {font-size: 20px; line-height: 1.35;}",
-        ".image-with-text {padding-top: 3rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text {padding-top: 3.2rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
         ".image-with-text__text p {margin-bottom: 2rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 2.4rem; line-height: 1; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/1f613a848249190b57aae966ee9e44daec599335.png",
-        "height": "large",
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
         "layout": "text_first",
@@ -205,8 +196,8 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
         "color_scheme": "",
-        "padding_top": 32,
-        "padding_bottom": 100
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "multicolumn_DymD7U": {
