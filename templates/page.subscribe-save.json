@@ -42,7 +42,7 @@
       ],
       "custom_css": [
         ".page-width {margin: 3rem 0 2rem;}",
-        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 80rem; } .page-width {margin: 8rem 0 4rem; }}",
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 80rem; } .page-width {margin: 7rem 0 4rem; }}",
         "@media (max-width: 749px) {.rich-text__blocks {text-align: left; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
