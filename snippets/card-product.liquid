@@ -286,10 +286,10 @@
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
 
             <div class="card__stars">
-              <div class="klaviyo-review-stars"
-                  data-entity-id="{{ card_product.id }}"
-                  data-entity-type="product"
-                  data-show-count="true">
+              <div class="klaviyo-star-rating-widget"
+                  data-id="{{ card_product.id }}"
+                  data-product-title="{{ card_product.title | escape }}"
+                  data-product-type="{{ card_product.type | escape }}">
               </div>
             </div>
 
