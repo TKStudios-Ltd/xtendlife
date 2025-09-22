@@ -597,7 +597,8 @@
         "column_YwH6Gx"
       ],
       "custom_css": [
-        ".page-width {max-width: 114rem;}"
+        ".page-width {max-width: 114rem;}",
+        ".media {border-radius: 10px;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
