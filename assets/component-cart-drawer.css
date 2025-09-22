@@ -76,7 +76,8 @@ cart-drawer.is-empty .drawer__inner {
   padding: 0;
 }
 
-cart-drawer.is-empty .drawer__header {
+cart-drawer.is-empty .drawer__header,
+cart-drawer.is-empty .fsb {
   display: none;
 }
 
