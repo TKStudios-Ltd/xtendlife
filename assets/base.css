@@ -4405,3 +4405,6 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   font-family: var(--font-body-family) !important;
   color: rgba(var(--color-foreground), 1) !important;
 }
+.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget svg path {
+  fill: #FFCA41 !important;
+}
