@@ -789,11 +789,19 @@
                           </quantity-input>
                         </div>
 
-                        <!-- Plan select (Recharge selling plans). JS will populate. -->
                         <div class="p-stickybar__plan">
-                          <select class="p-stickybar__plan-select" aria-label="Delivery frequency">
-                            <option value="">One-time purchase</option>
-                          </select>
+                          <div class="select">
+                            <select
+                              class="select__select p-stickybar__plan-select"
+                              aria-label="Delivery frequency"
+                            >
+                              <!-- JS fills options (One-time + Recharge plans) -->
+                              <option value="">{{ 'products.product.one_time_purchase' | default: 'One-time purchase' }}</option>
+                            </select>
+                            <span class="icon-caret" aria-hidden="true">
+                              {{- 'icon-caret.svg' | inline_asset_content -}}
+                            </span>
+                          </div>
                         </div>
 
                         <button type="button" class="button button--primary p-stickybar__btn">
