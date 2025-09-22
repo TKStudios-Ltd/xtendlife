@@ -25,23 +25,27 @@
   --font-size: 1.6;
 }
 
-/* Dynamic stars using your two SVGs (outline + fill via mask) */
+/* replace these URLs with your SINGLE-STAR files (outline + fill) */
+:root{
+  --star-outline-url: url('https://cdn.shopify.com/s/files/..../Custom-Star--Outline.svg');
+  --star-fill-url:    url('https://cdn.shopify.com/s/files/..../Custom-Star.svg');
+}
+
 .rating-star{
   --star-size:16px; --rating-max:5;
   position:relative; display:inline-block;
-  width:calc(var(--star-size)*69/12); height:var(--star-size);
-  background:url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars--Outline.svg')
-            no-repeat left/100% 100%;
+  width:calc(var(--star-size) * var(--rating-max));
+  height:var(--star-size);
+  background: var(--star-outline-url) repeat-x left / var(--star-size) var(--star-size);
 }
 
 .rating-star::before{
   content:""; position:absolute; inset:0;
   width:calc((var(--rating) + var(--rating-decimal,0)) / var(--rating-max) * 100%);
-  background:#F4A72C; /* fill color */
-  -webkit-mask:url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left/100% 100%;
-          mask:url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left/100% 100%;
+  background: var(--star-fill-url) repeat-x left / var(--star-size) var(--star-size);
   pointer-events:none;
 }
+
 
 
 
