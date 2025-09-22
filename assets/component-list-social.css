@@ -27,6 +27,10 @@
   height: 3.8rem;
 }
 
+.list-social__link .icon {
+  transition: all ease .3s;
+}
 .list-social__link:hover .icon {
   transform: scale(1.07);
+  opacity: 0.75;
 }
