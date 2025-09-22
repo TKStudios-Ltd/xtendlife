@@ -208,7 +208,7 @@
           "settings": {
             "title": "Daily Support",
             "button_label": "Shop now",
-            "button_link": "#",
+            "button_link": "shopify://collections/daily-support",
             "image": "shopify://shop_images/Family-1335399765_3.jpg"
           }
         },
