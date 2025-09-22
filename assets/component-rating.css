@@ -39,7 +39,7 @@
   display: inline-block;
   width: calc(var(--star-size) * 5);
   height: var(--star-size);
-  background: url('{{ "Custom-Stars-outline.svg" | asset_url }}') no-repeat left / 100% 100%;
+  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left / 100% 100%;
 }
 
 .rating-star::before {
@@ -47,7 +47,7 @@
   position: absolute;
   inset: 0;
   width: var(--percent);
-  background: url('{{ "Custom-Stars-fill.svg" | asset_url }}') no-repeat left / 100% 100%;
+  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg') no-repeat left / 100% 100%;
 }
 
 
