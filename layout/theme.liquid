@@ -402,55 +402,6 @@
     {%- comment -%} Our single initializer for all sliders site-wide {%- endcomment -%}
     <script src="{{ 'swiper-hydrator.js' | asset_url }}" defer></script>
 
-    {%- comment -%}Klaviyo Reviews: global loader + robust re-render{%- endcomment -%}
-<script defer src="https://static.klaviyo.com/onsite/js/klaviyo-reviews-widget.js"></script>
-<script>
-(function () {
-  // Safe re-render call
-  function klvRender() {
-    if (window.KlaviyoReviews && window.KlaviyoReviews.widgets && typeof window.KlaviyoReviews.widgets.render === 'function') {
-      try { window.KlaviyoReviews.widgets.render(); } catch(e) { /* no-op */ }
-    }
-  }
-
-  // Initial render (after DOM ready)
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    klvRender();
-  } else {
-    document.addEventListener('DOMContentLoaded', klvRender);
-  }
-
-  // Shopify section events (Dawn + Search & Discovery filters)
-  document.addEventListener('shopify:section:load', klvRender);
-  document.addEventListener('shopify:section:unload', klvRender);
-  document.addEventListener('shopify:section:select', klvRender);
-  document.addEventListener('shopify:section:deselect', klvRender);
-  document.addEventListener('shopify:filter:updated', klvRender);
-
-  // Your custom events (if you AJAX the grid yourself, dispatch this after you replace HTML)
-  document.addEventListener('ajaxProductGrid:updated', klvRender);
-
-  // MutationObserver fallback: watch for any new star widgets added to the DOM
-  const obs = new MutationObserver((muts) => {
-    for (const m of muts) {
-      if (!m.addedNodes) continue;
-      for (const n of m.addedNodes) {
-        if (n.nodeType !== 1) continue;
-        if (n.matches && n.matches('.klaviyo-star-rating-widget, [class*="card"], [id*="product-grid"], .product-grid')) {
-          klvRender();
-          return;
-        }
-        if (n.querySelector && n.querySelector('.klaviyo-star-rating-widget')) {
-          klvRender();
-          return;
-        }
-      }
-    }
-  });
-  obs.observe(document.documentElement, { childList: true, subtree: true });
-})();
-</script>
-
 
   </body>
 </html>
