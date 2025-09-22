@@ -576,6 +576,13 @@
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
+        "heading_KfcfcR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay connected",
+            "heading_size": "h2"
+          }
+        },
         "paragraph_RxdmFE": {
           "type": "paragraph",
           "settings": {
@@ -588,18 +595,26 @@
         }
       },
       "block_order": [
+        "heading_KfcfcR",
         "paragraph_RxdmFE",
         "email_form_hDdFMH"
+      ],
+      "custom_css": [
+        ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
+        ".h1 {display: none;}",
+        "@media (max-width: 749px) {.newsletter__right {padding: 0 2rem 4rem; }}",
+        "@media screen and (min-width: 750px) {.h2 {font-size: 4rem; margin: 3rem 0 6rem; } .newsletter__left {min-height: 40rem; height: 30vw; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
+        "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
         "enable_klaviyo_attach": true,
         "klaviyo_list_id": "Ram9Tc",
         "klaviyo_source": "newsletter_section",
-        "padding_top": 60,
-        "padding_bottom": 100
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
