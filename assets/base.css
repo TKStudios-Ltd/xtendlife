@@ -4408,3 +4408,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .kl_reviews__star_rating_widget.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget .kl_reviews__stars_badge .kl_reviews__star--fill {
   stop-color: #FFCA41 !important;
 }
+.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget .kl_reviews__stars_badge .kl_reviews__star--empty {
+  stop-color: transparent !important;
+}
+.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget svg path {
+  stroke: #FFCA41 !important;
+  stroke-width: 1px !important;
+}
