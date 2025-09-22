@@ -306,8 +306,14 @@
                                   <span aria-hidden="true" class="rating-star" style="--rating: {{ p.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ p.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
                                 </div>
                                 <p class="rating-text caption"><span aria-hidden="true">{{- p.metafields.reviews.rating.value }} / {{ p.metafields.reviews.rating.value.scale_max -}}</span></p>
-                                <p class="rating-count caption"><span aria-hidden="true">({{ p.metafields.reviews.rating_count }})</span><span class="visually-hidden">{{- p.metafields.reviews.rating_count }} {{ 'accessibility.total_reviews' | t -}}</span></p>
-                              </div>
+                                <p class="rating-count caption">
+                                  <span aria-hidden="true">({{- p.metafields.reviews.rating.value }}) | {{ p.metafields.reviews.rating_count }} reviews</span>
+                                  <span class="visually-hidden">
+                                    {{- p.metafields.reviews.rating_count }}
+                                    {{ 'accessibility.total_reviews' | t -}}
+                                  </span>
+                                </p>
+                                </div>
                             {%- endif -%}
 
                           {%- when 'icon-with-text' -%}
