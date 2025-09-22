@@ -350,58 +350,42 @@
     "multicolumn_DymD7U": {
       "type": "multicolumn",
       "blocks": {
-        "column_VnqTUe": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Ambassador_Ivor-Cummins_405x323_526c0773-69fd-45c7-b292-99985c27e863_1.png",
-            "title": "Ivor Cummins",
-            "text": "<p>Ivor is best known for his series of videos as 'The Fat Emperor' for his work on Low Carb and Cardiovascular issues. After visiting New Zealand, meeting the team at Xtendlife and using the products he was converted and is now a supporter of Xtendlife with regular podcasts of the products he has an interest in. Ivor is based in Dublin, Ireland.</p>",
-            "link_label": "",
-            "link": "",
-            "video_url": "https://player.vimeo.com/video/903918402"
-          }
-        },
         "column_gea4K6": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.png",
-            "title": "Dan Ho",
-            "text": "<p>Dan was one of the first affiliates to join up with Xtendlife over 20 years ago. He has been an enthusiastic supporter ever since with earnings into the seven figures. Dan has been responsible for introducing other good affiliates over the years as well. Dan is based in Michigan, USA.</p>",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": "",
             "video_url": "https://player.vimeo.com/video/903918402"
           }
         },
-        "column_imwYgV": {
+        "column_VnqTUe": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Ambassador_Paul_405x323_7ea21a4f-217d-431f-a1da-cca6ba075186_1.png",
-            "title": "Paul Mealing",
-            "text": "<p>Paul has been an affiliate with Xtendlife for around 15 years and is a significant user of Xtendlife’s products. He is a physical therapist with an interest in full body function, performance and aging. Paul is based in London, UK.</p>",
+            "title": "How to Subscribe & Save",
+            "text": "<p>Join us on this video walkthrough where we show you how to:</p><ul><li>Choose your Subscribe and Save products</li><li>Choose your preferred delivery schedule</li><li>Identify Subscribe and Save products in your cart</li><li>Complete checkout to create your Subscribe and Save order subscription</li></ul><p>Download the PDF version here.</p>",
             "link_label": "",
             "link": "",
-            "video_url": "https://player.vimeo.com/video/903918402"
+            "video_url": ""
           }
         }
       },
       "block_order": [
-        "column_VnqTUe",
         "column_gea4K6",
-        "column_imwYgV"
+        "column_VnqTUe"
       ],
-      "custom_css": [
-        ".h1 {margin-bottom: 3rem;}",
-        "h3 {font-size: 1.6rem; margin-bottom: 1rem;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Affiliate Testimonials",
+        "title": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "none",
         "color_scheme": "scheme-5",
