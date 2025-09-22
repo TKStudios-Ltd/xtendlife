@@ -637,6 +637,10 @@ details > * {
   color: rgba(var(--color-link), var(--alpha-link));
 }
 
+.button:hover {
+  opacity: 0.75;
+}
+
 .inline-richtext a,
 .rte.inline-richtext a {
   color: currentColor;
