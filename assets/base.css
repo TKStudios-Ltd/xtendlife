@@ -527,6 +527,7 @@ h6:empty {
   background-color: transparent;
   font-size: 1.4rem;
   font-family: inherit;
+  transition: color ease .2s;
 }
 
 .link--text {
