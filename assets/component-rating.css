@@ -30,10 +30,9 @@
   --rating-max:5;
   position:relative;
   display:inline-block;
-  width:calc(var(--star-size) * var(--rating-max));
-  height:var(--star-size);
-  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars-Outline.svg')
-              repeat-x left / var(--star-size) var(--star-size);
+  width: 69px;
+  height: 12px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars-Outline.svg');
 }
 
 .rating-star::before{
@@ -41,8 +40,7 @@
   position:absolute;
   inset:0;
   width:calc((var(--rating) + var(--rating-decimal,0)) / var(--rating-max) * 100%);
-  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg')
-              repeat-x left / var(--star-size) var(--star-size);
+  background: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg');
   pointer-events:none;
 }
 
