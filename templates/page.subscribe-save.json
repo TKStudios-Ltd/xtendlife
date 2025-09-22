@@ -179,7 +179,154 @@
         ".image-with-text {padding-top: 3.2rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
         ".image-with-text__text p {margin-bottom: 2rem;}",
         "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 2.4rem; line-height: 1; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_bJ9g4L": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_LyMEVW": {
+          "type": "heading",
+          "settings": {
+            "heading": "2. Set your schedule",
+            "heading_size": "h1"
+          }
+        },
+        "text_fmbkeg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Choose how often you want your product delivered to you. As often as 3 weeks, every 4 weeks, every 6 weeks, or as far out as every 8 weeks. We’ll deliver your product to your doorstep, regularly and automatically. We'll send you an email 3 days prior to your next order as a reminder.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LyMEVW",
+        "text_fmbkeg"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.2rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_kzCdEc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9jky9T": {
+          "type": "heading",
+          "settings": {
+            "heading": "3. Skip, pause or cancel anytime",
+            "heading_size": "h1"
+          }
+        },
+        "text_BWFTk7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Manage your subscription orders easily with our customer portal. You can reschedule, move forward, or push back orders, and even try new flavours. If for any reason you no longer require your Two Islands subscription you are able to cancel at any time for free. Simply sign in to your account to make changes.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9jky9T",
+        "text_BWFTk7"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.2rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_VqfQk4": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_AdGPhV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Earn Xtendlife Rewards",
+            "heading_size": "h1"
+          }
+        },
+        "text_6RKJdQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AdGPhV",
+        "text_6RKJdQ"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.2rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -729,6 +876,9 @@
     "multicolumn_A6pqFF",
     "rich_text_PfkKwd",
     "image_with_text_83HE6c",
+    "image_with_text_bJ9g4L",
+    "image_with_text_kzCdEc",
+    "image_with_text_VqfQk4",
     "multicolumn_DymD7U",
     "image_with_text_HHyM8a",
     "image_with_text_A8yDrr",
