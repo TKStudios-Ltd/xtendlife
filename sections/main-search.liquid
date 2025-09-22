@@ -39,11 +39,6 @@
   .template-search__header .field .field__button {
     height: 100%;
   }
-  .template-search__header .field .field__button > .svg-wrapper,
-  .template-search__header .field .field__button .icon {
-    height: 2.4rem;
-    width: 2.4rem;
-  }
   .template-search__header .field .field__button > .svg-wrapper {
     background: transparent;
     padding: 0;
@@ -67,8 +62,10 @@
     }
   }
   @media screen and (min-width: 750px) {
-    .template-search__header {
-      margin: 2.5rem auto;
+    .template-search__header .field .field__button > .svg-wrapper,
+    .template-search__header .field .field__button .icon {
+      height: 2.4rem;
+      width: 2.4rem;
     }
   }
 </style>
