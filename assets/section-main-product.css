@@ -1676,7 +1676,7 @@ a.product__text {
 }
 .p-stickybar__right .quantity {
   width: 120px !important;
-  min-height: 38px !important;
+  min-height: 3.9rem !important;
   border: 1px solid;
   border-radius: 40px !important;
 }
@@ -1686,6 +1686,9 @@ a.product__text {
 }
 .p-stickybar__plan-select {
   font-size: 1.4rem;
+  min-height: 3.9rem;
+  height: 3.9rem;
+
 }
 .select .p-stickybar__plan-select .svg-wrapper {
   height: 1.4rem;
