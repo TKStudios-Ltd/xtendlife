@@ -51,6 +51,8 @@
 .rating-count {
   display: inline-block;
   margin: 0 !important;
+  letter-spacing: 0;
+  line-height: 1;
 }
 
 @media (forced-colors: active) {
