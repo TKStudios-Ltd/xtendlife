@@ -5,6 +5,8 @@
 .rating__wrapper {
   display: flex;
   gap: 0.5rem;
+  margin: 0 !important;
+  align-items: center;
 }
 
 .rating {
