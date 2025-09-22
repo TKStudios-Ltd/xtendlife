@@ -287,35 +287,17 @@
 
             {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
               {%- liquid
-                assign _p = card_product | default: product
-                assign rating_val = _p.metafields.reviews.rating.value.rating | default: _p.metafields.reviews.rating.value
-                assign rating_max = _p.metafields.reviews.rating.value.scale_max | default: 5
-                assign rating_count = _p.metafields.reviews.rating_count | default: 0
+  assign _p = card_product | default: product
+-%}
+<div class="card__stars">
+  <span class="klaviyo-star-rating-widget"
+        data-id="{{ _p.id }}"
+        data-product-title="{{ _p.title | escape }}"
+        data-product-type="{{ _p.type | escape }}"
+        style="display:block">
+  </span>
+</div>
 
-                assign rating_decimal = 0
-                assign decimal = rating_val | modulo: 1
-                if decimal >= 0.3 and decimal <= 0.7
-                  assign rating_decimal = 0.5
-                elsif decimal > 0.7
-                  assign rating_decimal = 1
-                endif
-              -%}
-              <div class="rating" role="img"
-                  aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: rating_val, rating_max: rating_max }}">
-                <span aria-hidden="true"
-                      class="rating-star"
-                      style="--rating: {{ rating_val | floor }}; --rating-max: {{ rating_max }}; --rating-decimal: {{ rating_decimal }};">
-                </span>
-              </div>
-              <p class="rating-text caption" aria-hidden="true">
-                {{- rating_val }} / {{ rating_max -}}
-              </p>
-              <p class="rating-count caption">
-                <span aria-hidden="true">({{ rating_count }})</span>
-                <span class="visually-hidden">
-                  {{- rating_count }} {{ 'accessibility.total_reviews' | t -}}
-                </span>
-              </p>
               {% comment %} {% liquid
                 assign rating_decimal = 0
                 assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
