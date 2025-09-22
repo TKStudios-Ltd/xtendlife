@@ -17,68 +17,41 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_pFjbBG": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_4P8W9w": {
-          "type": "heading",
-          "settings": {
-            "heading": "Become an Xtendlife Affiliate",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_4P8W9w"
-      ],
-      "custom_css": [
-        ".subtitle {max-width: 460px; margin-top: 2rem;}",
-        ".subtitle p {font-size: 20px;}",
-        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "wide_container": true,
-        "image_behavior": "none",
-        "desktop_content_position": "top-center",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "left",
-        "show_text_below": false
-      }
-    },
     "rich_text_fRcgNk": {
       "type": "rich-text",
       "blocks": {
+        "heading_TTkdGx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe & save",
+            "heading_size": "h0"
+          }
+        },
         "caption_mC97Kh": {
           "type": "caption",
           "settings": {
-            "caption": "Get paid to promote Xtendlife product. Join our affiliate program and earn commissions on all of your referrals.",
+            "caption": "Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.",
             "text_style": "subtitle",
             "text_size": "medium"
           }
         }
       },
       "block_order": [
+        "heading_TTkdGx",
         "caption_mC97Kh"
       ],
       "custom_css": [
-        ".page-width {margin-bottom: 6rem;}"
+        ".page-width {margin: 8rem 0 2rem;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
         "anchor_id": "",
         "anchor_offset": 120,
-        "padding_top": 28,
+        "padding_top": 100,
         "padding_bottom": 100
       }
     },
@@ -732,7 +705,6 @@
   },
   "order": [
     "main",
-    "image_banner_pFjbBG",
     "rich_text_fRcgNk",
     "multicolumn_A6pqFF",
     "image_with_text_83HE6c",
