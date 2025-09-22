@@ -25,27 +25,31 @@
 }
 
 .rating-star {
+  --star-size: 16px;
   --color-rating-star: #F4A72C;
   --percent: calc(
     (
-        var(--rating) / var(--rating-max) + var(--rating-decimal) * var(--font-size) /
-          (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))
-      ) * 100%
+      var(--rating) / var(--rating-max) +
+      var(--rating-decimal) * var(--font-size) /
+      (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))
+    ) * 100%
   );
+
+  position: relative;
   display: inline-block;
-  margin: 0;
+  width: calc(var(--star-size) * 5);
+  height: var(--star-size);
+  background: url('{{ "Custom-Stars-outline.svg" | asset_url }}') no-repeat left / 100% 100%;
 }
 
 .rating-star::before {
-  content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Stars.svg');
-  background: linear-gradient(
-    90deg,
-    var(--color-rating-star) var(--percent),
-    rgba(var(--color-foreground), 0.15) var(--percent)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--percent);
+  background: url('{{ "Custom-Stars-fill.svg" | asset_url }}') no-repeat left / 100% 100%;
 }
+
 
 
 .rating-text {
