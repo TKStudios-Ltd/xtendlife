@@ -4399,7 +4399,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   justify-content: space-between;
 }
 
-/* Reviews Widget */
+/* Review Stars Widget */
 
 .kl_reviews__star_rating_widget.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget .kl_reviews__star_rating_widget__label {
   font-family: var(--font-body-family) !important;
