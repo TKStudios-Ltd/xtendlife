@@ -463,7 +463,7 @@
         "collapsible_row_Cnj6hi": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
+            "heading": "How do I skip my next order?",
             "icon": "none",
             "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on the Skip tab</li><li>You will be given the option to either gift your order to someone else or you can select 'Yes, Skip this order'.</li></ul>",
             "page": ""
@@ -472,36 +472,9 @@
         "collapsible_row_erfxjF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How will I receive my payments?",
+            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
             "icon": "none",
             "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_CEPPJf": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Can I run paid ads using my affiliate link or discount code?",
-            "icon": "none",
-            "row_content": "<p>Yes, but you have to follow the rules that are part of our Terms & Conditions. Affiliate users shall not use the keyword “Xtendlife” or any variations in ads, nowhere in an ad copy - title or body text. Affiliate users can’t use the keyword \"Xtendlife\" or any variations and any Xtendlife Trademark within online ad campaigns (including, without limitation, within metadata or search-based advertising such as Google Adwords) without prior written consent from Xtendlife.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_g9cpCf": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How long does the cookie last?",
-            "icon": "none",
-            "row_content": "<p>Visitors have 90 days to make a purchase after clicking on your affiliate link.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_jjMAK9": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How often do you process payouts for referrals?",
-            "icon": "none",
-            "row_content": "<p>Commissions are paid out every month. You will receive your payout in your PayPal account by the end of each month.</p>",
             "page": ""
           }
         }
@@ -510,13 +483,10 @@
         "collapsible_row_89AqTf",
         "collapsible_row_fp9kgF",
         "collapsible_row_Cnj6hi",
-        "collapsible_row_erfxjF",
-        "collapsible_row_CEPPJf",
-        "collapsible_row_g9cpCf",
-        "collapsible_row_jjMAK9"
+        "collapsible_row_erfxjF"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 10rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
         "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
         ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
       ],
@@ -536,59 +506,71 @@
         "padding_bottom": 60
       }
     },
-    "image_banner_eNjqNN": {
-      "type": "image-banner",
+    "collapsible_content_tDcJHV": {
+      "type": "collapsible-content",
       "blocks": {
-        "heading_hRLdBY": {
-          "type": "heading",
+        "collapsible_row_UhHWg4": {
+          "type": "collapsible_row",
           "settings": {
-            "heading": "Join us on the Journey",
-            "heading_size": "hxl"
+            "heading": "How do I create a subscription?",
+            "icon": "none",
+            "row_content": "<p>Please watch our video walkthrough or download the PDF version on this page.</p>",
+            "page": ""
           }
         },
-        "text_VhCp7b": {
-          "type": "text",
+        "collapsible_row_tEPWAG": {
+          "type": "collapsible_row",
           "settings": {
-            "text": "At Xtendlife, we believe in offering a better way for our customers to take care of their health. With our commitment to scientific research, quality, and our expert team, we are dedicated to improving the health and well-being of our customers. Join us on this journey and experience the difference that Xtendlife can make in your health and vitality.",
-            "text_style": "subtitle"
+            "heading": "How do I reschedule my next order?",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Reschedule'</li><li>Choose how you wish to reschedule by selecting the most suitable option for your needs and Save Changes.</li></ul>",
+            "page": ""
           }
         },
-        "buttons_XN8C3J": {
-          "type": "buttons",
+        "collapsible_row_EGrrwm": {
+          "type": "collapsible_row",
           "settings": {
-            "button_label_1": "Apply now",
-            "button_link_1": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "#",
-            "button_style_secondary_2": false
+            "heading": "How do I skip my next order?",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on the Skip tab</li><li>You will be given the option to either gift your order to someone else or you can select 'Yes, Skip this order'.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jx6kHm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
+            "icon": "none",
+            "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
-        "heading_hRLdBY",
-        "text_VhCp7b",
-        "buttons_XN8C3J"
+        "collapsible_row_UhHWg4",
+        "collapsible_row_tEPWAG",
+        "collapsible_row_EGrrwm",
+        "collapsible_row_jx6kHm"
       ],
       "custom_css": [
-        "h2 {line-height: 1.2;}",
-        ".subtitle {max-width: 630px;}",
-        "@media (max-width: 749px) {h2 {font-size: 2rem; } .banner__box {align-items: flex-start; text-align: left; }}"
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "t:sections.collapsible_content.presets.name",
       "settings": {
-        "image": "shopify://shop_images/1ef6e5b3badfbad0f6509a58da515a4246ece173_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "wide_container": false,
-        "image_behavior": "none",
-        "desktop_content_position": "top-center",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
+        "caption": "",
+        "heading": "Loyalty Program FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "newsletter_qKtmmH": {
@@ -633,7 +615,7 @@
     "featured_collection_tab_grid_bgqKeg",
     "multicolumn_DymD7U",
     "collapsible_content_8VjQPY",
-    "image_banner_eNjqNN",
+    "collapsible_content_tDcJHV",
     "newsletter_qKtmmH"
   ]
 }
