@@ -637,8 +637,11 @@ details > * {
   color: rgba(var(--color-link), var(--alpha-link));
 }
 
+.button {
+  transition: opacity ease .4s;
+}
 .button:hover {
-  opacity: 0.75;
+  opacity: 0.9;
 }
 
 .inline-richtext a,
