@@ -1334,14 +1334,14 @@ button.shopify-payment-button__button--unbranded {
 
 .button--secondary:after {
   --border-opacity: var(--buttons-border-opacity);
-  box-shadow: 0 0 0 1px
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
-    0 0 0 1px rgba(var(--color-button), 0);
+    0 0 0 var(--buttons-border-width) rgba(var(--color-button), 0);
 }
 .button--secondary:hover:after {
-  box-shadow: 0 0 0 1px
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
-    0 0 0 1px rgba(var(--color-button), 0) !important;
+    0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button), 0) !important;
 }
 
 .button:focus-visible,
