@@ -18,6 +18,10 @@
             "product": "{{product}}"
           }
         },
+        "rating_hdT4DK": {
+          "type": "rating",
+          "settings": {}
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -96,6 +100,7 @@
       },
       "block_order": [
         "klaviyo_reviews_average_rating_nrAJTz",
+        "rating_hdT4DK",
         "title",
         "custom_liquid_7HtAwq",
         "price",
