@@ -56,7 +56,8 @@
             "title": "",
             "text": "<p>Trusted Brand for over 25 years</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_84WnVg": {
@@ -66,7 +67,8 @@
             "title": "",
             "text": "<p>Proudly made in New Zealand</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_bqhLTR": {
@@ -76,7 +78,8 @@
             "title": "",
             "text": "<p>365 Days Guaranteed</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         }
       },
@@ -114,7 +117,7 @@
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/c7a0052c9ff119b7a69f107c0dbafbda1c660e58.png",
+        "image": "shopify://shop_images/DSF6381_2200x_1_25c6a730-9b9a-4854-9de5-601b625a8366.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "wide_container": false,
@@ -232,13 +235,13 @@
         "image_9NWcxX": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/a062036b4a5f11574416789412928d61021aaae7.jpg"
+            "image": "shopify://shop_images/iStock-1162745024_2.jpg"
           }
         },
         "image_aabbLN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/DSF6381_2200x_3_1_2196566d-d45f-450a-b74d-5cd62a6bf981.png"
+            "image": "shopify://shop_images/kevin-angelso-OIFMEW_z36Y-unsplash_1.png"
           }
         }
       },
@@ -382,7 +385,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/455d449bea39f56653446bf558e064366adeb8c7.png",
+        "image": "shopify://shop_images/Hiking-1185397615_5.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "wide_container": true,
@@ -449,9 +452,10 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Dedication-to-food-safety_36f44aee-8d2d-4cf5-87b6-9e2b28808662_1_1.jpg",
+        "image": "shopify://shop_images/Dedication-to-food-safety_1_1_acb1949a-6cd4-4363-a8a5-6f726690d58a.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": true,
@@ -529,74 +533,68 @@
     "multicolumn_KgjtXM": {
       "type": "multicolumn",
       "blocks": {
-        "column_qyR4iF": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/gregor-reid_eg6rdi_1.png",
-            "title": "Jan Claesen, PhD",
-            "text": "<p>Scientific Advisor</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_YwH6Gx": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Janet_JanssoN_1.png",
-            "title": "Jan Claesen, PhD",
-            "text": "<p>Scientific Advisor</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_cCXhB6": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Maria_Gloria_Dominguez-Bello_1.png",
-            "title": "Jan Claesen, PhD",
-            "text": "<p>Scientific Advisor</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
         "column_Wwj3f6": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/gregor-reid_eg6rdi_1.png",
-            "title": "Jan Claesen, PhD",
-            "text": "<p>Scientific Advisor</p>",
+            "image": "shopify://shop_images/6445d52f-c069-4b54-b6ad-e47ff919548e_3354x4696_1.jpg",
+            "title": "Dr. Amanda Wiggins",
+            "text": "<p>Chief Research Scientist</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_tp6cXX": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Janet_JanssoN_1.png",
-            "title": "Jan Claesen, PhD",
-            "text": "<p>Scientific Advisor</p>",
+            "image": "shopify://shop_images/DSF6381_2200x_9.jpg",
+            "title": "Dr. Joel Kahn",
+            "text": "<p>MD Cardiologist</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_xYTEY8": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Maria_Gloria_Dominguez-Bello_1.png",
-            "title": "Jan Claesen, PhD",
-            "text": "<p>Scientific Advisor</p>",
+            "image": "shopify://shop_images/Ben_Greenfield_Kelsey_Photo-4_1.jpg",
+            "title": "Ben Greenfield",
+            "text": "<p>Health & Fitness Biohacker</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_qyR4iF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/37722783_10156375781197696_7172744217821708288_n_1.jpg",
+            "title": "Ivor Cummins",
+            "text": "<p>Chemical Engineer</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_YwH6Gx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/a0C6S00001vgX2kUAE-scaled-e1663084335886-1024x1018_1.jpg",
+            "title": "Dr Barrrie Tan",
+            "text": "<p>PhD Scientist & Researcher</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
           }
         }
       },
       "block_order": [
-        "column_qyR4iF",
-        "column_YwH6Gx",
-        "column_cCXhB6",
         "column_Wwj3f6",
         "column_tp6cXX",
-        "column_xYTEY8"
+        "column_xYTEY8",
+        "column_qyR4iF",
+        "column_YwH6Gx"
       ],
       "custom_css": [
         ".page-width {max-width: 114rem;}"
@@ -642,6 +640,9 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
       }
