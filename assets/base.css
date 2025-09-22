@@ -4394,6 +4394,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
 }
 
-#main-search-filters .facets__form input {
-  display: none;
+#main-search-filters .facets__form {
+  display: flex;
+  justify-content: space-between;
 }
