@@ -4,7 +4,7 @@
 
 .rating {
   display: inline-block;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .product .rating-star {
@@ -83,7 +83,7 @@
 
 .rating-count {
   display: inline-block;
-  margin: 0;
+  margin: 0 !important;
 }
 
 @media (forced-colors: active) {
