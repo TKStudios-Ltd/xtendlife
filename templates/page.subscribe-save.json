@@ -124,13 +124,40 @@
         "padding_bottom": 16
       }
     },
+    "rich_text_PfkKwd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TEcKjf": {
+          "type": "heading",
+          "settings": {
+            "heading": "How it works",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TEcKjf"
+      ],
+      "custom_css": [],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 60,
+        "padding_bottom": 32
+      }
+    },
     "image_with_text_83HE6c": {
       "type": "image-with-text",
       "blocks": {
         "heading_6bVe4M": {
           "type": "heading",
           "settings": {
-            "heading": "Who is Xtendlife",
+            "heading": "1. Pick your product(s)",
             "heading_size": "h1"
           }
         },
@@ -157,11 +184,10 @@
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1;}",
         ".subtitle {font-size: 20px; line-height: 1.35;}",
         ".image-with-text__text p {margin-bottom: 2rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; } h2 {margin-bottom: 6rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; } h2 {font-size: 4.6rem !important; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; border-top: 1px solid rgba(31, 25, 71, 0.3); } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -709,6 +735,7 @@
     "main",
     "rich_text_fRcgNk",
     "multicolumn_A6pqFF",
+    "rich_text_PfkKwd",
     "image_with_text_83HE6c",
     "multicolumn_DymD7U",
     "image_with_text_HHyM8a",
