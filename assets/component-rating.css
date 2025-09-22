@@ -27,8 +27,8 @@
 
 /* replace these URLs with your SINGLE-STAR files (outline + fill) */
 :root{
-  --star-outline-url: url('https://cdn.shopify.com/s/files/..../Custom-Star--Outline.svg');
-  --star-fill-url:    url('https://cdn.shopify.com/s/files/..../Custom-Star.svg');
+  --star-outline-url: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Star--Outline.svg');
+  --star-fill-url:    url('https://cdn.shopify.com/s/files/1/2714/9868/files/Custom-Star.svg');
 }
 
 .rating-star{
