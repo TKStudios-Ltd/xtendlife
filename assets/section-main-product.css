@@ -1684,6 +1684,16 @@ a.product__text {
 .p-stickybar__right .quantity:after {
   display: none;
 }
+.p-stickybar__plan-select {
+  font-size: 1.4rem;
+}
+.select .p-stickybar__plan-select .svg-wrapper {
+  height: 1.4rem;
+  width: 1.4rem;
+  top: calc(50% - .7rem);
+  right: 1.5rem;
+}
+
 .p-stickybar.is-visible{
   transform: translateY(0);
   opacity: 1;
