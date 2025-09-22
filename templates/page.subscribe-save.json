@@ -415,11 +415,12 @@
         "column_VnqTUe"
       ],
       "custom_css": [
-        ".multicolumn-card__rte {align-items: flex-start; flex-direction: column; font-size: 2rem;}",
+        ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
         ".content-container {height: 100%;}",
         ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
         "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
-        "@media (max-width: 749px) {h3 {font-size: 2.4rem; }}"
+        "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -570,7 +571,7 @@
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 100
       }
     },
     "newsletter_qKtmmH": {
