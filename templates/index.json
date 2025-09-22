@@ -244,7 +244,7 @@
           "settings": {
             "title": "Hormone",
             "button_label": "Shop now",
-            "button_link": "#",
+            "button_link": "shopify://collections/hormone",
             "image": "shopify://shop_images/Walking_on_the_beach-1444319868_2.jpg"
           }
         },
