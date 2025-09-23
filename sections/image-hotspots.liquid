@@ -44,19 +44,26 @@
             {%- for block in section.blocks -%}
               {%- assign bx = block.settings.x | default: 50 -%}
               {%- assign by = block.settings.y | default: 50 -%}
-              <button
+              <div
                 {{ block.shopify_attributes }}
-                type="button"
                 class="hotspots__pin"
                 style="--x: {{ bx }}%; --y: {{ by }}%;"
                 data-block-id="{{ block.id }}"
                 aria-expanded="false"
                 aria-controls="hotspots-panel-{{ section.id }}"
-                title="{{ block.settings.title | escape }}"
               >
-                <span class="hotspots__pin-plus" aria-hidden="true">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
-                <a class="hotspots__pin-label" href="{{ block.settings.link_url }}">{{ block.settings.title }}</a>
-              </button>
+                <button type="button" class="hotspots__pin-plus" title="{{ block.settings.title | escape }}">
+                  {{- 'icon-plus.svg' | inline_asset_content -}}
+                </button>
+                <a
+                  class="hotspots__pin-label"
+                  href="{{ block.settings.link_url }}"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {{ block.settings.title }}
+                </a>
+              </div>
 
               {%- comment -%} Template for the left panel content {%- endcomment -%}
               <template id="hotspots-tpl-{{ block.id }}">
