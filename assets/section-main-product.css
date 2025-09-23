@@ -1693,10 +1693,10 @@ a.product__text {
   height: 3.9rem;
 }
 .select .p-stickybar__plan-select .svg-wrapper {
-  height: 1.4rem;
-  width: 1.4rem;
-  top: calc(50% - .7rem);
-  right: 1.5rem;
+  height: 1.4rem !important;
+  width: 1.4rem !important;
+  top: calc(50% - .7rem) !important;
+  right: 1.5rem !important;
 }
 .p-stickybar.is-visible{
   transform: translateY(0);
