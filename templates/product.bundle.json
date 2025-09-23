@@ -67,19 +67,6 @@
             "custom_liquid": "<h4>Key Benefits</h4>\n{%- assign benefits = product.metafields.custom.key_benefits.value -%}\n\n{%- if benefits != blank -%}\n  <div class=\"product-benefits__icons\">\n    {%- for entry in benefits -%}\n      {%- comment -%}\n        Try multiple access patterns just in case the metaobject fields are exposed as\n        direct fields or under `fields`.\n      {%- endcomment -%}\n      {%- assign text = entry.benefit_text | default: entry['benefit_text'] | default: entry.fields.benefit_text -%}\n      {%- assign icon = entry.icon_image   | default: entry['icon_image']   | default: entry.fields.icon_image   -%}\n\n      <div class=\"product-benefits__icon\">\n        {%- if icon != blank -%}\n          {{ icon | image_url: width: 160 | image_tag: alt: text }}\n        {%- endif -%}\n        {%- if text != blank -%}\n          <p>{{ text }}</p>\n        {%- endif -%}\n      </div>\n    {%- endfor -%}\n  </div>\n{%- endif -%}"
           }
         },
-        "complementary_jVgWrd": {
-          "type": "complementary",
-          "settings": {
-            "block_heading": "Bundle and save",
-            "make_collapsible_row": false,
-            "icon": "none",
-            "product_list_limit": 10,
-            "products_per_page": 2,
-            "pagination_style": "dots",
-            "image_ratio": "portrait",
-            "enable_quick_add": false
-          }
-        },
         "sticky_bar_UrQJry": {
           "type": "sticky_bar",
           "settings": {
@@ -103,7 +90,6 @@
         "buy_buttons",
         "text_y7ay8t",
         "custom_liquid_dyRLCQ",
-        "complementary_jVgWrd",
         "sticky_bar_UrQJry"
       ],
       "settings": {
