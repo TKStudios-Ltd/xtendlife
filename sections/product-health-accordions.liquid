@@ -18,6 +18,9 @@
 }
 .section-{{ section.id }}-padding .image-with-text__content {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 {% if section.settings.image_bleed %}
