@@ -134,21 +134,23 @@
             id="HealthAccordion--{{ section.id }}"
             class="health-acc__content content-container {{ color_classes }}"
           >
+            <div>
             {%- if section.settings.heading != blank -%}
               <h2 class="image-with-text__heading inline-richtext {{ section.settings.heading_size }}">
                 {{ section.settings.heading }}
               </h2>
             {%- endif -%}
-
             {%- if section.settings.intro != blank -%}
               <div class="image-with-text__text rte">{{ section.settings.intro }}</div>
             {%- endif -%}
+            </div>
 
             {%- assign ns = section.settings.metafield_namespace | default: 'custom' -%}
             {%- assign key = section.settings.metafield_key | default: 'health_benefits' -%}
             {%- assign mo_list = product.metafields[ns][key] -%}
             {%- assign use_blocks = section.settings.use_blocks -%}
 
+            <div>
             {%- if use_blocks or mo_list == blank -%}
               {%- comment %} Manual fallback via blocks {%- endcomment -%}
               {%- for block in section.blocks -%}
@@ -196,6 +198,7 @@
                 </div>
               {%- endfor -%}
             {%- endif -%}
+            </div>
           </div>
           {% if section.settings.image_bleed %}</div>{% endif %}
         </div>
