@@ -1,38 +1,31 @@
-/* Dawn Mega Menu — WAAPI “big guns” animator */
+/* Dawn — WAAPI animations for Mega Menu + Search Modal (no logs) */
 (() => {
   const DURATION = 350;
   const EASING = 'cubic-bezier(.2,.7,.3,1)';
-  const log = (...a) => console.log('[MegaMenuWAAPI]', ...a);
 
-  // Utility
   const isDesktopPointer = () => matchMedia('(pointer:fine)').matches;
 
-  // Close any other open mega menus
-  function closeSiblings(current) {
-    document.querySelectorAll('details.mega-menu[open]').forEach(d => {
+  // ----------------- MEGA MENU -----------------
+  function closeSiblingMegaMenus(current) {
+    document.querySelectorAll('details.mega-menu[open]').forEach((d) => {
       if (d !== current) d.__api?.close({ force: true });
     });
   }
 
-  function bind(root = document) {
+  function bindMegaMenus(root = document) {
     const menus = root.querySelectorAll('details.mega-menu');
-    if (!menus.length) return log('No mega menus found');
-
-    menus.forEach((details, i) => {
-      if (details.__bound) return;
-      details.__bound = true;
+    menus.forEach((details) => {
+      if (details.__megaBound) return;
+      details.__megaBound = true;
 
       const summary = details.querySelector('summary');
       const panel = details.querySelector('.mega-menu__content');
-      if (!summary || !panel) {
-        log('Missing summary or panel in menu', details.id || `#${i}`);
-        return;
-      }
+      if (!summary || !panel) return;
 
       let anim = null;
       let openState = details.hasAttribute('open');
 
-      // Ensure panel starts consistent
+      // Initial state
       if (openState) {
         panel.style.opacity = '1';
         panel.style.transform = 'translateY(0)';
@@ -45,87 +38,60 @@
         panel.setAttribute('hidden', '');
       }
 
-      function killAnim() {
-        if (anim) {
-          anim.cancel();
-          anim = null;
-        }
-      }
+      const killAnim = () => { if (anim) { anim.cancel(); anim = null; } };
 
       function show() {
         if (openState) return;
-        closeSiblings(details);
+        closeSiblingMegaMenus(details);
         killAnim();
 
-        // Renderable before anim
         panel.removeAttribute('hidden');
         details.setAttribute('open', '');
         panel.style.pointerEvents = 'auto';
 
         anim = panel.animate(
-          [
-            { opacity: 0, transform: 'translateY(-16px)' },
-            { opacity: 1, transform: 'translateY(0)' }
-          ],
+          [{ opacity: 0, transform: 'translateY(-16px)' },
+           { opacity: 1, transform: 'translateY(0)' }],
           { duration: DURATION, easing: EASING, fill: 'forwards' }
         );
-        anim.onfinish = () => { anim = null; };
-        anim.oncancel = () => { anim = null; };
-
+        anim.onfinish = anim.oncancel = () => { anim = null; };
         openState = true;
-        log('opened', details.id || `#${i}`);
       }
 
       function hide({ force = false } = {}) {
         if (!openState && !force) return;
         killAnim();
 
-        // Keep [open] during animation for focus/esc, remove after finish
         anim = panel.animate(
-          [
-            { opacity: 1, transform: 'translateY(0)' },
-            { opacity: 0, transform: 'translateY(-16px)' }
-          ],
+          [{ opacity: 1, transform: 'translateY(0)' },
+           { opacity: 0, transform: 'translateY(-16px)' }],
           { duration: DURATION, easing: EASING, fill: 'forwards' }
         );
         const finish = () => {
           details.removeAttribute('open');
           panel.setAttribute('hidden', '');
           panel.style.pointerEvents = 'none';
-          anim = null;
-          openState = false;
-          log('closed', details.id || `#${i}`);
+          anim = null; openState = false;
         };
-        anim.onfinish = finish;
-        anim.oncancel = finish; // defensive
-        // Fallback in case browser cancels silently
-        setTimeout(() => { if (anim) { try { anim.finish(); } catch {} } }, DURATION + 50);
+        anim.onfinish = anim.oncancel = finish;
+        setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
       }
 
-      // Expose simple API for sibling-closer
       details.__api = { open: show, close: hide };
 
-      // Prevent native <details> toggle; we control it.
+      // Prevent native details toggle; we control it
       summary.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        e.preventDefault(); e.stopPropagation();
         openState ? hide() : show();
       });
 
-      // Desktop hover behavior (optional; comment out if you only want click)
-      details.addEventListener('mouseenter', () => {
-        if (isDesktopPointer()) show();
-      });
-      details.addEventListener('mouseleave', (e) => {
-        if (isDesktopPointer()) hide();
-      });
+      // Hover behavior on desktop
+      details.addEventListener('mouseenter', () => { if (isDesktopPointer()) show(); });
+      details.addEventListener('mouseleave', () => { if (isDesktopPointer()) hide(); });
 
-      // Close on Escape
+      // Escape to close
       details.addEventListener('keyup', (e) => {
-        if (e.key === 'Escape' && openState) {
-          hide();
-          summary.focus();
-        }
+        if (e.key === 'Escape' && openState) { hide(); summary.focus(); }
       });
 
       // Click outside to close
@@ -134,30 +100,127 @@
         if (!details.contains(evt.target)) hide();
       });
 
-      // Neutralize any external toggles (Dawn might still toggle [open])
+      // Keep in sync if other code toggles [open]
       details.addEventListener('toggle', () => {
-        // If something else opened it, sync our state via show()
-        if (details.open && !openState) {
-          // Revert native change and open via WAAPI
-          details.removeAttribute('open');
-          show();
-        }
-        // If something else closed it, re-close via WAAPI so it animates
-        if (!details.open && openState) {
-          details.setAttribute('open', '');
-          hide();
-        }
+        if (details.open && !openState) { details.removeAttribute('open'); show(); }
+        if (!details.open && openState) { details.setAttribute('open', ''); hide(); }
       });
-
-      log('bound', details.id || `#${i}`);
     });
   }
 
-  // Initial + Theme Editor rebind
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => bind());
-  } else {
-    bind();
+  // ----------------- SEARCH MODAL -----------------
+  function bindSearchModal(root = document) {
+    const container = root.querySelector('details-modal.header__search, .header__search details-modal');
+    if (!container) return;
+
+    const details = container.querySelector('details');
+    const summary = container.querySelector('summary');
+    const panel = container.querySelector('.search-modal.modal__content');
+    const closeBtn = container.querySelector('.search-modal__close-button');
+    const overlay = container.querySelector('.modal-overlay');
+    if (!details || !summary || !panel) return;
+
+    if (details.__searchBound) return;
+    details.__searchBound = true;
+
+    let anim = null;
+    let openState = details.hasAttribute('open');
+
+    // Initial state
+    if (openState) {
+      panel.style.opacity = '1';
+      panel.style.transform = 'translateY(0)';
+      panel.style.pointerEvents = 'auto';
+      panel.removeAttribute('hidden');
+    } else {
+      panel.style.opacity = '0';
+      panel.style.transform = 'translateY(-16px)';
+      panel.style.pointerEvents = 'none';
+      panel.setAttribute('hidden', '');
+    }
+
+    const killAnim = () => { if (anim) { anim.cancel(); anim = null; } };
+
+    function openSearch() {
+      if (openState) return;
+      killAnim();
+
+      panel.removeAttribute('hidden');
+      details.setAttribute('open', '');
+      panel.style.pointerEvents = 'auto';
+
+      anim = panel.animate(
+        [{ opacity: 0, transform: 'translateY(-16px)' },
+         { opacity: 1, transform: 'translateY(0)' }],
+        { duration: DURATION, easing: EASING, fill: 'forwards' }
+      );
+      anim.onfinish = anim.oncancel = () => { anim = null; };
+      openState = true;
+
+      // Focus the input after animation starts (tiny delay feels nicer)
+      setTimeout(() => {
+        const input = panel.querySelector('input[type="search"]');
+        input && input.focus({ preventScroll: true });
+      }, 120);
+    }
+
+    function closeSearch({ force = false } = {}) {
+      if (!openState && !force) return;
+      killAnim();
+
+      anim = panel.animate(
+        [{ opacity: 1, transform: 'translateY(0)' },
+         { opacity: 0, transform: 'translateY(-16px)' }],
+        { duration: DURATION, easing: EASING, fill: 'forwards' }
+      );
+      const finish = () => {
+        details.removeAttribute('open');
+        panel.setAttribute('hidden', '');
+        panel.style.pointerEvents = 'none';
+        anim = null; openState = false;
+      };
+      anim.onfinish = anim.oncancel = finish;
+      setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
+    }
+
+    // Prevent native toggle; we control it
+    summary.addEventListener('click', (e) => {
+      e.preventDefault(); e.stopPropagation();
+      openState ? closeSearch() : openSearch();
+    });
+
+    // Close actions
+    overlay && overlay.addEventListener('click', closeSearch);
+    closeBtn && closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeSearch(); });
+
+    // ESC to close
+    details.addEventListener('keyup', (e) => {
+      if (e.key === 'Escape' && openState) closeSearch();
+    });
+
+    // Click outside to close (optional; most users click overlay)
+    document.addEventListener('click', (evt) => {
+      if (!openState) return;
+      if (!container.contains(evt.target)) closeSearch();
+    });
+
+    // Keep in sync if something else toggles [open]
+    details.addEventListener('toggle', () => {
+      if (details.open && !openState) { details.removeAttribute('open'); openSearch(); }
+      if (!details.open && openState) { details.setAttribute('open', ''); closeSearch(); }
+    });
   }
-  document.addEventListener('shopify:section:load', (e) => bind(e.target));
+
+  // ----------------- INIT & THEME EDITOR -----------------
+  const init = (root) => {
+    bindMegaMenus(root);
+    bindSearchModal(root);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => init(document));
+  } else {
+    init(document);
+  }
+  document.addEventListener('shopify:section:load', (e) => init(e.target));
 })();
