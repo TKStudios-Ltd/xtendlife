@@ -716,6 +716,15 @@ summary .icon-plus {
   transform: rotate(0);
   transition: transform ease .2s;
 }
+@media (max-width: 749px) {
+  .collapsible-content .accordion summary .icon-plus {
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    border-radius: 20px;
+    top: calc(50% - 10px);
+  }
+}
 .collapsible-content .accordion details[open] > summary .icon-plus {
   transform: rotate(45deg);
 }
