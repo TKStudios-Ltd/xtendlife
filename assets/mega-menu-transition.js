@@ -1,126 +1,79 @@
-/* Mega menu transition debugger for Dawn */
+/* Mega menu: class-driven animation for Dawn (replaces <details> default) */
 (() => {
-  const LOG = true;
-  const log = (...args) => LOG && console.log('[MegaMenu]', ...args);
-
-  function parseTime(s) {
-    s = String(s || '').trim();
-    if (!s) return 0;
-    if (s.endsWith('ms')) return parseFloat(s) / 1000;
-    if (s.endsWith('s')) return parseFloat(s);
-    const n = parseFloat(s);
-    return Number.isNaN(n) ? 0 : n;
-  }
-
-  function findAllMegaMenus(root = document) {
-    // Be liberal across Dawn versions
-    const selectors = [
-      'details.mega-menu',
-      'header-menu details.mega-menu',
-      'sticky-header details.mega-menu',
-    ];
-    const set = new Set();
-    selectors.forEach((sel) =>
-      root.querySelectorAll(sel).forEach((el) => set.add(el))
-    );
-    return [...set];
-  }
-
   function bind(root = document) {
-    const detailsList = findAllMegaMenus(root);
-    log('bind(): found', detailsList.length, 'mega menus in', root);
+    const menus = root.querySelectorAll('details.mega-menu');
+    menus.forEach((details) => {
+      if (details.__megaBound) return;
+      details.__megaBound = true;
 
-    detailsList.forEach((details, idx) => {
-      const content =
-        details.querySelector('.mega-menu__content') ||
-        details.querySelector('[class*="mega-menu__content"]');
+      const summary = details.querySelector('summary');
+      const content = details.querySelector('.mega-menu__content');
+      if (!summary || !content) return;
 
-      if (!content) {
-        log('WARN: no .mega-menu__content inside', details);
-        return;
-      }
-      if (content.__bound) {
-        log('skip already bound', details.id || `#${idx}`);
-        return;
-      }
-      content.__bound = true;
+      // Ensure content is not hard-hidden, we’ll manage visibility
+      content.removeAttribute('hidden');
 
-      log('binding menu', details.id || `#${idx}`, 'content:', content);
-
-      // Ensure renderable so transitions can run
-      if (content.hasAttribute('hidden')) {
-        log('init: removing [hidden]');
-        content.removeAttribute('hidden');
+      function openMenu() {
+        if (details.open) return;      // keep state in sync
+        details.setAttribute('open', '');        // a11y/escape behavior
+        content.classList.add('is-open');        // animate open
       }
 
-      // Helpful: print current transition props
-      const cs = getComputedStyle(content);
-      log('content transition:', {
-        property: cs.transitionProperty,
-        duration: cs.transitionDuration,
-        delay: cs.transitionDelay,
-      });
+      function closeMenu() {
+        if (!details.open) return;
+        // Keep [open] during the animation; remove it after transition ends
+        content.classList.remove('is-open');     // animate close
 
-      details.addEventListener('toggle', () => {
-        log('toggle:', { id: details.id, open: details.open });
+        const onEnd = (e) => {
+          if (e && e.target !== content) return; // ignore children
+          content.removeEventListener('transitionend', onEnd);
+          details.removeAttribute('open');       // fully closed now
+        };
+
+        // If no transition fires, fail-safe after 400ms
+        content.addEventListener('transitionend', onEnd, { once: true });
+        setTimeout(() => {
+          if (details.open) details.removeAttribute('open');
+        }, 450);
+      }
+
+      // Intercept native toggle so it doesn't insta-remove [open]
+      summary.addEventListener('click', (ev) => {
+        ev.preventDefault(); // cancel <details> native toggle
+        ev.stopPropagation();
 
         if (details.open) {
-          // Opening
-          if (content.hasAttribute('hidden')) {
-            log('opening: removing [hidden]');
-            content.removeAttribute('hidden');
-          } else {
-            log('opening: [hidden] was already not set');
-          }
-          // Force reflow so the tween always starts
-            // eslint-disable-next-line no-unused-expressions
-          content.offsetWidth;
-          log('opening: forced reflow; should animate opacity/transform now');
+          closeMenu();
         } else {
-          // Closing
-          const onEnd = (e) => {
-            if (e && e.target !== content) {
-              // Ignore transitionend from children
-              return;
-            }
-            log('transitionend on content → set [hidden]');
-            content.setAttribute('hidden', '');
-            content.removeEventListener('transitionend', onEnd);
-          };
-          content.addEventListener('transitionend', onEnd, { once: true });
+          openMenu();
+        }
+      });
 
-          // Fallback timeout in case transitionend never fires
-          const s = getComputedStyle(content);
-          const maxDur = Math.max(
-            ...s.transitionDuration.split(',').map(parseTime)
-          );
-          const maxDelay = Math.max(
-            ...s.transitionDelay.split(',').map(parseTime)
-          );
-          const wait = Math.ceil((maxDur + maxDelay) * 1000) + 50;
+      // Close on Escape (matches Dawn behavior)
+      details.addEventListener('keyup', (e) => {
+        if (e.key === 'Escape' && details.open) {
+          closeMenu();
+          summary.focus();
+        }
+      });
 
-          log('closing: waiting ~', wait, 'ms for transitionend fallback');
-          setTimeout(() => {
-            if (!details.open && !content.hasAttribute('hidden')) {
-              log('fallback timeout → set [hidden]');
-              content.setAttribute('hidden', '');
-            }
-          }, wait);
+      // Defensive: if something else toggles [open], keep classes in sync
+      details.addEventListener('toggle', () => {
+        if (details.open) {
+          content.classList.add('is-open');
+        } else {
+          content.classList.remove('is-open');
         }
       });
     });
   }
 
-  // Initial bind
+  // Initial + Theme Editor rebinds
+  const ready = () => bind();
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => bind());
+    document.addEventListener('DOMContentLoaded', ready);
   } else {
-    bind();
+    ready();
   }
-
-  // Re-bind when Header section is re-rendered (Theme Editor / Section Rendering)
-  document.addEventListener('shopify:section:load', (ev) => {
-    log('shopify:section:load', ev.target?.id);
-    bind(ev.target);
-  });
+  document.addEventListener('shopify:section:load', (e) => bind(e.target));
 })();
