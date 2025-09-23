@@ -1722,6 +1722,11 @@ a.product__text {
   min-width: 140px;
 }
 
+@media (max-width: 749px) {
+  .p-stickybar__left {
+    display: none !important;
+  }
+}
 @media (max-width: 989px) {
   .p-stickybar {
     margin: 0 2rem !important;
@@ -1729,8 +1734,7 @@ a.product__text {
   .p-stickybar .page-width {
     padding: 0;
   }
-  .p-stickybar__links,
-  .p-stickybar__left {
+  .p-stickybar__links {
     display: none !important;
   }
   .p-stickybar__btn {
