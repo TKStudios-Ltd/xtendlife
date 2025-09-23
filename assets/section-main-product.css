@@ -1729,6 +1729,12 @@ a.product__text {
   .p-stickybar__left {
     display: none !important;
   }
+  .p-stickybar__inner {
+    justify-content: center;
+  }
+  .p-stickybar__right {
+    gap: 1rem;
+  }
 }
 @media (max-width: 989px) {
   .p-stickybar {
