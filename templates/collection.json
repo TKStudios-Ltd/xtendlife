@@ -191,8 +191,7 @@
       ],
       "custom_css": [
         ".accordion__title {font-size: 24px; font-weight: 400;}",
-        "/* .icon-caret {display: none;}",
-        " */.accordion__content p {line-height: 1.4;}"
+        ".accordion__content p {line-height: 1.4;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
