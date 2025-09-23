@@ -35,9 +35,9 @@
 
 .js .mega-menu__content {
   opacity: 0;
-  transform: translateY(-1.5rem);
+  transform: translateY(-2rem);
   pointer-events: none;
-  transition: opacity 250ms ease, transform 250ms ease;
+  transition: opacity 500ms ease, transform 500ms ease;
 }
 
 .js .mega-menu[open] .mega-menu__content {
