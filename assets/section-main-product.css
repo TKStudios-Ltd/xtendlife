@@ -1739,16 +1739,17 @@ a.product__text {
     font-size: 1.4rem !important;
   }
   .p-stickybar__right .quantity {
-    width: 90px !important;
+    width: 80px !important;
     min-height: 3rem !important;
   }
   .p-stickybar__right .quantity .quantity__button {
-    width: 3.5rem !important;
+    width: 3rem !important;
   }
   .p-stickybar__plan-select {
     font-size: 1.2rem !important;
     min-height: 3rem !important;
     height: 3rem !important;
+    padding: 0 1.5rem;
   }
   .select .p-stickybar__plan-select .svg-wrapper {
     height: 1.2rem;
