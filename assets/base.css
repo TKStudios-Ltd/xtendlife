@@ -2808,8 +2808,8 @@ menu-drawer + .header__search {
 }
 
 details[open] > .search-modal {
-  opacity: 1;
-  animation: animateMenuOpen var(--duration-default) ease;
+  /* opacity: 1;
+  animation: animateMenuOpen var(--duration-default) ease; */
   box-shadow: 0 4px 5px 0px #00000024;
 }
 
@@ -2829,7 +2829,7 @@ details[open] .modal-overlay::after {
 }
 
 .search-modal {
-  opacity: 0;
+  /* opacity: 0; */
   top: calc(100% - 6px);
   height: 100%;
   min-height: 52rem;
