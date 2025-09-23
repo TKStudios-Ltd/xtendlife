@@ -68,7 +68,7 @@
               {%- comment -%} Template for the left panel content {%- endcomment -%}
               <template id="hotspots-tpl-{{ block.id }}">
                 {%- if section.settings.body != blank -%}
-                  <div class="hotspots__panel-desc rte subtitle">{{ section.settings.body }}</div>
+                  <div class="hotspots__panel-desc rte">{{ section.settings.body }}</div>
                 {%- endif -%}
                 {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
                   <a class="button button--thin-arrow" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
@@ -145,8 +145,8 @@
         margin: 0 0 4rem;
     }
     .hotspots__panel-desc p {
-        font-size: 24px;
-        line-height: 1.2;
+      font-size: 24px;
+      line-height: 1.3;
     }
     .button--thin-arrow {
         font-size: 14px;
@@ -165,12 +165,13 @@
       }
       .section-{{ section.id }} .hotspots__panel{order:2}
       .section-{{ section.id }} .hotspots__media{order:1}
-    }
-    .section-{{ section.id }} .hotspots__panel-card {
-      padding: 2rem 2.5rem;
-    }
-    .section-{{ section.id }} .hotspots__panel-desc p {
-      font-size: 16px;
+      .section-{{ section.id }} .hotspots__panel-desc p {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+      .section-{{ section.id }} .hotspots__panel-card {
+        padding: 2rem 2.5rem;
+      }
     }
   </style>
 
