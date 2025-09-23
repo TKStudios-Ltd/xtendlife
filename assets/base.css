@@ -4442,6 +4442,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   justify-content: space-between;
 }
 
+.option-table th h2 {
+  text-align: left;
+}
+
 /* Review Stars Widget */
 
 .kl_reviews__star_rating_widget.kl_reviews__star_rating_widget.kl_reviews__star_rating_widget .kl_reviews__star_rating_widget__label {
