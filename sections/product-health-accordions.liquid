@@ -13,6 +13,12 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 }
+.image-with-text__text-item {
+    position: relative;
+}
+.image-with-text__content {
+    height: 100%;
+}
 
 {% if section.settings.image_bleed %}
 @media screen and (min-width: 750px) {
@@ -127,20 +133,23 @@
             id="ImageWithText--{{ section.id }}"
             class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
           >
-            {%- if section.settings.heading != blank -%}
-              <h2 class="image-with-text__heading inline-richtext {{ section.settings.heading_size }}">
-                {{ section.settings.heading }}
-              </h2>
-            {%- endif -%}
+            <div>
+                {%- if section.settings.heading != blank -%}
+                <h2 class="image-with-text__heading inline-richtext {{ section.settings.heading_size }}">
+                    {{ section.settings.heading }}
+                </h2>
+                {%- endif -%}
 
-            {%- if section.settings.intro != blank -%}
-              <div class="image-with-text__text rte">{{ section.settings.intro }}</div>
-            {%- endif -%}
+                {%- if section.settings.intro != blank -%}
+                <div class="image-with-text__text rte">{{ section.settings.intro }}</div>
+                {%- endif -%}
+            </div>
 
             {%- assign ns = section.settings.metafield_namespace | default: 'custom' -%}
             {%- assign key = section.settings.metafield_key | default: 'health_benefits' -%}
             {%- assign mo_list = product.metafields[ns][key] -%}
 
+            <div>
             {%- if section.settings.use_blocks or mo_list == blank -%}
               {%- for block in section.blocks -%}
                 {%- if block.type == 'collapsible_row' -%}
@@ -183,6 +192,7 @@
                 </div>
               {%- endfor -%}
             {%- endif -%}
+            </div>
           </div>
           {% if section.settings.image_bleed %}</div>{% endif %}
         </div>
