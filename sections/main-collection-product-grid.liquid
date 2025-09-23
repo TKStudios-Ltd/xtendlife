@@ -40,8 +40,7 @@
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
-      <facet-filters-form class="facets facets-vertical-sort page-width"
-                          data-section-id="{{ section.id }}">
+      <facet-filters-form class="facets facets-vertical-sort page-width">
         <form class="facets-vertical-form" id="FacetSortForm">
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
@@ -57,7 +56,12 @@
                   aria-describedby="a11y-refresh-page-message"
                 >
                   {%- for option in collection.sort_options -%}
-                    <option value="{{ option.value | escape }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
+                    <option
+                      value="{{ option.value | escape }}"
+                      {% if option.value == sort_by %}
+                        selected="selected"
+                      {% endif %}
+                    >
                       {{ option.name | escape }}
                     </option>
                   {%- endfor -%}
@@ -73,11 +77,17 @@
             <h2 class="product-count__text text-body">
               <span id="ProductCountDesktop">
                 {%- if collection.results_count -%}
-                  {{ 'templates.search.results_with_count' | t: terms: collection.terms, count: collection.results_count }}
+                  {{
+                    'templates.search.results_with_count'
+                    | t: terms: collection.terms, count: collection.results_count
+                  }}
                 {%- elsif collection.products_count == collection.all_products_count -%}
                   {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
                 {%- else -%}
-                  {{ 'products.facets.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
+                  {{
+                    'products.facets.product_count'
+                    | t: product_count: collection.products_count, count: collection.all_products_count
+                  }}
                 {%- endif -%}
               </span>
             </h2>
@@ -112,8 +122,9 @@
       <div
         class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
-        data-id="{{ section.id }}"
-        {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+        {% endif %}
       >
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
