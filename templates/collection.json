@@ -253,6 +253,9 @@
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
         "media_max_width": 550,
+        "body": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
+        "cta_label": "Our Ingredients",
+        "cta_url": "shopify://pages/ingredients",
         "panel_bg": "#f4f8fb",
         "panel_text": "#1f1946",
         "color_scheme": "color-scheme-1"
