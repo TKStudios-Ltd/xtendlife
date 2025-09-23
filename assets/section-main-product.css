@@ -1681,7 +1681,7 @@ a.product__text {
   border-radius: 40px !important;
 }
 .p-stickybar__right .quantity .quantity__button {
-  width: 2.5rem !important;
+  width: 3rem !important;
 }
 .p-stickybar__right .quantity:before,
 .p-stickybar__right .quantity:after {
