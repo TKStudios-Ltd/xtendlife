@@ -199,16 +199,6 @@
               {%- for block in section.blocks -%}
                 <div class="swiper-slide tabs-slide" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
                   <span class="tabs-title">{{ block.settings.title }}</span>
-                  {%- if block.settings.button_label != blank -%}
-                    <a
-                      {% if block.settings.button_link == blank %}
-                        role="link" aria-disabled="true"
-                      {% else %}
-                        href="{{ block.settings.button_link }}"
-                      {% endif %}
-                      class="button button--small button--primary tabs-btn"
-                    >{{ block.settings.button_label | escape }}</a>
-                  {%- endif -%}
                 </div>
               {%- endfor -%}
             </div>
@@ -238,6 +228,16 @@
                       {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                     {%- endif -%}
                   </div>
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button button--small button--primary tabs-btn"
+                    >{{ block.settings.button_label | escape }}</a>
+                  {%- endif -%}
                 </div>
               {%- endfor -%}
             </div>
