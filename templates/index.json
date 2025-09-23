@@ -209,7 +209,8 @@
             "title": "Daily Support",
             "button_label": "Shop now",
             "button_link": "shopify://collections/daily-support",
-            "image": "shopify://shop_images/Family-1335399765_3.jpg"
+            "image": "shopify://shop_images/Family-1335399765_3.jpg",
+            "image_text": "Support your lorem ipsum"
           }
         },
         "tab_6MHMhU": {
@@ -218,7 +219,8 @@
             "title": "Gut Protection",
             "button_label": "Shop now",
             "button_link": "shopify://collections/gut-protection",
-            "image": "shopify://shop_images/Hiking-1185397615_2.jpg"
+            "image": "shopify://shop_images/Hiking-1185397615_2.jpg",
+            "image_text": "Support your lorem ipsum"
           }
         },
         "tab_wGCgzW": {
@@ -227,7 +229,8 @@
             "title": "Immunity",
             "button_label": "Shop now",
             "button_link": "shopify://collections/immunity",
-            "image": "shopify://shop_images/iStock-1135154329_2.jpg"
+            "image": "shopify://shop_images/iStock-1135154329_2.jpg",
+            "image_text": "Support your lorem ipsum"
           }
         },
         "tab_kQXkqM": {
@@ -236,7 +239,8 @@
             "title": "Digestion",
             "button_label": "Shop now",
             "button_link": "#",
-            "image": "shopify://shop_images/iStock-1208575446_2.jpg"
+            "image": "shopify://shop_images/iStock-1208575446_2.jpg",
+            "image_text": "Support your lorem ipsum"
           }
         },
         "tab_AEycWe": {
@@ -245,7 +249,8 @@
             "title": "Hormone",
             "button_label": "Shop now",
             "button_link": "shopify://collections/hormone",
-            "image": "shopify://shop_images/Walking_on_the_beach-1444319868_2.jpg"
+            "image": "shopify://shop_images/Walking_on_the_beach-1444319868_2.jpg",
+            "image_text": "Support your lorem ipsum"
           }
         },
         "tab_yazx7A": {
@@ -254,7 +259,8 @@
             "title": "Energy",
             "button_label": "Shop now",
             "button_link": "shopify://collections/energy",
-            "image": "shopify://shop_images/iStock-1413988774_2.jpg"
+            "image": "shopify://shop_images/iStock-1413988774_2.jpg",
+            "image_text": "Support your lorem ipsum"
           }
         }
       },
