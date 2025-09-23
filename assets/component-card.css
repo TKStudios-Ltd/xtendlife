@@ -694,10 +694,14 @@
   color: #1F1946;
 }
 .card__hover-actions .button--white:after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
+  box-shadow: 
+  0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,
+  0 0 0 var(--buttons-border-width) rgba(var(--color-button),0);
 }
 .card__hover-actions .button--white:hover:after {
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),var(--alpha-button-background));
+  box-shadow: 
+  0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) #F4F8FB,
+  0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button),0)!important
 }
 
 .hover--text__card {
