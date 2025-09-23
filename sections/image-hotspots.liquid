@@ -68,7 +68,7 @@
               {%- comment -%} Template for the left panel content {%- endcomment -%}
               <template id="hotspots-tpl-{{ block.id }}">
                 {%- if section.settings.body != blank -%}
-                  <div class="hotspots__panel-desc rte">{{ section.settings.body }}</div>
+                  <div class="hotspots__panel-desc rte subtitle">{{ section.settings.body }}</div>
                 {%- endif -%}
                 {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
                   <a class="button button--thin-arrow" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
