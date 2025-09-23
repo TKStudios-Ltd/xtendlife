@@ -1734,6 +1734,7 @@ a.product__text {
   }
   .p-stickybar__right .quantity {
     width: 90px !important;
+    min-height: 3rem !important;
   }
   .p-stickybar__right .quantity .quantity__button {
     width: 3.5rem !important;
