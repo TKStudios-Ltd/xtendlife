@@ -14,15 +14,12 @@
            style="--panel-bg: {{ section.settings.panel_bg }}; --panel-text: {{ section.settings.panel_text }};">
         <div class="hotspots__panel-card">
           <div class="hotspots__panel-content" id="hotspots-panel-{{ section.id }}">
-            {% comment %} {%- if section.settings.heading != blank -%}
-              <h2 class="hotspots__heading">{{ section.settings.heading }}</h2>
-            {%- endif -%}
             {%- if section.settings.body != blank -%}
               <div class="hotspots__body rte">{{ section.settings.body }}</div>
             {%- endif -%}
             {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
               <a class="button button--small" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
-            {%- endif -%} {% endcomment %}
+            {%- endif -%}
           </div>
         </div>
       </div>
@@ -230,6 +227,9 @@
         "step": 50, 
         "default": 900 
       },
+      { "type": "richtext", "id": "body", "label": "Description", "default": "<p>Short description for this ingredient.</p>" },
+      { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Our Ingredients" },
+      { "type": "url", "id": "cta_url", "label": "CTA URL" },
       { "type": "color", "id": "panel_bg", "label": "Panel background", "default": "#F2F6F9" },
       { "type": "color", "id": "panel_text", "label": "Panel text color", "default": "#111111" },
       { "type": "select", "id": "color_scheme", "label": "Color scheme", "default": "color-scheme-1", "options": [
@@ -247,8 +247,6 @@
         "name": "Hotspot",
         "settings": [
           { "type": "text", "id": "title", "label": "Name", "default": "Vitamin A" },
-          { "type": "richtext", "id": "desc", "label": "Description", "default": "<p>Short description for this ingredient.</p>" },
-          { "type": "text", "id": "link_label", "label": "Link label", "default": "Learn more" },
           { "type": "url", "id": "link_url", "label": "Link URL" },
           { "type": "range", "id": "x", "label": "X position (%)", "min": 0, "max": 100, "step": 1, "default": 70 },
           { "type": "range", "id": "y", "label": "Y position (%)", "min": 0, "max": 100, "step": 1, "default": 45 },
