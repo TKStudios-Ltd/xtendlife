@@ -15,10 +15,10 @@
         <div class="hotspots__panel-card">
           <div class="hotspots__panel-content" id="hotspots-panel-{{ section.id }}">
             {%- if section.settings.body != blank -%}
-              <div class="hotspots__body rte">{{ section.settings.body }}</div>
+              <div class="hotspots__panel-desc rte">{{ section.settings.body }}</div>
             {%- endif -%}
             {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
-              <a class="button button--small" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
+              <a class="button button--thin-arrow" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
             {%- endif -%}
           </div>
         </div>
@@ -55,19 +55,16 @@
                 title="{{ block.settings.title | escape }}"
               >
                 <span class="hotspots__pin-plus" aria-hidden="true">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
-                <span class="hotspots__pin-label">{{ block.settings.title }}</span>
+                <a class="hotspots__pin-label" href="{{ block.settings.link_url }}">{{ block.settings.title }}</a>
               </button>
 
               {%- comment -%} Template for the left panel content {%- endcomment -%}
               <template id="hotspots-tpl-{{ block.id }}">
-                {% comment %} {%- if block.settings.title != blank -%}
-                  <h3 class="hotspots__panel-title">{{ block.settings.title }}</h3>
-                {%- endif -%} {% endcomment %}
-                {%- if block.settings.desc != blank -%}
-                  <div class="hotspots__panel-desc rte">{{ block.settings.desc }}</div>
+                {%- if section.settings.body != blank -%}
+                  <div class="hotspots__panel-desc rte">{{ section.settings.body }}</div>
                 {%- endif -%}
-                {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
-                  <a class="button button--thin-arrow" href="{{ block.settings.link_url }}">{{ block.settings.link_label }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
+                {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+                  <a class="button button--thin-arrow" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
                 {%- endif -%}
               </template>
             {%- endfor -%}
