@@ -47,6 +47,12 @@
   box-shadow: 0 4px 5px 0px #00000024;
 }
 
+.js .mega-menu:not([open]) .mega-menu__content {
+  opacity: 0;
+  transform: translateY(-2rem);
+  pointer-events: none;
+}
+
 .mega-menu__content_wrapper {
   display: flex;
   justify-content: space-between;
