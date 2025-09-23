@@ -1680,6 +1680,9 @@ a.product__text {
   border: 1px solid;
   border-radius: 40px !important;
 }
+.p-stickybar__right .quantity .quantity__button {
+  width: 2.5rem !important;
+}
 .p-stickybar__right .quantity:before,
 .p-stickybar__right .quantity:after {
   display: none;
@@ -1695,7 +1698,6 @@ a.product__text {
   top: calc(50% - .7rem);
   right: 1.5rem;
 }
-
 .p-stickybar.is-visible{
   transform: translateY(0);
   opacity: 1;
@@ -1747,7 +1749,7 @@ a.product__text {
     min-height: 3rem !important;
   }
   .p-stickybar__right .quantity .quantity__button {
-    width: 3.2rem !important;
+    width: 2.5rem !important;
   }
   .p-stickybar__plan-select {
     font-size: 1.2rem !important;
