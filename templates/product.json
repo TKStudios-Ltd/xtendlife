@@ -223,6 +223,81 @@
         "padding_bottom": 36
       }
     },
+    "product_health_accordions_XC9RBQ": {
+      "type": "product-health-accordions",
+      "blocks": {
+        "collapsible_row_4ecgy9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Benefit One",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_4gjDTU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Benefit Two",
+            "row_content": "<p>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_XEHE8W": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Benefit Three",
+            "row_content": "<p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_Bicq6M": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Benefit Four",
+            "row_content": "<p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent.</p>",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_4ecgy9",
+        "collapsible_row_4gjDTU",
+        "collapsible_row_XEHE8W",
+        "collapsible_row_Bicq6M"
+      ],
+      "custom_css": [
+        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
+        ".image-with-text__heading {margin-bottom: 6rem;}",
+        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
+        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.2rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
+      ],
+      "name": "Product Health Accordions",
+      "settings": {
+        "heading": "Health Benefits",
+        "heading_size": "h2",
+        "intro": "",
+        "metafield_namespace": "custom",
+        "metafield_key": "health_benefits",
+        "mo_title_field": "title",
+        "mo_content_field": "content",
+        "open_first": false,
+        "use_blocks": false,
+        "image": "shopify://shop_images/Placeholder_Image_2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "section_color_scheme": "scheme-4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "image_with_text_3jd3FP": {
       "type": "image-with-text",
       "blocks": {
@@ -654,6 +729,7 @@
     "product_tabs_accordion_YzW3EK",
     "image-with-text",
     "multicolumn",
+    "product_health_accordions_XC9RBQ",
     "image_with_text_3jd3FP",
     "product_faqs_collapsible_wJ8Q99",
     "1756789925579c1cf4",
