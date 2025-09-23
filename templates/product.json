@@ -363,13 +363,7 @@
         "collapsible_row_hD4rk6",
         "collapsible_row_wiC4Tk"
       ],
-      "custom_css": [
-        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
-        ".image-with-text__heading {margin-bottom: 6rem;}",
-        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
-        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.2rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
-      ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Placeholder_Image_2.jpg",
