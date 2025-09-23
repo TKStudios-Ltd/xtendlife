@@ -706,13 +706,13 @@ summary .icon-plus {
 
 .collapsible-content .accordion summary .icon-plus {
   position: absolute;
-  height: 28px;
-  width: 28px;
-  padding: 6px;
+  height: 24px;
+  width: 24px;
+  padding: 5px;
   border: 1px solid;
   border-radius: 24px;
   right: 0;
-  top: calc(50% - 14px);
+  top: calc(50% - 12px);
   transform: rotate(0);
   transition: transform ease .2s;
 }
