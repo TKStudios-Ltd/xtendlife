@@ -704,6 +704,22 @@ summary .icon-plus {
   top: calc(50% - 6px);
 }
 
+.collapsible-content .accordion summary .icon-plus {
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  padding: 6px;
+  border: 1px solid;
+  border-radius: 24px;
+  right: 0;
+  top: calc(50% - 14px);
+  transform: rotate(0);
+  transition: transform ease .2s;
+}
+.collapsible-content .accordion details[open] > summary .icon-plus {
+  transform: rotate(45);
+}
+
 summary::-webkit-details-marker {
   display: none;
 }
