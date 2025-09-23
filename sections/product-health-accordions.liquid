@@ -14,6 +14,19 @@
     }
   }
 
+  .health-acc__text-wrap {
+    position: relative;
+  }
+  .health-acc__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 2rem 0 5rem;
+  }
+
   {% if section.settings.image_bleed %}
   @media screen and (min-width: 750px) {
     .health-acc--edge-{{ section.id }} .health-acc__outer {
