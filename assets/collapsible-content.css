@@ -14,6 +14,12 @@
     padding-top: 4rem;
   }
 }
+@media screen and (max-width: 749px) {
+  .collapsible-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 /* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
 .collapsible-content__media {
