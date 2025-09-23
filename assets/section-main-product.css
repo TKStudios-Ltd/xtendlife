@@ -1731,6 +1731,7 @@ a.product__text {
   }
   .p-stickybar__inner {
     justify-content: center;
+    padding: 1rem 1.25rem !important;
   }
   .p-stickybar__right {
     gap: 1rem;
