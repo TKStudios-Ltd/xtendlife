@@ -109,114 +109,122 @@
   }
 
   // ----------------- SEARCH MODAL -----------------
-  function bindSearchModal(root = document) {
-    const container = root.querySelector('details-modal.header__search, .header__search details-modal');
-    if (!container) return;
+  /* WAAPI animation for Search modal (details-modal.header__search) */
+(() => {
+  const DURATION = 350;
+  const EASING = 'cubic-bezier(.2,.7,.3,1)';
+  const isDesktopPointer = () => matchMedia('(pointer:fine)').matches;
 
-    const details = container.querySelector('details');
-    const summary = container.querySelector('summary');
-    const panel = container.querySelector('.search-modal.modal__content');
-    const closeBtn = container.querySelector('.search-modal__close-button');
-    const overlay = container.querySelector('.modal-overlay');
-    if (!details || !summary || !panel) return;
+  function bindSearchModals(root = document) {
+    // Works for either <details-modal class="header__search"> or <div ...><details-modal class="header__search">
+    root.querySelectorAll('details-modal.header__search').forEach((wrap) => {
+      const details = wrap.querySelector('details');
+      if (!details || details.__waapiBound) return;
+      details.__waapiBound = true;
 
-    if (details.__searchBound) return;
-    details.__searchBound = true;
+      const summary = details.querySelector('summary.modal__toggle, summary');
+      const panel   = details.querySelector('.search-modal.modal__content');
+      const overlay = details.querySelector('.modal-overlay');
+      const btnClose = details.querySelector('.search-modal__close-button');
 
-    let anim = null;
-    let openState = details.hasAttribute('open');
+      if (!summary || !panel) return;
 
-    // Initial state
-    if (openState) {
-      panel.style.opacity = '1';
-      panel.style.transform = 'translateY(0)';
-      panel.style.pointerEvents = 'auto';
-      panel.removeAttribute('hidden');
-    } else {
+      // Always start closed (avoid server-rendered open state)
+      details.removeAttribute('open');
       panel.style.opacity = '0';
       panel.style.transform = 'translateY(-16px)';
       panel.style.pointerEvents = 'none';
       panel.setAttribute('hidden', '');
-    }
 
-    const killAnim = () => { if (anim) { anim.cancel(); anim = null; } };
+      let anim = null;
+      let openState = false;
 
-    function openSearch() {
-      if (openState) return;
-      killAnim();
+      const kill = () => { if (anim) { anim.cancel(); anim = null; } };
 
-      panel.removeAttribute('hidden');
-      details.setAttribute('open', '');
-      panel.style.pointerEvents = 'auto';
+      function openModal() {
+        if (openState) return;
+        kill();
 
-      anim = panel.animate(
-        [{ opacity: 0, transform: 'translateY(-16px)' },
-         { opacity: 1, transform: 'translateY(0)' }],
-        { duration: DURATION, easing: EASING, fill: 'forwards' }
-      );
-      anim.onfinish = anim.oncancel = () => { anim = null; };
-      openState = true;
+        // Make renderable & set [open] so your CSS box-shadow applies
+        panel.removeAttribute('hidden');
+        details.setAttribute('open', '');
+        panel.style.pointerEvents = 'auto';
 
-      // Focus the input after animation starts (tiny delay feels nicer)
-      setTimeout(() => {
-        const input = panel.querySelector('input[type="search"]');
-        input && input.focus({ preventScroll: true });
-      }, 120);
-    }
+        anim = panel.animate(
+          [{ opacity: 0, transform: 'translateY(-16px)' },
+           { opacity: 1, transform: 'translateY(0)' }],
+          { duration: DURATION, easing: EASING, fill: 'forwards' }
+        );
+        anim.onfinish = anim.oncancel = () => { anim = null; };
+        openState = true;
 
-    function closeSearch({ force = false } = {}) {
-      if (!openState && !force) return;
-      killAnim();
+        // Focus search input shortly after open starts
+        setTimeout(() => {
+          const input = panel.querySelector('input[type="search"]');
+          input && input.focus({ preventScroll: true });
+        }, 120);
+      }
 
-      anim = panel.animate(
-        [{ opacity: 1, transform: 'translateY(0)' },
-         { opacity: 0, transform: 'translateY(-16px)' }],
-        { duration: DURATION, easing: EASING, fill: 'forwards' }
-      );
-      const finish = () => {
-        details.removeAttribute('open');
-        panel.setAttribute('hidden', '');
-        panel.style.pointerEvents = 'none';
-        anim = null; openState = false;
-      };
-      anim.onfinish = anim.oncancel = finish;
-      setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
-    }
+      function closeModal({ force = false } = {}) {
+        if (!openState && !force) return;
+        kill();
 
-    // Prevent native toggle; we control it
-    summary.addEventListener('click', (e) => {
-      e.preventDefault(); e.stopPropagation();
-      openState ? closeSearch() : openSearch();
-    });
+        anim = panel.animate(
+          [{ opacity: 1, transform: 'translateY(0)' },
+           { opacity: 0, transform: 'translateY(-16px)' }],
+          { duration: DURATION, easing: EASING, fill: 'forwards' }
+        );
+        const finish = () => {
+          details.removeAttribute('open');           // remove to clear box-shadow rule
+          panel.setAttribute('hidden', '');
+          panel.style.pointerEvents = 'none';
+          anim = null;
+          openState = false;
+        };
+        anim.onfinish = anim.oncancel = finish;
+        setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
+      }
 
-    // Close actions
-    overlay && overlay.addEventListener('click', closeSearch);
-    closeBtn && closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeSearch(); });
+      // Prevent native <details> toggle, we control it
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openState ? closeModal() : openModal();
+      });
 
-    // ESC to close
-    details.addEventListener('keyup', (e) => {
-      if (e.key === 'Escape' && openState) closeSearch();
-    });
+      // Desktop hover: open on hover, close on leave
+      let hoverTO;
+      wrap.addEventListener('mouseenter', () => {
+        if (!isDesktopPointer()) return;
+        clearTimeout(hoverTO);
+        openModal();
+      });
+      wrap.addEventListener('mouseleave', () => {
+        if (!isDesktopPointer()) return;
+        hoverTO = setTimeout(() => closeModal(), 80);
+      });
 
-    // Click outside to close (optional; most users click overlay)
-    document.addEventListener('click', (evt) => {
-      if (!openState) return;
-      if (!container.contains(evt.target)) closeSearch();
-    });
+      // Overlay / button / ESC close
+      overlay && overlay.addEventListener('click', () => closeModal());
+      btnClose && btnClose.addEventListener('click', (e) => { e.preventDefault(); closeModal(); });
+      details.addEventListener('keyup', (e) => { if (e.key === 'Escape' && openState) closeModal(); });
 
-    // Keep in sync if something else toggles [open]
-    details.addEventListener('toggle', () => {
-      if (details.open && !openState) { details.removeAttribute('open'); openSearch(); }
-      if (!details.open && openState) { details.setAttribute('open', ''); closeSearch(); }
+      // Click outside to close (desktop)
+      document.addEventListener('click', (evt) => {
+        if (!openState) return;
+        if (!wrap.contains(evt.target)) closeModal();
+      });
+
+      // If some other script toggles [open], re-route through WAAPI so it animates
+      details.addEventListener('toggle', () => {
+        if (details.open && !openState) { details.removeAttribute('open'); openModal(); }
+        if (!details.open && openState) { details.setAttribute('open', ''); closeModal(); }
+      });
     });
   }
 
-  // ----------------- INIT & THEME EDITOR -----------------
-  const init = (root) => {
-    bindMegaMenus(root);
-    bindSearchModal(root);
-  };
-
+  // Init + Theme Editor rebind
+  const init = (root) => bindSearchModals(root);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => init(document));
   } else {
@@ -224,3 +232,4 @@
   }
   document.addEventListener('shopify:section:load', (e) => init(e.target));
 })();
+
