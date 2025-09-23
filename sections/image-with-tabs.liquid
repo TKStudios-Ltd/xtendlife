@@ -123,6 +123,9 @@
     font-weight: var(--font-heading-weight);
     letter-spacing: 0;
     color: rgb(var(--color-foreground));
+    padding: 0;
+    margin: 0;
+    line-height: 1;
   }
   .image-slide .media img {
     width: 100%;
@@ -251,7 +254,7 @@
                     {%- endif -%}
                   </div>
                   {%- if block.settings.image_text != blank -%}
-                    <span class="tabs__image-text">{{ block.settings.image_text | escape }}</span>
+                    <span class="tabs__image-text h2">{{ block.settings.image_text | escape }}</span>
                   {%- endif -%}
                   {%- if block.settings.button_label != blank -%}
                     <a
