@@ -1,9 +1,11 @@
-/* Dawn — WAAPI animations for Mega Menu + Search Modal (hover + click) */
+/* Dawn — WAAPI animations for Mega Menu + Search Modal
+   - Desktop: Mega menus hover + click; Search stays open while hovering summary OR panel
+   - Mobile/tablet (no fine pointer): Search is click-only
+*/
 (() => {
   const DURATION = 350;
   const EASING = 'cubic-bezier(.2,.7,.3,1)';
-
-  const isDesktopPointer = () => matchMedia('(pointer:fine)').matches;
+  const isDesktop = () => matchMedia('(hover: hover) and (pointer:fine)').matches;
 
   // ----------------- MEGA MENU -----------------
   function closeSiblingMegaMenus(current) {
@@ -13,8 +15,7 @@
   }
 
   function bindMegaMenus(root = document) {
-    const menus = root.querySelectorAll('details.mega-menu');
-    menus.forEach((details) => {
+    root.querySelectorAll('details.mega-menu').forEach((details) => {
       if (details.__megaBound) return;
       details.__megaBound = true;
 
@@ -37,20 +38,17 @@
         panel.setAttribute('hidden', '');
       }
 
-      const killAnim = () => { if (anim) { anim.cancel(); anim = null; } };
+      const kill = () => { if (anim) { anim.cancel(); anim = null; } };
 
       function show() {
         if (openState) return;
         closeSiblingMegaMenus(details);
-        killAnim();
-
+        kill();
         panel.removeAttribute('hidden');
         details.setAttribute('open', '');
         panel.style.pointerEvents = 'auto';
-
         anim = panel.animate(
-          [{ opacity: 0, transform: 'translateY(-16px)' },
-           { opacity: 1, transform: 'translateY(0)' }],
+          [{ opacity: 0, transform: 'translateY(-16px)' }, { opacity: 1, transform: 'translateY(0)' }],
           { duration: DURATION, easing: EASING, fill: 'forwards' }
         );
         anim.onfinish = anim.oncancel = () => { anim = null; };
@@ -59,11 +57,9 @@
 
       function hide({ force = false } = {}) {
         if (!openState && !force) return;
-        killAnim();
-
+        kill();
         anim = panel.animate(
-          [{ opacity: 1, transform: 'translateY(0)' },
-           { opacity: 0, transform: 'translateY(-16px)' }],
+          [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-16px)' }],
           { duration: DURATION, easing: EASING, fill: 'forwards' }
         );
         const finish = () => {
@@ -73,27 +69,17 @@
           anim = null; openState = false;
         };
         anim.onfinish = anim.oncancel = finish;
-        setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
+        setTimeout(() => { if (anim) { try { anim.finish(); } catch {} } }, DURATION + 50);
       }
 
       details.__api = { open: show, close: hide };
 
-      summary.addEventListener('click', (e) => {
-        e.preventDefault(); e.stopPropagation();
-        openState ? hide() : show();
-      });
+      summary.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openState ? hide() : show(); });
+      details.addEventListener('mouseenter', () => { if (isDesktop()) show(); });
+      details.addEventListener('mouseleave', () => { if (isDesktop()) hide(); });
 
-      details.addEventListener('mouseenter', () => { if (isDesktopPointer()) show(); });
-      details.addEventListener('mouseleave', () => { if (isDesktopPointer()) hide(); });
-
-      details.addEventListener('keyup', (e) => {
-        if (e.key === 'Escape' && openState) { hide(); summary.focus(); }
-      });
-
-      document.addEventListener('click', (evt) => {
-        if (!openState) return;
-        if (!details.contains(evt.target)) hide();
-      });
+      details.addEventListener('keyup', (e) => { if (e.key === 'Escape' && openState) { hide(); summary.focus(); } });
+      document.addEventListener('click', (evt) => { if (openState && !details.contains(evt.target)) hide(); });
 
       details.addEventListener('toggle', () => {
         if (details.open && !openState) { details.removeAttribute('open'); show(); }
@@ -107,13 +93,12 @@
     const container = root.querySelector('details-modal.header__search, .header__search details-modal');
     if (!container) return;
 
-    const details = container.querySelector('details');
-    const summary = container.querySelector('summary');
-    const panel = container.querySelector('.search-modal.modal__content');
+    const details  = container.querySelector('details');
+    const summary  = container.querySelector('summary');
+    const panel    = container.querySelector('.search-modal.modal__content');
+    const overlay  = container.querySelector('.modal-overlay');
     const closeBtn = container.querySelector('.search-modal__close-button');
-    const overlay = container.querySelector('.modal-overlay');
     if (!details || !summary || !panel) return;
-
     if (details.__searchBound) return;
     details.__searchBound = true;
 
@@ -132,37 +117,28 @@
       panel.setAttribute('hidden', '');
     }
 
-    const killAnim = () => { if (anim) { anim.cancel(); anim = null; } };
+    const kill = () => { if (anim) { anim.cancel(); anim = null; } };
 
     function openSearch() {
       if (openState) return;
-      killAnim();
-
+      kill();
       panel.removeAttribute('hidden');
       details.setAttribute('open', '');
       panel.style.pointerEvents = 'auto';
-
       anim = panel.animate(
-        [{ opacity: 0, transform: 'translateY(-16px)' },
-         { opacity: 1, transform: 'translateY(0)' }],
+        [{ opacity: 0, transform: 'translateY(-16px)' }, { opacity: 1, transform: 'translateY(0)' }],
         { duration: DURATION, easing: EASING, fill: 'forwards' }
       );
       anim.onfinish = anim.oncancel = () => { anim = null; };
       openState = true;
-
-      setTimeout(() => {
-        const input = panel.querySelector('input[type="search"]');
-        input && input.focus({ preventScroll: true });
-      }, 120);
+      setTimeout(() => { const input = panel.querySelector('input[type="search"]'); input && input.focus({ preventScroll: true }); }, 120);
     }
 
     function closeSearch({ force = false } = {}) {
       if (!openState && !force) return;
-      killAnim();
-
+      kill();
       anim = panel.animate(
-        [{ opacity: 1, transform: 'translateY(0)' },
-         { opacity: 0, transform: 'translateY(-16px)' }],
+        [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-16px)' }],
         { duration: DURATION, easing: EASING, fill: 'forwards' }
       );
       const finish = () => {
@@ -172,48 +148,48 @@
         anim = null; openState = false;
       };
       anim.onfinish = anim.oncancel = finish;
-      setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
+      setTimeout(() => { if (anim) { try { anim.finish(); } catch {} } }, DURATION + 50);
     }
 
     details.__api = { open: openSearch, close: closeSearch };
 
-    summary.addEventListener('click', (e) => {
-      e.preventDefault(); e.stopPropagation();
-      openState ? closeSearch() : openSearch();
-    });
-
-    // Hover behavior like mega menus
-    summary.addEventListener('mouseenter', () => { if (isDesktopPointer()) openSearch(); });
-    container.addEventListener('mouseleave', () => { if (isDesktopPointer()) closeSearch(); });
-
-    overlay && overlay.addEventListener('click', closeSearch);
+    // Click toggle (always available)
+    summary.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openState ? closeSearch() : openSearch(); });
+    overlay && overlay.addEventListener('click', () => closeSearch());
     closeBtn && closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeSearch(); });
+    details.addEventListener('keyup', (e) => { if (e.key === 'Escape' && openState) closeSearch(); });
+    document.addEventListener('click', (evt) => { if (openState && !container.contains(evt.target)) closeSearch(); });
 
-    details.addEventListener('keyup', (e) => {
-      if (e.key === 'Escape' && openState) closeSearch();
-    });
+    // Desktop hover: keep open while hovering summary OR panel; mobile = click only
+    if (isDesktop()) {
+      let hoverCount = 0;
+      let closeTO;
 
-    document.addEventListener('click', (evt) => {
-      if (!openState) return;
-      if (!container.contains(evt.target)) closeSearch();
-    });
+      const enter = () => {
+        hoverCount++;
+        clearTimeout(closeTO);
+        openSearch();
+      };
+      const leave = (ev) => {
+        // Ignore leaving into the other element inside container
+        const to = ev.relatedTarget;
+        if (to && (summary.contains(to) || panel.contains(to))) return;
+        hoverCount = Math.max(0, hoverCount - 1);
+        clearTimeout(closeTO);
+        closeTO = setTimeout(() => { if (hoverCount === 0) closeSearch(); }, 120);
+      };
 
-    details.addEventListener('toggle', () => {
-      if (details.open && !openState) { details.removeAttribute('open'); openSearch(); }
-      if (!details.open && openState) { details.setAttribute('open', ''); closeSearch(); }
-    });
+      summary.addEventListener('mouseenter', enter);
+      panel.addEventListener('mouseenter', enter);
+
+      summary.addEventListener('mouseleave', leave);
+      panel.addEventListener('mouseleave', leave);
+    }
   }
 
   // ----------------- INIT -----------------
-  const init = (root) => {
-    bindMegaMenus(root);
-    bindSearchModal(root);
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => init(document));
-  } else {
-    init(document);
-  }
+  const init = (root) => { bindMegaMenus(root); bindSearchModal(root); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init(document));
+  else init(document);
   document.addEventListener('shopify:section:load', (e) => init(e.target));
 })();
