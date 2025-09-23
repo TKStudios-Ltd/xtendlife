@@ -782,8 +782,8 @@
         "hotspot_fytRdk": {
           "type": "hotspot",
           "settings": {
-            "title": "Vitamin A",
-            "link_url": "#",
+            "title": "Vitamin C",
+            "link_url": "shopify://blogs/supplement-ingredients/vitamin-c",
             "x": 80,
             "y": 55,
             "open_default": true
@@ -793,7 +793,7 @@
           "type": "hotspot",
           "settings": {
             "title": "Magnesium",
-            "link_url": "#",
+            "link_url": "shopify://blogs/supplement-ingredients/magnesium",
             "x": 30,
             "y": 78,
             "open_default": false
@@ -803,7 +803,7 @@
           "type": "hotspot",
           "settings": {
             "title": "Zinc",
-            "link_url": "#",
+            "link_url": "shopify://blogs/supplement-ingredients/zinc",
             "x": 40,
             "y": 10,
             "open_default": false
