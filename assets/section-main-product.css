@@ -1752,9 +1752,9 @@ a.product__text {
     padding: 0 1.5rem;
   }
   .select .p-stickybar__plan-select .svg-wrapper {
-    height: 1.2rem;
-    width: 1.2rem;
-    top: calc(50% - .6rem);
-    right: 1.2rem;
+    height: 1.2rem !important;
+    width: 1.2rem !important;
+    top: calc(50% - .6rem) !important;
+    right: 1.2rem !important;
   }
 }
