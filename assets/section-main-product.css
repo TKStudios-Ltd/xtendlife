@@ -1693,7 +1693,7 @@ a.product__text {
   height: 3.9rem;
   padding: 0 2.5rem 0 1.5rem;
 }
-.select .p-stickybar__plan-select .svg-wrapper {
+.p-stickybar__plan .select .svg-wrapper {
   height: 1.4rem !important;
   width: 1.4rem !important;
   top: calc(50% - .7rem) !important;
@@ -1758,7 +1758,7 @@ a.product__text {
     height: 3rem !important;
     padding: 0 2rem 0 1.5rem;
   }
-  .p-stickybar__plan-select .svg-wrapper {
+  .p-stickybar__plan .select .svg-wrapper {
     height: 1.2rem !important;
     width: 1.2rem !important;
     top: calc(50% - .6rem) !important;
