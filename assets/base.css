@@ -717,7 +717,7 @@ summary .icon-plus {
   transition: transform ease .2s;
 }
 .collapsible-content .accordion details[open] > summary .icon-plus {
-  transform: rotate(45);
+  transform: rotate(45deg);
 }
 
 summary::-webkit-details-marker {
