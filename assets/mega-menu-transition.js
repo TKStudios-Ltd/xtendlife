@@ -1,4 +1,4 @@
-/* Dawn — WAAPI animations for Mega Menu + Search Modal (no logs) */
+/* Dawn — WAAPI animations for Mega Menu + Search Modal (hover + click) */
 (() => {
   const DURATION = 350;
   const EASING = 'cubic-bezier(.2,.7,.3,1)';
@@ -25,7 +25,6 @@
       let anim = null;
       let openState = details.hasAttribute('open');
 
-      // Initial state
       if (openState) {
         panel.style.opacity = '1';
         panel.style.transform = 'translateY(0)';
@@ -79,28 +78,23 @@
 
       details.__api = { open: show, close: hide };
 
-      // Prevent native details toggle; we control it
       summary.addEventListener('click', (e) => {
         e.preventDefault(); e.stopPropagation();
         openState ? hide() : show();
       });
 
-      // Hover behavior on desktop
       details.addEventListener('mouseenter', () => { if (isDesktopPointer()) show(); });
       details.addEventListener('mouseleave', () => { if (isDesktopPointer()) hide(); });
 
-      // Escape to close
       details.addEventListener('keyup', (e) => {
         if (e.key === 'Escape' && openState) { hide(); summary.focus(); }
       });
 
-      // Click outside to close
       document.addEventListener('click', (evt) => {
         if (!openState) return;
         if (!details.contains(evt.target)) hide();
       });
 
-      // Keep in sync if other code toggles [open]
       details.addEventListener('toggle', () => {
         if (details.open && !openState) { details.removeAttribute('open'); show(); }
         if (!details.open && openState) { details.setAttribute('open', ''); hide(); }
@@ -126,7 +120,6 @@
     let anim = null;
     let openState = details.hasAttribute('open');
 
-    // Initial state
     if (openState) {
       panel.style.opacity = '1';
       panel.style.transform = 'translateY(0)';
@@ -157,7 +150,6 @@
       anim.onfinish = anim.oncancel = () => { anim = null; };
       openState = true;
 
-      // Focus the input after animation starts (tiny delay feels nicer)
       setTimeout(() => {
         const input = panel.querySelector('input[type="search"]');
         input && input.focus({ preventScroll: true });
@@ -183,35 +175,36 @@
       setTimeout(() => { if (anim) { try { anim.finish(); } catch(_){} } }, DURATION + 50);
     }
 
-    // Prevent native toggle; we control it
+    details.__api = { open: openSearch, close: closeSearch };
+
     summary.addEventListener('click', (e) => {
       e.preventDefault(); e.stopPropagation();
       openState ? closeSearch() : openSearch();
     });
 
-    // Close actions
+    // Hover behavior like mega menus
+    summary.addEventListener('mouseenter', () => { if (isDesktopPointer()) openSearch(); });
+    container.addEventListener('mouseleave', () => { if (isDesktopPointer()) closeSearch(); });
+
     overlay && overlay.addEventListener('click', closeSearch);
     closeBtn && closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeSearch(); });
 
-    // ESC to close
     details.addEventListener('keyup', (e) => {
       if (e.key === 'Escape' && openState) closeSearch();
     });
 
-    // Click outside to close (optional; most users click overlay)
     document.addEventListener('click', (evt) => {
       if (!openState) return;
       if (!container.contains(evt.target)) closeSearch();
     });
 
-    // Keep in sync if something else toggles [open]
     details.addEventListener('toggle', () => {
       if (details.open && !openState) { details.removeAttribute('open'); openSearch(); }
       if (!details.open && openState) { details.setAttribute('open', ''); closeSearch(); }
     });
   }
 
-  // ----------------- INIT & THEME EDITOR -----------------
+  // ----------------- INIT -----------------
   const init = (root) => {
     bindMegaMenus(root);
     bindSearchModal(root);
