@@ -1723,6 +1723,12 @@ a.product__text {
 }
 
 @media (max-width: 989px) {
+  .p-stickybar {
+    margin: 0 2rem !important;
+  }
+  .p-stickybar .page-width {
+    padding: 0;
+  }
   .p-stickybar__links,
   .p-stickybar__left {
     display: none !important;
