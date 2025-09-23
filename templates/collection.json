@@ -216,10 +216,8 @@
         "hotspot_fytRdk": {
           "type": "hotspot",
           "settings": {
-            "title": "Vitamin A",
-            "desc": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises. </p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed. </p>",
-            "link_label": "Our Ingredients",
-            "link_url": "#",
+            "title": "Vitamin C",
+            "link_url": "/blogs/supplement-ingredients/vitamin-c",
             "x": 80,
             "y": 55,
             "open_default": true
@@ -229,8 +227,6 @@
           "type": "hotspot",
           "settings": {
             "title": "Magnesium",
-            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
-            "link_label": "Our Ingredients",
             "link_url": "#",
             "x": 30,
             "y": 78,
@@ -241,8 +237,6 @@
           "type": "hotspot",
           "settings": {
             "title": "Zinc",
-            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
-            "link_label": "Our Ingredients",
             "link_url": "#",
             "x": 40,
             "y": 10,
