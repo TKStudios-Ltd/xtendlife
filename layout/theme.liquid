@@ -28,10 +28,8 @@
 
     {% render 'meta-tags' %}
     {% render 'noindex' %}
-    {%- comment -%} Add hreflang only if Markets isn’t already outputting them {%- endcomment -%}
     {%- render 'hreflang' -%}
-    {%- comment -%} Add organization-schema only if no Organization JSON-LD already exists {%- endcomment -%}
-    {%- render 'organization-schema' -%}
+    {% comment %} {%- render 'organization-schema' -%} {% endcomment %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
@@ -46,8 +44,6 @@
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-    {%- comment -%} Swiper CSS (local asset recommended) {%- endcomment -%}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     {{ content_for_header }}
