@@ -23,10 +23,10 @@
             "text": "Bundle up with the essentials you need to keep going.",
             "text_style": "body",
             "button_label_1": "Shop now",
-            "button_link_1": "shopify://collections/all-bundles",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "Learn more",
-            "button_link_2": "#",
+            "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
           }
         },
@@ -41,10 +41,10 @@
             "text": "Bundle up with the essentials you need to keep going.",
             "text_style": "body",
             "button_label_1": "Shop now",
-            "button_link_1": "#",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "Learn More",
-            "button_link_2": "#",
+            "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
           }
         }
