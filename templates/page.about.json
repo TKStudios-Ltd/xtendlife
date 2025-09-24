@@ -303,8 +303,6 @@
           "type": "hotspot",
           "settings": {
             "title": "Quality Ingredients",
-            "desc": "<p>We guarantee that you will always get the purest and highest quality ingredients in whatever products you purchase from Xtendlife. This applies equally to all categories of products, whether they are dietary supplements, superfoods or skincare products.</p>",
-            "link_label": "Learn more",
             "link_url": "",
             "x": 75,
             "y": 60,
@@ -315,8 +313,6 @@
           "type": "hotspot",
           "settings": {
             "title": "True to label",
-            "desc": "<p>Short description for this ingredient.</p>",
-            "link_label": "Learn more",
             "link_url": "",
             "x": 50,
             "y": 32,
@@ -341,6 +337,9 @@
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
         "media_max_width": 550,
+        "body": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
+        "cta_label": "Our Ingredients",
+        "cta_url": "",
         "panel_bg": "#f2f6f9",
         "panel_text": "#1f1946",
         "color_scheme": "color-scheme-1"
