@@ -399,34 +399,27 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    {%- comment -%} Swiper bundle (includes Navigation, etc.) {%- endcomment -%}
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
-    {%- comment -%} Our single initializer for all sliders site-wide {%- endcomment -%}
     <script src="{{ 'swiper-hydrator.js' | asset_url }}" defer></script>
 
 {%- comment -%}Klaviyo Reviews star widget (sitewide){%- endcomment -%}
 <script defer src="https://static.klaviyo.com/onsite/js/klaviyo-reviews-widget.js"></script>
 <script>
-  // Render stars now + whenever cards are injected/updated
   (function () {
     function renderKlaviyoStars() {
       if (window.KlaviyoReviews?.widgets?.render) {
         try { window.KlaviyoReviews.widgets.render(); } catch(e) {}
       }
     }
-    // initial
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', renderKlaviyoStars);
     } else { renderKlaviyoStars(); }
 
-    // common Shopify events (Dawn + Search & Discovery filters)
     document.addEventListener('shopify:filter:updated', renderKlaviyoStars);
     document.addEventListener('shopify:section:load', renderKlaviyoStars);
 
-    // fallback for any AJAX grid you use
     document.addEventListener('ajaxProductGrid:updated', renderKlaviyoStars);
 
-    // MutationObserver safety net
     new MutationObserver((muts) => {
       for (const m of muts) {
         for (const n of m.addedNodes || []) {
