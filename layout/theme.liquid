@@ -31,7 +31,7 @@
     {%- comment -%} Add hreflang only if Markets isn’t already outputting them {%- endcomment -%}
     {%- render 'hreflang' -%}
     {%- comment -%} Add organization-schema only if no Organization JSON-LD already exists {%- endcomment -%}
-    {% comment %} {%- render 'organization-schema' -%} {% endcomment %}
+    {%- render 'organization-schema' -%}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
