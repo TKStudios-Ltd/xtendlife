@@ -660,10 +660,12 @@
 .card__hover-actions .quick-add__card {
   width: calc(100% - 4rem);
 }
-.card-wrapper:hover .card__hover-actions {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+@media (min-width: 990px) {
+  .card-wrapper:hover .card__hover-actions {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
 .quick-add__card--mobile {
