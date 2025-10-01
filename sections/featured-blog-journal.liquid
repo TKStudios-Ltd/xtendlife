@@ -208,6 +208,9 @@
       {%- liquid
         assign per_load = section.settings.posts_per_load
         assign max_render = section.settings.max_posts_to_render
+        if max_render <= per_load
+          assign max_render = per_load | times: 2
+        endif
         if template.name == 'blog'
             assign articles_source = blog.articles
             assign total_count = blog.articles_count
