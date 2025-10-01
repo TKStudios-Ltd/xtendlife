@@ -3996,7 +3996,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   gap: 0.3rem;
 }
 .custom-gallery-thumbnails .swiper-slide{
-  width:100% !important;
+  width: calc(100% - 2px)!important;
   height:100px;
   background:#FCF1D6;
   border-radius:8px;
