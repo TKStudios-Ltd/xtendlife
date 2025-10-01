@@ -724,6 +724,9 @@
 .hover--text__card span {
   color: white;
 }
+.complementary-slide .card-wrapper:hover .hover--text__card {
+  display: none;
+}
 @media (min-width: 990px) {
   .card-wrapper:hover .hover--text__card {
     opacity: 1;
