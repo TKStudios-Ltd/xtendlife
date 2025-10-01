@@ -465,10 +465,10 @@
       "settings": {
         "background_color": "#ffffff",
         "image_size_constraint": "height",
-        "image_max_size": 80,
+        "image_max_size": 90,
         "scroll_speed": 40,
         "repeat_count": 5,
-        "image_gap": 20,
+        "image_gap": 28,
         "padding_top": 20,
         "padding_bottom": 80
       }
