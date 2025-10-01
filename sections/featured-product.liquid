@@ -410,7 +410,10 @@
                   {{ block.settings.custom_liquid }}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
-                    <div class="rating-wrapper">
+                    {%- assign rating = product.metafields.reviews.rating.value -%}
+                    {%- assign count = product.metafields.reviews.rating_count.value -%}
+                      {%- if rating and count > 0 -%}
+                      <div class="rating-wrapper">
                       {% liquid
                         assign rating_decimal = 0
                         assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
@@ -445,6 +448,7 @@
                         </span>
                       </p>
                     </div>
+                    {%- endif -%}
                   {%- endif -%}
                 {%- when 'icon-with-text' -%}
                   {% render 'icon-with-text', block: block %}
