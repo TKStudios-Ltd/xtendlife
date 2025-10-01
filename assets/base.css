@@ -1204,8 +1204,10 @@ summary::-webkit-details-marker {
 .product-card-wrapper .media {
   background-color: transparent;
 }
-.product-card-wrapper:hover .media {
-  background-color: #1F1946;
+@media (min-width: 990px) {
+  .product-card-wrapper:hover .media {
+    background-color: #1F1946;
+  }
 }
 
 .index-template .image-scroll-item img {
