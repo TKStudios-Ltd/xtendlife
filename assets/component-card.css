@@ -722,13 +722,13 @@
 .hover--text__card span {
   color: white;
 }
-@media (min-width: 750px) {
+@media (min-width: 990px) {
   .card-wrapper:hover .hover--text__card {
     opacity: 1;
     transform: translateY(0);
   }
 }
-@media (max-width: 749px) {
+@media (max-width: 989px) {
   .hover--text__card {
     display: none;
   }
