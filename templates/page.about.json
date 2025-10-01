@@ -215,7 +215,7 @@
         ".rich-text__blocks {max-width: 110rem;}",
         "p {font-size: 3.8rem; line-height: 1.4;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
-        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1.2rem !important; padding: 0.25rem 1.5rem 0.4rem; margin: 0px 1rem 0 0; }}"
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -283,7 +283,7 @@
         ".rich-text__blocks {max-width: 110rem;}",
         "p {font-size: 3.8rem; line-height: 1.4;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
-        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1.2rem !important; padding: 0.25rem 1.5rem 0.4rem; margin: 0px 1rem 0 0; }}"
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -363,7 +363,7 @@
         ".rich-text__blocks {max-width: 110rem;}",
         "p {font-size: 3.8rem; line-height: 1.4;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
-        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1.2rem !important; padding: 0.25rem 1.5rem 0.4rem; margin: 0px 1rem 0 0; }}"
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -416,7 +416,7 @@
         ".rich-text__blocks {max-width: 110rem;}",
         "p {font-size: 3.8rem; line-height: 1.4;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
-        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1.2rem !important; padding: 0.25rem 1.5rem 0.4rem; margin: 0px 1rem 0 0; }}"
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -517,7 +517,7 @@
         ".rich-text__blocks {max-width: 110rem;}",
         "p {font-size: 3.8rem; line-height: 1.4;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
-        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1.2rem !important; padding: 0.25rem 1.5rem 0.4rem; margin: 0px 1rem 0 0; }}"
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
