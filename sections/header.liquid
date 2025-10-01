@@ -314,12 +314,12 @@
           {% if cart == empty %}
             <span class="svg-wrapper">
               {% comment %} {{'icon-cart-empty.svg' | inline_asset_content }} {% endcomment %}
-              <img src="https://www.xtend-life.com/cdn/shop/files/Cart.png">
+              <img class="icon icon-cart-empty" src="https://www.xtend-life.com/cdn/shop/files/Cart.png">
             </span>
           {% else %}
             <span class="svg-wrapper">
               {% comment %} {{'icon-cart.svg' | inline_asset_content }} {% endcomment %}
-              <img src="https://www.xtend-life.com/cdn/shop/files/Cart.png">
+              <img class="icon icon-cart" src="https://www.xtend-life.com/cdn/shop/files/Cart.png">
             </span>
           {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
