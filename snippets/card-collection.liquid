@@ -50,7 +50,13 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; background-color: transparent !important; transform: none !important;"
     >
       {%- if custom_image -%}
-        <div class="card__media media--collection-hover">
+        <a
+          {% if card_collection == blank %}
+          role="link" aria-disabled="true"
+          {% else %}
+          href="{{ card_collection.url }}"
+          {% endif %}
+          class="full-unstyled-link card__media media--collection-hover">
           <div
             class="media media--transparent"
             style="{% if background_color != blank %}background-color: {{ background_color }};{% endif %}"
@@ -64,9 +70,15 @@
               class="motion-reduce"
             >
           </div>
-        </div>
+        </a>
       {%- elsif card_collection.featured_image -%}
-        <div class="card__media">
+        <a
+          {% if card_collection == blank %}
+          role="link" aria-disabled="true"
+          {% else %}
+          href="{{ card_collection.url }}"
+          {% endif %}
+          class="full-unstyled-link card__media">
           <div class="media media--transparent media--hover-effect">
             <img
               src="{{ card_collection.featured_image | image_url: width: 750 }}"
@@ -77,7 +89,7 @@
               class="motion-reduce"
             >
           </div>
-        </div>
+        </a>
       {%- endif -%}
       {%- if card_collection == blank -%}
         <div class="card__media">
