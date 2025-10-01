@@ -476,13 +476,69 @@
         "image_HkePd8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-07-30_084250_2.png",
+            "image": "shopify://shop_images/Group_756.jpg",
             "link": ""
+          }
+        },
+        "image_MaHnEq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_755.jpg",
+            "link": ""
+          }
+        },
+        "image_dtYf33": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_754.jpg",
+            "link": ""
+          }
+        },
+        "image_CdMcXA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_753.jpg",
+            "link": ""
+          }
+        },
+        "image_cPmfrm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_752.jpg",
+            "link": ""
+          }
+        },
+        "image_TTpqUV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_751.jpg",
+            "link": ""
+          }
+        },
+        "image_yRxgkC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_750.jpg",
+            "link": ""
+          }
+        },
+        "image_wrMmLm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_749.jpg",
+            "link": "https://www.sgs.com/en/certified-clients-and-products/certified-client-directory"
           }
         }
       },
       "block_order": [
-        "image_HkePd8"
+        "image_HkePd8",
+        "image_MaHnEq",
+        "image_dtYf33",
+        "image_CdMcXA",
+        "image_cPmfrm",
+        "image_TTpqUV",
+        "image_yRxgkC",
+        "image_wrMmLm"
       ],
       "custom_css": [
         ".image-scroll-section {position: relative; z-index: 1;}",
