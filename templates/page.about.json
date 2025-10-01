@@ -193,9 +193,9 @@
         "content_alignment": "center",
         "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
         "full_width": true,
-        "sticky_top": 80,
+        "sticky_top": 0,
         "activation_bias": -80,
-        "scroll_offset": 80,
+        "scroll_offset": 0,
         "add_shadow": false
       }
     },
