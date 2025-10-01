@@ -460,7 +460,9 @@
         "image_VURcxm",
         "image_BkBAxd"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".image-scroll-wrapper {align-items: center;}"
+      ],
       "name": "Image Infinite Scroll",
       "settings": {
         "background_color": "#ffffff",
@@ -468,7 +470,7 @@
         "image_max_size": 90,
         "scroll_speed": 40,
         "repeat_count": 5,
-        "image_gap": 28,
+        "image_gap": 52,
         "padding_top": 20,
         "padding_bottom": 80
       }
