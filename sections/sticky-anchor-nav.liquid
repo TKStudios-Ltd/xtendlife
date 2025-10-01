@@ -49,6 +49,7 @@
       id="sticky-anchor-nav-{{ section.id }}"
       class="rich-text content-container color-{{ section.settings.color_scheme }} {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
       data-scroll-offset="{{ section.settings.scroll_offset | default: section.settings.sticky_top | default: 80 }}"
+      data-activation-bias="{{ section.settings.activation_bias | default: -40 }}"
       aria-label="Section navigation"
     >
       <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}">
@@ -86,8 +87,13 @@
 
   const wrap = nav.closest('[data-sticky-wrap]');
   const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
+
   const offsetAttr = nav.dataset.scrollOffset;
   const offset = parseFloat(offsetAttr || '{{ section.settings.sticky_top | default: 80 }}') || 80;
+
+  // Activation bias: negative = earlier activation, positive = later
+  const biasAttr = nav.dataset.activationBias;
+  const activationBias = parseFloat(biasAttr || '0') || 0;
 
   // Normalize links -> data-anchor
   const links = Array.from(nav.querySelectorAll('a.button[href^="#"], a[data-anchor]'));
@@ -128,7 +134,8 @@
 
   const updateActiveByScroll = () => {
     if (!items.length) return;
-    const y = window.scrollY + offset + 1;
+    // earlier activation when activationBias is negative
+    const y = window.scrollY + offset - activationBias + 1;
     let chosen = items[0];
     for (let i = 0; i < items.length; i++) {
       if (items[i].top <= y) chosen = items[i]; else break;
@@ -216,6 +223,7 @@
 
 
 
+
 {% schema %}
 {
   "name": "Sticky Anchor Nav",
@@ -234,6 +242,17 @@
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "checkbox", "id": "full_width", "default": true, "label": "Full width" },
     { "type": "range", "id": "sticky_top", "min": 0, "max": 200, "step": 10, "unit": "px", "label": "Sticky top offset", "default": 80 },
+    {
+      "type": "range",
+      "id": "activation_bias",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Active-state bias",
+      "info": "Negative = earlier activation; Positive = later",
+      "default": -40
+    },
     { "type": "range", "id": "scroll_offset", "min": 0, "max": 200, "step": 10, "unit": "px", "label": "Scroll offset for anchors", "info": "Usually equals your sticky top offset. Increase if you have a sticky header above this.", "default": 80 },
     { "type": "checkbox", "id": "add_shadow", "label": "Add subtle shadow", "default": true }
   ],
