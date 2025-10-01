@@ -1204,6 +1204,11 @@ summary::-webkit-details-marker {
   background-color: #1F1946;
 }
 
+.home .image-scroll-item img {
+  -webkit-filter: grayscale(1) !important;
+  filter: grayscale(1) !important;
+}
+
 .media > *:not(.zoom):not(.deferred-media__poster-button):not(.card__hover-actions),
 .media model-viewer {
   display: block;
