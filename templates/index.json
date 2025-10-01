@@ -798,6 +798,9 @@
         "testimonial_wxPJKG",
         "testimonial_MNbmfK"
       ],
+      "custom_css": [
+        ".ts2-card {background: #F4F8FB; padding: 2rem 8rem 2rem 2rem;}"
+      ],
       "name": "Testimonial slider",
       "settings": {
         "heading": "Our Health Ambassadors",
