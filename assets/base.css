@@ -1198,6 +1198,9 @@ summary::-webkit-details-marker {
 }
 
 .product-card-wrapper .media {
+  background-color: transparent;
+}
+.product-card-wrapper:hover .media {
   background-color: #1F1946;
 }
 
