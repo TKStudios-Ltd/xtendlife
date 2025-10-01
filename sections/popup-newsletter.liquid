@@ -154,7 +154,7 @@
               placeholder="{{ section.settings.input_placeholder | default: 'Email' }}"
               required
             >
-            <input type="hidden" name="g" value="{{ section.settings.klaviyo_list_id | escape }}">
+            <input type="hidden" name="g" value="Ram9Tc">
             <input type="hidden" name="email" id="KlaviyoEmailMirror--{{ section.id }}">
             <label class="field__label" for="PopupEmail--{{ section.id }}">
               {{ section.settings.input_label | default: 'Enter your email' }}
@@ -187,7 +187,7 @@
 <script>
 (function() {
   var root = document.getElementById('PopupNewsletter-{{ section.id }}');
-  // Mirror Dawn's contact[email] into a plain 'email' field for Klaviyo
+  // Mirror Dawn's contact[email] into a plain 'email' field
   var _vis = document.getElementById('PopupEmail--{{ section.id }}');
   var _mirror = document.getElementById('KlaviyoEmailMirror--{{ section.id }}');
   if (_vis && _mirror) {
@@ -195,6 +195,7 @@
     _vis.addEventListener('input', _sync);
     _sync();
   }
+
   if (!root) return;
 
   var key = root.dataset.key;
