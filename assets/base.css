@@ -2681,6 +2681,7 @@ input[type='checkbox'] {
 }
 
 .header__icon:hover .icon,
+.header__icon:hover .icon-l,
 .modal__close-button:hover .icon {
   transform: scale(1.07);
 }
