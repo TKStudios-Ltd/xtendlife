@@ -154,6 +154,7 @@
               placeholder="{{ section.settings.input_placeholder | default: 'Email' }}"
               required
             >
+            <input type="hidden" name="g" value="{{ section.settings.klaviyo_list_id | escape }}">
             <input type="hidden" name="email" id="KlaviyoEmailMirror--{{ section.id }}">
             <label class="field__label" for="PopupEmail--{{ section.id }}">
               {{ section.settings.input_label | default: 'Enter your email' }}
