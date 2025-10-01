@@ -724,8 +724,8 @@
 .hover--text__card span {
   color: white;
 }
-.complementary-slide .card-wrapper:hover .hover--text__card {
-  display: none;
+.complementary-slide .hover--text__card {
+  display: none !important;
 }
 @media (min-width: 990px) {
   .card-wrapper:hover .hover--text__card {
