@@ -465,7 +465,7 @@
       "settings": {
         "background_color": "#ffffff",
         "image_size_constraint": "height",
-        "image_max_size": 100,
+        "image_max_size": 80,
         "scroll_speed": 40,
         "repeat_count": 5,
         "image_gap": 20,
