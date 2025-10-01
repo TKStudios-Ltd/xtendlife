@@ -799,7 +799,8 @@
         "testimonial_MNbmfK"
       ],
       "custom_css": [
-        ".ts2-card {background: #F4F8FB; padding: 2rem 8rem 2rem 2rem;}"
+        ".ts2-card {background: #f4f8fb; padding: 2rem 8rem 2rem 2rem;}",
+        "@media (max-width: 989px) {.ts2-card {padding: 2rem !important; }}"
       ],
       "name": "Testimonial slider",
       "settings": {
