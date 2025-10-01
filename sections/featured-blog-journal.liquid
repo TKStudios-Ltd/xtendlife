@@ -225,7 +225,7 @@
             {%- assign is_wide = false -%}
             {%- if pos == 0 -%}{%- assign is_wide = true -%}{%- endif -%}
 
-            <li class="blog-item {% if is_wide %}blog-item--wide{% endif %}">
+            <li class="blog-item {% if is_wide %}blog-item--wide{% endif %}" {% if forloop.index0 >= per_load %}hidden{% endif %}>
             {% render 'article-card',
                 blog: blog,
                 article: article,
@@ -233,11 +233,11 @@
                 show_image: section.settings.show_image,
                 show_date: section.settings.show_date,
                 show_author: section.settings.show_author,
-                show_excerpt: is_wide,  <!-- only wide cards get excerpt -->
+                show_excerpt: is_wide,
                 is_wide: is_wide
             %}
             </li>
-            {%- endfor -%}
+          {%- endfor -%}
         {%- else -%}
             <li class="blog-item blog-item--wide">
             <div class="article-card-wrapper card-wrapper">
