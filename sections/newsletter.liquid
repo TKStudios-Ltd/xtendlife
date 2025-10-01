@@ -157,14 +157,23 @@
         if (successEl) successEl.hidden = false;
       }
 
-      // Mirror Dawn's contact[email] into plain 'email' for Klaviyo
-      var vis = document.getElementById('Email--{{ section.id }}');
-      var mirror = document.getElementById('KlaviyoEmailMirror--{{ section.id }}');
-      if (vis && mirror) {
-        var sync = function(){ mirror.value = vis.value; };
-        vis.addEventListener('input', sync);
-        sync();
+      // --- FORCE post to a specific Klaviyo list regardless of attachToForms ---
+    function forceSubscribeToKlaviyo(listId, email, extra) {
+      if (!email || !listId) return;
+      var url = 'https://manage.kmail-lists.com/ajax/subscriptions/subscribe';
+      var fd = new FormData();
+      fd.append('g', listId);
+      fd.append('email', email);
+      if (extra && typeof extra === 'object') {
+        Object.keys(extra).forEach(function(k){
+          try { fd.append(k, typeof extra[k] === 'string' ? extra[k] : JSON.stringify(extra[k])); } catch(e){}
+        });
       }
+      fetch(url, { method:'POST', body: fd, mode:'cors', credentials:'omit' })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(json){ console.log('[Klaviyo forced subscribe]', json); })
+        .catch(function(err){ console.warn('[Klaviyo forced subscribe] failed', err); });
+    }
 
       function attachWhenReady() {
         if (window.KlaviyoSubscribe && typeof window.KlaviyoSubscribe.attachToForms === 'function') {
@@ -186,6 +195,20 @@
         }
       }
       attachWhenReady();
+      // Also push directly to the target list on submit
+      var nlForm = document.getElementById('{{ form_dom_id }}');
+      if (nlForm) {
+        nlForm.addEventListener('submit', function() {
+          var emailEl = document.getElementById('Email--{{ section.id }}');
+          var email = emailEl ? (emailEl.value || '').trim() : '';
+          forceSubscribeToKlaviyo('{{ section.settings.klaviyo_list_id | escape }}', email, {
+            $source: '{{ section.settings.klaviyo_source | default: "newsletter_section" | escape }}',
+            section_id: '{{ section.id }}',
+            theme: 'dawn'
+          });
+        });
+      }
+
     })();
   </script>
 {%- endif -%}
