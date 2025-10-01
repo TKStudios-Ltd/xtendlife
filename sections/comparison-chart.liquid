@@ -154,6 +154,11 @@
   background: #1F1946; border-radius: 999px; transform-origin: left top;
 }
 
+@media (max-width: 1400px) {
+  #cc-{{ section.id }} .cc-progress { 
+    width: calc(100% - 2rem);
+  }
+}
 @media (max-width: 749px){
     #cc-{{ section.id }} .cc-labels{
         flex: 0 0 190px !important;
