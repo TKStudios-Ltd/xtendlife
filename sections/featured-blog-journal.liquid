@@ -253,21 +253,22 @@
         {%- endif -%}
         </ul>
 
-      {%- if blog_obj.articles_count > per_load -%}
+      {%- if total_count > per_load and max_render > per_load -%}
         <div class="load-more">
           <button type="button" class="button" id="LoadMoreBtn-{{ section.id }}">Load more</button>
         </div>
       {%- endif -%}
+
     </div>
   </div>
 </div>
 
 <script>
-/* ---------- LOAD MORE (unchanged behavior) ---------- */
+/* ---------- LOAD MORE (recompute layout + safe button) ---------- */
 (function(){
   var grid = document.getElementById('BlogGrid-{{ section.id }}');
   var btn  = document.getElementById('LoadMoreBtn-{{ section.id }}');
-  if(!grid || !btn) return;
+  if(!grid) return;
 
   var perLoad = {{ section.settings.posts_per_load | json }};
 
@@ -278,6 +279,11 @@
     items.forEach(function(li, i){ if (i % 7 === 0) li.classList.add('blog-item--wide'); });
   }
 
+  // Recompute initial layout after server-side hiding
+  relayout();
+
+  if (!btn) return;
+
   btn.addEventListener('click', function(){
     var hidden = Array.from(grid.children).filter(function(li){ return li.hasAttribute('hidden'); });
     if (!hidden.length){ btn.remove(); return; }
@@ -286,7 +292,6 @@
 
     relayout();
 
-    // if fewer than a full batch remained, remove button
     if (hidden.length <= perLoad){ btn.remove(); }
   }, {passive:true});
 })();
