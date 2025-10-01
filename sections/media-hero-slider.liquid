@@ -146,16 +146,35 @@
                   <source src="{{ b.video_mp4 | escape }}" type="video/mp4">
                 </video>
               {% elsif b.image != blank %}
-                {{
-                  b.image
-                  | image_url: width: 3840
-                  | image_tag:
-                    width: b.image.width,
-                    height: b.image.height,
-                    sizes: sizes,
-                    widths: widths,
-                    fetchpriority: fetch_priority
-                }}
+                <picture>
+                  {% if b.image_mobile != blank %}
+                    <source
+                      media="(max-width: 749px)"
+                      srcset="{{ b.image_mobile | image_url: width: 1100 }}">
+                  {% endif %}
+                  {% if b.image_tablet != blank %}
+                    <source
+                      media="(min-width: 750px) and (max-width: 990px)"
+                      srcset="{{ b.image_tablet | image_url: width: 1500 }}">
+                  {% endif %}
+                  <img
+                    src="{{ b.image | image_url: width: 3840 }}"
+                    alt="{{ b.image.alt | escape }}"
+                    width="{{ b.image.width }}"
+                    height="{{ b.image.height }}"
+                    sizes="{{ sizes }}"
+                    srcset="
+                      {{ b.image | image_url: width: 750 }} 750w,
+                      {{ b.image | image_url: width: 1100 }} 1100w,
+                      {{ b.image | image_url: width: 1500 }} 1500w,
+                      {{ b.image | image_url: width: 2000 }} 2000w,
+                      {{ b.image | image_url: width: 3000 }} 3000w,
+                      {{ b.image | image_url: width: 3840 }} 3840w
+                    "
+                    fetchpriority="{{ fetch_priority }}"
+                    class="media-hero__img"
+                  >
+                </picture>
               {% else %}
                 {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
               {% endif %}
@@ -208,7 +227,7 @@
 
 {% schema %}
 {
-  "name": "Video Hero Slider",
+  "name": "Video + Image Hero Slider",
   "tag": "section",
   "class": "section",
   "disabled_on": { "groups": ["header","footer"] },
@@ -268,7 +287,9 @@
       "type": "slide",
       "name": "Slide",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image (fallback if no video)" },
+        { "type": "image_picker", "id": "image", "label": "Image (desktop, fallback)" },
+        { "type": "image_picker", "id": "image_tablet", "label": "Tablet image (750px–990px)" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile image (<750px)" },
         { "type": "image_picker", "id": "video_poster", "label": "Video poster (optional)" },
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
@@ -311,7 +332,7 @@
   "max_blocks": 10,
   "presets": [
     { 
-        "name": "Video Hero Slider", 
+        "name": "Video + Image Hero Slider", 
         "blocks": [ { "type": "slide" }, { "type": "slide" } ] }
   ]
 }
