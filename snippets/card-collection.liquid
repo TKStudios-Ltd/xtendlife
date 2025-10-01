@@ -50,13 +50,7 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; background-color: transparent !important; transform: none !important;"
     >
       {%- if custom_image -%}
-        <a
-          {% if card_collection == blank %}
-          role="link" aria-disabled="true"
-          {% else %}
-          href="{{ card_collection.url }}"
-          {% endif %}
-          class="full-unstyled-link card__media media--collection-hover">
+        <div class="card__media media--collection-hover">
           <div
             class="media media--transparent"
             style="{% if background_color != blank %}background-color: {{ background_color }};{% endif %}"
@@ -70,15 +64,9 @@
               class="motion-reduce"
             >
           </div>
-        </a>
+        </div>
       {%- elsif card_collection.featured_image -%}
-        <a
-          {% if card_collection == blank %}
-          role="link" aria-disabled="true"
-          {% else %}
-          href="{{ card_collection.url }}"
-          {% endif %}
-          class="full-unstyled-link card__media">
+        <div class="card__media">
           <div class="media media--transparent media--hover-effect">
             <img
               src="{{ card_collection.featured_image | image_url: width: 750 }}"
@@ -89,17 +77,22 @@
               class="motion-reduce"
             >
           </div>
-        </a>
+        </div>
       {%- endif -%}
       {%- if card_collection == blank -%}
         <div class="card__media">
           {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
         </div>
       {%- else -%}
-        <div class="card__content">
+        <a
+        {% if card_collection == blank %}
+           role="link" aria-disabled="true"
+        {% else %}
+          href="{{ card_collection.url }}"
+        {% endif %}class="card__content">
           <div class="card__information">
             <h3 class="card__heading">
-              <a
+              <span
                 {% if card_collection == blank %}
                   role="link" aria-disabled="true"
                 {% else %}
@@ -112,7 +105,7 @@
                 {%- else -%}
                   {{ 'onboarding.collection_title' | t }}
                 {%- endif -%}
-              </a>
+              </span>
             </h3>
             {%- if card_collection.description != blank -%}
               <p class="card__caption">
@@ -120,7 +113,7 @@
               </p>
             {%- endif -%}
           </div>
-        </div>
+        </a>
       {%- endif -%}
     </div>
     {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
