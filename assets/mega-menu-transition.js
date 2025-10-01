@@ -88,7 +88,7 @@
     });
   }
 
-  // ----------------- SEARCH MODAL -----------------
+  // ----------------- SEARCH MODAL (hover stays open, leaves close) -----------------
   function bindSearchModal(root = document) {
     const container = root.querySelector('details-modal.header__search, .header__search details-modal');
     if (!container) return;
@@ -102,9 +102,14 @@
     if (details.__searchBound) return;
     details.__searchBound = true;
 
+    const DURATION = 350;
+    const EASING = 'cubic-bezier(.2,.7,.3,1)';
+    const isDesktop = () => matchMedia('(hover: hover) and (pointer:fine)').matches;
+
     let anim = null;
     let openState = details.hasAttribute('open');
 
+    // initial state
     if (openState) {
       panel.style.opacity = '1';
       panel.style.transform = 'translateY(0)';
@@ -126,19 +131,24 @@
       details.setAttribute('open', '');
       panel.style.pointerEvents = 'auto';
       anim = panel.animate(
-        [{ opacity: 0, transform: 'translateY(-16px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        [{ opacity: 0, transform: 'translateY(-16px)' },
+        { opacity: 1, transform: 'translateY(0)' }],
         { duration: DURATION, easing: EASING, fill: 'forwards' }
       );
       anim.onfinish = anim.oncancel = () => { anim = null; };
       openState = true;
-      setTimeout(() => { const input = panel.querySelector('input[type="search"]'); input && input.focus({ preventScroll: true }); }, 120);
+      setTimeout(() => {
+        const input = panel.querySelector('input[type="search"]');
+        input && input.focus({ preventScroll: true });
+      }, 120);
     }
 
     function closeSearch({ force = false } = {}) {
       if (!openState && !force) return;
       kill();
       anim = panel.animate(
-        [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-16px)' }],
+        [{ opacity: 1, transform: 'translateY(0)' },
+        { opacity: 0, transform: 'translateY(-16px)' }],
         { duration: DURATION, easing: EASING, fill: 'forwards' }
       );
       const finish = () => {
@@ -153,30 +163,31 @@
 
     details.__api = { open: openSearch, close: closeSearch };
 
-    // Click toggle (always available)
-    summary.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openState ? closeSearch() : openSearch(); });
+    summary.addEventListener('click', (e) => {
+      e.preventDefault(); e.stopPropagation();
+      openState ? closeSearch() : openSearch();
+    });
+
     overlay && overlay.addEventListener('click', () => closeSearch());
     closeBtn && closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeSearch(); });
     details.addEventListener('keyup', (e) => { if (e.key === 'Escape' && openState) closeSearch(); });
     document.addEventListener('click', (evt) => { if (openState && !container.contains(evt.target)) closeSearch(); });
 
-    // Desktop hover: keep open while hovering summary OR panel; mobile = click only
     if (isDesktop()) {
-      let hoverCount = 0;
+      let inside = 0;
       let closeTO;
 
-      const enter = () => {
-        hoverCount++;
+      const enter = () => { inside++; clearTimeout(closeTO); openSearch(); };
+      const scheduleClose = () => {
         clearTimeout(closeTO);
-        openSearch();
+        closeTO = setTimeout(() => { if (inside <= 0) closeSearch(); }, 120);
       };
+
       const leave = (ev) => {
-        // Ignore leaving into the other element inside container
         const to = ev.relatedTarget;
-        if (to && (summary.contains(to) || panel.contains(to))) return;
-        hoverCount = Math.max(0, hoverCount - 1);
-        clearTimeout(closeTO);
-        closeTO = setTimeout(() => { if (hoverCount === 0) closeSearch(); }, 120);
+        if (to && container.contains(to)) return;
+        inside = Math.max(0, inside - 1);
+        scheduleClose();
       };
 
       summary.addEventListener('mouseenter', enter);
@@ -184,8 +195,16 @@
 
       summary.addEventListener('mouseleave', leave);
       panel.addEventListener('mouseleave', leave);
+
+      container.addEventListener('mouseleave', leave);
+
+      overlay && overlay.addEventListener('mouseenter', () => {
+        inside = 0;
+        closeSearch();
+      });
     }
   }
+
 
   // ----------------- INIT -----------------
   const init = (root) => { bindMegaMenus(root); bindSearchModal(root); };
