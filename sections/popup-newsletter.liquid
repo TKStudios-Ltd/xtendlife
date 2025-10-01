@@ -136,7 +136,7 @@
       {%- endif -%}
 
       {%- comment -%} Dawn UI form; Klaviyo attach mode will hook this ID {%- endcomment -%}
-      {% form 'customer', id: form_dom_id, class: 'newsletter-form' %}
+      {% form 'customer', id: 'PopupNewsletterForm--' | append: section.id, class: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div class="newsletter-form__field-wrapper">
           <div class="field">
@@ -153,6 +153,7 @@
               placeholder="{{ section.settings.input_placeholder | default: 'Email' }}"
               required
             >
+            <input type="hidden" name="email" id="KlaviyoEmailMirror--{{ section.id }}">
             <label class="field__label" for="PopupEmail--{{ section.id }}">
               {{ section.settings.input_label | default: 'Enter your email' }}
             </label>
@@ -295,7 +296,7 @@
     function tryAttach() {
       if (window.KlaviyoSubscribe && typeof window.KlaviyoSubscribe.attachToForms === 'function') {
         try {
-          KlaviyoSubscribe.attachToForms('#{{ form_dom_id }}', {
+          KlaviyoSubscribe.attachToForms('#PopupNewsletterForm--{{ section.id }}', {
             hide_form_on_success: true,
             custom_success_message: true,
             list_id: "{{ section.settings.klaviyo_list_id | escape }}",
