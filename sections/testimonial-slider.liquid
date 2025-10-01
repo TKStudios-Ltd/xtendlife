@@ -57,8 +57,10 @@
 .section-{{ section.id }}-padding .ts2-swiper .swiper-wrapper{ display:flex; }
 .section-{{ section.id }}-padding .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
 
-.section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
+.section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide {
   width: calc((100% - var(--g)) / 1.2);
+}
+.section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide .ts2-photo img {
   transition: opacity .4s ease;
   opacity: .3;
 }
