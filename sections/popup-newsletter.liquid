@@ -136,7 +136,8 @@
       {%- endif -%}
 
       {%- comment -%} Dawn UI form; Klaviyo attach mode will hook this ID {%- endcomment -%}
-      {% form 'customer', id: 'PopupNewsletterForm--' | append: section.id, class: 'newsletter-form' %}
+      {% assign popup_form_id = 'PopupNewsletterForm--' | append: section.id %}
+      {% form 'customer', id: popup_form_id, class: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div class="newsletter-form__field-wrapper">
           <div class="field">
