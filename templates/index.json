@@ -420,13 +420,45 @@
         "image_EF8DJG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Xt_placeholder_logos.jpg",
+            "image": "shopify://shop_images/Group_756.jpg",
+            "link": ""
+          }
+        },
+        "image_Ur7NEn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_755.jpg",
+            "link": ""
+          }
+        },
+        "image_CjrLfw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_754.jpg",
+            "link": ""
+          }
+        },
+        "image_VURcxm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_752.jpg",
+            "link": ""
+          }
+        },
+        "image_BkBAxd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_751.jpg",
             "link": ""
           }
         }
       },
       "block_order": [
-        "image_EF8DJG"
+        "image_EF8DJG",
+        "image_Ur7NEn",
+        "image_CjrLfw",
+        "image_VURcxm",
+        "image_BkBAxd"
       ],
       "custom_css": [],
       "name": "Image Infinite Scroll",
@@ -436,7 +468,7 @@
         "image_max_size": 100,
         "scroll_speed": 40,
         "repeat_count": 5,
-        "image_gap": 0,
+        "image_gap": 20,
         "padding_top": 20,
         "padding_bottom": 80
       }
