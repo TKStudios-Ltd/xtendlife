@@ -157,6 +157,15 @@
         if (successEl) successEl.hidden = false;
       }
 
+      // Mirror Dawn's contact[email] into plain 'email' for Klaviyo
+      var vis = document.getElementById('Email--{{ section.id }}');
+      var mirror = document.getElementById('KlaviyoEmailMirror--{{ section.id }}');
+      if (vis && mirror) {
+        var sync = function(){ mirror.value = vis.value; };
+        vis.addEventListener('input', sync);
+        sync();
+      }
+
       function attachWhenReady() {
         if (window.KlaviyoSubscribe && typeof window.KlaviyoSubscribe.attachToForms === 'function') {
           try {
