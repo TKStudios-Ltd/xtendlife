@@ -187,13 +187,24 @@
 <script>
 (function() {
   var root = document.getElementById('PopupNewsletter-{{ section.id }}');
-  // Mirror Dawn's contact[email] into a plain 'email' field
-  var _vis = document.getElementById('PopupEmail--{{ section.id }}');
-  var _mirror = document.getElementById('KlaviyoEmailMirror--{{ section.id }}');
-  if (_vis && _mirror) {
-    var _sync = function(){ _mirror.value = _vis.value; };
-    _vis.addEventListener('input', _sync);
-    _sync();
+  // --- FORCE post to a specific Klaviyo list regardless of attachToForms ---
+  function forceSubscribeToKlaviyo(listId, email, extra) {
+    if (!email || !listId) return;
+    var url = 'https://manage.kmail-lists.com/ajax/subscriptions/subscribe';
+    var fd = new FormData();
+    fd.append('g', listId);         // list id
+    fd.append('email', email);      // plain email
+    // optional metadata
+    if (extra && typeof extra === 'object') {
+      Object.keys(extra).forEach(function(k){
+        try { fd.append(k, typeof extra[k] === 'string' ? extra[k] : JSON.stringify(extra[k])); } catch(e){}
+      });
+    }
+    // Fire-and-forget; do NOT prevent Shopify submit
+    fetch(url, { method:'POST', body: fd, mode:'cors', credentials:'omit' })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(json){ console.log('[Klaviyo forced subscribe]', json); })
+      .catch(function(err){ console.warn('[Klaviyo forced subscribe] failed', err); });
   }
 
   if (!root) return;
@@ -324,6 +335,19 @@
       }
     }
     tryAttach();
+    // Also push directly to the target list on submit (belt & suspenders)
+    var popupForm = document.getElementById('PopupNewsletterForm--{{ section.id }}');
+    if (popupForm) {
+      popupForm.addEventListener('submit', function() {
+        var emailEl = document.getElementById('PopupEmail--{{ section.id }}');
+        var email = emailEl ? (emailEl.value || '').trim() : '';
+        forceSubscribeToKlaviyo('{{ section.settings.klaviyo_list_id | escape }}', email, {
+          $source: '{{ section.settings.source_tag | default: "popup_newsletter" | escape }}',
+          section_id: '{{ section.id }}',
+          theme: 'dawn'
+        });
+      });
+    }
   })();
 
   // Start logic
