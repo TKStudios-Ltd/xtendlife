@@ -108,8 +108,11 @@
                 >
               {%- endif -%}
               <div class="hover--text__card">
-                {% if card_product.metafields.custom.key_feature_content != blank %}
+                {% comment %} {% if card_product.metafields.custom.key_feature_content != blank %}
                   <span class="h4">{{ card_product.metafields.custom.key_feature_content }}</span>
+                {% endif %} {% endcomment %}
+                {% if card_product.metafields.global.description_tag != blank %}
+                  <span class="h4">{{ card_product.metafields.global.description_tag }}</span>
                 {% endif %}
               </div>
               {% comment %}
