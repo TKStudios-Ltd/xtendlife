@@ -1204,7 +1204,7 @@ summary::-webkit-details-marker {
   background-color: #1F1946;
 }
 
-.home .image-scroll-item img {
+.index-template .image-scroll-item img {
   -webkit-filter: grayscale(1) !important;
   filter: grayscale(1) !important;
 }
