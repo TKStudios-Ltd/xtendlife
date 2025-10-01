@@ -1208,6 +1208,10 @@ summary::-webkit-details-marker {
   -webkit-filter: grayscale(1) !important;
   filter: grayscale(1) !important;
 }
+#shop-hcaptcha-badge-container {
+  display: none !important;
+  visibility: hidden !important;
+}
 
 .media > *:not(.zoom):not(.deferred-media__poster-button):not(.card__hover-actions),
 .media model-viewer {
