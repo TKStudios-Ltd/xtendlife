@@ -187,6 +187,14 @@
 <script>
 (function() {
   var root = document.getElementById('PopupNewsletter-{{ section.id }}');
+  // Mirror Dawn's contact[email] into a plain 'email' field for Klaviyo
+  var _vis = document.getElementById('PopupEmail--{{ section.id }}');
+  var _mirror = document.getElementById('KlaviyoEmailMirror--{{ section.id }}');
+  if (_vis && _mirror) {
+    var _sync = function(){ _mirror.value = _vis.value; };
+    _vis.addEventListener('input', _sync);
+    _sync();
+  }
   if (!root) return;
 
   var key = root.dataset.key;
