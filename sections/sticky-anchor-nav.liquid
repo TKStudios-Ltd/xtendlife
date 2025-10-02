@@ -6,13 +6,13 @@
 
 {%- style -%}
   /* keep sticky alive */
-  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: auto; }
+  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: 2; }
 
   .sticky-anchor-nav__wrap--{{ section.id }}{
     position: -webkit-sticky;
     position: sticky;
     top: {{ section.settings.sticky_top | default: 80 }}px; /* ensure non-zero default */
-    z-index: 3;
+    z-index: 2;
   }
   .sn-fixed-placeholder--{{ section.id }}{ height: 0; }
 
@@ -179,7 +179,7 @@
     nav.style.top = offset + 'px';
     nav.style.left = left + 'px';
     nav.style.width = width + 'px';
-    nav.style.zIndex = 3;
+    nav.style.zIndex = 2;
   };
   const removeFixed = () => {
     if (!usingFixed) return;
