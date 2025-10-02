@@ -94,7 +94,7 @@
 /* base */
 
 #MainContent {
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 body {
