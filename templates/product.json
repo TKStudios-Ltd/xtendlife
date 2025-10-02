@@ -704,8 +704,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
-        "image_overlay_opacity": 0,
+        "image": "shopify://shop_images/Hiking-1273008990_2.jpg",
+        "image_overlay_opacity": 20,
         "image_height": "large",
         "wide_container": false,
         "image_behavior": "none",
