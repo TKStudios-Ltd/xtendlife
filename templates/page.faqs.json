@@ -353,6 +353,7 @@
         "image": "shopify://shop_images/1f613a848249190b57aae966ee9e44daec599335.png",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": false,
@@ -402,9 +403,10 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
-        "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
-        "display_klaviyoform": false,
-        "code_klaviyoform": "<div class=\"klaviyo-form-Yimj9Z\"></div>",
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
         "padding_top": 0,
         "padding_bottom": 0
       }
