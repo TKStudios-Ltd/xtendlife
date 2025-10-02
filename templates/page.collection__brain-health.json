@@ -82,7 +82,8 @@
             "title": "",
             "text": "<p>Trusted Brand for over 25 years</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_84WnVg": {
@@ -92,7 +93,8 @@
             "title": "",
             "text": "<p>Proudly made in New Zealand</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_bqhLTR": {
@@ -102,7 +104,8 @@
             "title": "",
             "text": "<p>365 Days Guaranteed</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         }
       },
@@ -149,12 +152,17 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
+        "tab_featured_label": "",
+        "tab_full_label": "",
+        "tab_alt_label": "",
         "featured_collection": "mental-and-brain-health",
         "featured_count": 4,
         "full_collection": "mental-and-brain-health",
         "full_count": 12,
+        "alt_collection": "",
+        "alt_count": 12,
         "default_tab": "featured",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -342,6 +350,7 @@
         "image": "shopify://shop_images/Placeholder_Image_1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": true,
@@ -388,6 +397,7 @@
         "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "image_first",
         "image_behavior": "none",
         "image_bleed": false,
@@ -574,6 +584,7 @@
         "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "image_first",
         "image_behavior": "none",
         "image_bleed": false,
@@ -672,6 +683,7 @@
         "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
         "height": "adapt",
         "desktop_image_width": "medium",
+        "image_replacement_text": "",
         "layout": "text_first",
         "image_behavior": "none",
         "image_bleed": false,
