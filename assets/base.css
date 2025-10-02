@@ -4021,7 +4021,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .custom-gallery-thumbnails .swiper-slide{
   width: calc(100% - 2px)!important;
-  height:100px;
+  height: 81px;
   background:#FCF1D6;
   border-radius:8px;
   display:flex;
@@ -4043,7 +4043,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   position:relative;
   flex:1 1 auto;
   width:100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   background: #F6FAFF;
   border-radius:12px;
   overflow:hidden;
