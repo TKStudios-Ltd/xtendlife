@@ -369,7 +369,7 @@
         "alt_collection": "skincare",
         "alt_count": 4,
         "default_tab": "featured",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
@@ -610,7 +610,7 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
-        "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
         "enable_klaviyo_attach": true,
         "klaviyo_list_id": "Ram9Tc",
         "klaviyo_source": "newsletter_section",
