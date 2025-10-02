@@ -37,6 +37,7 @@
   /* opacity: 0;
   transform: translateY(-2rem);
   pointer-events: none; */
+  z-index: 9;
   will-change: transform, opacity;
   pointer-events: none;
   transition: opacity 500ms ease, transform 500ms ease;
