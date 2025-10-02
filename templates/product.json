@@ -561,7 +561,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "#",
+            "button_link": "shopify://pages/total-balance",
             "button_style_secondary": false
           }
         }
@@ -604,7 +604,7 @@
         "columns_desktop": 4,
         "columns_mobile": "1",
         "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
