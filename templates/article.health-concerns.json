@@ -25,7 +25,8 @@
             "title": "",
             "text": "<p>Trusted Brand for over 25 years</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_84WnVg": {
@@ -35,7 +36,8 @@
             "title": "",
             "text": "<p>Proudly made in New Zealand</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         },
         "column_bqhLTR": {
@@ -45,7 +47,8 @@
             "title": "",
             "text": "<p>365 Days Guaranteed</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "video_url": ""
           }
         }
       },
@@ -96,7 +99,7 @@
         "full_width": false,
         "show_view_all": true,
         "color_scheme": "",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -167,7 +170,7 @@
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
-        "left_image": "shopify://shop_images/dc783163092f708c4093920fcfa853cd9a923bcf_1_1.jpg",
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
         "enable_klaviyo_attach": true,
         "klaviyo_list_id": "Ram9Tc",
         "klaviyo_source": "newsletter_section",
