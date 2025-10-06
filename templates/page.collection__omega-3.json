@@ -141,6 +141,94 @@
         "padding_bottom": 28
       }
     },
+    "image_with_text_EapeUP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cpFMj7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Quality Oil You Can Trust",
+            "heading_size": "h1"
+          }
+        },
+        "caption_iQpgqc": {
+          "type": "caption",
+          "settings": {
+            "caption": "Fish is the best source of omega-3 fatty acids DHA and EPA. Xtendlife fish oil range is your go-to omega supplement for optimal wellness.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_6YEakt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Cardiovascular health",
+            "row_content": "<p>Omega-3s have been shown to support cardiovascular health, including healthy triglyceride levels, healthy blood pressure and reduced risk of serious cardiac events.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_AHr3mX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Brain health and mental clarity",
+            "row_content": "<p>DHA is essential for normal brain function and having plenty of DHA in your diet helps keep memory and cognition in good shape as you age.<br/><br/></p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_BpqACF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Joint health and inflammation",
+            "row_content": "<p>Omega-3s have been shown to fight the inflammation associated with joint pain and arthritis.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "text_QNdBXj": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Wild-caught fish, sustainably sourced and certified</li><li>Third-party tested for purity, freshness, oxidisation and heavy metal</li><li>GMP manufactured in New Zealand</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cpFMj7",
+        "caption_iQpgqc",
+        "collapsible_row_6YEakt",
+        "collapsible_row_AHr3mX",
+        "collapsible_row_BpqACF",
+        "text_QNdBXj"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "featured_collection_tab_grid_Ddm4Df": {
       "type": "featured-collection-tab-grid",
       "custom_css": [
@@ -177,6 +265,54 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 80
+      }
+    },
+    "image_with_text_HHyM8a": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zhEGVe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Premium Omega-3 Your Daily Wellness Protection",
+            "heading_size": "h1"
+          }
+        },
+        "text_ifneja": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>High Levels of EPA and DHA</strong><br/>May help support cholesterol balance, blood vessel function and overall cardiovascular conditions.<br/><br/><strong>Highly Bioavailable CoQ10</strong><br/>Genuine Kaneka Q10® ubiquinol CoQ10 to support heart function and cellular energy. It has been used in the vast majority of clinical trials over 30 years.<br/><br/><strong>Powerful Antioxidants</strong><br/>A balanced blend of antioxidant-rich Astaxanthin and Lycopene, resists the damage caused by free radicals and offer additional benefits to cardiovascular, eye and joint health.<br/><br/><strong>Easy to Swallow</strong><br/>Soft gel encapsulated, free from taste and odors, easy to swallow.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zhEGVe",
+        "text_ifneja"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "reviews_slider_EnTCee": {
@@ -375,94 +511,6 @@
         "padding_bottom": 0
       }
     },
-    "image_with_text_EapeUP": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_cpFMj7": {
-          "type": "heading",
-          "settings": {
-            "heading": "Quality Oil You Can Trust",
-            "heading_size": "h1"
-          }
-        },
-        "caption_iQpgqc": {
-          "type": "caption",
-          "settings": {
-            "caption": "Fish is the best source of omega-3 fatty acids DHA and EPA. Xtendlife fish oil range is your go-to omega supplement for optimal wellness.",
-            "additional_caption": "",
-            "text_style": "subtitle",
-            "text_size": "small"
-          }
-        },
-        "collapsible_row_6YEakt": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Cardiovascular health",
-            "row_content": "<p>Omega-3s have been shown to support cardiovascular health, including healthy triglyceride levels, healthy blood pressure and reduced risk of serious cardiac events.</p>",
-            "page": "",
-            "open": true
-          }
-        },
-        "collapsible_row_AHr3mX": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Brain health and mental clarity",
-            "row_content": "<p>DHA is essential for normal brain function and having plenty of DHA in your diet helps keep memory and cognition in good shape as you age.<br/><br/></p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_BpqACF": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Joint health and inflammation",
-            "row_content": "<p>Omega-3s have been shown to fight the inflammation associated with joint pain and arthritis.</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "text_QNdBXj": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Wild-caught fish, sustainably sourced and certified</li><li>Third-party tested for purity, freshness, oxidisation and heavy metal</li><li>GMP manufactured in New Zealand</li></ul>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_cpFMj7",
-        "caption_iQpgqc",
-        "collapsible_row_6YEakt",
-        "collapsible_row_AHr3mX",
-        "collapsible_row_BpqACF",
-        "text_QNdBXj"
-      ],
-      "custom_css": [
-        ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
-        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "rich_text_YewMnP": {
       "type": "rich-text",
       "blocks": {
@@ -477,6 +525,7 @@
       "block_order": [
         "heading_RGRz3y"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -535,6 +584,7 @@
         "image_Qw9PXi",
         "image_nxEX3U"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
         "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
@@ -548,105 +598,6 @@
         "repeat_count": 1,
         "image_gap": 0,
         "padding_top": 20,
-        "padding_bottom": 60
-      }
-    },
-    "image_with_text_HHyM8a": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_zhEGVe": {
-          "type": "heading",
-          "settings": {
-            "heading": "Multivitamin for your heart",
-            "heading_size": "h1"
-          }
-        },
-        "caption_rgGCKg": {
-          "type": "caption",
-          "settings": {
-            "caption": "It’s never too late to improve your cardiovascular health, heart disease is largely preventable through lifestyle change and great supplementation. Xtendlife CX8 is developed with the best ingredients supported by science to keep you stay young at heart.",
-            "additional_caption": "",
-            "text_style": "subtitle",
-            "text_size": "small"
-          }
-        },
-        "collapsible_row_AeCpAw": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Highly Advanced Natural Supplement",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
-            "page": "",
-            "open": true
-          }
-        },
-        "collapsible_row_AjWcwC": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Circulation and Calcification",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_ciD4cW": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Inflammation and Cellular Support",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_HfKygV": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Additional Antioxidants",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "button_CdnLhT": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop CX8",
-            "button_link": "shopify://products/cx8-heart-health-support",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_zhEGVe",
-        "caption_rgGCKg",
-        "collapsible_row_AeCpAw",
-        "collapsible_row_AjWcwC",
-        "collapsible_row_ciD4cW",
-        "collapsible_row_HfKygV",
-        "button_CdnLhT"
-      ],
-      "custom_css": [
-        ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
-        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 60,
         "padding_bottom": 60
       }
     },
@@ -967,13 +918,13 @@
     "main",
     "image_banner_pFjbBG",
     "multicolumn_A6pqFF",
+    "image_with_text_EapeUP",
     "featured_collection_tab_grid_Ddm4Df",
+    "image_with_text_HHyM8a",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
-    "image_with_text_EapeUP",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
-    "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
     "video_slider_QxaRdC",
