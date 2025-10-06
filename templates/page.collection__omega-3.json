@@ -731,13 +731,13 @@
         "column_7chcQR": {
           "type": "column",
           "settings": {
-            "product": "vasqflow",
+            "product": "omega-3-dha-fish-oil",
             "row1_ticks": 1,
-            "row2_ticks": 2,
-            "row3_ticks": 3,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
-            "row6_text": "3"
+            "row6_text": "2-4"
           }
         },
         "column_tQCBEQ": {
