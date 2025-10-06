@@ -34,17 +34,18 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/iStock-1208575446_5.jpg",
+            "image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
             "video_mp4": "",
             "video_adapt_ratio": 57,
-            "heading": "Build a better baseline for your health",
+            "heading": "Your best years are now",
             "heading_size": "h1",
-            "text": "Bundle up with the essentials you need to keep going.",
+            "text": "Healthy aging begins with the choices you make today.",
             "text_style": "body",
-            "button_label_1": "Shop now",
-            "button_link_1": "shopify://collections/all",
+            "button_label_1": "Fuel your future",
+            "button_link_1": "shopify://products/nr6-natural-nad-booster",
             "button_style_secondary_1": false,
-            "button_label_2": "Learn More",
-            "button_link_2": "shopify://collections/all-bundles",
+            "button_label_2": "",
+            "button_link_2": "",
             "button_style_secondary_2": true
           }
         }
