@@ -717,7 +717,7 @@
         "column_VgTzJM": {
           "type": "column",
           "settings": {
-            "product": "cx8-heart-health-support",
+            "product": "total-balance-mens-premium",
             "row1_ticks": 3,
             "row2_ticks": 3,
             "row3_ticks": 3,
@@ -729,13 +729,13 @@
         "column_8xypY8": {
           "type": "column",
           "settings": {
-            "product": "xtend-quinol",
+            "product": "total-balance-mens",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
-            "row4_ticks": 3,
-            "row5_ticks": 3,
-            "row6_text": "1-2"
+            "row4_ticks": 1,
+            "row5_ticks": 1,
+            "row6_text": "4"
           }
         },
         "column_7chcQR": {
