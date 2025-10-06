@@ -261,15 +261,15 @@
         "heading_HLeMWQ": {
           "type": "heading",
           "settings": {
-            "heading": "Lorem ipsum dolor sit amet",
+            "heading": "Benefits of Total Balance",
             "heading_size": "h2"
           }
         },
         "collapsible_row_eJMy84": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "General Health",
+            "row_content": "<ul><li>Liver health</li><li>Lung health</li><li>Skin elasticity & hydration</li><li>Strong bones</li><li>Exercise recovery</li><li>Sharp vision & eye protection</li></ul>",
             "page": "",
             "open": true
           }
@@ -277,8 +277,8 @@
         "collapsible_row_E3dGpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "Cardiovascular",
+            "row_content": "<ul><li>Healthy blood vessels</li><li>Blood flow</li><li>Healthy blood pressure</li><li>Vasodilation</li><li>Healthy cholesterol & triglycerides</li></ul>",
             "page": "",
             "open": false
           }
@@ -286,8 +286,8 @@
         "collapsible_row_mNwhUk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "Telomeres & Anti-Aging",
+            "row_content": "<ul><li>Telomere protection</li><li>Antioxidant protection for cells & DNA</li><li>Anti-inflammatory</li><li>Cellular energy</li><li>Positive outlook</li></ul>",
             "page": "",
             "open": false
           }
@@ -295,8 +295,17 @@
         "collapsible_row_hD4rk6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "Mental Health & Brain",
+            "row_content": "<ul><li>Memory, cognition & focus</li><li>Anti-aging vitamins for brain</li><li>Neuroprotection</li><li>Positive outlook</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_nq449P": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Immunity",
+            "row_content": "<ul><li>Innate immunity</li><li>Acquired immunity</li><li>Anti-viral defenses</li></ul>",
             "page": "",
             "open": false
           }
@@ -307,7 +316,8 @@
         "collapsible_row_eJMy84",
         "collapsible_row_E3dGpt",
         "collapsible_row_mNwhUk",
-        "collapsible_row_hD4rk6"
+        "collapsible_row_hD4rk6",
+        "collapsible_row_nq449P"
       ],
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
