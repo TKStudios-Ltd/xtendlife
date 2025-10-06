@@ -707,25 +707,25 @@
         "column_VgTzJM": {
           "type": "column",
           "settings": {
-            "product": "cx8-heart-health-support",
-            "row1_ticks": 3,
+            "product": "omega-3-qh-premium-coq10",
+            "row1_ticks": 1,
             "row2_ticks": 3,
-            "row3_ticks": 3,
-            "row4_ticks": 3,
-            "row5_ticks": 1,
-            "row6_text": "3"
+            "row3_ticks": 1,
+            "row4_ticks": 1,
+            "row5_ticks": 3,
+            "row6_text": "2-4"
           }
         },
         "column_8xypY8": {
           "type": "column",
           "settings": {
-            "product": "xtend-quinol",
+            "product": "omega-3-dha-plus",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
-            "row4_ticks": 3,
+            "row4_ticks": 1,
             "row5_ticks": 3,
-            "row6_text": "1-2"
+            "row6_text": "2"
           }
         },
         "column_7chcQR": {
@@ -764,11 +764,11 @@
         "heading": "Which Omega-3 is Right for Me?",
         "heading_size": "h1",
         "color_scheme": "",
-        "row1_label": "Prevent Calcification",
-        "row2_label": "Cholesterol",
-        "row3_label": "Blood Circulation ",
-        "row4_label": "Inflammation",
-        "row5_label": "Statin Support ",
+        "row1_label": "Full Spectrum Natural and Concentrated Oil",
+        "row2_label": "Heart Health",
+        "row3_label": "Brain Health",
+        "row4_label": "Joint Health",
+        "row5_label": "Anti-Aging and Cellular support",
         "row6_label": "Dosage Per Day ",
         "shop_cta": "Shop now",
         "col_width": 300,
