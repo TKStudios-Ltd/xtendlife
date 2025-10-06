@@ -253,6 +253,15 @@
             "person": "Hank, USA",
             "product": "omega-3-dha-fish-oil"
           }
+        },
+        "review_ya4MR9": {
+          "type": "review",
+          "settings": {
+            "title": "Excellent",
+            "description": "<p>It has been great!</p>",
+            "person": "Edita, USA",
+            "product": "omega-3-dha-fish-oil"
+          }
         }
       },
       "block_order": [
@@ -263,7 +272,8 @@
         "review_HmjwX3",
         "review_96pb83",
         "review_KUTGUj",
-        "review_NmNeiT"
+        "review_NmNeiT",
+        "review_ya4MR9"
       ],
       "custom_css": [
         "h2 {color: #1f1946;}",
