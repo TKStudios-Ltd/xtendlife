@@ -363,7 +363,7 @@
         "text_cAbQL9"
       ],
       "custom_css": [
-        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 4rem 6rem 4rem 0; justify-content: space-between !important; }}",
+        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 4rem 6rem 4rem 0; justify-content: space-between !important; } .image-with-text__media-item {max-height: 600px !important; }}",
         "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 6rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
