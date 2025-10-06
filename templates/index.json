@@ -369,7 +369,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/TBMP_DSC00103_1.jpg",
-        "height": "medium",
+        "height": "large",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
         "layout": "text_first",
