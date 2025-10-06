@@ -674,6 +674,7 @@
         "collapsible_row_LKKWzb",
         "button_7xtrmP"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
