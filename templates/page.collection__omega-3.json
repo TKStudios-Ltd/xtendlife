@@ -743,13 +743,13 @@
         "column_tQCBEQ": {
           "type": "column",
           "settings": {
-            "product": "gg-pure",
+            "product": "vegan-omega-3",
             "row1_ticks": 1,
             "row2_ticks": 1,
             "row3_ticks": 1,
             "row4_ticks": 1,
-            "row5_ticks": 3,
-            "row6_text": "1"
+            "row5_ticks": 1,
+            "row6_text": "2"
           }
         }
       },
