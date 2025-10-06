@@ -148,7 +148,7 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Total Blance",
+        "title": "Start Your Wellness Journey",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -185,37 +185,37 @@
         "review_dXy8WH": {
           "type": "review",
           "settings": {
-            "title": "Heart Health Support",
-            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
-            "person": "Brian, USA",
-            "product": "cx8-heart-health-support"
+            "title": "Amazing Product",
+            "description": "<p>I have been using Total Balance Men’s Premium for more than 5 years, and I hope to be using it for the rest of my life.</p>",
+            "person": "Abito, Singapore",
+            "product": "total-balance-mens-premium"
           }
         },
         "review_HzjgFA": {
           "type": "review",
           "settings": {
-            "title": "Heart in Good Condition",
-            "description": "<p>It has been great for me. After 2 artery operations. Both surgeons said my heart was in very good condition.</p>",
-            "person": "Alex, USA",
-            "product": "cx8-heart-health-support"
+            "title": "My Doctor Recommended",
+            "description": "<p>I suffered from chronic fatigue. I do feel that these vitamins have helped me significantly over the past few years.</p>",
+            "person": "David, USA",
+            "product": "total-balance-mens-premium"
           }
         },
         "review_6xy4xw": {
           "type": "review",
           "settings": {
-            "title": "Take this if you take statins",
-            "description": "<p>I am glad to take this product to offset possible side effects of low co q10 due to statins. Highly recommend this product!</p>",
-            "person": "Peggy, USA",
-            "product": "gg-pure"
+            "title": "Class of its Own",
+            "description": "<p>Total Balance Men's Premium is a game changer in supplementation. I’ve used these for about eight years.</p>",
+            "person": "Wayne, USA",
+            "product": "total-balance-mens-premium"
           }
         },
         "review_KcRaMj": {
           "type": "review",
           "settings": {
-            "title": "CX8-Cardio Support",
-            "description": "<p>Unbelievable I really feel a difference.</p>",
-            "person": "Sandra, USA",
-            "product": "cx8-heart-health-support"
+            "title": "Checks all the boxes",
+            "description": "<p>I have been taking Total Balance Women's for several years now. This one checked all the boxes! This vitamin makes me feel better.</p>",
+            "person": "Bunny, USA",
+            "product": "total-balance-womens-premium"
           }
         },
         "review_HmjwX3": {
