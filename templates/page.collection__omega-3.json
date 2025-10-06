@@ -341,23 +341,13 @@
             "page": "",
             "open": false
           }
-        },
-        "collapsible_row_hD4rk6": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-            "page": "",
-            "open": false
-          }
         }
       },
       "block_order": [
         "heading_HLeMWQ",
         "collapsible_row_eJMy84",
         "collapsible_row_E3dGpt",
-        "collapsible_row_mNwhUk",
-        "collapsible_row_hD4rk6"
+        "collapsible_row_mNwhUk"
       ],
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
@@ -391,20 +381,60 @@
         "heading_cpFMj7": {
           "type": "heading",
           "settings": {
-            "heading": "Adopting a heart-healthy lifestyle can significantly reduce the risk of developing heart-related conditions.",
+            "heading": "Quality Oil You Can Trust",
             "heading_size": "h1"
+          }
+        },
+        "caption_iQpgqc": {
+          "type": "caption",
+          "settings": {
+            "caption": "Fish is the best source of omega-3 fatty acids DHA and EPA. Xtendlife fish oil range is your go-to omega supplement for optimal wellness.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_6YEakt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Cardiovascular health",
+            "row_content": "<p>Omega-3s have been shown to support cardiovascular health, including healthy triglyceride levels, healthy blood pressure and reduced risk of serious cardiac events.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_AHr3mX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Brain health and mental clarity",
+            "row_content": "<p>DHA is essential for normal brain function and having plenty of DHA in your diet helps keep memory and cognition in good shape as you age.<br/><br/></p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_BpqACF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Joint health and inflammation",
+            "row_content": "<p>Omega-3s have been shown to fight the inflammation associated with joint pain and arthritis.</p>",
+            "page": "",
+            "open": false
           }
         },
         "text_QNdBXj": {
           "type": "text",
           "settings": {
-            "text": "<ol><li>A heart-healthy lifestyle includes a balanced and diet based around unprocessed foods, regular exercise, avoiding smoking, limiting alcohol consumption and managing stress.</li><li>As we get older, our bodies are less able to produce or absorb essential nutrients such as omega-3, CoQ10 and vitamin K2.</li><li>Targeted supplementation can help make sure you are getting the right nutrients in the right amounts your body requires, which helps promote cardiovascular health and prevent disease.</li></ol>",
+            "text": "<ul><li>Wild-caught fish, sustainably sourced and certified</li><li>Third-party tested for purity, freshness, oxidisation and heavy metal</li><li>GMP manufactured in New Zealand</li></ul>",
             "text_style": "body"
           }
         }
       },
       "block_order": [
         "heading_cpFMj7",
+        "caption_iQpgqc",
+        "collapsible_row_6YEakt",
+        "collapsible_row_AHr3mX",
+        "collapsible_row_BpqACF",
         "text_QNdBXj"
       ],
       "custom_css": [
