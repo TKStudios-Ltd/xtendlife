@@ -741,25 +741,25 @@
         "column_7chcQR": {
           "type": "column",
           "settings": {
-            "product": "vasqflow",
-            "row1_ticks": 1,
-            "row2_ticks": 2,
+            "product": "total-balance-womens-premium",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
             "row3_ticks": 3,
-            "row4_ticks": 1,
+            "row4_ticks": 3,
             "row5_ticks": 1,
-            "row6_text": "3"
+            "row6_text": "7"
           }
         },
         "column_tQCBEQ": {
           "type": "column",
           "settings": {
-            "product": "gg-pure",
-            "row1_ticks": 1,
-            "row2_ticks": 1,
-            "row3_ticks": 1,
-            "row4_ticks": 1,
-            "row5_ticks": 3,
-            "row6_text": "1"
+            "product": "total-balance-womens",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6_text": "4"
           }
         }
       },
