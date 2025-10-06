@@ -391,21 +391,51 @@
         "heading_cpFMj7": {
           "type": "heading",
           "settings": {
-            "heading": "Adopting a heart-healthy lifestyle can significantly reduce the risk of developing heart-related conditions.",
+            "heading": "Go Beyond Multivitamins",
             "heading_size": "h1"
           }
         },
         "text_QNdBXj": {
           "type": "text",
           "settings": {
-            "text": "<ol><li>A heart-healthy lifestyle includes a balanced and diet based around unprocessed foods, regular exercise, avoiding smoking, limiting alcohol consumption and managing stress.</li><li>As we get older, our bodies are less able to produce or absorb essential nutrients such as omega-3, CoQ10 and vitamin K2.</li><li>Targeted supplementation can help make sure you are getting the right nutrients in the right amounts your body requires, which helps promote cardiovascular health and prevent disease.</li></ol>",
-            "text_style": "body"
+            "text": "<p>If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.</p><ul><li>Manufactured in New Zealand</li><li>90+ vitamins, minerals, enzymes, herbs and other ingredients</li><li>Based on science and constantly updated for 20 years</li></ul>",
+            "text_style": "subtitle"
+          }
+        },
+        "collapsible_row_hhytby": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "The Foundation of Good Health",
+            "row_content": "<p>A complete nutrient system to feed your cells the right nutrients, in the right amounts, at the right time supporting energy levels, immunity and foundational health.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_gpjHHf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Anti-Aging Formula",
+            "row_content": "<p>With age-defying nutrients to support your entire body at a cellular level, Total Balance helps maintain youthful cell function, giving you an advantage in tackling the main causes of aging.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_wRt7Wa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Optimised for Men and Women",
+            "row_content": "<p>Our gender-specific formulas support the specific needs of men and women, including prostate and testosterone support for men and support for menopause and PMS for women.</p>",
+            "page": "",
+            "open": false
           }
         }
       },
       "block_order": [
         "heading_cpFMj7",
-        "text_QNdBXj"
+        "text_QNdBXj",
+        "collapsible_row_hhytby",
+        "collapsible_row_gpjHHf",
+        "collapsible_row_wRt7Wa"
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
