@@ -311,15 +311,15 @@
         "heading_HLeMWQ": {
           "type": "heading",
           "settings": {
-            "heading": "Lorem ipsum dolor sit amet",
+            "heading": "Why Do I Need Omega-3 Fish Oil?",
             "heading_size": "h2"
           }
         },
         "collapsible_row_eJMy84": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "Human body cannot produce omega-3",
+            "row_content": "<p>Humans lack the ability to synthesize omega-3 fatty acids, specifically EPA (eicosapentaenoic acid) and DHA (docosahexaenoic acid), which are crucial for various bodily functions. Because our bodies can't produce these omega-3s on their own, it's essential to obtain them through diet or supplements.</p>",
             "page": "",
             "open": true
           }
@@ -327,8 +327,8 @@
         "collapsible_row_E3dGpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "It’s hard to rely on food alone",
+            "row_content": "<p>Fish is the primary food source of the omega-3s EPA and DHA, however, in many parts of the world, people often don't consume enough fish to meet recommended omega-3 intake levels. In the US, over 80% of Americans don’t get enough long chain omega-3s (EPA+DHA) from diet, and this may be related to personal taste preference and lifestyle.</p>",
             "page": "",
             "open": false
           }
@@ -336,8 +336,8 @@
         "collapsible_row_mNwhUk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor",
-            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "heading": "Middle-aged and seniors",
+            "row_content": "<p>ALA (alpha-linolenic acid) is another form of omega-3 which can be found in plant sources such as flaxseed, walnuts and chia seeds. The human body can use ALA to make EPA and DHA, but this conversion is not very efficient. As people age, it becomes even harder to convert ALA into the active forms (EPA and DHA). In such cases, fish oil supplements is highly recommended.</p>",
             "page": "",
             "open": false
           }
