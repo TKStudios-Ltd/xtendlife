@@ -200,15 +200,6 @@
             "product": "total-balance-mens-premium"
           }
         },
-        "review_6xy4xw": {
-          "type": "review",
-          "settings": {
-            "title": "Class of its Own",
-            "description": "<p>Total Balance Men's Premium is a game changer in supplementation. I’ve used these for about eight years.</p>",
-            "person": "Wayne, USA",
-            "product": "total-balance-mens-premium"
-          }
-        },
         "review_KcRaMj": {
           "type": "review",
           "settings": {
@@ -218,13 +209,22 @@
             "product": "total-balance-womens-premium"
           }
         },
+        "review_6xy4xw": {
+          "type": "review",
+          "settings": {
+            "title": "Class of its Own",
+            "description": "<p>Total Balance Men's Premium is a game changer in supplementation. I’ve used these for about eight years.</p>",
+            "person": "Wayne, USA",
+            "product": "total-balance-mens-premium"
+          }
+        },
         "review_HmjwX3": {
           "type": "review",
           "settings": {
-            "title": "Great results",
-            "description": "<p>I’ve only been using the CX8 for a couple of months now and I’ve seen improvements to my health!</p>",
+            "title": "Best Vitamins in the World",
+            "description": "<p>I reviewed and studied vitamins being sold over the world, and Total Balance Men’s Premium is the best.</p>",
             "person": "Aaron, USA",
-            "product": "cx8-heart-health-support"
+            "product": "total-balance-mens-premium"
           }
         },
         "review_96pb83": {
@@ -258,8 +258,8 @@
       "block_order": [
         "review_dXy8WH",
         "review_HzjgFA",
-        "review_6xy4xw",
         "review_KcRaMj",
+        "review_6xy4xw",
         "review_HmjwX3",
         "review_96pb83",
         "review_KUTGUj",
