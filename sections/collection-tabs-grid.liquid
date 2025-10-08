@@ -45,6 +45,10 @@
   /* Static promo card mimic */
   .static-card__inner{ display:block; text-decoration:none; }
   .static-card__media{ position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
+.static-card__media .card__inner .media {     
+    height: 100%;
+    padding-bottom: 150%;
+}
   .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
 {%- endstyle -%}
 
@@ -268,7 +272,7 @@
       "settings": [
         {"type":"text","id":"label","label":"Tab label","default":"Tab"},
         {"type":"collection","id":"collection","label":"Collection"},
-        {"type":"range","id":"limit","label":"Products to show","min":4,"max":48,"step":4,"default":16},
+        {"type":"range","id":"limit","label":"Products to show","min":4,"max":48,"step":1,"default":16},
         {"type":"checkbox","id":"view_all","label":"Show ‘View all’ button","default":true},
 
         {"type":"header","content":"Static promo card"},
