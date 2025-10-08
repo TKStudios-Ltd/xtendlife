@@ -65,6 +65,67 @@
         "speed": 500
       }
     },
+    "collection_tabs_grid_NtL3Hk": {
+      "type": "collection-tabs-grid",
+      "blocks": {
+        "tab_QtMrYj": {
+          "type": "tab",
+          "settings": {
+            "label": "Skincare",
+            "collection": "skincare",
+            "limit": 16,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "first",
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_3_1_2196566d-d45f-450a-b74d-5cd62a6bf981.png",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_3_1_2196566d-d45f-450a-b74d-5cd62a6bf981.png",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        },
+        "tab_6xmAjd": {
+          "type": "tab",
+          "settings": {
+            "label": "Supplements",
+            "collection": "supplements",
+            "limit": 16,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "first",
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_3_1_2196566d-d45f-450a-b74d-5cd62a6bf981.png",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_3_1_2196566d-d45f-450a-b74d-5cd62a6bf981.png",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_QtMrYj",
+        "tab_6xmAjd"
+      ],
+      "name": "Collection Tabs",
+      "settings": {
+        "heading": "Featured collections",
+        "heading_size": "title--medium",
+        "show_counts": false,
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "static_caption_enable": false,
+        "static_caption_text": "",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "default_limit": 16
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "disabled": true,
@@ -418,6 +479,7 @@
   "order": [
     "banner",
     "media_hero_slider_EDQQWQ",
+    "collection_tabs_grid_NtL3Hk",
     "product-grid",
     "collection_list_GrRzez",
     "image_with_text_KCQTNJ",
