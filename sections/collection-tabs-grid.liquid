@@ -1,293 +1,310 @@
 {% comment %}
-  Collection Tabs (Dawn‑compatible) — BLOCKS VERSION
-  - Tabs are dynamic blocks so you can add/reorder as many as you like.
-  - Each block = one tab (label, collection, product limit, optional static promo with desktop/mobile images + link).
-  - Renders Dawn’s product grid + card-product, supports quick add (standard/bulk).
-  - A11y tabs (no jQuery), arrow‑key nav, and deep link via #<section.id>:<tabIndex>.
+  Promo Collection Tabs (Dawn‑compatible, BLOCKS)
+  - Uses your "featured-collection-tab-grid" header/tabs layout & classes.
+  - Tabs are dynamic blocks (add/reorder as many as needed).
+  - Each block = one tab: label, collection, product limit, optional View all link, optional static promo card (desktop + mobile images) placed first/last.
+  - Renders Dawn card grid via 'card-product' and respects quick-add options.
+  - A11y tabs (role=tablist/tab/tabpanel) with simple JS; no jQuery.
 
-  File: sections/collection-tabs-dawn.liquid
+  File: sections/promo-collection-tabs.liquid
 {% endcomment %}
 
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
-{% unless section.settings.quick_add == 'none' %}
+{%- unless section.settings.quick_add == 'none' -%}
   {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-{% endunless %}
-
-{% if section.settings.quick_add == 'standard' %}
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{% endif %}
-
-{% if section.settings.quick_add == 'bulk' %}
-  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
-{% endif %}
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
+{%- endunless -%}
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
+{%- endif -%}
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer></script>
+{%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
-  @media (min-width: 750px){ .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+.section-{{ section.id }}-padding{ padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
+@media (min-width:750px){ .section-{{ section.id }}-padding{ padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; } }
 
-  /* Tabs */
-  .tabs { width: 100%; }
-  .tabs__nav { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; justify-content:center; margin-bottom: 1rem; }
-  .tabs__btn{ border:1px solid rgb(var(--color-foreground)); background:transparent; border-radius:999px; padding:.55rem 1rem; font-weight:600; cursor:pointer; }
-  .tabs__btn[aria-selected="true"]{ background: rgb(var(--color-foreground)); color: rgb(var(--color-background)); }
-  .tabs__panel[hidden]{ display:none; }
-  /* Static promo card mimic */
-  .static-card__inner{ display:block; text-decoration:none; }
-  .static-card__media{ position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
-.static-card__media .card__inner .media {     
-    height: 100%;
-    padding-bottom: 150%;
+/* Mirror your existing layout classes */
+#pct-{{ section.id }} .collection__title_inline{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+#pct-{{ section.id }} .featured-collections-buttons{ display:flex; gap:1rem; flex-wrap:wrap; }
+#pct-{{ section.id }} .fctab{ appearance:none; background:#fff; color:inherit; border-radius:999px; padding:.75rem 1.75rem; cursor:pointer; }
+#pct-{{ section.id }} .fctab[aria-selected="true"]{ background:#1F1946; color:#fff; border-color:#1F1946; }
+#pct-{{ section.id }} .fctab-panel[hidden]{ display:none !important; }
+#pct-{{ section.id }} .product-grid{ margin-top: 2rem; }
+
+/* Optional tighter gutters on mobile */
+@media (max-width: 989px){
+  #pct-{{ section.id }} .featured-collections-grids{ margin-left:-2rem; margin-right:-2rem; }
+  #pct-{{ section.id }} .product-grid{ padding-left:2rem; padding-right:2rem; }
 }
-  .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
+@media (max-width:749px){
+  #pct-{{ section.id }} .collection__title_inline{ flex-direction:column; align-items:flex-start !important; gap:2rem !important; }
+  #pct-{{ section.id }} .collection__title.title-wrapper{ margin-bottom:4rem !important; }
+  #pct-{{ section.id }} .featured-collections-buttons{ width:100%; }
+  #pct-{{ section.id }} .fctab{ flex:0 0 calc(50% - 0.5rem); }
+}
+
+/* Static promo card visual parity */
+#pct-{{ section.id }} .static-card__inner{ display:block; text-decoration:none; }
+#pct-{{ section.id }} .static-card__media{ position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
+#pct-{{ section.id }} .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
-  <div class="page-width">
-    {% if section.settings.heading != blank %}
-      <div class="title-wrapper center">
-        <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
-      </div>
-    {% endif %}
-
-    <div class="tabs" id="CollectionTabs-{{ section.id }}">
-      <div class="tabs__nav" role="tablist" aria-label="{{ section.settings.heading | default: 'Collections' }}">
-        {% assign tab_index = 0 %}
-        {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
-            {% assign label = block.settings.label %}
-            {% assign coll_handle = block.settings.collection %}
-            {% if label != blank and coll_handle != blank %}
-              {% assign tab_id = 'tab-' | append: section.id | append: '-' | append: block.id %}
-              <button class="tabs__btn" role="tab" id="{{ tab_id }}" aria-controls="{{ tab_id }}-panel" aria-selected="{% if tab_index == 0 %}true{% else %}false{% endif %}">
-                {% if section.settings.show_counts %}{% assign c = collections[coll_handle] %}{{ label }} ({{ c.products_count }}){% else %}{{ label }}{% endif %}
-              </button>
-              {% assign tab_index = tab_index | plus: 1 %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      {% comment %} Panels {% endcomment %}
-      {% assign first_done = false %}
-      {% for block in section.blocks %}
-        {% if block.type == 'tab' %}
-          {% assign label = block.settings.label %}
-          {% assign coll_handle = block.settings.collection %}
-          {% assign limit = block.settings.limit | default: section.settings.default_limit %}
-          {% assign view_all = block.settings.view_all %}
-
-          {% assign static_enabled = block.settings.static_enable %}
-          {% assign static_position = block.settings.static_position | default: 'first' %}
-          {% assign static_link = block.settings.static_link %}
-          {% assign static_image = block.settings.static_image %}
-          {% assign static_image_mobile = block.settings.static_image_mobile %}
-          {% assign static_alt = block.settings.static_alt | default: label %}
-
-          {% if label != blank and coll_handle != blank %}
-            {% assign coll = collections[coll_handle] %}
-            {% assign tab_id = 'tab-' | append: section.id | append: '-' | append: block.id %}
-            <div class="tabs__panel" id="{{ tab_id }}-panel" role="tabpanel" aria-labelledby="{{ tab_id }}" {% if first_done %}hidden{% endif %}>
-              <div class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
-                {% if coll.products_count == 0 and static_enabled != true %}
-                  <div class="collection collection--empty">
-                    <div class="title-wrapper center"><h3 class="title title--primary">{{ 'sections.collection_template.empty' | t }}</h3></div>
-                  </div>
-                {% else %}
-                  <div class="collection">
-                    <div class="loading-overlay gradient"></div>
-                    <ul class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop {% if section.settings.quick_add == 'bulk' %}collection-quick-add-bulk{% endif %}" data-id="{{ section.id }}">
-
-                      {% assign render_static_card = false %}
-                      {% if static_enabled and static_image != blank %}
-                        {% assign render_static_card = true %}
-                      {% endif %}
-
-                      {% if render_static_card and static_position == 'first' %}
-                        <li class="grid__item">
-                          <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
-                            <div class="card card--standard static-card__media">
-                              <div class="card__inner">
-                                <div class="media media--transparent media--square">
-                                  <picture>
-                                    {% if static_image_mobile != blank %}
-                                      <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
-                                    {% endif %}
-                                    <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_image | image_url: width: 1200 }}" srcset="{{ static_image | image_url: width: 600 }} 600w, {{ static_image | image_url: width: 900 }} 900w, {{ static_image | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
-                                  </picture>
-                                </div>
-                              </div>
-                            </div>
-                            {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ block.settings.static_caption_text | default: section.settings.static_caption_text | default: label }}</div>{% endif %}
-                          </a>
-                        </li>
-                      {% endif %}
-
-                      {% assign skip_card_product_styles = false %}
-                      {% for product in coll.products limit: limit %}
-                        {% assign lazy_load = false %}
-                        {% if forloop.index > 2 %}{% assign lazy_load = true %}{% endif %}
-                        <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade style="--animation-order: {{ forloop.index }};"{% endif %}>
-                          {% render 'card-product',
-                            card_product: product,
-                            media_aspect_ratio: section.settings.image_ratio,
-                            image_shape: section.settings.image_shape,
-                            show_secondary_image: section.settings.show_secondary_image,
-                            show_vendor: section.settings.show_vendor,
-                            show_rating: section.settings.show_rating,
-                            lazy_load: lazy_load,
-                            skip_styles: skip_card_product_styles,
-                            quick_add: section.settings.quick_add,
-                            section_id: section.id %}
-                        </li>
-                        {% assign skip_card_product_styles = true %}
-                      {% endfor %}
-
-                      {% if render_static_card and static_position == 'last' %}
-                        <li class="grid__item">
-                          <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
-                            <div class="card card--standard static-card__media">
-                              <div class="card__inner">
-                                <div class="media media--transparent media--square">
-                                  <picture>
-                                    {% if static_image_mobile != blank %}
-                                      <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
-                                    {% endif %}
-                                    <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_image | image_url: width: 1200 }}" srcset="{{ static_image | image_url: width: 600 }} 600w, {{ static_image | image_url: width: 900 }} 900w, {{ static_image | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
-                                  </picture>
-                                </div>
-                              </div>
-                            </div>
-                            {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ block.settings.static_caption_text | default: section.settings.static_caption_text | default: label }}</div>{% endif %}
-                          </a>
-                        </li>
-                      {% endif %}
-
-                    </ul>
-
-                    {% if view_all %}
-                      <div class="center" style="margin-top: var(--sp-6, 2rem);">
-                        <a class="button" href="{{ coll.url }}">{{ 'sections.collection_list.view_all' | t }}</a>
-                      </div>
-                    {% endif %}
-                  </div>
-                {% endif %}
-              </div>
-            </div>
-            {% assign first_done = true %}
-          {% endif %}
+<div id="pct-{{ section.id }}" class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}" data-id="{{ section.id }}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+      <div class="collection__title_inline">
+        {% if section.settings.title != blank %}
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
         {% endif %}
-      {% endfor %}
+
+        {%- assign tabs_present = false -%}
+        {%- for b in section.blocks -%}{% if b.type == 'tab' %}{% assign tabs_present = true %}{% break %}{% endif %}{%- endfor -%}
+        {% if tabs_present %}
+          <div class="featured-collections-buttons" role="tablist" aria-label="Promo collection tabs">
+            {%- assign idx = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'tab' -%}
+                {%- assign label = block.settings.label -%}
+                {%- assign coll_handle = block.settings.collection -%}
+                {%- if label != blank and coll_handle != blank -%}
+                  {%- assign tab_id = 'pctab-' | append: block.id -%}
+                  <button id="{{ tab_id }}" class="fctab button" type="button" role="tab" data-target="{{ block.id }}" aria-controls="pcpanel-{{ block.id }}" {% if idx == 0 %}aria-selected="true"{% else %}aria-selected="false"{% endif %}>{{ label }}</button>
+                  {%- assign idx = idx | plus: 1 -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_description and section.settings.description != blank %}
+        <div class="collection__description rte {{ section.settings.description_style }}">{{ section.settings.description }}</div>
+      {% endif %}
+    </div>
+
+    <div class="featured-collections-grids{% if section.settings.full_width %} page-width--wide{% else %} page-width{% endif %}">
+      {%- assign first_done = false -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'tab' -%}
+          {%- assign label = block.settings.label -%}
+          {%- assign coll_handle = block.settings.collection -%}
+          {%- if label == blank or coll_handle == blank -%}{% continue %}{% endif %}
+          {%- assign limit = block.settings.limit | default: section.settings.default_limit -%}
+          {%- assign view_all = block.settings.view_all -%}
+          {%- assign coll = collections[coll_handle] -%}
+
+          {%- assign static_enabled = block.settings.static_enable -%}
+          {%- assign static_position = block.settings.static_position | default: 'first' -%}
+          {%- assign static_link = block.settings.static_link -%}
+          {%- assign static_image = block.settings.static_image -%}
+          {%- assign static_image_mobile = block.settings.static_image_mobile -%}
+          {%- assign static_alt = block.settings.static_alt | default: label -%}
+
+          <div id="pcpanel-{{ block.id }}" class="fctab-panel" role="tabpanel" aria-labelledby="pctab-{{ block.id }}" {% if first_done %}hidden{% endif %}>
+            <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+
+              {%- assign render_static = false -%}
+              {%- if static_enabled and static_image != blank -%}{%- assign render_static = true -%}{%- endif -%}
+
+              {%- if render_static and static_position == 'first' -%}
+                <li class="grid__item">
+                  <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
+                    <div class="card card--standard static-card__media">
+                      <div class="card__inner">
+                        <div class="media media--transparent media--square">
+                          <picture>
+                            {% if static_image_mobile != blank %}
+                              <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
+                            {% endif %}
+                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_image | image_url: width: 1200 }}" srcset="{{ static_image | image_url: width: 600 }} 600w, {{ static_image | image_url: width: 900 }} 900w, {{ static_image | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ block.settings.static_caption_text | default: section.settings.static_caption_text | default: label }}</div>{% endif %}
+                  </a>
+                </li>
+              {%- endif -%}
+
+              {%- assign skip_card_product_styles = false -%}
+              {%- for product in coll.products limit: limit -%}
+                <li class="grid__item">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    lazy_load: false,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    section_id: section.id,
+                    quick_add: section.settings.quick_add %}
+                </li>
+                {%- assign skip_card_product_styles = true -%}
+              {%- endfor -%}
+
+              {%- if render_static and static_position == 'last' -%}
+                <li class="grid__item">
+                  <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
+                    <div class="card card--standard static-card__media">
+                      <div class="card__inner">
+                        <div class="media media--transparent media--square">
+                          <picture>
+                            {% if static_image_mobile != blank %}
+                              <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
+                            {% endif %}
+                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_image | image_url: width: 1200 }}" srcset="{{ static_image | image_url: width: 600 }} 600w, {{ static_image | image_url: width: 900 }} 900w, {{ static_image | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
+                        </div>
+                      </div>
+                    </div>
+                    {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ block.settings.static_caption_text | default: section.settings.static_caption_text | default: label }}</div>{% endif %}
+                  </a>
+                </li>
+              {%- endif -%}
+
+            </ul>
+
+            {% if block.settings.view_all and coll.url %}
+              <div class="center collection__view-all">
+                <a href="{{ coll.url }}" class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}">View all {{ coll.title | escape }}</a>
+              </div>
+            {% endif %}
+          </div>
+          {%- assign first_done = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% if tabs_present == false %}
+        <p class="page-width">Add at least one Tab block to render products.</p>
+      {% endif %}
     </div>
   </div>
-
-  {% if section.settings.image_shape == 'arch' %}
-    {{ 'mask-arch.svg' | inline_asset_content }}
-  {% endif %}
 </div>
 
 <script>
-  (() => {
-    const root = document.getElementById('CollectionTabs-{{ section.id }}');
-    if (!root) return;
-    const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
-    if (!tabs.length) return;
+(() => {
+  const root = document.getElementById('pct-{{ section.id }}');
+  if (!root) return;
+  const tabs = Array.from(root.querySelectorAll('.fctab'));
+  if (!tabs.length) return;
 
-    function panels(){ return Array.from(root.querySelectorAll('[role="tabpanel"]')); }
-
-    function activate(idx, focus = true){
-      const ps = panels();
-      tabs.forEach((t, i) => {
-        const selected = i === idx;
-        t.setAttribute('aria-selected', selected ? 'true' : 'false');
-        if (focus && selected) t.focus();
-      });
-      ps.forEach((p, i) => p.toggleAttribute('hidden', i !== idx));
-      history.replaceState(null, '', '#{{ section.id }}:' + (idx+1));
-    }
-
-    tabs.forEach((t, i) => {
-      t.addEventListener('click', () => activate(i, false));
-      t.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
-          e.preventDefault();
-          const dir = e.key === 'ArrowRight' ? 1 : -1;
-          const next = (i + dir + tabs.length) % tabs.length;
-          activate(next);
-        }
-      });
+  function activate(targetId){
+    tabs.forEach(btn => btn.setAttribute('aria-selected', btn.dataset.target === targetId ? 'true' : 'false'));
+    root.querySelectorAll('.fctab-panel').forEach(p => {
+      p.toggleAttribute('hidden', p.id !== 'pcpanel-' + targetId);
     });
+  }
 
-    const hash = location.hash.slice(1);
-    if (hash.startsWith('{{ section.id }}:')){
-      const num = parseInt(hash.split(':')[1], 10);
-      if (!Number.isNaN(num) && num >= 1 && num <= tabs.length){ activate(num-1, false); }
-    }
-  })();
+  tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
+})();
 </script>
 
 {% schema %}
 {
-  "name": "Collection Tabs",
+  "name": "Promo Collection Tabs",
+  "tag": "section",
   "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    {"type":"text","id":"heading","label":"Heading","default":"Featured collections"},
-    {"type":"select","id":"heading_size","label":"Heading size","default":"title--medium","options":[{"value":"title--small","label":"Small"},{"value":"title--medium","label":"Medium"},{"value":"title--large","label":"Large"}]},
-    {"type":"checkbox","id":"show_counts","label":"Show product counts on tabs","default":false},
+    { "type": "inline_richtext", "id": "title", "label": "Heading", "default": "Shop our products" },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "options": [
+      { "value": "h2", "label": "H2" },
+      { "value": "h1", "label": "H1" },
+      { "value": "h0", "label": "H0" },
+      { "value": "hxl", "label": "HXL" },
+      { "value": "hxxl", "label": "HXXL" }
+    ], "default": "h1" },
 
-    {"type":"header","content":"Grid & cards"},
-    {"type":"range","id":"columns_desktop","min":1,"max":6,"step":1,"default":4,"label":"Columns (desktop)"},
-    {"type":"select","id":"columns_mobile","default":"2","label":"Columns (mobile)","options":[{"value":"1","label":"1"},{"value":"2","label":"2"}]},
-    {"type":"select","id":"image_ratio","label":"Image ratio","default":"adapt","options":[{"value":"adapt","label":"Adapt"},{"value":"portrait","label":"Portrait"},{"value":"square","label":"Square"}]},
-    {"type":"select","id":"image_shape","label":"Image shape","default":"default","options":[{"value":"default","label":"Default"},{"value":"arch","label":"Arch"},{"value":"blob","label":"Blob"},{"value":"chevronleft","label":"Chevron Left"},{"value":"chevronright","label":"Chevron Right"},{"value":"diamond","label":"Diamond"},{"value":"parallelogram","label":"Parallelogram"},{"value":"round","label":"Round"}]},
-    {"type":"checkbox","id":"show_secondary_image","default":false,"label":"Show second image on hover"},
-    {"type":"checkbox","id":"show_vendor","default":false,"label":"Show vendor"},
-    {"type":"checkbox","id":"show_rating","default":false,"label":"Show rating"},
+    { "type": "richtext", "id": "description", "label": "Description" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": false },
+    { "type": "select", "id": "description_style", "label": "Description style", "options": [
+      { "value": "body", "label": "Body" },
+      { "value": "subtitle", "label": "Subtitle" },
+      { "value": "uppercase", "label": "Uppercase" }
+    ], "default": "body" },
 
-    {"type":"select","id":"quick_add","default":"none","label":"Quick add","options":[{"value":"none","label":"None"},{"value":"standard","label":"Standard"},{"value":"bulk","label":"Bulk (B2B style)"}]},
+    { "type": "header", "content": "Cards" },
+    { "type": "select", "id": "image_ratio", "label": "Image ratio", "options": [
+      { "value": "adapt", "label": "Adapt to image" },
+      { "value": "portrait", "label": "Portrait" },
+      { "value": "square", "label": "Square" }
+    ], "default": "adapt" },
+    { "type": "select", "id": "image_shape", "label": "Image shape", "options": [
+      { "value": "default", "label": "Default" },
+      { "value": "arch", "label": "Arch" },
+      { "value": "blob", "label": "Blob" },
+      { "value": "chevronleft", "label": "Chevron left" },
+      { "value": "chevronright", "label": "Chevron right" },
+      { "value": "diamond", "label": "Diamond" },
+      { "value": "parallelogram", "label": "Parallelogram" },
+      { "value": "round", "label": "Round" }
+    ], "default": "default" },
+    { "type": "checkbox", "id": "show_secondary_image", "default": false, "label": "Show second image on hover" },
+    { "type": "checkbox", "id": "show_vendor", "default": false, "label": "Show vendor" },
+    { "type": "checkbox", "id": "show_rating", "default": false, "label": "Show rating" },
 
-    {"type":"checkbox","id":"static_caption_enable","label":"Show caption under static card","default":false},
-    {"type":"text","id":"static_caption_text","label":"Default static caption text"},
+    { "type": "select", "id": "quick_add", "default": "none", "label": "Quick add", "options": [
+      { "value": "none", "label": "None" },
+      { "value": "standard", "label": "Standard" },
+      { "value": "bulk", "label": "Bulk (B2B)" }
+    ]},
 
-    {"type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-1"},
-    {"type":"range","id":"padding_top","min":0,"max":100,"step":4,"unit":"px","label":"Padding top","default":36},
-    {"type":"range","id":"padding_bottom","min":0,"max":100,"step":4,"unit":"px","label":"Padding bottom","default":36},
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "columns_desktop", "min": 1, "max": 6, "step": 1, "default": 4, "label": "Columns on desktop" },
+    { "type": "select", "id": "columns_mobile", "label": "Columns on mobile", "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ], "default": "2" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
 
-    {"type":"range","id":"default_limit","label":"Default products to show (fallback)","min":4,"max":48,"step":1,"default":16}
+    { "type": "checkbox", "id": "static_caption_enable", "label": "Show caption under static card", "default": false },
+    { "type": "text", "id": "static_caption_text", "label": "Default static caption text" },
+
+    { "type": "header", "content": "View all button" },
+    { "type": "checkbox", "id": "show_view_all", "default": true, "label": "Enable View all when block toggles it" },
+    { "type": "select", "id": "view_all_style", "label": "View all button style", "options": [
+      { "value": "link", "label": "Link" },
+      { "value": "outline", "label": "Outline button" },
+      { "value": "solid", "label": "Solid button" }
+    ], "default": "solid" },
+
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+
+    { "type": "header", "content": "Section padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 36 },
+
+    { "type": "range", "id": "default_limit", "label": "Default products to show (fallback)", "min": 4, "max": 48, "step": 1, "default": 16 }
   ],
   "blocks": [
     {
       "type": "tab",
       "name": "Tab",
       "settings": [
-        {"type":"text","id":"label","label":"Tab label","default":"Tab"},
-        {"type":"collection","id":"collection","label":"Collection"},
-        {"type":"range","id":"limit","label":"Products to show","min":4,"max":48,"step":1,"default":16},
-        {"type":"checkbox","id":"view_all","label":"Show ‘View all’ button","default":true},
+        { "type": "text", "id": "label", "label": "Tab label", "default": "Featured" },
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "range", "id": "limit", "label": "Products to show", "min": 4, "max": 48, "step": 1, "default": 16 },
+        { "type": "checkbox", "id": "view_all", "label": "Show ‘View all’ button", "default": true },
 
-        {"type":"header","content":"Static promo card"},
-        {"type":"checkbox","id":"static_enable","label":"Enable static promo card","default":false},
-        {"type":"select","id":"static_position","label":"Static card position","default":"first","options":[{"value":"first","label":"First"},{"value":"last","label":"Last"}]},
-        {"type":"url","id":"static_link","label":"Static card link"},
-        {"type":"image_picker","id":"static_image","label":"Static item Image (desktop)"},
-        {"type":"image_picker","id":"static_image_mobile","label":"Static item mobile Image"},
-        {"type":"text","id":"static_alt","label":"Static image alt", "default":"Promo"},
-        {"type":"text","id":"static_caption_text","label":"Static caption override"}
+        { "type": "header", "content": "Static promo card" },
+        { "type": "checkbox", "id": "static_enable", "label": "Enable static promo card", "default": false },
+        { "type": "select", "id": "static_position", "label": "Static card position", "default": "first", "options": [ { "value": "first", "label": "First" }, { "value": "last", "label": "Last" } ] },
+        { "type": "url", "id": "static_link", "label": "Static card link" },
+        { "type": "image_picker", "id": "static_image", "label": "Static item Image (desktop)" },
+        { "type": "image_picker", "id": "static_image_mobile", "label": "Static item mobile Image" },
+        { "type": "text", "id": "static_alt", "label": "Static image alt", "default": "Promo" },
+        { "type": "text", "id": "static_caption_text", "label": "Static caption override" }
       ]
     }
   ],
-  "presets": [
-    {"name":"Collection Tabs","category":"Collection"}
-  ]
+  "presets": [ { "name": "Promo Collection Tabs" } ]
 }
 {% endschema %}
