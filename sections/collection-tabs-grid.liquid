@@ -1,0 +1,369 @@
+{% comment %}
+  Collection Tabs Grid — Dawn-aligned
+  - Each block represents one tab (title + collection).
+  - Renders products using Dawn's 'card-product' within the standard grid markup.
+  - Deep linkable via #tab-<handle> or ?tab=<handle>.
+{% endcomment %}
+
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.image_shape == 'blob' -%}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Tabs (kept minimal; inherits Dawn tokens) */
+  .tabs-{{ section.id }} {
+    --tabs-accent: {{ section.settings.tabs_accent }};
+  }
+  .tabs-{{ section.id }}__nav {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    border-bottom: 1px solid rgb(var(--color-foreground), .08);
+    margin-bottom: 1rem;
+  }
+  .tabs-{{ section.id }}__btn {
+    appearance: none;
+    border: 1px solid rgb(var(--color-foreground), .15);
+    background: transparent;
+    border-radius: 9999px;
+    padding: .55rem 1rem;
+    font: inherit;
+    cursor: pointer;
+  }
+  .tabs-{{ section.id }}__btn[aria-selected="true"] {
+    background: var(--tabs-accent);
+    border-color: var(--tabs-accent);
+    color: #fff;
+  }
+
+  .tabs-{{ section.id }}__panel { display: none; }
+  .tabs-{{ section.id }}__panel[data-active="true"] { display: block; }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}" id="collection-tabs-{{ section.id }}">
+  <div class="page-width tabs-{{ section.id }}">
+
+    {%- if section.settings.heading != blank -%}
+      <div class="title-wrapper center">
+        <h2 class="title h2">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- assign first_block = section.blocks | first -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="tabs-{{ section.id }}__wrap" role="tablist" aria-label="{{ section.settings.heading | default: 'Collections' }}">
+        <div class="tabs-{{ section.id }}__nav">
+          {%- for block in section.blocks -%}
+            {%- assign tab_handle = block.settings.title | default: 'Tab ' | append: forloop.index | handleize -%}
+            <button
+              id="tab-{{ section.id }}-{{ tab_handle }}"
+              class="tabs-{{ section.id }}__btn"
+              role="tab"
+              type="button"
+              aria-selected="{{ forloop.first }}"
+              aria-controls="panel-{{ section.id }}-{{ tab_handle }}"
+              data-tab-handle="{{ tab_handle }}"
+              data-tab-index="{{ forloop.index0 }}"
+            >
+              {{- block.settings.title | escape -}}
+            </button>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
+      {%- for block in section.blocks -%}
+        {%- assign coll = collections[block.settings.collection] -%}
+        {%- assign tab_handle = block.settings.title | default: 'Tab ' | append: forloop.index | handleize -%}
+
+        <div
+          id="panel-{{ section.id }}-{{ tab_handle }}"
+          class="tabs-{{ section.id }}__panel"
+          role="tabpanel"
+          aria-labelledby="tab-{{ section.id }}-{{ tab_handle }}"
+          tabindex="0"
+          data-tab-panel="{{ tab_handle }}"
+          data-active="{{ forloop.first }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if coll and coll.products_count > 0 -%}
+            <div class="collection">
+              <div class="loading-overlay gradient"></div>
+              <ul
+                class="
+                  grid product-grid
+                  grid--{{ section.settings.columns_mobile }}-col-tablet-down
+                  grid--{{ section.settings.columns_desktop }}-col-desktop
+                  {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
+                "
+                id="product-grid-{{ section.id }}-{{ tab_handle }}"
+                data-id="{{ section.id }}"
+              >
+                {%- assign skip_card_product_styles = false -%}
+                {%- for product in coll.products limit: section.settings.max_products -%}
+                  {%- assign lazy_load = false -%}
+                  {%- if forloop.index > 2 -%}{%- assign lazy_load = true -%}{%- endif -%}
+                  <li
+                    class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                    {% render 'card-product',
+                      card_product: product,
+                      media_aspect_ratio: section.settings.image_ratio,
+                      image_shape: section.settings.image_shape,
+                      show_secondary_image: section.settings.show_secondary_image,
+                      show_vendor: section.settings.show_vendor,
+                      show_rating: section.settings.show_rating,
+                      lazy_load: lazy_load,
+                      skip_styles: skip_card_product_styles,
+                      quick_add: section.settings.quick_add,
+                      section_id: section.id
+                    %}
+                  </li>
+                  {%- assign skip_card_product_styles = true -%}
+                {%- endfor -%}
+              </ul>
+
+              {%- if block.settings.show_view_all and coll.url -%}
+                <div class="center" style="margin-top:1rem">
+                  <a class="button" href="{{ coll.url }}">
+                    {{ block.settings.view_all_label | default: 'View all' }}
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- else -%}
+            <div class="collection collection--empty">
+              <div class="title-wrapper center">
+                <h3 class="h4">{{ block.settings.empty_text | default: 'No products found in this collection.' }}</h3>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const root = document.getElementById('collection-tabs-{{ section.id }}');
+    if (!root) return;
+
+    const navBtns = root.querySelectorAll('.tabs-{{ section.id }}__btn');
+    const panels = root.querySelectorAll('.tabs-{{ section.id }}__panel');
+
+    function activate(handle) {
+      navBtns.forEach(btn => {
+        const isActive = btn.dataset.tabHandle === handle;
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(panel => {
+        const isActive = panel.dataset.tabPanel === handle;
+        panel.dataset.active = isActive ? 'true' : 'false';
+      });
+    }
+
+    function getInitialHandle() {
+      const url = new URL(window.location.href);
+      const q = url.searchParams.get('tab');
+      if (q) return q;
+      if (window.location.hash && window.location.hash.startsWith('#tab-')) {
+        return window.location.hash.replace('#tab-', '');
+      }
+      const first = navBtns[0];
+      return first ? first.dataset.tabHandle : null;
+    }
+
+    // Bind clicks
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const handle = btn.dataset.tabHandle;
+        if (!handle) return;
+        activate(handle);
+
+        // Update hash for deep-linking without scrolling the page
+        const newHash = '#tab-' + handle;
+        if (history.replaceState) {
+          history.replaceState(null, '', newHash);
+        } else {
+          window.location.hash = newHash;
+        }
+      });
+    });
+
+    // Init
+    const initial = getInitialHandle();
+    if (initial) activate(initial);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Collection Tabs",
+  "class": "section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured collections"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+
+    { "type": "header", "content": "Grid & cards" },
+    {
+      "type": "range",
+      "id": "max_products",
+      "min": 4,
+      "max": 48,
+      "step": 4,
+      "default": 16,
+      "label": "Max products per tab"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Columns on mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "default": "adapt",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "arch", "label": "Arch" },
+        { "value": "blob", "label": "Blob" },
+        { "value": "chevronleft", "label": "Chevron left" },
+        { "value": "chevronright", "label": "Chevron right" },
+        { "value": "diamond", "label": "Diamond" },
+        { "value": "parallelogram", "label": "Parallelogram" },
+        { "value": "round", "label": "Round" }
+      ]
+    },
+    { "type": "checkbox", "id": "show_secondary_image", "label": "Show secondary image on hover", "default": false },
+    { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": false },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating", "default": false },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "label": "Quick add",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "standard", "label": "Standard" },
+        { "value": "bulk", "label": "Bulk (Quick order list)" }
+      ]
+    },
+
+    { "type": "header", "content": "Tabs styling" },
+    {
+      "type": "color",
+      "id": "tabs_accent",
+      "label": "Active tab accent",
+      "default": "#111111"
+    },
+
+    { "type": "header", "content": "Section padding" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab title", "default": "Standard" },
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "checkbox", "id": "show_view_all", "label": "Show “View all” button", "default": true },
+        { "type": "text", "id": "view_all_label", "label": "View all label", "default": "View all" },
+        { "type": "text", "id": "empty_text", "label": "Empty state text", "default": "No products found in this collection." }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Collection Tabs", "category": "Collection" }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}
