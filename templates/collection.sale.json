@@ -73,7 +73,7 @@
           "settings": {
             "label": "Skincare",
             "collection": "skincare",
-            "limit": 16,
+            "limit": 15,
             "view_all": true,
             "static_enable": true,
             "static_position": "first",
@@ -89,7 +89,7 @@
           "settings": {
             "label": "Supplements",
             "collection": "supplements",
-            "limit": 16,
+            "limit": 15,
             "view_all": true,
             "static_enable": true,
             "static_position": "first",
