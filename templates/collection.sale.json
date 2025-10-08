@@ -46,7 +46,9 @@
         "slide_fTk4Hh"
       ],
       "custom_css": [
-        "@media (min-width: 750px) {.subtitle {max-width: 45%; font-size: 20px; } .banner--content-align-left {width: 100%; } .banner {max-height: 600px; height: 40vw; } img {width: 100%; height: 100%; object-fit: cover; object-position: center; }}"
+        "@media (max-width: 749px) {.banner {height: 100vw; }}",
+        "@media (min-width: 750px) {.subtitle {max-width: 45%; font-size: 20px; } .banner--content-align-left {width: 100%; } .banner {max-height: 600px; height: 40vw; }}",
+        "img {width: 100%; height: 100%; object-fit: cover; object-position: center;}"
       ],
       "name": "Video + Image Hero Slider",
       "settings": {
@@ -57,7 +59,7 @@
         "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "",
-        "stack_text_on_mobile": false,
+        "stack_text_on_mobile": true,
         "autoplay": false,
         "autoplay_delay": 4000,
         "loop": false,
