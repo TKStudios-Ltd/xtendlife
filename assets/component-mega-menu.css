@@ -70,9 +70,13 @@
   flex-wrap: nowrap;
   gap: 2rem;
 }
-.mega-menu__tile {
+#MegaMenu-Content-2 .mega-menu__tile {
   position: relative;
-  flex: 1 1 auto;
+  flex: 0 0 calc(50% - 1.5rem);
+}
+#MegaMenu-Content-2 .mega-menu__tile {
+  position: relative;
+  flex: 0 0 calc(33.3333% - 1.5rem);
 }
 .mega-menu__tile a {
   display: block;
