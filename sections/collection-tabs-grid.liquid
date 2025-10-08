@@ -1,9 +1,9 @@
 {% comment %}
-  Promo Collection Tabs (Dawn‑compatible, BLOCKS)
+  Promo Collection Tabs (Dawn-compatible, BLOCKS)
   - Uses your featured-collection layout/classes for header + tabs
   - Tabs are dynamic blocks; each block renders a collection grid
   - Static promo card per block with desktop + mobile images
-  - FIXES: uses Dawn media ratios (no manual height hacks), mobile fallback, optional full-row span
+  - FIXES: correct 1-col mobile visibility, Dawn media ratios (no manual height hacks), mobile fallback, optional full-row span
 {% endcomment %}
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
@@ -54,14 +54,11 @@
 /* Static promo card visuals (use Dawn media ratios) */
 #pct-{{ section.id }} .static-card__inner { display:block; text-decoration:none; }
 #pct-{{ section.id }} .static-card__media { position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
-#pct-{{ section.id }} .static-card__media .media {
-    padding-bottom: 150%;
-}
-#pct-{{ section.id }} .static-card__media .media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* Make picture fill the media box (fixes 1-col tablet-down) */
+#pct-{{ section.id }} .static-card__media .media { position: relative; }
+#pct-{{ section.id }} .static-card__media .media picture { position: absolute; inset: 0; display: block; }
+#pct-{{ section.id }} .static-card__media .media picture img { display:block; width:100%; height:100%; object-fit:cover; }
+
 #pct-{{ section.id }} .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
 /* Make static card span full row when enabled */
 #pct-{{ section.id }} .grid__item--static-full { grid-column: 1 / -1; }
@@ -123,9 +120,9 @@
             <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
 
               {% assign render_static = false %}
-                {% if static_enabled %}
+              {% if static_enabled %}
                 {% if static_image != blank or static_image_mobile != blank %}
-                    {% assign render_static = true %}
+                  {% assign render_static = true %}
                 {% endif %}
               {% endif %}
 
@@ -138,16 +135,21 @@
 
               {%- if render_static and static_position == 'first' -%}
                 {%- assign static_src = static_image | default: static_image_mobile -%}
+                {%- assign ratio_img = static_image_mobile | default: static_image -%}
+                {%- assign ratio_percent = 100 -%}
+                {%- if ratio_img != blank and ratio_img.aspect_ratio -%}
+                  {%- assign ratio_percent = 1 | divided_by: ratio_img.aspect_ratio | times: 100 -%}
+                {%- endif -%}
                 <li class="grid__item{% if static_full %} grid__item--static-full{% endif %}">
                   <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
                     <div class="card card--standard static-card__media">
                       <div class="card__inner">
-                        <div class="media {{ media_class }}">
+                        <div class="media {{ media_class }}"{% if media_class == 'media--adapt' %} style="--ratio-percent: {{ ratio_percent }}%;"{% endif %}>
                           <picture>
                             {% if static_image_mobile != blank %}
                               <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
                             {% endif %}
-                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_src | image_url: width: 1200 }}" srcset="{{ static_src | image_url: width: 600 }} 600w, {{ static_src | image_url: width: 900 }} 900w, {{ static_src | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
+                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_src | image_url: width: 1200 }}" srcset="{{ static_src | image_url: width: 600 }} 600w, {{ static_src | image_url: width: 900 }} 900w, {{ static_src | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)">
                           </picture>
                         </div>
                       </div>
@@ -176,16 +178,22 @@
 
               {%- if render_static and static_position == 'last' -%}
                 {%- assign static_src = static_image | default: static_image_mobile -%}
+                {%- assign ratio_img = static_image_mobile | default: static_image -%}
+                {%- assign ratio_percent = 100 -%}
+                {%- if ratio_img != blank and ratio_img.aspect_ratio -%}
+                  {%- assign ratio_percent = 1 | divided_by: ratio_img.aspect_ratio | times: 100 -%}
+                {%- endif -%}
                 <li class="grid__item{% if static_full %} grid__item--static-full{% endif %}">
                   <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
                     <div class="card card--standard static-card__media">
                       <div class="card__inner">
-                        <div class="media {{ media_class }}">
+                        <div class="media {{ media_class }}"{% if media_class == 'media--adapt' %} style="--ratio-percent: {{ ratio_percent }}%;"{% endif %}>
                           <picture>
                             {% if static_image_mobile != blank %}
                               <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
                             {% endif %}
-                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_src | image_url: width: 1200 }}" srcset="{{ static_src | image_url: width: 600 }} 600w, {{ static_src | image_url: width: 900 }} 900w, {{ static_src | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
+                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_src | image_url: width: 1200 }}" srcset="{{ static_src | image_url: width: 600 }} 600w, {{ static_src | image_url: width: 900 }} 900w, {{ static_src | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)">
+                          </picture>
                         </div>
                       </div>
                     </div>
