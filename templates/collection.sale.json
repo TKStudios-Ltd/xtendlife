@@ -11,10 +11,54 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "show_collection_description": false,
         "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023"
+      }
+    },
+    "media_hero_slider_EDQQWQ": {
+      "type": "media-hero-slider",
+      "blocks": {
+        "slide_fTk4Hh": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Kanapa_Promo_Desk.png",
+            "image_tablet": "shopify://shop_images/Kanapa_Promo_iPad.png",
+            "image_mobile": "shopify://shop_images/Kanapa_Promo_Mob.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 100,
+            "heading": "Your<em> Gift,</em> our<em>Treat!</em>",
+            "heading_size": "h1",
+            "text": "Purchase two or more Kanapa products, one being a cleanser, and receive your choice of Mini Glow Essentials or Mini Hydration Essentials for Men. Gift must be added to cart.",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_fTk4Hh"
+      ],
+      "name": "Video + Image Hero Slider",
+      "settings": {
+        "wide_container": false,
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_text_on_mobile": true,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "loop": false,
+        "speed": 500
       }
     },
     "product-grid": {
@@ -368,6 +412,7 @@
   },
   "order": [
     "banner",
+    "media_hero_slider_EDQQWQ",
     "product-grid",
     "collection_list_GrRzez",
     "image_with_text_KCQTNJ",
