@@ -393,16 +393,18 @@ main.article-template > .section:first-of-type {
   color: white;
 }
 .hc-article-template .stats-card__list { 
-  /* list-style: none;  */
-  margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+  margin: 0 0 0 1.5rem;
+  padding: 0;
+  display: grid; 
+  gap: 0.5rem; 
+}
 /* .hc-article-template .stats-card__item { display: grid; grid-template-columns: 24px 1fr; align-items: start; gap: 1rem; } */
 .hc-article-template .stats-card__icon { display: inline-flex; line-height: 0; color: white; }
 .hc-article-template .stats-card__text {     
   font-family: var(--font-body-family);
   font-weight: var(--font-body-weight);
   font-size: 1.4rem; 
-  line-height: 1.2;
-  max-width: 300px;
+  line-height: 1;
 }
 .hc-article-template__refs h5 {
   margin: 0 0 1rem;
