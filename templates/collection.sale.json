@@ -53,7 +53,7 @@
         "wide_container": false,
         "image_overlay_opacity": 0,
         "image_height": "small",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
