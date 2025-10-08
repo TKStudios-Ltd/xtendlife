@@ -25,7 +25,6 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Kanapa_Promo_Desk.png",
-            "image_tablet": "shopify://shop_images/Kanapa_Promo_iPad.png",
             "image_mobile": "shopify://shop_images/Kanapa_Promo_Mob.png",
             "video_mp4": "",
             "video_adapt_ratio": 100,
