@@ -46,9 +46,8 @@
         "slide_fTk4Hh"
       ],
       "custom_css": [
-        "@media (max-width: 749px) {.banner {height: 120vw; } .banner__box {display: none; }}",
-        "@media (min-width: 750px) {.subtitle {max-width: 45%; font-size: 20px; } .banner--content-align-left {width: 100%; } .banner {max-height: 600px; height: 40vw; }}",
-        "img {width: 100%; height: 100%; object-fit: cover; object-position: center;}"
+        "@media (max-width: 749px) {.banner__media {height: 100vw; }}",
+        "@media (min-width: 750px) {.subtitle {max-width: 45%; font-size: 20px; } .banner--content-align-left {width: 100%; } .banner {max-height: 600px; height: 40vw; }}"
       ],
       "name": "Video + Image Hero Slider",
       "settings": {
