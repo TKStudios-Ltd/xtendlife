@@ -65,63 +65,85 @@
         "speed": 500
       }
     },
-    "collection_tabs_grid_NtL3Hk": {
+    "collection_tabs_grid_QPpXxb": {
       "type": "collection-tabs-grid",
       "blocks": {
-        "tab_QtMrYj": {
+        "tab_hNQHfA": {
           "type": "tab",
           "settings": {
-            "label": "Skincare",
-            "collection": "skincare",
-            "limit": 15,
+            "label": "Sale",
+            "collection": "sale",
+            "limit": 16,
             "view_all": true,
             "static_enable": true,
             "static_position": "first",
             "static_link": "",
             "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
-            "static_image_mobile": "shopify://shop_images/image-placeholder-500x500-1.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
             "static_alt": "Promo",
             "static_caption_text": ""
           }
         },
-        "tab_6xmAjd": {
+        "tab_R46dJx": {
+          "type": "tab",
+          "settings": {
+            "label": "Skincare",
+            "collection": "skincare",
+            "limit": 16,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "last",
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        },
+        "tab_HArBQh": {
           "type": "tab",
           "settings": {
             "label": "Supplements",
             "collection": "supplements",
-            "limit": 15,
+            "limit": 16,
             "view_all": true,
             "static_enable": true,
             "static_position": "first",
             "static_link": "",
             "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
-            "static_image_mobile": "shopify://shop_images/image-placeholder-500x500-1.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
             "static_alt": "Promo",
             "static_caption_text": ""
           }
         }
       },
       "block_order": [
-        "tab_QtMrYj",
-        "tab_6xmAjd"
+        "tab_hNQHfA",
+        "tab_R46dJx",
+        "tab_HArBQh"
       ],
-      "name": "Collection Tabs",
+      "name": "Promo Collection Tabs",
       "settings": {
-        "heading": "Featured collections",
-        "heading_size": "title--medium",
-        "show_counts": false,
-        "columns_desktop": 4,
-        "columns_mobile": "1",
+        "title": "Promo Collections",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
         "quick_add": "standard",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "full_width": false,
         "static_caption_enable": false,
         "static_caption_text": "",
+        "show_view_all": true,
+        "view_all_style": "solid",
         "color_scheme": "",
-        "padding_top": 0,
+        "padding_top": 40,
         "padding_bottom": 80,
         "default_limit": 16
       }
@@ -479,7 +501,7 @@
   "order": [
     "banner",
     "media_hero_slider_EDQQWQ",
-    "collection_tabs_grid_NtL3Hk",
+    "collection_tabs_grid_QPpXxb",
     "product-grid",
     "collection_list_GrRzez",
     "image_with_text_KCQTNJ",
