@@ -52,8 +52,16 @@
 }
 
 /* Static promo card visuals (use Dawn media ratios) */
-#pct-{{ section.id }} .static-card__inner{ display:block; text-decoration:none; }
-#pct-{{ section.id }} .static-card__media{ position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
+#pct-{{ section.id }} .static-card__inner { display:block; text-decoration:none; }
+#pct-{{ section.id }} .static-card__media { position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
+#pct-{{ section.id }} .static-card__media .media {
+    padding-bottom: 150%;
+}
+#pct-{{ section.id }} .static-card__media .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 #pct-{{ section.id }} .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
 /* Make static card span full row when enabled */
 #pct-{{ section.id }} .grid__item--static-full { grid-column: 1 / -1; }
