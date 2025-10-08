@@ -208,7 +208,14 @@
 
             {% if section.settings.stack_text_on_mobile and b.text != blank %}
               <div class="page-width">
-                <div class="mhs-stacked-mobile banner__text rte {{ b.text_style }}"><p>{{ b.text }}</p></div>
+                <div class="mhs-stacked-mobile banner__text rte {{ b.text_style }}">
+                  {% if b.heading != blank %}
+                    <h2 class="banner__heading inline-richtext {{ b.heading_size }}">{{ b.heading }}</h2>
+                  {% endif %}
+                  {% if b.text != blank %}
+                    <div class="banner__text rte {{ b.text_style }}"><p class="subtitle">{{ b.text }}</p></div>
+                  {% endif %}
+                </div>
               </div>
             {% endif %}
 
