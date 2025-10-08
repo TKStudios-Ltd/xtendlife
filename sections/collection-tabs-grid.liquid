@@ -4,6 +4,7 @@
   - Uses Dawn’s product grid classes and card-product snippet for full visual parity.
   - Lightweight, accessible tabs (no jQuery). Supports deep links via #tab-{n}.
   - Optional quick add (standard / bulk) like main-collection-product-grid.
+  - NEW: Optional per‑tab Static Promo Card with desktop/mobile images and link, placeable first or last in the grid.
 
   File: sections/collection-tabs-dawn.liquid
 {% endcomment %}
@@ -38,10 +39,15 @@
 
   /* Tabs */
   .tabs { width: 100%; }
-  .tabs__nav { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+  .tabs__nav { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; justify-content:center; margin-bottom: 1rem; }
   .tabs__btn{ border:1px solid rgb(var(--color-foreground)); background:transparent; border-radius:999px; padding:.55rem 1rem; font-weight:600; cursor:pointer; }
   .tabs__btn[aria-selected="true"]{ background: rgb(var(--color-foreground)); color: rgb(var(--color-background)); }
   .tabs__panel[hidden]{ display:none; }
+
+  /* Static promo card mimic */
+  .static-card__inner{ display:block; text-decoration:none; }
+  .static-card__media{ position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
+  .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
@@ -51,9 +57,6 @@
         <h2 class="title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
       </div>
     {% endif %}
-
-    {% assign tabs = '' %}
-    {% assign tabs = tabs | append: section.settings.tab_1_label | append: '||' | append: section.settings.tab_2_label | append: '||' | append: section.settings.tab_3_label | append: '||' | append: section.settings.tab_4_label %}
 
     <div class="tabs" id="CollectionTabs-{{ section.id }}">
       <div class="tabs__nav" role="tablist" aria-label="{{ section.settings.heading | default: 'Collections' }}">
@@ -75,16 +78,32 @@
         {% assign coll_key  = 'tab_' | append: i | append: '_collection' %}
         {% assign link_key  = 'tab_' | append: i | append: '_view_all' %}
         {% assign limit_key = 'tab_' | append: i | append: '_limit' %}
+
+        {% assign static_enable_key = 'tab_' | append: i | append: '_static_enable' %}
+        {% assign static_pos_key    = 'tab_' | append: i | append: '_static_position' %}
+        {% assign static_link_key   = 'tab_' | append: i | append: '_static_link' %}
+        {% assign static_img_key    = 'tab_' | append: i | append: '_static_image' %}
+        {% assign static_imgm_key   = 'tab_' | append: i | append: '_static_image_mobile' %}
+        {% assign static_alt_key    = 'tab_' | append: i | append: '_static_alt' %}
+        
         {% assign label = section.settings[label_key] %}
         {% assign handle = section.settings[coll_key] %}
         {% assign view_all = section.settings[link_key] %}
         {% assign limit = section.settings[limit_key] | default: section.settings.default_limit %}
+
+        {% assign static_enabled = section.settings[static_enable_key] %}
+        {% assign static_position = section.settings[static_pos_key] | default: 'first' %}
+        {% assign static_link = section.settings[static_link_key] %}
+        {% assign static_image = section.settings[static_img_key] %}
+        {% assign static_image_mobile = section.settings[static_imgm_key] %}
+        {% assign static_alt = section.settings[static_alt_key] | default: label %}
+
         {% if label != blank and handle != blank %}
           {% assign coll = collections[handle] %}
           {% assign tab_id = 'tab-' | append: section.id | append: '-' | append: i %}
           <div class="tabs__panel" id="{{ tab_id }}-panel" role="tabpanel" aria-labelledby="{{ tab_id }}" {% unless forloop.first %}hidden{% endunless %}>
             <div class="product-grid-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"{% if settings.animations_reveal_on_scroll %} data-cascade{% endif %}>
-              {% if coll.products_count == 0 %}
+              {% if coll.products_count == 0 and static_enabled != true %}
                 <div class="collection collection--empty">
                   <div class="title-wrapper center">
                     <h3 class="title title--primary">{{ 'sections.collection_template.empty' | t }}</h3>
@@ -94,6 +113,33 @@
                 <div class="collection">
                   <div class="loading-overlay gradient"></div>
                   <ul class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop {% if section.settings.quick_add == 'bulk' %}collection-quick-add-bulk{% endif %}" data-id="{{ section.id }}">
+
+                    {% comment %} Helper: render static promo card {% endcomment %}
+                    {% assign render_static_card = false %}
+                    {% if static_enabled and static_image != blank %}
+                      {% assign render_static_card = true %}
+                    {% endif %}
+
+                    {% if render_static_card and static_position == 'first' %}
+                      <li class="grid__item">
+                        <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
+                          <div class="card card--standard static-card__media">
+                            <div class="card__inner">
+                              <div class="media media--transparent media--square">
+                                <picture>
+                                  {% if static_image_mobile != blank %}
+                                    <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
+                                  {% endif %}
+                                  <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_image | image_url: width: 1200 }}" srcset="{{ static_image | image_url: width: 600 }} 600w, {{ static_image | image_url: width: 900 }} 900w, {{ static_image | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
+                                </picture>
+                              </div>
+                            </div>
+                          </div>
+                          {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ section.settings.static_caption_text | default: label }}</div>{% endif %}
+                        </a>
+                      </li>
+                    {% endif %}
+
                     {% assign skip_card_product_styles = false %}
                     {% for product in coll.products limit: limit %}
                       {% assign lazy_load = false %}
@@ -113,6 +159,27 @@
                       </li>
                       {% assign skip_card_product_styles = true %}
                     {% endfor %}
+
+                    {% if render_static_card and static_position == 'last' %}
+                      <li class="grid__item">
+                        <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
+                          <div class="card card--standard static-card__media">
+                            <div class="card__inner">
+                              <div class="media media--transparent media--square">
+                                <picture>
+                                  {% if static_image_mobile != blank %}
+                                    <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
+                                  {% endif %}
+                                  <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_image | image_url: width: 1200 }}" srcset="{{ static_image | image_url: width: 600 }} 600w, {{ static_image | image_url: width: 900 }} 900w, {{ static_image | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)" class="motion-reduce" />
+                                </picture>
+                              </div>
+                            </div>
+                          </div>
+                          {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ section.settings.static_caption_text | default: label }}</div>{% endif %}
+                        </a>
+                      </li>
+                    {% endif %}
+
                   </ul>
 
                   {% if view_all %}
@@ -150,7 +217,6 @@
         const panel = document.getElementById(t.id + '-panel');
         if (panel) panel.toggleAttribute('hidden', !selected);
       });
-      // Update hash for deep link
       history.replaceState(null, '', '#{{ section.id }}:' + (idx+1));
     }
 
@@ -166,7 +232,6 @@
       });
     });
 
-    // Deep-link: #<section.id>:<n>
     const hash = location.hash.slice(1);
     if (hash.startsWith('{{ section.id }}:')){
       const num = parseInt(hash.split(':')[1], 10);
@@ -193,57 +258,63 @@
     {"type":"text","id":"tab_1_label","label":"Label","default":"New"},
     {"type":"collection","id":"tab_1_collection","label":"Collection"},
     {"type":"range","id":"tab_1_limit","label":"Products to show","min":4,"max":48,"step":4,"default":16},
+    {"type":"checkbox","id":"tab_1_view_all","label":"Show ‘View all’","default":true},
+    {"type":"checkbox","id":"tab_1_static_enable","label":"Enable static promo card","default":false},
+    {"type":"select","id":"tab_1_static_position","label":"Static card position","default":"first","options":[{"value":"first","label":"First"},{"value":"last","label":"Last"}]},
+    {"type":"url","id":"tab_1_static_link","label":"Static card link"},
+    {"type":"image_picker","id":"tab_1_static_image","label":"Static item Image (desktop)"},
+    {"type":"image_picker","id":"tab_1_static_image_mobile","label":"Static item mobile Image"},
+    {"type":"text","id":"tab_1_static_alt","label":"Static image alt", "default":"Promo"},
 
     {"type":"header","content":"Tab 2"},
     {"type":"text","id":"tab_2_label","label":"Label","default":"Best sellers"},
     {"type":"collection","id":"tab_2_collection","label":"Collection"},
     {"type":"range","id":"tab_2_limit","label":"Products to show","min":4,"max":48,"step":4,"default":16},
+    {"type":"checkbox","id":"tab_2_view_all","label":"Show ‘View all’","default":true},
+    {"type":"checkbox","id":"tab_2_static_enable","label":"Enable static promo card","default":false},
+    {"type":"select","id":"tab_2_static_position","label":"Static card position","default":"first","options":[{"value":"first","label":"First"},{"value":"last","label":"Last"}]},
+    {"type":"url","id":"tab_2_static_link","label":"Static card link"},
+    {"type":"image_picker","id":"tab_2_static_image","label":"Static item Image (desktop)"},
+    {"type":"image_picker","id":"tab_2_static_image_mobile","label":"Static item mobile Image"},
+    {"type":"text","id":"tab_2_static_alt","label":"Static image alt", "default":"Promo"},
 
     {"type":"header","content":"Tab 3"},
     {"type":"text","id":"tab_3_label","label":"Label"},
     {"type":"collection","id":"tab_3_collection","label":"Collection"},
     {"type":"range","id":"tab_3_limit","label":"Products to show","min":4,"max":48,"step":4,"default":16},
+    {"type":"checkbox","id":"tab_3_view_all","label":"Show ‘View all’","default":true},
+    {"type":"checkbox","id":"tab_3_static_enable","label":"Enable static promo card","default":false},
+    {"type":"select","id":"tab_3_static_position","label":"Static card position","default":"first","options":[{"value":"first","label":"First"},{"value":"last","label":"Last"}]},
+    {"type":"url","id":"tab_3_static_link","label":"Static card link"},
+    {"type":"image_picker","id":"tab_3_static_image","label":"Static item Image (desktop)"},
+    {"type":"image_picker","id":"tab_3_static_image_mobile","label":"Static item mobile Image"},
+    {"type":"text","id":"tab_3_static_alt","label":"Static image alt", "default":"Promo"},
 
     {"type":"header","content":"Tab 4"},
     {"type":"text","id":"tab_4_label","label":"Label"},
     {"type":"collection","id":"tab_4_collection","label":"Collection"},
     {"type":"range","id":"tab_4_limit","label":"Products to show","min":4,"max":48,"step":4,"default":16},
-
-    {"type":"checkbox","id":"tab_1_view_all","label":"Show ‘View all’ button on Tab 1","default":true},
-    {"type":"checkbox","id":"tab_2_view_all","label":"Show ‘View all’ button on Tab 2","default":true},
-    {"type":"checkbox","id":"tab_3_view_all","label":"Show ‘View all’ button on Tab 3","default":true},
-    {"type":"checkbox","id":"tab_4_view_all","label":"Show ‘View all’ button on Tab 4","default":true},
+    {"type":"checkbox","id":"tab_4_view_all","label":"Show ‘View all’","default":true},
+    {"type":"checkbox","id":"tab_4_static_enable","label":"Enable static promo card","default":false},
+    {"type":"select","id":"tab_4_static_position","label":"Static card position","default":"first","options":[{"value":"first","label":"First"},{"value":"last","label":"Last"}]},
+    {"type":"url","id":"tab_4_static_link","label":"Static card link"},
+    {"type":"image_picker","id":"tab_4_static_image","label":"Static item Image (desktop)"},
+    {"type":"image_picker","id":"tab_4_static_image_mobile","label":"Static item mobile Image"},
+    {"type":"text","id":"tab_4_static_alt","label":"Static image alt", "default":"Promo"},
 
     {"type":"header","content":"Grid & Cards"},
     {"type":"range","id":"columns_desktop","min":1,"max":6,"step":1,"default":4,"label":"Columns (desktop)"},
-    {"type":"select","id":"columns_mobile","default":"2","label":"Columns (mobile)","options":[
-      {"value":"1","label":"1"},
-      {"value":"2","label":"2"}
-    ]},
-    {"type":"select","id":"image_ratio","label":"Image ratio","default":"adapt","options":[
-      {"value":"adapt","label":"Adapt"},
-      {"value":"portrait","label":"Portrait"},
-      {"value":"square","label":"Square"}
-    ]},
-    {"type":"select","id":"image_shape","label":"Image shape","default":"default","options":[
-      {"value":"default","label":"Default"},
-      {"value":"arch","label":"Arch"},
-      {"value":"blob","label":"Blob"},
-      {"value":"chevronleft","label":"Chevron Left"},
-      {"value":"chevronright","label":"Chevron Right"},
-      {"value":"diamond","label":"Diamond"},
-      {"value":"parallelogram","label":"Parallelogram"},
-      {"value":"round","label":"Round"}
-    ]},
+    {"type":"select","id":"columns_mobile","default":"2","label":"Columns (mobile)","options":[{"value":"1","label":"1"},{"value":"2","label":"2"}]},
+    {"type":"select","id":"image_ratio","label":"Image ratio","default":"adapt","options":[{"value":"adapt","label":"Adapt"},{"value":"portrait","label":"Portrait"},{"value":"square","label":"Square"}]},
+    {"type":"select","id":"image_shape","label":"Image shape","default":"default","options":[{"value":"default","label":"Default"},{"value":"arch","label":"Arch"},{"value":"blob","label":"Blob"},{"value":"chevronleft","label":"Chevron Left"},{"value":"chevronright","label":"Chevron Right"},{"value":"diamond","label":"Diamond"},{"value":"parallelogram","label":"Parallelogram"},{"value":"round","label":"Round"}]},
     {"type":"checkbox","id":"show_secondary_image","default":false,"label":"Show second image on hover"},
     {"type":"checkbox","id":"show_vendor","default":false,"label":"Show vendor"},
     {"type":"checkbox","id":"show_rating","default":false,"label":"Show rating"},
 
-    {"type":"select","id":"quick_add","default":"none","label":"Quick add","options":[
-      {"value":"none","label":"None"},
-      {"value":"standard","label":"Standard"},
-      {"value":"bulk","label":"Bulk (B2B style)"}
-    ]},
+    {"type":"select","id":"quick_add","default":"none","label":"Quick add","options":[{"value":"none","label":"None"},{"value":"standard","label":"Standard"},{"value":"bulk","label":"Bulk (B2B style)"}]},
+
+    {"type":"checkbox","id":"static_caption_enable","label":"Show caption under static card","default":false},
+    {"type":"text","id":"static_caption_text","label":"Static card caption text"},
 
     {"type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-1"},
     {"type":"range","id":"padding_top","min":0,"max":100,"step":4,"unit":"px","label":"Padding top","default":36},
