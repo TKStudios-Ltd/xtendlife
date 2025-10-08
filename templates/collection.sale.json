@@ -65,24 +65,6 @@
         "speed": 500
       }
     },
-    "collection_tabs_grid_A8Y8EE": {
-      "type": "collection-tabs-grid",
-      "name": "Collection Tabs",
-      "settings": {
-        "heading": "Featured collections",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "disabled": true,
@@ -436,7 +418,6 @@
   "order": [
     "banner",
     "media_hero_slider_EDQQWQ",
-    "collection_tabs_grid_A8Y8EE",
     "product-grid",
     "collection_list_GrRzez",
     "image_with_text_KCQTNJ",
