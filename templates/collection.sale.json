@@ -136,7 +136,7 @@
         "show_rating": true,
         "quick_add": "standard",
         "columns_desktop": 4,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "full_width": false,
         "static_caption_enable": false,
         "static_caption_text": "",
