@@ -46,13 +46,13 @@
         "slide_fTk4Hh"
       ],
       "custom_css": [
-        "@media (min-width: 750px) {.subtitle {max-width: 45%; }}"
+        "@media (min-width: 750px) {.subtitle {max-width: 45%; font-size: 20px; } img {width: 100%; height: auto; }}"
       ],
       "name": "Video + Image Hero Slider",
       "settings": {
         "wide_container": false,
         "image_overlay_opacity": 0,
-        "image_height": "small",
+        "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "left",
         "show_text_box": false,
