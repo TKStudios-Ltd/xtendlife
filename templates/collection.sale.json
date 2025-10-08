@@ -18,44 +18,6 @@
         "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023"
       }
     },
-    "image_banner_7VKADh": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_4cbhFJ": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_pLVEj9": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_4cbhFJ",
-        "text_pLVEj9"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Kanapa-Banner_01.png",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "wide_container": false,
-        "image_behavior": "none",
-        "desktop_content_position": "top-center",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
     "media_hero_slider_EDQQWQ": {
       "type": "media-hero-slider",
       "blocks": {
@@ -540,7 +502,6 @@
   },
   "order": [
     "banner",
-    "image_banner_7VKADh",
     "media_hero_slider_EDQQWQ",
     "collection_tabs_grid_QPpXxb",
     "product-grid",
