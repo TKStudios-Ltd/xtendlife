@@ -145,7 +145,6 @@
 }
 
 #MegaMenu-Content-2 .mega-menu__list {
-  column-count: 2; 
   gap: 2rem 3rem;
   list-style: none;
   padding-left: 0;
