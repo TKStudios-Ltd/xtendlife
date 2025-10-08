@@ -171,6 +171,31 @@
                           </a>
                         </div>
                       {% endif %}
+                      {% if section.settings.tile_5_image or section.settings.tile_5_title %}
+                        <div class="mega-menu__tile">
+                          <a href="{{ section.settings.tile_5_link }}">
+                            {% if section.settings.tile_5_image %}
+                              <div class="overflow--hidden">
+                                <img src="{{ section.settings.tile_5_image | image_url }}" alt="{{ section.settings.tile_5_title | escape }}">
+                              </div>
+                            {% endif %}
+                            {% if section.settings.tile_5_title %}
+                              <p class="mega-menu__tile_title">{{ section.settings.tile_5_title }}</p>
+                            {% endif %}
+                            {% if section.settings.tile_5_subtitle %}
+                              <p class="mega-menu__tile_subtitle">{{ section.settings.tile_5_subtitle }}</p>
+                            {% endif %}
+                            {% if section.settings.tile_5_link_title %}
+                              <span class="mega-menu__tile_arrow_link">
+                                {{ section.settings.tile_5_link_title }}
+                                <span class="icon-wrap">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </span>
+                            {% endif %}
+                          </a>
+                        </div>
+                      {% endif %}
                     {%- endif -%}
                   </div>
                 </div>
