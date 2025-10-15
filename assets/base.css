@@ -4561,6 +4561,36 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   }
 }
 
+/* PDP Gallery Ligthbox */
+
 .pswp {
   background: rgba(31, 25, 70, 0.7);
+}
+
+.pswp__button--arrow svg {
+  display: none;
+}
+
+/* NEXT BUTTON */
+.pswp__button--arrow--next::before {
+  content: '';
+  display: block;
+  width: 38px;
+  height: 38px;
+  background-image: url("{{ 'Wedd_Gallery_Arrow.svg' | asset_url }}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* PREV BUTTON */
+.pswp__button--arrow--prev::before {
+  content: '';
+  display: block;
+  width: 38px;
+  height: 38px;
+  background-image: url("{{ 'Wedd_Gallery_Arrow.svg' | asset_url }}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
