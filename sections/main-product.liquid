@@ -554,13 +554,12 @@
                         ></span>
                       </div>
                       <p class="rating-text caption">
-                        ({{- product.metafields.reviews.rating.value }})
-                        {% comment %} <span aria-hidden="true">
+                        <span aria-hidden="true">
                           {{- product.metafields.reviews.rating.value }} / {{ product.metafields.reviews.rating.value.scale_max -}}
-                        </span> {% endcomment %}
+                        </span>
                       </p>
                       <p class="rating-count caption">
-                        <span aria-hidden="true">Based on {{ product.metafields.reviews.rating_count }} reviews</span>
+                        <span aria-hidden="true">({{- product.metafields.reviews.rating.value }}) | Based on {{ product.metafields.reviews.rating_count }} reviews</span>
                         <span class="visually-hidden">
                           {{- product.metafields.reviews.rating_count }}
                           {{ 'accessibility.total_reviews' | t -}}
