@@ -4571,9 +4571,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   display: none;
 }
 .pswp__button--arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 .pswp__button--arrow--next::before {
   content: '';
