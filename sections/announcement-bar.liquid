@@ -27,13 +27,15 @@
     {%- endif -%}
     {%- if section.blocks.size == 1 -%}
       <div
-        class="announcement-bar__announcement"
+        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
         role="region"
         aria-label="{{ 'sections.header.announcement' | t }}"
+        {{ section.blocks.first.shopify_attributes }}
       >
-        {%- if block.settings.content != blank -%}
+        {%- assign b = section.blocks.first -%}
+        {%- if b.settings.content != blank -%}
           <div class="announcement-bar__message h5">
-            {{ block.settings.content }}
+            {{ b.settings.content }}
           </div>
         {%- endif -%}
       </div>
