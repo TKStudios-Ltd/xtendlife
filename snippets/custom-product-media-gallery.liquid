@@ -18,10 +18,22 @@
         <div class="swiper-slide">
           {% assign alt_text = media.alt | escape %}
           {% if media.media_type == 'image' %}
-            {{ media
-              | image_url: width: 1600
-              | image_tag: class: 'custom-gallery-media-image', alt: alt_text, loading: load_attr
-            }}
+            {% assign full_img_url = media | image_url: width: 2048 %}
+            <a 
+              href="{{ full_img_url }}" 
+              data-pswp-width="{{ media.preview_image.width }}"
+              data-pswp-height="{{ media.preview_image.height }}"
+              data-pswp-src="{{ full_img_url }}"
+              target="_blank"
+              class="custom-gallery-lightbox"
+            >
+              <img 
+                src="{{ media | image_url: width: 1600 }}" 
+                class="custom-gallery-media-image" 
+                alt="{{ alt_text }}" 
+                loading="{{ load_attr }}" 
+              />
+            </a>
           {% else %}
             {{ media | media_tag: image_size: '2048x', autoplay: false, loop: false, controls: true, class: 'custom-gallery-media-other' }}
           {% endif %}
