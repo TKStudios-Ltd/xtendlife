@@ -417,7 +417,8 @@
       ],
       "custom_css": [
         ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
-        ".content-container {height: 100%; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".page-width {border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".content-container {height: 100%;}",
         ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
         "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
         "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
