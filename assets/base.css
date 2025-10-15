@@ -4251,7 +4251,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   fill: rgba(var(--color-foreground),1) !important;
 }
 .js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item .kl_reviews__stars_badge svg.kl_reviews__empty_star path {
-  fill: rgb(var(--color-foreground),0.5) !important;
+  fill: rgb(var(--color-foreground),0.25) !important;
 }
 .js .kl_reviews__review__verified {
   background: rgba(219, 238, 255, 1);
