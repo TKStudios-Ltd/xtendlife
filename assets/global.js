@@ -1374,4 +1374,22 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof window.import === 'undefined') {
+    const loadPhotoSwipe = async () => {
+      const PhotoSwipeLightbox = (await import('/assets/photoswipe-lightbox.esm.min.js')).default;
+      const PhotoSwipe = (await import('/assets/photoswipe.esm.min.js')).default;
+
+      const lightbox = new PhotoSwipeLightbox({
+        gallery: '.custom-gallery-main',
+        children: 'a.custom-gallery-lightbox',
+        pswpModule: () => Promise.resolve(PhotoSwipe)
+      });
+
+      lightbox.init();
+    };
+
+    loadPhotoSwipe().catch(err => console.error('PhotoSwipe failed to load', err));
+  }
+});
 
