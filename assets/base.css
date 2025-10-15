@@ -4502,6 +4502,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   margin-bottom: 4rem;
   border-spacing: 0 !important;
   border-top: .1rem solid rgba(var(--color-foreground), .2) !important;
+  border-right: .1rem solid rgba(var(--color-foreground), .2) !important;
 }
 .page-contact-shipping-template .rte table tr.column-header {
   background: #f4f8fb;
