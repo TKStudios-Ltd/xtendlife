@@ -4498,9 +4498,11 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .page-contact-shipping-template .rte p strong {
   font-weight: 500 !important;
 }
+.page-contact-shipping-template .rte .shipping-table__container {
+  margin-bottom: 5rem;
+}
 .page-contact-shipping-template .rte table {
   width: 100%;
-  margin-bottom: 5rem;
   border-spacing: 0 !important;
   border-top: .1rem solid rgba(var(--color-foreground), .2) !important;
   border-right: .1rem solid rgba(var(--color-foreground), .2) !important;
