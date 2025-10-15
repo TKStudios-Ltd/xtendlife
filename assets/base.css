@@ -4532,18 +4532,19 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .page-contact-shipping-template .rte table th {
     font-size: 1.2rem !important;
   }
-  .page-contact-shipping-template#MainContent {
+  .page-contact-shipping-template #MainContent {
     overflow-x: visible;
   }
-  .page-contact-shipping-template .rte .shipping-table {
-    min-width: 620px;
-    border-collapse: collapse;
-  }
-  .page-contact-shipping-template .rte table {
-    width: 100%;
+  .page-contact-shipping-template .shipping-table {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    position: relative;
-    z-index: 1;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+    max-width: 100%;
+  }
+  .page-contact-shipping-template .shipping-table table {
+    min-width: 620px;
+    border-collapse: collapse;
+    width: 620px;
   }
 }
