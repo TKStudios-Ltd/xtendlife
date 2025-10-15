@@ -4524,3 +4524,12 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   border-bottom: .1rem solid rgba(var(--color-foreground), .2) !important;
   font-size: 1.4rem;
 }
+@media (max-width: 749px) {
+  .page-contact-shipping-template .rte table tr.column-header h3 {
+    font-size: 1.4rem !important;
+  }
+  .page-contact-shipping-template .rte table td,
+  .page-contact-shipping-template .rte table th {
+    font-size: 1.2rem !important;
+  }
+}
