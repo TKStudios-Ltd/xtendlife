@@ -24,7 +24,7 @@
           "type": "heading",
           "settings": {
             "heading": "The search for better health and wellness through science started it all",
-            "heading_size": "h1"
+            "heading_size": "h0"
           }
         }
       },
@@ -32,7 +32,8 @@
         "heading_AFtAD9"
       ],
       "custom_css": [
-        ".rich-text__blocks {max-width: 80rem; margin-top: 6rem;}"
+        ".banner__box {max-width: 90rem; margin-top: 5rem;}",
+        "h2 {line-height: 1.2;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
