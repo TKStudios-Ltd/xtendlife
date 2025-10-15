@@ -4496,3 +4496,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .page-contact-shipping-template .rte p strong {
   font-weight: 500 !important;
 }
+.page-contact-shipping-template .rte table {
+  margin-bottom: 4rem;
+}
+.page-contact-shipping-template .rte table tr.column-header {
+  background: #f4f8fb;
+}
