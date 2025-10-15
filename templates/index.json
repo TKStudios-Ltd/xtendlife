@@ -948,7 +948,7 @@
         ".banner__content {padding: 3rem 2rem 3.5rem;}",
         ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
         ".subtitle {line-height: 1.2; max-width: 740px;}",
-        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
+        "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
