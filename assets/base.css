@@ -4560,3 +4560,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     width: 620px;
   }
 }
+
+.pswp {
+  background: rgba(31, 25, 70, 0.7);
+}
