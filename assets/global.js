@@ -1387,32 +1387,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   lightbox.init();
-  
-  lightbox.on('uiRegister', function () {
-    lightbox.pswp.ui.registerElement({
-      name: 'close',
-      isButton: true,
-      ariaLabel: 'Close',
-      order: 10,
-      html: '<svg width="24" height="24" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2"/></svg>'
-    });
-
-    lightbox.pswp.ui.registerElement({
-      name: 'arrowPrev',
-      isButton: true,
-      ariaLabel: 'Previous slide',
-      order: 5,
-      html: '<svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2"/></svg>'
-    });
-
-    lightbox.pswp.ui.registerElement({
-      name: 'arrowNext',
-      isButton: true,
-      ariaLabel: 'Next slide',
-      order: 5,
-      html: '<svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2"/></svg>'
-    });
-  });
 
 });
 
