@@ -25,6 +25,7 @@
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
     {%- endif -%}
+
     {%- if section.blocks.size == 1 -%}
       <div
         class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
@@ -32,15 +33,13 @@
         aria-label="{{ 'sections.header.announcement' | t }}"
         {{ section.blocks.first.shopify_attributes }}
       >
-        {%- if section.blocks.first.settings.text != blank -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-            <span> | <a href="{{ section.blocks.first.settings.link }}" class="link link--text focus-inset animate-arrow">Shop now</a></span>
-            {%- endif -%}
-          </p>
+        {%- if section.blocks.first.settings.content != blank -%}
+          <div class="announcement-bar__message h5">
+            {{ section.blocks.first.settings.content }}
+          </div>
         {%- endif -%}
       </div>
+
     {%- elsif section.blocks.size > 1 -%}
       <slideshow-component
         class="announcement-bar"
@@ -60,6 +59,7 @@
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
           </button>
+
           <div
             class="grid grid--1-col slider slider--everywhere"
             id="Slider-{{ section.id }}"
@@ -78,20 +78,17 @@
                 aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
                 tabindex="-1"
               >
-                <div
-                  class="announcement-bar__announcement"
-                  role="region"
-                  aria-label="{{ 'sections.header.announcement' | t }}"
-                >
+                <div class="announcement-bar__announcement" role="region" aria-label="{{ 'sections.header.announcement' | t }}">
                   {%- if block.settings.content != blank -%}
                     <div class="announcement-bar__message h5">
-                      <span>{{ block.settings.content }}</span>
+                      {{ block.settings.content }}
                     </div>
                   {%- endif -%}
                 </div>
               </div>
             {%- endfor -%}
           </div>
+
           <button
             type="button"
             class="slider-button slider-button--next"
@@ -105,16 +102,16 @@
           </button>
         </div>
       </slideshow-component>
+
       {%- if request.design_mode -%}
         <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
         <style>
           /* theme editor power preview fix */
-          .announcement-bar-slider .slider__slide[aria-hidden='true'] {
-            visibility: hidden;
-          }
+          .announcement-bar-slider .slider__slide[aria-hidden='true'] { visibility: hidden; }
         </style>
       {%- endif -%}
     {%- endif -%}
+
     <div class="localization-wrapper">
       {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
         <localization-form class="small-hide medium-hide">
@@ -139,8 +136,9 @@
       {%- endif -%}
     </div>
   </div>
+
   <button class="announcement-bar__close" aria-label="Close announcement" onclick="document.querySelector('.utility-bar').style.display = 'none';">
-  {{- 'icon-plus.svg' | inline_asset_content -}}
+    {{- 'icon-plus.svg' | inline_asset_content -}}
   </button>
 </div>
 
@@ -149,67 +147,17 @@
   "name": "t:sections.announcement-bar.name",
   "max_blocks": 12,
   "class": "announcement-bar-section",
-  "enabled_on": {
-    "groups": ["header"]
-  },
+  "enabled_on": { "groups": ["header"] },
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "auto_rotate",
-      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "change_slides_speed",
-      "min": 3,
-      "max": 10,
-      "step": 1,
-      "unit": "s",
-      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
-      "default": 5
-    },    
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-4"
-    },  
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.announcement-bar.settings.heading_utilities.content"
-    },
-    {
-      "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.show_social.label",
-      "info": "t:sections.announcement-bar.settings.show_social.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_country_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_country_selector.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
-    }
+    { "type": "checkbox", "id": "auto_rotate", "label": "t:sections.announcement-bar.settings.auto_rotate.label", "default": false },
+    { "type": "range", "id": "change_slides_speed", "min": 3, "max": 10, "step": 1, "unit": "s", "label": "t:sections.announcement-bar.settings.change_slides_speed.label", "default": 5 },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-4" },
+    { "type": "checkbox", "id": "show_line_separator", "default": true, "label": "t:sections.header.settings.show_line_separator.label" },
+    { "type": "header", "content": "t:sections.announcement-bar.settings.heading_utilities.content" },
+    { "type": "paragraph", "content": "t:sections.announcement-bar.settings.paragraph.content" },
+    { "type": "checkbox", "id": "show_social", "default": false, "label": "t:sections.announcement-bar.settings.show_social.label", "info": "t:sections.announcement-bar.settings.show_social.info" },
+    { "type": "checkbox", "id": "enable_country_selector", "default": false, "label": "t:sections.announcement-bar.settings.enable_country_selector.label", "info": "t:sections.announcement-bar.settings.enable_country_selector.info" },
+    { "type": "checkbox", "id": "enable_language_selector", "default": false, "label": "t:sections.announcement-bar.settings.enable_language_selector.label", "info": "t:sections.announcement-bar.settings.enable_language_selector.info" }
   ],
   "blocks": [
     {
@@ -219,20 +167,14 @@
         {
           "type": "richtext",
           "id": "content",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label",
+          "default": "<p>Free shipping over $100. <a href=\\\"/collections/all\\\">Shop now</a></p>"
         }
       ]
     }
   ],
   "presets": [
-    {
-      "name": "t:sections.announcement-bar.presets.name",
-      "blocks": [
-        {
-          "type": "announcement"
-        }
-      ]
-    }
+    { "name": "t:sections.announcement-bar.presets.name", "blocks": [ { "type": "announcement" } ] }
   ]
 }
 {% endschema %}
