@@ -254,7 +254,9 @@
                     {%- endif -%}
                   </div>
                   {%- if block.settings.image_text != blank -%}
-                    <span class="tabs__image-text h2">{{ block.settings.image_text | escape }}</span>
+                    <span class="tabs__image-text h2"{% if block.settings.image_text_color != blank %} style="color: {{ block.settings.image_text_color }}"{% endif %}>
+                      {{ block.settings.image_text | escape }}
+                    </span>
                   {%- endif -%}
                   {%- if block.settings.button_label != blank -%}
                     <a
