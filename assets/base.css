@@ -4506,10 +4506,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 }
 .page-contact-shipping-template .rte table tr.column-header {
   background: #f4f8fb;
+  font-size: 1rem;
+  font-weight: 400;
 }
 .page-contact-shipping-template .rte table tr.column-header h3 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
 }
 .page-contact-shipping-template .rte table td,
 .page-contact-shipping-template .rte table th {
