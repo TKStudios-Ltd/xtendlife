@@ -4535,14 +4535,14 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .page-contact-shipping-template #MainContent {
     overflow-x: visible;
   }
-  .page-contact-shipping-template .shipping-table {
+  .page-contact-shipping-template .shipping-table__container {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
     overscroll-behavior-x: contain;
     max-width: 100%;
   }
-  .page-contact-shipping-template .shipping-table table {
+  .page-contact-shipping-template .shipping-table__container table {
     min-width: 620px;
     border-collapse: collapse;
     width: 620px;
