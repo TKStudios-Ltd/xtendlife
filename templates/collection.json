@@ -62,8 +62,8 @@
         "featured_collection_RVqwaj": {
           "type": "featured_collection",
           "settings": {
-            "collection": "superfoods",
-            "custom_title": "",
+            "collection": "all-bundles",
+            "custom_title": "Bundles",
             "background_color": "rgba(0,0,0,0)"
           }
         }
@@ -249,6 +249,7 @@
         "hotspot_EzN4jP",
         "hotspot_mLbTrh"
       ],
+      "disabled": true,
       "name": "Image Hotspots (Tooltips)",
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
