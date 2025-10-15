@@ -17,6 +17,39 @@
         "padding_bottom": 28
       }
     },
+    "image_banner_GTdJkt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_AFtAD9": {
+          "type": "heading",
+          "settings": {
+            "heading": "The search for better health and wellness through science started it all",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AFtAD9"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 80rem; margin-top: 6rem;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_1_25c6a730-9b9a-4854-9de5-601b625a8366.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "rich_text_hALQxi": {
       "type": "rich-text",
       "blocks": {
@@ -111,24 +144,6 @@
         "swipe_on_mobile": true,
         "padding_top": 16,
         "padding_bottom": 16
-      }
-    },
-    "image_banner_GTdJkt": {
-      "type": "image-banner",
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_1_25c6a730-9b9a-4854-9de5-601b625a8366.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "wide_container": false,
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
       }
     },
     "sticky_anchor_nav_hYGgLL": {
@@ -757,9 +772,9 @@
   },
   "order": [
     "main",
+    "image_banner_GTdJkt",
     "rich_text_hALQxi",
     "multicolumn_A6pqFF",
-    "image_banner_GTdJkt",
     "sticky_anchor_nav_hYGgLL",
     "rich_text_d3NGdF",
     "collage_QFYQLH",
