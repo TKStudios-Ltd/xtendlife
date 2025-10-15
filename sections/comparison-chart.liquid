@@ -211,19 +211,29 @@
       <div class="cc-frame">
         <!-- Left labels -->
         <div class="cc-labels">
-        <!-- spacer for product header row -->
-        <div class="cc-label cc-label--spacer" aria-hidden="true"></div>
+          <!-- spacer for product header row -->
+          <div class="cc-label cc-label--spacer" aria-hidden="true"></div>
 
-        {%- for i in (1..5) -%}
+          {%- for i in (1..5) -%}
             {%- assign row_key = 'row' | append: i | append: '_label' -%}
             <div class="cc-label">{{ section.settings[row_key] }}</div>
-        {%- endfor -%}
+          {%- endfor -%}
 
-        <div class="cc-label">{{ section.settings.row6_label }}</div>
-        <div class="cc-label">Price</div>
+          {%- if section.settings.row6extra_label != blank -%}
+            <div class="cc-label">{{ section.settings.row6extra_label }}</div>
+          {%- endif -%}
 
-        <!-- spacer for CTA row -->
-        <div class="cc-label cc-label--spacer" aria-hidden="true"></div>
+          {%- if section.settings.row7extra_label != blank -%}
+            <div class="cc-label">{{ section.settings.row7extra_label }}</div>
+          {%- endif -%}
+
+          <!-- existing Dosage label -->
+          <div class="cc-label">{{ section.settings.row6_label }}</div>
+
+          <div class="cc-label">Price</div>
+
+          <!-- spacer for CTA row -->
+          <div class="cc-label cc-label--spacer" aria-hidden="true"></div>
         </div>
 
         <!-- Right slider -->
@@ -239,9 +249,9 @@
               {%- for block in section.blocks -%}
                 {%- assign p = block.settings.product -%}
                 <div class="swiper-slide">
-                    <div class="cc-col">
-                        <!-- Header row (unchanged) -->
-                        <div class="cc-header">
+                  <div class="cc-col">
+                    <!-- Header row (unchanged) -->
+                    <div class="cc-header">
                         {%- assign fm = nil -%}
                         {%- if p -%}{%- assign fm = p.selected_or_first_available_variant.featured_media | default: p.featured_media -%}{%- endif -%}
                         <div class="cc-media">
@@ -252,45 +262,71 @@
                             {%- endif -%}
                         </div>
                         <p class="cc-title">{{ p.title | default: 'Product name' }}</p>
-                        </div>
-                        <!-- Rows 1–5 (ticks) -->
-                        {%- for r in (1..5) -%}
-                        {%- capture tick_key -%}row{{ r }}_ticks{%- endcapture -%}
-                        {%- assign ticks = block.settings[tick_key] | default: 0 | plus: 0 -%}
-                        {%- assign on_class = '' -%}
-                        {%- if ticks >= 3 -%}
-                            {%- assign on_class = ' is-on' -%}
-                        {%- endif -%}
-                        <div class="cc-cell">
-                            <span class="cc-ticks">
-                            {%- for i in (1..ticks) -%}
-                                <span class="cc-tick{{ on_class }}" aria-hidden="true">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4464_4484)"><path d="M8 15C6.14348 15 4.36301 14.2625 3.05025 12.9497C1.7375 11.637 1 9.85652 1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14348 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15 9.85652 14.2625 11.637 12.9497 12.9497C11.637 14.2625 9.85652 15 8 15ZM8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16Z" fill="#292256"/><path d="M10.9703 4.96979L10.9503 4.99179L7.47734 9.41679L5.38434 7.32279C5.24216 7.19031 5.05412 7.11819 4.85982 7.12162C4.66551 7.12505 4.48013 7.20376 4.34272 7.34117C4.2053 7.47858 4.12659 7.66397 4.12316 7.85827C4.11974 8.05257 4.19186 8.24062 4.32434 8.38279L6.97034 11.0298C7.04162 11.1009 7.1265 11.157 7.21992 11.1946C7.31334 11.2323 7.41339 11.2507 7.51408 11.2488C7.61478 11.247 7.71407 11.2249 7.80604 11.1838C7.898 11.1427 7.98074 11.0835 8.04934 11.0098L12.0413 6.01979C12.1773 5.87712 12.2516 5.68669 12.2482 5.48966C12.2449 5.29263 12.1641 5.10484 12.0234 4.96689C11.8827 4.82893 11.6933 4.7519 11.4963 4.75244C11.2992 4.75299 11.1103 4.83106 10.9703 4.96979Z" fill="#292256"/></g><defs><clipPath id="clip0_4464_4484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
-                                </span>
-                            {%- endfor -%}
-                            </span>
-                        </div>
-                        {%- endfor -%}
+                    </div>
 
-                        <!-- Row 6 (custom text) -->
-                        <div class="cc-cell">{{ block.settings.row6_text | default: '-' }}</div>
-                        <!-- Row 7 (PRICE – auto from product) -->
-                        {%- assign price_val = blank -%}
-                        {%- if p -%}
-                        {%- assign price_val = p.selected_or_first_available_variant.price | default: p.price -%}
-                        {%- endif -%}
-                        <div class="cc-cell cc-price">
+                    <!-- Rows 1–5 (ticks) -->
+                    {%- for r in (1..5) -%}
+                      {%- capture tick_key -%}row{{ r }}_ticks{%- endcapture -%}
+                      {%- assign ticks = block.settings[tick_key] | default: 0 | plus: 0 -%}
+                      {%- assign on_class = '' -%}
+                      {%- if ticks >= 3 -%}{%- assign on_class = ' is-on' -%}{%- endif -%}
+                      <div class="cc-cell">
+                        <span class="cc-ticks">
+                          {%- for i in (1..ticks) -%}
+                            <span class="cc-tick{{ on_class }}" aria-hidden="true">
+                              <!-- tick SVG -->
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4464_4484)"><path d="M8 15C6.14348 15 4.36301 14.2625 3.05025 12.9497C1.7375 11.637 1 9.85652 1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14348 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15 9.85652 14.2625 11.637 12.9497 12.9497C11.637 14.2625 9.85652 15 8 15ZM8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16Z" fill="#292256"/><path d="M10.9703 4.96979L10.9503 4.99179L7.47734 9.41679L5.38434 7.32279C5.24216 7.19031 5.05412 7.11819 4.85982 7.12162C4.66551 7.12505 4.48013 7.20376 4.34272 7.34117C4.2053 7.47858 4.12659 7.66397 4.12316 7.85827C4.11974 8.05257 4.19186 8.24062 4.32434 8.38279L6.97034 11.0298C7.04162 11.1009 7.1265 11.157 7.21992 11.1946C7.31334 11.2323 7.41339 11.2507 7.51408 11.2488C7.61478 11.247 7.71407 11.2249 7.80604 11.1838C7.898 11.1427 7.98074 11.0835 8.04934 11.0098L12.0413 6.01979C12.1773 5.87712 12.2516 5.68669 12.2482 5.48966C12.2449 5.29263 12.1641 5.10484 12.0234 4.96689C11.8827 4.82893 11.6933 4.7519 11.4963 4.75244C11.2992 4.75299 11.1103 4.83106 10.9703 4.96979Z" fill="#292256"/></g><defs><clipPath id="clip0_4464_4484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+                            </span>
+                          {%- endfor -%}
+                        </span>
+                      </div>
+                    {%- endfor -%}
+
+                    {%- if section.settings.row6extra_label != blank -%}
+                      {%- assign ticks = block.settings.row6extra_ticks | default: 0 | plus: 0 -%}
+                      {%- assign on_class = '' -%}
+                      {%- if ticks >= 3 -%}{%- assign on_class = ' is-on' -%}{%- endif -%}
+                      <div class="cc-cell">
+                        <span class="cc-ticks">
+                          {%- for i in (1..ticks) -%}
+                            <span class="cc-tick{{ on_class }}" aria-hidden="true">
+                              <!-- tick SVG (same as above) -->
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4464_4484)"><path d="M8 15C6.14348 15 4.36301 14.2625 3.05025 12.9497C1.7375 11.637 1 9.85652 1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14348 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15 9.85652 14.2625 11.637 12.9497 12.9497C11.637 14.2625 9.85652 15 8 15ZM8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16Z" fill="#292256"/><path d="M10.9703 4.96979L10.9503 4.99179L7.47734 9.41679L5.38434 7.32279C5.24216 7.19031 5.05412 7.11819 4.85982 7.12162C4.66551 7.12505 4.48013 7.20376 4.34272 7.34117C4.2053 7.47858 4.12659 7.66397 4.12316 7.85827C4.11974 8.05257 4.19186 8.24062 4.32434 8.38279L6.97034 11.0298C7.04162 11.1009 7.1265 11.157 7.21992 11.1946C7.31334 11.2323 7.41339 11.2507 7.51408 11.2488C7.61478 11.247 7.71407 11.2249 7.80604 11.1838C7.898 11.1427 7.98074 11.0835 8.04934 11.0098L12.0413 6.01979C12.1773 5.87712 12.2516 5.68669 12.2482 5.48966C12.2449 5.29263 12.1641 5.10484 12.0234 4.96689C11.8827 4.82893 11.6933 4.7519 11.4963 4.75244C11.2992 4.75299 11.1103 4.83106 10.9703 4.96979Z" fill="#292256"/></g><defs><clipPath id="clip0_4464_4484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+                            </span>
+                          {%- endfor -%}
+                        </span>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if section.settings.row7extra_label != blank -%}
+                      <div class="cc-cell">
+                        {{ block.settings.row7extra_text | default: '-' }}
+                      </div>
+                    {%- endif -%}
+
+                    <!-- Existing Dosage (plain text) -->
+                    <div class="cc-cell">
+                      {{ block.settings.row6_text | default: '–' }}
+                    </div>
+                        
+                    <!-- PRICE – auto from product -->
+                      {%- assign price_val = blank -%}
+                      {%- if p -%}
+                      {%- assign price_val = p.selected_or_first_available_variant.price | default: p.price -%}
+                      {%- endif -%}
+                      <div class="cc-cell cc-price">
                         {%- if price_val -%}{{ price_val | money_with_currency }}{%- else -%}- {%- endif -%}
-                        </div>
-                        <!-- Row 8 (CTA button) -->
-                        <div class="cc-cell cc-cell--cta">
+                      </div>
+                        
+                    <!-- CTA button -->
+                    <div class="cc-cell cc-cell--cta">
                         {%- if p -%}
                             <a href="{{ p.url }}" class="button button--primary">{{ section.settings.shop_cta | default: 'Shop now' }}</a>
                         {%- else -%}
                             <span class="button button--disabled" aria-disabled="true">{{ section.settings.shop_cta | default: 'Shop now' }}</span>
                         {%- endif -%}
-                        </div>
                     </div>
+                  </div>
                 </div>
               {%- endfor -%}
             </div>
@@ -367,7 +403,9 @@
     { "type": "text", "id": "row3_label", "label": "Row 3", "default": "Blood Circulation" },
     { "type": "text", "id": "row4_label", "label": "Row 4", "default": "Inflammation" },
     { "type": "text", "id": "row5_label", "label": "Row 5", "default": "Statin Support" },
-    { "type": "text", "id": "row6_label", "label": "Row 6", "default": "Dosage Per Day" },
+    { "type": "text", "id": "row6extra_label", "label": "Row 6 (extra tick) label" },
+    { "type": "text", "id": "row7extra_label", "label": "Row 7 (extra text) label" },
+    { "type": "text", "id": "row6_label", "label": "Dosage", "default": "Dosage Per Day" },
     { "type": "text", "id": "shop_cta", "label": "CTA text", "default": "Shop now" },
 
     { "type": "header", "content": "Layout" },
@@ -392,9 +430,10 @@
         { "type": "range", "id": "row3_ticks", "label": "Row 3 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
         { "type": "range", "id": "row4_ticks", "label": "Row 4 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
         { "type": "range", "id": "row5_ticks", "label": "Row 5 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
-
-        { "type": "header", "content": "Text values (rows 6)" },
-        { "type": "text", "id": "row6_text", "label": "Row 6 text", "default": "3" },
+        { "type": "range", "id": "row6extra_ticks", "label": "Row 6 (extra) ticks", "min": 0, "max": 6, "step": 1, "default": 0 },
+        { "type": "header", "content": "Text values" },
+        { "type": "text", "id": "row7extra_text", "label": "Row 7 (extra) text" },
+        { "type": "text", "id": "row6_text", "label": "Dosage", "default": "3" },
       ]
     }
   ],
