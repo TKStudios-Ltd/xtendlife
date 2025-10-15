@@ -18,7 +18,7 @@
           "type": "announcement",
           "settings": {
             "text": "Free shipping over $100*",
-            "link": "#"
+            "link": "shopify://collections/all"
           }
         }
       },
