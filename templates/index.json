@@ -808,7 +808,7 @@
         "autoplay": false,
         "autoplay_delay": 4000,
         "padding_top": 60,
-        "padding_bottom": 100
+        "padding_bottom": 80
       }
     },
     "image_hotspots_Hi6X7c": {
@@ -850,6 +850,7 @@
         "hotspot_EzN4jP",
         "hotspot_mLbTrh"
       ],
+      "disabled": true,
       "name": "Image Hotspots (Tooltips)",
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
