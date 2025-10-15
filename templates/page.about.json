@@ -65,6 +65,7 @@
       "block_order": [
         "heading_XH3XN3"
       ],
+      "disabled": true,
       "custom_css": [
         ".rich-text__blocks {max-width: 80rem; margin-top: 6rem;}"
       ],
