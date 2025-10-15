@@ -4572,7 +4572,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .pswp__button--close svg {
   display: none;
 }
-.pswp__button--arrow {
+.pswp__button--arrow,
+.pswp__button--zoom,
+.pswp__button--close {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
