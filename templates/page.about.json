@@ -148,6 +148,20 @@
         "padding_bottom": 16
       }
     },
+    "rich_text_HppqU6": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "",
+        "anchor_offset": 0,
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    },
     "sticky_anchor_nav_hYGgLL": {
       "type": "sticky-anchor-nav",
       "blocks": {
@@ -777,6 +791,7 @@
     "image_banner_GTdJkt",
     "rich_text_hALQxi",
     "multicolumn_A6pqFF",
+    "rich_text_HppqU6",
     "sticky_anchor_nav_hYGgLL",
     "rich_text_d3NGdF",
     "collage_QFYQLH",
