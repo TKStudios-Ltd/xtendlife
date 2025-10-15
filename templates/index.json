@@ -916,30 +916,38 @@
         "heading_hRLdBY": {
           "type": "heading",
           "settings": {
-            "heading": "Xtendlife has grown into a global brand, trusted by over 400,000 customers. Our commitment to science ensures that our formulas deliver the best results to our customers, helping them live longer and healthier.",
+            "heading": "Join Us on the Journey",
             "heading_size": "h1"
+          }
+        },
+        "text_wKFbB7": {
+          "type": "text",
+          "settings": {
+            "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
+            "text_style": "subtitle"
           }
         },
         "buttons_XN8C3J": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "The Xtendlife Difference",
+            "button_label_1": "Learn More About Subscribe & Save",
             "button_link_1": "shopify://pages/our-story",
             "button_style_secondary_1": false,
             "button_label_2": "",
-            "button_link_2": "#",
+            "button_link_2": "",
             "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
         "heading_hRLdBY",
+        "text_wKFbB7",
         "buttons_XN8C3J"
       ],
       "custom_css": [
         ".banner__content {padding: 3rem 2rem 3.5rem;}",
-        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: space-between;}",
-        "h2 {line-height: 1.2;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
+        ".subtitle {line-height: 1.2; max-width: 740px;}",
         "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
