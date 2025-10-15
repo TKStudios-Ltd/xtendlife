@@ -713,6 +713,8 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 3,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
             "row6_text": "2-4"
           }
         },
@@ -725,6 +727,8 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 3,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
             "row6_text": "2"
           }
         },
@@ -737,6 +741,8 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
             "row6_text": "2-4"
           }
         },
@@ -749,6 +755,8 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
             "row6_text": "2"
           }
         }
@@ -769,6 +777,8 @@
         "row3_label": "Brain Health",
         "row4_label": "Joint Health",
         "row5_label": "Anti-Aging and Cellular support",
+        "row6extra_label": "Immunity Support",
+        "row7extra_label": "",
         "row6_label": "Dosage Per Day ",
         "shop_cta": "Shop now",
         "col_width": 300,
