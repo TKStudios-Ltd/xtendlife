@@ -4492,3 +4492,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   stroke: #FFCA41 !important;
   stroke-width: 1px !important;
 }
+
+.page-contact-shipping-template .rte p strong {
+  font-weight: 500 !important;
+}
