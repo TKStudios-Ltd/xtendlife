@@ -304,8 +304,8 @@
         "featured_collection_RVqwaj": {
           "type": "featured_collection",
           "settings": {
-            "collection": "superfoods",
-            "custom_title": "",
+            "collection": "all-bundles",
+            "custom_title": "Bundles",
             "background_color": "rgba(0,0,0,0)"
           }
         }
@@ -317,7 +317,7 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "Explore",
+        "title": "Explore by Type",
         "heading_size": "h2",
         "image_ratio": "portrait",
         "columns_desktop": 3,
