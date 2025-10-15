@@ -27,20 +27,16 @@
     {%- endif -%}
     {%- if section.blocks.size == 1 -%}
       <div
-        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
-        role="region"
-        aria-label="{{ 'sections.header.announcement' | t }}"
-        {{ section.blocks.first.shopify_attributes }}
-      >
-        {%- if section.blocks.first.settings.text != blank -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-            <span> | <a href="{{ section.blocks.first.settings.link }}" class="link link--text focus-inset animate-arrow">Shop now</a></span>
-            {%- endif -%}
-          </p>
-        {%- endif -%}
-      </div>
+                  class="announcement-bar__announcement"
+                  role="region"
+                  aria-label="{{ 'sections.header.announcement' | t }}"
+                >
+                  {%- if block.settings.content != blank -%}
+                    <div class="announcement-bar__message h5">
+                      <span>{{ block.settings.content }}</span>
+                    </div>
+                  {%- endif -%}
+                </div>
     {%- elsif section.blocks.size > 1 -%}
       <slideshow-component
         class="announcement-bar"
