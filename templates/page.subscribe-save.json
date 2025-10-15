@@ -543,6 +543,87 @@
             "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_UA3RPW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have more than one address in my country of residence I can use? ",
+            "icon": "none",
+            "row_content": "<p>Yes, you can.</p><ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Address & Payment Details'</li><li>Click on 'Manage addresses'</li><li>Click on 'Add a New Address'</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_paiVMj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have different addresses for different subscriptions?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_abNe83": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have two different payment methods if I have more than one subscription?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_D8gQRz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use a coupon code within my subscription?",
+            "icon": "none",
+            "row_content": "<p>Coupon codes can’t be applied to Subscribe & Save orders. If you'd like to use a discount code, you'll need to place a separate order through the checkout.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Pz6dAA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods are available for subscriptions? ",
+            "icon": "none",
+            "row_content": "<p>Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay and Shop Pay.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Bfr7ee": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I choose two different shipping methods if I have more than one subscription? ",
+            "icon": "none",
+            "row_content": "<p>Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yVPhc3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I change shipping methods? ",
+            "icon": "none",
+            "row_content": "<p>Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bdRrtA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I don’t know how to reactivate a subscription for a product; can you help me? Can you do it for me?",
+            "icon": "none",
+            "row_content": "<p>Yes, we can reactivate your subscription. Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.<br/><br/>You can also reactivate a cancelled subscription from your Subscribe & Save portal.</p><ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click 'Manage Subscriptions'</li><li>Click the 'Inactive' tab</li><li>Click 'Reactivate'</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ACexKP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Price changes",
+            "icon": "none",
+            "row_content": "<p>Prices are subject to change without notice.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -556,7 +637,16 @@
         "collapsible_row_wKKFar",
         "collapsible_row_7ifegW",
         "collapsible_row_6zdGEE",
-        "collapsible_row_niCXW3"
+        "collapsible_row_niCXW3",
+        "collapsible_row_UA3RPW",
+        "collapsible_row_paiVMj",
+        "collapsible_row_abNe83",
+        "collapsible_row_D8gQRz",
+        "collapsible_row_Pz6dAA",
+        "collapsible_row_Bfr7ee",
+        "collapsible_row_yVPhc3",
+        "collapsible_row_bdRrtA",
+        "collapsible_row_ACexKP"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
