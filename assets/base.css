@@ -2380,6 +2380,13 @@ input[type='checkbox'] {
   min-height: 3rem;
   font-size: 14px;
 }
+.announcement-bar__message p {
+  margin: 0;
+}
+.announcement-bar__message p a {
+  color: inherit;
+  text-underline-offset: .3rem;
+}
 .announcement-bar__close {
   color: rgb(var(--color-foreground));
   background: transparent;
