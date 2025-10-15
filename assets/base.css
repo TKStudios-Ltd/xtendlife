@@ -4507,5 +4507,5 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .page-contact-shipping-template .rte table td,
 .page-contact-shipping-template .rte table th {
   padding: 0.5em 1.5rem !important;
-  border: .1rem solid rgba(var(--color-foreground), .2);
+  border: .1rem solid rgba(var(--color-foreground), .2) !important;
 }
