@@ -4248,10 +4248,10 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   appearance: none;
 }
 .js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item .kl_reviews__stars_badge svg path {
-  fill: rgb(var(--color-foreground)) !important;
+  fill: rgba(var(--color-foreground),1) !important;
 }
 .js .kl_reviews__review_item.kl_reviews__review_item.kl_reviews__review_item .kl_reviews__stars_badge svg.kl_reviews__empty_star path {
-  fill: rgba(219, 238, 255, 1) !important;
+  fill: rgb(var(--color-foreground),0.5) !important;
 }
 .js .kl_reviews__review__verified {
   background: rgba(219, 238, 255, 1);
