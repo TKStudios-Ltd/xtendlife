@@ -480,13 +480,83 @@
             "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_rrqgka": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I cancel my Subscription? ",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Manage subscriptions'</li><li>Click on 'Manage this Subscription' (which can be found under the product name)</li><li>Scroll down and click on 'Cancel Subscription'/Click on Cancel Subscription </li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UMEfLQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I change my credit card? ",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Address & Payment details'</li><li>Click on 'Manage Payment Methods'</li><li>Click on 'Edit'</li><li>Click on 'Send Edit Payment Link'</li><li>You will be sent an email to your Inbox.  If you do not see this within a few minutes, please check your Spam/Junk Folder</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Fn4jbM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I create two or more subscriptions? ",
+            "icon": "none",
+            "row_content": "<p>Please watch our video walkthrough on this page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wKKFar": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the longest frequency I can have between orders?",
+            "icon": "none",
+            "row_content": "<p>Six months.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_7ifegW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I choose to have my order shipped on a particular date every month?",
+            "icon": "none",
+            "row_content": "<p>No, you can’t set your subscription to ship on a certain date each month, but you can log in and reschedule your next order to ship on a specified date if you wish.  If that date falls on a Saturday, Sunday or public holiday it will ship the next business day. Please refer to our FAQ ‘How do I reschedule my order’</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6zdGEE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "If I change any part of my subscription, what’s the latest time I can do this successfully prior to it shipping? ",
+            "icon": "none",
+            "row_content": "<p>We advise making changes no later than 10:00pm Eastern Standard Time (EST) the day before the scheduled date of the order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_niCXW3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What time of day is my payment processed? ",
+            "icon": "none",
+            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
         "collapsible_row_89AqTf",
         "collapsible_row_fp9kgF",
         "collapsible_row_Cnj6hi",
-        "collapsible_row_erfxjF"
+        "collapsible_row_erfxjF",
+        "collapsible_row_rrqgka",
+        "collapsible_row_UMEfLQ",
+        "collapsible_row_Fn4jbM",
+        "collapsible_row_wKKFar",
+        "collapsible_row_7ifegW",
+        "collapsible_row_6zdGEE",
+        "collapsible_row_niCXW3"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
