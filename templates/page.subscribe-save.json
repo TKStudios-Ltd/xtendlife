@@ -675,36 +675,27 @@
         "collapsible_row_UhHWg4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I create a subscription?",
+            "heading": "Can I see my order history once I rejoin Subscribe and Save?",
             "icon": "none",
-            "row_content": "<p>Please watch our video walkthrough or download the PDF version on this page.</p>",
+            "row_content": "<p>Yes, if you have had a previous Loyalty Program account you will see all your past orders by logging in to your account. </p>",
             "page": ""
           }
         },
         "collapsible_row_tEPWAG": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I reschedule my next order?",
+            "heading": "I don’t want an automated subscription, can I rejoin using Flexi-ship?",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Reschedule'</li><li>Choose how you wish to reschedule by selecting the most suitable option for your needs and Save Changes.</li></ul>",
+            "row_content": "<p>Flexi-ship has now been discontinued.  However, with our Subscribe & Save program, you can reschedule and skip orders as you wish. </p>",
             "page": ""
           }
         },
         "collapsible_row_EGrrwm": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I skip my next order?",
+            "heading": "Can I use the same login details that I currently have? ",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on the Skip tab</li><li>You will be given the option to either gift your order to someone else or you can select 'Yes, Skip this order'.</li></ul>",
-            "page": ""
-          }
-        },
-        "collapsible_row_jx6kHm": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
-            "icon": "none",
-            "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
+            "row_content": "<p>Yes, you can. </p>",
             "page": ""
           }
         }
@@ -712,8 +703,7 @@
       "block_order": [
         "collapsible_row_UhHWg4",
         "collapsible_row_tEPWAG",
-        "collapsible_row_EGrrwm",
-        "collapsible_row_jx6kHm"
+        "collapsible_row_EGrrwm"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
