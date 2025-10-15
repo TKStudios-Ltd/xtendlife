@@ -646,23 +646,23 @@
     "multicolumn_KgjtXM": {
       "type": "multicolumn",
       "blocks": {
-        "column_Wwj3f6": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/6445d52f-c069-4b54-b6ad-e47ff919548e_3354x4696_1.jpg",
-            "title": "Dr. Amanda Wiggins",
-            "text": "<p>Chief Research Scientist</p>",
-            "link_label": "",
-            "link": "",
-            "video_url": ""
-          }
-        },
         "column_tp6cXX": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/DSF6381_2200x_9.jpg",
             "title": "Dr. Joel Kahn",
             "text": "<p>MD Cardiologist</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_Wwj3f6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/6445d52f-c069-4b54-b6ad-e47ff919548e_3354x4696_1.jpg",
+            "title": "Dr. Amanda Wiggins",
+            "text": "<p>Chief Research Scientist</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -703,8 +703,8 @@
         }
       },
       "block_order": [
-        "column_Wwj3f6",
         "column_tp6cXX",
+        "column_Wwj3f6",
         "column_xYTEY8",
         "column_qyR4iF",
         "column_YwH6Gx"
