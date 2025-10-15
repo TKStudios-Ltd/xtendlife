@@ -4567,7 +4567,9 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   background: rgba(31, 25, 70, 0.7);
 }
 
-.pswp__button--arrow svg {
+.pswp__button--arrow svg, 
+.pswp__button--zoom svg,
+.pswp__button--close svg {
   display: none;
 }
 .pswp__button--arrow {
@@ -4594,4 +4596,24 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.pswp__button--zoom::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("https://cdn.shopify.com/s/files/1/2714/9868/files/magnify-icon_1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.pswp__button--close::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("https://cdn.shopify.com/s/files/1/2714/9868/files/exist-icon-wedd_1_1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
