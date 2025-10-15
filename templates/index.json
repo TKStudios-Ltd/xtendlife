@@ -253,16 +253,6 @@
             "image": "shopify://shop_images/AdobeStock_497278044_1.jpg",
             "image_text": "Support your lorem ipsum"
           }
-        },
-        "tab_yazx7A": {
-          "type": "tab",
-          "settings": {
-            "title": "Energy",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections/energy",
-            "image": "shopify://shop_images/AdobeStock_612000391_1.jpg",
-            "image_text": "Support your lorem ipsum"
-          }
         }
       },
       "block_order": [
@@ -270,8 +260,7 @@
         "tab_6MHMhU",
         "tab_wGCgzW",
         "tab_kQXkqM",
-        "tab_AEycWe",
-        "tab_yazx7A"
+        "tab_AEycWe"
       ],
       "custom_css": [
         "@media (max-width: 989px) {.title-wrapper-with-link {margin: -1rem 0 4rem; }}"
