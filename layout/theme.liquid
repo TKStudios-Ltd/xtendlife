@@ -535,6 +535,9 @@ powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener" target=
   {%- endif -%}
 {%- endif -%}
 
+<script src="{{ 'photoswipe.umd.min.js' | asset_url }}"></script>
+<script src="{{ 'photoswipe-lightbox.umd.min.js' | asset_url }}"></script>
+
 {%- if request.page_type == 'collection' and settings.feature_enabled_product_locale -%}
   <script>try { RestrictedCountries.collection_init && RestrictedCountries.collection_init(); } catch(e) {}</script>
 {%- endif -%}
