@@ -722,7 +722,7 @@
             "row3_ticks": 3,
             "row4_ticks": 3,
             "row5_ticks": 1,
-            "row6extra_ticks": 0,
+            "row6extra_ticks": 1,
             "row7extra_text": "",
             "row6_text": "7"
           }
@@ -736,7 +736,7 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
-            "row6extra_ticks": 0,
+            "row6extra_ticks": 1,
             "row7extra_text": "",
             "row6_text": "4"
           }
@@ -750,7 +750,7 @@
             "row3_ticks": 3,
             "row4_ticks": 3,
             "row5_ticks": 1,
-            "row6extra_ticks": 0,
+            "row6extra_ticks": 1,
             "row7extra_text": "",
             "row6_text": "7"
           }
@@ -786,7 +786,7 @@
         "row3_label": "Immunity Support",
         "row4_label": "Anti-Aging Formula",
         "row5_label": "Enzymes, Amino Acids",
-        "row6extra_label": "",
+        "row6extra_label": "Enteric Coating",
         "row7extra_label": "",
         "row6_label": "Dosage Per Day ",
         "shop_cta": "Shop now",
