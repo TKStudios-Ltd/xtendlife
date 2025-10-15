@@ -425,7 +425,7 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
         "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
@@ -478,7 +478,7 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
         "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
@@ -618,7 +618,7 @@
         "text_JQgN3Y": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Our Scientists</strong> Our Scientific Board consists of scientists, researchers, doctors, and authors across the fields of microbiology, immunology, genetics, metabolomics, gastroenterology, pediatrics, molecular biology, and transcriptomics—including primary investigators from the NIH’s Human Microbiome Project. They lead labs, teach at world-renowned academic institutions, and have among them 2800+ publications and over 140,000 citations in peer-reviewed scientific journals and textbooks.</p>"
+            "text": "<p><strong>Our Scientists</strong> Behind every Xtendlife product is a team of scientists, researchers, and product innovators who transform cutting-edge research into real-world wellness solutions.<br/><br/>Our scientific team combines decades of expertise in nutrition, physiology, molecular biology, and natural product formulation. Guided by global research and ongoing testing, they ensure every ingredient we use is proven, purposeful, and synergistic, working together for results you can truly feel.<br/><br/>We’re continually exploring new ingredients, delivery systems, and formulations to stay ahead of evolving health needs. It’s science and innovation in constant motion, all focused on helping you live healthier, longer, and better.</p>"
           }
         }
       },
@@ -627,7 +627,7 @@
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
         "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
