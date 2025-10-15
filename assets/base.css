@@ -4535,9 +4535,11 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
   .page-contact-shipping-template#MainContent {
     overflow-x: visible;
   }
-  .page-contact-shipping-template .rte table {
-    width: 620px;
+  .page-contact-shipping-template .rte .shipping-table {
     min-width: 620px;
+  }
+  .page-contact-shipping-template .rte table {
+    width: 100%;
     border-collapse: collapse;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
