@@ -115,6 +115,14 @@
                     <div class="pta__col pta__col-2">
                       {%- if directions_image != blank -%}
                         {{ directions_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title }}
+                      {%- else -%}
+                        <img
+                          src="{{ 'https://cdn.shopify.com/s/files/1/2714/9868/files/Placeholder_Image.png' }}"
+                          alt="{{ product.title }}"
+                          loading="lazy"
+                          width="1200"
+                          height="auto"
+                        >
                       {%- endif -%}
                     </div>
 
