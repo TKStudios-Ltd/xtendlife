@@ -4610,8 +4610,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .pswp__button--close::before {
     content: '';
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background-image: url("https://cdn.shopify.com/s/files/1/2714/9868/files/exist-icon-wedd_1_1.svg");
     background-size: contain;
     background-repeat: no-repeat;
