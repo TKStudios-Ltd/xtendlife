@@ -304,16 +304,46 @@
         "text_9XJ4Lg": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Our Guarantee</strong> We pride ourselves on having one of the fairest and strongest guarantees in the industry anywhere in the world.</p>"
+            "text": "<p><strong>Our Guarantee</strong> At Xtendlife, we believe trust starts with transparency, and that includes standing behind every product we make.<br/><br/>We pride ourselves on having one of the fairest and strongest guarantees in the industry. If you’re unhappy with any product for any reason, you have 365 days to request a refund. While we can’t guarantee identical results for every individual, we do guarantee this:</p>"
+          }
+        },
+        "heading_xCwEgQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Quality Ingredients",
+            "heading_size": "h1"
+          }
+        },
+        "text_GpCG7k": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You’ll always receive pure, high-quality ingredients, carefully sourced, rigorously tested, and crafted to the highest standards.</p>"
+          }
+        },
+        "heading_eiFUHy": {
+          "type": "heading",
+          "settings": {
+            "heading": "True to Label",
+            "heading_size": "h1"
+          }
+        },
+        "text_cWNJWh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every product is made exactly as stated on the label. We oversee every step, from sourcing and formulation to manufacturing, to ensure integrity, consistency, and excellence in everything we create.<br/><br/>Because your health deserves products that deliver on every promise.</p>"
           }
         }
       },
       "block_order": [
-        "text_9XJ4Lg"
+        "text_9XJ4Lg",
+        "heading_xCwEgQ",
+        "text_GpCG7k",
+        "heading_eiFUHy",
+        "text_cWNJWh"
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 110rem;}",
-        "p {font-size: 3.8rem; line-height: 1.4;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
         "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
         "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
       ],
@@ -357,6 +387,7 @@
         "hotspot_bcKaTz",
         "hotspot_e97iLc"
       ],
+      "disabled": true,
       "custom_css": [
         ".hotspots__pin-label {width: 250px;}",
         ".hotspots__grid {align-items: center;}",
