@@ -92,9 +92,19 @@
                       {{ details_meta }}
                     </div>
                     <div class="pta__col pta__col-2">
+
                       {%- if details_image != blank -%}
                         {{ details_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title }}
+                      {%- else -%}
+                        <img
+                          src="{{ 'https://cdn.shopify.com/s/files/1/2714/9868/files/Placeholder_Image.png' }}"
+                          alt="{{ product.title }}"
+                          loading="lazy"
+                          width="1200"
+                          height="auto"
+                        >
                       {%- endif -%}
+
                     </div>
 
                   {%- when 'ingredients' -%}
@@ -117,7 +127,7 @@
                         {{ directions_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title }}
                       {%- else -%}
                         <img
-                          src="{{ 'https://cdn.shopify.com/s/files/1/2714/9868/files/Placeholder_Image.png' }}"
+                          src="{{ 'https://cdn.shopify.com/s/files/1/2714/9868/files/TBMP_DSC00103_1_1.jpg' }}"
                           alt="{{ product.title }}"
                           loading="lazy"
                           width="1200"
