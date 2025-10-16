@@ -28,6 +28,18 @@
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
+{%- comment -%}Restrict visibility of certain products by locale{%- endcomment -%}
+{%- assign country_restricted = false -%}
+{%- if product.metafields.custom_fields.country_restrictions != blank and settings.feature_enabled_product_locale and request.page_type != 'article' -%}
+	{%- assign restrictions = product.metafields.custom_fields.country_restrictions -%}
+    {%- assign restricted_countries = restrictions.country | split: "|" -%}
+    {%- assign restricted_redirects = restrictions.redirect | split: "|" -%}
+    {% for r_country in restricted_countries %}
+          <script>RestrictedCountries.addRestriction("{{ r_country }}", "{{ restricted_redirects[forloop.index0] }}");</script>
+    {% endfor %}
+	{%- assign restrict_country = restricted_countries -%}
+	{%- assign country_restricted = true -%}
+{% endif %}
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
