@@ -591,7 +591,7 @@
         "caption_E7CfW3": {
           "type": "caption",
           "settings": {
-            "caption": "Add a tagline",
+            "caption": "{{ product.metafields.custom.key_highlight_title_2.value }}",
             "additional_caption": "",
             "text_style": "subtitle",
             "text_size": "small"
@@ -600,15 +600,15 @@
         "text_R74VX4": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
+            "text": "<p>{{ product.metafields.custom.key_highlight_content_2 | metafield_tag }}</p>",
             "text_style": "body"
           }
         },
-        "button_3QqNe9": {
+        "button_CTaqmK": {
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "#",
+            "button_link": "{{ product.metafields.custom.key_highlight_url_2.value }}",
             "button_style_secondary": false
           }
         }
@@ -616,14 +616,14 @@
       "block_order": [
         "caption_E7CfW3",
         "text_R74VX4",
-        "button_3QqNe9"
+        "button_CTaqmK"
       ],
       "custom_css": [
         "img {border-radius: 10px;}"
       ],
       "name": "Product Image with Text",
       "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_2.jpg",
+        "image": "{{ product.metafields.custom.key_highlight_image_2.value }}",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
