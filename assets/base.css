@@ -73,7 +73,7 @@
   --shadow-opacity: var(--media-shadow-opacity);
   --shadow-visible: var(--media-shadow-visible);
 }
-@font-face {
+/* @font-face {
     font-family: 'Pangea';
     src: url('{{"Pangea-Regular.woff2" | asset_url }}') format('woff2'),
         url('{{"Pangea-Regular.woff" | asset_url }}') format('woff');
@@ -88,7 +88,7 @@
     font-weight: 500;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 
 /* base */
