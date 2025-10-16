@@ -299,55 +299,34 @@
         "padding_bottom": 0
       }
     },
-    "image_with_text_KCQTNP": {
-      "type": "image-with-text",
+    "product_image_with_text_VYMtEK": {
+      "type": "product-image-with-text",
       "blocks": {
-        "heading_jAi6Wt": {
+        "heading_eETBXC": {
           "type": "heading",
           "settings": {
             "heading": "{{ product.metafields.custom.key_highlight_title.value }}",
             "heading_size": "h1"
           }
         },
-        "caption_bz9N8Y": {
-          "type": "caption",
-          "disabled": true,
-          "settings": {
-            "caption": "",
-            "additional_caption": "{{ product.metafields.custom.key_highlight_title.value }}",
-            "text_style": "subtitle",
-            "text_size": "small"
-          }
-        },
-        "text_fQHPQr": {
+        "text_wLtUKc": {
           "type": "text",
           "settings": {
             "text": "<p>{{ product.metafields.custom.key_highlight_content | metafield_tag }}</p>",
             "text_style": "body"
           }
-        },
-        "button_Qekx44": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Learn more",
-            "button_link": "shopify://pages/total-balance",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
-        "heading_jAi6Wt",
-        "caption_bz9N8Y",
-        "text_fQHPQr",
-        "button_Qekx44"
+        "heading_eETBXC",
+        "text_wLtUKc"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
         ".image-with-text__media img {border-radius: 10px;}",
         "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 0; }}"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "Product Image with Text",
       "settings": {
         "image": "{{ product.metafields.custom.key_highlight_image.value }}",
         "height": "adapt",
@@ -360,8 +339,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
+        "section_color_scheme": "",
+        "color_scheme": "",
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -606,58 +585,6 @@
         "padding_bottom": 100
       }
     },
-    "image_with_text_eg3Czw": {
-      "type": "image-with-text",
-      "blocks": {
-        "caption_ew4BG8": {
-          "type": "caption",
-          "settings": {
-            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
-            "additional_caption": "Go Beyond Multivitamins",
-            "text_style": "subtitle",
-            "text_size": "small"
-          }
-        },
-        "text_kznYVa": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
-            "text_style": "body"
-          }
-        },
-        "button_Knpwr8": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn more",
-            "button_link": "shopify://pages/total-balance",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "caption_ew4BG8",
-        "text_kznYVa",
-        "button_Knpwr8"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/felix-lam-J7fxkhtOqt0-unsplash_1.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
     "product_image_with_text_d6xTT3": {
       "type": "product-image-with-text",
       "blocks": {
@@ -709,8 +636,8 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
         "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "related-products": {
@@ -843,13 +770,12 @@
     "image-with-text",
     "multicolumn",
     "product_health_accordions_XC9RBQ",
-    "image_with_text_KCQTNP",
+    "product_image_with_text_VYMtEK",
     "image_with_text_3jd3FP",
     "product_faqs_collapsible_wJ8Q99",
     "1756789925579c1cf4",
     "image_hotspots_Hi6X7P",
     "testimonial_slider_xafpPP",
-    "image_with_text_eg3Czw",
     "product_image_with_text_d6xTT3",
     "related-products",
     "featured_blog_rTpRWP",
