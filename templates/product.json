@@ -602,8 +602,8 @@
         "caption_E7CfW3": {
           "type": "caption",
           "settings": {
-            "caption": "{{ product.metafields.custom.key_highlight_title_2.value }}",
-            "additional_caption": "",
+            "caption": "",
+            "additional_caption": "{{ product.metafields.custom.key_highlight_title_2.value }}",
             "text_style": "subtitle",
             "text_size": "small"
           }
@@ -611,7 +611,7 @@
         "text_R74VX4": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ product.metafields.custom.key_highlight_content_2 | metafield_tag }}</p>",
+            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
             "text_style": "body"
           }
         },
