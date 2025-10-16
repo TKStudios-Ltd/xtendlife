@@ -192,7 +192,6 @@
         background-color: rgb(var(--color-background));
       }
 
-      {% comment %}
       @font-face {
           font-family: 'Pangea';
           src: url('{{"Pangea-Regular.woff2" | asset_url }}') format('woff2'),
@@ -209,7 +208,6 @@
           font-style: normal;
           font-display: swap;
       }
-      {% endcomment %}
 
       :root {
         --font-body-family: 'Pangea', {{ settings.type_body_font.fallback_families }};
