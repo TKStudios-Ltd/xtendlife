@@ -302,6 +302,15 @@
     "product_image_with_text_VYMtEK": {
       "type": "product-image-with-text",
       "blocks": {
+        "caption_cBQ3qK": {
+          "type": "caption",
+          "settings": {
+            "caption": "Add a tagline",
+            "additional_caption": "Add a tagline",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
         "heading_eETBXC": {
           "type": "heading",
           "settings": {
@@ -318,9 +327,11 @@
         }
       },
       "block_order": [
+        "caption_cBQ3qK",
         "heading_eETBXC",
         "text_wLtUKc"
       ],
+      "disabled": true,
       "custom_css": [
         "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
         ".image-with-text__media img {border-radius: 10px;}",
