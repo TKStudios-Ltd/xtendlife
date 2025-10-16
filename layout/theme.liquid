@@ -32,7 +32,13 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <title>{%- if template.name == "index" -%}{{ page_title }}{%- else -%}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{%- endif -%}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains 'Xtendlife' %} - {{ "Xtendlife" }}{% endunless %}{% endif %}</title>
+    <title>
+      {%- if template.name == "index" -%}
+        {{ page_title }}
+      {%- else -%}
+        {{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{%- endif -%}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains 'Xtendlife' %} - {{ "Xtendlife" }}{% endunless %}
+      {% endif %}
+    </title>
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
