@@ -1,4 +1,21 @@
 <!doctype html>
+{% assign domain = request.host %}
+{% assign html_lang = 'en-us' %}
+{% assign shop_name = 'Xtendlife' %}
+{% assign path = request.path %}
+{% if domain == 'www.xtend-life.com.au' %}
+    {% assign html_lang = 'en-au' %}
+    {% assign shop_name = 'Xtendlife - Australia' %}
+{% elsif domain == 'www.xtend-life.co.nz' %}
+    {% assign html_lang = 'en-nz' %}
+    {% assign shop_name = 'Xtendlife - New Zealand' %}
+{% elsif domain == 'www.xtend-life.co.uk' %}
+    {% assign html_lang = 'en-gb' %}
+    {% assign shop_name = 'Xtendlife - United Kingdom' %}
+{% elsif path startswith "/en-ca" %}
+    {% assign html_lang = 'en-ca' %}
+    {% assign shop_name = 'Xtendlife - Canada' %}
+{% endif %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
@@ -15,12 +32,7 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
-    </title>
+    <title>{%- if template.name == "index" -%}{{ page_title }}{%- else -%}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{%- endif -%}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains 'Xtendlife' %} - {{ "Xtendlife" }}{% endunless %}{% endif %}</title>
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
