@@ -53,17 +53,17 @@
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
-      <div class="custom--badges__card">
-                {% comment %} {%- if card_product.tags contains 'out-of-stock' -%} {% endcomment %}
-                  <div class="custom--badge">Sold Out</div>
-                {% comment %} {%- endif -%} {% endcomment %}
-              </div>
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }}{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }}{% endif %}">
+            <div class="custom--badges__card">
+              {% comment %} {%- if card_product.tags contains 'out-of-stock' -%} {% endcomment %}
+                <div class="custom--badge">Sold Out</div>
+              {% comment %} {%- endif -%} {% endcomment %}
+            </div>
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
