@@ -23,7 +23,7 @@
         "custom_liquid_7HtAwq": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{%- if product.metafields.custom_fields.product_summary != blank -%}\n{%- assign product_summary = product.metafields.custom_fields.product_summary -%}\n{%- endif -%}\n{%- if product_summary != blank -%}\n<div class=\"product-hero__summary\">{{ product_summary }}</div>\n{% endif %}"
+            "custom_liquid": "{%- if product.metafields.custom_fields.product_summary != blank -%}\n{%- assign product_summary = product.metafields.custom_fields.product_summary -%}\n{%- endif -%}\n{%- if product_summary != blank -%}\n<div class=\"product-hero__summary\">{{ product_summary }}</div>\n{% endif %}\n\n{% if product.tags contains 'out-of-stock' %}\n      <div class=\"purchase-details\">\n      <p><strong>Sorry, this product is temporarily out of stock</strong></p>\n      </div>\n{% endif %}"
           }
         },
         "price": {
