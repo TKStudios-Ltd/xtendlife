@@ -115,22 +115,11 @@
                   <span class="h4">{{ card_product.metafields.global.description_tag }}</span>
                 {% endif %}
               </div>
-              {% comment %}
               <div class="custom--badges__card">
-                {%- if card_product.tags contains 'enhance' -%}
-                  <div class="custom--badge enhance--badge">enhance</div>
-                {%- endif -%}
-                {%- if card_product.tags contains 'soothe' -%}
-                  <div class="custom--badge soothe--badge">soothe</div>
-                {%- endif -%}
-                {%- if card_product.tags contains 'digest' -%}
-                  <div class="custom--badge digest--badge">digest</div>
-                {%- endif -%}
-                {%- if card_product.tags contains 'defend' -%}
-                  <div class="custom--badge defend--badge">defend</div>
-                {%- endif -%}
+                {% comment %} {%- if card_product.tags contains 'out-of-stock' -%} {% endcomment %}
+                  <div class="custom--badge">Sold Out</div>
+                {% comment %} {%- endif -%} {% endcomment %}
               </div>
-              {% endcomment %}
             </div>
           </div>
         {%- endif -%}
