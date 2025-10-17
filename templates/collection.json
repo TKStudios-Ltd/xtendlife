@@ -47,6 +47,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "supplements",
+            "custom_image": "shopify://shop_images/AdobeStock_235909565_3.jpg",
             "custom_title": "",
             "background_color": ""
           }
@@ -55,6 +56,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "skincare",
+            "custom_image": "shopify://shop_images/AdobeStock_525312285_3.jpg",
             "custom_title": "Skincare",
             "background_color": "rgba(0,0,0,0)"
           }
@@ -63,6 +65,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "all-bundles",
+            "custom_image": "shopify://shop_images/Hand-holding_CX8_TBMP_TBWP_2184011925_3.jpg",
             "custom_title": "Bundles",
             "background_color": "rgba(0,0,0,0)"
           }
