@@ -50,11 +50,8 @@
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; background-color: transparent !important; transform: none !important;"
     >
       {%- if custom_image -%}
-        <div class="card__media media--collection-hover">
-          <div
-            class="media media--transparent"
-            style="{% if background_color != blank %}background-color: {{ background_color }};{% endif %}"
-          >
+        <div class="card__media">
+          <div class="media media--transparent media--hover-effect" style="{% if background_color != blank %}background-color: {{ background_color }};{% endif %}">
             <img
               src="{{ custom_image | image_url: width: 750 }}"
               alt="{{ custom_image.alt | escape }}"
