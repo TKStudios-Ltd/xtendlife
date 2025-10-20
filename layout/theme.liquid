@@ -126,8 +126,6 @@
     <script src="{{ 'predictive-articles-augment.js' | asset_url }}" defer></script>
     <script src="{{ 'mega-menu-transition.js' | asset_url }}" defer></script>
 
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -369,6 +367,8 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
+      
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.cart_type == 'drawer' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
