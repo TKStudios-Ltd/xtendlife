@@ -79,6 +79,8 @@
   endif
 -%}
 
+{% if section.settings.heading != blank %}
+
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} {% if section.settings.image_bleed %}image-with-text--edge-{{ section.id }}{% endif %}">
   {% if section.settings.image_bleed %}
     <div class="image-with-text__outer">
@@ -204,6 +206,8 @@
     </div>
   </div>
 </div>
+
+{% endif %}
 
 {% schema %}
 {
