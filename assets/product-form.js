@@ -4,26 +4,53 @@ if (!customElements.get('product-form')) {
     class ProductForm extends HTMLElement {
       constructor() {
         super();
+        this._inited = false;
+        this._observer = null;
+        this._warned = false;
+        this.onSubmitHandler = this.onSubmitHandler?.bind(this);
+      }
 
-        // Root form
-        this.form = this.querySelector('form');
+      connectedCallback() {
+        // Defer a tick so children parse, then try init.
+        queueMicrotask(() => this._ensureInit());
+      }
+
+      disconnectedCallback() {
+        this._teardown();
+      }
+
+      _ensureInit() {
+        if (this._inited) return;
+
+        // Try to locate the form now.
+        this.form = this._findForm();
+
         if (!this.form) {
-          console.warn('[product-form] No <form> inside <product-form>. Skipping init.', this);
+          // If the form is injected later (e.g. quick add/modal/template),
+          // observe until it appears, then init.
+          this._observeForForm();
           return;
         }
 
         // Variant input
         const variantInput = this.form.querySelector('[name="id"]');
         if (!variantInput) {
-          console.warn('[product-form] Missing input[name="id"] inside form. Skipping init.', this.form);
+          // Don’t spam—only warn once per element.
+          if (!this._warned) {
+            console.warn('[product-form] Missing input[name="id"] inside form. Will no-op for this element.', this);
+            this._warned = true;
+          }
           return;
         }
         variantInput.disabled = false;
 
-        // Submit button (+label)
+        // Submit button
         this.submitButton = this.querySelector('[type="submit"]');
         if (!this.submitButton) {
-          console.warn('[product-form] Missing submit button. Skipping init.', this);
+          if (!this._warned) {
+            console.warn('[product-form] Missing submit button. Will no-op for this element.', this);
+            this._warned = true;
+          }
           return;
         }
         this.submitButtonText = this.submitButton.querySelector('span') || this.submitButton;
@@ -40,6 +67,64 @@ if (!customElements.get('product-form')) {
         // Events
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
         this.form.addEventListener('submit', this.onSubmitHandler);
+
+        this._inited = true;
+        this._disconnectObserver();
+      }
+
+      _findForm() {
+        // Common cases in Dawn:
+        // 1) <product-form><form action="/cart/add">…</form></product-form>
+        // 2) content injected later (modal/template) -> observer will catch it
+        // 3) very rarely the element itself IS the form (fallback)
+        return (
+          this.querySelector('form[action*="/cart/add"]') ||
+          this.querySelector('form') ||
+          (this.matches('form') ? this : null)
+        );
+      }
+
+      _observeForForm() {
+        // Already observing?
+        if (this._observer) return;
+
+        this._observer = new MutationObserver(() => {
+          const f = this._findForm();
+          if (f) {
+            this._disconnectObserver();
+            this._ensureInit();
+          }
+        });
+
+        this._observer.observe(this, { childList: true, subtree: true });
+
+        // Optional: after 10s, give up with a single warning
+        this._formTimeout = setTimeout(() => {
+          this._disconnectObserver();
+          if (!this._warned) {
+            console.warn('[product-form] No <form> found inside <product-form> after waiting. Skipping init for this element.', this);
+            this._warned = true;
+          }
+        }, 10000);
+      }
+
+      _disconnectObserver() {
+        if (this._observer) {
+          this._observer.disconnect();
+          this._observer = null;
+        }
+        if (this._formTimeout) {
+          clearTimeout(this._formTimeout);
+          this._formTimeout = null;
+        }
+      }
+
+      _teardown() {
+        this._disconnectObserver();
+        if (this.form && this.onSubmitHandler) {
+          this.form.removeEventListener('submit', this.onSubmitHandler);
+        }
+        this._inited = false;
       }
 
       onSubmitHandler(evt) {
@@ -70,7 +155,7 @@ if (!customElements.get('product-form')) {
         config.body = formData;
 
         fetch(`${routes.cart_add_url}`, config)
-          .then((response) => response.json())
+          .then((r) => r.json())
           .then((response) => {
             if (response.status) {
               publish(PUB_SUB_EVENTS.cartError, {
@@ -125,27 +210,22 @@ if (!customElements.get('product-form')) {
               });
             }
           })
-          .catch((e) => {
-            console.error(e);
-          })
+          .catch(console.error)
           .finally(() => {
             this.submitButton.classList.remove('loading');
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             const spinner = this.querySelector('.loading__spinner');
             if (spinner) spinner.classList.add('hidden');
-
             CartPerformance.measureFromEvent('add:user-action', evt);
           });
       }
 
       handleErrorMessage(errorMessage = false) {
         if (this.hideErrors) return;
-
         this.errorMessageWrapper =
           this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
         if (!this.errorMessageWrapper) return;
-
         this.errorMessage =
           this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
 
