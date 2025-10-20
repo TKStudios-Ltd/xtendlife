@@ -602,7 +602,7 @@
         "caption_E7CfW3": {
           "type": "caption",
           "settings": {
-            "caption": "",
+            "caption": "{{ product.metafields.custom.key_highlight_subtitle_2.value }}",
             "additional_caption": "{{ product.metafields.custom.key_highlight_title_2.value }}",
             "text_style": "subtitle",
             "text_size": "small"
