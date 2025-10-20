@@ -1343,36 +1343,55 @@ document.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function () {
   const isDesktop = window.matchMedia('(min-width: 769px)').matches;
 
-  let thumbsSwiper = null;
-  if (isDesktop) {
-    thumbsSwiper = new Swiper('.custom-gallery-thumbnails', {
-      direction: 'vertical',
-      slidesPerView: 'auto',
-      spaceBetween: 12,
-      freeMode: true,
-      watchSlidesProgress: true,
-      slideToClickedSlide: true,
-      mousewheel: true
+  // For each gallery wrapper
+  document.querySelectorAll('.custom-gallery').forEach((wrap) => {
+    const mainEl   = wrap.querySelector('.custom-gallery-main');
+    const thumbsEl = wrap.querySelector('.custom-gallery-thumbnails');
+    const nextEl   = wrap.querySelector('.custom-gallery-next');
+    const prevEl   = wrap.querySelector('.custom-gallery-prev');
+
+    // Bail if the main swiper shell is missing
+    if (!mainEl) return;
+
+    // Optional: ensure required markup exists
+    if (!mainEl.querySelector('.swiper-wrapper')) return;
+
+    // Build thumbs only when present (and on desktop)
+    let thumbsSwiper = null;
+    if (isDesktop && thumbsEl && thumbsEl.querySelector('.swiper-wrapper')) {
+      thumbsSwiper = new Swiper(thumbsEl, {
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+        freeMode: true,
+        watchSlidesProgress: true,
+        slideToClickedSlide: true,
+        mousewheel: true,
+      });
+    }
+
+    // Build main swiper (pass **elements**, not selector strings)
+    const mainSwiper = new Swiper(mainEl, {
+      loop: false,
+      preloadImages: true,
+      navigation: {
+        nextEl: nextEl || undefined,
+        prevEl: prevEl || undefined,
+      },
+      // only attach thumbs if we actually created the instance
+      ...(thumbsSwiper ? { thumbs: { swiper: thumbsSwiper } } : {}),
+      observer: true,
+      observeParents: true,
     });
-  }
 
-  const mainSwiper = new Swiper('.custom-gallery-main', {
-    loop: false,
-    preloadImages: true,
-    navigation: {                          // <- always enable
-      nextEl: '.custom-gallery-next',
-      prevEl: '.custom-gallery-prev',
-    },
-    thumbs: thumbsSwiper ? { swiper: thumbsSwiper } : undefined,
-    observer: true,
-    observeParents: true
-  });
-
-  window.addEventListener('resize', () => {
-    mainSwiper.update();
-    if (thumbsSwiper) thumbsSwiper.update();
+    // Keep both updated on resize (scoped per gallery)
+    window.addEventListener('resize', () => {
+      mainSwiper.update();
+      if (thumbsSwiper) thumbsSwiper.update();
+    });
   });
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof PhotoSwipeLightbox === 'undefined' || typeof PhotoSwipe === 'undefined') {
