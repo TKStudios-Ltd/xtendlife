@@ -4029,7 +4029,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .custom-gallery-thumbnails .swiper-slide{
   width: calc(100% - 2px)!important;
   height: 81px;
-  background:#FCF1D6;
+  background: #f4f8fb;
   border-radius:8px;
   display:flex;
 }
