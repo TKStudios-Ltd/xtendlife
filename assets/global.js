@@ -1344,7 +1344,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const isDesktop = window.matchMedia('(min-width: 769px)').matches;
 
   // For each gallery wrapper
-  document.querySelectorAll('.custom-gallery').forEach((wrap) => {
+  document.querySelectorAll('.custom-gallery-wrapper').forEach((wrap) => {
     const mainEl   = wrap.querySelector('.custom-gallery-main');
     const thumbsEl = wrap.querySelector('.custom-gallery-thumbnails');
     const nextEl   = wrap.querySelector('.custom-gallery-next');
