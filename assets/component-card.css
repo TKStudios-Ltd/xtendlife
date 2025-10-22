@@ -768,19 +768,20 @@
 .custom--badges__product .custom--badge {
   background: #1F1946;
   border-radius: 20px;
-  padding: .5rem 1.25rem;
+  padding: .5rem 1.5rem;
   font-size: 1.2rem;
   font-weight: 500;
   color: #FFF;
   width: fit-content;
   height: fit-content;
   position: relative;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.35px;
 }
 .card__badge .custom--badge-sale {
   background: #dbeeff !important;
   color: #1F1946 !important;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 /* .custom--badge::before {
   position: absolute;
