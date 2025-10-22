@@ -775,6 +775,7 @@
   width: fit-content;
   height: fit-content;
   position: relative;
+  letter-spacing: 0.2px;
 }
 .card__badge .custom--badge-sale {
   background: #dbeeff !important;
