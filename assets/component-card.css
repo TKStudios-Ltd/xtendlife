@@ -763,6 +763,7 @@
   display: inline-flex !important;
   gap: 1rem;
 }
+.card__badge .custom--badge,
 .custom--badges__card .custom--badge,
 .custom--badges__product .custom--badge {
   background: #1F1946;
@@ -774,6 +775,11 @@
   width: fit-content;
   height: fit-content;
   position: relative;
+}
+.card__badge .custom--badge-sale {
+  background: #dbeeff !important;
+  color: #1F1946 !important;
+  text-transform: uppercase;
 }
 /* .custom--badge::before {
   position: absolute;
