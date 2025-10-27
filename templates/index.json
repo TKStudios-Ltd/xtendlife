@@ -481,8 +481,8 @@
         "caption_bz9N8Y": {
           "type": "caption",
           "settings": {
-            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
-            "additional_caption": "Go Beyond Multivitamins",
+            "caption": "",
+            "additional_caption": "The Xtendlife Difference",
             "text_style": "subtitle",
             "text_size": "small"
           }
@@ -490,15 +490,15 @@
         "text_fQHPQr": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
-            "text_style": "body"
+            "text": "<p>When it comes to your health, quality isn’t a claim. It’s a promise.</p><p>Our formulations are backed by over 25 years of continuous innovation, research, and care. All our supplements are produced in a GMP-certified and FDA-registered facility under strict quality and safety standards.</p><p>We’re also ISO 9001 accredited and MPI registered, meaning every process, ingredient, and batch is tested and traceable from start to finish.</p><p>Our commitment to continuous improvement ensures every product meets, and often exceeds, global standards for purity, safety, and performance.</p>",
+            "text_style": "subtitle"
           }
         },
         "button_Qekx44": {
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://pages/total-balance",
+            "button_link": "shopify://pages/our-story",
             "button_style_secondary": false
           }
         }
