@@ -58,6 +58,10 @@
     margin-right: calc((100vw - {{ settings.page_width }}px) / -2);
     width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
   }
+}
+{% endif %}
+
+@media screen and (min-width: 1400px) {
   .section-pha .image-with-text--edge-{{ section.id }} .image-with-text__media-item .image-with-text__media {
     padding-bottom: 100%;
   }
@@ -65,7 +69,6 @@
     left: -5vw;
   }
 }
-{% endif %}
 
 /* Collapsible rows – plus/minus toggle */
 #ImageWithText--{{ section.id }} details[open] > summary .icon-plus { transform: rotate(45deg); }
