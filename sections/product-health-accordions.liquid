@@ -58,6 +58,12 @@
     margin-right: calc((100vw - {{ settings.page_width }}px) / -2);
     width: calc(var(--media-col-base, 50%) + (100vw - {{ settings.page_width }}px) / 2);
   }
+  .section-pha .image-with-text__media-item .image-with-text__media {
+    padding-bottom: 100%;
+  }
+  .section-pha .image-with-text__media-item .image-with-text__media img {
+    left: -5vw;
+  }
 }
 {% endif %}
 
@@ -81,7 +87,7 @@
 
 {% if section.settings.heading != blank %}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} {% if section.settings.image_bleed %}image-with-text--edge-{{ section.id }}{% endif %}">
+<div class="section-pha section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} {% if section.settings.image_bleed %}image-with-text--edge-{{ section.id }}{% endif %}">
   {% if section.settings.image_bleed %}
     <div class="image-with-text__outer">
   {% else %}
