@@ -231,6 +231,30 @@
 
 {% endif %}
 
+<script>
+(function() {
+  // scope to this specific section so multiple sections of this type can exist on the page
+  const sectionEl = document.getElementById('ImageWithText--{{ section.id }}');
+  if (!sectionEl) return;
+
+  const accordions = sectionEl.querySelectorAll('.accordion details');
+
+  accordions.forEach((detailsEl) => {
+    detailsEl.addEventListener('toggle', () => {
+      // only run when something is opened
+      if (!detailsEl.open) return;
+
+      accordions.forEach((otherEl) => {
+        if (otherEl !== detailsEl && otherEl.open) {
+          otherEl.open = false;
+        }
+      });
+    });
+  });
+})();
+</script>
+
+
 {% schema %}
 {
   "name": "Product HB Accordions",
