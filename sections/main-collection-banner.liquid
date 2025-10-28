@@ -2,23 +2,60 @@
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign banner_ref = collection.metafields.custom.collection_banner_main
-  assign banner_img = nil
-  if banner_ref != blank
-    assign banner_img = banner_ref | image_url: width: 3000
+  assign desktop_ref = collection.metafields.custom.collection_main_banner_desktop
+  assign tablet_ref  = collection.metafields.custom.collection_main_banner_tablet
+  assign mobile_ref  = collection.metafields.custom.collection_main_banner_mobile
+
+  assign desktop_img = nil
+  assign tablet_img  = nil
+  assign mobile_img  = nil
+
+  if desktop_ref != blank
+    assign desktop_img = desktop_ref | image_url: width: 3000
   elsif collection.image
-    assign banner_img = collection.image | image_url: width: 3000
+    assign desktop_img = collection.image | image_url: width: 3000
+  endif
+
+  if tablet_ref != blank
+    assign tablet_img = tablet_ref | image_url: width: 2000
+  endif
+
+  if mobile_ref != blank
+    assign mobile_img = mobile_ref | image_url: width: 1200
   endif
 -%}
 
 {%- style -%}
   .collection-hero--bg {
-    {% comment %} background image is injected via the style attribute var(--banner-image) {% endcomment %}
-    background-image: var(--banner-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 10px;
+  }
+
+  /* default (desktop fallback, applies to all unless overridden later) */
+  .collection-hero--bg {
+    {% if desktop_img %}
+      background-image: url({{ desktop_img }});
+    {% endif %}
+  }
+
+  /* <= 989px (tablet) */
+  @media screen and (max-width: 989px) {
+    .collection-hero--bg {
+      {% if tablet_img %}
+        background-image: url({{ tablet_img }});
+      {% endif %}
+    }
+  }
+
+  /* <= 749px (mobile) */
+  @media screen and (max-width: 749px) {
+    .collection-hero--bg {
+      {% if mobile_img %}
+        background-image: url({{ mobile_img }});
+      {% endif %}
+    }
   }
 
   /* Vertically center text, keep left aligned */
@@ -53,8 +90,7 @@
 {%- comment -%} Banner {%- endcomment -%}
 <div class="collection-hero__wrapper page-width">
   <div
-    class="collection-hero{% if banner_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }} "
-    {% if banner_img %}style="--banner-image: url({{ banner_img }});" {% endif %}
+    class="collection-hero{% if desktop_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }}"
   >
     <div class="collection-hero__inner {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       <div class="collection-hero__text-wrapper">
