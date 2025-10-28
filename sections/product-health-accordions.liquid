@@ -233,22 +233,27 @@
 
 <script>
 (function() {
-  // scope to this specific section so multiple sections of this type can exist on the page
   const sectionEl = document.getElementById('ImageWithText--{{ section.id }}');
   if (!sectionEl) return;
 
   const accordions = sectionEl.querySelectorAll('.accordion details');
 
   accordions.forEach((detailsEl) => {
-    detailsEl.addEventListener('toggle', () => {
-      // only run when something is opened
-      if (!detailsEl.open) return;
+    const summary = detailsEl.querySelector('summary');
+    if (!summary) return;
 
-      accordions.forEach((otherEl) => {
-        if (otherEl !== detailsEl && otherEl.open) {
-          otherEl.open = false;
-        }
-      });
+    summary.addEventListener('click', function(e) {
+      e.preventDefault(); // stop native <details> toggle
+
+      const isOpen = detailsEl.hasAttribute('open');
+
+      // close all
+      accordions.forEach(d => d.removeAttribute('open'));
+
+      // if the one we clicked was not already open, open it
+      if (!isOpen) {
+        detailsEl.setAttribute('open', '');
+      }
     });
   });
 })();
