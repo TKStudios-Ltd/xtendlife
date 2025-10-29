@@ -619,7 +619,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://pages/omega-3",
+            "button_link": "{{ product.metafields.custom.key_highlight_url_2.value }}",
             "button_style_secondary": false
           }
         }
