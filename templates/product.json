@@ -619,7 +619,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "https://www.xtend-life.co.nz/pages/omega-3",
+            "button_link": "shopify://pages/omega-3",
             "button_style_secondary": false
           }
         }
