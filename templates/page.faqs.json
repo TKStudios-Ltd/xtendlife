@@ -316,14 +316,14 @@
         "heading_7gy9tj": {
           "type": "heading",
           "settings": {
-            "heading": "Still need help?",
+            "heading": "Can’t find the answer you need?",
             "heading_size": "h1"
           }
         },
         "text_jBQ7it": {
           "type": "text",
           "settings": {
-            "text": "<p>Xtendlife is a vertically integrated global health supplement and skincare company with its own specialised GMP and ISO facilities (take the tour). </p>",
+            "text": "<p>Our Customer Care team is here to help.</p>",
             "text_style": "body"
           }
         },
@@ -346,6 +346,7 @@
         ".image-with-text__content > * + * {margin-top: 1rem !important; max-width: 400px;}",
         ".image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important;}",
         ".image-with-text__media {border-radius: 16px;}",
+        "h2 {line-height: 1;}",
         "@media (max-width: 749px) {.image-with-text .grid {gap: 4rem !important; } .button {max-width: inherit; width: auto; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
