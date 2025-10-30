@@ -157,7 +157,7 @@
         "auto_close_ms": 2000,
         "hide_on_mobile": false,
         "exclude_paths": "/cart\n/checkout\n/account",
-        "klaviyo_list_id": "TURMy6",
+        "klaviyo_list_id": "Ram9Tc",
         "source_tag": "popup_newsletter"
       }
     }
