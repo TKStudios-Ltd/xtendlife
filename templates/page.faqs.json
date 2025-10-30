@@ -82,17 +82,6 @@
             "button_style_secondary_2": false
           }
         },
-        "button_idbXEU": {
-          "type": "button",
-          "settings": {
-            "button_label": "US Tariff Updates",
-            "button_link": "#tariffs",
-            "button_style_secondary": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
         "button_wG7nQM": {
           "type": "button",
           "settings": {
@@ -108,7 +97,6 @@
       "block_order": [
         "button_YmfrTG",
         "button_4Uq3Aw",
-        "button_idbXEU",
         "button_wG7nQM"
       ],
       "custom_css": [
@@ -270,73 +258,6 @@
       "settings": {
         "caption": "orders-shipping",
         "heading": "Orders & Shipping",
-        "heading_size": "h2",
-        "heading_alignment": "center",
-        "layout": "section",
-        "container_color_scheme": "",
-        "color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "collapsible_content_wrM63W": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_TQgQBt": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Why am I seeing tariffs at checkout or on my invoice?",
-            "icon": "none",
-            "row_content": "<p>From 27 August 2025 (US time), all parcels shipped from New Zealand to the United States are subject to tariffs (duties and taxes) by US Customs. To make this simple, <strong>Xtendlife is temporarily covering these costs for you.</strong> You may still see tariffs displayed as a line item, but you will not be charged.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_rWKr7N": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Will tariffs change my order total?",
-            "icon": "none",
-            "row_content": "<p>No. The price shown at checkout is the final amount you pay.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_z7P4jJ": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Will tariffs affect shipping times?",
-            "icon": "none",
-            "row_content": "<p>There may be minor delays as new Customs processes are introduced, but we’re working closely with our shipping partners to minimise any impact.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_qqBzBa": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Do I need to do anything different when ordering from the US?",
-            "icon": "none",
-            "row_content": "<p>No. All duties and taxes are handled automatically by Xtendlife.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_TQgQBt",
-        "collapsible_row_rWKr7N",
-        "collapsible_row_z7P4jJ",
-        "collapsible_row_qqBzBa"
-      ],
-      "custom_css": [
-        ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
-        "@media (min-width: 749px) {.icon-caret {display: none; } .collapsible-content__heading {font-size: 3.6rem; margin-bottom: 4rem; }}",
-        "@media (max-width: 749px) {.collapsible-content__heading {text-align: left; } .accordion__title {font-size: 1.6rem; } .accordion summary {}}"
-      ],
-      "name": "t:sections.collapsible_content.presets.name",
-      "settings": {
-        "caption": "tariffs",
-        "heading": "US Tariff Updates: What You Need to Know*",
         "heading_size": "h2",
         "heading_alignment": "center",
         "layout": "section",
@@ -625,7 +546,6 @@
     "rich_text_NeYwpz",
     "collapsible_content_VwREVa",
     "collapsible_content_89AQGH",
-    "collapsible_content_wrM63W",
     "collapsible_content_zXqNRk",
     "image_with_text_C9qw4b",
     "newsletter_ymMjqN"
