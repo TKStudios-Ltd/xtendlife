@@ -1043,7 +1043,10 @@
           "settings": {
             "button_label_1": "Learn More About Subscribe & Save",
             "button_link_1": "shopify://pages/subscribe-and-save",
-            "button_style_secondary_1": false
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -1061,11 +1064,18 @@
       "name": "Video banner",
       "settings": {
         "video_mp4": "https://cdn.shopify.com/videos/c/o/v/ea895781caa04eb68803039024eb8731.mp4",
+        "video_poster": "shopify://shop_images/AdobeStock_272832590_1.jpg",
         "image_overlay_opacity": 0,
+        "image_height": "large",
         "wide_container": false,
+        "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3"
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
       }
     }
   },
