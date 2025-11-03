@@ -114,6 +114,32 @@
     opacity: 1;
     width: 46px;
 }
+/* Ensure the banner is a positioned context */
+#MediaHero-{{ section.id }} .banner { position: relative; }
+
+/* Mobile: give the media a height source and make the img cover */
+@media (max-width: 749px) {
+  #MediaHero-{{ section.id }} .banner__media {
+    position: relative;
+    height: 100%; /* so the absolute img has a height even when not using 'adapt' */
+  }
+  #MediaHero-{{ section.id }} .banner__media picture,
+  #MediaHero-{{ section.id }} .banner__media img.media-hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Mobile min-heights (only if you're not using 'Adapt') */
+  #MediaHero-{{ section.id }} .banner--small { min-height: 40vh; }
+  #MediaHero-{{ section.id }} .banner--medium { min-height: 60vh; }
+  #MediaHero-{{ section.id }} .banner--large { min-height: 75vh; }
+}
+
 {%- endstyle -%}
 
 {%- liquid
