@@ -12,6 +12,26 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_3FrQKe": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/HP-Banner_Desktop.png",
+            "image_tablet": "shopify://shop_images/HP-Banner_iPad.png",
+            "image_mobile": "shopify://shop_images/HP-Banner_Mob.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 55,
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1",
+            "text": "Bundle up with the essentials you need to keep going.",
+            "text_style": "body",
+            "button_label_1": "Shop All Products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Save More with Bundles",
+            "button_link_2": "shopify://collections/all",
+            "button_style_secondary_2": true
+          }
+        },
         "slide_Bwck6W": {
           "type": "slide",
           "disabled": true,
@@ -32,6 +52,7 @@
         },
         "slide_fcdUx9": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "video_mp4": "https://cdn.shopify.com/videos/c/o/v/2bcb59b6585d4453851b874b904f3702.mp4",
             "video_adapt_ratio": 30,
@@ -49,6 +70,7 @@
         },
         "slide_4TWen8": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/iStock-1208575446_5.jpg",
             "image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
@@ -65,33 +87,13 @@
             "button_link_2": "",
             "button_style_secondary_2": true
           }
-        },
-        "slide_3FrQKe": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/HP-Banner_Desktop.png",
-            "image_tablet": "shopify://shop_images/HP-Banner_iPad.png",
-            "image_mobile": "shopify://shop_images/HP-Banner_Mob.png",
-            "video_mp4": "",
-            "video_adapt_ratio": 55,
-            "heading": "Your best years are now",
-            "heading_size": "h1",
-            "text": "Healthy aging begins with the choices you make today.",
-            "text_style": "body",
-            "button_label_1": "Fuel your future",
-            "button_link_1": "shopify://products/nr6-natural-nad-booster",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": true
-          }
         }
       },
       "block_order": [
+        "slide_3FrQKe",
         "slide_Bwck6W",
         "slide_fcdUx9",
-        "slide_4TWen8",
-        "slide_3FrQKe"
+        "slide_4TWen8"
       ],
       "custom_css": [
         "@media (max-width: 749px) {.banner__buttons {justify-content: center; }}"
