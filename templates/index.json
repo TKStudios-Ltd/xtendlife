@@ -1020,6 +1020,53 @@
         "mobile_content_alignment": "center",
         "show_text_below": false
       }
+    },
+    "video_banner_rhmkQf": {
+      "type": "video-banner",
+      "blocks": {
+        "heading_MrCMtM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join Us on the Journey",
+            "heading_size": "h1"
+          }
+        },
+        "text_Pz9Vjn": {
+          "type": "text",
+          "settings": {
+            "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_9dJkJM": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Learn More About Subscribe & Save",
+            "button_link_1": "shopify://pages/subscribe-and-save",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_MrCMtM",
+        "text_Pz9Vjn",
+        "buttons_9dJkJM"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
+        ".subtitle {line-height: 1.2; max-width: 740px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
+      ],
+      "name": "Video banner",
+      "settings": {
+        "video_mp4": "https://cdn.shopify.com/videos/c/o/v/ea895781caa04eb68803039024eb8731.mp4",
+        "image_overlay_opacity": 0,
+        "wide_container": false,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3"
+      }
     }
   },
   "order": [
@@ -1041,6 +1088,7 @@
     "image_hotspots_Hi6X7c",
     "featured_blog_rTpRWK",
     "newsletter_qKtmmH",
-    "image_banner_eNjqNa"
+    "image_banner_eNjqNa",
+    "video_banner_rhmkQf"
   ]
 }
