@@ -79,6 +79,8 @@
     margin: 1.5rem 0;
     font-size: 1.6rem;
   }
+}
+@media (max-width: 989px) {
   #MediaHero-{{ section.id }} .banner__media img.media-hero__img,
   #MediaHero-{{ section.id }} .banner__media source {
     width: 100%;
@@ -90,13 +92,10 @@
   }
 }
 
-/* Full-bleed helper */
 #MediaHero-{{ section.id }} .is-fullbleed{
   width: 100vw;
 }
 .section-{{ section.id }}-padding { overflow-x: clip; }
-
-/* Let Dawn handle layout; just style dots */
 #MediaHero-{{ section.id }} .hero-pagination.swiper-pagination{
     position: absolute;
     left: auto;
@@ -105,7 +104,6 @@
     display: flex;
     justify-content: flex-end;
 }
-/* Overlay per slide banner */
 #MediaHero-{{ section.id }} .banner::after{
   content:""; position:absolute; inset:0; background:#000;
   opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
