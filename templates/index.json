@@ -14,6 +14,7 @@
       "blocks": {
         "slide_3FrQKe": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_3eac951b-26c7-48a0-82ed-00b6e5966ee6.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_c912325b-f879-4381-882e-0db239ac8eba.png",
@@ -29,6 +30,26 @@
             "button_style_secondary_1": false,
             "button_label_2": "Save More with Bundles",
             "button_link_2": "shopify://collections/all",
+            "button_style_secondary_2": true
+          }
+        },
+        "slide_YN4nGz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_3eac951b-26c7-48a0-82ed-00b6e5966ee6.png",
+            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_c912325b-f879-4381-882e-0db239ac8eba.png",
+            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_f1ed653c-8961-4d83-8cd0-a435adc596ab.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 55,
+            "heading": "Keep your sunshine shining with Vitamin D3.",
+            "heading_size": "h1",
+            "text": "Spend $50+ and get a free Vitamin D3 + K2. Add it to your cart and use code FREEVITD.",
+            "text_style": "body",
+            "button_label_1": "Claim Offer",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
             "button_style_secondary_2": true
           }
         },
@@ -91,6 +112,7 @@
       },
       "block_order": [
         "slide_3FrQKe",
+        "slide_YN4nGz",
         "slide_Bwck6W",
         "slide_fcdUx9",
         "slide_4TWen8"
@@ -1020,63 +1042,6 @@
         "mobile_content_alignment": "center",
         "show_text_below": false
       }
-    },
-    "video_banner_rhmkQf": {
-      "type": "video-banner",
-      "blocks": {
-        "heading_MrCMtM": {
-          "type": "heading",
-          "settings": {
-            "heading": "Join Us on the Journey",
-            "heading_size": "h1"
-          }
-        },
-        "text_Pz9Vjn": {
-          "type": "text",
-          "settings": {
-            "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons_9dJkJM": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Learn More About Subscribe & Save",
-            "button_link_1": "shopify://pages/subscribe-and-save",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_MrCMtM",
-        "text_Pz9Vjn",
-        "buttons_9dJkJM"
-      ],
-      "custom_css": [
-        ".banner__content {padding: 3rem 2rem 3.5rem;}",
-        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
-        ".subtitle {line-height: 1.2; max-width: 740px;}",
-        "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
-      ],
-      "name": "Video banner",
-      "settings": {
-        "video_mp4": "https://cdn.shopify.com/videos/c/o/v/ea895781caa04eb68803039024eb8731.mp4",
-        "video_poster": "shopify://shop_images/AdobeStock_272832590_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "wide_container": false,
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
     }
   },
   "order": [
@@ -1098,7 +1063,6 @@
     "image_hotspots_Hi6X7c",
     "featured_blog_rTpRWK",
     "newsletter_qKtmmH",
-    "image_banner_eNjqNa",
-    "video_banner_rhmkQf"
+    "image_banner_eNjqNa"
   ]
 }
