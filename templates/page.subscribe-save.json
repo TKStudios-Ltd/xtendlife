@@ -389,7 +389,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 100,
-        "padding_bottom": 60
+        "padding_bottom": 40
       }
     },
     "multicolumn_NreH4T": {
@@ -443,7 +443,7 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 60,
+        "padding_top": 40,
         "padding_bottom": 60
       }
     },
@@ -694,7 +694,7 @@
       "custom_css": [
         "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
         "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
-        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem; }"
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
