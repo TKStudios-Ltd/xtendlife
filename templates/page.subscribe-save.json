@@ -478,9 +478,9 @@
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
-        "full_width": true,
+        "full_width": false,
         "anchor_id": "",
-        "anchor_offset": 120,
+        "anchor_offset": 0,
         "padding_top": 80,
         "padding_bottom": 100
       }
