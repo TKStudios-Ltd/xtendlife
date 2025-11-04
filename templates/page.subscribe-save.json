@@ -23,14 +23,14 @@
         "heading_TTkdGx": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe & save",
+            "heading": "Set your health on autopilot.",
             "heading_size": "h0"
           }
         },
         "caption_mC97Kh": {
           "type": "caption",
           "settings": {
-            "caption": "Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.",
+            "caption": "Simplify your wellness routine with Subscribe & Save and enjoy 15% off every order, flexible delivery schedules, and exclusive access to subscriber-only offers and updates.",
             "text_style": "subtitle",
             "text_size": "medium"
           }
@@ -164,7 +164,7 @@
         "text_hiq8D3": {
           "type": "text",
           "settings": {
-            "text": "<p>Select the \"Subscribe & Save\" option before adding your favourite products to your cart, and see the 10% savings! Plus enjoy free shipping on all NZ orders with all ongoing subscription orders.</p>",
+            "text": "<p>Select the Subscribe & Save option when adding your favourite products to your cart. You’ll automatically get 15% off every recurring order, with the option to edit or update your subscription at any time.</p>",
             "text_style": "subtitle"
           }
         }
@@ -213,7 +213,7 @@
         "text_fmbkeg": {
           "type": "text",
           "settings": {
-            "text": "<p>Choose how often you want your product delivered to you. As often as 3 weeks, every 4 weeks, every 6 weeks, or as far out as every 8 weeks. We’ll deliver your product to your doorstep, regularly and automatically. We'll send you an email 3 days prior to your next order as a reminder.</p>",
+            "text": "<p>Choose how often you’d like your products delivered: monthly, every 2 months, or up to every 6 months. You’ll get a reminder before each shipment, so you can review, skip, or adjust your order before it’s sent.</p>",
             "text_style": "subtitle"
           }
         }
@@ -255,14 +255,14 @@
         "heading_9jky9T": {
           "type": "heading",
           "settings": {
-            "heading": "3. Skip, pause or cancel anytime",
+            "heading": "3. Skip, or cancel anytime",
             "heading_size": "h1"
           }
         },
         "text_BWFTk7": {
           "type": "text",
           "settings": {
-            "text": "<p>Manage your subscription orders easily with our customer portal. You can reschedule, move forward, or push back orders, and even try new flavours. If for any reason you no longer require your Two Islands subscription you are able to cancel at any time for free. Simply sign in to your account to make changes.</p>",
+            "text": "<p>You’re always in control. Need a break or want to make a change? Simply click Manage Subscriptions on our website's login page to manage your account. No contracts, no commitments, just complete flexibility.</p>",
             "text_style": "subtitle"
           }
         }
@@ -296,55 +296,6 @@
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 0
-      }
-    },
-    "image_with_text_VqfQk4": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_AdGPhV": {
-          "type": "heading",
-          "settings": {
-            "heading": "Earn Xtendlife Rewards",
-            "heading_size": "h1"
-          }
-        },
-        "text_6RKJdQ": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.</p>",
-            "text_style": "subtitle"
-          }
-        }
-      },
-      "block_order": [
-        "heading_AdGPhV",
-        "text_6RKJdQ"
-      ],
-      "custom_css": [
-        ".image-with-text__media {border-radius: 10px !important;}",
-        ".subtitle {font-size: 20px; line-height: 1.35;}",
-        ".image-with-text {padding-top: 3.6rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
-        ".image-with-text__text p {margin-bottom: 2rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "featured_collection_tab_grid_bgqKeg": {
@@ -438,8 +389,8 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 100
+        "padding_top": 100,
+        "padding_bottom": 20
       }
     },
     "collapsible_content_8VjQPY": {
@@ -779,7 +730,6 @@
     "image_with_text_83HE6c",
     "image_with_text_bJ9g4L",
     "image_with_text_kzCdEc",
-    "image_with_text_VqfQk4",
     "featured_collection_tab_grid_bgqKeg",
     "multicolumn_DymD7U",
     "collapsible_content_8VjQPY",
