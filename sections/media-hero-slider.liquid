@@ -7,120 +7,71 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+#MediaHero-{{ section.id }} .banner { position: relative; overflow: hidden; }
+#MediaHero-{{ section.id }} .banner__box { background: transparent; }
+#MediaHero-{{ section.id }} .banner__heading { max-width: 500px; line-height: 1; }
 
-#MediaHero-{{ section.id }} .banner__box {
-    background: transparent;
-}
-#MediaHero-{{ section.id }} .banner__heading {
-    max-width: 500px;
-    line-height: 1;
-}
-#MediaHero-{{ section.id }} .banner__media video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-#MediaHero-{{ section.id }} .banner--stacked img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-@media (min-width: 750px) {
-    #MediaHero-{{ section.id }} .banner--large {
-        min-height: calc(100vh - 83px);
-        align-items: center;
-    }
-    #MediaHero-{{ section.id }} .banner__content {
-        padding-top: 125px;
-    }
-    #MediaHero-{{ section.id }} .subtitle {
-      max-width: 330px;
-    }
-    #MediaHero-{{ section.id }} .banner--stacked .banner--content-align-left {
-      margin: auto;
-    }
-    #MediaHero-{{ section.id }} .banner--stacked .subtitle {
-      max-width: 30vw;
-    }
-}
-@media (max-width: 749px) {
-  #MediaHero-{{ section.id }} .banner__content {
-    justify-content: center;
-    width: 100vw;
-  }
-  #MediaHero-{{ section.id }} .banner__heading {
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  #MediaHero-{{ section.id }} .subtitle {
-    max-width: 275px;
-    margin: 2rem auto 0;
-  }
-  #MediaHero-{{ section.id }} .banner--stacked .banner__box {
-    display: none;
-  }
-  #MediaHero-{{ section.id }} .banner--stacked .banner {
-    height: auto;
-  }
-  #MediaHero-{{ section.id }} .mhs-stacked-mobile {
-    padding: 4rem 2rem;
-  }
-  #MediaHero-{{ section.id }} .mhs-stacked-mobile h2 {
-    max-width: calc(100% - 2rem);
-    margin: 0;
-    font-size: 2.8rem;
-  }
-  #MediaHero-{{ section.id }} .mhs-stacked-mobile p {
-    max-width: calc(100% - 2rem);
-    margin: 1.5rem 0;
-    font-size: 1.6rem;
-  }
-}
-#MediaHero-{{ section.id }} .banner__media img.media-hero__img,
-#MediaHero-{{ section.id }} .banner__media source {
+/* Media: always cover the banner area (works with Dawn's adapt shim or fixed sizes) */
+#MediaHero-{{ section.id }} .banner__media { position: relative; }
+#MediaHero-{{ section.id }} .banner__media video,
+#MediaHero-{{ section.id }} .banner__media picture,
+#MediaHero-{{ section.id }} .banner__media img.media-hero__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-width: none;
+  height: 100%;
+  display: block;
   object-fit: cover;
   object-position: center;
-  display: block;
 }
 
-#MediaHero-{{ section.id }} .is-fullbleed{
-  width: 100vw;
+/* Desktop tweaks */
+@media (min-width: 750px) {
+  #MediaHero-{{ section.id }} .banner--large {
+    min-height: calc(100vh - 83px);
+    align-items: center;
+  }
+  #MediaHero-{{ section.id }} .banner__content { padding-top: 125px; }
+  #MediaHero-{{ section.id }} .subtitle { max-width: 330px; }
+  #MediaHero-{{ section.id }} .banner--stacked .banner--content-align-left { margin: auto; }
+  #MediaHero-{{ section.id }} .banner--stacked .subtitle { max-width: 30vw; }
 }
+
+/* Mobile layout (no height overrides; let Dawn control height) */
+@media (max-width: 749px) {
+  #MediaHero-{{ section.id }} .banner__content { justify-content: center; }
+  #MediaHero-{{ section.id }} .banner__heading { max-width: 300px; margin: 0 auto; }
+  #MediaHero-{{ section.id }} .subtitle { max-width: 275px; margin: 2rem auto 0; }
+  #MediaHero-{{ section.id }} .banner--stacked .banner__box { display: none; }
+
+  .mhs-stacked-mobile { padding: 4rem 2rem; }
+  .mhs-stacked-mobile h2 { max-width: calc(100% - 2rem); margin: 0; font-size: 2.8rem; }
+  .mhs-stacked-mobile p { max-width: calc(100% - 2rem); margin: 1.5rem 0; font-size: 1.6rem; }
+}
+
+/* Full-bleed helper & pagination */
+#MediaHero-{{ section.id }} .is-fullbleed { width: 100vw; }
 .section-{{ section.id }}-padding { overflow-x: clip; }
 #MediaHero-{{ section.id }} .hero-pagination.swiper-pagination{
-    position: absolute;
-    left: auto;
-    right: 30px;
-    bottom: 25px;
-    display: flex;
-    justify-content: flex-end;
+  position: absolute; right: 30px; bottom: 25px; display: flex; justify-content: flex-end;
 }
+
+/* Overlay per slide */
 #MediaHero-{{ section.id }} .banner::after{
   content:""; position:absolute; inset:0; background:#000;
   opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   pointer-events:none;
 }
+
+/* Dot styles */
 #MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet {
-    width: 10px; 
-    height: 10px; 
-    border-radius: 999px; 
-    background: white; 
-    opacity: 0.4;
+  width: 10px; height: 10px; border-radius: 999px; background: #fff; opacity: .4;
 }
 #MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet-active {
-    background: white; 
-    opacity: 1;
-    width: 46px;
+  background: #fff; opacity: 1; width: 46px;
 }
-
 {%- endstyle -%}
+
 
 {%- liquid
   assign fetch_priority = 'auto'
