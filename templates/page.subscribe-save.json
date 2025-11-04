@@ -478,7 +478,7 @@
         "full_width": true,
         "anchor_id": "",
         "anchor_offset": 120,
-        "padding_top": 60,
+        "padding_top": 80,
         "padding_bottom": 100
       }
     },
@@ -705,7 +705,7 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 60,
+        "padding_top": 100,
         "padding_bottom": 60
       }
     },
