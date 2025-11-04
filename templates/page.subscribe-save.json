@@ -427,7 +427,7 @@
         ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
         "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
         "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
-        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; }}"
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; } .multicolumn-list {flex-direction: column-reverse; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
