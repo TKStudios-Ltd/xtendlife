@@ -427,7 +427,7 @@
         ".multicolumn-card__info {display: flex; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
         "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
         "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
-        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; } .multicolumn-list {flex-direction: column-reverse; gap: 4rem; padding: 0 2rem;; }}"
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; } .multicolumn-list {flex-direction: column-reverse; gap: 4rem; padding: 0 2rem; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -692,8 +692,9 @@
         "collapsible_row_ACexKP"
       ],
       "custom_css": [
-        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; } .collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem; }}",
-        "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}"
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem; }"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
