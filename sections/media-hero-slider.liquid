@@ -7,22 +7,32 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+/* Base */
 #MediaHero-{{ section.id }} .banner { position: relative; overflow: hidden; }
 #MediaHero-{{ section.id }} .banner__box { background: transparent; }
 #MediaHero-{{ section.id }} .banner__heading { max-width: 500px; line-height: 1; }
 
-/* Media: always cover the banner area (works with Dawn's adapt shim or fixed sizes) */
-#MediaHero-{{ section.id }} .banner__media { position: relative; }
-#MediaHero-{{ section.id }} .banner__media video,
-#MediaHero-{{ section.id }} .banner__media picture,
-#MediaHero-{{ section.id }} .banner__media img.media-hero__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+/* Content above media */
+#MediaHero-{{ section.id }} .banner__content { position: relative; z-index: 2; }
+
+/* ----- MEDIA LAYOUT (works for both adapt and fixed heights) ----- */
+/* Default: let adapt padding shim give height */
+#MediaHero-{{ section.id }} .banner__media { position: relative; z-index: 1; }
+
+/* When NOT adapt, make media fill the banner box height */
+#MediaHero-{{ section.id }} .banner--small .banner__media,
+#MediaHero-{{ section.id }} .banner--medium .banner__media,
+#MediaHero-{{ section.id }} .banner--large .banner__media {
+  position: absolute; inset: 0; height: 100%;
+}
+
+/* Actual media always covers its container */
+#MediaHero-{{ section.id }} .banner__media img.media-hero__img,
+#MediaHero-{{ section.id }} .banner__media video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
   display: block;
-  object-fit: cover;
-  object-position: center;
 }
 
 /* Desktop tweaks */
@@ -37,16 +47,16 @@
   #MediaHero-{{ section.id }} .banner--stacked .subtitle { max-width: 30vw; }
 }
 
-/* Mobile layout (no height overrides; let Dawn control height) */
+/* Mobile layout (do NOT force heights—let Dawn control) */
 @media (max-width: 749px) {
   #MediaHero-{{ section.id }} .banner__content { justify-content: center; }
   #MediaHero-{{ section.id }} .banner__heading { max-width: 300px; margin: 0 auto; }
   #MediaHero-{{ section.id }} .subtitle { max-width: 275px; margin: 2rem auto 0; }
   #MediaHero-{{ section.id }} .banner--stacked .banner__box { display: none; }
 
-  .mhs-stacked-mobile { padding: 4rem 2rem; }
-  .mhs-stacked-mobile h2 { max-width: calc(100% - 2rem); margin: 0; font-size: 2.8rem; }
-  .mhs-stacked-mobile p { max-width: calc(100% - 2rem); margin: 1.5rem 0; font-size: 1.6rem; }
+  #MediaHero-{{ section.id }} .mhs-stacked-mobile { padding: 4rem 2rem; }
+  #MediaHero-{{ section.id }} .mhs-stacked-mobile h2 { max-width: calc(100% - 2rem); margin: 0; font-size: 2.8rem; }
+  #MediaHero-{{ section.id }} .mhs-stacked-mobile p { max-width: calc(100% - 2rem); margin: 1.5rem 0; font-size: 1.6rem; }
 }
 
 /* Full-bleed helper & pagination */
@@ -60,10 +70,10 @@
 #MediaHero-{{ section.id }} .banner::after{
   content:""; position:absolute; inset:0; background:#000;
   opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
-  pointer-events:none;
+  pointer-events:none; z-index: 1;
 }
 
-/* Dot styles */
+/* Dots */
 #MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet {
   width: 10px; height: 10px; border-radius: 999px; background: #fff; opacity: .4;
 }
