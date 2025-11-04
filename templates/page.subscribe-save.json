@@ -447,6 +447,41 @@
         "padding_bottom": 60
       }
     },
+    "rich_text_WDFYxG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fW66rt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Simple. Flexible. Designed around you.",
+            "heading_size": "h1"
+          }
+        },
+        "caption_dJ3J68": {
+          "type": "caption",
+          "settings": {
+            "caption": "Subscribe & Save helps you stay consistent with your supplements, without the hassle. Adjust, skip, or cancel anytime, and enjoy 15% off every order.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fW66rt",
+        "caption_dJ3J68"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
     "collapsible_content_8VjQPY": {
       "type": "collapsible-content",
       "blocks": {
@@ -787,6 +822,7 @@
     "featured_collection_tab_grid_bgqKeg",
     "multicolumn_DymD7U",
     "multicolumn_NreH4T",
+    "rich_text_WDFYxG",
     "collapsible_content_8VjQPY",
     "collapsible_content_tDcJHV",
     "newsletter_qKtmmH"
