@@ -340,10 +340,65 @@
     "multicolumn_DymD7U": {
       "type": "multicolumn",
       "blocks": {
+        "column_VnqTUe": {
+          "type": "column",
+          "settings": {
+            "title": "How to Subscribe & Save",
+            "text": "<p>Join us on this video walkthrough where we show you how to:</p><ul><li>Choose your Subscribe and Save products</li><li>Choose your preferred delivery schedule</li><li>Identify Subscribe and Save products in your cart</li><li>Complete checkout to create your Subscribe and Save order subscription</li></ul><p><a href=\"https://cdn.shopify.com/s/files/1/1267/0135/files/How_to_Subscribe_and_Save_2025.pdf?v=1744599305\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/1267/0135/files/How_to_Subscribe_and_Save_2025.pdf?v=1744599305\">Download the PDF version here</a></p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
         "column_gea4K6": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.png",
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "video_url": "https://player.vimeo.com/video/1105988172"
+          }
+        }
+      },
+      "block_order": [
+        "column_VnqTUe",
+        "column_gea4K6"
+      ],
+      "custom_css": [
+        ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
+        ".content-container {height: 100%;}",
+        ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
+        "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
+        "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_NreH4T": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dNHkzd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -351,7 +406,7 @@
             "video_url": "https://player.vimeo.com/video/1105988172"
           }
         },
-        "column_VnqTUe": {
+        "column_qdwHat": {
           "type": "column",
           "settings": {
             "title": "How to Subscribe & Save",
@@ -363,8 +418,8 @@
         }
       },
       "block_order": [
-        "column_gea4K6",
-        "column_VnqTUe"
+        "column_dNHkzd",
+        "column_qdwHat"
       ],
       "custom_css": [
         ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
@@ -731,6 +786,7 @@
     "image_with_text_kzCdEc",
     "featured_collection_tab_grid_bgqKeg",
     "multicolumn_DymD7U",
+    "multicolumn_NreH4T",
     "collapsible_content_8VjQPY",
     "collapsible_content_tDcJHV",
     "newsletter_qKtmmH"
