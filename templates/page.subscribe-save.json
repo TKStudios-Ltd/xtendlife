@@ -610,6 +610,7 @@
         },
         "collapsible_row_abNe83": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Can I have two different payment methods if I have more than one subscription?",
             "icon": "none",
@@ -629,9 +630,9 @@
         "collapsible_row_Pz6dAA": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What payment methods are available for subscriptions? ",
+            "heading": "What payment methods are available for subscriptions?",
             "icon": "none",
-            "row_content": "<p>Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay and Shop Pay.</p>",
+            "row_content": "<p>We accept Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay, and Shop Pay. <br/><br/></p>",
             "page": ""
           }
         },
