@@ -545,6 +545,7 @@
         },
         "collapsible_row_Fn4jbM": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "How do I create two or more subscriptions? ",
             "icon": "none",
@@ -555,9 +556,9 @@
         "collapsible_row_wKKFar": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is the longest frequency I can have between orders?",
+            "heading": "How often can I schedule deliveries?",
             "icon": "none",
-            "row_content": "<p>Six months.</p>",
+            "row_content": "<p>You can choose any frequency from <strong>one month up to six months</strong> between deliveries. </p>",
             "page": ""
           }
         },
