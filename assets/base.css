@@ -4620,3 +4620,7 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.shopify-block.recharge-subscription-widget recharge-subscription-widget {
+  max-width: 100% !important;
+}
