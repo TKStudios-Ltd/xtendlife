@@ -591,6 +591,7 @@
         },
         "collapsible_row_UA3RPW": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Can I have more than one address in my country of residence I can use? ",
             "icon": "none",
@@ -601,9 +602,9 @@
         "collapsible_row_paiVMj": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I have different addresses for different subscriptions?",
+            "heading": "Can I manage multiple subscriptions with different payment methods and/or addresses?",
             "icon": "none",
-            "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
+            "row_content": "<p>Yes, you can. You can set up more than one subscription, each with its own payment method, shipping address, and delivery schedule.</p>",
             "page": ""
           }
         },
