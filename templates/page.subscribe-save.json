@@ -565,9 +565,9 @@
         "collapsible_row_7ifegW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I choose to have my order shipped on a particular date every month?",
+            "heading": "Can I set a specific date for my order to be shipped each month?",
             "icon": "none",
-            "row_content": "<p>No, you can’t set your subscription to ship on a certain date each month, but you can log in and reschedule your next order to ship on a specified date if you wish.  If that date falls on a Saturday, Sunday or public holiday it will ship the next business day. Please refer to our FAQ ‘How do I reschedule my order’</p>",
+            "row_content": "<p>You can’t lock in a fixed date, but you can reschedule any upcoming order to ship on the day that suits you best. If it falls on a weekend or public holiday, it will ship the next business day. </p>",
             "page": ""
           }
         },
