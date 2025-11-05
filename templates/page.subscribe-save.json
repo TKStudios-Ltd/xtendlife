@@ -493,21 +493,22 @@
           "settings": {
             "heading": "How do I create a subscription?",
             "icon": "none",
-            "row_content": "<p>Please watch our video walkthrough or download the PDF version on this page.</p>",
+            "row_content": "<p>You can start a subscription from any product page by selecting the Subscribe & Save option before adding to your cart. For a full walkthrough, watch our video or download the quick-start guide on this page. </p>",
             "page": ""
           }
         },
         "collapsible_row_fp9kgF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I reschedule my next order?",
+            "heading": "How do I reschedule or skip my next order?",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Reschedule'</li><li>Choose how you wish to reschedule by selecting the most suitable option for your needs and Save Changes.</li></ul>",
+            "row_content": "<p>Click <strong>Manage Subscriptions</strong> on the login page to access your subscription portal. From there, you can reschedule or skip your next delivery, you can even gift it to someone else if you prefer.</p>",
             "page": ""
           }
         },
         "collapsible_row_Cnj6hi": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "How do I skip my next order?",
             "icon": "none",
@@ -518,9 +519,9 @@
         "collapsible_row_erfxjF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
+            "heading": "Can I skip only some products in my upcoming order?",
             "icon": "none",
-            "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
+            "row_content": "<p>Yes. Use the <strong>Manage Subscription</strong> link on the login page to get to your subscription portal, select <strong>View Upcoming Orders</strong>, then choose the specific products you want to skip or reschedule. </p>",
             "page": ""
           }
         },
@@ -529,16 +530,16 @@
           "settings": {
             "heading": "How do I cancel my Subscription? ",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Manage subscriptions'</li><li>Click on 'Manage this Subscription' (which can be found under the product name)</li><li>Scroll down and click on 'Cancel Subscription'/Click on Cancel Subscription </li></ul>",
+            "row_content": "<p>You can cancel anytime. Use the <strong>Manage Subscriptions</strong> link on the login page, then click <strong>Cancel</strong> under the product you wish to stop.</p>",
             "page": ""
           }
         },
         "collapsible_row_UMEfLQ": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I change my credit card? ",
+            "heading": "How do I change my payment method or credit card?",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Address & Payment details'</li><li>Click on 'Manage Payment Methods'</li><li>Click on 'Edit'</li><li>Click on 'Send Edit Payment Link'</li><li>You will be sent an email to your Inbox.  If you do not see this within a few minutes, please check your Spam/Junk Folder</li></ul>",
+            "row_content": "<p>Go to the <strong>Manage Subscriptions</strong> link on the login page, then open your secure subscription portal to update your payment information.</p>",
             "page": ""
           }
         },
