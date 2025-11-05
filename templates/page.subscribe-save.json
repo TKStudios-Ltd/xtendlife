@@ -574,9 +574,9 @@
         "collapsible_row_6zdGEE": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "If I change any part of my subscription, what’s the latest time I can do this successfully prior to it shipping? ",
+            "heading": "I want to edit my upcoming order. What’s the latest time I can do this successfully before it ships?",
             "icon": "none",
-            "row_content": "<p>We advise making changes no later than 10:00pm Eastern Standard Time (EST) the day before the scheduled date of the order.</p>",
+            "row_content": "<p>Please make any updates by <strong>10:00 pm Eastern Standard Time (EST) </strong>on the day before your scheduled order date. </p>",
             "page": ""
           }
         },
