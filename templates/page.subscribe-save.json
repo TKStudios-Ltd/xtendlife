@@ -576,16 +576,16 @@
           "settings": {
             "heading": "I want to edit my upcoming order. What’s the latest time I can do this successfully before it ships?",
             "icon": "none",
-            "row_content": "<p>Please make any updates by <strong>10:00 pm Eastern Standard Time (EST) </strong>on the day before your scheduled order date. </p>",
+            "row_content": "<p>Please make any updates by <strong>10:00 pm Eastern Standard Time (EST) </strong>on the day before your scheduled order date.</p>",
             "page": ""
           }
         },
         "collapsible_row_niCXW3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What time of day is my payment processed? ",
+            "heading": "When is my payment processed?",
             "icon": "none",
-            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order.</p>",
+            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order. </p>",
             "page": ""
           }
         },
