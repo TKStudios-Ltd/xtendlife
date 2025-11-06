@@ -73,11 +73,11 @@
     {% assign path = request.path %}
     {%- assign pixel_token = '' -%}
     {%- if path contains '/en-au' -%}
-      {%- assign pixel_token = 'MwFcA_' -%}
-    {%- elsif domain == 'xtendlife.co' -%}
-      {%- assign pixel_token = 'ord9Jz' -%}
+      {%- assign pixel_token = 'MwFcA_' -%}    
     {%- elsif path contains '/en-gb' -%}
       {%- assign pixel_token = '0Wqmzo' -%}
+    {%- elsif domain == 'xtendlife.co' -%}
+      {%- assign pixel_token = 'ord9Jz' -%}
     {%- else -%}
       {%- assign pixel_token = 'fEt_ee' -%}
     {%- endif -%}
