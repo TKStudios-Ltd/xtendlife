@@ -70,12 +70,13 @@
 
     {%- comment -%} Converge pixel (domain-mapped token) {%- endcomment -%}
     {%- assign domain = request.host -%}
+    {% assign path = request.path %}
     {%- assign pixel_token = '' -%}
-    {%- if domain == 'www.xtend-life.com.au' -%}
+    {%- if path contains '/en-au' -%}
       {%- assign pixel_token = 'MwFcA_' -%}
-    {%- elsif domain == 'www.xtend-life.co.nz' -%}
+    {%- elsif domain == 'xtendlife.co' -%}
       {%- assign pixel_token = 'ord9Jz' -%}
-    {%- elsif domain == 'www.xtend-life.co.uk' -%}
+    {%- elsif path contains '/en-gb' -%}
       {%- assign pixel_token = '0Wqmzo' -%}
     {%- else -%}
       {%- assign pixel_token = 'fEt_ee' -%}
