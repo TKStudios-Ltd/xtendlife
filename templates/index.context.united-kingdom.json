@@ -14,10 +14,32 @@
   },
   "sections": {
     "featured_product_slider_9pxfm9": {
+      "settings": {},
       "blocks": {
         "text_tU8LkY": {
           "settings": {
             "text": "Free shipping on orders over £75. Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>"
+          }
+        }
+      }
+    },
+    "media_hero_slider_VC34DA": {
+      "settings": {},
+      "blocks": {
+        "slide_Bwck6W": {
+          "settings": {
+            "image": "shopify://shop_images/VIT_D_Promo_Global_3.png",
+            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_3282d09a-cc85-4921-baa6-133896739a7d.png",
+            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_80136242-4fe3-4054-a5f1-748db3ddbad8.png",
+            "video_mp4": "",
+            "text_color": "#ffffff",
+            "heading": "Top up your sunshine this winter",
+            "text": "Spend £50+ and get a free Vitamin D3 + K2.* Add it to your cart and use code <strong>FREEVITD</strong>. *T&Cs apply.",
+            "text_max_width": 460,
+            "button_label_1": "Claim Offer",
+            "button_link_1": "shopify://products/vitamin-d3-k2",
+            "button_label_2": "",
+            "button_style_secondary_1": false
           }
         }
       }

@@ -35,6 +35,27 @@
             "button_style_secondary_2": true
           }
         },
+        "slide_Bwck6W": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
+            "video_adapt_ratio": 30,
+            "text_color": "",
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Bundle up with the essentials you need to keep going.",
+            "text_style": "body",
+            "text_max_width": 350,
+            "button_label_1": "Shop All Products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Save More with Bundles",
+            "button_link_2": "shopify://collections/all-bundles",
+            "button_style_secondary_2": true
+          }
+        },
         "slide_YN4nGz": {
           "type": "slide",
           "disabled": true,
@@ -56,27 +77,6 @@
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": true
-          }
-        },
-        "slide_Bwck6W": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
-            "video_adapt_ratio": 30,
-            "text_color": "",
-            "heading": "Build a better baseline for your health",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Bundle up with the essentials you need to keep going.",
-            "text_style": "body",
-            "text_max_width": 350,
-            "button_label_1": "Shop All Products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Save More with Bundles",
-            "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
           }
         },
@@ -127,8 +127,8 @@
       },
       "block_order": [
         "slide_3FrQKe",
-        "slide_YN4nGz",
         "slide_Bwck6W",
+        "slide_YN4nGz",
         "slide_fcdUx9",
         "slide_4TWen8"
       ],
