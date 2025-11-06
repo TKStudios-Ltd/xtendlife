@@ -27,6 +27,8 @@
       "settings": {},
       "blocks": {
         "slide_Bwck6W": {
+          "name": "VIT D3 promo UK",
+          "disabled": false,
           "settings": {
             "image": "shopify://shop_images/VIT_D_Promo_Global_3.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_3282d09a-cc85-4921-baa6-133896739a7d.png",
@@ -38,8 +40,8 @@
             "text_max_width": 460,
             "button_label_1": "Claim Offer",
             "button_link_1": "shopify://products/vitamin-d3-k2",
-            "button_label_2": "",
-            "button_style_secondary_1": false
+            "button_style_secondary_1": false,
+            "button_label_2": ""
           }
         }
       }
