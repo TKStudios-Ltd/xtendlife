@@ -39,9 +39,12 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "image": "shopify://shop_images/NZ_VIT_D_Promo.png",
+            "image_tablet": "shopify://shop_images/NZ_Vit_D3_iPad_630x650_08130811-8cf7-45d1-810d-768ff9effbaf.png",
+            "image_mobile": "shopify://shop_images/NZ_Vit_D3_Mob_425x500_d5ab903f-f1af-4013-9676-52940d0d98ca.png",
             "video_mp4": "",
             "video_adapt_ratio": 30,
-            "text_color": "#ffffff",
+            "text_color": "#1f1946",
             "heading": "Keep your sunshine shining with Vitamin D3",
             "heading_size": "h1",
             "heading_max_width": 500,
