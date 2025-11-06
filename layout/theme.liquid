@@ -81,6 +81,7 @@
     {%- else -%}
       {%- assign pixel_token = 'fEt_ee' -%}
     {%- endif -%}
+    
 
     <script>
       window['__cvg_shopify_info'] = {
@@ -90,6 +91,7 @@
         collection: {{ collection | json }},
         search: {{ search.terms | json }},
       };
+      var domain = {{ domain }};
     </script>
     <script src="https://static.runconverge.com/pixels/{{ pixel_token }}.js" async></script>
     <script>
