@@ -12,5 +12,16 @@
   "context": {
     "market": "united-kingdom"
   },
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "text_y7ay8t": {
+          "settings": {
+            "text": "Free shipping on orders over £75. Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>"
+          }
+        }
+      }
+    }
+  }
 }
