@@ -790,6 +790,7 @@
         },
         "review_96pb83": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "One of the best",
             "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
@@ -799,6 +800,7 @@
         },
         "review_KUTGUj": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Love this Magnesium!!",
             "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
