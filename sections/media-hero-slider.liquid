@@ -37,7 +37,7 @@
   #MediaHero-{{ section.id }} .banner--stacked .subtitle { max-width: 30vw; }
 
   /* Subtitle font size (desktop) */
-  #MediaHero-{{ section.id }} .subtitle.banner__text {
+  #MediaHero-{{ section.id }} .swiper-slide:nth-child({{ forloop.index }}) .subtitle.banner__text {
     font-size: {{ section.settings.subtitle_font_size_desktop | default: 24 | at_least: 6 | at_most: 32 }}px !important;
   }
 }
@@ -50,7 +50,7 @@
   #MediaHero-{{ section.id }} .banner__heading { font-size: 28px; line-height: 1.2; margin: 0; max-width: 300px !important; }
 
   /* Subtitle font size (mobile) */
-  #MediaHero-{{ section.id }} .subtitle.banner__text {
+  #MediaHero-{{ section.id }} .swiper-slide:nth-child({{ forloop.index }}) .subtitle.banner__text {
     font-size: {{ section.settings.subtitle_font_size_mobile | default: 18 | at_least: 6 | at_most: 32 }}px !important;
     margin: 2rem 0 0;
     max-width: 250px !important;
