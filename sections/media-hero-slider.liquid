@@ -129,7 +129,19 @@
             assign fetch_priority = 'high'
           endif
         %}
-        <div class="swiper-slide" {{ block.shopify_attributes }}>
+        <style>
+          @media (min-width: 750px) {
+            [data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+              font-size: {{ b.subtitle_font_size_desktop | default: 24 }}px !important;
+            }
+          }
+          @media (max-width: 749px) {
+            [data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+              font-size: {{ b.subtitle_font_size_mobile | default: 18 }}px !important;
+            }
+          }
+        </style>
+        <div class="swiper-slide" data-slide-id="slide-{{ block.id }}" {{ block.shopify_attributes }}>
 
           <div
             class="
