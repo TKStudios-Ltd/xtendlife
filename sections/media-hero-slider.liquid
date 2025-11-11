@@ -38,7 +38,7 @@
 
   /* Subtitle font size (desktop) */
   #MediaHero-{{ section.id }} .subtitle.banner__text {
-    font-size: {{ section.settings.subtitle_font_size_desktop | default: 24 | at_least: 6 | at_most: 32 }}px;
+    font-size: {{ section.settings.subtitle_font_size_desktop | default: 24 | at_least: 6 | at_most: 32 }}px !important;
   }
 }
 
@@ -51,7 +51,7 @@
 
   /* Subtitle font size (mobile) */
   #MediaHero-{{ section.id }} .subtitle.banner__text {
-    font-size: {{ section.settings.subtitle_font_size_mobile | default: 18 | at_least: 6 | at_most: 32 }}px;
+    font-size: {{ section.settings.subtitle_font_size_mobile | default: 18 | at_least: 6 | at_most: 32 }}px !important;
     margin: 2rem 0 0;
     max-width: 250px !important;
   }
