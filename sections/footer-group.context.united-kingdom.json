@@ -8,9 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "parent": "index.json",
+  "parent": "footer-group.json",
   "context": {
-    "market": "australia"
+    "market": "united-kingdom"
   },
   "sections": {}
 }
