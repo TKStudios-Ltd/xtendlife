@@ -121,8 +121,9 @@
   }
 
   var redirectLocation = function(country) {
-
-    if (window.location.href.indexOf("admin.shopify.com/store") == -1){
+    console.log("window.location.href: ", window.location.href);
+    //window.location.href.indexOf("admin.shopify.com/store") == -1
+    if (window.location.href.indexOf("xtendlife.myshopify.com") == -1){
       // Global default subdomain.
       var marketPaths = ['/en-ca', '/en-au', '/en-gb'];
       var protocol = "https://";
