@@ -133,7 +133,7 @@
           "settings": {
             "heading": "How do I log in to my account?",
             "icon": "none",
-            "row_content": "<p>Our new login process is password-free. When you sign in, you’ll receive a one-time access code by email. Enter that code to log in securely, no password needed</p>",
+            "row_content": "<p>Our new login process is password-free. When you sign in, you’ll receive a one-time access code by email. Enter that code to log in securely, no password needed.</p>",
             "page": ""
           }
         },
@@ -142,7 +142,7 @@
           "settings": {
             "heading": "What can I do in my account?",
             "icon": "none",
-            "row_content": "<p>You can view your personal details, and a history of your past orders. For security reasons, subscription management now happens separately through the <strong>Manage Subscriptions</strong> link on the login page. </p>",
+            "row_content": "<p>You can view and manage your subscription, personal details, and order history from your account dashboard. You can update your delivery schedule, payment method, or shipping details anytime.</p>",
             "page": ""
           }
         },
