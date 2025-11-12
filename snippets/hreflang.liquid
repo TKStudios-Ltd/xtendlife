@@ -2,7 +2,7 @@
 {% assign current_url = request.path | 
    replace:'/en-ca' | 
    replace:'/en-au' | 
-   replace:'/en-gb'%}
+   replace:'/en-gb' %}
 
 
 {%- comment -%} Capture the content for header containing the tracking data 
@@ -29,28 +29,43 @@
 
 {% endcomment %}
 
-<link rel="alternate" href="https://xtendlife.co{{current_url}}" hreflang="en-nz" />
-<link rel="alternate" href="https://xtendlife.co/en-au{{current_url}}" hreflang="en-au" />
-<link rel="alternate" href="https://xtendlife.co/en-gb{{current_url}}" hreflang="en-gb" />
-<link rel="alternate" href="https://xtendlife.com/en-ca{{current_url}}" hreflang="en-ca" />
-<link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="en" />
-<link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="x-default" />
+{% capture hreflang_default %}
+   <link rel="alternate" href="https://xtendlife.co{{current_url}}" hreflang="en-nz" />
+   <link rel="alternate" href="https://xtendlife.co/en-au{{current_url}}" hreflang="en-au" />
+   <link rel="alternate" href="https://xtendlife.co/en-gb{{current_url}}" hreflang="en-gb" />
+   <link rel="alternate" href="https://xtendlife.com/en-ca{{current_url}}" hreflang="en-ca" />
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="en" />
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="x-default" />
+{% endcapture %}
 
-{% if template contains 'product' %}
-<link rel="alternate" type="application/json+oembed" href="https:/{{domain}}{{ current_url }}.oembed">
+{% capture hreflang_blog %}
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="en" />
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="x-default" />
+{% endcapture %}
+
+{% if template.name == 'article' %}
+   {% if blog.handle == 'health-articles' or blog.handle == 'health-videos' %}
+      {{ hreflang_blog }}
+   {% else %}
+      {{ hreflang_default }}
+   {% endif %}
+{% else %}
+   {{ hreflang_default }}
 {% endif %}
 
 {% comment %}
-<link rel="alternate" href="https://www.xtend-life.co.nz{{ current_url }}" hreflang="en-nz">
+<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}" hreflang="en-nz">
 <link rel="alternate" href="https://www.xtend-life.com.au{{ current_url }}" hreflang="en-au">
 <link rel="alternate" href="https://www.xtend-life.co.uk{{ current_url }}" hreflang="en-gb">
 <link rel="alternate" href="https://www.xtend-life.com{{ current_url }}" hreflang="en-us">
 <link rel="alternate" href="https://www.xtend-life.com/en-ca{{ current_url }}" hreflang="en-ca">
 <link rel="alternate" href="https://www.xtend-life.com{{ current_url }}" hreflang="x-default">
 
-<link rel="alternate" href="https://www.xtend-life.co.nz{{ current_url }}{{url_parameter}}" hreflang="en-nz">
+ <link rel="alternate" href="https://www.xtend-life.com{{ current_url }}{{url_parameter}}" hreflang="en-nz">
 <link rel="alternate" href="https://www.xtend-life.com.au{{ current_url }}{{url_parameter}}" hreflang="en-au">
 <link rel="alternate" href="https://www.xtend-life.co.uk{{ current_url }}{{url_parameter}}" hreflang="en-gb">
 <link rel="alternate" href="https://www.xtend-life.com{{ current_url }}{{url_parameter}}" hreflang="en-us">
-<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}{{url_parameter}}" hreflang="x-default"> 
-{% endcomment %}
+<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}{{url_parameter}}" hreflang="x-default"> {% endcomment %}
+{% if template contains 'product' %}
+<link rel="alternate" type="application/json+oembed" href="https:/{{domain}}{{ current_url }}.oembed">
+{% endif %}
