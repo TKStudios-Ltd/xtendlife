@@ -61,12 +61,12 @@
             "small_text": "",
             "small_text_font_size_desktop": 12,
             "small_text_font_size_mobile": 10,
-            "button_label_1": "Claim Offer",
+            "button_label_1": "",
             "button_link_1": "shopify://products/vitamin-d3-k2-1000iu",
             "button_style_secondary_1": true,
-            "button_label_2": "",
+            "button_label_2": "Claim Offer",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": true
           }
         },
         "slide_3FrQKe": {
