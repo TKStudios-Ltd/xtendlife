@@ -24,8 +24,9 @@
         "slide_fTk4Hh": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Kanapa_Promo_Desk.png",
-            "image_mobile": "shopify://shop_images/Kanapa_Promo_Mob.png",
+            "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
+            "image_tablet": "shopify://shop_images/Sales_Caregory_iPad_950x750_7b30f22c-5bcf-4472-a65e-d46efb8c21f4.png",
+            "image_mobile": "shopify://shop_images/Sale_Collection_Mob.jpg",
             "video_mp4": "",
             "video_adapt_ratio": 100,
             "text_color": "",
