@@ -101,6 +101,7 @@
         },
         "slide_3FrQKe": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_3eac951b-26c7-48a0-82ed-00b6e5966ee6.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_c912325b-f879-4381-882e-0db239ac8eba.png",
