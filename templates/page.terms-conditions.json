@@ -90,6 +90,24 @@
             "row_content": "<ul><li>Receive 30% off sitewide during the BFCM sales period, excluding Gut Harmony. All promotional prices are reflected on the site automatically; no code is needed.   </li><li>BFCM sales period for 2025 is Monday, 24 November 9:00 AM NZDT to Monday, 1 December 8:59 AM NZDT.  </li><li>This promotion excludes Gut Harmony. </li><li>Discounts, promotional codes, or offers cannot be used during the BFCM sales period.  </li><li>If you return your order (some or all of your ordered products) placed in the BFCM sales period, refunds will be calculated at the BFCM promotion purchase price minus shipping costs; as per our refund policy.  </li><li>The BFCM offers are not transferable and may not be resold or redeemed for cash.   </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_BGmxBm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Cyber Monday",
+            "icon": "none",
+            "row_content": "<ul><li>Receive 30% off sitewide during the BFCM sales period, excluding Gut Harmony. All promotional prices are reflected on the site automatically; no code is needed.   </li><li>BFCM sales period for 2025 is Monday, 1 December 9:00 AM NZDT to Wednesday, 3 December 4:59 PM NZDT.  </li><li>This promotion excludes Gut Harmony. </li><li>Discounts, promotional codes, or offers cannot be used during the BFCM sales period.  </li><li>If you return your order (some or all of your ordered products) placed in the BFCM sales period, refunds will be calculated at the BFCM promotion purchase price minus shipping costs; as per our refund policy.  </li><li>The BFCM offers are not transferable and may not be resold or redeemed for cash.   </li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_khUf6i": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Win your order back",
+            "icon": "none",
+            "row_content": "<p>This promotion is open to customers who place an order on our website between 8:59 AM NZDT November 30, 2025 and 8:59 AM NZDT December 1, 2025. </p><p>The winner will receive a refund equal to the full value of their winning order (excluding shipping fees, if applicable). </p><p>Refunds will be processed to the original payment method used at checkout. </p><p>One winning order will be randomly drawn after the promotion ends at 8:59 AM December 1, 2025. </p><p>The winner will be contacted via the email address associated with their order within 5 days. </p><p>Orders placed outside the promotional period will not be eligible. </p><p>If the winner does not respond within 7 days, a new winner may be drawn. </p><p>This promotion is not transferable, exchangeable, or redeemable for cash beyond the refund value of the order. </p><p>We reserve the right to amend, suspend, or cancel the promotion if necessary. </p><p>By participating, customers agree to these Terms & Conditions. </p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -100,7 +118,9 @@
         "collapsible_row_W4kDhL",
         "collapsible_row_F6yWBy",
         "collapsible_row_URLzBC",
-        "collapsible_row_EGiyhM"
+        "collapsible_row_EGiyhM",
+        "collapsible_row_BGmxBm",
+        "collapsible_row_khUf6i"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
