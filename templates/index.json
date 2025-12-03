@@ -210,6 +210,60 @@
         "speed": 700
       }
     },
+    "image_banner_xtg9w9": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_KVAgLN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_GPbGVV": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_q8mtQ4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KVAgLN",
+        "text_GPbGVV",
+        "buttons_q8mtQ4"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
+        "image_tablet": "shopify://shop_images/Gut-Harmony_650x646_2_2.png",
+        "image_mobile": "shopify://shop_images/Gut-Harmony-mob-FINAL-2-27.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "color_scheme_mobile": ""
+      }
+    },
     "multicolumn_A6pqFE": {
       "type": "multicolumn",
       "blocks": {
@@ -1120,6 +1174,7 @@
   },
   "order": [
     "media_hero_slider_VC34DA",
+    "image_banner_xtg9w9",
     "multicolumn_A6pqFE",
     "rich_text_e8Phjw",
     "featured_collection_jqXfKn",
