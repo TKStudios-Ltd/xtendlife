@@ -47,7 +47,7 @@
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_e2c77aca-4377-4e2c-92b1-b88d5129e607.png",
-            "image_mobile": "shopify://shop_images/Gut-Harmony-mob-FINAL-2-27.png",
+            "mobile_inline_image": "shopify://shop_images/Gut-Harmony-mob-FINAL-2-27_784f689e-f401-4676-af1a-77b104d6eed0.png",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#ffffff",
