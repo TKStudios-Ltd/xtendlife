@@ -46,7 +46,6 @@
           "name": "Gut Harmony Launch",
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
-            "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_e2c77aca-4377-4e2c-92b1-b88d5129e607.png",
             "mobile_inline_image": "shopify://shop_images/GutHarmony_Benefits_2f5f8935-ecba-47df-922d-271292fddf43.png",
             "video_mp4": "",
             "video_adapt_ratio": 30,
