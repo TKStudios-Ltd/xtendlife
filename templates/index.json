@@ -19,6 +19,7 @@
             "image": "shopify://shop_images/BF_Sale_LB-Desk.png",
             "image_tablet": "shopify://shop_images/Black_Friday_Sale-iPad_630x650_6.png",
             "image_mobile": "shopify://shop_images/Black_Friday_Sale-Mob_425x500_10.png",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#1f1946",
@@ -47,6 +48,7 @@
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "mobile_inline_image": "shopify://shop_images/GutHarmony_Benefits_2f5f8935-ecba-47df-922d-271292fddf43.png",
+            "mobile_inline_bg": "#5fb796",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#ffffff",
@@ -76,6 +78,7 @@
             "image": "shopify://shop_images/NZ_VIT_D_Promo.png",
             "image_tablet": "shopify://shop_images/NZ_Vit_D3_iPad_630x650_08130811-8cf7-45d1-810d-768ff9effbaf.png",
             "image_mobile": "shopify://shop_images/NZ_Vit_D3_Mob_425x500_d5ab903f-f1af-4013-9676-52940d0d98ca.png",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#1f1946",
@@ -105,6 +108,7 @@
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_3eac951b-26c7-48a0-82ed-00b6e5966ee6.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_c912325b-f879-4381-882e-0db239ac8eba.png",
             "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_f1ed653c-8961-4d83-8cd0-a435adc596ab.png",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 55,
             "text_color": "",
@@ -131,6 +135,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "https://cdn.shopify.com/videos/c/o/v/2bcb59b6585d4453851b874b904f3702.mp4",
             "video_adapt_ratio": 30,
             "text_color": "",
@@ -159,6 +164,7 @@
           "settings": {
             "image": "shopify://shop_images/iStock-1208575446_5.jpg",
             "image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 55,
             "text_color": "",
