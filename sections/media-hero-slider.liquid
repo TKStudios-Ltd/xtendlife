@@ -74,6 +74,14 @@
     height: auto;
     margin-bottom: 2rem;
   }
+  /* If inline mobile image is used, hide all background media */
+  #MediaHero-{{ section.id }} .banner.has-mobile-inline-image .banner__media {
+    display: none !important;
+  }
+  /* Remove overlay too */
+  #MediaHero-{{ section.id }} .banner.has-mobile-inline-image::after {
+    display: none !important;
+  }
 }
 
 /* Full-bleed helper & pagination */
@@ -170,6 +178,7 @@
               banner--{{ section.settings.image_height }}
               {% if section.settings.show_text_box == false %}banner--desktop-transparent{% endif %}
               {% if section.settings.stack_text_on_mobile %}banner--stacked{% endif %}
+              {% if b.mobile_inline_image != blank %}has-mobile-inline-image{% endif %}
               color-{{ section.settings.color_scheme }}
             "
           >
