@@ -14,7 +14,6 @@
       "blocks": {
         "slide_fCzCQn": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-purifying-cleanser_Banner.png",
             "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-04.png",
@@ -23,7 +22,7 @@
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#1f1946",
-            "heading": "Merry little wellness to you!",
+            "heading": "Merry Little Wellness to You!",
             "heading_size": "h1",
             "heading_max_width": 460,
             "text": "FREE Purifying Cleansing Cream with every order. Add product to cart and use code: DAY1PURIFY*.",
