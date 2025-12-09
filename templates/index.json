@@ -101,6 +101,36 @@
             "button_style_secondary_2": true
           }
         },
+        "slide_Uk8P6w": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/12-Days-Omega-3-Banner.png",
+            "image_tablet": "shopify://shop_images/12-Days-Omega-3-ipad.png",
+            "mobile_inline_image": "shopify://shop_images/12-Days-Omega-3-mob.png",
+            "mobile_inline_bg": "#dbeeff",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "text_color": "#1f1946",
+            "heading": "Merry Little Wellness to You!",
+            "heading_size": "h1",
+            "heading_max_width": 470,
+            "text": "Buy 2 Omega 3 / DHA Fish Oil get 1 FREE when using code BUY2GET1",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 330,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://products/omega-3-dha-fish-oil",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_Bwck6W": {
           "type": "slide",
           "disabled": true,
@@ -222,6 +252,7 @@
         "slide_fCzCQn",
         "slide_ddWTWM",
         "slide_YN4nGz",
+        "slide_Uk8P6w",
         "slide_Bwck6W",
         "slide_3FrQKe",
         "slide_fcdUx9",
