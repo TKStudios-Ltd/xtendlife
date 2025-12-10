@@ -14,7 +14,6 @@
       "blocks": {
         "slide_fCzCQn": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-purifying-cleanser_Banner.png",
             "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-04.png",
@@ -26,7 +25,7 @@
             "heading": "Merry Little Wellness to You!",
             "heading_size": "h1",
             "heading_max_width": 460,
-            "text": "FREE Purifying Cleansing Cream with every order. Add product to cart and use code: DAY1PURIFY",
+            "text": "FREE Purifying Cleansing Cream with every order. Add product to cart and use code: DAY1PURIFY. Plus get free shipping.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
             "subtitle_font_size_mobile": 18,
@@ -55,7 +54,7 @@
             "heading": "Merry Little Wellness to You!",
             "heading_size": "h1",
             "heading_max_width": 470,
-            "text": "Buy 2 Omega 3 / DHA Fish Oil get 1 FREE when using code BUY2GET1",
+            "text": "Buy 2 Omega 3 / DHA Fish Oil get 1 FREE when using code BUY2GET1. Plus get free shipping.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
             "subtitle_font_size_mobile": 18,
