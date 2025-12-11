@@ -48,6 +48,7 @@
         },
         "collapsible_row_k4dGtr": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Subscribe and Save Welcome Offer",
             "icon": "none",
@@ -57,6 +58,7 @@
         },
         "collapsible_row_W4kDhL": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Free Vitamin D3 + K2",
             "icon": "none",
