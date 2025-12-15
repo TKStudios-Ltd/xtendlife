@@ -106,6 +106,7 @@
         },
         "slide_pVgrRR": {
           "type": "slide",
+          "name": "12 Days-Win Back",
           "settings": {
             "image": "shopify://shop_images/Win-your-order-back_Banner.png",
             "image_tablet": "shopify://shop_images/Win-your-order-back_iPad.png",
