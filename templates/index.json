@@ -136,6 +136,7 @@
         },
         "slide_ddWTWM": {
           "type": "slide",
+          "name": "12 Days-Generic",
           "settings": {
             "image": "shopify://shop_images/12_Days_HP_Banner_aa3d06b7-032d-4087-bad8-3a490b1105c3.png",
             "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-03.png",
