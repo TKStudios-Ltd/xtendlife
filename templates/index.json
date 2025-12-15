@@ -14,10 +14,11 @@
       "blocks": {
         "slide_fCzCQn": {
           "type": "slide",
+          "name": "12 Days of Xmas-20% OFF",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/12-Days-purifying-cleanser_Banner.png",
-            "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-04.png",
+            "image": "shopify://shop_images/12-Days-20-off-sitewide_Banner.png",
+            "image_tablet": "shopify://shop_images/12-Days-20-off-sitewide_iPad.png",
             "mobile_inline_image": "shopify://shop_images/12-Days-purifying-cleanser_mob.png",
             "mobile_inline_bg": "#dbeeff",
             "video_mp4": "",
