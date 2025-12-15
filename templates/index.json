@@ -42,6 +42,37 @@
             "button_style_secondary_2": false
           }
         },
+        "slide_Vcwhej": {
+          "type": "slide",
+          "name": "12 Days-FREE Purifying Cleansing Cream",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/12-Days-purifying-cleanser_Banner.png",
+            "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-04.png",
+            "mobile_inline_image": "shopify://shop_images/12-Days-purifying-cleanser_mob.png",
+            "mobile_inline_bg": "#dbeeff",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "Merry Little Wellness to You!",
+            "heading_size": "h1",
+            "heading_max_width": 460,
+            "text": "FREE Purifying Cleansing Cream with every order. Add product to cart and use code: DAY1PURIFY. Plus get free shipping.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 330,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://products/purifying-cleansing-cream",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_Uk8P6w": {
           "type": "slide",
           "disabled": true,
@@ -280,6 +311,7 @@
       },
       "block_order": [
         "slide_fCzCQn",
+        "slide_Vcwhej",
         "slide_Uk8P6w",
         "slide_pVgrRR",
         "slide_ddWTWM",
