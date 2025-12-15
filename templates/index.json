@@ -18,7 +18,7 @@
           "settings": {
             "image": "shopify://shop_images/12-Days-20-off-sitewide_Banner.png",
             "image_tablet": "shopify://shop_images/12-Days-20-off-sitewide_iPad.png",
-            "mobile_inline_image": "shopify://shop_images/12-Days-purifying-cleanser_mob.png",
+            "mobile_inline_image": "shopify://shop_images/12-Days-20-off-sitewide_Mob.png",
             "mobile_inline_bg": "#dbeeff",
             "video_mp4": "",
             "video_adapt_ratio": 30,
