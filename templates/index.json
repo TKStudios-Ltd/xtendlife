@@ -15,7 +15,6 @@
         "slide_pVgrRR": {
           "type": "slide",
           "name": "Slide-Omega 3 Give Away",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/3_Omega-3-GIFT_HP-Banner_910f7dfd-06ed-4a99-9417-f408f32a65f7.png",
             "image_tablet": "shopify://shop_images/3_Omega-3-GIFT_HP-iPad_faf238ba-dfe4-48d7-93a2-33c23b50a1c9.png",
@@ -36,7 +35,7 @@
             "small_text_font_size_desktop": 12,
             "small_text_font_size_mobile": 9,
             "button_label_1": "Unlock your bonus",
-            "button_link_1": "shopify://collections/all",
+            "button_link_1": "shopify://collections/omega-3-health",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
