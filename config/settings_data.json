@@ -171,11 +171,6 @@
         "disabled": true,
         "settings": {}
       },
-      "3138269044488530766": {
-        "type": "shopify://apps/uppromote-affiliate/blocks/core-script/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
-        "disabled": true,
-        "settings": {}
-      },
       "9466161677832145516": {
         "type": "shopify://apps/preorder-back-in-stock-duck/blocks/app-embed/0abe2c21-42b2-472f-8c7a-98f669971fd8",
         "disabled": false,
@@ -196,6 +191,11 @@
           "cards_background": "#ffffff",
           "cards_border_color": "#ffffff"
         }
+      },
+      "3138269044488530766": {
+        "type": "shopify://apps/uppromote-affiliate/blocks/core-script/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
