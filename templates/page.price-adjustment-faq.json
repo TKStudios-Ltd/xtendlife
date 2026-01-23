@@ -191,18 +191,9 @@
         "collapsible_row_wk4mcT": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "Who can I contact if I have questions?",
             "icon": "none",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "collapsible_row_RUnyRV": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Our Customer Relations team is always happy to help. You can contact us at customer.service@xtend-life.com, and we’ll get back to you as soon as possible.</p><p>Looking ahead, we have an exciting new product line-up planned for the year ahead, and we look forward to sharing it with you as we continue to support your health journey.</p><p>Thank you for your continued trust in Xtendlife. Your support allows us to keep doing things properly, today and into the future.</p>",
             "page": ""
           }
         }
@@ -226,8 +217,7 @@
         "collapsible_row_JhJHan",
         "collapsible_row_wTJcJT",
         "collapsible_row_CnJVT3",
-        "collapsible_row_wk4mcT",
-        "collapsible_row_RUnyRV"
+        "collapsible_row_wk4mcT"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
