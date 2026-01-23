@@ -164,6 +164,42 @@
         "collapsible_row_JhJHan": {
           "type": "collapsible_row",
           "settings": {
+            "heading": "Why wasn’t this absorbed by Xtendlife?",
+            "icon": "none",
+            "row_content": "<p>We continually review costs and efficiencies across the business. This update ensures we can sustainably maintain our standards, invest in quality and testing, and continue manufacturing in our own facility over the long term.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wTJcJT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will prices increase again soon?",
+            "icon": "none",
+            "row_content": "<p>We don’t make pricing changes lightly. Any future adjustments are carefully considered, and we aim to keep pricing as stable as possible.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CnJVT3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where can I see the updated prices?",
+            "icon": "none",
+            "row_content": "<p>Updated prices will be visible on our website and across all stores once the change takes effect on 2 February 2026.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wk4mcT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_RUnyRV": {
+          "type": "collapsible_row",
+          "settings": {
             "heading": "Collapsible row",
             "icon": "none",
             "row_content": "",
@@ -187,7 +223,11 @@
         "collapsible_row_pCXYRM",
         "collapsible_row_rH7ppf",
         "collapsible_row_NJxMrC",
-        "collapsible_row_JhJHan"
+        "collapsible_row_JhJHan",
+        "collapsible_row_wTJcJT",
+        "collapsible_row_CnJVT3",
+        "collapsible_row_wk4mcT",
+        "collapsible_row_RUnyRV"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
