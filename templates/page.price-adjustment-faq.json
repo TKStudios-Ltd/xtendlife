@@ -142,6 +142,33 @@
             "row_content": "<p>No. Our formulations, ingredient sourcing, manufacturing processes, and testing standards remain unchanged. This update supports our ability to maintain the level of quality you expect from Xtendlife.</p>",
             "page": ""
           }
+        },
+        "collapsible_row_rH7ppf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does this price update relate to changes in global shipping or tariffs?",
+            "icon": "none",
+            "row_content": "<p>Yes, in part. Changes in global trade conditions, including recent US tariff updates, have increased the cost of supplying products internationally. As a global brand, these changes affect our overall cost base.</p><p>This pricing update allows us to manage these impacts while continuing to manufacture to the same high standards across all markets, without compromising on quality or consistency.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NJxMrC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why isn’t this change limited to one country?",
+            "icon": "none",
+            "row_content": "<p>Xtendlife operates globally, with shared sourcing, manufacturing, and quality systems. Cost changes in one major market can affect the wider operation, and a consistent global approach allows us to maintain fairness, stability, and standards across all regions.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_JhJHan": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "none",
+            "row_content": "",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -157,7 +184,10 @@
         "collapsible_row_khUf6i",
         "collapsible_row_GxRpea",
         "collapsible_row_RyXXdf",
-        "collapsible_row_pCXYRM"
+        "collapsible_row_pCXYRM",
+        "collapsible_row_rH7ppf",
+        "collapsible_row_NJxMrC",
+        "collapsible_row_JhJHan"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
