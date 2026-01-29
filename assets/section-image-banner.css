@@ -238,9 +238,9 @@
     box-shadow: none;
   }
 
-  /* .banner:not(.banner--mobile-bottom) .button--secondary {
+  .banner:not(.banner--mobile-bottom) .button--secondary {
     --alpha-button-background: 0;
-  } */
+  }
 
   .banner--stacked:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
     position: absolute;
@@ -367,9 +367,9 @@
     box-shadow: none;
   }
 
-  /* .banner--desktop-transparent .button--secondary {
+  .banner--desktop-transparent .button--secondary {
     --alpha-button-background: 0;
-  } */
+  }
 
   .banner--desktop-transparent .content-container:after {
     display: none;
