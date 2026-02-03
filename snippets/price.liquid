@@ -32,6 +32,13 @@
   assign has_selling_plan = false
   if product.selling_plan_groups.size > 0
     assign has_selling_plan = true
+    for group in product.selling_plan_groups
+      for plan in group.selling_plans
+        if plan.name contains 'Pre-order'
+          assign has_selling_plan = false
+        endif
+      endfor
+    endfor    
   endif
 
 -%}
@@ -86,18 +93,6 @@
     endif
   endif
 -%}
-
-{% if product.selling_plan_groups.size > 0 %}
-  <ul class="hidden">
-    {% for group in product.selling_plan_groups %}
-      <li>{{ group.name }}</li>
-      {% comment %} Optional: List individual plans within the group {% endcomment %}
-      {% for plan in group.selling_plans %}
-        <small>{{ plan.name }}</small>
-      {% endfor %}
-    {% endfor %}
-  </ul>
-{% endif %}
 
 {%- unless target == null and placeholder == null -%}
   <div
