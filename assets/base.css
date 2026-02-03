@@ -4624,3 +4624,8 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
 .shopify-block.recharge-subscription-widget recharge-subscription-widget {
   max-width: 100% !important;
 }
+
+/* Shopify Installments */
+form[id*="product-form-installment"] {
+    display: none !important;
+}
