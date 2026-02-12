@@ -50,7 +50,7 @@
       "settings": {
         "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
         "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
-        "image_mobile": "shopify://shop_images/SuperDay_Mob_Collection_page3.png",
+        "image_mobile": "shopify://shop_images/SuperDay_Mob_yellow.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
@@ -58,10 +58,10 @@
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-569066da-0bc1-4bbb-8dab-b83912f29efe",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
-        "show_text_below": false,
+        "show_text_below": true,
         "color_scheme_mobile": "scheme-1"
       }
     },
