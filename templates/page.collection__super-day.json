@@ -205,7 +205,6 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/SuperDay_Page_image.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -290,7 +289,6 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Ingredients-Op1.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -507,7 +505,6 @@
             "title": "Energy & Vitality",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefits_Energy_Vitality.png",
             "image_text": "Support steady energy and nervous system function.",
             "image_text_color": "#1f1946"
           }
@@ -518,7 +515,6 @@
             "title": "Mind & Focus",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
             "image_text": "Stay sharp with nutrients for focus and mental clarity.",
             "image_text_color": "#ffffff"
           }
@@ -529,7 +525,6 @@
             "title": "Digestion",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Digestive_Health_Support.png",
             "image_text": "Prebiotic fibre for healthy digestion and nutrient absorption.",
             "image_text_color": ""
           }
@@ -540,7 +535,6 @@
             "title": "Immunity",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefit_Immune_and_Cellular_Support.png",
             "image_text": "Every day support for your immune system and cells.",
             "image_text_color": "#1f1946"
           }
@@ -551,7 +545,6 @@
             "title": "Bone & Muscle",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefit_Bone_and_Muscle_Support.png",
             "image_text": "Maintain bone, muscle, and connective tissue health.",
             "image_text_color": ""
           }
@@ -574,7 +567,7 @@
         "autoplay": false,
         "autoplay_delay": 5,
         "loop": false,
-        "section_color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
+        "section_color_scheme": "scheme-569066da-0bc1-4bbb-8dab-b83912f29efe",
         "padding_top": 40,
         "padding_bottom": 100
       }
@@ -972,8 +965,8 @@
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
-        "container_color_scheme": "",
-        "color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
+        "container_color_scheme": "scheme-569066da-0bc1-4bbb-8dab-b83912f29efe",
+        "color_scheme": "scheme-569066da-0bc1-4bbb-8dab-b83912f29efe",
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
