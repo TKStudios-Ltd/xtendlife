@@ -20,34 +20,22 @@
     "image_banner_pFjbBG": {
       "type": "image-banner",
       "blocks": {
-        "buttons_JR9Vpa": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SERVING 400,000 CUSTOMERS GLOBALLY",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "SuperDay Daily Nutrition for Every Stage of Life",
+            "heading": "<strong>Your Daily Dose of Super</strong>",
             "heading_size": "h1"
           }
         },
         "text_FxFrdN": {
           "type": "text",
           "settings": {
-            "text": "Simple, all-in-one daily nutrition to support healthy aging and everyday vitality. With targeted formulas for 60+, adults, and kids, SuperDay makes daily nutrition easier to maintain.",
+            "text": "Delicious daily powders made in New Zealand, packed with nutrients to support your energy, immunity, and everyday wellbeing.",
             "text_style": "subtitle"
           }
         }
       },
       "block_order": [
-        "buttons_JR9Vpa",
         "heading_4P8W9w",
         "text_FxFrdN"
       ],
@@ -74,7 +62,7 @@
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
         "show_text_below": false,
-        "color_scheme_mobile": ""
+        "color_scheme_mobile": "scheme-1"
       }
     },
     "multicolumn_A6pqFF": {
@@ -151,14 +139,14 @@
         "heading_cpFMj7": {
           "type": "heading",
           "settings": {
-            "heading": "Daily Nutrition That Fits Real Life",
+            "heading": "Wellness Made Effortless for Every Age",
             "heading_size": "h1"
           }
         },
         "caption_ADqcV9": {
           "type": "caption",
           "settings": {
-            "caption": "If you are going to build one daily nutrition habit, it should be one you can maintain. Many people know they should support their nutrition, especially as they age, but struggle with routines that involve multiple products. SuperDay simplifies daily nutrition into one easy scoop, with targeted formulas for different life stages. Nutrition designed for real routines, not perfect ones.",
+            "caption": "One scoop a day is all it takes. A simple daily habit to help you and your family feel your best, every day.",
             "additional_caption": "",
             "text_style": "subtitle",
             "text_size": "small"
@@ -167,8 +155,8 @@
         "collapsible_row_hhytby": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Built for Daily Consistency",
-            "row_content": "<p>Daily nutrition only works if it becomes a habit. SuperDay is designed to be taken once a day, mixed into water, juice, or a smoothie, making it easier to stay consistent over time.</p>",
+            "heading": "One Scoop, One Habit",
+            "row_content": "<p>Mix into water, juice, or a smoothie, and you're done. SuperDay is designed to fit your routine, not the other way around.</p>",
             "page": "",
             "open": true
           }
@@ -176,25 +164,25 @@
         "collapsible_row_gpjHHf": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Simpler Than Managing Multiple Supplements",
-            "row_content": "<p>Instead of juggling several products to cover energy, digestion, immunity, and overall vitality, SuperDay brings essential daily support together in one balanced blend.</p>",
+            "heading": "Everything in One Blend",
+            "row_content": "<p>No more juggling multiple supplements. Each formula brings together vitamins, minerals, prebiotics, and botanicals for balanced daily support in a single serve.</p>",
             "page": "",
-            "open": false
+            "open": true
           }
         },
         "collapsible_row_wRt7Wa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Tailored by Life Stage",
-            "row_content": "<p>Nutritional needs change over time. That’s why SuperDay offers targeted formulas for healthy aging, adult wellness, and growing kids, so you get relevant support without overdoing it.</p>",
+            "heading": "The Right Formula for Every Age",
+            "row_content": "<p>Nutritional needs change over time. SuperDay offers targeted formulas for Kids, Adults, and 60+, so everyone gets what they need, nothing they don't.</p>",
             "page": "",
-            "open": false
+            "open": true
           }
         },
         "text_QNdBXj": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Built for daily consistency </li><li>Designed for real routines </li><li>Tailored by life stage</li></ul>",
+            "text": "<ul><li><strong>Made in New Zealand</strong></li><li><strong>Non-GMO</strong></li><li><strong>No added sugar</strong></li></ul>",
             "text_style": "body"
           }
         }
@@ -209,14 +197,15 @@
       ],
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
-        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 500px;}",
         ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
+        ".accordion__icon-set {display: none;}",
         "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
         "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Total_Balance_Overview_image.png",
+        "image": "shopify://shop_images/SuperDay_Page_image.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -228,7 +217,7 @@
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -277,14 +266,14 @@
         "heading_zhEGVe": {
           "type": "heading",
           "settings": {
-            "heading": "Your Daily Nutritional Foundation",
+            "heading": "What’s Inside Every Scoop",
             "heading_size": "h1"
           }
         },
         "text_bztXa3": {
           "type": "text",
           "settings": {
-            "text": "<p>Every SuperDay formula is built as a foundation for daily nutrition, bringing together essential nutrients your body needs regularly, not just occasionally.</p><ul><li>Essential vitamins and minerals for everyday function </li><li>Functional botanicals and antioxidants for daily resilience </li><li>Prebiotic fibre to support gut health and digestion </li><li>Powder format for easy daily use and absorption </li></ul>",
+            "text": "<p>Every SuperDay formula shares a core of essential daily nutrition, plus targeted ingredients tailored to each life stage.<br/><br/><strong>Essential Vitamins & Minerals:</strong> </p><p>A full spectrum of vitamins and minerals, including B-complex vitamins, vitamins A, C, D, E, and K2, plus calcium, magnesium, and zinc to support energy, immunity, and overall wellbeing.</p><p><strong>Greens Blend:</strong> </p><p>Nutrient-rich spinach, broccoli, barley grass and wheat grass provide fibre, chlorophyll, and phytonutrients to support digestion and antioxidant defences.</p><p><strong>Prebiotic Fibersol®-2: </strong></p><p>A premium soluble fibre that nourishes beneficial gut bacteria and supports digestive balance. Certified FODMAP Friendly by Monash University.</p>",
             "text_style": "body"
           }
         }
@@ -301,7 +290,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/SD-For-60__FOP_130f3811-a036-4657-aaf4-b47768bac4f3.png",
+        "image": "shopify://shop_images/Ingredients-Op1.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -324,14 +313,15 @@
         "review_dXy8WH": {
           "type": "review",
           "settings": {
-            "title": "Amazing Product",
-            "description": "<p>I have been using Total Balance Men’s Premium for more than 5 years, and I hope to be using it for the rest of my life.</p>",
-            "person": "Abito, Singapore",
-            "product": "total-balance-mens-premium"
+            "title": "My 6 and 8 year old love them!",
+            "description": "<p>A super easy way for my 6 and 8 year old to get their vitamins! They love the taste, and it’s been so simple to add to our morning routine. It mixes easily with water using the electric mixer, or we add it to a smoothie.<br/><br/></p>",
+            "person": "Kate, New Zealand",
+            "product": ""
           }
         },
         "review_HzjgFA": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "My Doctor Recommended",
             "description": "<p>I suffered from chronic fatigue. I do feel that these vitamins have helped me significantly over the past few years.</p>",
@@ -341,6 +331,7 @@
         },
         "review_KcRaMj": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Checks all the boxes",
             "description": "<p>I have been taking Total Balance Women's for several years now. This one checked all the boxes! This vitamin makes me feel better.</p>",
@@ -350,6 +341,7 @@
         },
         "review_6xy4xw": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Class of its Own",
             "description": "<p>Total Balance Men's Premium is a game changer in supplementation. I’ve used these for about eight years.</p>",
@@ -359,6 +351,7 @@
         },
         "review_HmjwX3": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Best Vitamins in the World",
             "description": "<p>I reviewed and studied vitamins being sold over the world, and Total Balance Men’s Premium is the best.</p>",
@@ -374,7 +367,6 @@
         "review_6xy4xw",
         "review_HmjwX3"
       ],
-      "disabled": true,
       "custom_css": [
         "h2 {color: #1f1946;}",
         ".ts-btn svg path {fill: #1f1946;}"
@@ -405,6 +397,14 @@
             "heading_size": "h2"
           }
         },
+        "text_mnQxG6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>SuperDay is designed to support how you feel and function day to day, with balanced nutrition that works best when taken consistently.</p>",
+            "text_style": "body"
+          }
+        },
         "collapsible_row_eJMy84": {
           "type": "collapsible_row",
           "settings": {
@@ -427,7 +427,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Digestive Health Support",
-            "row_content": "<p>Prebiotic fibre and supporting nutrients help maintain healthy digestion and nutrient absorption, so your body can make better use of what you consume each day.</p>",
+            "row_content": "<p>Prebiotic fiber and supporting nutrients help maintain healthy digestion and nutrient absorption, so your body can make better use of what you consume each day.</p>",
             "page": "",
             "open": false
           }
@@ -463,6 +463,7 @@
       },
       "block_order": [
         "heading_HLeMWQ",
+        "text_mnQxG6",
         "collapsible_row_eJMy84",
         "collapsible_row_E3dGpt",
         "collapsible_row_mNwhUk",
@@ -470,6 +471,7 @@
         "collapsible_row_nq449P",
         "collapsible_row_PbVEn9"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
         ".image-with-text__heading {margin-bottom: 6rem;}",
@@ -490,10 +492,91 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-4",
-        "color_scheme": "scheme-4",
+        "section_color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
+        "color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "image_with_tabs_e8cxeC": {
+      "type": "image-with-tabs",
+      "blocks": {
+        "tab_9FNQGz": {
+          "type": "tab",
+          "settings": {
+            "title": "Energy & Vitality",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefits_Energy_Vitality.png",
+            "image_text": "Support steady energy and nervous system function.",
+            "image_text_color": "#1f1946"
+          }
+        },
+        "tab_Vhzqma": {
+          "type": "tab",
+          "settings": {
+            "title": "Mind & Focus",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
+            "image_text": "Stay sharp with nutrients for focus and mental clarity.",
+            "image_text_color": "#ffffff"
+          }
+        },
+        "tab_igzFEq": {
+          "type": "tab",
+          "settings": {
+            "title": "Digestion",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Digestive_Health_Support.png",
+            "image_text": "Prebiotic fibre for healthy digestion and nutrient absorption.",
+            "image_text_color": ""
+          }
+        },
+        "tab_J3BB6p": {
+          "type": "tab",
+          "settings": {
+            "title": "Immunity",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefit_Immune_and_Cellular_Support.png",
+            "image_text": "Every day support for your immune system and cells.",
+            "image_text_color": "#1f1946"
+          }
+        },
+        "tab_3FcBqM": {
+          "type": "tab",
+          "settings": {
+            "title": "Bone & Muscle",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefit_Bone_and_Muscle_Support.png",
+            "image_text": "Maintain bone, muscle, and connective tissue health.",
+            "image_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_9FNQGz",
+        "tab_Vhzqma",
+        "tab_igzFEq",
+        "tab_J3BB6p",
+        "tab_3FcBqM"
+      ],
+      "name": "Image with Tabs",
+      "settings": {
+        "heading": "What One Scoop a Day Can Do",
+        "heading_size": "h2",
+        "layout": "image_first",
+        "left_col_width": 1,
+        "right_col_width": 1,
+        "autoplay": false,
+        "autoplay_delay": 5,
+        "loop": false,
+        "section_color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
+        "padding_top": 40,
+        "padding_bottom": 100
       }
     },
     "rich_text_YewMnP": {
@@ -735,12 +818,12 @@
           "type": "column",
           "settings": {
             "product": "total-balance-womens",
-            "row1_ticks": 1,
-            "row2_ticks": 1,
-            "row3_ticks": 1,
-            "row4_ticks": 1,
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
             "row5_ticks": 1,
-            "row6extra_ticks": 1,
+            "row6extra_ticks": 0,
             "row7extra_text": "",
             "row6_text": "4"
           }
@@ -826,6 +909,78 @@
         "padding_bottom": 80
       }
     },
+    "collapsible_content_TbWkbH": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Xn79B7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the Xtend-Life SuperDay range?",
+            "icon": "none",
+            "row_content": "<p>SuperDay is a family of all-in-one daily nutrition powders designed to simplify your health routine. The range includes tailored formulas for Kids (ages 5–12), Adults, and 60+, each one supporting daily energy, immunity, digestion, and long-term wellbeing, all in a convenient, great-tasting scoop. Instead of juggling multiple pills, SuperDay helps you build a daily habit that fits into real life.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qXUBrc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I choose the right SuperDay product for me or my family?",
+            "icon": "none",
+            "row_content": "<p>Each SuperDay formula is age-specific: </p><ul><li><strong>SuperDay for Kids</strong> supports growth, immunity, and focus for children aged 5–12 years. </li><li><strong>SuperDay for Adults</strong> provides comprehensive daily support for energy, digestion, immunity, and stress balance. </li><li><strong>SuperDay for 60+</strong> includes additional support for memory, heart health, bones, and joints, specifically for older adults. </li></ul><p>If you’re choosing for a household, SuperDay makes it easy: one for the kids, one for the adults, and one for the over-60s. Each person gets what they need, without the clutter of multiple products. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gJrwCU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Should I take SuperDay if I’m already on a multivitamin like Total Balance?",
+            "icon": "none",
+            "row_content": "<p>Both products provide comprehensive daily nutrition, so you generally wouldn't need both. Taking two broad-spectrum formulas may lead to unnecessary overlap. It comes down to whether you prefer a tablet-based routine or a daily powder with added fibre and botanicals. If you're unsure, check in with your healthcare provider.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_XnhacR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I take SuperDay if I’m pregnant or breastfeeding?",
+            "icon": "none",
+            "row_content": "<p>While many ingredients are safe, it’s always best to check with your healthcare provider before using SuperDay if you're pregnant or breastfeeding. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dh3TDH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I take SuperDay every day long-term?",
+            "icon": "none",
+            "row_content": "<p>Absolutely. SuperDay is made for daily use, with safe, research-backed ingredients that support consistent wellbeing over time. There’s no need to cycle on or off; it’s something you can take year-round as part of a simple, effective health routine.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Xn79B7",
+        "collapsible_row_qXUBrc",
+        "collapsible_row_gJrwCU",
+        "collapsible_row_XnhacR",
+        "collapsible_row_dh3TDH"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "SuperDay FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -844,12 +999,15 @@
         "paragraph_RxdmFE",
         "email_form_hDdFMH"
       ],
+      "custom_css": [
+        "@media (max-width: 989px) {.title-wrapper-with-link {margin: -1rem 0 4rem; }}"
+      ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
         "enable_klaviyo_attach": true,
-        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_list_id": "TURMy6",
         "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
@@ -861,14 +1019,14 @@
         "heading_hRLdBY": {
           "type": "heading",
           "settings": {
-            "heading": "Life Long. Life Strong.",
+            "heading": "<strong>Built on 26 Years of Wellness and Innovation</strong>",
             "heading_size": "h1"
           }
         },
         "text_VhCp7b": {
           "type": "text",
           "settings": {
-            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
+            "text": "From first goals to life's later stages, Xtendlife supports your health every step of the way. Made in New Zealand in a GMP-certified facility, with independent lab testing on every batch. ",
             "text_style": "subtitle"
           }
         },
@@ -922,11 +1080,13 @@
     "image_with_text_HHyM8a",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
+    "image_with_tabs_e8cxeC",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
     "video_slider_QxaRdC",
+    "collapsible_content_TbWkbH",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
