@@ -498,6 +498,31 @@
         "padding_bottom": 0
       }
     },
+    "image_banner_x6D6RY": {
+      "type": "image-banner",
+      "custom_css": [
+        ".banner {display: none;}",
+        "@media (max-width: 749px) {.banner {display: block; display: flex; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
+        "image_tablet": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
+        "image_mobile": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "color_scheme_mobile": ""
+      }
+    },
     "image_with_tabs_e8cxeC": {
       "type": "image-with-tabs",
       "blocks": {
@@ -1080,6 +1105,7 @@
     "image_with_text_HHyM8a",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
+    "image_banner_x6D6RY",
     "image_with_tabs_e8cxeC",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
