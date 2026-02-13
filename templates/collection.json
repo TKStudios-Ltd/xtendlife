@@ -113,7 +113,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://pages/total-balance",
+            "button_link": "shopify://pages/superday",
             "button_style_secondary": false
           }
         }
