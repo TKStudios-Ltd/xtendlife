@@ -58,11 +58,11 @@
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "scheme-569066da-0bc1-4bbb-8dab-b83912f29efe",
+        "color_scheme": "scheme-1",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
         "show_text_below": true,
-        "color_scheme_mobile": "scheme-1"
+        "color_scheme_mobile": "scheme-569066da-0bc1-4bbb-8dab-b83912f29efe"
       }
     },
     "multicolumn_A6pqFF": {
