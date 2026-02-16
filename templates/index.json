@@ -12,39 +12,10 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
-        "slide_8JJg4J": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Heart_health_banner_228f88ff-700c-4650-ab5b-edf3b8c1d0c0.png",
-            "image_tablet": "shopify://shop_images/Heart_health_banner_228f88ff-700c-4650-ab5b-edf3b8c1d0c0.png",
-            "image_mobile": "shopify://shop_images/Heart-health-mob5.png",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 30,
-            "text_color": "#1f1946",
-            "heading": "Care for your heart, on us",
-            "heading_size": "h1",
-            "heading_max_width": 330,
-            "text": "Purchase a selected Heart Health product and get <strong>GG Pure FREE</strong>. Add <strong>GG Pure</strong> to your cart and use code <strong>HEARTGIFT</strong> at checkout.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 360,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 9,
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/heart-health",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": true
-          }
-        },
         "slide_AVhUBB": {
           "type": "slide",
           "name": "Slide_SD Launch",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
             "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
@@ -66,6 +37,35 @@
             "small_text_font_size_mobile": 10,
             "button_label_1": "Shop Now",
             "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
+        "slide_8JJg4J": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Heart_health_banner_228f88ff-700c-4650-ab5b-edf3b8c1d0c0.png",
+            "image_tablet": "shopify://shop_images/Heart_health_banner_228f88ff-700c-4650-ab5b-edf3b8c1d0c0.png",
+            "image_mobile": "shopify://shop_images/Heart-health-mob5.png",
+            "mobile_inline_bg": "#ffffff",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "Care for your heart, on us",
+            "heading_size": "h1",
+            "heading_max_width": 330,
+            "text": "Purchase a selected Heart Health product and get <strong>GG Pure FREE</strong>. Add <strong>GG Pure</strong> to your cart and use code <strong>HEARTGIFT</strong> at checkout.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 360,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/heart-health",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -281,8 +281,8 @@
         }
       },
       "block_order": [
-        "slide_8JJg4J",
         "slide_AVhUBB",
+        "slide_8JJg4J",
         "slide_YN4nGz",
         "slide_3FrQKe",
         "slide_VhjpAm",
