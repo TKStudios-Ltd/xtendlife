@@ -48,9 +48,9 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
-        "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
-        "image_mobile": "shopify://shop_images/SuperDay_Mob_Collection_page4.jpg",
+        "image": "shopify://shop_images/Landing_Page_Banner.png",
+        "image_tablet": "shopify://shop_images/SuperDay_Tablet_FA.png",
+        "image_mobile": "shopify://shop_images/SD-Mob-INLINE_FA_214f3935-394b-4dd9-b88c-f4dbc7b926af.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
