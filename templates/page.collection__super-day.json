@@ -48,7 +48,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Landing_Page_Banner.png",
+        "image": "shopify://shop_images/Landing_Page_Banner_FA.png",
         "image_tablet": "shopify://shop_images/Landing_Page_Tablet_FA_771e6f2a-e868-4ea6-a32a-5a163942a03c.png",
         "image_mobile": "shopify://shop_images/SD-Mob-INLINE_FA_214f3935-394b-4dd9-b88c-f4dbc7b926af.png",
         "image_overlay_opacity": 0,
