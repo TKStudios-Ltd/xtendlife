@@ -348,6 +348,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/iStock-1166653100.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
