@@ -348,7 +348,6 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Heart_Health_Overview_image_0f0bf51f-b158-44d6-b474-54f3224d47be.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -786,6 +785,16 @@
         "padding_bottom": 80
       }
     },
+    "custom_liquid_YmzgDN": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n#drtalks-resources{scroll-margin-top: 100px;}\n</style>\n<a id=\"drtalks-resources\" name=\"drtalks-resources\"></a>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "mixed_media_slider_z44q96": {
       "type": "mixed-media-slider",
       "blocks": {
@@ -822,7 +831,6 @@
         "ebook_slide_H7afHL": {
           "type": "ebook_slide",
           "settings": {
-            "image": "shopify://shop_images/Ebook_Cover_-_Age_Of_Your_Heart.png",
             "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Age_of_Your_Heart_2026_FA.pdf?v=1771545566",
             "title": "The Age of Your Heart",
             "subtitle": "With Dr. Kahn",
@@ -832,7 +840,6 @@
         "ebook_slide_ggweKc": {
           "type": "ebook_slide",
           "settings": {
-            "image": "shopify://shop_images/Ebook_Cover_-_Energizing_Lives_and_Heart_Health.png",
             "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/Staying_Young_at_Heart_eBook_2026_FA.pdf?v=1771545569",
             "title": "Staying Young at Heart",
             "subtitle": "With Dr. Kahn",
@@ -842,7 +849,6 @@
         "ebook_slide_hxnBkc": {
           "type": "ebook_slide",
           "settings": {
-            "image": "shopify://shop_images/Ebook_Cover_-_The_Ground_Breaking_Discovery_Of_GG_For_Heart_Health.png",
             "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Groundbreaking_Discovery_of_GG_2026_FA.pdf?v=1771545567",
             "title": "The Groundbreaking Discovery of GG for Heart Health",
             "subtitle": "With Dr. Kahn and Dr. Barrie Tan",
@@ -1027,6 +1033,7 @@
     "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
+    "custom_liquid_YmzgDN",
     "mixed_media_slider_z44q96",
     "video_slider_QxaRdC",
     "newsletter_qKtmmH",
