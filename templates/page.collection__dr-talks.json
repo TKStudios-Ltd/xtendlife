@@ -831,7 +831,8 @@
         "ebook_slide_H7afHL": {
           "type": "ebook_slide",
           "settings": {
-            "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Age_of_Your_Heart_2026_FA.pdf?v=1771545566",
+            "image": "shopify://shop_images/The-Age-of-your-heart-2026_eBook-Thumb_410x574_8b6b6d57-996d-4173-a48c-41d984d136e7.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/The_Age_of_Your_Heart_2026_FA.pdf?v=1771555273",
             "title": "The Age of Your Heart",
             "subtitle": "With Dr. Kahn",
             "description": "Understanding the age of your heart and the impacts it has on your health is so important. Let’s uncover the facts about cholesterol levels, calcification, and supplementation and learn how to reduce your heart’s age by implementing simple but powerful lifestyle changes."
@@ -840,7 +841,8 @@
         "ebook_slide_ggweKc": {
           "type": "ebook_slide",
           "settings": {
-            "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/Staying_Young_at_Heart_eBook_2026_FA.pdf?v=1771545569",
+            "image": "shopify://shop_images/Staying-Young-at-Heart_2026_eBook-Thumb_410x574_7f4ac51b-45a3-44f9-a653-68da19bc560d.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/Staying_Young_at_Heart_eBook_2026_FA.pdf?v=1771555274",
             "title": "Staying Young at Heart",
             "subtitle": "With Dr. Kahn",
             "description": "Understand how to address many cardiac issues simultaneously with a mitochondria centered approach, and boost mitochondrial resilience through healthy habits, diet, and quality supplementation."
@@ -849,7 +851,8 @@
         "ebook_slide_hxnBkc": {
           "type": "ebook_slide",
           "settings": {
-            "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Groundbreaking_Discovery_of_GG_2026_FA.pdf?v=1771545567",
+            "image": "shopify://shop_images/The-Discovery-of-GG_2026_Thumb_410x574_6e23032b-874b-425e-8ea1-18157067e675.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/The_Groundbreaking_Discovery_of_GG_2026_FA.pdf?v=1771555273",
             "title": "The Groundbreaking Discovery of GG for Heart Health",
             "subtitle": "With Dr. Kahn and Dr. Barrie Tan",
             "description": "Statin medications lower LDL-cholesterol to reduce heart disease risk, however, they impact the production of essential compounds in the body. Discover how GG, a vitamin from the Amazon, helps restore balance by replenishing the beneficial compounds reduced by statins."
