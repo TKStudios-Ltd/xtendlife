@@ -12,6 +12,37 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_jj763f": {
+          "type": "slide",
+          "name": "Slide_O3 Prem_Promo",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Om_3_Prem_Banner-6.png",
+            "image_tablet": "shopify://shop_images/Om_3_Prem_Tablet.png",
+            "image_mobile": "shopify://shop_images/Omega3_Mobile5.png",
+            "mobile_inline_bg": "#ffffff",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "text_color": "",
+            "heading": "Support daily wellness",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Buy 2 Omega 3/DHA Plus, get 1 free*.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 25,
+            "subtitle_font_size_mobile": 20,
+            "text_max_width": 260,
+            "small_text": "Add 3 to your cart and enter code <strong>BONUSGIFT</strong> at checkout.",
+            "small_text_font_size_desktop": 15,
+            "small_text_font_size_mobile": 11,
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_AVhUBB": {
           "type": "slide",
           "name": "Slide_SD Launch",
@@ -282,6 +313,7 @@
         }
       },
       "block_order": [
+        "slide_jj763f",
         "slide_AVhUBB",
         "slide_8JJg4J",
         "slide_YN4nGz",
