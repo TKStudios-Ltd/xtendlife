@@ -60,6 +60,7 @@
       "settings": {
         "image": "shopify://shop_images/Heart_Health_Desktop_b25dda1f-c50e-4c5b-beb0-85267eabb7c9.png",
         "image_tablet": "shopify://shop_images/Heart_Healt_iPad.png",
+        "image_mobile": "shopify://shop_images/Heart_Health_Mobile_90f41058-23a4-488a-9661-a9165fddfda3.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
