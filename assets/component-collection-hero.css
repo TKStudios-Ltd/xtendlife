@@ -30,7 +30,8 @@
   }
 
   .collection-hero__inner {
-    align-items: center;
+    align-items: center !important;
+    justify-content: flex-start !important;
     flex-direction: row;
     padding-bottom: 0;
   }
