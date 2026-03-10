@@ -24,16 +24,17 @@
         "slide_fTk4Hh": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
-            "image_tablet": "shopify://shop_images/Sales_Caregory_iPad_950x750_7b30f22c-5bcf-4472-a65e-d46efb8c21f4.png",
-            "image_mobile": "shopify://shop_images/Sale_Collection_Mob.jpg",
+            "image": "shopify://shop_images/Landing_Page_Banner_1.png",
+            "image_tablet": "shopify://shop_images/Landing_Page_Tablet.jpg",
+            "image_mobile": "shopify://shop_images/Landing_Page_Mob.png",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 100,
             "text_color": "",
-            "heading": "Black Friday is here",
+            "heading": "The Mother's Day Gift Guide",
             "heading_size": "h1",
             "heading_max_width": 500,
-            "text": "30% off almost everything.* Limited time only.",
+            "text": "Find the right wellness gift for every type of mum.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
             "subtitle_font_size_mobile": 18,
@@ -133,9 +134,10 @@
         "tab_hNQHfA",
         "tab_R46dJx"
       ],
+      "custom_css": [],
       "name": "Promo Collection Tabs",
       "settings": {
-        "title": "Black Friday Promotion",
+        "title": "Explore Gift Ideas",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -508,7 +510,8 @@
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme_mobile": ""
       }
     }
   },
