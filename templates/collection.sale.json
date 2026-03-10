@@ -80,8 +80,8 @@
         "tab_HArBQh": {
           "type": "tab",
           "settings": {
-            "label": "Supplements",
-            "collection": "supplements",
+            "label": "Explore Gift Ideas",
+            "collection": "mothersday",
             "limit": 15,
             "view_all": true,
             "static_enable": true,
@@ -96,6 +96,7 @@
         },
         "tab_hNQHfA": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "label": "Bundles",
             "collection": "all-bundles",
@@ -113,6 +114,7 @@
         },
         "tab_R46dJx": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "label": "Skincare",
             "collection": "skincare",
@@ -137,7 +139,7 @@
       "custom_css": [],
       "name": "Promo Collection Tabs",
       "settings": {
-        "title": "Explore Gift Ideas",
+        "title": "Supplements Mum Will Love",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
