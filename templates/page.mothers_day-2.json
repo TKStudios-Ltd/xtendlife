@@ -145,6 +145,7 @@
     },
     "featured_collection_tab_grid_Ddm4Df": {
       "type": "featured-collection-tab-grid",
+      "disabled": true,
       "custom_css": [
         ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
       ],
