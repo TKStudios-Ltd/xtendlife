@@ -150,7 +150,7 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Mental & Brain Health",
+        "title": "Top Supplements for Mum",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -158,9 +158,9 @@
         "tab_featured_label": "",
         "tab_full_label": "",
         "tab_alt_label": "",
-        "featured_collection": "brain-health",
+        "featured_collection": "mothers-day",
         "featured_count": 4,
-        "full_collection": "brain-health",
+        "full_collection": "mothers-day",
         "full_count": 12,
         "alt_collection": "",
         "alt_count": 12,
@@ -179,6 +179,35 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 80
+      }
+    },
+    "featured_collection_iaxU4C": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "mothers-day",
+        "products_to_show": 25,
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "reviews_slider_EnTCee": {
@@ -341,6 +370,7 @@
         "collapsible_row_mNwhUk",
         "collapsible_row_hD4rk6"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
         ".image-with-text__heading {margin-bottom: 6rem;}",
@@ -389,6 +419,7 @@
         "heading_cpFMj7",
         "text_QNdBXj"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 3.6rem; line-height: 1.15;}",
@@ -428,6 +459,7 @@
       "block_order": [
         "heading_RGRz3y"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -486,6 +518,7 @@
         "image_Qw9PXi",
         "image_nxEX3U"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
         "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
@@ -575,6 +608,7 @@
         "collapsible_row_HfKygV",
         "button_CdnLhT"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
@@ -674,6 +708,7 @@
         "collapsible_row_LKKWzb",
         "button_7xtrmP"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
@@ -766,6 +801,7 @@
         "column_7chcQR",
         "column_tQCBEQ"
       ],
+      "disabled": true,
       "name": "Comparison Chart",
       "settings": {
         "heading": "Which Total Balance Version is Right for Me?",
@@ -826,6 +862,7 @@
         "video_slide_mpiyEH",
         "video_slide_Xx7KUJ"
       ],
+      "disabled": true,
       "name": "Video slider",
       "settings": {
         "heading": "",
@@ -930,6 +967,7 @@
     "image_banner_pFjbBG",
     "multicolumn_A6pqFF",
     "featured_collection_tab_grid_Ddm4Df",
+    "featured_collection_iaxU4C",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
