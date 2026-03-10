@@ -69,10 +69,10 @@
         "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
-        "stack_images_on_mobile": false,
+        "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
         "show_text_below": true,
-        "color_scheme_mobile": "scheme-3"
+        "color_scheme_mobile": "scheme-2"
       }
     },
     "multicolumn_A6pqFF": {
