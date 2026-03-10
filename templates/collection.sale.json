@@ -82,7 +82,7 @@
           "settings": {
             "label": "Gifts for Mum",
             "collection": "mothersday",
-            "limit": 15,
+            "limit": 22,
             "view_all": true,
             "static_enable": false,
             "static_position": "first",
@@ -464,14 +464,14 @@
         "heading_hRLdBY": {
           "type": "heading",
           "settings": {
-            "heading": "Life Long. Life Strong.",
+            "heading": "Built on 26 Years of Wellness and Innovation.",
             "heading_size": "h1"
           }
         },
         "text_X4YkWn": {
           "type": "text",
           "settings": {
-            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
+            "text": "From first goals to life's later stages, Xtendlife supports your health every step of the way. Made in New Zealand in a GMP-certified facility, with independent lab testing on every batch.",
             "text_style": "body"
           }
         },
@@ -479,7 +479,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "The Xtendlife Difference",
-            "button_link_1": "#",
+            "button_link_1": "shopify://pages/our-story",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "#",
