@@ -80,7 +80,7 @@
         "tab_HArBQh": {
           "type": "tab",
           "settings": {
-            "label": "Explore Gift Ideas",
+            "label": "Gifts for Mum",
             "collection": "mothersday",
             "limit": 15,
             "view_all": true,
@@ -139,7 +139,7 @@
       "custom_css": [],
       "name": "Promo Collection Tabs",
       "settings": {
-        "title": "Supplements Mum Will Love",
+        "title": "A little something for the one who does everything.",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
