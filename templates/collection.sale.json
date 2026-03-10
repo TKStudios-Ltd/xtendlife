@@ -84,7 +84,7 @@
             "collection": "mothersday",
             "limit": 15,
             "view_all": true,
-            "static_enable": true,
+            "static_enable": false,
             "static_position": "first",
             "static_full_row": false,
             "static_link": "",
