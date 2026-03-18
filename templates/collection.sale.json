@@ -31,10 +31,11 @@
             "video_mp4": "",
             "video_adapt_ratio": 100,
             "text_color": "",
-            "heading": "The Mother's Day Gift Guide",
+            "text_color_mobile": "",
+            "heading": "20% Off Sitewide",
             "heading_size": "h1",
             "heading_max_width": 500,
-            "text": "Explore our top picks for every type of mum.",
+            "text": "No code needed. Limited time only.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
             "subtitle_font_size_mobile": 18,
@@ -80,11 +81,11 @@
         "tab_HArBQh": {
           "type": "tab",
           "settings": {
-            "label": "Gifts for Mum",
-            "collection": "mothersday",
+            "label": "Supplements",
+            "collection": "supplements",
             "limit": 22,
             "view_all": true,
-            "static_enable": false,
+            "static_enable": true,
             "static_position": "first",
             "static_full_row": false,
             "static_link": "",
@@ -96,7 +97,6 @@
         },
         "tab_hNQHfA": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "label": "Bundles",
             "collection": "all-bundles",
@@ -114,7 +114,6 @@
         },
         "tab_R46dJx": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "label": "Skincare",
             "collection": "skincare",
@@ -139,7 +138,7 @@
       "custom_css": [],
       "name": "Promo Collection Tabs",
       "settings": {
-        "title": "A little something for the one who does everything.",
+        "title": "Flash Sale",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -241,7 +240,7 @@
         "caption_bz9N8Y": {
           "type": "caption",
           "settings": {
-            "caption": "If you're going to take one supplement, make it Total Balance Women's Premium. Way beyond a multivitamin; it's a complete nutrient system specifically tailored for women.",
+            "caption": "If you are going to take one supplement, make it Total Balance. Way beyond a multivitamin; it’s a complete nutrient system with specifically tailored versions for men and women.",
             "additional_caption": "Go Beyond Multivitamins",
             "text_style": "subtitle",
             "text_size": "small"
@@ -274,7 +273,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Untitled_design_1.png",
+        "image": "shopify://shop_images/felix-lam-J7fxkhtOqt0-unsplash_1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
