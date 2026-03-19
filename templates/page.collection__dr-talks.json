@@ -58,9 +58,9 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Heart_Health_Desktop_97a56e26-6844-4f0d-8d97-6842426be243.png",
-        "image_tablet": "shopify://shop_images/Heart_Healt_iPad_3_106dfee6-bbf5-4c0f-b574-400a478b1add.png",
-        "image_mobile": "shopify://shop_images/Heart_Health_Mobile_3_72d2883d-ad7e-4bf3-96b3-e1b8120300da.png",
+        "image": "shopify://shop_images/20OFF_LAND_Heart_Health_Desktop.png",
+        "image_tablet": "shopify://shop_images/20OFF_LAND_Heart_Health_TABLET.png",
+        "image_mobile": "shopify://shop_images/20OFF_LAND_Heart_Health_Heart_Health_Mob.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
@@ -152,7 +152,7 @@
       "settings": {
         "title": "Heart Health Summit Specials",
         "heading_size": "h2",
-        "description": "<p>20% off with code DRTALKS26</p>",
+        "description": "<p>20% off the Heart Health range*</p>",
         "show_description": true,
         "description_style": "body",
         "tab_featured_label": "",
