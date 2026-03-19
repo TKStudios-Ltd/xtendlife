@@ -62,6 +62,10 @@
             "row_content": "<ul><li>Receive 20% off the Heart Health supplement range when you shop through the Xtendlife website, when applying the discount code at checkout.     </li><li>Heart Health supplement range products included in the promotion are CX8, VasQFlow, Xtend-Quinol, GG Pure, Heart Health Bundle, Marine Magnesium with Potassium and Omega 3 / QH Premium CoQ10.   </li><li>The offer is valid from 7:00 AM AEDT February 23, 2026 to 7:00 AM AEST April 30, 2026. </li><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers, including Subscribe and Save discounts. </li><li>Subscribe and Save customers must place a separate order through the website/checkout to take advantage of the special. The special CANNOT be added to a Subscribe and Save order. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>"
           }
         },
+        "collapsible_row_C6PYqc": {
+          "disabled": true,
+          "settings": {}
+        },
         "collapsible_row_RcpmW": {
           "type": "collapsible_row",
           "disabled": false,
@@ -72,9 +76,10 @@
             "page": ""
           }
         },
-        "collapsible_row_C6PYqc": {
-          "disabled": true,
-          "settings": {}
+        "collapsible_row_JAwTRd": {
+          "settings": {
+            "row_content": "<ul><li>Receive 20% off sitewide when purchasing through the Xtendlife online store.  All promotional prices are reflected on site automatically, no code is needed.   </li><li>Excludes SuperDay for Kids, SuperDay for Adults, SuperDay for 60+, all bundles and the electric mixer whisk.   </li><li>The 20% discount offer is available from 8:00 AM AEDT March 20, 2026 to 8:00 AM AEDT March 23, 2026 or until supplies last, whichever occurs first.   </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   Subscribe & Save members must place a new order through checkout.  </li><li>The Omega 3 / DHA Plus and DrTalks promo code cannot be used during the sitewide promotion. </li><li>If you return your product purchased in the discount period, the dollar value of the discounted product will be refunded. </li></ul>"
+          }
         }
       },
       "block_order": [
@@ -94,7 +99,8 @@
         "collapsible_row_GU3GA8",
         "collapsible_row_bz6faj",
         "collapsible_row_C6PYqc",
-        "collapsible_row_RcpmW"
+        "collapsible_row_RcpmW",
+        "collapsible_row_JAwTRd"
       ]
     }
   }
