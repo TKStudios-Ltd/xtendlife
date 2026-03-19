@@ -177,7 +177,6 @@
         },
         "collapsible_row_JAwTRd": {
           "type": "collapsible_row",
-          "disabled": true,
           "settings": {
             "heading": "Sitewide Promotion",
             "icon": "none",
