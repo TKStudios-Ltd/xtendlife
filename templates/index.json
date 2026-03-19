@@ -15,7 +15,6 @@
         "slide_8JJg4J": {
           "type": "slide",
           "name": "Slide_20% Off March_2026",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/20Sale_Desk-F_1920x685_be9039e2-af44-4a30-8879-a88f39b38407.png",
             "image_tablet": "shopify://shop_images/20Sale_Tablet_D_1500x1377_020cc97f-bcfe-4709-a1ca-d98159a0d778.png",
@@ -47,6 +46,7 @@
         "slide_jj763f": {
           "type": "slide",
           "name": "Slide_O3 Prem_Promo",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Om-3-Prem-Banner-8.png",
             "image_tablet": "shopify://shop_images/Omega3-Tablet_1500x1377_4e1b3f9a-1ebb-4ae0-967c-5457aa86dc61.png",
@@ -78,6 +78,7 @@
         "slide_AVhUBB": {
           "type": "slide",
           "name": "Slide_SD Launch",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/SuperDay_Banner_FApng.png",
             "image_tablet": "shopify://shop_images/SuperDay_Tablet_FA.png",
@@ -108,6 +109,7 @@
         },
         "slide_3FrQKe": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_3eac951b-26c7-48a0-82ed-00b6e5966ee6.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_c912325b-f879-4381-882e-0db239ac8eba.png",
