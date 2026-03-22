@@ -15,6 +15,7 @@
         "slide_Htr7XN": {
           "type": "slide",
           "name": "Slide-TB HP HERO Banner",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_TB_Banner2_1920x685_9eb4ad0e-942e-40ef-a64b-a47ec486d8d7.png",
             "image_tablet": "shopify://shop_images/HP_TB_Tablet2_1500x1377_1ecf9af6-21f7-441a-944e-bfe82bb3afeb.png",
