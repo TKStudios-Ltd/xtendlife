@@ -78,6 +78,7 @@
         "slide_jj763f": {
           "type": "slide",
           "name": "Slide_O3 Prem_Promo",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Om-3-Prem-Banner-8.png",
             "image_tablet": "shopify://shop_images/Omega3-Tablet_1500x1377_4e1b3f9a-1ebb-4ae0-967c-5457aa86dc61.png",
