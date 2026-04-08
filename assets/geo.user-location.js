@@ -13,7 +13,7 @@
     gb: "xtendlife.co/en-gb",
     nz: "xtendlife.co",
     au: "xtendlife.co/en-au",
-    ca: "xtendlife.com/en-ca",
+    ca: "global.xtendlife.com/en-ca",
     us: "xtendlife.com"
   };
 
