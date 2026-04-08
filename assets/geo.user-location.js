@@ -1,15 +1,23 @@
 (function(UserLocation, $) {
   "use strict";
 
+  // If set redirect won't take place but actions to be taken will be logged
   var testMode = false;
 
+  // Set default fallback domain host
+  var defaultSubDomain = "global";
+  var defaultDomain = "xtendlife.com";
+
+  // Set array of country codes and corresponding domain
   var sites = {
     gb: "xtendlife.co/en-gb",
     nz: "xtendlife.co",
     au: "xtendlife.co/en-au",
-    ca: "xtendlife.com/en-ca"
+    ca: "xtendlife.com/en-ca",
+    us: "xtendlife.com"
   };
 
+  // Set array of whitelisted IP's, this won't set cookie or redirect if IP is detected
   var ipWhitelist = [
     "118.127.110.106",
     "122.56.103.143",
@@ -35,9 +43,10 @@
     "114.31.215.129" //Auckland office
   ];
 
+  // Get the domain for the corresponding country
   var getDomain = function(country)
   {
-    var storeDomain = "xtendlife.com";
+    var storeDomain = defaultDomain;
     if (sites[country.toLowerCase()]) {
       if(sites[country.toLowerCase()].indexOf(".") > -1)
       {
@@ -52,8 +61,11 @@
     return storeDomain;
   };
 
+  // Set the user location country cookie
   var setCountryCookie = function(country) {
     var storeDomain = getDomain(country);
+    console.log("Set country cookie: ", country);
+    console.log("Set country cookie domain: ", storeDomain);
     $.cookie("user-location", country, {
       expires: 1,
       path: "/",
@@ -61,14 +73,7 @@
     });
   };
 
-  var setMeaLpCookie = function() {
-    $.cookie("user-location", "us", {
-      expires: 1,
-      path: "/",
-      domain: ".xtendlife.com"
-    });
-  };
-
+  // Set the IP address cookie
   var setIpCookie = function(ip, country) {
     var storeDomain = getDomain(country);
     $.cookie("ip-address", ip, {
@@ -78,6 +83,7 @@
     });
   };
 
+  // Set cookie to disable redirect
   var setOverrideCookie = function() {
     //var storeDomain = ".xtendlife.com";
     var storeDomain = window.location.host.replace('www','');
@@ -88,6 +94,7 @@
     });
   };
 
+  // Get query parameters from the orginial URL
   var getQueryParams = function(qs) {
     qs = qs || document.location.search;
 
@@ -108,6 +115,7 @@
     return params;
   };
 
+  // Remove the fisrt occurance of a string in a string
   function removeFirstOccurrence(str, searchstr) {
     const index = str.indexOf(searchstr);
 
@@ -120,38 +128,45 @@
     return str.slice(0, index) + str.slice(index + searchstr.length);
   }
 
+  // Redirect user to the correct domain based on country code
   var redirectLocation = function(country) {
     console.log("window.location.href: ", window.location.href);
-    //window.location.href.indexOf("admin.shopify.com/store") == -1
-    if (window.location.href.indexOf("xtendlife.myshopify.com") == -1){
-      // Global default subdomain.
+    console.log("Redirect country: ", country);
+    
+    // Check if the script is running in the Shopify admin
+    if (window.location.href.indexOf("xtendlife.myshopify.com") == -1){      
       var marketPaths = ['/en-ca', '/en-au', '/en-gb'];
       var protocol = "https://";
-      var subDomain = "";
-      var storeDomain = "xtendlife.com";
+      var subDomain = defaultSubDomain;
+      var storeDomain = defaultDomain;
       var marketPath = '';
       var hasMarketPath = false;
       var incorrectPath = false;
       var currentMarketPath = '';
       var currentHasMarketPath = false;
 
-      var countryUri = storeDomain;      
+      // Set the default fallback domain
+      var countryUri = defaultSubDomain + "." + defaultDomain;      
 
+      //Allow any country on the main blog
       if(window.location.href.indexOf('xtendlife.com/blogs/health-articles') != -1)
       {
         console.log("URL is main blog, no redirect, exit.")
         return;
       }
 
+      //Set the corresponding domain if a country is assigned one
       if (sites[country.toLowerCase()]) {        
         storeDomain = sites[country.toLowerCase()];
         countryUri = storeDomain;
       }
       console.log('Country URL match', countryUri);
       
+      // Set a new JS URL from the country specific URI
       var uri = new URL(protocol + countryUri);
       console.log('Country URL', uri);
       
+      // Find the corresponding market path for the country if one exists
       for (let i = 0; i < marketPaths.length; i++) {
         if(uri.href.indexOf(marketPaths[i]) != -1)
         {
@@ -165,15 +180,20 @@
       console.log('Country URL market path:', marketPath);
       console.log('Current URL market path:', currentMarketPath);
       
+      // Set a check if the market path is not empty
       hasMarketPath = marketPath !== '';
       console.log('Country URL Has market path:', hasMarketPath);
       
+      // Set the check if the current URL market path is not empty
       currentHasMarketPath = currentMarketPath !== '';
       console.log('Current URL Has market path:', currentHasMarketPath);
 
       console.log('Current URL pathname: ', window.location.pathname);
       console.log('Current URL host: ', window.location.host);
       
+      // Check if the current domain has the correct market path and exit if it does
+      // Check if the current matket path mathces the required market path and exit if it does
+      // If no market path check if the current domain matches the country domain and exit if it does
       if(hasMarketPath){
         if (window.location.pathname.indexOf(marketPath) != -1) {
           console.log("Href check passed, no redirect, exit function.")
@@ -193,21 +213,27 @@
         }      
       }
       
-      //Include an anchor if it exists for filtered pages
+      //Include an anchor in the new URL if it exists for filtered pages
       var hashParam = window.location.hash;
       console.log('Current hash parameter:', hashParam);
       
+      //Include the original path in the new URL if one exists
       var path = window.location.pathname;
       console.log('Current path:', path);
       
+      // Remove the market path from the URL path
       for (let i = 0; i < marketPaths.length; i++) {
         path = path.replaceAll(marketPaths[i], '');
       }
+
+      // Remove the first slash from the URL path if no market path exists
       if(!hasMarketPath){
         path = removeFirstOccurrence(path, '/');
       }
       console.log('Current path replaced:', path);
       
+      // Check the original URL for query strings and append to the new URL if they exist
+      // Otherwise construct the new URL and redirect
       if (window.location.search.length) {
         // query string exists          
         var location = uri + path + "?" + window.location.search.substring(1) + hashParam;
@@ -226,7 +252,7 @@
         console.log("GEO Redirect to: ", location);
       }
     }else{
-      console.log("Shopify admin detected, return");
+      console.log("Shopify admin detected, no redirect, else");
       return;
     }
   };
