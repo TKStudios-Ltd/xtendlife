@@ -162,12 +162,13 @@
           "settings": {
             "heading": "DrTalks",
             "icon": "none",
-            "row_content": "<ul><li>Receive 20% off the Heart Health supplement range when you shop through the Xtendlife website, when applying the discount code at checkout.     </li><li>Heart Health supplement range products included in the promotion are CX8, VasQFlow, Xtend-Quinol, GG Pure, Heart Health Bundle, Marine Magnesium with Potassium and Omega 3 / QH Premium CoQ10.   </li><li>The offer is valid from 9:00 AM NZDT February 23, 2026 to 9:00 AM NZST April 30, 2026. </li><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers, including Subscribe and Save discounts. </li><li>Subscribe and Save customers must place a separate order through the website/checkout to take advantage of the special. The special CANNOT be added to a Subscribe and Save order. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
+            "row_content": "<ul><li>Receive 20% off the Heart Health supplement range when you shop through the Xtendlife website, when applying the discount code DRTALKS26 at checkout.     </li><li>Heart Health supplement range products included in the promotion are CX8, VasQFlow, Xtend-Quinol, GG Pure, Heart Health Bundle, Marine Magnesium with Potassium and Omega 3 / QH Premium CoQ10.   </li><li>The offer is valid from 9:00 AM NZDT February 23, 2026 to 9:00 AM NZST May 31, 2026. </li><li>To qualify, the discount code DRTALKS26 must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code DRTALKS26 cannot be deducted retrospectively once the order has been completed and charged.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers, including Subscribe and Save discounts. </li><li>Subscribe and Save customers must place a separate order through the website/checkout to take advantage of the special. The special CANNOT be added to a Subscribe and Save order. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
             "page": ""
           }
         },
         "collapsible_row_C6PYqc": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Omega 3 / DHA Plus Promotion",
             "icon": "none",
@@ -177,6 +178,7 @@
         },
         "collapsible_row_JAwTRd": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Sitewide Promotion",
             "icon": "none",
@@ -186,6 +188,7 @@
         },
         "collapsible_row_BhRFqE": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Sitewide last chance",
             "icon": "none",
