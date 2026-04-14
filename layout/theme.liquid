@@ -420,7 +420,7 @@
     </script>
 
     {%- comment -%} Converge pixel (domain-mapped token) {%- endcomment -%}
-    {%- assign domain = request.host -%}
+    {% comment %} {%- assign domain = request.host -%}
     {% assign path = request.path %}
     {%- assign pixel_token = '' -%}
     {%- if path contains '/en-au' -%}
@@ -446,7 +446,7 @@
     <script>
       window.cvg||(cvg=function(){cvg.process?cvg.process.apply(cvg,arguments):cvg.queue.push(arguments)},cvg.queue=[]);
       cvg({method:"track",eventName:"$page_load"});
-    </script>
+    </script> {% endcomment %}
 
   </head>
 
