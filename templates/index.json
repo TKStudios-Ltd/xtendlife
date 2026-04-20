@@ -46,6 +46,7 @@
         "slide_8JJg4J": {
           "type": "slide",
           "name": "Slide_20% Off March_2026",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/XL_Free_Shipping_HP_LAND_Desk_1920x685_7e44aed9-dfbd-4aa3-bd2f-cbc7ab911615.jpg",
             "image_tablet": "shopify://shop_images/XL_Free_Shipping_HP_LAND_Tablet_1500x1377_00c86e55-7933-4cde-ab3e-dd630a2b7bff.jpg",
