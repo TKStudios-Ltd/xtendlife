@@ -43,10 +43,8 @@
             "button_style_secondary_2": false
           }
         },
-        "slide_8JJg4J": {
+        "slide_7pwDhY": {
           "type": "slide",
-          "name": "Slide_Free Shipping April_2026",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/XL_Free_Shipping_HP_LAND_Desk_1920x685_Compressed.jpg",
             "image_tablet": "shopify://shop_images/XL_Free_Shipping_HP_LAND_Tablet_1500x1377_Compressed.jpg",
@@ -62,13 +60,13 @@
             "text": "No code. No minimum spend.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 22,
-            "text_max_width": 260,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 350,
             "small_text": "Ends Tuesday.",
             "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 9,
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/all",
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop now",
+            "button_link_1": "",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -327,7 +325,7 @@
       },
       "block_order": [
         "slide_Htr7XN",
-        "slide_8JJg4J",
+        "slide_7pwDhY",
         "slide_jj763f",
         "slide_AVhUBB",
         "slide_3FrQKe",
