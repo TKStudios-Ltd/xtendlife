@@ -46,7 +46,6 @@
         "slide_8JJg4J": {
           "type": "slide",
           "name": "Slide_Free Shipping April_2026",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/XL_Free_Shipping_HP_LAND_Desk_1920x685_Compressed.jpg",
             "image_tablet": "shopify://shop_images/XL_Free_Shipping_HP_LAND_Tablet_1500x1377_Compressed.jpg",
@@ -56,7 +55,7 @@
             "video_adapt_ratio": 57,
             "text_color": "#1f1946",
             "text_color_mobile": "#1f1946",
-            "heading": "Free Shipping. Better Wellness Starts Here.",
+            "heading": "Free Shipping.<br>Better Wellness Starts Here.",
             "heading_size": "h1",
             "heading_max_width": 600,
             "text": "No code. No minimum spend.",
