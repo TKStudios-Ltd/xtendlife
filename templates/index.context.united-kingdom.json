@@ -16,6 +16,12 @@
     "media_hero_slider_VC34DA": {
       "settings": {},
       "blocks": {
+        "slide_7pwDhY": {
+          "disabled": true,
+          "settings": {
+            "heading": "Better Wellness Starts Here."
+          }
+        },
         "slide_Bwck6W": {
           "disabled": true,
           "name": "VIT D3 promo UK",
@@ -32,11 +38,6 @@
             "button_link_1": "shopify://products/vitamin-d3-k2",
             "button_style_secondary_1": false,
             "button_label_2": ""
-          }
-        },
-        "slide_7pwDhY": {
-          "settings": {
-            "heading": "Better Wellness Starts Here."
           }
         }
       }
