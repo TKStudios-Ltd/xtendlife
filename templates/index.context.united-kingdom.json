@@ -17,9 +17,10 @@
       "settings": {},
       "blocks": {
         "slide_7pwDhY": {
-          "disabled": true,
+          "disabled": false,
           "settings": {
-            "heading": "Better Wellness Starts Here."
+            "heading": "Better Wellness Starts Here.",
+            "small_text": "Ends Wednesday."
           }
         },
         "slide_Bwck6W": {
