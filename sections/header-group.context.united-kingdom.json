@@ -18,7 +18,7 @@
       "blocks": {
         "announcement-bar-0": {
           "settings": {
-            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">Free shipping</a> | <a href=\"/collections/all\" title=\"All Products\">Shop Now</a></p>"
+            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">Free shipping!</a> | <a href=\"/collections/all\" title=\"All Products\">Shop Now</a></p>"
           }
         }
       }
