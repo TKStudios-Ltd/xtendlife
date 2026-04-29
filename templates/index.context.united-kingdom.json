@@ -16,8 +16,12 @@
     "media_hero_slider_VC34DA": {
       "settings": {},
       "blocks": {
-        "slide_7pwDhY": {
+        "slide_Htr7XN": {
           "disabled": false,
+          "settings": {}
+        },
+        "slide_7pwDhY": {
+          "disabled": true,
           "settings": {
             "heading": "Free Shipping. <br>Better Wellness Starts Here.",
             "small_text": "Ends Wednesday."
@@ -40,10 +44,6 @@
             "button_style_secondary_1": false,
             "button_label_2": ""
           }
-        },
-        "slide_Htr7XN": {
-          "disabled": true,
-          "settings": {}
         }
       }
     },
