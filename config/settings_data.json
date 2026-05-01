@@ -206,6 +206,11 @@
         "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
         "disabled": false,
         "settings": {}
+      },
+      "12855036574018961682": {
+        "type": "shopify://apps/givy/blocks/index/7e8263d6-6c9a-4d94-9b94-612e9cb257e3",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
