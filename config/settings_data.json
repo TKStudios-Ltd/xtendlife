@@ -171,11 +171,6 @@
         "disabled": true,
         "settings": {}
       },
-      "9466161677832145516": {
-        "type": "shopify://apps/preorder-back-in-stock-duck/blocks/app-embed/0abe2c21-42b2-472f-8c7a-98f669971fd8",
-        "disabled": false,
-        "settings": {}
-      },
       "17151115064775110295": {
         "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
         "disabled": false,
@@ -210,6 +205,11 @@
       "12855036574018961682": {
         "type": "shopify://apps/givy/blocks/index/7e8263d6-6c9a-4d94-9b94-612e9cb257e3",
         "disabled": false,
+        "settings": {}
+      },
+      "9466161677832145516": {
+        "type": "shopify://apps/preorder-restock-duck/blocks/app-embed/0abe2c21-42b2-472f-8c7a-98f669971fd8",
+        "disabled": true,
         "settings": {}
       }
     },
