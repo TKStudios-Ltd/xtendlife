@@ -196,10 +196,10 @@ if (!customElements.get('product-info')) {
           this.querySelector(`#Quantity-Rules-${this.dataset.section}`)?.classList.remove('hidden');
           this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
 
-          // this.productForm?.toggleSubmitButton(
-          //   html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true,
-          //   window.variantStrings.soldOut
-          // );
+          this.productForm?.toggleSubmitButton(
+            html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true,
+            window.variantStrings.soldOut
+          );
 
           publish(PUB_SUB_EVENTS.variantChange, {
             data: {
