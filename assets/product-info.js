@@ -197,7 +197,7 @@ if (!customElements.get('product-info')) {
           this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
 
           this.productForm?.toggleSubmitButton(
-            html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true,
+            html.querySelector(`[id^="ProductSubmitButton-${this.sectionId}"]`)?.hasAttribute('disabled') ?? true,
             window.variantStrings.soldOut
           );
 
