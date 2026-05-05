@@ -114,6 +114,7 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
+                {{ block.type }}
                 {% render block %}
               {%- when 'text' -%}
                 {% comment %} JR-XL 5/5/26 - Hide from shipping message when not a physical product {% endcomment %}
