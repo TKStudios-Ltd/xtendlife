@@ -116,6 +116,7 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
+                {% comment %} JR 5/5/26 - Hide from shipping message when not a physical product {% endcomment %}
                 {%- assign hide_text_block = false -%}
                 {%- if block.settings.text contains "shipping" and product.first_available_variant.requires_shipping == false -%}     
                   {%- assign hide_text_block = true -%}
