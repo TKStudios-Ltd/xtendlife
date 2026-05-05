@@ -195,7 +195,8 @@ if (!customElements.get('product-info')) {
           this.updateQuantityRules(this.sectionId, html);
           this.querySelector(`#Quantity-Rules-${this.dataset.section}`)?.classList.remove('hidden');
           this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
-
+          // JR-XL 5/5/26 Fix issue with previous selector not returning the correct section id because of some appended id
+          // html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true
           this.productForm?.toggleSubmitButton(
             html.querySelector(`[id^="ProductSubmitButton-${this.sectionId}"]`)?.hasAttribute('disabled') ?? true,
             window.variantStrings.soldOut
