@@ -116,8 +116,12 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
+                {%- assign hide_text_block = false -%}
+                {%- if block.settings.text contains "shipping" and product.first_available_variant.requires_shipping == false -%}     
+                  {%- assign hide_text_block = true -%}
+                {%- endif -%}
                 <p
-                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  class="product__text inline-richtext{% if hide_text_block %} hidden{% endif %}{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
