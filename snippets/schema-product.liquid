@@ -1,0 +1,46 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ product.title | escape }}",
+  "description": "{{ product.description | strip_html | truncate: 500 | escape }}",
+  "image": [
+    {%- for image in product.images limit: 3 -%}
+      "{{ image | image_url: width: 1200 }}"{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ],
+  "sku": "{{ product.selected_or_first_available_variant.sku | escape }}",
+  "mpn": "{{ product.id }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "Xtendlife"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "Xtend-Life Natural Products",
+    "url": "https://xtendlife.co",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "NZ"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ shop.url }}{{ product.url }}",
+    "priceCurrency": "NZD",
+    "price": "{{ product.selected_or_first_available_variant.price | money_without_currency }}",
+    "availability": "{%- if product.available -%}https://schema.org/InStock{%- else -%}https://schema.org/OutOfStock{%- endif -%}",
+    "seller": {
+      "@type": "Organization",
+      "name": "Xtendlife"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.metafields.reviews.rating.value | default: 4.8 }}",
+    "reviewCount": "{{ product.metafields.reviews.rating_count.value | default: 100 }}",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}
+</script>
