@@ -891,6 +891,13 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+
+    {%- assign product_faq_schema = product.metafields.custom.faq_schema.value -%}
+    {%- if product_faq_schema != blank -%}
+      <script type="application/ld+json">
+        {{- product_faq_schema | json -}}
+      </script>
+    {%- endif -%}
   </div>
 </product-info>
 
