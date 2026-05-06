@@ -43,6 +43,37 @@
             "button_style_secondary_2": false
           }
         },
+        "slide_Bwck6W": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/XL_Mother_s_Day_HP_LAND_Desk_1920x685_a867686f-a83f-4fa3-97c9-d6f6aabb2c0e.jpg",
+            "image_tablet": "shopify://shop_images/XL_Mothers_Day_HP_LAND_Tablet_1500x1377_e29bd54f-a48b-4bbb-826d-5c7ccf2fc21d.jpg",
+            "image_mobile": "shopify://shop_images/XL_Mothers_Day_HP_LAND_Mob_1100x1291_685167e0-1087-4273-9750-39c1e2632d0c.jpg",
+            "mobile_inline_bg": "#ffffff",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "text_color_mobile": "#1f1946",
+            "heading": "She always knew what you needed.",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Now you can give her what she needs - without guessing.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 460,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://products/gift-card",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_7pwDhY": {
           "type": "slide",
           "disabled": true,
@@ -202,37 +233,6 @@
             "button_style_secondary_2": true
           }
         },
-        "slide_Bwck6W": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/NZ_VIT_D_Promo.png",
-            "image_tablet": "shopify://shop_images/NZ_Vit_D3_iPad_630x650_08130811-8cf7-45d1-810d-768ff9effbaf.png",
-            "image_mobile": "shopify://shop_images/NZ_Vit_D3_Mob_425x500_d5ab903f-f1af-4013-9676-52940d0d98ca.png",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 30,
-            "text_color": "#1f1946",
-            "text_color_mobile": "",
-            "heading": "Keep your sunshine shining with Vitamin D3",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Spend $50+ and get a free Vitamin D3+K2.* Add it to your cart and use code <strong>FREEVITD</strong>. *T&Cs apply.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 460,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 10,
-            "button_label_1": "Claim Offer",
-            "button_link_1": "shopify://products/vitamin-d3-k2-1000iu",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
         "slide_fcdUx9": {
           "type": "slide",
           "disabled": true,
@@ -326,12 +326,12 @@
       },
       "block_order": [
         "slide_Htr7XN",
+        "slide_Bwck6W",
         "slide_7pwDhY",
         "slide_jj763f",
         "slide_AVhUBB",
         "slide_3FrQKe",
         "slide_YN4nGz",
-        "slide_Bwck6W",
         "slide_fcdUx9",
         "slide_4TWen8",
         "slide_pVgrRR"
