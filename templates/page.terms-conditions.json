@@ -204,6 +204,15 @@
             "row_content": "<p> Receive FREE standard shipping on all orders for a limited time. No code is required. No Minimum spending  required.   </p><p>The FREE shipping offer is available from10:00 AM NZST April 23, 2026 to 10:00 AM NZST April 28, 2026  </p><p>FREE shipping applies to standard shipping only.  </p><p>All scheduled Subscribe & Save orders during the promotional period are automatically eligible for free shipping.  </p><p>The offer cannot be applied to previous purchases.  </p><p>The offer will be invalid if any of the terms and conditions are violated.   </p>",
             "page": ""
           }
+        },
+        "collapsible_row_w84xpn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Gift Card",
+            "icon": "none",
+            "row_content": "<ul><li>Gift cards may be purchased through the website in the same manner as any other product offered for sale. </li><li>Gift cards are currently available in the following denominations: $50, $100, and custom values up to $500. </li><li>Customers may select their preferred gift card denomination in the same way as selecting a product variant. For custom values, customers must enter the desired amount where applicable. </li><li>Customers may purchase multiple gift cards within a single transaction, including combinations of different denominations and custom values. </li><li>To redeem a gift card, customers must enter the gift card number in the discount box at checkout. The value of the gift card will be applied to the order total. </li><li>Gift cards are only valid for use in the store operating in the same currency in which the gift card was purchased. For example, a gift card purchased in one currency can only be redeemed in a store using that same currency. </li><li>Discounts codes can not be applied to gift card purchases. . </li><li>Gift cards cannot be replaced if lost or stolen, including instances where the incorrect email address has been supplied by the purchaser. Cards cannot be refunded, exchanged for cash and no change is given. Any remaining balance can be used for future purchases. </li><li>Gift Cards are only valid for use at xtendlife,com or xtendlife.co </li><li>Gift cards are valid for 12 months from the date of purchase.  </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -225,7 +234,8 @@
         "collapsible_row_C6PYqc",
         "collapsible_row_JAwTRd",
         "collapsible_row_BhRFqE",
-        "collapsible_row_LwQ7kc"
+        "collapsible_row_LwQ7kc",
+        "collapsible_row_w84xpn"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
