@@ -14,6 +14,7 @@
       "blocks": {
         "slide_Bwck6W": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/XL_Mother_s_Day_HP_LAND_Desk_1920x685_a867686f-a83f-4fa3-97c9-d6f6aabb2c0e.jpg",
             "image_tablet": "shopify://shop_images/XL_Mothers_Day_HP_LAND_Tablet_1500x1377_e29bd54f-a48b-4bbb-826d-5c7ccf2fc21d.jpg",
