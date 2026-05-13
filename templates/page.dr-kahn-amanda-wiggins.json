@@ -20,36 +20,36 @@
     "image_banner_pFjbBG": {
       "type": "image-banner",
       "blocks": {
-        "buttons_JR9Vpa": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "RECOMMENDED BY DR. JOEL KHAN",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Nutrition For Your Heart",
+            "heading": "What Works For Heart Health",
             "heading_size": "h1"
           }
         },
         "text_FxFrdN": {
           "type": "text",
           "settings": {
-            "text": "Trusted by experts, our heart health formulas combine clinically studied ingredients to support circulation, cholesterol balance, and overall cardiovascular wellness - helping you stay strong at heart.",
+            "text": "Practical, science-backed advice you can stick to.",
             "text_style": "subtitle"
+          }
+        },
+        "buttons_JR9Vpa": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Register Now",
+            "button_link_1": "https://us06web.zoom.us/webinar/register/WN_dUG6nI24S1WLtuiYHK0pQw#/registration",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "buttons_JR9Vpa",
         "heading_4P8W9w",
-        "text_FxFrdN"
+        "text_FxFrdN",
+        "buttons_JR9Vpa"
       ],
       "custom_css": [
         ".subtitle {max-width: 460px; margin-top: 2rem;}",
@@ -58,9 +58,9 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Heart_Health_Desktop_97a56e26-6844-4f0d-8d97-6842426be243.png",
-        "image_tablet": "shopify://shop_images/Heart_Healt_iPad_3_106dfee6-bbf5-4c0f-b574-400a478b1add.png",
-        "image_mobile": "shopify://shop_images/Heart_Health_Mobile_3_72d2883d-ad7e-4bf3-96b3-e1b8120300da.png",
+        "image": "shopify://shop_images/XL_Webinar_Landing_Page_Desktop_2000x750_1_1.jpg",
+        "image_tablet": "shopify://shop_images/XL_Webinar_Landing_Page_Tablet_950x750_2d542b0a-2428-4d29-8c88-842cd25503ff.jpg",
+        "image_mobile": "shopify://shop_images/XL_Webinar_Landing_Page_Mobile_488x323_4aa331d6-f9d1-4bf6-b288-66f81ddc7703.jpg",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
@@ -81,9 +81,9 @@
         "column_dPkBXE": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Icon.svg",
+            "icon": "shopify://shop_images/Calendar.svg",
             "title": "",
-            "text": "<p>Trusted Brand for over 26 years</p>",
+            "text": "<p>Thurs 28 May, 7PM EST</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -92,9 +92,9 @@
         "column_84WnVg": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Icon_1.svg",
+            "icon": "shopify://shop_images/Clock.svg",
             "title": "",
-            "text": "<p>Proudly New Zealand Owned</p>",
+            "text": "<p>Approx. 60 Minutes</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -103,9 +103,9 @@
         "column_bqhLTR": {
           "type": "column",
           "settings": {
-            "icon": "shopify://shop_images/Icon_2.svg",
+            "icon": "shopify://shop_images/Desktop.svg",
             "title": "",
-            "text": "<p>365 Days Guaranteed</p>",
+            "text": "<p>Online - Free to attend</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -145,6 +145,7 @@
     },
     "featured_collection_tab_grid_Ddm4Df": {
       "type": "featured-collection-tab-grid",
+      "disabled": true,
       "custom_css": [
         ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
       ],
@@ -179,6 +180,242 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 80
+      }
+    },
+    "rich_text_YrzYVR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Abhdga": {
+          "type": "heading",
+          "settings": {
+            "heading": "Expert Insights You Can Trust.",
+            "heading_size": "h1"
+          }
+        },
+        "text_R4Aan3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There's more advice about fitness, diet, and supplements out there than ever before, and most of it is contradictory. </p><p>This session is about cutting through all of that.Dr. Joel Kahn, \"America's Healthy Heart Doctor\" and Xtendlife Lead Scientist Dr. Amanda Wiggins bring together decades of clinical and scientific expertise for a frank, evidence-based conversation about what it really takes to support a healthy heart.</p><p>Expect honest answers, practical tips, and clear takeaways.</p>"
+          }
+        },
+        "button_kVjNnR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Register Now",
+            "button_link": "https://us06web.zoom.us/webinar/register/WN_dUG6nI24S1WLtuiYHK0pQw#/registration",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Abhdga",
+        "text_R4Aan3",
+        "button_kVjNnR"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_wTnmxQ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_QHfj6k": {
+          "type": "heading",
+          "settings": {
+            "heading": "What We'll Cover",
+            "heading_size": "h1"
+          }
+        },
+        "text_D9gkwG": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>Movement & Exercise: What Actually Moves the Needle</strong></h3><p>Cardio vs strength training. What the evidence says, why both matter, and how to make the most of just 30 minutes a day.</p><h3><br/><strong>Recovery & Resilience: Hot vs Cold Therapy</strong></h3><p>Cold plunges vs saunas - which is better for your heart? Who benefits most, and are there people who should avoid them?</p><h3><br/><strong>Food & Nutrition: What to Reduce and What to Avoid</strong></h3><p>What to eat more of, what to cut back on, and the one practical dietary change that could make the biggest difference to your heart.</p><h3><br/><strong>Supplements & Nutrients: Not All Are Created Equal</strong></h3><p>What the COSMOS trial revealed about multivitamins and cellular ageing as well as how comprehensive nutrient support goes beyond a daily pill.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_wKCUeP": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QHfj6k",
+        "text_D9gkwG",
+        "button_wKCUeP"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/iStock-1178343665_2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_zFt3Kj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_4U6j8q": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/XL_Webinar_Dr_Kahn_1000x1000_3ac1f087-7888-461c-a784-1795ae479808.png",
+            "title": "Dr. Joel Kahn",
+            "text": "<p><em>Integrative Cardiologist & Clinical Professor, America's Healthy Heart Doctor</em><br/><br/>Dr. Joel Kahn is one of the world's leading integrative cardiologists. A Clinical Professor of Medicine at Wayne State University School of Medicine, he has spent more than 40 years in practice combining conventional cardiology with evidence-based lifestyle medicine.<br/><br/>A bestselling author, sought-after speaker, and passionate advocate for preventive heart health, Dr. Kahn brings the rare combination of clinical rigor and real-world practicality to every conversation.</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_jPHDWn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/XL_Webinar_Dr_Wiggins_1000x1000_45e4c15c-aa3c-40d6-97f5-fea10784b3fa.png",
+            "title": "Dr. Amanda Wiggins",
+            "text": "<p><em>Lead Scientist, Xtendlife</em><br/><br/>Dr. Amanda Wiggins is the Lead Scientist at Xtendlife, where she applies her deep expertise in nutrition science and human physiology to the development and research behind Xtendlife's product range.<br/><br/>With a career spanning academic research and applied health science, Amanda bridges the gap between the latest nutritional science and the supplements people actually use, cutting through hype to focus on what the evidence really supports.</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_4U6j8q",
+        "column_jPHDWn"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Meet Your Experts",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "mixed_media_slider_z44q96": {
+      "type": "mixed-media-slider",
+      "blocks": {
+        "video_slide_cGj3r3": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "title": "Manage Arterial Calcification with CX8",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "Learn more about calcification and the ingredients in CX8, Dr. Joel Kahn and Ivor Cummins discuss the importance of key ingredients and the role they play in supporting a healthy cardiovascular system."
+          }
+        },
+        "video_slide_AG7drJ": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903919531",
+            "title": "Manage Healthy Blood Pressure with VasQFlow",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
+          }
+        },
+        "video_slide_7KeUat": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903900984",
+            "title": "Manage Statin Side Effects with GG Pure and Xtend-Quinol",
+            "name": "With Dr. Kahn and Dr. Barrie Tan",
+            "description": "Geranylgeraniol (GG) helps manage side effects from statin cholesterol-lowering medications. Learn what Dr. Joel Kahn and Dr. Barrie Tan have to say about the breakthrough of GG and why it combines well with CoQ10 for healthy aging."
+          }
+        },
+        "ebook_slide_H7afHL": {
+          "type": "ebook_slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/The-Age-of-your-heart-2026_eBook-Thumb_410x574_8b6b6d57-996d-4173-a48c-41d984d136e7.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/The_Age_of_Your_Heart_2026_FA.pdf?v=1771555273",
+            "title": "The Age of Your Heart",
+            "subtitle": "With Dr. Kahn",
+            "description": "Understanding the age of your heart and the impacts it has on your health is so important. Let’s uncover the facts about cholesterol levels, calcification, and supplementation and learn how to reduce your heart’s age by implementing simple but powerful lifestyle changes."
+          }
+        },
+        "ebook_slide_ggweKc": {
+          "type": "ebook_slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Staying-Young-at-Heart_2026_eBook-Thumb_410x574_7f4ac51b-45a3-44f9-a653-68da19bc560d.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/Staying_Young_at_Heart_eBook_2026_FA.pdf?v=1771555274",
+            "title": "Staying Young at Heart",
+            "subtitle": "With Dr. Kahn",
+            "description": "Understand how to address many cardiac issues simultaneously with a mitochondria centered approach, and boost mitochondrial resilience through healthy habits, diet, and quality supplementation."
+          }
+        },
+        "ebook_slide_hxnBkc": {
+          "type": "ebook_slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/The-Discovery-of-GG_2026_Thumb_410x574_6e23032b-874b-425e-8ea1-18157067e675.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/The_Groundbreaking_Discovery_of_GG_2026_FA.pdf?v=1771555273",
+            "title": "The Groundbreaking Discovery of GG for Heart Health",
+            "subtitle": "With Dr. Kahn and Dr. Barrie Tan",
+            "description": "Statin medications lower LDL-cholesterol to reduce heart disease risk, however, they impact the production of essential compounds in the body. Discover how GG, a vitamin from the Amazon, helps restore balance by replenishing the beneficial compounds reduced by statins."
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_cGj3r3",
+        "video_slide_AG7drJ",
+        "video_slide_7KeUat",
+        "ebook_slide_H7afHL",
+        "ebook_slide_ggweKc",
+        "ebook_slide_hxnBkc"
+      ],
+      "name": "Mixed media slider",
+      "settings": {
+        "heading": "Explore Free Heart Health Videos",
+        "bg_color": "#ffffff",
+        "tab_video_label": "Videos",
+        "tab_ebook_label": "E-books",
+        "default_tab": "ebooks",
+        "video_pill": "Experts Talk",
+        "ebook_pill": "E-book",
+        "gap": 32,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "reviews_slider_EnTCee": {
@@ -267,6 +504,7 @@
         "review_KUTGUj",
         "review_NmNeiT"
       ],
+      "disabled": true,
       "custom_css": [
         "h2 {color: #1f1946;}",
         ".ts-btn svg path {fill: #1f1946;}"
@@ -341,6 +579,7 @@
         "collapsible_row_mNwhUk",
         "collapsible_row_hD4rk6"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
         ".image-with-text__heading {margin-bottom: 6rem;}",
@@ -429,6 +668,7 @@
       "block_order": [
         "heading_RGRz3y"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -487,6 +727,7 @@
         "image_Qw9PXi",
         "image_nxEX3U"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
         "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
@@ -576,6 +817,7 @@
         "collapsible_row_HfKygV",
         "button_CdnLhT"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
@@ -675,6 +917,7 @@
         "collapsible_row_LKKWzb",
         "button_7xtrmP"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
@@ -767,6 +1010,7 @@
         "column_7chcQR",
         "column_tQCBEQ"
       ],
+      "disabled": true,
       "name": "Comparison Chart",
       "settings": {
         "heading": "Which Heart Suppplement is Right for Me?",
@@ -790,101 +1034,13 @@
     },
     "custom_liquid_YmzgDN": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "<style>\n.resource-anchor-offset {\n    display: block !important;\n    position: relative;\n    visibility: hidden;\n    top: -60px;\n}\n</style>\n<a class=\"resource-anchor-offset\" id=\"resources\" name=\"resources\"></a>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "mixed_media_slider_z44q96": {
-      "type": "mixed-media-slider",
-      "blocks": {
-        "video_slide_cGj3r3": {
-          "type": "video_slide",
-          "settings": {
-            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
-            "video_url": "https://player.vimeo.com/video/903918402",
-            "title": "Manage Arterial Calcification with CX8",
-            "name": "With Dr. Kahn and Ivor Cummins",
-            "description": "Learn more about calcification and the ingredients in CX8, Dr. Joel Kahn and Ivor Cummins discuss the importance of key ingredients and the role they play in supporting a healthy cardiovascular system."
-          }
-        },
-        "video_slide_AG7drJ": {
-          "type": "video_slide",
-          "settings": {
-            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
-            "video_url": "https://player.vimeo.com/video/903919531",
-            "title": "Manage Healthy Blood Pressure with VasQFlow",
-            "name": "With Dr. Kahn and Ivor Cummins",
-            "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
-          }
-        },
-        "video_slide_7KeUat": {
-          "type": "video_slide",
-          "settings": {
-            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
-            "video_url": "https://player.vimeo.com/video/903900984",
-            "title": "Manage Statin Side Effects with GG Pure and Xtend-Quinol",
-            "name": "With Dr. Kahn and Dr. Barrie Tan",
-            "description": "Geranylgeraniol (GG) helps manage side effects from statin cholesterol-lowering medications. Learn what Dr. Joel Kahn and Dr. Barrie Tan have to say about the breakthrough of GG and why it combines well with CoQ10 for healthy aging."
-          }
-        },
-        "ebook_slide_H7afHL": {
-          "type": "ebook_slide",
-          "settings": {
-            "image": "shopify://shop_images/The-Age-of-your-heart-2026_eBook-Thumb_410x574_8b6b6d57-996d-4173-a48c-41d984d136e7.png",
-            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/The_Age_of_Your_Heart_2026_FA.pdf?v=1771555273",
-            "title": "The Age of Your Heart",
-            "subtitle": "With Dr. Kahn",
-            "description": "Understanding the age of your heart and the impacts it has on your health is so important. Let’s uncover the facts about cholesterol levels, calcification, and supplementation and learn how to reduce your heart’s age by implementing simple but powerful lifestyle changes."
-          }
-        },
-        "ebook_slide_ggweKc": {
-          "type": "ebook_slide",
-          "settings": {
-            "image": "shopify://shop_images/Staying-Young-at-Heart_2026_eBook-Thumb_410x574_7f4ac51b-45a3-44f9-a653-68da19bc560d.png",
-            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/Staying_Young_at_Heart_eBook_2026_FA.pdf?v=1771555274",
-            "title": "Staying Young at Heart",
-            "subtitle": "With Dr. Kahn",
-            "description": "Understand how to address many cardiac issues simultaneously with a mitochondria centered approach, and boost mitochondrial resilience through healthy habits, diet, and quality supplementation."
-          }
-        },
-        "ebook_slide_hxnBkc": {
-          "type": "ebook_slide",
-          "settings": {
-            "image": "shopify://shop_images/The-Discovery-of-GG_2026_Thumb_410x574_6e23032b-874b-425e-8ea1-18157067e675.png",
-            "pdf_url": "https://cdn.shopify.com/s/files/1/2714/9868/files/The_Groundbreaking_Discovery_of_GG_2026_FA.pdf?v=1771555273",
-            "title": "The Groundbreaking Discovery of GG for Heart Health",
-            "subtitle": "With Dr. Kahn and Dr. Barrie Tan",
-            "description": "Statin medications lower LDL-cholesterol to reduce heart disease risk, however, they impact the production of essential compounds in the body. Discover how GG, a vitamin from the Amazon, helps restore balance by replenishing the beneficial compounds reduced by statins."
-          }
-        }
-      },
-      "block_order": [
-        "video_slide_cGj3r3",
-        "video_slide_AG7drJ",
-        "video_slide_7KeUat",
-        "ebook_slide_H7afHL",
-        "ebook_slide_ggweKc",
-        "ebook_slide_hxnBkc"
-      ],
-      "name": "Mixed media slider",
-      "settings": {
-        "heading": "Explore Free Heart Health Guides & Videos",
-        "bg_color": "#ffffff",
-        "tab_video_label": "Videos",
-        "tab_ebook_label": "E-books",
-        "default_tab": "ebooks",
-        "video_pill": "Experts Talk",
-        "ebook_pill": "E-book",
-        "gap": 32,
-        "speed": 500,
-        "autoplay": false,
-        "autoplay_delay": 4000,
-        "padding_top": 56,
-        "padding_bottom": 56
       }
     },
     "video_slider_QxaRdC": {
@@ -1031,6 +1187,10 @@
     "image_banner_pFjbBG",
     "multicolumn_A6pqFF",
     "featured_collection_tab_grid_Ddm4Df",
+    "rich_text_YrzYVR",
+    "image_with_text_wTnmxQ",
+    "multicolumn_zFt3Kj",
+    "mixed_media_slider_z44q96",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
     "image_with_text_EapeUP",
@@ -1040,7 +1200,6 @@
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
     "custom_liquid_YmzgDN",
-    "mixed_media_slider_z44q96",
     "video_slider_QxaRdC",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
