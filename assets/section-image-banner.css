@@ -449,10 +449,6 @@
   word-break: break-word;
 }
 
-.banner__buttons .button {
-  font-size: 2rem !important;
-}
-
 .banner__buttons--multiple .button--secondary {
   color: #1F1946;
   background-color: rgb(var(--color-button-text));
