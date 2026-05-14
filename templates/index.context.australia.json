@@ -14,7 +14,14 @@
   },
   "sections": {
     "media_hero_slider_VC34DA": {
-      "blocks": {}
+      "settings": {},
+      "blocks": {
+        "slide_Bwck6W": {
+          "settings": {
+            "small_text": "Friday 29th May, 9am AEST"
+          }
+        }
+      }
     }
   }
 }

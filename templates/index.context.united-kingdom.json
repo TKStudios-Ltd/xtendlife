@@ -13,6 +13,17 @@
     "market": "united-kingdom"
   },
   "sections": {
+    "media_hero_slider_VC34DA": {
+      "settings": {},
+      "blocks": {
+        "slide_Bwck6W": {
+          "disabled": false,
+          "settings": {
+            "small_text": "Friday 29th May, 12am BST"
+          }
+        }
+      }
+    },
     "featured_product_slider_9pxfm9": {
       "settings": {},
       "blocks": {
@@ -20,15 +31,6 @@
           "settings": {
             "text": "Free shipping on orders over £75. Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>"
           }
-        }
-      }
-    },
-    "media_hero_slider_VC34DA": {
-      "settings": {},
-      "blocks": {
-        "slide_Bwck6W": {
-          "disabled": true,
-          "settings": {}
         }
       }
     }
