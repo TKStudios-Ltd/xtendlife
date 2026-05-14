@@ -84,7 +84,7 @@
           "settings": {
             "icon": "shopify://shop_images/Calendar.svg",
             "title": "",
-            "text": "<p>Thurs 28 May, 7PM EST</p>",
+            "text": "<p>Thurs 28 May, 7PM EDT</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
