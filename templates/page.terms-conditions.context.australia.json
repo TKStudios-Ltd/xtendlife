@@ -16,6 +16,11 @@
     "collapsible_content_KcND43": {
       "settings": {},
       "blocks": {
+        "collapsible_row_LwQ7kc": {
+          "settings": {
+            "row_content": "<p>Receive FREE courier or standard shipping on all orders for a limited time. No code is required. No Minimum spending required.   </p><p>The FREE shipping offer is available from 8:00 AM AEST April 23, 2026 to 8:00 AM AEST April 28, 2026  </p><p>FREE shipping applies to DHL Express Courier and eParcel Post shipping.  </p><p>DHL Express Courier Shipping cannot be shipped to P.O. Box numbers and certain rural post codes.  </p><p>All scheduled Subscribe & Save orders during the promotional period are automatically eligible for free shipping.  </p><p>The offer cannot be applied to previous purchases.  </p><p>The offer will be invalid if any of the terms and conditions are violated.   </p>"
+          }
+        },
         "collapsible_row_W4kDhL": {
           "settings": {
             "row_content": "<ul><li>This offer is valid from 8:01 AM AEDT November 3, 2025 to 6:59 AM AEDT November 24, 2025, or while stocks last. </li><li>Receive a free Vitamin D3 + K2 (1000 IU) when you spend $50 NZD or more on xtendlife.co with the discount code FREEVITD applied at checkout. </li><li>To qualify, the discount code FREEVITD must be entered on the xtendlife.co website in the discount code field at checkout.  </li><li>The Vitamin D3 + K2 (1000 IU) product must be added to your cart to receive the free gift. </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code FREEVITD cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers. Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>"
@@ -87,9 +92,14 @@
             "row_content": "<ul><li>The 15% discount offer is available from 8:00 AM AEDT March 25, 2026 to 2:00 PM AEDT March 27, 2026, or until supplies last, whichever occurs first.  </li><li>Receive 15% off sitewide when you use the specified discount code in the Xtendlife online store. </li><li>Excludes SuperDay for Kids, SuperDay for Adults, SuperDay for 60+, all bundles and the electric mixer whisk.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   Subscribe & Save members must place a new order through checkout. </li><li>The Omega 3 / DHA Plus and DrTalks promo code cannot be used in conjunction with this offer. </li><li>If you return your product purchased in the discount period, the dollar value of the discounted product will be refunded. </li><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers. Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>"
           }
         },
-        "collapsible_row_LwQ7kc": {
+        "collapsible_row_PJACAc": {
+          "type": "collapsible_row",
+          "disabled": false,
           "settings": {
-            "row_content": "<p>Receive FREE courier or standard shipping on all orders for a limited time. No code is required. No Minimum spending required.   </p><p>The FREE shipping offer is available from 8:00 AM AEST April 23, 2026 to 8:00 AM AEST April 28, 2026  </p><p>FREE shipping applies to DHL Express Courier and eParcel Post shipping.  </p><p>DHL Express Courier Shipping cannot be shipped to P.O. Box numbers and certain rural post codes.  </p><p>All scheduled Subscribe & Save orders during the promotional period are automatically eligible for free shipping.  </p><p>The offer cannot be applied to previous purchases.  </p><p>The offer will be invalid if any of the terms and conditions are violated.   </p>"
+            "heading": "Thank You Offer",
+            "icon": "none",
+            "row_content": "<ul><li><strong>Discount code valid until:</strong> May 31, 2026, at 9:59 PM AEST. </li><li>Use the specified discount code at checkout to redeem the offer. </li><li>The discount code cannot be applied retrospectively to completed or charged orders. </li><li>The discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>Subscribe & Save customers must place a separate, one-off order to use the discount code. </li><li>The discount code cannot be applied to previous purchases or combined with other product discounts. </li><li>The discount code is not transferable and may not be resold or redeemed for cash. </li><li>The discount code is one-time use only, per customer.  </li><li>Xtendlife reserves the right to invalidate the discount code if these terms and conditions are not met. </li></ul>",
+            "page": ""
           }
         }
       },
@@ -110,6 +120,7 @@
         "collapsible_row_pCXYRM",
         "collapsible_row_GU3GA8",
         "collapsible_row_bz6faj",
+        "collapsible_row_PJACAc",
         "collapsible_row_C6PYqc",
         "collapsible_row_RcpmW",
         "collapsible_row_JAwTRd",

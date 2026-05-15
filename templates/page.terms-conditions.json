@@ -213,6 +213,15 @@
             "row_content": "<ul><li>Gift cards may be purchased through the website in the same manner as any other product offered for sale. </li><li>Gift cards are currently available in the following denominations: $50, $100, and custom values up to $500. </li><li>Customers may select their preferred gift card denomination in the same way as selecting a product variant. For custom values, customers must enter the desired amount where applicable. </li><li>Customers may purchase multiple gift cards within a single transaction, including combinations of different denominations and custom values. </li><li>To redeem a gift card, customers must enter the gift card number in the discount box at checkout. The value of the gift card will be applied to the order total. </li><li>Gift cards are only valid for use in the store operating in the same currency in which the gift card was purchased. For example, a gift card purchased in one currency can only be redeemed in a store using that same currency. </li><li>Discounts codes can not be applied to gift card purchases. . </li><li>Gift cards cannot be replaced if lost or stolen, including instances where the incorrect email address has been supplied by the purchaser. Cards cannot be refunded, exchanged for cash and no change is given. Any remaining balance can be used for future purchases. </li><li>Gift Cards are only valid for use at xtendlife,com or xtendlife.co </li><li>Gift cards are valid for 12 months from the date of purchase.  </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_cdxCUq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Thank You Offer",
+            "icon": "none",
+            "row_content": "<ul><li><strong>Discount code valid until:</strong> May 31, 2026, at 11:59 PM NZST. </li><li>Use the specified discount code at checkout to redeem the offer. </li><li>The discount code cannot be applied retrospectively to completed or charged orders. </li><li>The discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>Subscribe & Save customers must place a separate, one-off order to use the discount code. </li><li>The discount code cannot be applied to previous purchases or combined with other product discounts. </li><li>The discount code is not transferable and may not be resold or redeemed for cash. </li><li>The discount code is one-time use only, per customer.  </li><li>Xtendlife reserves the right to invalidate the discount code if these terms and conditions are not met. </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -235,7 +244,8 @@
         "collapsible_row_JAwTRd",
         "collapsible_row_BhRFqE",
         "collapsible_row_LwQ7kc",
-        "collapsible_row_w84xpn"
+        "collapsible_row_w84xpn",
+        "collapsible_row_cdxCUq"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
