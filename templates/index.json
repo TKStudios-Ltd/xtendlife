@@ -15,7 +15,7 @@
         "slide_Bwck6W": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/XL_Webinar_HP_LAND_Desk_1920x685_1.jpg",
+            "image": "shopify://shop_images/XL_Webinar_HP_LAND_Desk_1920x685_2.jpg",
             "image_tablet": "shopify://shop_images/XL_Webinar_HP_LAND_Tablet_1500x1377__2.jpg",
             "mobile_inline_image": "shopify://shop_images/XL_Webinar_HP_LAND_Mob-INLINE_448x323_1.jpg",
             "mobile_inline_bg": "#ffffff",
@@ -23,7 +23,7 @@
             "video_adapt_ratio": 30,
             "text_color": "#ffffff",
             "text_color_mobile": "#1f1946",
-            "heading": "Heart HealthWebinar",
+            "heading": "Heart Health<br>Webinar",
             "heading_size": "h1",
             "heading_max_width": 500,
             "text": "Join Dr Joel Kahn and Dr Amanda Wiggins for practical advice you can stick to.",
