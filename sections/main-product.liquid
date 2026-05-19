@@ -957,9 +957,18 @@
       "limit": 1,
       "settings": [        
         {
+          "type": "header",
+          "content": "Display options"
+        },
+        {
+          "type": "paragraph",
+          "content": "Note: Products with a Selling Plan don't show the standard price block by default. To enable the price block to show for individual products, add the tag: show-price-block"
+        },
+        {
           "type": "checkbox",
           "id": "show_for_selling_plan",
           "label": "Show for selling plan",
+          "info" : "Enabling this will show the standard price block on all products with a current selling plan.",
           "default": false
         }
       ]
