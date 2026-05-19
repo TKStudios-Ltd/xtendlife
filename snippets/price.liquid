@@ -51,6 +51,10 @@
     assign hide_price = true
   endif
 
+  if product.tags contains 'show-price-block'
+    assign hide_price = false
+  endif
+
 -%}
 
 {%- liquid
