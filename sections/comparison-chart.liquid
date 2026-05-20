@@ -129,7 +129,13 @@
     min-width: 120px;
 }
 #cc-{{ section.id }} .cc-media img{ width: 100%; height: 100%; object-fit: contain; }
-#cc-{{ section.id }} .cc-title{ margin: 0; font-weight: 500; font-size: 16px; line-height: 1.2; }
+#cc-{{ section.id }} .cc-title, #cc-{{ section.id }} .cc-title a,
+#cc-{{ section.id }} .cc-title a:link, #cc-{{ section.id }} .cc-title a:visited,
+#cc-{{ section.id }} .cc-title a:hover, #cc-{{ section.id }} .cc-title a:focus,
+#cc-{{ section.id }} .cc-title a:active {
+  margin: 0; font-weight: 500; font-size: 16px; line-height: 1.2; color: rgba(var(--color-foreground), 1); text-decoration: none; outline: 0px;
+}
+#cc-{{ section.id }} .cc-title a:hover{text-decoration: underline;}
 #cc-{{ section.id }} .cc-cell{
     display: flex;
     align-items: center;
@@ -256,12 +262,14 @@
                         {%- if p -%}{%- assign fm = p.selected_or_first_available_variant.featured_media | default: p.featured_media -%}{%- endif -%}
                         <div class="cc-media">
                             {%- if fm -%}
+                            <a href="{{ p.url }}" title="{{ p.title }}">
                             {{ fm | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,400,500,600', alt: p.title | default: 'Product image' }}
+                            </a>
                             {%- else -%}
                             {{ 'product-apparel-1' | placeholder_svg_tag }}
                             {%- endif -%}
                         </div>
-                        <p class="cc-title">{{ p.title | default: 'Product name' }}</p>
+                        <p class="cc-title"><a href="{{ p.url }}" title="{{ p.title }}">{{ p.title | default: 'Product name' }}</a></p>
                     </div>
 
                     <!-- Rows 1–5 (ticks) -->
