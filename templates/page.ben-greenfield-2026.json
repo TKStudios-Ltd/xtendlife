@@ -60,8 +60,8 @@
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/Ben_Greenfield_long-2-6_v2.png",
-        "image_tablet": "shopify://shop_images/Ben_Greenfield_long-2-6.webp",
-        "image_mobile": "shopify://shop_images/Ben_Greenfield_long-2-6.webp",
+        "image_tablet": "shopify://shop_images/Ben_Greenfield_long-2-6.png",
+        "image_mobile": "shopify://shop_images/Ben_Greenfield_long-2-6.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
@@ -409,7 +409,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Tocotrienols-Vitamin-E_125_1603_6b4804f7-8ccb-4347-91e3-706ab6c23d3d.png",
+        "image": "shopify://shop_images/Tocotrienols-Vitamin-E_125_1603_dfea66b5-4e92-4be0-ba1c-968d3a54367e.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -442,11 +442,20 @@
             "text": "<p>Most people associate vitamin E with tocopherols, the more common form found in foods and multivitamins, but have you heard of tocotrienols? A more potent and bioavailable form of vitamin E with distinct health benefits, especially for cardiovascular, brain, and metabolic health.<br/><br/>Tocotrienols are significantly more potent antioxidants than tocopherols, helping to protect cells more effectively. However, studies suggest that too much tocopherol may reduce the benefits of tocotrienols, which is why a tocotrienol-only supplement is ideal. DeltaGold® tocotrienols come from the Annatto plant, the purest known source with no tocopherol interference.<br/><br/>Backed by research for many decades, and DeltaGold® tocotrienols is proven to deliver benefits for heart health, bone strength, brain function, and metabolic support.<br/><br/></p>",
             "text_style": "body"
           }
+        },
+        "button_nfQAxe": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/tocotrienols-vitamin-e",
+            "button_style_secondary": false
+          }
         }
       },
       "block_order": [
         "heading_cpFMj7",
-        "text_QNdBXj"
+        "text_QNdBXj",
+        "button_nfQAxe"
       ],
       "custom_css": [
         "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
@@ -648,7 +657,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Ben-Greenfield-Vitamin-E-560x560_ac313231-fad1-461a-90f2-6cd100d2b9eb.png",
+        "image": "shopify://shop_images/Ben-Greenfield-Vitamin-E-560x560.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -1175,7 +1184,6 @@
         "ebook_slide_H7afHL": {
           "type": "ebook_slide",
           "settings": {
-            "image": "shopify://shop_images/The-Age-of-your-heart-2026_eBook-Thumb_410x574_6f4f3194-925d-4d34-bdcd-bc83cc5941aa.png",
             "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Age_of_Your_Heart_2026_FA.pdf?v=1771545566",
             "title": "The Age of Your Heart",
             "subtitle": "With Dr. Kahn",
@@ -1185,7 +1193,6 @@
         "ebook_slide_ggweKc": {
           "type": "ebook_slide",
           "settings": {
-            "image": "shopify://shop_images/Staying-Young-at-Heart_2026_eBook-Thumb_410x574_ddd67ea4-ccb8-4ed4-8e32-8190fb22101b.png",
             "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/Staying_Young_at_Heart_eBook_2026_FA.pdf?v=1771545569",
             "title": "Staying Young at Heart",
             "subtitle": "With Dr. Kahn",
@@ -1195,7 +1202,6 @@
         "ebook_slide_hxnBkc": {
           "type": "ebook_slide",
           "settings": {
-            "image": "shopify://shop_images/The-Discovery-of-GG_2026_Thumb_410x574_d050a620-a457-4608-9ba1-499553f9b434.png",
             "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Groundbreaking_Discovery_of_GG_2026_FA.pdf?v=1771545567",
             "title": "The Groundbreaking Discovery of GG for Heart Health",
             "subtitle": "With Dr. Kahn and Dr. Barrie Tan",
