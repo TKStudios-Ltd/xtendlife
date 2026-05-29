@@ -12,36 +12,6 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
-        "slide_Bwck6W": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/XL_Webinar_HP_LAND_Desk_1920x685_2.jpg",
-            "image_tablet": "shopify://shop_images/XL_Webinar_HP_LAND_Tablet_1500x1377__2.jpg",
-            "mobile_inline_image": "shopify://shop_images/XL_Webinar_HP_LAND_Mob-INLINE_448x323_1.jpg",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 30,
-            "text_color": "#ffffff",
-            "text_color_mobile": "#1f1946",
-            "heading": "Heart Health<br>Webinar",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Join Dr Joel Kahn and Dr Amanda Wiggins for practical advice you can stick to.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 340,
-            "small_text": "Friday 29th May, 11am NZST",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 10,
-            "button_label_1": "Learn More",
-            "button_link_1": "shopify://pages/heart-health-webinar",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": true
-          }
-        },
         "slide_Htr7XN": {
           "type": "slide",
           "name": "Slide-TB HP HERO Banner",
@@ -71,6 +41,37 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
+          }
+        },
+        "slide_Bwck6W": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/XL_Webinar_HP_LAND_Desk_1920x685_2.jpg",
+            "image_tablet": "shopify://shop_images/XL_Webinar_HP_LAND_Tablet_1500x1377__2.jpg",
+            "mobile_inline_image": "shopify://shop_images/XL_Webinar_HP_LAND_Mob-INLINE_448x323_1.jpg",
+            "mobile_inline_bg": "#ffffff",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#ffffff",
+            "text_color_mobile": "#1f1946",
+            "heading": "Heart Health<br>Webinar",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Join Dr Joel Kahn and Dr Amanda Wiggins for practical advice you can stick to.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 340,
+            "small_text": "Friday 29th May, 11am NZST",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Learn More",
+            "button_link_1": "shopify://pages/heart-health-webinar",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
           }
         },
         "slide_7pwDhY": {
@@ -324,8 +325,8 @@
         }
       },
       "block_order": [
-        "slide_Bwck6W",
         "slide_Htr7XN",
+        "slide_Bwck6W",
         "slide_7pwDhY",
         "slide_jj763f",
         "slide_AVhUBB",
