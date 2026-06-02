@@ -506,6 +506,7 @@
         },
         "image_Qw9PXi": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/image_68.png",
             "link": ""
