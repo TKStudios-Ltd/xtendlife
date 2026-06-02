@@ -533,7 +533,7 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 20,
-        "padding_bottom": 80
+        "padding_bottom": 40
       }
     },
     "image_infinite_scroll_4bijFC": {
@@ -599,8 +599,7 @@
         "image_wrMmLm"
       ],
       "custom_css": [
-        ".image-scroll-section {position: relative; z-index: 0;}",
-        "@media (min-width: 1240px) {.image-scroll-section {margin-top: -200px; margin-bottom: 4rem !important; }}"
+        "@media (min-width: 1240px) {.image-scroll-section {margin-top: 0px; margin-bottom: 4rem !important; }}"
       ],
       "name": "Image Infinite Scroll",
       "settings": {
